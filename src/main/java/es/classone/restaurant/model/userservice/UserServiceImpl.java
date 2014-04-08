@@ -118,9 +118,7 @@ public class UserServiceImpl implements UserService {
 		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 		Document doc = dBuilder.parse(pers);
 		doc.getDocumentElement().normalize();
-
-		System.out.println("root of xml file"
-				+ doc.getDocumentElement().getNodeName());
+		
 		NodeList nodes = doc.getElementsByTagName("personification");
 
 		for (int i = 0; i < nodes.getLength(); i++) {
