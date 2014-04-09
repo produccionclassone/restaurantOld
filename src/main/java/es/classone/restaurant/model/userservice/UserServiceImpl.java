@@ -1,16 +1,24 @@
 package es.classone.restaurant.model.userservice;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.StringWriter;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -110,34 +118,66 @@ public class UserServiceImpl implements UserService {
 
 	}
 
-	public void checkPersonification() throws ParserConfigurationException,
-			SAXException, IOException {
+	public boolean checkPersonification() throws ParserConfigurationException,
+			SAXException, IOException, NoSuchAlgorithmException,
+			TransformerException {
+		// HACER QUE EL FICHERO SEA INDEPENDIENTE DE LINUX O WINDOWS
 		File pers = new File(
-				"C:/Users/Alejandro-ClassOne/restaurant/src/main/resources/pers.xml");
+				"C:/Users/Alejandro-ClassOne/git/restaurant/src/main/resources/res14prs.xml");
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 		Document doc = dBuilder.parse(pers);
-		doc.getDocumentElement().normalize();
-		
-		NodeList nodes = doc.getElementsByTagName("personification");
+		String md5str = md5(xmlToString(doc));
+		String md5local = readFile("C:/Users/Alejandro-ClassOne/res14prs.md5");
+		if (md5str.equals(md5local))
+			return true;
+		else
 
-		for (int i = 0; i < nodes.getLength(); i++) {
-			Node node = nodes.item(i);
+			return false;
 
-			if (node.getNodeType() == Node.ELEMENT_NODE) {
-				Element element = (Element) node;
-				System.out.println("key1: " + getValue("key1", element));
+	}
+
+	private String readFile(String fileName) throws IOException {
+		BufferedReader br = new BufferedReader(new FileReader(fileName));
+		try {
+			StringBuilder sb = new StringBuilder();
+			String line = br.readLine();
+
+			while (line != null) {
+				sb.append(line);
+				line = br.readLine();
 			}
-
-			// Algoritmo comprobación de claves
+			return sb.toString();
+		} finally {
+			br.close();
 		}
 	}
 
-	private static String getValue(String tag, Element element) {
-		NodeList nodes = element.getElementsByTagName(tag).item(0)
-				.getChildNodes();
-		Node node = (Node) nodes.item(0);
-		return node.getNodeValue();
+	private String xmlToString(Document doc) throws TransformerException {
+		TransformerFactory tf = TransformerFactory.newInstance();
+		Transformer transformer = tf.newTransformer();
+		transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
+		StringWriter writer = new StringWriter();
+		transformer.transform(new DOMSource(doc), new StreamResult(writer));
+		String output = writer.getBuffer().toString().replaceAll("\n|\r", "");
+		return output;
+	}
+
+	private static String md5(String clear) throws NoSuchAlgorithmException {
+		MessageDigest md = MessageDigest.getInstance("MD5");
+		byte[] b = md.digest(clear.getBytes());
+
+		int size = b.length;
+		StringBuffer h = new StringBuffer(size);
+		for (int i = 0; i < size; i++) {
+			int u = b[i] & 255;
+			if (u < 16) {
+				h.append("0" + Integer.toHexString(u));
+			} else {
+				h.append(Integer.toHexString(u));
+			}
+		}
+		return "classone" + h.toString();
 	}
 
 }

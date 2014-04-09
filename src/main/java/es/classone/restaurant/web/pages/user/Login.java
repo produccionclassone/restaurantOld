@@ -1,8 +1,10 @@
 package es.classone.restaurant.web.pages.user;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
 
 import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Property;
@@ -65,19 +67,15 @@ public class Login {
 		} catch (IncorrectPasswordException e) {
 			loginForm.recordError(messages.get("error-authenticationFailed"));
 		}
+
 		try {
-			userService.checkPersonification();
-		} catch (ParserConfigurationException e) {
+			if (!userService.checkPersonification())
+				loginForm.recordError(messages
+						.get("error-notCorrectPersonification"));
+		} catch (NoSuchAlgorithmException | ParserConfigurationException
+				| SAXException | IOException | TransformerException e) {
 			loginForm.recordError(messages
 					.get("error-notCorrectPersonification"));
-		} catch (SAXException e) {
-			loginForm.recordError(messages
-					.get("error-notCorrectPersonification"));
-
-		} catch (IOException e) {
-			loginForm.recordError(messages
-					.get("error-notCorrectPersonification"));
-
 		}
 
 	}
