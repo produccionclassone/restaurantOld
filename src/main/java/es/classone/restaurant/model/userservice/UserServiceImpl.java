@@ -1,10 +1,9 @@
 package es.classone.restaurant.model.userservice;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.StringWriter;
+import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -18,11 +17,11 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
-import org.w3c.dom.Document;
-import org.xml.sax.SAXException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
 
 import es.classone.restaurant.model.userprofile.UserProfile;
 import es.classone.restaurant.model.userprofile.UserProfileDao;
@@ -121,36 +120,26 @@ public class UserServiceImpl implements UserService {
 	public boolean checkPersonification() throws ParserConfigurationException,
 			SAXException, IOException, NoSuchAlgorithmException,
 			TransformerException {
-		// HACER QUE EL FICHERO SEA INDEPENDIENTE DE LINUX O WINDOWS
-		File pers = new File(
-				"C:/Users/Alejandro-ClassOne/git/restaurant/src/main/resources/res14prs.xml");
+		//por que no es el mismo md5 cuando lo lanzo desde el navegador?
+		File pers = new File("res14prs.xml");
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 		Document doc = dBuilder.parse(pers);
-		String md5str = md5(xmlToString(doc));
-		String md5local = readFile("C:/Users/Alejandro-ClassOne/res14prs.md5");
+		String str =(xmlToString(doc));
+		String md5str = toMd5(str);
+		pers = new File("C:/Users/Alejandro-ClassOne/res14prs.xml");
+		dbFactory = DocumentBuilderFactory.newInstance();
+		dBuilder = dbFactory.newDocumentBuilder();
+		doc = dBuilder.parse(pers);
+		str =(xmlToString(doc));
+		String md5local = toMd5(str);
+		System.out.println(md5local);
+		System.out.println(md5str);
 		if (md5str.equals(md5local))
 			return true;
 		else
-
 			return false;
 
-	}
-
-	private String readFile(String fileName) throws IOException {
-		BufferedReader br = new BufferedReader(new FileReader(fileName));
-		try {
-			StringBuilder sb = new StringBuilder();
-			String line = br.readLine();
-
-			while (line != null) {
-				sb.append(line);
-				line = br.readLine();
-			}
-			return sb.toString();
-		} finally {
-			br.close();
-		}
 	}
 
 	private String xmlToString(Document doc) throws TransformerException {
@@ -163,21 +152,18 @@ public class UserServiceImpl implements UserService {
 		return output;
 	}
 
-	private static String md5(String clear) throws NoSuchAlgorithmException {
-		MessageDigest md = MessageDigest.getInstance("MD5");
-		byte[] b = md.digest(clear.getBytes());
-
-		int size = b.length;
-		StringBuffer h = new StringBuffer(size);
-		for (int i = 0; i < size; i++) {
-			int u = b[i] & 255;
-			if (u < 16) {
-				h.append("0" + Integer.toHexString(u));
-			} else {
-				h.append(Integer.toHexString(u));
-			}
+	private String toMd5(String plaintext) throws NoSuchAlgorithmException {
+		MessageDigest m = MessageDigest.getInstance("MD5");
+		m.reset();
+		m.update(plaintext.getBytes());
+		byte[] digest = m.digest();
+		BigInteger bigInt = new BigInteger(1,digest);
+		String hashtext = bigInt.toString(16);
+		// Now we need to zero pad it if you actually want the full 32 chars.
+		while(hashtext.length() < 32 ){
+		  hashtext = "0"+hashtext;
 		}
-		return "classone" + h.toString();
+		return hashtext;
 	}
 
 }

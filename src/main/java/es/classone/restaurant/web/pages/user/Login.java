@@ -68,15 +68,22 @@ public class Login {
 			loginForm.recordError(messages.get("error-authenticationFailed"));
 		}
 
-		try {
-			if (!userService.checkPersonification())
-				loginForm.recordError(messages
-						.get("error-notCorrectPersonification"));
-		} catch (NoSuchAlgorithmException | ParserConfigurationException
-				| SAXException | IOException | TransformerException e) {
-			loginForm.recordError(messages
-					.get("error-notCorrectPersonification"));
-		}
+			try {
+				if (!userService.checkPersonification())
+					loginForm.recordError(messages
+							.get("error-notCorrectPersonification"));
+			} catch (NoSuchAlgorithmException e) {
+				System.out.println("NoSuchAlgorithmException");
+			} catch (ParserConfigurationException e) {
+				System.out.println("ParserConfigurationException");
+			} catch (SAXException e) {
+				System.out.println("SAX");
+			} catch (IOException e) {
+				System.out.println("IO");
+			} catch (TransformerException e) {
+				System.out.println("Trans");
+			}
+		
 
 	}
 

@@ -42,7 +42,7 @@ public class UserServiceTest {
 			SAXException, IOException, TransformerException {
 
 		
-		userService.checkPersonification();
+		System.out.println(userService.checkPersonification());
 
 		UserProfile userProfile = userService.registerUser("user",
 				"userPassword", new UserProfileDetails("name", "lastName",
