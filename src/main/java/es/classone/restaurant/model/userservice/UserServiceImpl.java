@@ -18,6 +18,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.w3c.dom.Document;
@@ -35,6 +36,9 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserProfileDao userProfileDao;
+	
+	@Value("${tableNumber}")
+	private String myField; 
 
 	public UserProfile registerUser(String loginName, String clearPassword,
 			UserProfileDetails userProfileDetails)
@@ -65,7 +69,7 @@ public class UserServiceImpl implements UserService {
 
 		UserProfile userProfile = userProfileDao.findByLoginName(loginName);
 		String storedPassword = userProfile.getEncryptedPassword();
-
+		System.out.println(myField+myField+myField+myField+myField);
 		if (passwordIsEncrypted) {
 			if (!password.equals(storedPassword)) {
 				throw new IncorrectPasswordException(loginName);
@@ -133,13 +137,10 @@ public class UserServiceImpl implements UserService {
 		doc = dBuilder.parse(pers);
 		str =(xmlToString(doc));
 		String md5local = toMd5(str);
-		System.out.println(md5local);
-		System.out.println(md5str);
 		if (md5str.equals(md5local))
 			return true;
 		else
 			return false;
-
 	}
 
 	private String xmlToString(Document doc) throws TransformerException {
@@ -163,7 +164,7 @@ public class UserServiceImpl implements UserService {
 		while(hashtext.length() < 32 ){
 		  hashtext = "0"+hashtext;
 		}
-		return hashtext;
+		return "classone"+hashtext;
 	}
 
 }

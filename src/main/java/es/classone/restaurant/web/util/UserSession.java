@@ -5,6 +5,7 @@ public class UserSession {
 
 	private Long userProfileId;
 	private String firstName;
+	private char userPrivilege;
 
 	public Long getUserProfileId() {
 		return userProfileId;
@@ -20,6 +21,14 @@ public class UserSession {
 
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
+	}
+
+	public char getUserPrivilege() {
+		return userPrivilege;
+	}
+
+	public void setUserPrivilege(char userPrivilege) {
+		this.userPrivilege = userPrivilege;
 	}
 
 }

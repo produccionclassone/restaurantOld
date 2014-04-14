@@ -1,5 +1,9 @@
 package es.classone.restaurant.web.pages;
 
-public class Index {
+import es.classone.restaurant.web.services.AuthenticationPolicy;
+import es.classone.restaurant.web.services.AuthenticationPolicyType;
 
+@AuthenticationPolicy(AuthenticationPolicyType.AUTHENTICATED_USERS)
+public class Index {
+	
 }

@@ -6,8 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="Res14usr")
 public class UserProfile {
 
 	private Long userProfileId;
@@ -16,6 +18,7 @@ public class UserProfile {
 	private String firstName;
 	private String lastName;
 	private String email;
+	private char userPrivilege;
 
 	public UserProfile() {
 	}
@@ -35,7 +38,7 @@ public class UserProfile {
 		this.email = email;
 	}
 
-	@Column(name = "usrId")
+	@Column(name="R1USR001_K1")
 	@SequenceGenerator( // It only takes effect for
 	name = "UserProfileIdGenerator", // databases providing identifier
 	sequenceName = "UserProfileSeq")
@@ -50,6 +53,7 @@ public class UserProfile {
 		this.userProfileId = userProfileId;
 	}
 
+	@Column(name="R1USR002")
 	public String getLoginName() {
 		return loginName;
 	}
@@ -58,7 +62,7 @@ public class UserProfile {
 		this.loginName = loginName;
 	}
 
-	@Column(name = "enPassword")
+	@Column(name="R1USR003")
 	public String getEncryptedPassword() {
 		return encryptedPassword;
 	}
@@ -67,6 +71,7 @@ public class UserProfile {
 		this.encryptedPassword = encryptedPassword;
 	}
 
+	@Column(name="R1USR004")
 	public String getFirstName() {
 		return firstName;
 	}
@@ -75,6 +80,7 @@ public class UserProfile {
 		this.firstName = firstName;
 	}
 
+	@Column(name="R1USR005")
 	public String getLastName() {
 		return lastName;
 	}
@@ -83,6 +89,7 @@ public class UserProfile {
 		this.lastName = lastName;
 	}
 
+	@Column(name="R1USR006")
 	public String getEmail() {
 		return email;
 	}
@@ -97,6 +104,15 @@ public class UserProfile {
 				+ loginName + ", encryptedPassword=" + encryptedPassword
 				+ ", firstName=" + firstName + ", lastName=" + lastName
 				+ ", email=" + email + "]";
+	}
+	
+	@Column(name="R1USR007")
+	public char getUserPrivilege() {
+		return userPrivilege;
+	}
+
+	public void setUserPrivilege(char userPrivilege) {
+		this.userPrivilege = userPrivilege;
 	}
 
 }

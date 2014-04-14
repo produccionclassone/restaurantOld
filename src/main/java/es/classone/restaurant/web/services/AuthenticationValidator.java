@@ -8,7 +8,8 @@ import org.apache.tapestry5.services.MetaDataLocator;
 import es.classone.restaurant.web.util.UserSession;
 
 public class AuthenticationValidator {
-
+	
+	
 	private final static String LOGIN_PAGE = "user/Login";
 
 	private final static String INIT_PAGE = "Index";
@@ -85,11 +86,11 @@ public class AuthenticationValidator {
 
 		boolean userAuthenticated = applicationStateManager
 				.exists(UserSession.class);
-
+		
 		switch (policyType) {
 
 		case AUTHENTICATED_USERS:
-
+			
 			if (!userAuthenticated) {
 				redirectPage = LOGIN_PAGE;
 			}
@@ -102,6 +103,24 @@ public class AuthenticationValidator {
 			}
 			break;
 
+		case PRIVELEGE1_USERS:
+			break;
+		case PRIVELEGE2_USERS:
+			break;
+		case PRIVELEGE3_USERS:
+			break;
+		case PRIVELEGE4_USERS:
+			break;
+		case PRIVELEGE5_USERS:
+			break;
+		case PRIVELEGE6_USERS:
+			break;
+		case PRIVELEGE7_USERS:
+			break;
+		case PRIVELEGE8_USERS:
+			break;
+		case PRIVELEGE9_USERS:
+			break;
 		default:
 			break;
 
