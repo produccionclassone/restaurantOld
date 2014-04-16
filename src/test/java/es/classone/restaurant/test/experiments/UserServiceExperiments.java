@@ -26,14 +26,14 @@ public class UserServiceExperiments {
 			// Register user.
 			UserProfile userProfile = userService.registerUser("serviceUser",
 					"userPassword", new UserProfileDetails("name", "lastName",
-							"user@udc.es"));
+							"user@udc.es"),'1');
 			System.out.println("User with userId '"
 					+ userProfile.getUserProfileId() + "' has been created");
 			System.out.println(userProfile);
 
 			// Find user.
 			userProfile = userService.login("serviceUser", "userPassword",
-					false,"ipI","IpE","mac");
+					false);
 			System.out.println("User with userId '"
 					+ userProfile.getUserProfileId() + "' has been retrieved");
 			System.out.println(userProfile);

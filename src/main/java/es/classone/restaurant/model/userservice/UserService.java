@@ -15,11 +15,11 @@ import es.udc.pojo.modelutil.exceptions.InstanceNotFoundException;
 public interface UserService {
 
 	public UserProfile registerUser(String loginName, String clearPassword,
-			UserProfileDetails userProfileDetails)
+			UserProfileDetails userProfileDetails,char privilege)
 			throws DuplicateInstanceException;
 
 	public UserProfile login(String loginName, String password,
-			boolean passwordIsEncrypted,String ipAddressIn,String ipAddressExt,String macAddress) throws InstanceNotFoundException,
+			boolean passwordIsEncrypted) throws InstanceNotFoundException,
 			IncorrectPasswordException;
 
 	public UserProfile findUserProfile(Long userProfileId)

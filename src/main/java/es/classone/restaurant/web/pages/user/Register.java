@@ -21,7 +21,7 @@ import es.classone.restaurant.web.services.AuthenticationPolicyType;
 import es.classone.restaurant.web.util.UserSession;
 import es.udc.pojo.modelutil.exceptions.DuplicateInstanceException;
 
-@AuthenticationPolicy(AuthenticationPolicyType.PRIVELEGE1_USERS)
+@AuthenticationPolicy(AuthenticationPolicyType.PRIVELEGE_USERS)
 public class Register {
 
 	@Property
@@ -91,7 +91,7 @@ public class Register {
 			try {
 				UserProfile userProfile = userService.registerUser(loginName,
 						password, new UserProfileDetails(firstName, lastName,
-								email));
+								email),(char) ('2' + privilege));
 				userProfileId = userProfile.getUserProfileId();
 			} catch (DuplicateInstanceException e) {
 				registrationForm.recordError(loginNameField,
@@ -103,9 +103,6 @@ public class Register {
 	}
 	
 	Object onSuccess() {
-		System.out.println("privilegeeee  "+privilege);
-		char privilegeChar=(char) ('2' + privilege);;
-		System.out.println("privilegeeee  "+privilegeChar);
 		userSession = new UserSession();
 		userSession.setUserProfileId(userProfileId);
 		userSession.setFirstName(firstName);

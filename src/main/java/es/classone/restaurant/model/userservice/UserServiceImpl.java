@@ -1,9 +1,16 @@
 package es.classone.restaurant.model.userservice;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.StringWriter;
 import java.math.BigInteger;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.net.URL;
+import java.net.UnknownHostException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -18,7 +25,6 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.w3c.dom.Document;
@@ -36,10 +42,9 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserProfileDao userProfileDao;
-	
 
 	public UserProfile registerUser(String loginName, String clearPassword,
-			UserProfileDetails userProfileDetails)
+			UserProfileDetails userProfileDetails, char privilege)
 			throws DuplicateInstanceException {
 
 		try {
@@ -52,8 +57,23 @@ public class UserServiceImpl implements UserService {
 			UserProfile userProfile = new UserProfile(loginName,
 					encryptedPassword, userProfileDetails.getFirstName(),
 					userProfileDetails.getLastName(),
-					userProfileDetails.getEmail(),null,null,null);
+					userProfileDetails.getEmail(), privilege, null, null, null);
+			try {
+				userProfile.setIpAddressIn(getIpIn().toString());
+			} catch (UnknownHostException e1) {
+				e1.printStackTrace();
+			}
+			try {
+				userProfile.setIpAddressExt(getIpExt());
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+			try {
+				userProfile.setMacAddress(getMacAddress(getIpIn()));
+			} catch (UnknownHostException e1) {
 
+				e1.printStackTrace();
+			}
 			userProfileDao.save(userProfile);
 			return userProfile;
 		}
@@ -62,13 +82,25 @@ public class UserServiceImpl implements UserService {
 
 	@Transactional
 	public UserProfile login(String loginName, String password,
-			boolean passwordIsEncrypted,String ipAddressIn,String ipAddressExt, String macAddress) throws InstanceNotFoundException,
+			boolean passwordIsEncrypted) throws InstanceNotFoundException,
 			IncorrectPasswordException {
 
 		UserProfile userProfile = userProfileDao.findByLoginName(loginName);
-		userProfile.setIpAddressIn(ipAddressIn);
-		userProfile.setIpAddressExt(ipAddressExt);
-		userProfile.setMacAddress(macAddress);
+		try {
+			userProfile.setIpAddressIn(getIpIn().toString());
+		} catch (UnknownHostException e) {
+			e.printStackTrace();
+		}
+		try {
+			userProfile.setIpAddressExt(getIpExt());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			userProfile.setMacAddress(getMacAddress(getIpIn()));
+		} catch (UnknownHostException e) {
+			e.printStackTrace();
+		}
 		String storedPassword = userProfile.getEncryptedPassword();
 		if (passwordIsEncrypted) {
 			if (!password.equals(storedPassword)) {
@@ -124,18 +156,17 @@ public class UserServiceImpl implements UserService {
 	public boolean checkPersonification() throws ParserConfigurationException,
 			SAXException, IOException, NoSuchAlgorithmException,
 			TransformerException {
-		//por que no es el mismo md5 cuando lo lanzo desde el navegador?
 		File pers = new File("res14prs.xml");
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 		Document doc = dBuilder.parse(pers);
-		String str =(xmlToString(doc));
+		String str = (xmlToString(doc));
 		String md5str = toMd5(str);
 		pers = new File("C:/Users/Alejandro-ClassOne/res14prs.xml");
 		dbFactory = DocumentBuilderFactory.newInstance();
 		dBuilder = dbFactory.newDocumentBuilder();
 		doc = dBuilder.parse(pers);
-		str =(xmlToString(doc));
+		str = (xmlToString(doc));
 		String md5local = toMd5(str);
 		if (md5str.equals(md5local))
 			return true;
@@ -158,14 +189,46 @@ public class UserServiceImpl implements UserService {
 		m.reset();
 		m.update(plaintext.getBytes());
 		byte[] digest = m.digest();
-		BigInteger bigInt = new BigInteger(1,digest);
+		BigInteger bigInt = new BigInteger(1, digest);
 		String hashtext = bigInt.toString(16);
 		// Now we need to zero pad it if you actually want the full 32 chars.
-		while(hashtext.length() < 32 ){
-		  hashtext = "0"+hashtext;
+		while (hashtext.length() < 32) {
+			hashtext = "0" + hashtext;
 		}
-		return "classone"+hashtext;
+		return "classone" + hashtext;
 	}
 
+	private String getIpExt() throws IOException {
+		URL whatismyip = new URL("http://www.trackip.net/ip");
+		BufferedReader in = new BufferedReader(new InputStreamReader(
+				whatismyip.openStream()));
+
+		String ips = in.readLine();
+		return ips;
+	}
+
+	private InetAddress getIpIn() throws UnknownHostException {
+
+		return InetAddress.getLocalHost();
+	}
+
+	private String getMacAddress(InetAddress ip) {
+		try {
+			NetworkInterface network = NetworkInterface.getByInetAddress(ip);
+			byte[] mac = network.getHardwareAddress();
+			StringBuilder sb = new StringBuilder();
+			for (int i = 0; i < mac.length; i++) {
+				sb.append(String.format("%02X%s", mac[i],
+						(i < mac.length - 1) ? "-" : ""));
+			}
+			return sb.toString();
+
+		} catch (SocketException e) {
+
+			e.printStackTrace();
+
+		}
+		return "";
+	}
 
 }

@@ -28,7 +28,7 @@ public class AuthenticationValidator {
 
 			AuthenticationPolicyType policy = AuthenticationPolicyType
 					.valueOf(policyAsString);
-			redirectPage = check(policy, applicationStateManager);
+			redirectPage = check(policy, applicationStateManager, pageName);
 		} catch (RuntimeException e) {
 			System.out.println("Page: '" + pageName + "': " + e.getMessage());
 		}
@@ -59,7 +59,7 @@ public class AuthenticationValidator {
 			AuthenticationPolicyType policy = AuthenticationPolicyType
 					.valueOf(policyAsString);
 			redirectPage = AuthenticationValidator.check(policy,
-					applicationStateManager);
+					applicationStateManager, pageName);
 		} catch (RuntimeException e) {
 			System.out.println("Component: '" + pageName + ":" + componentId
 					+ "': " + e.getMessage());
@@ -69,10 +69,10 @@ public class AuthenticationValidator {
 	}
 
 	public static String check(AuthenticationPolicy policy,
-			ApplicationStateManager applicationStateManager) {
+			ApplicationStateManager applicationStateManager, String pageName) {
 
 		if (policy != null) {
-			return check(policy.value(), applicationStateManager);
+			return check(policy.value(), applicationStateManager, pageName);
 		} else {
 			return null;
 		}
@@ -80,14 +80,16 @@ public class AuthenticationValidator {
 	}
 
 	public static String check(AuthenticationPolicyType policyType,
-			ApplicationStateManager applicationStateManager) {
+			ApplicationStateManager applicationStateManager, String pageName) {
 		String redirectPage = null;
 		UserSession userSession = null;
 		boolean userAuthenticated = applicationStateManager
 				.exists(UserSession.class);
-		if (userAuthenticated)
+		if (userAuthenticated){
 			userSession = applicationStateManager.get(UserSession.class);
-		System.out.println(userSession.getUserPrivilege());
+		System.out.println("Con privilegio " + userSession.getUserPrivilege()
+				+ " quiero acceder a " + pageName);
+		}
 		switch (policyType) {
 		case AUTHENTICATED_USERS:
 
@@ -103,44 +105,13 @@ public class AuthenticationValidator {
 			}
 			break;
 
-		case PRIVELEGE1_USERS:
+		case PRIVELEGE_USERS:
 			if ((userSession.getUserPrivilege() != '1')
 					&& (userSession.getUserPrivilege() != '2')
 					&& (userSession.getUserPrivilege() != '9'))
 				redirectPage = LOGIN_PAGE;
 			break;
-		case PRIVELEGE2_USERS:
-			if (userSession.getUserPrivilege() != 2)
-				redirectPage = LOGIN_PAGE;
-			break;
-		case PRIVELEGE3_USERS:
-			if (userSession.getUserPrivilege() != 3)
-				redirectPage = LOGIN_PAGE;
-			break;
-		case PRIVELEGE4_USERS:
-			if (userSession.getUserPrivilege() != 4)
-				redirectPage = LOGIN_PAGE;
-			break;
-		case PRIVELEGE5_USERS:
-			if (userSession.getUserPrivilege() != 5)
-				redirectPage = LOGIN_PAGE;
-			break;
-		case PRIVELEGE6_USERS:
-			if (userSession.getUserPrivilege() != 6)
-				redirectPage = LOGIN_PAGE;
-			break;
-		case PRIVELEGE7_USERS:
-			if (userSession.getUserPrivilege() != 7)
-				redirectPage = LOGIN_PAGE;
-			break;
-		case PRIVELEGE8_USERS:
-			if (userSession.getUserPrivilege() != 8)
-				redirectPage = LOGIN_PAGE;
-			break;
-		case PRIVELEGE9_USERS:
-			if (userSession.getUserPrivilege() != 9)
-				redirectPage = LOGIN_PAGE;
-			break;
+
 		default:
 			break;
 

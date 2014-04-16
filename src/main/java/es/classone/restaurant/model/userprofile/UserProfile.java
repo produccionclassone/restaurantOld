@@ -27,7 +27,7 @@ public class UserProfile {
 	}
 
 	public UserProfile(String loginName, String encryptedPassword,
-			String firstName, String lastName, String email, String ipAddressIn,String ipAddressExt,
+			String firstName, String lastName, String email,char userPrivilege, String ipAddressIn, String ipAddressExt,
 			String macAddress) {
 
 		/**
@@ -40,7 +40,9 @@ public class UserProfile {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
+		this.userPrivilege=userPrivilege;
 		this.ipAddressIn = ipAddressIn;
+		this.ipAddressExt=ipAddressExt;
 		this.macAddress = macAddress;
 	}
 

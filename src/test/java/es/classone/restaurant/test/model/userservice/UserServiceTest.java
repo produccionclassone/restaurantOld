@@ -46,7 +46,7 @@ public class UserServiceTest {
 
 		UserProfile userProfile = userService.registerUser("user",
 				"userPassword", new UserProfileDetails("name", "lastName",
-						"user@udc.es"));
+						"user@udc.es"),'1');
 
 		UserProfile userProfile2 = userService.findUserProfile(userProfile
 				.getUserProfileId());
@@ -65,9 +65,9 @@ public class UserServiceTest {
 		UserProfileDetails userProfileDetails = new UserProfileDetails("name",
 				"lastName", "user@udc.es");
 
-		userService.registerUser(loginName, clearPassword, userProfileDetails);
+		userService.registerUser(loginName, clearPassword, userProfileDetails,'1');
 
-		userService.registerUser(loginName, clearPassword, userProfileDetails);
+		userService.registerUser(loginName, clearPassword, userProfileDetails,'1');
 
 	}
 
@@ -79,7 +79,7 @@ public class UserServiceTest {
 		UserProfile userProfile = registerUser("user", clearPassword);
 
 		UserProfile userProfile2 = userService.login(
-				userProfile.getLoginName(), clearPassword, false,"ipI","IpE","mac");
+				userProfile.getLoginName(), clearPassword, false);
 
 		assertEquals(userProfile, userProfile2);
 
@@ -93,7 +93,7 @@ public class UserServiceTest {
 
 		UserProfile userProfile2 = userService.login(
 				userProfile.getLoginName(), userProfile.getEncryptedPassword(),
-				true,"ipI","IpE","mac");
+				true);
 
 		assertEquals(userProfile, userProfile2);
 
@@ -107,7 +107,7 @@ public class UserServiceTest {
 		UserProfile userProfile = registerUser("user", clearPassword);
 
 		userService.login(userProfile.getLoginName(), 'X' + clearPassword,
-				false,"ipI","IpE","mac");
+				false);
 
 	}
 
@@ -115,7 +115,7 @@ public class UserServiceTest {
 	public void testLoginWithNonExistentUser()
 			throws IncorrectPasswordException, InstanceNotFoundException {
 
-		userService.login("user", "userPassword", false,"ipI","IpE","mac");
+		userService.login("user", "userPassword", false);
 
 	}
 
@@ -142,7 +142,7 @@ public class UserServiceTest {
 				newUserProfileDetails);
 
 		/* Check changes. */
-		userService.login(userProfile.getLoginName(), clearPassword, false,"ipI","IpE","mac");
+		userService.login(userProfile.getLoginName(), clearPassword, false);
 		UserProfile userProfile2 = userService.findUserProfile(userProfile
 				.getUserProfileId());
 
@@ -176,7 +176,7 @@ public class UserServiceTest {
 				clearPassword, newClearPassword);
 
 		/* Check new password. */
-		userService.login(userProfile.getLoginName(), newClearPassword, false,"ipI","IpE","mac");
+		userService.login(userProfile.getLoginName(), newClearPassword, false);
 
 	}
 
@@ -209,7 +209,7 @@ public class UserServiceTest {
 		try {
 
 			return userService.registerUser(loginName, clearPassword,
-					userProfileDetails);
+					userProfileDetails,'1');
 
 		} catch (DuplicateInstanceException e) {
 			throw new RuntimeException(e);

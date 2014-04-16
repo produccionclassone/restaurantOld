@@ -8,5 +8,4 @@ import es.udc.pojo.modelutil.dao.GenericDaoHibernate;
 public class ConfigurationDaoHibernate extends
 		GenericDaoHibernate<Configuration, Long> implements ConfigurationDao {
 
-	
 }

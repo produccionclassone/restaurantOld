@@ -776,3 +776,29 @@ CREATE TABLE Res14aud (
 
   CONSTRAINT Res14aud_PK PRIMARY KEY (R1SCL001)); 
   
+DROP TABLE Res14grp;
+CREATE TABLE Res14grp (
+       R1GRP001 BIGINT NOT NULL AUTO_INCREMENT,                   -- PK
+       R1GRP002_01 VARCHAR(30) NOT NULL,                          -- Descripcion Idioma .1.
+       R1GRP002_02 VARCHAR(30) ,                                  -- Descripcion Idioma .2.
+       R1GRP002_03 VARCHAR(30) ,                                  -- Descripcion Idioma .3.
+       R1GRP003 SMALLINT NOT NULL DEFAULT 1,                      -- Tipo de IVA (1,2 Ã³ 3)
+       R1GRP004 VARCHAR(08) NOT NULL,                             -- Cta Contable Ventas
+       R1GRP112 VARCHAR(03) NOT NULL,                             -- Tipo de Ingreso CAD
+       R1GRP011 SMALLINT NOT NULL DEFAULT 1,                      -- Macro-Grupo RestauraciÃ³n
+     --  /*1= Comida  2= Bebida  3= Otros  */
+
+  CONSTRAINT Res14grp PRIMARY KEY (R1GRP001));
+  
+       -- /* Estadistica Tres años  */
+DROP TABLE Res14grp_E1;                                          
+CREATE TABLE Res14grp_E1 (
+       R1GRP001_K1 BIGINT NOT NULL AUTO_INCREMENT,             -- PK
+       R1GRP991 SMALLINT NOT NULL,                              -- 1=Actual, 2=Anterior y 3=Ante-Anterior
+       R1GRP992 SMALLINT NOT NULL,                              -- 12 Meses (01->12)
+       R1GRP005 NUMERIC (9,2) NOT NULL DEFAULT 0,               -- Unidades Vendidas x Mes
+       R1GRP006 NUMERIC (11,2) NOT NULL DEFAULT 0,              -- Importe Total de Ventas x Mes
+
+  CONSTRAINT Res14grp_E1 PRIMARY KEY (R1GRP001_K1));
+  
+  
