@@ -2,10 +2,6 @@
 	t:type="Layout" t:pageTitle="title" 
 	t:menuExplanation="menuExplanation">
 
-	<p>
-		<a href="#" t:type="PageLink" t:page="user/Register">${message:register}</a>		       
-	</p>
-
 	<form t:type="Form" t:id="loginForm">
 	
 	   <t:errors/>

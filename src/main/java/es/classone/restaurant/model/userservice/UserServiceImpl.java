@@ -37,8 +37,6 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserProfileDao userProfileDao;
 	
-	@Value("${tableNumber}")
-	private String myField; 
 
 	public UserProfile registerUser(String loginName, String clearPassword,
 			UserProfileDetails userProfileDetails)
@@ -54,7 +52,7 @@ public class UserServiceImpl implements UserService {
 			UserProfile userProfile = new UserProfile(loginName,
 					encryptedPassword, userProfileDetails.getFirstName(),
 					userProfileDetails.getLastName(),
-					userProfileDetails.getEmail());
+					userProfileDetails.getEmail(),null,null,null);
 
 			userProfileDao.save(userProfile);
 			return userProfile;
@@ -62,14 +60,16 @@ public class UserServiceImpl implements UserService {
 
 	}
 
-	@Transactional(readOnly = true)
+	@Transactional
 	public UserProfile login(String loginName, String password,
-			boolean passwordIsEncrypted) throws InstanceNotFoundException,
+			boolean passwordIsEncrypted,String ipAddressIn,String ipAddressExt, String macAddress) throws InstanceNotFoundException,
 			IncorrectPasswordException {
 
 		UserProfile userProfile = userProfileDao.findByLoginName(loginName);
+		userProfile.setIpAddressIn(ipAddressIn);
+		userProfile.setIpAddressExt(ipAddressExt);
+		userProfile.setMacAddress(macAddress);
 		String storedPassword = userProfile.getEncryptedPassword();
-		System.out.println(myField+myField+myField+myField+myField);
 		if (passwordIsEncrypted) {
 			if (!password.equals(storedPassword)) {
 				throw new IncorrectPasswordException(loginName);
@@ -166,5 +166,6 @@ public class UserServiceImpl implements UserService {
 		}
 		return "classone"+hashtext;
 	}
+
 
 }

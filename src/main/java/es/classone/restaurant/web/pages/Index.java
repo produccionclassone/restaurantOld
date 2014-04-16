@@ -5,5 +5,6 @@ import es.classone.restaurant.web.services.AuthenticationPolicyType;
 
 @AuthenticationPolicy(AuthenticationPolicyType.AUTHENTICATED_USERS)
 public class Index {
-	
+	  
+	  
 }

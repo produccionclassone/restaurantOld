@@ -33,7 +33,7 @@ public class UserServiceExperiments {
 
 			// Find user.
 			userProfile = userService.login("serviceUser", "userPassword",
-					false);
+					false,"ipI","IpE","mac");
 			System.out.println("User with userId '"
 					+ userProfile.getUserProfileId() + "' has been retrieved");
 			System.out.println(userProfile);

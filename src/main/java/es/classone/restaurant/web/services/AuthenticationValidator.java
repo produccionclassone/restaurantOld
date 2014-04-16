@@ -8,8 +8,7 @@ import org.apache.tapestry5.services.MetaDataLocator;
 import es.classone.restaurant.web.util.UserSession;
 
 public class AuthenticationValidator {
-	
-	
+
 	private final static String LOGIN_PAGE = "user/Login";
 
 	private final static String INIT_PAGE = "Index";
@@ -83,14 +82,15 @@ public class AuthenticationValidator {
 	public static String check(AuthenticationPolicyType policyType,
 			ApplicationStateManager applicationStateManager) {
 		String redirectPage = null;
-
+		UserSession userSession = null;
 		boolean userAuthenticated = applicationStateManager
 				.exists(UserSession.class);
-		
+		if (userAuthenticated)
+			userSession = applicationStateManager.get(UserSession.class);
+		System.out.println(userSession.getUserPrivilege());
 		switch (policyType) {
-
 		case AUTHENTICATED_USERS:
-			
+
 			if (!userAuthenticated) {
 				redirectPage = LOGIN_PAGE;
 			}
@@ -104,22 +104,42 @@ public class AuthenticationValidator {
 			break;
 
 		case PRIVELEGE1_USERS:
+			if ((userSession.getUserPrivilege() != '1')
+					&& (userSession.getUserPrivilege() != '2')
+					&& (userSession.getUserPrivilege() != '9'))
+				redirectPage = LOGIN_PAGE;
 			break;
 		case PRIVELEGE2_USERS:
+			if (userSession.getUserPrivilege() != 2)
+				redirectPage = LOGIN_PAGE;
 			break;
 		case PRIVELEGE3_USERS:
+			if (userSession.getUserPrivilege() != 3)
+				redirectPage = LOGIN_PAGE;
 			break;
 		case PRIVELEGE4_USERS:
+			if (userSession.getUserPrivilege() != 4)
+				redirectPage = LOGIN_PAGE;
 			break;
 		case PRIVELEGE5_USERS:
+			if (userSession.getUserPrivilege() != 5)
+				redirectPage = LOGIN_PAGE;
 			break;
 		case PRIVELEGE6_USERS:
+			if (userSession.getUserPrivilege() != 6)
+				redirectPage = LOGIN_PAGE;
 			break;
 		case PRIVELEGE7_USERS:
+			if (userSession.getUserPrivilege() != 7)
+				redirectPage = LOGIN_PAGE;
 			break;
 		case PRIVELEGE8_USERS:
+			if (userSession.getUserPrivilege() != 8)
+				redirectPage = LOGIN_PAGE;
 			break;
 		case PRIVELEGE9_USERS:
+			if (userSession.getUserPrivilege() != 9)
+				redirectPage = LOGIN_PAGE;
 			break;
 		default:
 			break;

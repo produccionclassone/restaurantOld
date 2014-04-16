@@ -46,7 +46,7 @@ public class SessionFilter implements RequestFilter {
 					try {
 
 						UserProfile userProfile = userService.login(loginName,
-								encryptedPassword, true);
+								encryptedPassword, true,"ipI","IpE","mac");
 						UserSession userSession = new UserSession();
 						userSession.setUserProfileId(userProfile
 								.getUserProfileId());

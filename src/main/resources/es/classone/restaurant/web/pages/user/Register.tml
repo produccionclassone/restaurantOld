@@ -57,6 +57,13 @@
 				       size="16" maxlength="30" />
 	        </span>
 	   </div>
+	   
+	    <div class="field">        
+	        <t:label for="privilege"/>
+	        <span class="entry">    
+	            <t:select t:id="privilege" validate="required" model="1=${message:privilege3},2=${message:privilege4},3=${message:privilege5},4=${message:privilege6},5=${message:privilege7},6=${message:privilege8}"/>
+	        </span>
+	   </div>
 	    
 	    <div class="button">
 	        <input type="submit" value="${message:submit}"/>        

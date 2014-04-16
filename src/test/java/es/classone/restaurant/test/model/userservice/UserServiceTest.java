@@ -79,7 +79,7 @@ public class UserServiceTest {
 		UserProfile userProfile = registerUser("user", clearPassword);
 
 		UserProfile userProfile2 = userService.login(
-				userProfile.getLoginName(), clearPassword, false);
+				userProfile.getLoginName(), clearPassword, false,"ipI","IpE","mac");
 
 		assertEquals(userProfile, userProfile2);
 
@@ -93,7 +93,7 @@ public class UserServiceTest {
 
 		UserProfile userProfile2 = userService.login(
 				userProfile.getLoginName(), userProfile.getEncryptedPassword(),
-				true);
+				true,"ipI","IpE","mac");
 
 		assertEquals(userProfile, userProfile2);
 
@@ -107,7 +107,7 @@ public class UserServiceTest {
 		UserProfile userProfile = registerUser("user", clearPassword);
 
 		userService.login(userProfile.getLoginName(), 'X' + clearPassword,
-				false);
+				false,"ipI","IpE","mac");
 
 	}
 
@@ -115,7 +115,7 @@ public class UserServiceTest {
 	public void testLoginWithNonExistentUser()
 			throws IncorrectPasswordException, InstanceNotFoundException {
 
-		userService.login("user", "userPassword", false);
+		userService.login("user", "userPassword", false,"ipI","IpE","mac");
 
 	}
 
@@ -142,7 +142,7 @@ public class UserServiceTest {
 				newUserProfileDetails);
 
 		/* Check changes. */
-		userService.login(userProfile.getLoginName(), clearPassword, false);
+		userService.login(userProfile.getLoginName(), clearPassword, false,"ipI","IpE","mac");
 		UserProfile userProfile2 = userService.findUserProfile(userProfile
 				.getUserProfileId());
 
@@ -176,7 +176,7 @@ public class UserServiceTest {
 				clearPassword, newClearPassword);
 
 		/* Check new password. */
-		userService.login(userProfile.getLoginName(), newClearPassword, false);
+		userService.login(userProfile.getLoginName(), newClearPassword, false,"ipI","IpE","mac");
 
 	}
 

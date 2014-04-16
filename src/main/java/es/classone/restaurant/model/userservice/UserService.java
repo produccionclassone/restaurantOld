@@ -19,7 +19,7 @@ public interface UserService {
 			throws DuplicateInstanceException;
 
 	public UserProfile login(String loginName, String password,
-			boolean passwordIsEncrypted) throws InstanceNotFoundException,
+			boolean passwordIsEncrypted,String ipAddressIn,String ipAddressExt,String macAddress) throws InstanceNotFoundException,
 			IncorrectPasswordException;
 
 	public UserProfile findUserProfile(Long userProfileId)

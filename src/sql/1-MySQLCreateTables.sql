@@ -16,15 +16,18 @@ CREATE TABLE Res14usr(
     R1USR005 VARCHAR(40) NOT NULL,									 -- LAST NAME
 	R1USR006 VARCHAR(60),		 									 -- EMAIL
 	R1USR007 CHAR(1) NOT NULL,										 -- PRIVILEGE
+	R1USR008 VARCHAR(30) ,											 -- IP INTERNA
+	R1USR009 VARCHAR(30) , 											 -- IP EXTERNA
+	R1USR010 VARCHAR(20) ,											 -- MAC ADDRESS
     CONSTRAINT Res14usr_PK PRIMARY KEY (R1USR001_K1),					 
     CONSTRAINT R1USR002UniqueKey UNIQUE (R1USR002)) 
     ENGINE = InnoDB;
 
 CREATE INDEX Res14usrIndexByR1USR002 ON Res14usr (R1USR002);
 
--- -- DROP TABLE Res13cnt_1;
-CREATE TABLE Res13cnt_1 (
-       R1CNT001 VARCHAR(03) NOT NULL DEFAULT '000',                           -- PK Fijo "000"
+DROP TABLE Res14cnt_1;
+CREATE TABLE Res14cnt_1 (
+       R1CNT001 BIGINT NOT NULL AUTO_INCREMENT,                           	  -- PK Fijo "1"
        R1CNT002 VARCHAR(12) NOT NULL DEFAULT 'StarPL',                        -- Nombre de la Aplicacion
        R1CNT003 VARCHAR(05) NOT NULL DEFAULT '13.03',                         -- Release
        R1CNT004 VARCHAR(08) NOT NULL DEFAULT 'ryx13res',                      -- Nombre BBDD Restaurante
@@ -716,5 +719,60 @@ CREATE TABLE Res13cnt_1 (
        RICNT020110_07 SMALLINT  NOT NULL DEFAULT 000,
 
 
-  CONSTRAINT Res13cnt_1_PK PRIMARY KEY (R1CNT001));
+  CONSTRAINT Res14cnt_1_PK PRIMARY KEY (R1CNT001));
+  
+  DROP TABLE Res14cnt_FP;
+CREATE TABLE Res14cnt_FP (
+	   RFCNT300 BIGINT NOT NULL AUTO_INCREMENT,   				-- PK
+       RFCNT301 VARCHAR(5) NOT NULL,                             --  Codigo Forma Pago
+       RFCNT002 VARCHAR(12) NOT NULL,                             -- Nombre FP
+       RFCNT003 VARCHAR(08) NOT NULL,                             -- Cta Contable
+       RFCNT004 SMALLINT NOT NULL,                             -- Tipo de Cobro
+       /*  0=Efectivo 1=Credito 2=Invitacion 3=Anulado 4=Cobrado por Hotel                 */
+       RFCNT005 NUMERIC (5,2) NOT NULL DEFAULT 0,                  -- %
+       RFCNT006 VARCHAR(08) NOT NULL,                             -- Cta Contable TC
+       RFCNT007 VARCHAR(08) NOT NULL,                             -- Cta Contable Dcto.TC
+       RFCNT008 CHAR(1) NOT NULL DEFAULT '',                 -- TPV Virtual ("*" o "+" o " ")
+  CONSTRAINT Res14cnt_FP_PK PRIMARY KEY (RFCNT300));
+  
+DROP TABLE Res14cnt_MD;
+CREATE TABLE Res14cnt_MD (
+	   RMCNTR00 BIGINT NOT NULL AUTO_INCREMENT,	
+       RMCNTR01 VARCHAR(02) NOT NULL DEFAULT 'EU',           -- Codigo Moneda
+       RMCNT002 VARCHAR(12) NOT NULL DEFAULT 'EURO',                             -- Nombre Moneda
+       RMCNT003 SMALLINT    NOT NULL DEFAULT 1,                   -- Cambio x
+       RMCNT004 NUMERIC (11,4) NOT NULL DEFAULT 1,                 -- Cotizacion
+       RMCNT005 NUMERIC (5,2) NOT NULL DEFAULT 0,                 -- % de Comision
 
+  CONSTRAINT Res14cnt_MD_PK PRIMARY KEY (RMCNTR00));
+  
+DROP TABLE Res14cnt_CF;
+CREATE TABLE Res14cnt_CF (
+	   RCCNTR00 BIGINT NOT NULL AUTO_INCREMENT,
+       RCCNTR01 VARCHAR(02) NOT NULL DEFAULT 'SS',                             -- Codigo Calificador
+       RCCNT002_01 VARCHAR(25) NOT NULL DEFAULT 'SIN SAL',                          -- Nombre Calificador Idioma 1
+       RCCNT002_02 VARCHAR(25) NOT NULL DEFAULT 'UNSALTED',              -- Nombre Calificador Idioma 2
+       RCCNT002_03 VARCHAR(25) NOT NULL DEFAULT 'NON SALE',              -- Nombre Calificador Idioma 3
+
+  CONSTRAINT Res14cnt_CF_PK PRIMARY KEY (RCCNTR00));
+ 
+DROP TABLE Res14aud;
+CREATE TABLE Res14aud (
+       R1SCL001 BIGINT NOT NULL AUTO_INCREMENT,                   -- PK
+       R1SCL002 VARCHAR(02) NOT NULL,                             -- Codigo Incidencia o F.Status.
+       R1SCL003 SMALLINT NOT NULL,                                -- Numero de Terminal.
+       R1SCL004 DATE NOT NULL,                                    -- Fecha Incidencia
+       R1SCL005 TIME NOT NULL,                                    -- Hora  Incidencia
+       R1SCL006 VARCHAR(04) NOT NULL,                             -- Opcion Programa
+       R1SCL007 SMALLINT NOT NULL,                                -- Impresora (1-5)
+       R1SCL008 DATE NOT NULL,                                    -- Fecha de Trabajo
+       R1SCL009 SMALLINT NOT NULL,                                -- Clave de Acceso (Nro 1-9)
+       R1SCL010 VARCHAR(40) NOT NULL,                             -- Especificacion del Error
+                          --  File Status. // Numero de Operacion. // Numero de Fichero.   */
+       R1SCL011 VARCHAR(08) NOT NULL,                             -- Nombre del Programa
+       R1SCL012 VARCHAR(08) NOT NULL,                             -- Nombre del Parrafo
+       R1SCL013 VARCHAR(40) NOT NULL,                             -- Comentario de la Incidencia
+       R1SCL014 VARCHAR(40) NOT NULL,                             -- IP que accede
+
+  CONSTRAINT Res14aud_PK PRIMARY KEY (R1SCL001)); 
+  

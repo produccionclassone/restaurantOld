@@ -9,7 +9,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Res14usr")
+@Table(name = "Res14usr")
 public class UserProfile {
 
 	private Long userProfileId;
@@ -19,12 +19,16 @@ public class UserProfile {
 	private String lastName;
 	private String email;
 	private char userPrivilege;
+	private String ipAddressIn;
+	private String ipAddressExt;
+	private String macAddress;
 
 	public UserProfile() {
 	}
 
 	public UserProfile(String loginName, String encryptedPassword,
-			String firstName, String lastName, String email) {
+			String firstName, String lastName, String email, String ipAddressIn,String ipAddressExt,
+			String macAddress) {
 
 		/**
 		 * NOTE: "userProfileId" *must* be left as "null" since its value is
@@ -36,9 +40,11 @@ public class UserProfile {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
+		this.ipAddressIn = ipAddressIn;
+		this.macAddress = macAddress;
 	}
 
-	@Column(name="R1USR001_K1")
+	@Column(name = "R1USR001_K1")
 	@SequenceGenerator( // It only takes effect for
 	name = "UserProfileIdGenerator", // databases providing identifier
 	sequenceName = "UserProfileSeq")
@@ -53,7 +59,7 @@ public class UserProfile {
 		this.userProfileId = userProfileId;
 	}
 
-	@Column(name="R1USR002")
+	@Column(name = "R1USR002")
 	public String getLoginName() {
 		return loginName;
 	}
@@ -62,7 +68,7 @@ public class UserProfile {
 		this.loginName = loginName;
 	}
 
-	@Column(name="R1USR003")
+	@Column(name = "R1USR003")
 	public String getEncryptedPassword() {
 		return encryptedPassword;
 	}
@@ -71,7 +77,7 @@ public class UserProfile {
 		this.encryptedPassword = encryptedPassword;
 	}
 
-	@Column(name="R1USR004")
+	@Column(name = "R1USR004")
 	public String getFirstName() {
 		return firstName;
 	}
@@ -80,7 +86,7 @@ public class UserProfile {
 		this.firstName = firstName;
 	}
 
-	@Column(name="R1USR005")
+	@Column(name = "R1USR005")
 	public String getLastName() {
 		return lastName;
 	}
@@ -89,7 +95,7 @@ public class UserProfile {
 		this.lastName = lastName;
 	}
 
-	@Column(name="R1USR006")
+	@Column(name = "R1USR006")
 	public String getEmail() {
 		return email;
 	}
@@ -105,14 +111,40 @@ public class UserProfile {
 				+ ", firstName=" + firstName + ", lastName=" + lastName
 				+ ", email=" + email + "]";
 	}
-	
-	@Column(name="R1USR007")
+
+	@Column(name = "R1USR007")
 	public char getUserPrivilege() {
 		return userPrivilege;
 	}
 
 	public void setUserPrivilege(char userPrivilege) {
 		this.userPrivilege = userPrivilege;
+	}
+
+	@Column(name="R1USR010")
+	public String getMacAddress() {
+		return macAddress;
+	}
+	
+	
+	public void setMacAddress(String macAddress) {
+		this.macAddress = macAddress;
+	}
+	@Column(name="R1USR008")
+	public String getIpAddressIn() {
+		return ipAddressIn;
+	}
+
+	public void setIpAddressIn(String ipAddressIn) {
+		this.ipAddressIn = ipAddressIn;
+	}
+	@Column(name="R1USR009")
+	public String getIpAddressExt() {
+		return ipAddressExt;
+	}
+
+	public void setIpAddressExt(String ipAddressExt) {
+		this.ipAddressExt = ipAddressExt;
 	}
 
 }

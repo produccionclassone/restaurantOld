@@ -4,5 +4,5 @@
 <p class="welcome">
     ${message:welcome}
 </p>
-   
+
 </html>
