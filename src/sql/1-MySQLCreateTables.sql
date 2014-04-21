@@ -801,4 +801,142 @@ CREATE TABLE Res14grp_E1 (
 
   CONSTRAINT Res14grp_E1 PRIMARY KEY (R1GRP001_K1));
   
+  --  /* Estadistica Tres Meses  */
+DROP TABLE Res14grp_E2;                                        
+CREATE TABLE Res14grp_E2 (
+       R1GRP001_K2  BIGINT NOT NULL AUTO_INCREMENT,                 -- PK
+       R1GRP993     SMALLINT NOT NULL,                              -- 1=Actual, 2=Anterior y 3=Ante-Anterior
+       R1GRP994     SMALLINT NOT NULL,                              -- 31 Dias (01->31)
+       R1GRP007 NUMERIC (9,2) NOT NULL DEFAULT 0,                  -- Unidades Vendidas x Dia
+       R1GRP008 NUMERIC (11,2) NOT NULL DEFAULT 0,                  -- Importe Total de Ventas x Dia
+
+  CONSTRAINT Res14grp_E2 PRIMARY KEY (R1GRP001_K2)); 
   
+DROP TABLE Res14pla;
+CREATE TABLE Res14pla (
+       R1PLA001 BIGINT NOT NULL AUTO_INCREMENT,              	  -- PK  Codigo del Plato NUMERIC
+       R1PLA002_01 VARCHAR(30) NOT NULL,                          -- Descripcion Idioma .1.
+       R1PLA002_02 VARCHAR(30) ,                                  -- Descripcion Idioma .2.
+       R1PLA002_03 VARCHAR(30) ,                                  -- Descripcion Idioma .3.
+       /* PK Foranea = R1GRP001 */
+       R1PLA003 VARCHAR(02) NOT NULL,                             -- Grupo de Plato
+       R1PLA004 NUMERIC (1,0) NOT NULL DEFAULT 1,                 -- Impresora (1 a 5)
+       R1PLA005 NUMERIC (1,0) NOT NULL DEFAULT 0,                 -- Lista de Precios (0 a 9)
+       R1PLA006 NUMERIC (9,2) NOT NULL DEFAULT 0,                 -- PVP
+       R1PLA007 NUMERIC (9,2) NOT NULL DEFAULT 0,                 -- Precio Coste
+       R1PLA008 CHAR(1) NOT NULL DEFAULT 'P',                     -- P=Plato // K=Kilo
+       R1PLA009 CHAR(1) NOT NULL DEFAULT ' ',                     -- ' '=Con Dcto // 'N'=Sin Dcto
+       R1PLA021 CHAR(1) NOT NULL DEFAULT 'N',                     -- S/N Eliminar Restaurante
+       R1PLA022 CHAR(1) NOT NULL DEFAULT 'N',                     -- S/N Pendiente
+
+  CONSTRAINT Res14pla PRIMARY KEY (R1PLA001));
+
+       CREATE INDEX R1PLACL2 ON Res14pla (R1PLA002_01);
+       CREATE INDEX R1PLACL1 ON Res14pla (R1PLA003, R1PLA001);
+       
+DROP TABLE Res14pla_E1;                                         
+CREATE TABLE Res14pla_E1 (
+       R1PLA001_K1  BIGINT NOT NULL AUTO_INCREMENT,                 -- PK
+       -- /* PK Foranea = R1PLA001 */
+       R1PLA991     SMALLINT NOT NULL,                              --  1=Actual, 2=Anterior y 3=Ante-Anterior
+       R1PLA992     SMALLINT NOT NULL,                              --  12 Meses (01->12)
+       R1PLA011 NUMERIC (9,2) NOT NULL DEFAULT 0,                 	-- Unidades Vendidas x Mes
+       R1PLA012 NUMERIC (11,2) NOT NULL DEFAULT 0,                  -- Importe Total de Ventas x Mes
+
+  CONSTRAINT Res14pla_E1 PRIMARY KEY (R1PLA001_K1));
+
+
+DROP TABLE Res14pla_E2;                                         
+CREATE TABLE Res14pla_E2 (
+       R1PLA001_K2   BIGINT NOT NULL AUTO_INCREMENT,              	 -- PK
+      -- /* PK Foranea = R1PLA001 */
+       R1PLA993     SMALLINT NOT NULL,                              -- 1=Actual, 2=Anterior y 3=Ante-Anterior
+       R1PLA994     SMALLINT NOT NULL,                              -- 31 Dias (01->31)
+       R1PLA013 NUMERIC (9,2) NOT NULL DEFAULT 0,                  	-- Unidades Vendidas x Dia
+       R1PLA014 NUMERIC (11,2) NOT NULL DEFAULT 0,                  -- Importe Total de Ventas x Dia
+
+  CONSTRAINT Res14pla_E2 PRIMARY KEY (R1PLA001_K2));
+
+DROP TABLE Res14cam;
+CREATE TABLE Res14cam (
+       R1CAM001 BIGINT NOT NULL AUTO_INCREMENT,                   -- PK  Codigo de Camarero
+       R1CAM002 VARCHAR(25) NOT NULL,                             -- Nombre del Camarero
+       R1CAM003 VARCHAR(30) ,                                     -- DirecciÃ³n del Camarero
+       R1CAM004 VARCHAR(08) ,                                     -- Codigo Postal
+       R1CAM005 VARCHAR(30) ,                                     -- PoblaciÃ³n
+       R1CAM006 VARCHAR(30) ,                                     -- Provincia
+       R1CAM007 VARCHAR(20) ,                                     -- DNI - Identify
+       R1CAM008 VARCHAR(15) ,                                     -- Telefono contacto
+       R1CAM009 VARCHAR(30) ,                                     -- Persona Contacto
+       R1CAM010_01 VARCHAR(50) ,                                  -- Varios .1.
+       R1CAM010_02 VARCHAR(50) ,                                  -- Varios .2.
+       R1CAM010_03 VARCHAR(50) ,                                  -- Varios .3.
+       R1CAM011 CHAR(1) NOT NULL DEFAULT 'N',                 -- Tipo de Cobro
+       /*                                    N= Nomina S= Sesion  H= Horas   */
+  CONSTRAINT Res14cam PRIMARY KEY (R1CAM001));
+
+DROP TABLE Res14cam_E1;                                         
+CREATE TABLE Res14cam_E1 (
+       R1CAM001_K1  BIGINT NOT NULL AUTO_INCREMENT,               	-- PK
+       R1CAM991     SMALLINT NOT NULL,                              --  1=Actual, 2=Anterior y 3=Ante-Anterior
+       R1CAM992     SMALLINT NOT NULL,                              --  12 Meses (01->12)
+       R1CAM021 NUMERIC (10,2) NOT NULL DEFAULT 0,                  -- Euros Coste x Mes
+       R1CAM022 NUMERIC (10,2) NOT NULL DEFAULT 0,                  -- Euros Venta x Mes
+
+  CONSTRAINT Res14cam_E1 PRIMARY KEY (R1CAM001_K1));
+
+
+DROP TABLE Res14cam_E2;                                          
+CREATE TABLE Res14cam_E2 (
+       R1CAM001_K2  BIGINT NOT NULL AUTO_INCREMENT,                -- PK
+       R1CAM993     SMALLINT NOT NULL,                              --  1=Actual, 2=Anterior y 3=Ante-Anterior
+       R1CAM994     SMALLINT NOT NULL,                             --  31 Dias (01->31)
+       R1CAM023 NUMERIC (5,3) NOT NULL DEFAULT 0,                  -- Horas Trabajadas x Dia
+       R1CAM024 NUMERIC (4,1) NOT NULL DEFAULT 0,                  -- Comensales Servidos x Dia
+       R1CAM025 NUMERIC (4,1) NOT NULL DEFAULT 0,                  -- Mesas Servidos x Dia
+
+  CONSTRAINT Res14cam_E2 PRIMARY KEY (R1CAM001_K2));
+
+
+DROP TABLE Res14cli;
+CREATE TABLE Res14cli (
+       R1CLI001 BIGINT NOT NULL AUTO_INCREMENT,                   -- PK  Codigo Cliente
+       R1CLI002 VARCHAR(30) NOT NULL,                             -- Nombre
+       R1CLI003 VARCHAR(30) ,                                     -- Direccion
+       R1CLI004 VARCHAR(08) ,                                     -- Codigo Postal
+       R1CLI005 VARCHAR(30) ,                                     -- Poblacion
+       R1CLI006 VARCHAR(30) ,                                     -- Provincia
+       R1CLI007 VARCHAR(20) ,                                     -- DNI - Identify
+       R1CLI008 VARCHAR(15) ,                                     -- Telefono contacto
+       R1CLI009 VARCHAR(30) ,                                     -- Persona Contacto
+       R1CLI010_01 VARCHAR(50) ,                                  -- Varios .1.
+       R1CLI010_02 VARCHAR(50) ,                                  -- Varios .2.
+       R1CLI010_03 VARCHAR(50) ,                                  -- Varios .3.
+       R1CLI011 NUMERIC (9,2) NOT NULL DEFAULT 0,                 -- Limite de Credito
+       R1CLI012 NUMERIC (9,2) NOT NULL DEFAULT 0,                 -- Deuda ultima Actualizacion
+       R1CLI013 DATE NOT NULL DEFAULT 20130101,                   -- Fecha de Alta/ultima Comida
+       R1CLI014 NUMERIC (9,2) NOT NULL DEFAULT 0,                 -- Importe consumido x l
+       R1CLI015 NUMERIC (5,0) NOT NULL DEFAULT 0,                 -- COMENSALES q comieron con l
+       R1CLI016 NUMERIC (5,0) NOT NULL DEFAULT 0,                 -- Veces que vino a COMER
+       R1CLI017_01 VARCHAR(50) ,                                  -- Observaciones .1.
+       R1CLI017_02 VARCHAR(50) ,                                  -- Observaciones .2.
+       R1CLI017_03 VARCHAR(50) ,                                  -- Observaciones .3.
+       R1CLI017_04 VARCHAR(50) ,                                  -- Observaciones .4.
+       R1CLI201 VARCHAR(08) NOT NULL DEFAULT '43000000',         -- Cuenta Contable
+       R1CLI202 CHAR(1) NOT NULL DEFAULT '',                 -- 7* "C" / "A" / "E"
+       R1CLI203 VARCHAR(5) NOT NULL DEFAULT ' ',                  -- Codigo de "E" o "A"
+
+  CONSTRAINT Res14cli PRIMARY KEY (R1CLI001));
+
+       CREATE INDEX R1CLICL1 ON Res14cli (R1CLI002);
+
+DROP TABLE Res14tab;
+CREATE TABLE Res14tab (
+       R1TAB001 BIGINT NOT NULL AUTO_INCREMENT,                -- PK  Codigo Mesa
+       R1TAB002 CHAR(1)  NOT NULL DEFAULT 'N',                 -- S/N Ocupada
+       R1TAB003 CHAR(1)  NOT NULL DEFAULT 'N',                 -- S/N Unida
+       R1TAB004 CHAR(1)  NOT NULL DEFAULT 'N',                 -- S/N Reservada
+       R1TAB005 CHAR(1)  NOT NULL DEFAULT 'N',                 -- S/N Facturada
+       R1TAB006 NUMERIC (6,0) NOT NULL DEFAULT 0,              -- Nro de Orden
+
+  CONSTRAINT Res14tab PRIMARY KEY (R1TAB001));     

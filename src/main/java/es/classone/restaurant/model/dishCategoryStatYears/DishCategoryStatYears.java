@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-@Table(name = "Res14grp_E1 ")
+@Table(name = "Res14grp_E1")
 public class DishCategoryStatYears {
 	private Long R1GRP001_K1;// PK
 	private int R1GRP991;// 1=Actual, 2=Anterior y 3=Ante-Anterior

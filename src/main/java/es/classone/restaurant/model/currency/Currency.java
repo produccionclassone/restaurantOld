@@ -15,9 +15,10 @@ public class Currency {
 	private int RMCNT003; // Cambio x
 	private float RMCNT004; // Cotizacion
 	private float RMCNT005; // % de Comision
+
 	public Currency() {
 	}
-	
+
 	public Currency(Long rMCNTR00, String rMCNTR01, String rMCNT002,
 			int rMCNT003, float rMCNT004, float rMCNT005) {
 		RMCNTR00 = rMCNTR00;
