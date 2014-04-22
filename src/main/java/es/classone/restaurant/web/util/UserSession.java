@@ -9,6 +9,7 @@ public class UserSession {
 	private String ipIn;
 	private String ipExt;
 	private String macAddress;
+	private String persPath;
 
 	public Long getUserProfileId() {
 		return userProfileId;
@@ -56,6 +57,14 @@ public class UserSession {
 
 	public void setMacAddress(String macAddress) {
 		this.macAddress = macAddress;
+	}
+	
+	public String getPersPath(){
+		return persPath;
+	}
+	
+	public void setPersPath(String persPath){
+		this.persPath=persPath;
 	}
 
 }

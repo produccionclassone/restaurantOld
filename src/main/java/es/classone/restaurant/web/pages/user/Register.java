@@ -1,7 +1,5 @@
 package es.classone.restaurant.web.pages.user;
 
-import javax.xml.transform.TransformerException;
-
 import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.annotations.SessionState;
@@ -10,7 +8,6 @@ import org.apache.tapestry5.corelib.components.PasswordField;
 import org.apache.tapestry5.corelib.components.TextField;
 import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
-
 
 import es.classone.restaurant.model.userprofile.UserProfile;
 import es.classone.restaurant.model.userservice.UserProfileDetails;
@@ -64,21 +61,9 @@ public class Register {
 	private Messages messages;
 
 	private Long userProfileId;
-
+	private String path = userSession.getPersPath();
 	void onValidateFromRegistrationForm() {
-		try {
-
-			if (!userService.checkPersonification())
-				registrationForm.recordError(messages
-						.get("error-notCorrectPersonification"));
-
-		} catch (TransformerException e) {
-			registrationForm.recordError(messages
-					.get("error-notCorrectPersonification"));
-		} catch (Exception e) {
-			registrationForm.recordError(messages
-					.get("error-notCorrectPersonification"));
-		}
+	
 		if (!registrationForm.isValid()) {
 			return;
 		}
@@ -107,8 +92,14 @@ public class Register {
 		userSession.setUserProfileId(userProfileId);
 		userSession.setFirstName(firstName);
 		userSession.setUserPrivilege((char) ('2' + privilege));
+		userSession.setPersPath(path);
 		return Index.class;
 
+	}
+
+	public void setPath(String persPath) {
+		this.path=persPath;
+		
 	}
 
 }

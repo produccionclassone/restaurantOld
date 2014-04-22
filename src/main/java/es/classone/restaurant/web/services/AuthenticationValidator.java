@@ -12,6 +12,8 @@ public class AuthenticationValidator {
 	private final static String LOGIN_PAGE = "user/Login";
 
 	private final static String INIT_PAGE = "Index";
+	
+	private final static String ERROR_PAGE = "Error";
 
 	public static final String PAGE_AUTHENTICATION_TYPE = "page-authentication-type";
 	public static final String EVENT_HANDLER_AUTHENTICATION_TYPE = "event-handler-authentication-type";
@@ -109,7 +111,7 @@ public class AuthenticationValidator {
 			if ((userSession.getUserPrivilege() != '1')
 					&& (userSession.getUserPrivilege() != '2')
 					&& (userSession.getUserPrivilege() != '9'))
-				redirectPage = LOGIN_PAGE;
+				redirectPage = ERROR_PAGE;
 			break;
 
 		default:

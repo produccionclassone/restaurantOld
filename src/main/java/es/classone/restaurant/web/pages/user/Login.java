@@ -6,6 +6,7 @@ import java.security.NoSuchAlgorithmException;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
+import org.apache.tapestry5.annotations.ActivationRequestParameter;
 import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.annotations.SessionState;
@@ -49,12 +50,21 @@ public class Login {
 	@Inject
 	private UserService userService;
 
+	@ActivationRequestParameter
+	private String path;
+
 	private UserProfile userProfile = null;
+
+	public void setPath(String path) {
+		this.path = path;
+	}
 
 	void onValidateFromLoginForm() {
 		if (!loginForm.isValid()) {
 			return;
 		}
+		if ((path == null) && (userSession != null))
+			path = userSession.getPersPath();
 		try {
 			userProfile = userService.login(loginName, password, false);
 		} catch (InstanceNotFoundException e) {
@@ -64,19 +74,24 @@ public class Login {
 
 		}
 		try {
-			if (!userService.checkPersonification())
+			if (!userService.checkPersonification(path))
 				loginForm.recordError(messages
 						.get("error-notCorrectPersonification"));
 		} catch (NoSuchAlgorithmException e) {
-			System.out.println("NoSuchAlgorithmException");
+			loginForm.recordError(messages
+					.get("error-notCorrectPersonification"));
 		} catch (ParserConfigurationException e) {
-			System.out.println("ParserConfigurationException");
+			loginForm.recordError(messages
+					.get("error-notCorrectPersonification"));
 		} catch (SAXException e) {
-			System.out.println("SAX");
+			loginForm.recordError(messages
+					.get("error-notCorrectPersonification"));
 		} catch (IOException e) {
-			System.out.println("IO");
+			loginForm.recordError(messages
+					.get("error-notCorrectPersonification"));
 		} catch (TransformerException e) {
-			System.out.println("Trans");
+			loginForm.recordError(messages
+					.get("error-notCorrectPersonification"));
 		}
 
 	}
@@ -87,6 +102,7 @@ public class Login {
 		userSession.setFirstName(userProfile.getFirstName());
 		userSession.setUserPrivilege(userProfile.getUserPrivilege());
 		userSession.setIpIn(userProfile.getIpAddressIn());
+		userSession.setPersPath(path);
 		if (!userProfile.getIpAddressExt().equals(""))
 			userSession.setIpExt(userProfile.getIpAddressExt());
 		userSession.setMacAddress(userProfile.getMacAddress());

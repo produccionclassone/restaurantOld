@@ -33,7 +33,7 @@ public interface UserService {
 			String newClearPassword) throws IncorrectPasswordException,
 			InstanceNotFoundException;
 
-	public boolean checkPersonification() throws ParserConfigurationException,
+	public boolean checkPersonification(String path) throws ParserConfigurationException,
 			SAXException, IOException, NoSuchAlgorithmException, TransformerException;
 
 }

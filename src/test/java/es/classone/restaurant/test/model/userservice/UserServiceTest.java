@@ -41,8 +41,6 @@ public class UserServiceTest {
 			NoSuchAlgorithmException, ParserConfigurationException,
 			SAXException, IOException, TransformerException {
 
-		
-		System.out.println(userService.checkPersonification());
 
 		UserProfile userProfile = userService.registerUser("user",
 				"userPassword", new UserProfileDetails("name", "lastName",

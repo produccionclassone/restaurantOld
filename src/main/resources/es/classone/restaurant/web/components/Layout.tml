@@ -44,6 +44,7 @@
         <p:else>
 		    <span id="menuLinks">
 				<t:if test="userSession">
+					<a href="#" t:type="PageLink" t:page="user/Login">${message:menu-authenticate}</a>
 				    <a href="#" t:type="PageLink" t:page="user/UpdateProfile">${message:menu-updateProfile}</a> -
 				    <a href="#" t:type="ActionLink" t:id="logout">${message:menu-logout}</a>
 					<a href="#" t:type="PageLink" t:page="user/Register">${message:register}</a>		       

@@ -153,16 +153,17 @@ public class UserServiceImpl implements UserService {
 
 	}
 
-	public boolean checkPersonification() throws ParserConfigurationException,
+	public boolean checkPersonification(String path) throws ParserConfigurationException,
 			SAXException, IOException, NoSuchAlgorithmException,
 			TransformerException {
 		File pers = new File("res14prs.xml");
+		System.out.println("el path es"+ path);
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 		Document doc = dBuilder.parse(pers);
 		String str = (xmlToString(doc));
 		String md5str = toMd5(str);
-		pers = new File("C:/Users/Alejandro-ClassOne/res14prs.xml");
+		pers = new File("C:/Users/"+path+"/res14prs.xml");
 		dbFactory = DocumentBuilderFactory.newInstance();
 		dBuilder = dbFactory.newDocumentBuilder();
 		doc = dBuilder.parse(pers);
