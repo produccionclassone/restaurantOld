@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>es.classone.restaurant</groupId>
     <artifactId>restaurant</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <version>1.0.0</version>
     <name>${project.artifactId} Project</name>
 
@@ -160,12 +160,12 @@
             <version>${tapestry.version}</version>
         </dependency>
         <!-- POJO-Examples Model Util -->
-        <dependency>
+         <dependency>
             <groupId>es.udc.pojo</groupId>
             <artifactId>pojo-modelutil</artifactId>
             <version>${pojo-modelutil.version}</version>
         </dependency>
-    </dependencies>
+     </dependencies>
 
     <build>
         <finalName>${project.artifactId}</finalName>
