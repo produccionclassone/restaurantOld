@@ -1,6 +1,8 @@
 package es.classone.restaurant.model.dishCategoryStatYears;
 
-import es.udc.pojo.modelutil.dao.GenericDao;
+import es.classone.restaurant.modelutil.dao.GenericDao;
+
+
 
 public interface DishCategoryStatYearsDao extends GenericDao<DishCategoryStatYears, Long> {
 

@@ -10,12 +10,13 @@ import org.apache.tapestry5.services.Cookies;
 
 import es.classone.restaurant.model.userservice.IncorrectPasswordException;
 import es.classone.restaurant.model.userservice.UserService;
+import es.classone.restaurant.modelutil.exceptions.InstanceNotFoundException;
 import es.classone.restaurant.web.pages.Index;
 import es.classone.restaurant.web.services.AuthenticationPolicy;
 import es.classone.restaurant.web.services.AuthenticationPolicyType;
 import es.classone.restaurant.web.util.CookiesManager;
 import es.classone.restaurant.web.util.UserSession;
-import es.udc.pojo.modelutil.exceptions.InstanceNotFoundException;
+
 
 @AuthenticationPolicy(AuthenticationPolicyType.AUTHENTICATED_USERS)
 public class ChangePassword {

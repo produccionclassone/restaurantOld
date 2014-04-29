@@ -33,8 +33,9 @@ import org.xml.sax.SAXException;
 import es.classone.restaurant.model.userprofile.UserProfile;
 import es.classone.restaurant.model.userprofile.UserProfileDao;
 import es.classone.restaurant.model.userservice.util.PasswordEncrypter;
-import es.udc.pojo.modelutil.exceptions.DuplicateInstanceException;
-import es.udc.pojo.modelutil.exceptions.InstanceNotFoundException;
+import es.classone.restaurant.modelutil.exceptions.DuplicateInstanceException;
+import es.classone.restaurant.modelutil.exceptions.InstanceNotFoundException;
+
 
 @Service("userService")
 @Transactional

@@ -1,6 +1,6 @@
 package es.classone.restaurant.model.waiterStatYears;
 
-import es.udc.pojo.modelutil.dao.GenericDaoHibernate;
+import es.classone.restaurant.modelutil.dao.GenericDaoHibernate;
 
 public class WaiterStatYearsDaoHibernate extends GenericDaoHibernate<WaiterStatYears, Long> implements WaiterStatYearsDao{
 

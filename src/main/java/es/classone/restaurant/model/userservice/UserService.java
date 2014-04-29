@@ -9,8 +9,9 @@ import javax.xml.transform.TransformerException;
 import org.xml.sax.SAXException;
 
 import es.classone.restaurant.model.userprofile.UserProfile;
-import es.udc.pojo.modelutil.exceptions.DuplicateInstanceException;
-import es.udc.pojo.modelutil.exceptions.InstanceNotFoundException;
+import es.classone.restaurant.modelutil.exceptions.DuplicateInstanceException;
+import es.classone.restaurant.modelutil.exceptions.InstanceNotFoundException;
+
 
 public interface UserService {
 

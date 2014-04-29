@@ -12,11 +12,12 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 import es.classone.restaurant.model.userprofile.UserProfile;
 import es.classone.restaurant.model.userservice.UserProfileDetails;
 import es.classone.restaurant.model.userservice.UserService;
+import es.classone.restaurant.modelutil.exceptions.DuplicateInstanceException;
 import es.classone.restaurant.web.pages.Index;
 import es.classone.restaurant.web.services.AuthenticationPolicy;
 import es.classone.restaurant.web.services.AuthenticationPolicyType;
 import es.classone.restaurant.web.util.UserSession;
-import es.udc.pojo.modelutil.exceptions.DuplicateInstanceException;
+
 
 @AuthenticationPolicy(AuthenticationPolicyType.PRIVELEGE_USERS)
 public class Register {

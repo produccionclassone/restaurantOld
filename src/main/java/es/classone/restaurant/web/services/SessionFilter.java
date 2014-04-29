@@ -12,9 +12,10 @@ import org.apache.tapestry5.services.Response;
 import es.classone.restaurant.model.userprofile.UserProfile;
 import es.classone.restaurant.model.userservice.IncorrectPasswordException;
 import es.classone.restaurant.model.userservice.UserService;
+import es.classone.restaurant.modelutil.exceptions.InstanceNotFoundException;
 import es.classone.restaurant.web.util.CookiesManager;
 import es.classone.restaurant.web.util.UserSession;
-import es.udc.pojo.modelutil.exceptions.InstanceNotFoundException;
+
 
 public class SessionFilter implements RequestFilter {
 

@@ -2,8 +2,10 @@ package es.classone.restaurant.model.userprofile;
 
 import org.springframework.stereotype.Repository;
 
-import es.udc.pojo.modelutil.dao.GenericDaoHibernate;
-import es.udc.pojo.modelutil.exceptions.InstanceNotFoundException;
+import es.classone.restaurant.modelutil.dao.GenericDaoHibernate;
+import es.classone.restaurant.modelutil.exceptions.InstanceNotFoundException;
+
+
 
 @Repository("userProfileDao")
 public class UserProfileDaoHibernate extends

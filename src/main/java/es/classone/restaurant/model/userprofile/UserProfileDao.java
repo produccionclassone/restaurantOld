@@ -1,7 +1,9 @@
 package es.classone.restaurant.model.userprofile;
 
-import es.udc.pojo.modelutil.dao.GenericDao;
-import es.udc.pojo.modelutil.exceptions.InstanceNotFoundException;
+import es.classone.restaurant.modelutil.dao.GenericDao;
+import es.classone.restaurant.modelutil.exceptions.InstanceNotFoundException;
+
+
 
 public interface UserProfileDao extends GenericDao<UserProfile, Long>{
 
