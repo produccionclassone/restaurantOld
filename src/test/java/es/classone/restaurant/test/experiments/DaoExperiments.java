@@ -6,7 +6,8 @@ import es.classone.restaurant.model.userprofile.UserProfile;
 import es.classone.restaurant.model.userprofile.UserProfileDao;
 import es.classone.restaurant.model.userprofile.UserProfileDaoHibernate;
 import es.classone.restaurant.model.userservice.util.PasswordEncrypter;
-import es.udc.pojo.modelutil.exceptions.InstanceNotFoundException;
+import es.classone.restaurant.modelutil.exceptions.InstanceNotFoundException;
+
 
 public class DaoExperiments {
 

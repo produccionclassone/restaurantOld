@@ -1,6 +1,8 @@
 package es.classone.restaurant.model.waiter;
 
-import es.udc.pojo.modelutil.dao.GenericDao;
+import es.classone.restaurant.modelutil.dao.GenericDao;
+
+
 
 public interface WaiterDao extends GenericDao<Waiter, Long>{
 

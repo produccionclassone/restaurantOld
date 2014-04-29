@@ -2,7 +2,7 @@ package es.classone.restaurant.model.dishCategoryStatMonths;
 
 import org.springframework.stereotype.Repository;
 
-import es.udc.pojo.modelutil.dao.GenericDaoHibernate;
+import es.classone.restaurant.modelutil.dao.GenericDaoHibernate;
 
 @Repository("dishCategoryStatMonthsDao")
 public class DishCategoryStatMonthsDaoHibernate extends
