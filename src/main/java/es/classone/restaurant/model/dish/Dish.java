@@ -6,21 +6,22 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import es.classone.restaurant.model.dishGroup.DishGroup;
+
 @Table(name = "Res14pla")
 public class Dish {
 
-	private Long R1PLA001;// PK Codigo del Plato NUMERIC
-	private String R1PLA002_01;// Descripcion Idioma .1.
-	private String R1PLA002_02;// Descripcion Idioma .2.
-	private String R1PLA002_03;// Descripcion Idioma .3.
-	/* PK Foranea = R1GRP001 */
-	private String R1PLA003;// Grupo de Plato
-	private int R1PLA004;// Impresora (1 a 5)
-	private int R1PLA005;// Lista de Precios (0 a 9)
-	private int R1PLA006;// PVP
-	private int R1PLA007;// Precio Coste
-	private char R1PLA008;// P=Plato // K=Kilo
-	private char R1PLA009;// ' '=Con Dcto // 'N'=Sin Dcto
+	private Long dishId; //R1PLA001
+	private String dishDescription_ESP; //R1PLA002_01
+	private String dishDescription_ENG; //R1PLA002_02;
+	private String dishDescription_ITA; //R1PLA002_03;
+	private DishGroup dishGroup; //R1PLA003 Grupo de Plato /* PK Foranea = R1GRP001 */
+	private int dishPrint; //R1PLA004 Impresora (1 a 5)
+	private int dishListPrice; //R1PLA005 Lista de Precios (0 a 9)
+	private int dishPVP; //R1PLA006
+	private int dishCostPrice; //R1PLA007
+	private char dishR1PLA008;// P=Plato // K=Kilo
+	private boolean dishDiscount; //R1PLA009;
 	private char R1PLA021;// S/N Eliminar Restaurante
 	private char R1PLA022;// S/N Pendiente
 
@@ -28,21 +29,21 @@ public class Dish {
 
 	}
 
-	public Dish(Long r1pla001, String r1pla002_01, String r1pla002_02,
-			String r1pla002_03, String r1pla003, int r1pla004, int r1pla005,
-			int r1pla006, int r1pla007, char r1pla008, char r1pla009,
+	public Dish(Long id, String description_ESP, String description_ENG,
+			String description_ITA, DishGroup dishGroup, int print, int listPrice,
+			int pvp, int costPrice, char r1pla008, boolean discount,
 			char r1pla021, char r1pla022) {
-		R1PLA001 = r1pla001;
-		R1PLA002_01 = r1pla002_01;
-		R1PLA002_02 = r1pla002_02;
-		R1PLA002_03 = r1pla002_03;
-		R1PLA003 = r1pla003;
-		R1PLA004 = r1pla004;
-		R1PLA005 = r1pla005;
-		R1PLA006 = r1pla006;
-		R1PLA007 = r1pla007;
-		R1PLA008 = r1pla008;
-		R1PLA009 = r1pla009;
+		dishId = id;
+		dishDescription_ESP = description_ESP;
+		dishDescription_ENG = description_ENG;
+		dishDescription_ITA = description_ITA;
+		this.dishGroup = dishGroup;
+		dishPrint = print;
+		dishListPrice = listPrice;
+		dishPVP = pvp;
+		dishCostPrice = costPrice;
+		dishR1PLA008 = r1pla008;
+		dishDiscount = discount;
 		R1PLA021 = r1pla021;
 		R1PLA022 = r1pla022;
 	}
@@ -53,92 +54,92 @@ public class Dish {
 	// generators.
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "DishGenerator")
-	public Long getR1PLA001() {
-		return R1PLA001;
+	public Long getDishId() {
+		return dishId;
 	}
 
-	public void setR1PLA001(Long r1pla001) {
-		R1PLA001 = r1pla001;
+	public void setDishId(Long dishId) {
+		this.dishId = dishId;
 	}
 
-	public String getR1PLA002_01() {
-		return R1PLA002_01;
+	public String getDishDescription_ESP() {
+		return dishDescription_ESP;
 	}
 
-	public void setR1PLA002_01(String r1pla002_01) {
-		R1PLA002_01 = r1pla002_01;
+	public void setDishDescription_ESP(String dishDescription_ESP) {
+		this.dishDescription_ESP = dishDescription_ESP;
 	}
 
-	public String getR1PLA002_02() {
-		return R1PLA002_02;
+	public String getDishDescription_ENG() {
+		return dishDescription_ENG;
 	}
 
-	public void setR1PLA002_02(String r1pla002_02) {
-		R1PLA002_02 = r1pla002_02;
+	public void setDishDescription_ENG(String dishDescription_ENG) {
+		this.dishDescription_ENG = dishDescription_ENG;
 	}
 
-	public String getR1PLA002_03() {
-		return R1PLA002_03;
+	public String getDishDescription_ITA() {
+		return dishDescription_ITA;
 	}
 
-	public void setR1PLA002_03(String r1pla002_03) {
-		R1PLA002_03 = r1pla002_03;
+	public void setDishDescription_ITA(String dishDescription_ITA) {
+		this.dishDescription_ITA = dishDescription_ITA;
 	}
 
-	public String getR1PLA003() {
-		return R1PLA003;
+	public DishGroup getDishGroup() {
+		return dishGroup;
 	}
 
-	public void setR1PLA003(String r1pla003) {
-		R1PLA003 = r1pla003;
+	public void setDishGroup(DishGroup dishGroup) {
+		this.dishGroup = dishGroup;
 	}
 
-	public int getR1PLA004() {
-		return R1PLA004;
+	public int getDishPrint() {
+		return dishPrint;
 	}
 
-	public void setR1PLA004(int r1pla004) {
-		R1PLA004 = r1pla004;
+	public void setDishPrint(int dishPrint) {
+		this.dishPrint = dishPrint;
 	}
 
-	public int getR1PLA005() {
-		return R1PLA005;
+	public int getDishListPrice() {
+		return dishListPrice;
 	}
 
-	public void setR1PLA005(int r1pla005) {
-		R1PLA005 = r1pla005;
+	public void setDishListPrice(int dishListPrice) {
+		this.dishListPrice = dishListPrice;
 	}
 
-	public int getR1PLA006() {
-		return R1PLA006;
+	public int getDishPVP() {
+		return dishPVP;
 	}
 
-	public void setR1PLA006(int r1pla006) {
-		R1PLA006 = r1pla006;
+	public void setDishPVP(int dishPVP) {
+		this.dishPVP = dishPVP;
 	}
 
-	public int getR1PLA007() {
-		return R1PLA007;
+	public int getDishCostPrice() {
+		return dishCostPrice;
 	}
 
-	public void setR1PLA007(int r1pla007) {
-		R1PLA007 = r1pla007;
+	public void setDishCostPrice(int dishCostPrice) {
+		this.dishCostPrice = dishCostPrice;
 	}
 
-	public char getR1PLA008() {
-		return R1PLA008;
+	public char getDishR1PLA008() {
+		return dishR1PLA008;
 	}
 
-	public void setR1PLA008(char r1pla008) {
-		R1PLA008 = r1pla008;
+	public void setDishR1PLA008(char dishR1PLA008) {
+		this.dishR1PLA008 = dishR1PLA008;
 	}
 
-	public char getR1PLA009() {
-		return R1PLA009;
+	public boolean isDishDiscount() {
+		return dishDiscount;
 	}
 
-	public void setR1PLA009(char r1pla009) {
-		R1PLA009 = r1pla009;
+	public void setDishDiscount(boolean dishDiscount) {
+		this.dishDiscount = dishDiscount;
 	}
 
 	public char getR1PLA021() {
@@ -155,5 +156,6 @@ public class Dish {
 
 	public void setR1PLA022(char r1pla022) {
 		R1PLA022 = r1pla022;
-	}
+	}	
+	
 }

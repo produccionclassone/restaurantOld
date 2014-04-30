@@ -1,4 +1,4 @@
-package es.classone.restaurant.model.dishCategory;
+package es.classone.restaurant.model.dishGroup;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,7 +7,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Table(name = "Res13grp")
-public class DishCategory {
+public class DishGroup {
 
 	private Long R1GRP001;// PK
 	private String R1GRP002_01;// Descripcion Idioma .1.
@@ -19,11 +19,11 @@ public class DishCategory {
 	private int R1GRP011;// Macro-Grupo RestauraciÃ³n
 
 	/* 1= Comida 2= Bebida 3= Otros */
-	public DishCategory() {
+	public DishGroup() {
 
 	}
 
-	public DishCategory(Long r1grp001, String r1grp002_01, String r1grp002_02,
+	public DishGroup(Long r1grp001, String r1grp002_01, String r1grp002_02,
 			String r1grp002_03, int r1grp003, String r1grp004, String r1grp112,
 			int r1grp011) {
 		R1GRP001 = r1grp001;
