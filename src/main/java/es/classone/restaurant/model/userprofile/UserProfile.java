@@ -12,16 +12,16 @@ import javax.persistence.Table;
 @Table(name = "Res14usr")
 public class UserProfile {
 
-	private Long userProfileId;
-	private String loginName;
-	private String encryptedPassword;
-	private String firstName;
-	private String lastName;
-	private String email;
-	private char userPrivilege;
-	private String ipAddressIn;
-	private String ipAddressExt;
-	private String macAddress;
+	private Long userProfileId; //R1USR001_K1
+	private String loginName; // R1USR002
+	private String encryptedPassword; // R1USR003
+	private String firstName; // R1USR004
+	private String lastName; // R1USR005
+	private String email; // R1USR006
+	private char userPrivilege; // R1USR007
+	private String ipAddressIn; // R1USR008
+	private String ipAddressExt; // R1USR009
+	private String macAddress; // R1USR010
 
 	public UserProfile() {
 	}
@@ -29,11 +29,6 @@ public class UserProfile {
 	public UserProfile(String loginName, String encryptedPassword,
 			String firstName, String lastName, String email,char userPrivilege, String ipAddressIn, String ipAddressExt,
 			String macAddress) {
-
-		/**
-		 * NOTE: "userProfileId" *must* be left as "null" since its value is
-		 * automatically generated.
-		 */
 
 		this.loginName = loginName;
 		this.encryptedPassword = encryptedPassword;
@@ -106,13 +101,6 @@ public class UserProfile {
 		this.email = email;
 	}
 
-	@Override
-	public String toString() {
-		return "UserProfile [userProfileId=" + userProfileId + ", loginName="
-				+ loginName + ", encryptedPassword=" + encryptedPassword
-				+ ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", email=" + email + "]";
-	}
 
 	@Column(name = "R1USR007")
 	public char getUserPrivilege() {
@@ -123,15 +111,6 @@ public class UserProfile {
 		this.userPrivilege = userPrivilege;
 	}
 
-	@Column(name="R1USR010")
-	public String getMacAddress() {
-		return macAddress;
-	}
-	
-	
-	public void setMacAddress(String macAddress) {
-		this.macAddress = macAddress;
-	}
 	@Column(name="R1USR008")
 	public String getIpAddressIn() {
 		return ipAddressIn;
@@ -147,6 +126,24 @@ public class UserProfile {
 
 	public void setIpAddressExt(String ipAddressExt) {
 		this.ipAddressExt = ipAddressExt;
+	}
+
+	@Column(name="R1USR010")
+	public String getMacAddress() {
+		return macAddress;
+	}
+	
+	
+	public void setMacAddress(String macAddress) {
+		this.macAddress = macAddress;
+	}
+
+	@Override
+	public String toString() {
+		return "UserProfile [userProfileId=" + userProfileId + ", loginName="
+				+ loginName + ", encryptedPassword=" + encryptedPassword
+				+ ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", email=" + email + "]";
 	}
 
 }
