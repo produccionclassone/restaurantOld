@@ -56,9 +56,7 @@ public class UserServiceImpl implements UserService {
 			String encryptedPassword = PasswordEncrypter.crypt(clearPassword);
 
 			UserProfile userProfile = new UserProfile(loginName,
-					encryptedPassword, userProfileDetails.getFirstName(),
-					userProfileDetails.getLastName(),
-					userProfileDetails.getEmail(), privilege, null, null, null);
+					encryptedPassword, userProfileDetails.getEmail(), privilege, null, null, null);
 			try {
 				userProfile.setIpAddressIn(getIpIn().toString());
 			} catch (UnknownHostException e1) {
@@ -129,8 +127,6 @@ public class UserServiceImpl implements UserService {
 			throws InstanceNotFoundException {
 
 		UserProfile userProfile = userProfileDao.find(userProfileId);
-		userProfile.setFirstName(userProfileDetails.getFirstName());
-		userProfile.setLastName(userProfileDetails.getLastName());
 		userProfile.setEmail(userProfileDetails.getEmail());
 
 	}

@@ -76,8 +76,7 @@ public class Register {
 
 			try {
 				UserProfile userProfile = userService.registerUser(loginName,
-						password, new UserProfileDetails(firstName, lastName,
-								email),(char) ('2' + privilege));
+						password, new UserProfileDetails(email),(char) ('2' + privilege));
 				userProfileId = userProfile.getUserProfileId();
 			} catch (DuplicateInstanceException e) {
 				registrationForm.recordError(loginNameField,

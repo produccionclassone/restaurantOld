@@ -43,8 +43,7 @@ public class UserServiceTest {
 
 
 		UserProfile userProfile = userService.registerUser("user",
-				"userPassword", new UserProfileDetails("name", "lastName",
-						"user@udc.es"),'1');
+				"userPassword", new UserProfileDetails("user@udc.es"),'1');
 
 		UserProfile userProfile2 = userService.findUserProfile(userProfile
 				.getUserProfileId());
@@ -60,8 +59,7 @@ public class UserServiceTest {
 
 		String loginName = "user";
 		String clearPassword = "userPassword";
-		UserProfileDetails userProfileDetails = new UserProfileDetails("name",
-				"lastName", "user@udc.es");
+		UserProfileDetails userProfileDetails = new UserProfileDetails("user@udc.es");
 
 		userService.registerUser(loginName, clearPassword, userProfileDetails,'1');
 
@@ -133,8 +131,7 @@ public class UserServiceTest {
 		UserProfile userProfile = registerUser("user", clearPassword);
 
 		UserProfileDetails newUserProfileDetails = new UserProfileDetails(
-				'X' + userProfile.getFirstName(),
-				'X' + userProfile.getLastName(), 'X' + userProfile.getEmail());
+				'X' + userProfile.getEmail());
 
 		userService.updateUserProfileDetails(userProfile.getUserProfileId(),
 				newUserProfileDetails);
@@ -144,10 +141,6 @@ public class UserServiceTest {
 		UserProfile userProfile2 = userService.findUserProfile(userProfile
 				.getUserProfileId());
 
-		assertEquals(newUserProfileDetails.getFirstName(),
-				userProfile2.getFirstName());
-		assertEquals(newUserProfileDetails.getLastName(),
-				userProfile2.getLastName());
 		assertEquals(newUserProfileDetails.getEmail(), userProfile2.getEmail());
 
 	}
@@ -157,7 +150,7 @@ public class UserServiceTest {
 			throws InstanceNotFoundException {
 
 		userService.updateUserProfileDetails(NON_EXISTENT_USER_PROFILE_ID,
-				new UserProfileDetails("name", "lastName", "user@udc.es"));
+				new UserProfileDetails("user@udc.es"));
 
 	}
 
@@ -201,8 +194,7 @@ public class UserServiceTest {
 
 	private UserProfile registerUser(String loginName, String clearPassword) {
 
-		UserProfileDetails userProfileDetails = new UserProfileDetails("name",
-				"lastName", "user@udc.es");
+		UserProfileDetails userProfileDetails = new UserProfileDetails( "user@udc.es");
 
 		try {
 

@@ -99,7 +99,6 @@ public class Login {
 	Object onSuccess() {
 		userSession = new UserSession();
 		userSession.setUserProfileId(userProfile.getUserProfileId());
-		userSession.setFirstName(userProfile.getFirstName());
 		userSession.setUserPrivilege(userProfile.getUserPrivilege());
 		userSession.setIpIn(userProfile.getIpAddressIn());
 		userSession.setPersPath(path);

@@ -38,8 +38,6 @@ public class UpdateProfile {
 
         userProfile = userService.findUserProfile(userSession
                 .getUserProfileId());
-        firstName = userProfile.getFirstName();
-        lastName = userProfile.getLastName();
         email = userProfile.getEmail();
 
     }
@@ -47,8 +45,7 @@ public class UpdateProfile {
     Object onSuccess() throws InstanceNotFoundException {
 
         userService.updateUserProfileDetails(
-                userSession.getUserProfileId(), new UserProfileDetails(
-                        firstName, lastName, email));
+                userSession.getUserProfileId(), new UserProfileDetails( email));
         userSession.setFirstName(firstName);
         return Index.class;
 
