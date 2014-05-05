@@ -6,7 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import es.classone.restaurant.model.dishGroup.DishGroup;
+//import es.classone.restaurant.model.dishGroup.DishGroup;
+
 
 @Table(name = "Res14pla")
 public class Dish {
@@ -15,7 +16,7 @@ public class Dish {
 	private String dishDescription_ESP; //R1PLA002_01
 	private String dishDescription_ENG; //R1PLA002_02;
 	private String dishDescription_ITA; //R1PLA002_03;
-	private DishGroup dishGroup; //R1PLA003 Grupo de Plato /* PK Foranea = R1GRP001 */
+	//private DishGroup dishGroup; //R1PLA003 Grupo de Plato /* PK Foranea = R1GRP001 */
 	private int dishPrint; //R1PLA004 Impresora (1 a 5)
 	private int dishListPrice; //R1PLA005 Lista de Precios (0 a 9)
 	private int dishPVP; //R1PLA006
@@ -30,14 +31,14 @@ public class Dish {
 	}
 
 	public Dish(Long id, String description_ESP, String description_ENG,
-			String description_ITA, DishGroup dishGroup, int print, int listPrice,
+			String description_ITA, /*DishGroup dishGroup,*/ int print, int listPrice,
 			int pvp, int costPrice, char r1pla008, boolean discount,
 			char r1pla021, char r1pla022) {
 		dishId = id;
 		dishDescription_ESP = description_ESP;
 		dishDescription_ENG = description_ENG;
 		dishDescription_ITA = description_ITA;
-		this.dishGroup = dishGroup;
+		//this.dishGroup = dishGroup;
 		dishPrint = print;
 		dishListPrice = listPrice;
 		dishPVP = pvp;
@@ -85,7 +86,7 @@ public class Dish {
 	public void setDishDescription_ITA(String dishDescription_ITA) {
 		this.dishDescription_ITA = dishDescription_ITA;
 	}
-
+/*
 	public DishGroup getDishGroup() {
 		return dishGroup;
 	}
@@ -93,7 +94,7 @@ public class Dish {
 	public void setDishGroup(DishGroup dishGroup) {
 		this.dishGroup = dishGroup;
 	}
-
+*/
 	public int getDishPrint() {
 		return dishPrint;
 	}
