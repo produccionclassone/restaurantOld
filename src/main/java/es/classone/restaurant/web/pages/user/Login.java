@@ -68,9 +68,9 @@ public class Login {
 		try {
 			userProfile = userService.login(loginName, password, false);
 		} catch (InstanceNotFoundException e) {
-			loginForm.recordError(messages.get("error-authenticationFailed"));
+			loginForm.recordError(messages.get("error-authenticationFailed1"));
 		} catch (IncorrectPasswordException e) {
-			loginForm.recordError(messages.get("error-authenticationFailed"));
+			loginForm.recordError(messages.get("error-authenticationFailed2"));
 
 		}
 		try {

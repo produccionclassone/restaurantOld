@@ -7,21 +7,17 @@
 
 <head>
 	<title>${pageTitle}</title>
-	<link rel="StyleSheet" href="${context:/css/styles.css}"
+	<link rel="StyleSheet" href="${context:/css/stylesAlejandro.css}"
 		  type="text/css" media="all"/>
 </head>
 
 <body>
-
 <!-- Window. -->
 
 <div id="window">
 
-<!-- Head -->
-
-<div id="head">
+<div id="header">
 	<div align="center">
-       
 	</div>
 </div>
 
@@ -29,6 +25,7 @@
 <!-- Content. -->
 
 <div id="content">
+
   	<t:body/>
 </div>
 

@@ -5,7 +5,8 @@
 	
 	   <t:errors/>
 		
-	   <div class="field">        
+	   <div class="field">  
+	  
 	        <t:label for="loginName"/>
 	        <span class="entry">    
 	            <input t:id="loginName" t:type="TextField"

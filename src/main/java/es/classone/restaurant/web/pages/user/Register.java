@@ -14,12 +14,9 @@ import es.classone.restaurant.model.userservice.UserProfileDetails;
 import es.classone.restaurant.model.userservice.UserService;
 import es.classone.restaurant.modelutil.exceptions.DuplicateInstanceException;
 import es.classone.restaurant.web.pages.Index;
-import es.classone.restaurant.web.services.AuthenticationPolicy;
-import es.classone.restaurant.web.services.AuthenticationPolicyType;
 import es.classone.restaurant.web.util.UserSession;
 
 
-@AuthenticationPolicy(AuthenticationPolicyType.PRIVELEGE_USERS)
 public class Register {
 
 	@Property
