@@ -32,9 +32,18 @@ a:hover {
 
 /* Page title. */
 
-#header {   
+#header {
+   
 }
 
+.imagelogo  {
+	align:center;
+	padding-left:300px;
+	background:url(images/logo.gif) no-repeat ;
+	display: inline-block;
+	height: 105px;
+	width: 70px;
+}
 /* Menu. */
 
 #menu {

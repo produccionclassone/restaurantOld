@@ -18,8 +18,15 @@
 
 <div id="header">
 	<div>
-	hola
-	<img src="images/logo.gif" alt="logoc1" />
+	<span id="sep">
+		
+	</span>
+	<div class="imagelogo">
+	 
+	</div>	
+	<span id="fin">
+		
+	</span>
 	</div>
 </div>
 
