@@ -11,13 +11,15 @@
 		  type="text/css" media="all"/>
 </head>
 
-<body>
+<body>     
 <!-- Window. -->
 
 <div id="window">
 
 <div id="header">
-	<div align="center">
+	<div>
+	hola
+	<img src="images/logo.gif" alt="logoc1" />
 	</div>
 </div>
 
