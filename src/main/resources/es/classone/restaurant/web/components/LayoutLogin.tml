@@ -22,7 +22,7 @@
 		
 	</span>
 	<div class="imagelogo">
-	 
+	 <img src="${context:images/logo.gif}" alt="Logo"/>
 	</div>	
 	<span id="fin">
 		
