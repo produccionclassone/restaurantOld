@@ -9,13 +9,33 @@
 	<title>${pageTitle}</title>
 	<link rel="StyleSheet" href="${context:/css/stylesVanina.css}"
 		  type="text/css" media="all"/>
+	<script language="javascript" type="text/javascript"
+			src="${context:/javaScript/layout.js}"></script>
 </head>
 
 		<body>
 			<div id="contenedor">
 				<div id="cabecera"></div>
+				<div id="menu1" class="menu1"></div>
 				<div id="cuerpo">
-						<div id="menulat" class="menulat">
+						<div id="menulat" class="menulat">	</div>
+						<div id="menu2" class="menu2"></div>
+						<div id="contenido" class="contenido">
+							<t:body />
+						</div>
+				</div>
+				<div id="pie">
+					<div id="classone">classone</div>
+					<div id="sesion">sesion</div>
+				</div>
+			</div>
+		</body>
+
+</html>
+
+
+
+<!-- 
 							<ul id="nav" class="nav">
 								<div class="separacion"></div>
 								<li id="opcion1">
@@ -40,23 +60,13 @@
 									</ul>
 								</li>
 							</ul>
-						</div>
-						<div id="menu" class="menu">
-						<a href="#" t:type="ActionLink" t:id="opcion1">
+						
+							<a href="#" t:type="ActionLink" t:id="opcion1">
 							<span>${message:menu-opcion1}</span>
 						</a>
 						|
 						<a href="#" t:type="ActionLink" t:id="opcion2">
 							<span>${message:menu-opcion2}</span>
 						</a>
-					</div>
-
-					<div id="contenido" class="contenido">
-						<t:body />
-					</div>
-				</div>
-				<div id="pie"></div>
-			</div>
-		</body>
-
-</html>
+-->						
+ 							

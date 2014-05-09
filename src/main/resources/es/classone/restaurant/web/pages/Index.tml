@@ -1,3 +1,32 @@
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
 	t:type="LayoutIndex" t:pageTitle="title">
+
+	<li id="opcion1">
+		<a href="#" class="nivel1" style="padding-right:65px;">
+			${message:menu-opcion1} ▼
+		</a>
+		<ul>
+			<div class="separacionN2"></div>
+			<li>
+				<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion1.1}</a>
+			</li>
+			<div class="separacionN2"></div>
+			<li>
+				<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion1.2}</a>
+			</li>
+		</ul>
+	</li>
+	<div class="separacion"></div>
+	<li id="opcion2">
+		<a href="#" class="nivel1" style="padding-right:60px;">
+			${message:menu-opcion2} ▼
+		</a>
+		<ul id="nav2" class="nav2">
+			<div class="separacionN2"></div>
+			<li>
+				<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion2.1}</a>
+			</li>
+			<div class="separacionN2"></div>
+		</ul>						
+	</li>
 </html>
