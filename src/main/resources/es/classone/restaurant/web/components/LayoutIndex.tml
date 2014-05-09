@@ -7,77 +7,56 @@
 
 <head>
 	<title>${pageTitle}</title>
-	<link rel="StyleSheet" href="${context:/css/styles.css}"
+	<link rel="StyleSheet" href="${context:/css/stylesVanina.css}"
 		  type="text/css" media="all"/>
 </head>
 
-<body>
+		<body>
+			<div id="contenedor">
+				<div id="cabecera"></div>
+				<div id="cuerpo">
+						<div id="menulat" class="menulat">
+							<ul id="nav" class="nav">
+								<div class="separacion"></div>
+								<li id="opcion1">
+									<a href="#" class="nivel1"  style="padding-right:101px;" t:type="PageLink" t:page="Index">
+										${message:menu-opcion1}
+									</a>
+								</li>
+								<div class="separacion"></div>
+								<li id="opcion2">
+									<a href="#" class="nivel1" style="padding-right:65px;">
+										${message:menu-opcion2} ▼
+									</a>
+									<ul>
+										<div class="separacionN2"></div>
+										<li>
+											<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion2.1}</a>
+										</li>
+										<div class="separacionN2"></div>
+										<li>
+											<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion2.2}</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+						<div id="menu" class="menu">
+						<a href="#" t:type="ActionLink" t:id="opcion1">
+							<span>${message:menu-opcion1}</span>
+						</a>
+						|
+						<a href="#" t:type="ActionLink" t:id="opcion2">
+							<span>${message:menu-opcion2}</span>
+						</a>
+					</div>
 
-<!-- Window. -->
-
-<div id="window">
-
-<!-- Page title. -->
-
-<div id="pageTitle">
-	<div align="center">
-       ${message:header}
-	</div>
-</div>
-
-<!-- Menu. -->
-
-<div id="menu">
-	<span id="menuWelcome">
-  		<t:if test="userSession">
- 			${message:menu-hello} ${userSession.firstName}
-            <p:else>
-            	${message:menu-welcome}
-            </p:else>
-		</t:if>
-    </span>
-    -
-    <t:if test="menuExplanation">
-	 	<span id="menuExplanation">
- 			${menuExplanation}
- 		</span>
-        <p:else>
-		    <span id="menuLinks">
-				<t:if test="userSession">
-					<a href="#" t:type="PageLink" t:page="user/Login">${message:menu-authenticate}</a>
-				    <a href="#" t:type="PageLink" t:page="user/UpdateProfile">${message:menu-updateProfile}</a> -
-				    <a href="#" t:type="ActionLink" t:id="logout">${message:menu-logout}</a>
-					<a href="#" t:type="PageLink" t:page="user/Register">${message:register}</a>		       
-			        <p:else>
-				    	<a href="#" t:type="PageLink" t:page="user/Login">${message:menu-authenticate}</a>
-			        </p:else>
-				</t:if>
-			</span>
-        </p:else>
- 	</t:if>
-</div>
-
-<!-- Content. -->
-
-<div id="content">
-  	<t:body/>
-</div>
-
-
-<!-- Body footer. -->
-
-<div id="footer">
-    <div align="center">
-       ${message:footer}
-    </div>
-</div>
-
-<!-- End of "window" id. -->
-
-</div>
-
-<!-- End of HTML body. -->
-
-</body>
+					<div id="contenido" class="contenido">
+						<t:body />
+					</div>
+				</div>
+				<div id="pie"></div>
+			</div>
+		</body>
 
 </html>

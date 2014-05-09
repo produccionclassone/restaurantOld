@@ -15,34 +15,11 @@ import es.classone.restaurant.web.services.AuthenticationPolicy;
 import es.classone.restaurant.web.services.AuthenticationPolicyType;
 
 public class LayoutIndex {
-    @Property
-    @Parameter(required = false, defaultPrefix = "message")
-    private String menuExplanation;
-
+    
     @Property
     @Parameter(required = true, defaultPrefix = "message")
     private String pageTitle;
 
-    @Property
-    @SessionState(create=false)
-    private UserSession userSession;
-
-    @Inject
-    private Cookies cookies;
-    
-    @InjectPage
-    private Login login;
-    
-    @InjectPage
-    private Register register;
-
-    @AuthenticationPolicy(AuthenticationPolicyType.AUTHENTICATED_USERS)
-   	Object onActionFromLogout() {
-    	login.setPath(userSession.getPersPath());
-        userSession = null;
-        CookiesManager.removeCookies(cookies);
-        return login;
-	}
     
     
 }
