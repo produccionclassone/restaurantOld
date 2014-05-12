@@ -18,11 +18,11 @@
 				<div id="cabecera"></div>
 				<div id="menu1" class="menu1"></div>
 				<div id="cuerpo">
-						<div id="menulat" class="menulat">	</div>
-						<div id="menu2" class="menu2"></div>
-						<div id="contenido" class="contenido">
+					<div id="menulat" class="menulat"></div>
+					<div id="menu2" class="menu2"></div>
+					<div id="contenido" class="contenido">
 							<t:body />
-						</div>
+					</div>
 				</div>
 				<div id="pie">
 					<div id="classone">classone</div>

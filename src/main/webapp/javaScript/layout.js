@@ -87,7 +87,7 @@ startList = function() {
 												   for (j=0; j<navRoot2.childNodes.length; j++) {
 												   	node2 = navRoot2.childNodes[j];
 														if (node2.nodeName=="LI") {
-															if(node2.id == "consumos") {node2.className="off";}
+															if(node2.id == "opcion1") {node2.className="off";}
 														}
 												   }
 												   
