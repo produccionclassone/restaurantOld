@@ -17,20 +17,16 @@
 <div id="window">
 
 <div id="header">
-	<div>
-	<span id="sep">
-		
-	</span>
-	<div class="imagelogo">
-	 <img src="${context:css/images/logo.gif}" alt="Logo"/>
-	</div>	
-	<span id="fin">
-		
-	</span>
-	</div>
+<h1>
+<span>
+	 <img src="${context:images/logo.gif}" alt="Logo"/>
+	 </span>
+	 
+</h1>
+<span class="headerText">
+		RESTAURANTE CLASS ONE
+		</span>
 </div>
-
-
 <!-- Content. -->
 
 <div id="content">
