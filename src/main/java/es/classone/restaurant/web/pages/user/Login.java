@@ -8,6 +8,7 @@ import javax.xml.transform.TransformerException;
 
 import org.apache.tapestry5.annotations.ActivationRequestParameter;
 import org.apache.tapestry5.annotations.Component;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.annotations.SessionState;
 import org.apache.tapestry5.corelib.components.Form;
@@ -16,6 +17,8 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Cookies;
 import org.xml.sax.SAXException;
 
+import com.trsvax.bootstrap.annotations.Exclude;
+
 import es.classone.restaurant.model.userprofile.UserProfile;
 import es.classone.restaurant.model.userservice.IncorrectPasswordException;
 import es.classone.restaurant.model.userservice.UserService;
@@ -23,7 +26,15 @@ import es.classone.restaurant.modelutil.exceptions.InstanceNotFoundException;
 import es.classone.restaurant.web.pages.Index;
 import es.classone.restaurant.web.util.CookiesManager;
 import es.classone.restaurant.web.util.UserSession;
-
+@Exclude(stylesheet={"core"})  //If you do not want Tapestry CSS
+@Import(stylesheet={
+        "classpath:/com/trsvax/bootstrap/assets/bootstrap/css/bootstrap.css",
+        "classpath:/com/trsvax/bootstrap/assets/bootstrap/css/bootstrap-responsive.css"
+        },
+library={
+        "classpath:/com/trsvax/bootstrap/assets/bootstrap/js/bootstrap.js"
+        }
+)
 public class Login {
 
 	@Property

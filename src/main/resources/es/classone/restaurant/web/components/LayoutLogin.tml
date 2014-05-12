@@ -1,56 +1,107 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml"
-	  xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
-	  xmlns:p="tapestry:parameter">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter">
 
-<head>
-	<title>${pageTitle}</title>
-	<link rel="StyleSheet" href="${context:/css/stylesAlejandro.css}"
-		  type="text/css" media="all"/>
-</head>
+	<head>
+		<title>${pageTitle}</title>
+		<link rel="StyleSheet" href="${context:/css/bootstrap.css}"
+			type="text/css" media="all" />
+		<link rel="StyleSheet" href="${context:/css/stylesAlejandro.css}"
+			type="text/css" media="all" />
+		
+	</head>
 
-<body>     
-<!-- Window. -->
+	<body>
+		<!-- Window. -->
 
-<div id="window">
+		<div id="wrap">
 
+			<div id="main">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-4"></div>
+						<div class="col-md-4">
+							<div class="logo">
+								<img src="${context:css/images/restaurant-logo.jpg}" alt="Logo"
+									class="img-rounded" width="200" height="200" />
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="language">
+								<div class="btn-group">
+									<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+										Idioma
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu">
+										<li>
+											<a tabindex="-1" href="#">Español</a>
+										</li>
+										<li>
+											<a tabindex="-1" href="#">Inglés</a>
+										</li>
+										<li>
+											<a tabindex="-1" href="#">Francés</a>
+										</li>
+										<li>
+											<a tabindex="-1" href="#">Italiano</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
+				<!-- Content. -->
 
-<div id="header">
+				<div class="content">
+					<t:body />
+				</div>
 
-<div class="logo">
-		<img src="${context:css/images/restaurant-logo.jpg}" alt="Logo" class="img-rounded" width="200" height="200"/>
- 	</div>
-	<!--<h1 class="headerText">
-		Restaurante Demostración
-	</h1>-->
-</div>
-<!-- Content. -->
+			</div>
+			<!-- Button trigger modal 
+		<button class="btn btn-primary btn-lg" data-toggle="modal"
+			data-target="#myModal">
+			Launch demo modal
+		</button>
 
-<div id="contentLogin">
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">&times;
+						</button>
+						<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+					</div>
+					<div class="modal-body">
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Save changes</button>
+					</div>
+				</div>
+			</div>
+		</div>-->
+		</div>
+		
+		<div id="footer">
+			<div class="container">
+				<p>
+					<img src="${context:css/images/logo.gif}" alt="Logo" width="50"
+						height="50" />
+					Class One, S.L. con domicilio social en C/Rafael Alberti, 6 ,CP
+					15172-Perillo (La Coruña)
+				</p>
 
-  	<t:body/>
-</div>
-
-
-<!-- Body footer. -->
-
-<div id="footer">
-	<p>
-	<img src="${context:css/images/logo.gif}" alt="Logo" width="50" height="50"/>
-	Class One, S.L. con domicilio social en C/Rafael Alberti, 6 ,CP 15172-Perillo (La Coruña)</p>
-    <div align="center">
-    </div>
-</div>
-
-<!-- End of "window" id. -->
-
-</div>
-
-<!-- End of HTML body. -->
-
-</body>
+			</div>
+		</div>
+	<script src="http://code.jquery.com/jquery.js"></script>
+    <script src="${context:/javaScript/bootstrap.min.js}"></script>
+	</body>
 
 </html>

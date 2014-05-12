@@ -1,7 +1,9 @@
 /* Body. */
 
-body {    
-        
+* { margin: 0; padding: 0; }
+
+html, body {    
+        height: 100%;  
 }
 
 /* Links. */
@@ -14,35 +16,31 @@ a {
 a:hover {
     text-decoration: underline;
 }
+#wrap { min-height: 100%; }
+
+#main { overflow: auto;
+ 	padding-bottom: 50px;
+  text-align: center; 
+  }
+#footer { 
+	position: relative; 
+	margin-top: -50px; 
+	/* altura en px del footer con valor negativo */ 
+	height: 50px; /* Altura del Footer en px*/
+	 clear: both;
+	 text-align: center;
+	 background-color: #F8F8FF;
+	 }
 
 
-/* Window. */
-
-#window {    
-    /*border: #000 1px solid;*/
-    background-color: #fff;
-    margin-top: 20px;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  margin-left: 10px;
-  width:98%
-}
 
 /* Page Header. */
 
-#header {
-	  /*border: #000 1px solid;*/
-    margin-top: 10px;
- 	 margin-right: 20px;
-  	margin-bottom: 0px;
-  	margin-left: 20px;
+div.language{
+	margin-top:20px;
+	margin-left:80px;
 }
-h1.headerText{
-	padding-top: 0.5em;
-	padding-bottom: 0.5em;
-	text-align:center;
-	font-size:40px
-}
+
 
 div.logo{
 text-align:center;
@@ -50,15 +48,8 @@ text-align:center;
 }
 
 /* Content. */
-
-#contentLogin {
-  background-color: #F8F8FF;
-  border: 1px solid #888;
-    border-radius:3px;
-  margin-top: 60px;
-  margin-right: 530px;
-  margin-bottom: 30px;
-  margin-left: 530px;
+div.row{
+padding:20px;
 }
 
 p.welcome {
@@ -68,7 +59,11 @@ p.welcome {
 /* Forms. */
 
 form {
-  text-align:center;
+	background-color: #F8F8FF;
+  	border: 1px solid #888;
+    border-radius:3px;    
+  	text-align:center;
+  	padding: 10px 50px 10px 50px;
 }
 
 div.form-group {
@@ -97,11 +92,3 @@ div.t-error ul {
 	margin-left: 20px; 
 }
 
-
-/* Footer. */
-
-#footer {
-	margin-top:140px;
-	/*border: #000 1px solid;*/
-	text-align:center;
-}

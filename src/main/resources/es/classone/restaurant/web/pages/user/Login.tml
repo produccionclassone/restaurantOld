@@ -1,28 +1,42 @@
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
-	t:type="LayoutLogin" t:pageTitle="title" >
+	t:type="LayoutLogin" t:pageTitle="title">
 
-	<form role="form" t:id="loginForm">
-		<t:errors/>
-	   <div class="form-group">  
-	   <t:label for="loginName"/>       
-	            <input class="form-control" t:id="loginName" t:type="TextField"
-				       
-				       placeholder="${message:loginName-label}" />
-	   </div>
-	    
-	   <div class="form-group">        
-	        <t:label for="password"/>
-	            <input class="form-control" t:id="password" t:type="PasswordField"
-				        
-	                   placeholder="${message:password-label}"/>
-	    </div>
-	    <div class="form-group">                 	
-	            <input t:type="Checkbox" t:id="rememberMyPassword" />
-	            ${message:rememberMyPassword-label} 
-	    </div>
-	    <div class="form-group">
-	    	 <input type="submit" class="btn btn-primary btn-block" value="${message:submit}"/> 
-	    </div>
-	</form>
-	
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-4" />
+			<div class="col-md-4">
+				<form role="form" t:id="loginForm">
+					<t:errors />
+					<div class="form-group">
+						<t:label for="loginName" />
+						<input class="form-control" t:id="loginName" t:type="TextField"
+
+							placeholder="${message:loginName-label}" />
+					</div>
+
+					<div class="form-group">
+						<t:label for="password" />
+						<input class="form-control" t:id="password" t:type="PasswordField"
+
+							placeholder="${message:password-label}" />
+					</div>
+					<div class="form-group">
+						<input t:type="Checkbox" t:id="rememberMyPassword" />
+						${message:rememberMyPassword-label}
+					</div>
+					<div class="form-group">
+						<input type="submit" class="btn btn-primary btn-block"
+							value="${message:submit}" />
+					</div>
+				</form>
+			</div>
+			<div class="col-md-4">
+
+			</div>
+
+		</div>
+		
+	</div>
+
 </html>
