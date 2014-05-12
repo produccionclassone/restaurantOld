@@ -1,19 +1,22 @@
 package es.classone.restaurant.web.components;
 
-import org.apache.tapestry5.annotations.InjectPage;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
-import org.apache.tapestry5.annotations.SessionState;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Cookies;
 
-import es.classone.restaurant.web.pages.user.Login;
-import es.classone.restaurant.web.pages.user.Register;
-import es.classone.restaurant.web.services.AuthenticationPolicy;
-import es.classone.restaurant.web.services.AuthenticationPolicyType;
-import es.classone.restaurant.web.util.CookiesManager;
-import es.classone.restaurant.web.util.UserSession;
+import com.trsvax.bootstrap.annotations.Exclude;
 
+@Exclude(stylesheet={"core"})  //If you do not want Tapestry CSS
+@Import(stylesheet={
+        "classpath:/com/trsvax/bootstrap/assets/bootstrap/css/bootstrap.css",
+        "classpath:/com/trsvax/bootstrap/assets/bootstrap/css/bootstrap-responsive.css"
+        },
+library={
+        "classpath:/com/trsvax/bootstrap/assets/bootstrap/js/bootstrap.js"
+        }
+)
 public class LayoutLogin {
 
     @Property
