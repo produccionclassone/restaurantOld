@@ -71,6 +71,18 @@ body a {
 	float:left;
 }
 
+#colA{
+	background-color:#CCCCCC;
+	width:400px;
+	float:left;
+}
+
+#colB{
+	background-color:#CCCCCC;
+	width:400px;
+	float:right;
+}
+
 #pie{
     display:block;
 	height:35px;
@@ -87,6 +99,8 @@ body a {
 	float:right;
 	width:575px;
 }
+
+
 
 /* =================================== MENU DESPLEGABLE ===============================*/
 .nivel1{

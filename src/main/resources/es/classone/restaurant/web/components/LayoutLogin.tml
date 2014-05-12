@@ -19,7 +19,7 @@
 <div id="header">
 <h1>
 <span>
-	 <img src="${context:images/logo.gif}" alt="Logo"/>
+	 <img src="${context:css/images/logo.gif}" alt="Logo"/>
 	 </span>
 	 
 </h1>
