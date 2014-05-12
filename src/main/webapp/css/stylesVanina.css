@@ -90,7 +90,7 @@ body a {
 
 /* =================================== MENU DESPLEGABLE ===============================*/
 .nivel1{
-	border:1px solid #cccccc;
+	/*border:1px solid #cccccc;*/
 }
 
 .separacion{
@@ -102,7 +102,6 @@ body a {
 }
 
 ul a {
-    color:#cccccc;
 	font-family:Verdana, Arial, Helvetica, sans-serif;
 	font-size:11px;
 	margin-top:10px;
@@ -111,7 +110,6 @@ ul a {
 
 ul a:hover {
 	background:#69A5D9;
-	color:#FFFFFF;
 	font-family:Verdana, Arial, Helvetica, sans-serif;
 	font-size:11px;
 	padding:2px;

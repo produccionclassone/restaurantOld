@@ -1,6 +1,6 @@
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
 	t:type="LayoutIndex" t:pageTitle="title">
-	<div>
+	<div id="col1">
 		<ul id="nav" class="nav">
 			<div class="separacion"></div>
 			<li id="opcion1">
@@ -79,10 +79,6 @@
 					${message:menu-opcion3}
 				</a>
 			</li>
-
 		</ul>
 	</div>
-
-
-
 </html>
