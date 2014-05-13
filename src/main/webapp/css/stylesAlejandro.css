@@ -55,7 +55,7 @@ text-align:center;
   background-color: #F8F8FF;
   border: 1px solid #888;
     border-radius:3px;
-  margin-top: 30px;
+  margin-top: 60px;
   margin-right: 530px;
   margin-bottom: 30px;
   margin-left: 530px;
@@ -101,6 +101,7 @@ div.t-error ul {
 /* Footer. */
 
 #footer {
+	margin-top:140px;
 	/*border: #000 1px solid;*/
 	text-align:center;
 }
