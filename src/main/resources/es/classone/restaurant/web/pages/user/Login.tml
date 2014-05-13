@@ -1,39 +1,28 @@
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
 	t:type="LayoutLogin" t:pageTitle="title" >
 
-	<form t:type="Form" t:id="loginForm">
-	
-	   <t:errors/>
-		
-	   <div class="field">  
-	   <t:label for="loginName"/>
-	        <span class="entry">    
-	            <input t:id="loginName" t:type="TextField"
-				       t:validate="required" 
-				       size="16" maxlength="30" placeholder="Login name" />
-	        </span>
+	<form role="form" t:id="loginForm">
+		<t:errors/>
+	   <div class="form-group">  
+	   <t:label for="loginName"/>       
+	            <input class="form-control" t:id="loginName" t:type="TextField"
+				       
+				       placeholder="${message:loginName-label}" />
 	   </div>
 	    
-	   <div class="field">        
+	   <div class="form-group">        
 	        <t:label for="password"/>
-	        <span class="entry">
-	            <input t:id="password" t:type="PasswordField"
-				       t:validate="required" 
-	                   size="16" maxlength="8" placeholder="Password"/>
-	        </span>
+	            <input class="form-control" t:id="password" t:type="PasswordField"
+				        
+	                   placeholder="${message:password-label}"/>
 	    </div>
-	    
-	    <div class="field">
-            <t:label for="rememberMyPassword"/>
-	        <span class="entry">    
-	            <input t:type="Checkbox" t:id="rememberMyPassword" /> 
-	        </span>
+	    <div class="form-group">                 	
+	            <input t:type="Checkbox" t:id="rememberMyPassword" />
+	            ${message:rememberMyPassword-label} 
 	    </div>
-	    
-	    <div class="button">
-	        <input type="submit" value="${message:submit}"/>        
+	    <div class="form-group">
+	    	 <input type="submit" class="btn btn-primary btn-block" value="${message:submit}"/> 
 	    </div>
-	    
 	</form>
 	
 </html>

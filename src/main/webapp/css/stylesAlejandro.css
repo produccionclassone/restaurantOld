@@ -1,11 +1,6 @@
 /* Body. */
 
-body {
-   font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
-    font-size: 12px;
-    margin: 10px 20px;
-    background-color: #dddde0;
-    width:auto;
+body {    
         
 }
 
@@ -24,43 +19,46 @@ a:hover {
 /* Window. */
 
 #window {    
-    border: #000 1px solid;
+    /*border: #000 1px solid;*/
     background-color: #fff;
-    padding: 7px;
-    width: 98%;
+    margin-top: 20px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  width:98%
 }
 
-/* Page title. */
+/* Page Header. */
 
 #header {
-   
+	  /*border: #000 1px solid;*/
+    margin-top: 10px;
+ 	 margin-right: 20px;
+  	margin-bottom: 0px;
+  	margin-left: 20px;
+}
+h1.headerText{
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	text-align:center;
+	font-size:40px
 }
 
+div.logo{
+text-align:center;
 
-/* Menu. */
-
-#menu {
-    background-color: #094069;
-    color: #fff;
-    text-align: left;
-    padding: 5px 0 5px 5px;
-    width: 99%;
-}
-
-#menuWelcome {
-    font-weight: bold;
-}
-
-#menuLinks a {
-    color : #fffac6;
 }
 
 /* Content. */
 
-#content {
-    margin: 10px 0;
-    text-align: center;
-    width: 100%;
+#contentLogin {
+  background-color: #F8F8FF;
+  border: 1px solid #888;
+    border-radius:3px;
+  margin-top: 30px;
+  margin-right: 530px;
+  margin-bottom: 30px;
+  margin-left: 530px;
 }
 
 p.welcome {
@@ -70,33 +68,22 @@ p.welcome {
 /* Forms. */
 
 form {
-    width: 100%;
+  text-align:center;
 }
 
-div.field {
-    clear: both;
-    padding-top: 1em;
-    width: 100%;
+div.form-group {
+    padding-top: 1.5em;    
 }
 
-div.field label {
-    float: left;    
-    text-align: right;
+
+div.form-group label {
     font-weight: bold;
-    width: 49.5%;
 }
 
-div.field span.entry {
-    float: right;    
-    text-align: left;
-    width: 49.5%;
-}
 
 div.button {
     clear: both;
-    padding-top: 1em;
-    text-align: center;
-    width: 100%;
+    text-align:center;
 }
 
 input, select, textarea  {
@@ -107,14 +94,13 @@ input, select, textarea  {
 
 div.t-error ul {
 	font-weight: bold;
+	margin-left: 20px; 
 }
 
 
 /* Footer. */
 
 #footer {
-    border-top: 1px solid #000;
-    padding-top: 5px;
-    text-align: center;
-    width: 100%;
+	/*border: #000 1px solid;*/
+	text-align:center;
 }

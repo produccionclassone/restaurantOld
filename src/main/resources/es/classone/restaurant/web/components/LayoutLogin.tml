@@ -16,20 +16,20 @@
 
 <div id="window">
 
+
+
 <div id="header">
-<h1>
-<span>
-	 <img src="${context:css/images/logo.gif}" alt="Logo"/>
-	 </span>
-	 
-</h1>
-<span class="headerText">
-		RESTAURANTE CLASS ONE
-		</span>
+
+<div class="logo">
+		<img src="${context:css/images/restaurant-logo.jpg}" alt="Logo" class="img-rounded" width="200" height="200"/>
+ 	</div>
+	<!--<h1 class="headerText">
+		Restaurante Demostración
+	</h1>-->
 </div>
 <!-- Content. -->
 
-<div id="content">
+<div id="contentLogin">
 
   	<t:body/>
 </div>
@@ -38,8 +38,10 @@
 <!-- Body footer. -->
 
 <div id="footer">
+	<p>
+	<img src="${context:css/images/logo.gif}" alt="Logo" width="50" height="50"/>
+	Class One, S.L. con domicilio social en C/Rafael Alberti, 6 ,CP 15172-Perillo (La Coruña)</p>
     <div align="center">
-       ${message:footer}
     </div>
 </div>
 
