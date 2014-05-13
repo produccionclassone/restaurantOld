@@ -57,7 +57,7 @@ startList = function() {
 				node.onclick=function() {
 											if(this.className == "on") { this.className = "off";}
 										 	else { this.className = "on";
-												   navRoot = document.getElementById("nav");
+												   	navRoot = document.getElementById("nav");
 												   for (i=0; i<navRoot.childNodes.length; i++) {
 												      node = navRoot.childNodes[i];
 												      if (node.nodeName=="LI") {
@@ -89,16 +89,14 @@ startList = function() {
 														if (node2.nodeName=="LI") {
 															if(node2.id == "opcion1") {node2.className="off";}
 														}
-												   }
-												   
-												   																			 	
+												   }																			 	
 										 		 }
 										}
    			}
   		}
   		
   		navRoot3 = document.getElementById("nav2");
-	    for (j=0; j<navRoot3.childNodes.length; j++) {
+		for (j=0; j<navRoot3.childNodes.length; j++) {
 			node3 = navRoot3.childNodes[j];
 				if (node3.nodeName=="LI") {node3.className="off2";}
 		}

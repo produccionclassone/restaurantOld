@@ -3,16 +3,17 @@ html{
 }
 
 #contenedor{
-
 	/*margin: auto;*/
+	/*margin-left:100px;*/
+	align:center;
 } 
 
 body {
-	width:1150px;
-	margin: auto;
+	/*width:1150px;*/
+	width:auto;
 	color:#00315C;
-	background-image:url(images/bg.gif);
-	background-repeat:repeat-x;
+/*	background-image:url(images/bg.gif);*/
+/*	background-repeat:repeat-x;*/
 }
 
 body a {
@@ -28,42 +29,49 @@ body a {
 
 #cabecera {
 	height:82px;
+	width:99%;
 	background-image:url(images/cabecera.bmp);
-	background-repeat:no-repeat; 
+	/*background-color:#00315C;*/
+	background-repeat:no-repeat;
 }
 
 #menu1 {
 	background-color:#CCCCCC;
     height:20px;
+    width:99%;
 }
 
 #menulat {
-	width:221px;
+	/*width:221px;*/
+	width:20%;
 	min-height:590px;
-	background-image:url(images/fndLateral.jpg);
-	background-repeat:no-repeat;
+	/*background-image:url(images/fndLateral.jpg);*/
+	/*background-repeat:no-repeat;*/
 	float:left;
 	display:block;
+	background-color:#00315C;
 }
 
 #menu2 {
 	background-color:#AAAAAA;
     height:20px;
-    width:929px;
+    /*width:929px;*/
+    width:80%;
     float:right;
     display:inline;
 }
 
 #cuerpo{
     display:block;
-    width:1150px;
+    /*width:1150px;*/
+    width:99%;
 }
 
 #contenido{
 	display:block;
 	height:570px;
-	width:928px;
-	background-color:#FFFFFF;
+	/*width:928px;*/
+	width:79.9%;
 	background-image: url(images/fndCuerpo.jpg);
 	background-position:bottom right;
 	border-right: #999999 1px solid;
@@ -73,31 +81,37 @@ body a {
 
 #colA{
 	background-color:#CCCCCC;
-	width:400px;
+	/*width:400px;*/
+	width:40%;
 	float:left;
 }
 
 #colB{
-	background-color:#CCCCCC;
-	width:400px;
+	background-color:#00315C;
+	/*width:400px;*/
+	width:40%;
 	float:right;
 }
 
 #pie{
     display:block;
 	height:35px;
-	background-image:url(images/pie.jpg);
+	width:99%;
+	/*background-image:url(images/pie.jpg);*/
+	background-color:#CCCCCC;
 	clear:both;
 }
 
 #classone{
 	float:left;
-	width:575px;
+	/*width:575px;*/
+	width:50%;
 }
 
 #sesion {
 	float:right;
-	width:575px;
+	/*width:575px;*/
+	width:50%;
 }
 
 
@@ -119,7 +133,7 @@ ul a {
 	font-family:Verdana, Arial, Helvetica, sans-serif;
 	font-size:11px;
 	margin-top:10px;
-	margin-left:-15px;
+	margin-left:15px;
 }
 
 ul a:hover {
@@ -141,11 +155,11 @@ ul.nav li {
 
 ul.nav ul /* Para todos los ul debajo del ul.nav */
 {
-   /*position:relative; /* Esta posición es relativa al <li> que contiene a este <ul> */
+   position:relative; /* Esta posición es relativa al <li> que contiene a este <ul> */
    top:-1px;
    display:none; /*Esto es lo que oculta los submenus*/
    list-style:none;
-   margin-left:-15px;
+   margin-left:15px;
 }
 
 /* Esto afecta a todos los ul inmediatamente debajo (el > ) de un li que a su vez esté dentro de un ul.menu */

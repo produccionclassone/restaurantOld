@@ -15,6 +15,7 @@ library={
         "classpath:/com/trsvax/bootstrap/assets/bootstrap/js/bootstrap.js"
         }
 )
+
 public class LayoutIndex {
     
     @Property

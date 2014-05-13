@@ -42,7 +42,7 @@
 					<a href="#">
 						${message:menu-opcion1.3} ▼
 					</a>
-					<ul id="nav" class="nav">
+					<ul id="navIzq" class="nav">
 						<li>
 							<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion1.3.1}</a>
 						</li>
@@ -87,82 +87,82 @@
 	
 	
 	<div id="colB">
-	<ul id="nav" class="nav">
+	<ul id="navDer" class="nav">
 		<div class="separacion"></div>
-		<li id="opcion1">
+		<li id="opcion4">
 			<a href="#" class="nivel1" style="padding-right:60px;">
-				${message:menu-opcion1} ▼
+				${message:menu-opcion4} ▼
 			</a>
-			<ul id="nav2" class="nav2">
+			<ul id="nav2Der" class="nav2">
 				<div class="separacionN2"></div>
-				<li id="opcion1.1">
+				<li id="opcion4.1">
 					<a href="#">
-						${message:menu-opcion1.1} ▼
+						${message:menu-opcion4.1} ▼
 					</a>
 					<ul>
 						<li>
-							<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion1.1.1}</a>
+							<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion4.1.1}</a>
 						</li>
 						<li>
-							<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion1.1.2}</a>
+							<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion4.1.2}</a>
 						</li>
 					</ul>
 				</li>
 				<div class="separacionN2"></div>
-				<li id="opcion1.2">
+				<li id="opcion4.2">
 					<a href="#">
-						${message:menu-opcion1.2} ▼
+						${message:menu-opcion4.2} ▼
 					</a>
 					<ul>
 						<li>
-							<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion1.2.1}</a>
+							<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion4.2.1}</a>
 						</li>
 						<li>
-							<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion1.2.2}</a>
+							<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion4.2.2}</a>
 						</li>
 					</ul>
 				</li>
 				<div class="separacionN2"></div>
-				<li id="opcion1.3">
+				<li id="opcion4.3">
 					<a href="#">
-						${message:menu-opcion1.3} ▼
+						${message:menu-opcion4.3} ▼
 					</a>
 					<ul id="nav" class="nav">
 						<li>
-							<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion1.3.1}</a>
+							<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion4.3.1}</a>
 						</li>
 						<li>
-							<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion1.3.2}</a>
+							<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion4.3.2}</a>
 						</li>
 					</ul>
 				</li>
 			</ul>
 		</li>
 		<div class="separacion"></div>
-		<li id="opcion2">
+		<li id="opcion5">
 			<a href="#" class="nivel1" style="padding-right:65px;">
-				${message:menu-opcion2} ▼
+				${message:menu-opcion5} ▼
 			</a>
 			<ul>
 				<div class="separacionN2"></div>
 				<li>
-					<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion2.1}</a>
+					<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion5.1}</a>
 				</li>
 				<div class="separacionN2"></div>
 				<li>
-					<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion2.2}</a>
+					<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion5.2}</a>
 				</li>
 				<div class="separacionN2"></div>
 				<li>
-					<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion2.3}</a>
+					<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion5.3}</a>
 				</li>
 			</ul>
 		</li>
 		<div class="separacion"></div>
-		<li id="opcion3">
+		<li id="opcion6">
 			<a href="#" class="nivel1" style="padding-right:17px;" t:type="PageLink"
 				t:page="Index">
-				${message:menu-opcion3}
+				${message:menu-opcion6}
 			</a>
 		</li>
 	</ul>
