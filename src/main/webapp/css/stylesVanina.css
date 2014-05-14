@@ -1,186 +1,36 @@
-html{
-	font-family:Verdana, Arial, Helvetica, sans-serif;
+/* Body. */
+
+* { margin: 0; padding: 0; }
+
+html, body {    
+        height: 100%;  
 }
 
-#contenedor{
-	/*margin: auto;*/
-	/*margin-left:100px;*/
-	align:center;
-} 
-
-body {
-	/*width:1150px;*/
-	width:auto;
-	color:#00315C;
-/*	background-image:url(images/bg.gif);*/
-/*	background-repeat:repeat-x;*/
+#wrap { 
+	min-height: 100%; 
 }
 
-body a {
-    text-decoration: none;
-    margin: 0 0 0 0;
-	padding: 0 0 0 0;
-	font-color:#00315C;
-	font-family:Verdana, Arial, Helvetica, sans-serif;
-}
-.p5{
-	padding-left:5px;
+#main { 
+	overflow: auto;
+ 	padding-bottom: 50px;
+  	text-align: center; 
 }
 
-#cabecera {
-	height:82px;
-	width:99%;
-	background-image:url(images/cabecera.bmp);
-	/*background-color:#00315C;*/
-	background-repeat:no-repeat;
+#footer { 
+	position: relative; 
+	margin-top: -50px; 
+	/* altura en px del footer con valor negativo */ 
+	height: 50px; /* Altura del Footer en px*/
+	clear: both;
+	text-align: center;
+	background-color: #F8F8FF;
 }
 
-#menu1 {
-	background-color:#CCCCCC;
-    height:20px;
-    width:99%;
+div.logo{
+	text-align:left;
 }
 
-#menulat {
-	/*width:221px;*/
-	width:20%;
-	min-height:590px;
-	/*background-image:url(images/fndLateral.jpg);*/
-	/*background-repeat:no-repeat;*/
-	float:left;
-	display:block;
-	background-color:#00315C;
+div.row{
+padding:20px;
 }
-
-#menu2 {
-	background-color:#AAAAAA;
-    height:20px;
-    /*width:929px;*/
-    width:80%;
-    float:right;
-    display:inline;
-}
-
-#cuerpo{
-    display:block;
-    /*width:1150px;*/
-    width:99%;
-}
-
-#contenido{
-	display:block;
-	height:570px;
-	/*width:928px;*/
-	width:79.9%;
-	background-image: url(images/fndCuerpo.jpg);
-	background-position:bottom right;
-	border-right: #999999 1px solid;
-	overflow-y:scroll;
-	float:left;
-}
-
-#colA{
-	background-color:#CCCCCC;
-	/*width:400px;*/
-	width:40%;
-	float:left;
-}
-
-#colB{
-	background-color:#00315C;
-	/*width:400px;*/
-	width:40%;
-	float:right;
-}
-
-#pie{
-    display:block;
-	height:35px;
-	width:99%;
-	/*background-image:url(images/pie.jpg);*/
-	background-color:#CCCCCC;
-	clear:both;
-}
-
-#classone{
-	float:left;
-	/*width:575px;*/
-	width:50%;
-}
-
-#sesion {
-	float:right;
-	/*width:575px;*/
-	width:50%;
-}
-
-
-
-/* =================================== MENU DESPLEGABLE ===============================*/
-.nivel1{
-	/*border:1px solid #cccccc;*/
-}
-
-.separacion{
-	margin-top:10px;
-}
-
-.separacionN2{
-	margin-top:5px;
-}
-
-ul a {
-	font-family:Verdana, Arial, Helvetica, sans-serif;
-	font-size:11px;
-	margin-top:10px;
-	margin-left:15px;
-}
-
-ul a:hover {
-	background:#69A5D9;
-	font-family:Verdana, Arial, Helvetica, sans-serif;
-	font-size:11px;
-	padding:2px;
-}
-
-ul.nav
-{  list-style:none;
-}
-
-ul.nav li {
-	/*position:relative;*/ /* Las coordenadas de los ul inferiores serán relativas al li que los contiene */
-    width:180px;
-
-}
-
-ul.nav ul /* Para todos los ul debajo del ul.nav */
-{
-   position:relative; /* Esta posición es relativa al <li> que contiene a este <ul> */
-   top:-1px;
-   display:none; /*Esto es lo que oculta los submenus*/
-   list-style:none;
-   margin-left:15px;
-}
-
-/* Esto afecta a todos los ul inmediatamente debajo (el > ) de un li que a su vez esté dentro de un ul.menu */
-
-ul.nav li:hover > ul
-{
- /* display:block;/*esto mostrara los li que ocultamos*/
-}
-
-
-li.on  ul { display:block  }
-li.off ul {display:none}
-
-li.on2  ul { display:block  }
-li.off2 ul {display:none}
-
-
-
-
-
-
-
-
 

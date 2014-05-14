@@ -1,170 +1,30 @@
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
 	t:type="LayoutIndex" t:pageTitle="title">
-	
-		<div id="colA">
-	<ul id="nav" class="nav">
-		<div class="separacion"></div>
-		<li id="opcion1">
-			<a href="#" class="nivel1" style="padding-right:60px;">
-				${message:menu-opcion1} ▼
-			</a>
-			<ul id="nav2" class="nav2">
-				<div class="separacionN2"></div>
-				<li id="opcion1.1">
-					<a href="#">
-						${message:menu-opcion1.1} ▼
-					</a>
-					<ul>
-						<li>
-							<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion1.1.1}</a>
-						</li>
-						<li>
-							<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion1.1.2}</a>
-						</li>
-					</ul>
-				</li>
-				<div class="separacionN2"></div>
-				<li id="opcion1.2">
-					<a href="#">
-						${message:menu-opcion1.2} ▼
-					</a>
-					<ul>
-						<li>
-							<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion1.2.1}</a>
-						</li>
-						<li>
-							<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion1.2.2}</a>
-						</li>
-					</ul>
-				</li>
-				<div class="separacionN2"></div>
-				<li id="opcion1.3">
-					<a href="#">
-						${message:menu-opcion1.3} ▼
-					</a>
-					<ul id="navIzq" class="nav">
-						<li>
-							<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion1.3.1}</a>
-						</li>
-						<li>
-							<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion1.3.2}</a>
-						</li>
-					</ul>
-				</li>
-			</ul>
-		</li>
-		<div class="separacion"></div>
-		<li id="opcion2">
-			<a href="#" class="nivel1" style="padding-right:65px;">
-				${message:menu-opcion2} ▼
-			</a>
-			<ul>
-				<div class="separacionN2"></div>
-				<li>
-					<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion2.1}</a>
-				</li>
-				<div class="separacionN2"></div>
-				<li>
-					<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion2.2}</a>
-				</li>
-				<div class="separacionN2"></div>
-				<li>
-					<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion2.3}</a>
-				</li>
-			</ul>
-		</li>
-		<div class="separacion"></div>
-		<li id="opcion3">
-			<a href="#" class="nivel1" style="padding-right:17px;" t:type="PageLink"
-				t:page="Index">
-				${message:menu-opcion3}
-			</a>
-		</li>
-	</ul>
-	</div>
-	
-	
-	
-	
-	<div id="colB">
-	<ul id="navDer" class="nav">
-		<div class="separacion"></div>
-		<li id="opcion4">
-			<a href="#" class="nivel1" style="padding-right:60px;">
-				${message:menu-opcion4} ▼
-			</a>
-			<ul id="nav2Der" class="nav2">
-				<div class="separacionN2"></div>
-				<li id="opcion4.1">
-					<a href="#">
-						${message:menu-opcion4.1} ▼
-					</a>
-					<ul>
-						<li>
-							<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion4.1.1}</a>
-						</li>
-						<li>
-							<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion4.1.2}</a>
-						</li>
-					</ul>
-				</li>
-				<div class="separacionN2"></div>
-				<li id="opcion4.2">
-					<a href="#">
-						${message:menu-opcion4.2} ▼
-					</a>
-					<ul>
-						<li>
-							<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion4.2.1}</a>
-						</li>
-						<li>
-							<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion4.2.2}</a>
-						</li>
-					</ul>
-				</li>
-				<div class="separacionN2"></div>
-				<li id="opcion4.3">
-					<a href="#">
-						${message:menu-opcion4.3} ▼
-					</a>
-					<ul id="nav" class="nav">
-						<li>
-							<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion4.3.1}</a>
-						</li>
-						<li>
-							<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion4.3.2}</a>
-						</li>
-					</ul>
-				</li>
-			</ul>
-		</li>
-		<div class="separacion"></div>
-		<li id="opcion5">
-			<a href="#" class="nivel1" style="padding-right:65px;">
-				${message:menu-opcion5} ▼
-			</a>
-			<ul>
-				<div class="separacionN2"></div>
-				<li>
-					<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion5.1}</a>
-				</li>
-				<div class="separacionN2"></div>
-				<li>
-					<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion5.2}</a>
-				</li>
-				<div class="separacionN2"></div>
-				<li>
-					<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion5.3}</a>
-				</li>
-			</ul>
-		</li>
-		<div class="separacion"></div>
-		<li id="opcion6">
-			<a href="#" class="nivel1" style="padding-right:17px;" t:type="PageLink"
-				t:page="Index">
-				${message:menu-opcion6}
-			</a>
-		</li>
-	</ul>
-	</div>
+
+
+
+<!-- Button trigger modal -->
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 </html>

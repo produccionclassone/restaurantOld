@@ -1,72 +1,78 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml"
-	  xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
-	  xmlns:p="tapestry:parameter">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter">
 
-<head>
-	<title>${pageTitle}</title>
-	<link rel="StyleSheet" href="${context:/css/stylesVanina.css}"
-		  type="text/css" media="all"/>
-	<script language="javascript" type="text/javascript"
-			src="${context:/javaScript/layout.js}"></script>
-</head>
+	<head>
+		<title>${pageTitle}</title>
+		<link rel="StyleSheet" href="${context:/css/stylesVanina.css}"
+			type="text/css" media="all" />
+		<link rel="StyleSheet" href="${context:/css/bootstrap.css}" type="text/css"
+			media="all" />
+	</head>
 
-		<body>
-			<div id="contenedor">
-				<div id="cabecera"></div>
-				<div id="menu1" class="menu1"></div>
-				<div id="cuerpo">
-					<div id="menulat" class="menulat"></div>
-					<div id="menu2" class="menu2"></div>
-					<div id="contenido" class="contenido">
-							<t:body />
+	<body>
+		<!-- Window. -->
+
+		<div id="wrap">
+			<div id="main">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="logo">
+								<img src="${context:css/images/restaurant-logo.jpg}" alt="Logo"
+									class="img-rounded" height="80px" />
+							</div>
+						</div>
+						<div class="col-md-6">Info restaurante</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">Menu 1</div>
 					</div>
 				</div>
-				<div id="pie">
-					<div id="classone">classone</div>
-					<div id="sesion">sesion</div>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-3">
+							<div class="row">
+								<div class="col-md-12" style="background-color:#CCCCCC">
+									<h2>Accesos rápidos vertical</h2>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">Favoritos</div>
+							</div>
+						</div>
+						<div class="col-md-9">
+							<div class="row">
+								<div class="col-md-12" style="background-color:#00315c">Accesos rápidos horizontal</div>
+							</div>
+							<div class="row">
+									<div class="content">
+										<t:body />
+									</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-		</body>
+		</div>
+
+		<div id="footer">
+			<div class="container">
+				<p>
+					<img src="${context:css/images/logo.gif}" alt="Logo" width="50"
+						height="50" />
+					Class One, S.L. con domicilio social en C/Rafael Alberti, 6 ,CP
+					15172-Perillo (La Coruña)
+				</p>
+
+			</div>
+		</div>
+
+
+		<script src="http://code.jquery.com/jquery.js"></script>
+		<script src="${context:/javaScript/bootstrap.min.js}"></script>
+	</body>
 
 </html>
-
-
-
-<!-- 
-							<ul id="nav" class="nav">
-								<div class="separacion"></div>
-								<li id="opcion1">
-									<a href="#" class="nivel1"  style="padding-right:101px;" t:type="PageLink" t:page="Index">
-										${message:menu-opcion1}
-									</a>
-								</li>
-								<div class="separacion"></div>
-								<li id="opcion2">
-									<a href="#" class="nivel1" style="padding-right:65px;">
-										${message:menu-opcion2} ▼
-									</a>
-									<ul>
-										<div class="separacionN2"></div>
-										<li>
-											<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion2.1}</a>
-										</li>
-										<div class="separacionN2"></div>
-										<li>
-											<a href="#" t:type="PageLink" t:page="Index">${message:menu-opcion2.2}</a>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						
-							<a href="#" t:type="ActionLink" t:id="opcion1">
-							<span>${message:menu-opcion1}</span>
-						</a>
-						|
-						<a href="#" t:type="ActionLink" t:id="opcion2">
-							<span>${message:menu-opcion2}</span>
-						</a>
--->						
- 							
