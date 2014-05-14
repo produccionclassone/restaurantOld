@@ -45,7 +45,7 @@ public class Command {
 	private MethodOfPayment methodOfPayment1;// Res14cnt_FP_RFCNT300
 	private MethodOfPayment methodOfPayment2;// Res14cnt_FP_RFCNT3001
 	private MethodOfPayment methodOfPayment3;// Res14cnt_FP_RFCNT3002
-	
+
 	public Command(int tableNumber, int commensalNumber, Long billNumber,
 			Calendar commandDateIni, Calendar commandDateFin, float mp1amount,
 			float mp1amountNoIva, float mp1amountIva, float mp2amount,
@@ -77,7 +77,7 @@ public class Command {
 		this.methodOfPayment3 = methodOfPayment3;
 	}
 
-	@Column(name="R1MES000_1")
+	@Column(name = "R1MES000_1")
 	@SequenceGenerator( // It only takes effect for
 	name = "CommandIdGenerator", // databases providing identifier
 	sequenceName = "CommandSeq")
@@ -91,7 +91,8 @@ public class Command {
 	public void setCommandId(int commandId) {
 		this.commandId = commandId;
 	}
-	@Column(name="R1MES005")
+
+	@Column(name = "R1MES005")
 	public int getTableNumber() {
 		return tableNumber;
 	}
@@ -99,7 +100,8 @@ public class Command {
 	public void setTableNumber(int tableNumber) {
 		this.tableNumber = tableNumber;
 	}
-	@Column(name="R1MES007")
+
+	@Column(name = "R1MES007")
 	public int getCommensalNumber() {
 		return commensalNumber;
 	}
@@ -107,7 +109,8 @@ public class Command {
 	public void setCommensalNumber(int commensalNumber) {
 		this.commensalNumber = commensalNumber;
 	}
-	@Column(name="R1MES008")
+
+	@Column(name = "R1MES008")
 	public Long getBillNumber() {
 		return billNumber;
 	}
@@ -115,7 +118,8 @@ public class Command {
 	public void setBillNumber(Long billNumber) {
 		this.billNumber = billNumber;
 	}
-	@Column(name="R1MES009")
+
+	@Column(name = "R1MES009")
 	@Temporal(TemporalType.TIMESTAMP)
 	public Calendar getCommandDateIni() {
 		return commandDateIni;
@@ -124,7 +128,8 @@ public class Command {
 	public void setCommandDateIni(Calendar commandDateIni) {
 		this.commandDateIni = commandDateIni;
 	}
-	@Column(name="R1MES010")
+
+	@Column(name = "R1MES010")
 	@Temporal(TemporalType.TIMESTAMP)
 	public Calendar getCommandDateFin() {
 		return commandDateFin;
@@ -133,7 +138,8 @@ public class Command {
 	public void setCommandDateFin(Calendar commandDateFin) {
 		this.commandDateFin = commandDateFin;
 	}
-	@Column(name="R1MES014_01")
+
+	@Column(name = "R1MES014_01")
 	public float getMp1amount() {
 		return mp1amount;
 	}
@@ -141,7 +147,8 @@ public class Command {
 	public void setMp1amount(float mp1amount) {
 		this.mp1amount = mp1amount;
 	}
-	@Column(name="R1MES019_01")
+
+	@Column(name = "R1MES019_01")
 	public float getMp1amountNoIva() {
 		return mp1amountNoIva;
 	}
@@ -149,7 +156,8 @@ public class Command {
 	public void setMp1amountNoIva(float mp1amountNoIva) {
 		this.mp1amountNoIva = mp1amountNoIva;
 	}
-	@Column(name="R1MES020_01")
+
+	@Column(name = "R1MES020_01")
 	public float getMp1amountIva() {
 		return mp1amountIva;
 	}
@@ -157,7 +165,8 @@ public class Command {
 	public void setMp1amountIva(float mp1amountIva) {
 		this.mp1amountIva = mp1amountIva;
 	}
-	@Column(name="R1MES014_02")
+
+	@Column(name = "R1MES014_02")
 	public float getMp2amount() {
 		return mp2amount;
 	}
@@ -165,7 +174,8 @@ public class Command {
 	public void setMp2amount(float mp2amount) {
 		this.mp2amount = mp2amount;
 	}
-	@Column(name="R1MES019_02")
+
+	@Column(name = "R1MES019_02")
 	public float getMp2amountNoIva() {
 		return mp2amountNoIva;
 	}
@@ -173,7 +183,8 @@ public class Command {
 	public void setMp2amountNoIva(float mp2amountNoIva) {
 		this.mp2amountNoIva = mp2amountNoIva;
 	}
-	@Column(name="R1MES020_02")
+
+	@Column(name = "R1MES020_02")
 	public float getMp2amountIva() {
 		return mp2amountIva;
 	}
@@ -181,7 +192,8 @@ public class Command {
 	public void setMp2amountIva(float mp2amountIva) {
 		this.mp2amountIva = mp2amountIva;
 	}
-	@Column(name="R1MES014_03")
+
+	@Column(name = "R1MES014_03")
 	public float getMp3amount() {
 		return mp3amount;
 	}
@@ -189,7 +201,8 @@ public class Command {
 	public void setMp3amount(float mp3amount) {
 		this.mp3amount = mp3amount;
 	}
-	@Column(name="R1MES019_02")
+
+	@Column(name = "R1MES019_02")
 	public float getMp3amountNoIva() {
 		return mp3amountNoIva;
 	}
@@ -197,7 +210,8 @@ public class Command {
 	public void setMp3amountNoIva(float mp3amountNoIva) {
 		this.mp3amountNoIva = mp3amountNoIva;
 	}
-	@Column(name="R1MES020_03")
+
+	@Column(name = "R1MES020_03")
 	public float getMp3amountIva() {
 		return mp3amountIva;
 	}
@@ -205,7 +219,8 @@ public class Command {
 	public void setMp3amountIva(float mp3amountIva) {
 		this.mp3amountIva = mp3amountIva;
 	}
-	@Column(name="R1MES015")
+
+	@Column(name = "R1MES015")
 	public float getGrossAmount() {
 		return grossAmount;
 	}
@@ -213,7 +228,8 @@ public class Command {
 	public void setGrossAmount(float grossAmount) {
 		this.grossAmount = grossAmount;
 	}
-	@Column(name="R1MES016")
+
+	@Column(name = "R1MES016")
 	public float getIvaAmount() {
 		return ivaAmount;
 	}
@@ -221,8 +237,8 @@ public class Command {
 	public void setIvaAmount(float ivaAmount) {
 		this.ivaAmount = ivaAmount;
 	}
-	
-	@ManyToOne(fetch=FetchType.LAZY,optional=false)
+
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "R1MES000")
 	public Session getSession() {
 		return session;
@@ -231,8 +247,9 @@ public class Command {
 	public void setSession(Session session) {
 		this.session = session;
 	}
-	@OneToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="R1CLI001")
+
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "R1CLI001")
 	public Client getClient() {
 		return client;
 	}
@@ -240,9 +257,9 @@ public class Command {
 	public void setClient(Client client) {
 		this.client = client;
 	}
-	
-	@OneToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="RFCNT300")
+
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "RFCNT300")
 	public MethodOfPayment getMethodOfPayment1() {
 		return methodOfPayment1;
 	}
@@ -250,8 +267,9 @@ public class Command {
 	public void setMethodOfPayment1(MethodOfPayment methodOfPayment1) {
 		this.methodOfPayment1 = methodOfPayment1;
 	}
-	@OneToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="RFCNT300")
+
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "RFCNT300")
 	public MethodOfPayment getMethodOfPayment2() {
 		return methodOfPayment2;
 	}
@@ -259,8 +277,9 @@ public class Command {
 	public void setMethodOfPayment2(MethodOfPayment methodOfPayment2) {
 		this.methodOfPayment2 = methodOfPayment2;
 	}
-	@OneToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="RFCNT300")
+
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "RFCNT300")
 	public MethodOfPayment getMethodOfPayment3() {
 		return methodOfPayment3;
 	}
@@ -268,8 +287,6 @@ public class Command {
 	public void setMethodOfPayment3(MethodOfPayment methodOfPayment3) {
 		this.methodOfPayment3 = methodOfPayment3;
 	}
-	
-	
 
 }
 // CREATE TABLE IF NOT EXISTS `Ayx14res`.`Res14mes_1` (
