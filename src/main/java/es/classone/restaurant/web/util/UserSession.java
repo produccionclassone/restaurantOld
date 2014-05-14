@@ -3,28 +3,19 @@ package es.classone.restaurant.web.util;
 
 public class UserSession {
 
-	private Long userProfileId;
-	private String firstName;
+	private int userProfileId;
 	private char userPrivilege;
 	private String ipIn;
 	private String ipExt;
 	private String macAddress;
 	private String persPath;
 
-	public Long getUserProfileId() {
+	public int getUserProfileId() {
 		return userProfileId;
 	}
 
-	public void setUserProfileId(Long userProfileId) {
+	public void setUserProfileId(int userProfileId) {
 		this.userProfileId = userProfileId;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
 	}
 
 	public char getUserPrivilege() {

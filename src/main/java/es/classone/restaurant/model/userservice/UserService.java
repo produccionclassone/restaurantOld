@@ -23,14 +23,14 @@ public interface UserService {
 			boolean passwordIsEncrypted) throws InstanceNotFoundException,
 			IncorrectPasswordException;
 
-	public UserProfile findUserProfile(Long userProfileId)
+	public UserProfile findUserProfile(int userProfileId)
 			throws InstanceNotFoundException;
 
-	public void updateUserProfileDetails(Long userProfileId,
+	public void updateUserProfileDetails(int userProfileId,
 			UserProfileDetails userProfileDetails)
 			throws InstanceNotFoundException;
 
-	public void changePassword(Long userProfileId, String oldClearPassword,
+	public void changePassword(int userProfileId, String oldClearPassword,
 			String newClearPassword) throws IncorrectPasswordException,
 			InstanceNotFoundException;
 

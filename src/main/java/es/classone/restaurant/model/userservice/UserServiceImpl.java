@@ -116,13 +116,13 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Transactional(readOnly = true)
-	public UserProfile findUserProfile(Long userProfileId)
+	public UserProfile findUserProfile(int userProfileId)
 			throws InstanceNotFoundException {
 
 		return userProfileDao.find(userProfileId);
 	}
 
-	public void updateUserProfileDetails(Long userProfileId,
+	public void updateUserProfileDetails(int userProfileId,
 			UserProfileDetails userProfileDetails)
 			throws InstanceNotFoundException {
 
@@ -131,7 +131,7 @@ public class UserServiceImpl implements UserService {
 
 	}
 
-	public void changePassword(Long userProfileId, String oldClearPassword,
+	public void changePassword(int userProfileId, String oldClearPassword,
 			String newClearPassword) throws IncorrectPasswordException,
 			InstanceNotFoundException {
 

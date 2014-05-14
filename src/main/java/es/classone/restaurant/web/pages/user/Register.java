@@ -58,7 +58,7 @@ public class Register {
 	@Inject
 	private Messages messages;
 
-	private Long userProfileId;
+	private int userProfileId;
 	private String path = userSession.getPersPath();
 	void onValidateFromRegistrationForm() {
 	
@@ -87,7 +87,6 @@ public class Register {
 	Object onSuccess() {
 		userSession = new UserSession();
 		userSession.setUserProfileId(userProfileId);
-		userSession.setFirstName(firstName);
 		userSession.setUserPrivilege((char) ('2' + privilege));
 		userSession.setPersPath(path);
 		return Index.class;

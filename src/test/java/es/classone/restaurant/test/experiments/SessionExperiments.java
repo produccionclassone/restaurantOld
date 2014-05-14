@@ -19,7 +19,7 @@ public class SessionExperiments {
 			UserProfile userProfile = new UserProfile("sessionUser",
 					PasswordEncrypter.crypt("userPassword"),"user@udc.es",'1',"ipI","IpE","mac");
 			session.saveOrUpdate(userProfile);
-			Long userId = userProfile.getUserProfileId();
+			int userId = userProfile.getUserProfileId();
 			System.out.println("User with userId '" + userId
 					+ "' has been created");
 			System.out.println(userProfile);

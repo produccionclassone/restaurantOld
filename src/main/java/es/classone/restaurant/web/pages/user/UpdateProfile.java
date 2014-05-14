@@ -46,7 +46,6 @@ public class UpdateProfile {
 
         userService.updateUserProfileDetails(
                 userSession.getUserProfileId(), new UserProfileDetails( email));
-        userSession.setFirstName(firstName);
         return Index.class;
 
     }

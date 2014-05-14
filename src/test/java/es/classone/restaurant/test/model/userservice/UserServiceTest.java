@@ -30,7 +30,7 @@ import es.classone.restaurant.modelutil.exceptions.InstanceNotFoundException;
 @Transactional
 public class UserServiceTest {
 
-	private final long NON_EXISTENT_USER_PROFILE_ID = -1;
+	private final int NON_EXISTENT_USER_PROFILE_ID = -1;
 
 	@Autowired
 	private UserService userService;
