@@ -38,7 +38,7 @@ public class AppModule {
 	/**
 	 * Contribute our {@link ComponentClassTransformWorker2} to transformation
 	 * pipeline to add our code to loaded classes
-	 *
+	 * 
 	 * @param configuration
 	 *            component class transformer configuration
 	 */
@@ -50,14 +50,12 @@ public class AppModule {
 
 	}
 
-
 	public static void contributeRequestHandler(
 			OrderedConfiguration<RequestFilter> configuration,
 			SessionFilter sessionFilter) {
 
 		/* Add filters to the RequestHandler service. */
-		configuration.add("SessionFilter", sessionFilter,
-				"after:*");
+		configuration.add("SessionFilter", sessionFilter, "after:*");
 
 	}
 

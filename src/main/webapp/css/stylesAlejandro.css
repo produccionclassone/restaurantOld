@@ -90,22 +90,9 @@ input, select, textarea  {
 
 /* Error messages. */
 
-div.t-error ul {
-	font-weight: bold;
-	margin-left: 20px; 
-}
+HTML>BODY DIV.t-error             {  border:none; }
+BODY div.t-error div.t-banner    {background-color:inherit;  color:red;}
+BODY div.t-error ul          { border:none; background-color: inherit; font-weight:bold; list-style: none; }
+BODY div.t-error li          {border:none; text-align: center; font-weight: normal; }
 
-
-label.valid {
-  width: 24px;
-  height: 24px;
-  display: inline-block;
-  text-indent: -9999px;
-}
-label.error {
-  font-weight: bold;
-  color: red;
-  padding: 2px 8px;
-  margin-top: 2px;
-}
 

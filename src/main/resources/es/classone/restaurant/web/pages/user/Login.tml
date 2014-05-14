@@ -12,12 +12,12 @@
 					<div class="form-group">
 						<t:label for="loginName" />
 						<input class="form-control" t:id="loginName" name="loginName"  
-						t:type="TextField" placeholder="${message:loginName-label}" t:validate="required"/>
+						t:type="TextField" placeholder="${message:loginName-label}" validate="required"/>
 					</div>
 					<div class="form-group">
 						<t:label for="password" />
 						<input class="form-control" t:id="password" t:type="PasswordField"
-							placeholder="${message:password-label}" name="password" t:validate="required"/>
+							placeholder="${message:password-label}" name="password" validate="required"/>
 					</div>
 					<div class="form-group">
 						<input t:type="Checkbox" t:id="rememberMyPassword" />

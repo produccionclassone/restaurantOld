@@ -56,6 +56,7 @@ public class Login {
 
 	private UserProfile userProfile = null;
 
+	
 	public void setPath(String path) {
 		this.path = path;
 	}
