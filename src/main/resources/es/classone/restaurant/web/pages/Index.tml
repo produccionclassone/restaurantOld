@@ -1,30 +1,77 @@
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
 	t:type="LayoutIndex" t:pageTitle="title">
 
+	<div class="row">
+		<div class="col-md-4"></div>
+		<div class="col-md-4">Menu principal</div>
+		<div class="col-md-4"></div>
+	</div>
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-3">
+			<!-- Button trigger modal -->
+			<button class="btn btn-default" data-toggle="modal"
+				data-target="#myModal">
+				Funciones de camarero
+			</button>
+			<!-- Modal -->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+				aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-hidden="true">&times;
+							</button>
+							<h4 class="modal-title" id="myModalLabel">Funciones de camarero</h4>
+						</div>
+						<div class="modal-body">
+							<button type="button" class="btn btn-default">Tratamiento de comandas</button>
+							<button type="button" class="btn btn-default">Listado de la carta de platos</button>
+							<button type="button" class="btn btn-default">Apertura de sesión</button>
+							<button type="button" class="btn btn-default">Cierre de sesión</button>
+							<button type="button" class="btn btn-default">Tratamiento de reservas</button>
+							<button type="button" class="btn btn-default">Fichaje salida de camareros</button>
+							<button type="button" class="btn btn-default">Cambio de moneda</button>
+							<button type="button" class="btn btn-default">Coletillas de facturas/tickets</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<!-- Button trigger modal -->
+			<button class="btn btn-default" data-toggle="modal"
+				data-target="#mantenimientoFicherosMaestros">
+				Mantenimiento de ficheros maestros
+			</button>
+			<!-- Modal -->
+			<div class="modal fade" id="mantenimientoFicherosMaestros" tabindex="-1" role="dialog"
+				aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-hidden="true">&times;
+							</button>
+							<h4 class="modal-title" id="mantenimientoFicherosMaestros">Mantenimiento de ficheros maestros</h4>
+						</div>
+						<div class="modal-body">
+							<button type="button" class="btn btn-default">Grupos de la carta</button>
+							<button type="button" class="btn btn-default">Platos de la carta</button>
+							<button type="button" class="btn btn-default">Platos de complemento</button>
+							<button type="button" class="btn btn-default">Calificadores de los platos</button>
+							<button type="button" class="btn btn-default">Formas de pago</button>
+							<button type="button" class="btn btn-default">Creación de monedas</button>
+							<button type="button" class="btn btn-default">Fichero de camareros</button>
+							<button type="button" class="btn btn-default">Fichero de clientes</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3"></div>
 
-
-<!-- Button trigger modal -->
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+	</div>
 
 </html>

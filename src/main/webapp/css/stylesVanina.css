@@ -16,6 +16,10 @@ html, body {
   	text-align: center; 
 }
 
+div.logo{
+	text-align:center;
+}
+
 #footer { 
 	position: relative; 
 	margin-top: -50px; 
@@ -26,11 +30,4 @@ html, body {
 	background-color: #F8F8FF;
 }
 
-div.logo{
-	text-align:left;
-}
-
-div.row{
-padding:20px;
-}
 

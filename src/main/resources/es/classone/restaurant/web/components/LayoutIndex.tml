@@ -13,46 +13,139 @@
 	</head>
 
 	<body>
-		<!-- Window. -->
-
 		<div id="wrap">
 			<div id="main">
 				<div class="container">
-					<div class="row">
+					<div class="row"> <!-- cabecera -->
 						<div class="col-md-6">
 							<div class="logo">
 								<img src="${context:css/images/restaurant-logo.jpg}" alt="Logo"
-									class="img-rounded" height="80px" />
+									class="img-rounded" height="200px" />
 							</div>
 						</div>
-						<div class="col-md-6">Info restaurante</div>
+						<div class="col-md-6">
+							<h2>Info restaurante</h2>
+						</div>
 					</div>
-					<div class="row">
-						<div class="col-md-12">Menu 1</div>
+					<div class="row"> <!-- menu horizontal -->
+						<div class="col-md-12">
+
+							<nav class="navbar navbar-default" role="navigation">
+								<div class="container-fluid">
+									<!-- Brand and toggle get grouped for better mobile display -->
+									<div class="navbar-header">
+										<button type="button" class="navbar-toggle"
+											data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+											<span class="sr-only">Toggle navigation</span>
+											<span class="icon-bar"></span>
+											<span class="icon-bar"></span>
+											<span class="icon-bar"></span>
+										</button>
+										<a class="navbar-brand" href="Index">Inicio</a>
+									</div>
+
+									<!-- Collect the nav links, forms, and other content for toggling -->
+									<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+										<ul class="nav navbar-nav">
+											<li class="dropdown">
+												<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+													Procesos
+													<b class="caret"></b>
+												</a>
+												<ul class="dropdown-menu">
+													<li>
+														<a href="#">Apertura de Sesión</a>
+													</li>
+													<li>
+														<a href="#">Cierre de Sesión</a>
+													</li>
+													<li>
+														<a href="#">Consulta de la Sesión</a>
+													</li>
+													<li class="divider"></li>
+													<li>
+														<a href="#">Fin</a>
+													</li>
+												</ul>
+											</li>
+										</ul>
+										<ul class="nav navbar-nav navbar-right">
+											<li class="dropdown">
+												<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+													Help
+													<b class="caret"></b>
+												</a>
+												<ul class="dropdown-menu">
+													<li>
+														<a href="#">Mapa Programas</a>
+													</li>
+													<li>
+														<a href="#">Quienes somos (Class One)</a>
+													</li>
+													<li>
+														<a href="#">Manuales online</a>
+													</li>
+												</ul>
+											</li>
+										</ul>
+									</div><!-- /.navbar-collapse -->
+								</div><!-- /.container-fluid -->
+							</nav>
+						</div>
 					</div>
 				</div>
 				<div class="container">
-					<div class="row">
-						<div class="col-md-3">
-							<div class="row">
-								<div class="col-md-12" style="background-color:#CCCCCC">
-									<h2>Accesos rápidos vertical</h2>
+					<div class="row"> <!-- cuerpo -->
+						<div class="col-md-3"> <!-- accesos rápidos vertical + favoritos -->
+							<div class="row"> <!-- accesos rápidos vertical -->
+								<div class="col-md-12">
+									<div class="btn-group">
+										<button type="button" class="btn btn-default">LVDE</button>
+										<button type="button" class="btn btn-default">Mapa web</button>
+										<button type="button" class="btn btn-default">Salir</button>
+									</div>
+
 								</div>
 							</div>
-							<div class="row">
-								<div class="col-md-12">Favoritos</div>
-							</div>
-						</div>
-						<div class="col-md-9">
-							<div class="row">
-								<div class="col-md-12" style="background-color:#00315c">Accesos rápidos horizontal</div>
-							</div>
-							<div class="row">
-									<div class="content">
-										<t:body />
+							<div class="row"> <!-- Favoritos -->
+								<div class="col-md-12">
+									Favoritos
+									<div class="btn-group">
+										<button type="button" class="btn btn-default">1.1</button>
+										<button type="button" class="btn btn-default">5.8</button>
+										<button type="button" class="btn btn-default">4.7</button>
+										<button type="button" class="btn btn-default">5.9</button>
+										<button type="button" class="btn btn-default">4.8</button>
+										<button type="button" class="btn btn-default">4.2</button>
+										
 									</div>
+								</div>
 							</div>
 						</div>
+						<div class="col-md-9"> <!-- Accesos rápidos horizontal + contenido -->
+							<div class="row"> <!-- Accesos rápidos horizontal -->
+								<div class="col-md-12">
+										<button type="button" class="btn btn-default">F!</button>
+										<button type="button" class="btn btn-default">F2</button>
+										<button type="button" class="btn btn-default">F3</button>
+										<button type="button" class="btn btn-default">F4</button>
+										<button type="button" class="btn btn-default">F5</button>
+										<button type="button" class="btn btn-default">F6</button>
+										<button type="button" class="btn btn-default">F7</button>
+										<button type="button" class="btn btn-default">F8</button>
+										<button type="button" class="btn btn-default">F9</button>
+										<button type="button" class="btn btn-default">F10</button>
+										<button type="button" class="btn btn-default">F11</button>
+										<button type="button" class="btn btn-default">F12</button>
+								</div>
+							</div>
+							<div class="row"> <!-- contenido -->
+								<div class="content">
+									<t:body />
+								</div>
+							</div>
+						</div>
+
 					</div>
 				</div>
 			</div>
