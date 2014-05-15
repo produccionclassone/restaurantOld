@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Table(name = "Res14usr")
 public class UserProfile {
 
-	private Long userProfileId; //R1USR001_K1
+	private Long userProfileId; // R1USR001_K1
 	private String loginName; // R1USR002
 	private String encryptedPassword; // R1USR003
 	private String email; // R1USR004
@@ -25,15 +25,15 @@ public class UserProfile {
 	}
 
 	public UserProfile(String loginName, String encryptedPassword,
-			String email,char userPrivilege, String ipAddressIn, String ipAddressExt,
-			String macAddress) {
+			String email, char userPrivilege, String ipAddressIn,
+			String ipAddressExt, String macAddress) {
 
 		this.loginName = loginName;
 		this.encryptedPassword = encryptedPassword;
 		this.email = email;
-		this.userPrivilege=userPrivilege;
+		this.userPrivilege = userPrivilege;
 		this.ipAddressIn = ipAddressIn;
-		this.ipAddressExt=ipAddressExt;
+		this.ipAddressExt = ipAddressExt;
 		this.macAddress = macAddress;
 	}
 
@@ -79,7 +79,6 @@ public class UserProfile {
 		this.email = email;
 	}
 
-
 	@Column(name = "R1USR005")
 	public char getUserPrivilege() {
 		return userPrivilege;
@@ -89,7 +88,7 @@ public class UserProfile {
 		this.userPrivilege = userPrivilege;
 	}
 
-	@Column(name="R1USR006")
+	@Column(name = "R1USR006")
 	public String getIpAddressIn() {
 		return ipAddressIn;
 	}
@@ -97,7 +96,8 @@ public class UserProfile {
 	public void setIpAddressIn(String ipAddressIn) {
 		this.ipAddressIn = ipAddressIn;
 	}
-	@Column(name="R1USR007")
+
+	@Column(name = "R1USR007")
 	public String getIpAddressExt() {
 		return ipAddressExt;
 	}
@@ -106,12 +106,11 @@ public class UserProfile {
 		this.ipAddressExt = ipAddressExt;
 	}
 
-	@Column(name="R1USR008")
+	@Column(name = "R1USR008")
 	public String getMacAddress() {
 		return macAddress;
 	}
-	
-	
+
 	public void setMacAddress(String macAddress) {
 		this.macAddress = macAddress;
 	}
@@ -124,3 +123,22 @@ public class UserProfile {
 	}
 
 }
+
+// CREATE TABLE IF NOT EXISTS `Ayx14res`.`Res14aud` (
+// `R1SCL001` BIGINT NOT NULL AUTO_INCREMENT,
+// `R1SCL002` VARCHAR(2) NOT NULL,
+// `R1SCL004` DATETIME NOT NULL,
+// `R1SCL006` VARCHAR(4) NOT NULL,
+// `R1SCL007` SMALLINT NOT NULL,
+// `R1SCL008` DATETIME NOT NULL,
+// `R1SCL010` VARCHAR(40) NOT NULL,
+// `R1SCL011` VARCHAR(45) NULL,
+// `R1SCL013` VARCHAR(45) NULL,
+// `Res14usr_R1USR001_K1` INT NOT NULL,
+// PRIMARY KEY (`R1SCL001`),
+// CONSTRAINT `fk_Res14aud_Res14usr1`
+// FOREIGN KEY (`Res14usr_R1USR001_K1`)
+// REFERENCES `Ayx14res`.`Res14usr` (`R1USR001_K1`)
+// ON DELETE NO ACTION
+// ON UPDATE NO ACTION)
+// ENGINE = InnoDB;

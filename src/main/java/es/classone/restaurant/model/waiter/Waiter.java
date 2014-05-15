@@ -1,160 +1,231 @@
 package es.classone.restaurant.model.waiter;
 
+import java.util.Calendar;
+
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Table(name = "Res14cam")
 public class Waiter {
 
-	private Long R1CAM001;// PK Codigo de Camarero
-	private String R1CAM002;// Nombre del Camarero
-	private String R1CAM003;// DirecciÃ³n del Camarero
-	private String R1CAM004;// Codigo Postal
-	private String R1CAM005;// PoblaciÃ³n
-	private String R1CAM006;// Provincia
-	private String R1CAM007;// DNI - Identify
-	private String R1CAM008;// Telefono contacto
-	private String R1CAM009;// Persona Contacto
-	private String R1CAM010_01;// Varios .1.
-	private String R1CAM010_02;// Varios .2.
-	private String R1CAM010_03;// Varios .3.
-	private char R1CAM011;// Tipo de Cobro
+	private int waiterId;// R1CAM001
+	private String waiterName;// R1CAM002
+	private String waiterAddress;// R1CAM003
+	private String waiterZip;// R1CAM004
+	private String waiterTown;// R1CAM005
+	private String waiterProvince;// R1CAM006
+	private String waiterDNI;// R1CAM007
+	private String waiterPhone;// R1CAM008
+	private String waiterContact;// R1CAM009
+	private String notes1;// R1CAM010_01
+	private String notes2;// R1CAM010_02
+	private String notes3;// R1CAM010_03
+	private char chargeType;// R1CAM011
+	private boolean waiterEnable;// R1CAM013
+	private Calendar enableTime; // R1CAM014
+	private Calendar disableeTime; // R1CAM015
 
 	public Waiter() {
 
 	}
 
-	public Waiter(Long r1cam001, String r1cam002, String r1cam003,
-			String r1cam004, String r1cam005, String r1cam006, String r1cam007,
-			String r1cam008, String r1cam009, String r1cam010_01,
-			String r1cam010_02, String r1cam010_03, char r1cam011) {
-
-		R1CAM001 = r1cam001;
-		R1CAM002 = r1cam002;
-		R1CAM003 = r1cam003;
-		R1CAM004 = r1cam004;
-		R1CAM005 = r1cam005;
-		R1CAM006 = r1cam006;
-		R1CAM007 = r1cam007;
-		R1CAM008 = r1cam008;
-		R1CAM009 = r1cam009;
-		R1CAM010_01 = r1cam010_01;
-		R1CAM010_02 = r1cam010_02;
-		R1CAM010_03 = r1cam010_03;
-		R1CAM011 = r1cam011;
+	public Waiter(String waiterName, String waiterAddress, String waiterZip,
+			String waiterTown, String waiterProvince, String waiterDNI,
+			String waiterPhone, String waiterContact, String notes1,
+			String notes2, String notes3, char chargeType,
+			boolean waiterEnable, Calendar enableTime, Calendar disableeTime) {
+		this.waiterName = waiterName;
+		this.waiterAddress = waiterAddress;
+		this.waiterZip = waiterZip;
+		this.waiterTown = waiterTown;
+		this.waiterProvince = waiterProvince;
+		this.waiterDNI = waiterDNI;
+		this.waiterPhone = waiterPhone;
+		this.waiterContact = waiterContact;
+		this.notes1 = notes1;
+		this.notes2 = notes2;
+		this.notes3 = notes3;
+		this.chargeType = chargeType;
+		this.waiterEnable = waiterEnable;
+		this.enableTime = enableTime;
+		this.disableeTime = disableeTime;
 	}
 
+	@Column(name = "R1CAM001")
 	@SequenceGenerator( // It only takes effect for
 	name = "WaiterIdGenerator", // databases providing identifier
 	sequenceName = "WaiterSeq")
 	// generators.
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "WaiterIdGenerator")
-	public Long getR1CAM001() {
-		return R1CAM001;
+	public int getWaiterId() {
+		return waiterId;
 	}
 
-	public void setR1CAM001(Long r1cam001) {
-		R1CAM001 = r1cam001;
+	public void setWaiterId(int waiterId) {
+		this.waiterId = waiterId;
 	}
 
-	public String getR1CAM002() {
-		return R1CAM002;
+	@Column(name = "R1CAM002")
+	public String getWaiterName() {
+		return waiterName;
 	}
 
-	public void setR1CAM002(String r1cam002) {
-		R1CAM002 = r1cam002;
+	public void setWaiterName(String waiterName) {
+		this.waiterName = waiterName;
 	}
 
-	public String getR1CAM003() {
-		return R1CAM003;
+	@Column(name = "R1CAM003")
+	public String getWaiterAddress() {
+		return waiterAddress;
 	}
 
-	public void setR1CAM003(String r1cam003) {
-		R1CAM003 = r1cam003;
+	public void setWaiterAddress(String waiterAddress) {
+		this.waiterAddress = waiterAddress;
 	}
 
-	public String getR1CAM004() {
-		return R1CAM004;
+	@Column(name = "R1CAM004")
+	public String getWaiterZip() {
+		return waiterZip;
 	}
 
-	public void setR1CAM004(String r1cam004) {
-		R1CAM004 = r1cam004;
+	public void setWaiterZip(String waiterZip) {
+		this.waiterZip = waiterZip;
 	}
 
-	public String getR1CAM005() {
-		return R1CAM005;
+	@Column(name = "R1CAM005")
+	public String getWaiterTown() {
+		return waiterTown;
 	}
 
-	public void setR1CAM005(String r1cam005) {
-		R1CAM005 = r1cam005;
+	public void setWaiterTown(String waiterTown) {
+		this.waiterTown = waiterTown;
 	}
 
-	public String getR1CAM006() {
-		return R1CAM006;
+	@Column(name = "R1CAM006")
+	public String getWaiterProvince() {
+		return waiterProvince;
 	}
 
-	public void setR1CAM006(String r1cam006) {
-		R1CAM006 = r1cam006;
+	public void setWaiterProvince(String waiterProvince) {
+		this.waiterProvince = waiterProvince;
 	}
 
-	public String getR1CAM007() {
-		return R1CAM007;
+	@Column(name = "R1CAM007")
+	public String getWaiterDNI() {
+		return waiterDNI;
 	}
 
-	public void setR1CAM007(String r1cam007) {
-		R1CAM007 = r1cam007;
+	public void setWaiterDNI(String waiterDNI) {
+		this.waiterDNI = waiterDNI;
 	}
 
-	public String getR1CAM008() {
-		return R1CAM008;
+	@Column(name = "R1CAM008")
+	public String getWaiterPhone() {
+		return waiterPhone;
 	}
 
-	public void setR1CAM008(String r1cam008) {
-		R1CAM008 = r1cam008;
+	public void setWaiterPhone(String waiterPhone) {
+		this.waiterPhone = waiterPhone;
 	}
 
-	public String getR1CAM009() {
-		return R1CAM009;
+	@Column(name = "R1CAM009")
+	public String getWaiterContact() {
+		return waiterContact;
 	}
 
-	public void setR1CAM009(String r1cam009) {
-		R1CAM009 = r1cam009;
+	public void setWaiterContact(String waiterContact) {
+		this.waiterContact = waiterContact;
 	}
 
-	public String getR1CAM010_01() {
-		return R1CAM010_01;
+	@Column(name = "R1CAM010_01")
+	public String getNotes1() {
+		return notes1;
 	}
 
-	public void setR1CAM010_01(String r1cam010_01) {
-		R1CAM010_01 = r1cam010_01;
+	public void setNotes1(String notes1) {
+		this.notes1 = notes1;
 	}
 
-	public String getR1CAM010_02() {
-		return R1CAM010_02;
+	@Column(name = "R1CAM010_02")
+	public String getNotes2() {
+		return notes2;
 	}
 
-	public void setR1CAM010_02(String r1cam010_02) {
-		R1CAM010_02 = r1cam010_02;
+	public void setNotes2(String notes2) {
+		this.notes2 = notes2;
 	}
 
-	public String getR1CAM010_03() {
-		return R1CAM010_03;
+	@Column(name = "R1CAM010_03")
+	public String getNotes3() {
+		return notes3;
 	}
 
-	public void setR1CAM010_03(String r1cam010_03) {
-		R1CAM010_03 = r1cam010_03;
+	public void setNotes3(String notes3) {
+		this.notes3 = notes3;
 	}
 
-	public char getR1CAM011() {
-		return R1CAM011;
+	@Column(name = "R1CAM011")
+	public char getChargeType() {
+		return chargeType;
 	}
 
-	public void setR1CAM011(char r1cam011) {
-		R1CAM011 = r1cam011;
+	public void setChargeType(char chargeType) {
+		this.chargeType = chargeType;
+	}
+
+	@Column(name = "R1CAM013")
+	public boolean isWaiterEnable() {
+		return waiterEnable;
+	}
+
+	public void setWaiterEnable(boolean waiterEnable) {
+		this.waiterEnable = waiterEnable;
+	}
+
+	@Column(name = "R1CAM014")
+	@Temporal(TemporalType.TIMESTAMP)
+	public Calendar getEnableTime() {
+		return enableTime;
+	}
+
+	public void setEnableTime(Calendar enableTime) {
+		this.enableTime = enableTime;
+	}
+
+	@Column(name = "R1CAM015")
+	@Temporal(TemporalType.TIMESTAMP)
+	public Calendar getDisableeTime() {
+		return disableeTime;
+	}
+
+	public void setDisableeTime(Calendar disableeTime) {
+		this.disableeTime = disableeTime;
 	}
 
 }
+//CREATE TABLE IF NOT EXISTS `Ayx14res`.`Res14cam` (
+//		  `R1CAM001` INT NOT NULL AUTO_INCREMENT,
+//		  `R1CAM002` VARCHAR(25) NULL,
+//		  `R1CAM003` VARCHAR(30) NULL,
+//		  `R1CAM004` VARCHAR(8) NULL,
+//		  `R1CAM005` VARCHAR(30) NULL,
+//		  `R1CAM006` VARCHAR(30) NULL,
+//		  `R1CAM007` VARCHAR(20) NULL,
+//		  `R1CAM008` VARCHAR(15) NULL,
+//		  `R1CAM009` VARCHAR(30) NULL,
+//		  `R1CAM010_01` VARCHAR(50) NULL,
+//		  `R1CAM010_02` VARCHAR(50) NULL,
+//		  `R1CAM010_03` VARCHAR(50) NULL,
+//		  `R1CAM011` CHAR NOT NULL DEFAULT 'N',
+//		  `R1CAM013` TINYINT(1) NOT NULL DEFAULT 0,
+//		  `R1CAM014` DATETIME NULL,
+//		  `R1CAM015` DATETIME NULL,
+//		  PRIMARY KEY (`R1CAM001`))
+//		ENGINE = InnoDB;

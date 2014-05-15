@@ -1,45 +1,42 @@
 package es.classone.restaurant.model.dishGroup;
 
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-@Table(name = "Res13grp")
+@Table(name = "Res14grp")
 public class DishGroup {
 
 	private Long dishGroupId; // R1GRP001
-	private String dishGroupDescription_ESP; // R1GRP002_01
-	private String dishGroupDescription_ENG; // R1GRP002_02
-	private String dishGroupDescription_ITA; // R1GRP002_03
-	private int	dishGroupIVAType; //R1GRP003 Tipo de IVA (1,2 or 3)
-	private String dishGroupSalesLedgerAccount; //R1GRP004
-	private String dishGroupTypeIncome; //R1GRP112
-	private int dishGroupMacroGroup; //R1GRP011 1= Comida 2= Bebida 3= Otros
-	
+	private String dishGroupDescription; // R1GRP002_01
+	private int ivaType; // R1GRP003 Tipo de IVA (1,2 or 3)
+	private String salesLedgerAccount; // R1GRP004
+	private String typeIncome; // R1GRP112
+	private int macroGroup; // R1GRP011 1= Comida 2= Bebida 3= Otros
+
 	public DishGroup() {
 
 	}
 
-	public DishGroup(Long id, String description_ESP, String description_ENG,
-			String description_ITA, int ivaType, String salesLedgerAccount, String typeIncome, int macroGroup) {
-		dishGroupId = id;
-		dishGroupDescription_ESP = description_ESP;
-		dishGroupDescription_ENG = description_ENG;
-		dishGroupDescription_ITA = description_ITA;
-		dishGroupIVAType = ivaType;
-		dishGroupSalesLedgerAccount = salesLedgerAccount;
-		dishGroupTypeIncome = typeIncome;
-		dishGroupMacroGroup = macroGroup;
+	public DishGroup(String description, int ivaType,
+			String salesLedgerAccount, String typeIncome, int macroGroup) {
+		this.dishGroupDescription = description;
+		this.ivaType = ivaType;
+		this.salesLedgerAccount = salesLedgerAccount;
+		this.typeIncome = typeIncome;
+		this.macroGroup = macroGroup;
 	}
 
+	@Column(name = "R1GRP001")
 	@SequenceGenerator( // It only takes effect for
-			name = "DishCategoryIdGenerator", // databases providing identifier
-			sequenceName = "DishCategorySeq")
-			// generators.
-			@Id
-			@GeneratedValue(strategy = GenerationType.AUTO, generator = "DishCategoryIdGenerator")
+	name = "DishCategoryIdGenerator", // databases providing identifier
+	sequenceName = "DishCategorySeq")
+	// generators.
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "DishCategoryIdGenerator")
 	public Long getDishGroupId() {
 		return dishGroupId;
 	}
@@ -48,64 +45,50 @@ public class DishGroup {
 		this.dishGroupId = dishGroupId;
 	}
 
-	public String getDishGroupDescription_ESP() {
-		return dishGroupDescription_ESP;
+	@Column(name = "R1GRP002_01")
+	public String getDishGroupDescription() {
+		return dishGroupDescription;
 	}
 
-	public void setDishGroupDescription_ESP(String dishGroupDescription_ESP) {
-		this.dishGroupDescription_ESP = dishGroupDescription_ESP;
+	public void setDishGroupDescription(String dishGroupDescription) {
+		this.dishGroupDescription = dishGroupDescription;
 	}
 
-	public String getDishGroupDescription_ENG() {
-		return dishGroupDescription_ENG;
+	@Column(name = "R1GRP003")
+	public int getivaType() {
+		return ivaType;
 	}
 
-	public void setDishGroupDescription_ENG(String dishGroupDescription_ENG) {
-		this.dishGroupDescription_ENG = dishGroupDescription_ENG;
+	public void setivaType(int ivaType) {
+		this.ivaType = ivaType;
 	}
 
-	public String getDishGroupDescription_ITA() {
-		return dishGroupDescription_ITA;
+	@Column(name = "R1GRP004")
+	public String getsalesLedgerAccount() {
+		return salesLedgerAccount;
 	}
 
-	public void setDishGroupDescription_ITA(String dishGroupDescription_ITA) {
-		this.dishGroupDescription_ITA = dishGroupDescription_ITA;
+	public void setsalesLedgerAccount(
+			String salesLedgerAccount) {
+		this.salesLedgerAccount = salesLedgerAccount;
 	}
 
-	public int getDishGroupIVAType() {
-		return dishGroupIVAType;
+	@Column(name = "R1GRP112")
+	public String gettypeIncome() {
+		return typeIncome;
 	}
 
-	public void setDishGroupIVAType(int dishGroupIVAType) {
-		this.dishGroupIVAType = dishGroupIVAType;
+	public void settypeIncome(String typeIncome) {
+		this.typeIncome = typeIncome;
 	}
 
-	public String getDishGroupSalesLedgerAccount() {
-		return dishGroupSalesLedgerAccount;
+	@Column(name = "R1GRP011")
+	public int getmacroGroup() {
+		return macroGroup;
 	}
 
-	public void setDishGroupSalesLedgerAccount(String dishGroupSalesLedgerAccount) {
-		this.dishGroupSalesLedgerAccount = dishGroupSalesLedgerAccount;
+	public void setmacroGroup(int macroGroup) {
+		this.macroGroup = macroGroup;
 	}
 
-	public String getDishGroupTypeIncome() {
-		return dishGroupTypeIncome;
-	}
-
-	public void setDishGroupTypeIncome(String dishGroupTypeIncome) {
-		this.dishGroupTypeIncome = dishGroupTypeIncome;
-	}
-
-	public int getDishGroupMacroGroup() {
-		return dishGroupMacroGroup;
-	}
-
-	public void setDishGroupMacroGroup(int dishGroupMacroGroup) {
-		this.dishGroupMacroGroup = dishGroupMacroGroup;
-	}
-
-	
-	
-
-	
-	}
+}

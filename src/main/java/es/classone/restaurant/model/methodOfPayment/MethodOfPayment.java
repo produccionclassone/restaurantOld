@@ -1,5 +1,6 @@
 package es.classone.restaurant.model.methodOfPayment;
 
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -8,111 +9,119 @@ import javax.persistence.Table;
 
 @Table(name = "Res14cnt_FP")
 public class MethodOfPayment {
-	private Long RFCNT300;// PK
-	private String RFCNT301; // PK Codigo Forma Pago
-	private String RFCNT002; // Nombre FP
-	private String RFCNT003; // Cta Contable
-	private int RFCNT004; // Tipo de Cobro
+	private int methodPayId;// RFCNT300
+	private String methodPayName; // RFCNT002
+	private String ledgerAccount; // RFCNT003
+	private int chargeType; // RFCNT004
 	/* 0=Efectivo 1=Credito 2=Invitacion 3=Anulado 4=Cobrado por Hotel */
-	private float RFCNT005; // %
-	private String RFCNT006; // Cta Contable TC
-	private String RFCNT007; // Cta Contable Dcto.TC
-	private char RFCNT008; // TPV Virtual ("*" o "+" o " ")
+	private float percentage; // RFCNT005
+	private String ledgerAccountTC; // RFCNT006
+	private String ledgerAccountDtoTC; // RFCNT007
+	private char virtualTpv; // RFCNT008
 
 	public MethodOfPayment() {
 
 	}
 
-	public MethodOfPayment(Long rFCNT300, String rFCNT301, String rFCNT002,
-			String rFCNT003, int rFCNT004, float rFCNT005, String rFCNT006,
-			String rFCNT007, char rFCNT008) {
-		RFCNT300 = rFCNT300;
-		RFCNT301 = rFCNT301;
-		RFCNT002 = rFCNT002;
-		RFCNT003 = rFCNT003;
-		RFCNT004 = rFCNT004;
-		RFCNT005 = rFCNT005;
-		RFCNT006 = rFCNT006;
-		RFCNT007 = rFCNT007;
-		RFCNT008 = rFCNT008;
+	public MethodOfPayment(String methodPayName, String ledgerAccount,
+			int chargeType, float percentage, String ledgerAccountTC,
+			String ledgerAccountDtoTC, char virtualTpv) {
+		this.methodPayName = methodPayName;
+		this.ledgerAccount = ledgerAccount;
+		this.chargeType = chargeType;
+		this.percentage = percentage;
+		this.ledgerAccountTC = ledgerAccountTC;
+		this.ledgerAccountDtoTC = ledgerAccountDtoTC;
+		this.virtualTpv = virtualTpv;
 	}
 
+	@Column(name = "RFCNT000")
 	@SequenceGenerator( // It only takes effect for
 	name = "MethodOfPaymentIdGenerator", // databases providing identifier
 	sequenceName = "MethodOfPaymentSeq")
 	// generators.
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "MethodOfPaymentIdGenerator")
-	public Long getRFCNT300() {
-		return RFCNT300;
+	public int getMethodPayId() {
+		return methodPayId;
 	}
 
-	public void setRFCNT300(Long rFCNT300) {
-		RFCNT300 = rFCNT300;
+	public void setMethodPayId(int methodPayId) {
+		this.methodPayId = methodPayId;
 	}
 
-	public String getRFCNT301() {
-		return RFCNT301;
+	@Column(name = "RFCNT002")
+	public String getMethodPayName() {
+		return methodPayName;
 	}
 
-	public void setRFCNT301(String rFCNT301) {
-		RFCNT301 = rFCNT301;
+	public void setMethodPayName(String methodPayName) {
+		this.methodPayName = methodPayName;
 	}
 
-	public String getRFCNT002() {
-		return RFCNT002;
+	@Column(name = "RFCNT003")
+	public String getLedgerAccount() {
+		return ledgerAccount;
 	}
 
-	public void setRFCNT002(String rFCNT002) {
-		RFCNT002 = rFCNT002;
+	public void setLedgerAccount(String ledgerAccount) {
+		this.ledgerAccount = ledgerAccount;
 	}
 
-	public String getRFCNT003() {
-		return RFCNT003;
+	@Column(name = "RFCNT004")
+	public int getChargeType() {
+		return chargeType;
 	}
 
-	public void setRFCNT003(String rFCNT003) {
-		RFCNT003 = rFCNT003;
+	public void setChargeType(int chargeType) {
+		this.chargeType = chargeType;
 	}
 
-	public int getRFCNT004() {
-		return RFCNT004;
+	@Column(name = "RFCNT005")
+	public float getPercentage() {
+		return percentage;
 	}
 
-	public void setRFCNT004(int rFCNT004) {
-		RFCNT004 = rFCNT004;
+	public void setPercentage(float percentage) {
+		this.percentage = percentage;
 	}
 
-	public float getRFCNT005() {
-		return RFCNT005;
+	@Column(name = "RFCNT006")
+	public String getLedgerAccountTC() {
+		return ledgerAccountTC;
 	}
 
-	public void setRFCNT005(float rFCNT005) {
-		RFCNT005 = rFCNT005;
+	public void setLedgerAccountTC(String ledgerAccountTC) {
+		this.ledgerAccountTC = ledgerAccountTC;
 	}
 
-	public String getRFCNT006() {
-		return RFCNT006;
+	@Column(name = "RFCNT007")
+	public String getLedgerAccountDtoTC() {
+		return ledgerAccountDtoTC;
 	}
 
-	public void setRFCNT006(String rFCNT006) {
-		RFCNT006 = rFCNT006;
+	public void setLedgerAccountDtoTC(String ledgerAccountDtoTC) {
+		this.ledgerAccountDtoTC = ledgerAccountDtoTC;
 	}
 
-	public String getRFCNT007() {
-		return RFCNT007;
+	@Column(name = "RFCNT008")
+	public char getVirtualTpv() {
+		return virtualTpv;
 	}
 
-	public void setRFCNT007(String rFCNT007) {
-		RFCNT007 = rFCNT007;
-	}
-
-	public char getRFCNT008() {
-		return RFCNT008;
-	}
-
-	public void setRFCNT008(char rFCNT008) {
-		RFCNT008 = rFCNT008;
+	public void setVirtualTpv(char virtualTpv) {
+		this.virtualTpv = virtualTpv;
 	}
 
 }
+// CREATE TABLE IF NOT EXISTS `Ayx14res`.`Res14cnt_FP` (
+// `RFCNT300` INT NOT NULL AUTO_INCREMENT,
+// `RFCNT002` VARCHAR(12) NOT NULL,
+// `RFCNT003` VARCHAR(8) NOT NULL,
+// `RFCNT004` SMALLINT NOT NULL,
+// `RFCNT005` DECIMAL(5,2) NOT NULL DEFAULT 0,
+// `RFCNT006` VARCHAR(8) NOT NULL,
+// `RFCNT007` VARCHAR(8) NULL,
+// `RFCNT008` CHAR NULL DEFAULT ' ',
+// PRIMARY KEY (`RFCNT300`))
+// ENGINE = InnoDB;
