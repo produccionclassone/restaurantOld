@@ -1,25 +1,22 @@
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
 	t:type="LayoutLogin" t:pageTitle="title">
-
+	
 
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-4" />
+			
 			<div class="col-md-4">
-				<form role="form" t:id="loginForm">
-					<t:errors />
+				<form role="form" t:id="loginForm" class="form-horizontal">
 					<div class="form-group">
-						<t:label for="loginName" />
-						<input class="form-control" t:id="loginName" t:type="TextField"
-
-							placeholder="${message:loginName-label}" />
+						<label>${message:loginName-label}</label>
+						<input class="form-control" t:id="loginName" name="loginName"  
+						t:type="TextField" placeholder="${message:loginName-label}" t:required="true" />
 					</div>
-
 					<div class="form-group">
 						<t:label for="password" />
 						<input class="form-control" t:id="password" t:type="PasswordField"
-
-							placeholder="${message:password-label}" />
+							placeholder="${message:password-label}" name="password" t:required="true"/>
 					</div>
 					<div class="form-group">
 						<input t:type="Checkbox" t:id="rememberMyPassword" />
@@ -29,6 +26,8 @@
 						<input type="submit" class="btn btn-primary btn-block"
 							value="${message:submit}" />
 					</div>
+					
+					
 				</form>
 			</div>
 			<div class="col-md-4">
@@ -38,5 +37,29 @@
 		</div>
 		
 	</div>
+	
+	<script>
+	$(document).ready(function () {
+
+    $('#loginForm').validate({
+        rules: {
+            loginName: {
+                required: true
+            },
+            password: {
+                required: true,
+            }
+        },
+        highlight: function (element) {
+            $(element).closest('.form-group')..addClass('form-control has-error');
+        },
+        success: function (element) {
+            element.text('OK!').addClass('valid')
+                .closest('.form-group').removeClass('error').addClass('success');
+        }
+    });
+
+});
+</script>
 
 </html>
