@@ -71,7 +71,84 @@
 			</div>
 		</div>
 		<div class="col-md-3"></div>
-
 	</div>
+
+
+
+
+
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+          Collapsible Group Item #1
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in">
+      <div class="panel-body">
+        Anim pariatur cliche reprehenderit
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+          Collapsible Group Item #2
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse">
+      <div class="panel-body">
+        Anim pariatur cliche reprehenderit
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+          Collapsible Group Item #3
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse">
+      <div class="panel-body">
+        Anim pariatur cliche reprehenderit
+      </div>
+    </div>
+  </div>
+</div>
+
+<ul class="nav nav-pills">
+    <li class="active"><a href="#">Regular link</a></li>
+    <li class="dropdown">
+      <a href="#" data-toggle="dropdown" class="dropdown-toggle">Dropdown <b class="caret"></b></a>
+      <ul class="dropdown-menu" id="menu1">
+        <li class="dropdown-submenu">
+          <a href="#">More options</a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Second level link</a></li>
+            <li><a href="#">Second level link</a></li>
+            <li><a href="#">Second level link</a></li>
+            <li><a href="#">Second level link</a></li>
+            <li><a href="#">Second level link</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Another action</a></li>
+        <li><a href="#">Something else here</a></li>
+        <li class="divider"></li>
+        <li><a href="#">Separated link</a></li>
+      </ul>
+    </li>
+    <li class="dropdown">
+      <a href="#">Menu</a>
+    </li>
+    <li class="dropdown">
+      <a href="#">Menu</a>
+    </li>
+</ul>
 
 </html>

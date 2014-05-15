@@ -68,6 +68,59 @@
 													</li>
 												</ul>
 											</li>
+											<li class="dropdown">
+												<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+													Mantenimientos
+													<b class="caret"></b>
+												</a>
+												<ul class="dropdown-menu">
+													<li>
+														<a href="#">Grupos de la carta</a>
+													</li>
+													<li>
+														<a href="#">Platos de la carta</a>
+													</li>
+													<li>
+														<a href="#">Platos auxiliares</a>
+													</li>
+													<li>
+														<a href="#">Calificadores de platos</a>
+													</li>
+													<li class="divider"></li>
+													<li>
+														<a href="#">Formas de pago</a>
+													</li>
+													<li>
+														<a href="#">Monedas</a>
+													</li>
+													<li class="divider"></li>
+													<li>
+														<a href="#">Camareros</a>
+													</li>
+													<li>
+														<a href="#">Clientes</a>
+													</li>
+													<li class="divider"></li>
+													<li>
+														<a href="#">Mantenim. terminales</a>
+													</li>
+													
+												</ul>
+											</li>
+											<li class="dropdown">
+												<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+													Visualización
+													<b class="caret"></b>
+												</a>
+												<ul class="dropdown-menu">
+													<li>
+														<a href="#">Nuestros clientes</a>
+													</li>
+													<li>
+														<a href="#">Estadísticas</a>
+													</li>
+												</ul>
+											</li>
 										</ul>
 										<ul class="nav navbar-nav navbar-right">
 											<li class="dropdown">
@@ -107,6 +160,7 @@
 
 								</div>
 							</div>
+							<div style="height:200px;"></div>
 							<div class="row"> <!-- Favoritos -->
 								<div class="col-md-12">
 									Favoritos
@@ -162,8 +216,6 @@
 
 			</div>
 		</div>
-
-
 		<script src="http://code.jquery.com/jquery.js"></script>
 		<script src="${context:/javaScript/bootstrap.min.js}"></script>
 	</body>
