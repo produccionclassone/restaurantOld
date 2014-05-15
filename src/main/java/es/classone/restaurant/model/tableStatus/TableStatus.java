@@ -1,5 +1,7 @@
 package es.classone.restaurant.model.tableStatus;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -7,81 +9,101 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Table(name = "Res14tab")
+@Entity
 public class TableStatus {
 
-	private Long R1TAB001;// PK Codigo Mesa
-	private char R1TAB002;// S/N Ocupada
-	private char R1TAB003;// S/N Unida
-	private char R1TAB004;// S/N Reservada
-	private char R1TAB005;// S/N Facturada
-	private float R1TAB006;// Nro de Orden
+	private Long tabStatusID; //R1TAB000
+	private int tabStatusNumberTab; // R1TAB001
+	private boolean tabStatusBusy; //  R1TAB002
+	private boolean tabStatusAttached; // R1TAB003
+	private boolean tabStatusReserved; // R1TAB004
+	private boolean tabStatusBilled; //R1TAB005
 
-	public TableStatus() {
+	public TableStatus() {}
 
-	}
-
-	public TableStatus(Long r1tab001, char r1tab002, char r1tab003,
-			char r1tab004, char r1tab005, float r1tab006) {
-		R1TAB001 = r1tab001;
-		R1TAB002 = r1tab002;
-		R1TAB003 = r1tab003;
-		R1TAB004 = r1tab004;
-		R1TAB005 = r1tab005;
-		R1TAB006 = r1tab006;
+	public TableStatus(int tabStatusNumberTab, boolean tabStatusBusy, boolean tabStatusAttached, boolean tabStatusReserved,
+			boolean tabStatusBilled) {
+		
+		this.tabStatusNumberTab = tabStatusNumberTab;
+		this.tabStatusBusy = tabStatusBusy;
+		this.tabStatusAttached = tabStatusAttached;
+		this.tabStatusReserved = tabStatusReserved;
+		this.tabStatusBilled = tabStatusBilled;
 	}
 
 	@SequenceGenerator( // It only takes effect for
 	name = "TableStatusIdGenerator", // databases providing identifier
 	sequenceName = "TableStatusSeq")
-	// generators.
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "TableStatusIdGenerator")
-	public Long getR1TAB001() {
-		return R1TAB001;
+	@Column(name="R1TAB000")
+	public Long getTabStatusID() {
+		return tabStatusID;
 	}
 
-	public void setR1TAB001(Long r1tab001) {
-		R1TAB001 = r1tab001;
+	public void setTabStatusID(Long tabStatusID) {
+		this.tabStatusID = tabStatusID;
 	}
 
-	public char getR1TAB002() {
-		return R1TAB002;
+	@Column(name="R1TAB001")
+	public int getTabStatusNumberTab() {
+		return tabStatusNumberTab;
 	}
 
-	public void setR1TAB002(char r1tab002) {
-		R1TAB002 = r1tab002;
+	public void setTabStatusNumberTab(int tabStatusNumberTab) {
+		this.tabStatusNumberTab = tabStatusNumberTab;
+	}
+	
+	@Column(name="R1TAB002")
+	public boolean isTabStatusBusy() {
+		return tabStatusBusy;
 	}
 
-	public char getR1TAB003() {
-		return R1TAB003;
+	public void setTabStatusBusy(boolean tabStatusBusy) {
+		this.tabStatusBusy = tabStatusBusy;
 	}
 
-	public void setR1TAB003(char r1tab003) {
-		R1TAB003 = r1tab003;
+	@Column(name="R1TAB003")
+	public boolean isTabStatusAttached() {
+		return tabStatusAttached;
 	}
 
-	public char getR1TAB004() {
-		return R1TAB004;
+	public void setTabStatusAttached(boolean tabStatusAttached) {
+		this.tabStatusAttached = tabStatusAttached;
 	}
 
-	public void setR1TAB004(char r1tab004) {
-		R1TAB004 = r1tab004;
+	@Column(name="R1TAB004")
+	public boolean isTabStatusReserved() {
+		return tabStatusReserved;
 	}
 
-	public char getR1TAB005() {
-		return R1TAB005;
+	public void setTabStatusReserved(boolean tabStatusReserved) {
+		this.tabStatusReserved = tabStatusReserved;
+	}
+	
+	@Column(name="R1TAB005")
+	public boolean isTabStatusBilled() {
+		return tabStatusBilled;
 	}
 
-	public void setR1TAB005(char r1tab005) {
-		R1TAB005 = r1tab005;
+	public void setTabStatusBilled(boolean tabStatusBilled) {
+		this.tabStatusBilled = tabStatusBilled;
 	}
-
-	public float getR1TAB006() {
-		return R1TAB006;
-	}
-
-	public void setR1TAB006(float r1tab006) {
-		R1TAB006 = r1tab006;
-	}
-
 }
+
+/*
+-- -----------------------------------------------------
+-- Table `Ayx14res`.`Res14tab`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `Ayx14res`.`Res14tab` ;
+
+CREATE TABLE IF NOT EXISTS `Ayx14res`.`Res14tab` (
+  `R1TAB000` INT NOT NULL,
+  `R1TAB001` INT NOT NULL,
+  `R1TAB002` TINYINT(1) NOT NULL,
+  `R1TAB003` TINYINT(1) NOT NULL,
+  `R1TAB004` TINYINT(1) NOT NULL,
+  `R1TAB005` TINYINT(1) NOT NULL,
+  PRIMARY KEY (`R1TAB000`))
+ENGINE = InnoDB;
+*/
