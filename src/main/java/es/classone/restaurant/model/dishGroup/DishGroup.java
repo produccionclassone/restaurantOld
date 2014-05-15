@@ -1,16 +1,18 @@
 package es.classone.restaurant.model.dishGroup;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+@Entity
 @Table(name = "Res14grp")
 public class DishGroup {
 
-	private Long dishGroupId; // R1GRP001
+	private int dishGroupId; // R1GRP001
 	private String dishGroupDescription; // R1GRP002_01
 	private int ivaType; // R1GRP003 Tipo de IVA (1,2 or 3)
 	private String salesLedgerAccount; // R1GRP004
@@ -37,11 +39,11 @@ public class DishGroup {
 	// generators.
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "DishCategoryIdGenerator")
-	public Long getDishGroupId() {
+	public int getDishGroupId() {
 		return dishGroupId;
 	}
 
-	public void setDishGroupId(Long dishGroupId) {
+	public void setDishGroupId(int dishGroupId) {
 		this.dishGroupId = dishGroupId;
 	}
 

@@ -1,6 +1,7 @@
 package es.classone.restaurant.model.dish;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,6 +15,7 @@ import es.classone.restaurant.model.dishGroup.DishGroup;
 
 //import es.classone.restaurant.model.dishGroup.DishGroup;
 
+@Entity
 @Table(name = "Res14pla")
 public class Dish {
 

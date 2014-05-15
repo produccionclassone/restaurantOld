@@ -6,7 +6,7 @@ import es.classone.restaurant.modelutil.exceptions.InstanceNotFoundException;
 
 
 
-public interface UserProfileDao extends GenericDao<UserProfile, Long>{
+public interface UserProfileDao extends GenericDao<UserProfile, Integer>{
 
     /**
      * Returns an UserProfile by login name (not user identifier)

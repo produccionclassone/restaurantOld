@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Table(name = "Res14usr")
 public class UserProfile {
 
-	private Long userProfileId; // R1USR001_K1
+	private int userProfileId; // R1USR001_K1
 	private String loginName; // R1USR002
 	private String encryptedPassword; // R1USR003
 	private String email; // R1USR004
@@ -44,11 +44,11 @@ public class UserProfile {
 	// generators.
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "UserProfileIdGenerator")
-	public Long getUserProfileId() {
+	public int getUserProfileId() {
 		return userProfileId;
 	}
 
-	public void setUserProfileId(Long userProfileId) {
+	public void setUserProfileId(int userProfileId) {
 		this.userProfileId = userProfileId;
 	}
 

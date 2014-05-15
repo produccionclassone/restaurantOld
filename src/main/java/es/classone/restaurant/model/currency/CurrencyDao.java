@@ -4,6 +4,6 @@ import es.classone.restaurant.modelutil.dao.GenericDao;
 
 
 
-public interface CurrencyDao extends GenericDao<Currency, Long>{
+public interface CurrencyDao extends GenericDao<Currency, Integer>{
 
 }

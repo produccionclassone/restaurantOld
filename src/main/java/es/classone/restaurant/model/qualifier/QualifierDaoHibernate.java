@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import es.classone.restaurant.modelutil.dao.GenericDaoHibernate;
 
 @Repository("qualifierDao")
-public class QualifierDaoHibernate extends GenericDaoHibernate<Qualifier, Long>
-		implements QualifierDao {
+public class QualifierDaoHibernate extends
+		GenericDaoHibernate<Qualifier, Integer> implements QualifierDao {
 
 }

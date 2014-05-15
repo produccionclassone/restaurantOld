@@ -1,16 +1,18 @@
 package es.classone.restaurant.model.currency;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+@Entity
 @Table(name = "Res14cnt_MD")
 public class Currency {
 
-	private Long currencyId;// RMCNTR00
+	private int currencyId;// RMCNTR00
 	private String currencyCode; // RMCNTR01
 	private String currencyName; // RMCNT002
 	private int currencyChange; // RMCNT003
@@ -21,7 +23,7 @@ public class Currency {
 	}
 
 	public Currency(String currencyCode, String currencyName,
-			int currencyChange, float currencyQuote, float commisionPercent) {
+		int currencyChange, float currencyQuote, float commisionPercent) {
 		this.currencyCode = currencyCode;
 		this.currencyName = currencyName;
 		this.currencyChange = currencyChange;
@@ -36,11 +38,11 @@ public class Currency {
 	// generators.
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "CurrencyIdGenerator")
-	public Long getCurrencyId() {
+	public int getCurrencyId() {
 		return currencyId;
 	}
 
-	public void setCurrencyId(Long currencyId) {
+	public void setCurrencyId(int currencyId) {
 		this.currencyId = currencyId;
 	}
 

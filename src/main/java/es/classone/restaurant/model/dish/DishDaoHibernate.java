@@ -1,9 +1,11 @@
 package es.classone.restaurant.model.dish;
 
-//import es.classone.restaurant.modelutil.dao.GenericDaoHibernate;
+import org.springframework.stereotype.Repository;
+
+import es.classone.restaurant.modelutil.dao.GenericDaoHibernate;
 
 
-
-public class DishDaoHibernate /*extends GenericDaoHibernate<Dish, Long> implements DishDao*/{
+@Repository("dishDao")
+public class DishDaoHibernate extends GenericDaoHibernate<Dish, Integer> implements DishDao{
 
 }

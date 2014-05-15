@@ -5,6 +5,8 @@ import org.springframework.stereotype.Repository;
 import es.classone.restaurant.modelutil.dao.GenericDaoHibernate;
 
 @Repository("mehtodOfPaymentDao")
-public class MethodOfPaymentDaoHibernate extends GenericDaoHibernate<MethodOfPayment, Long> implements MethodOfPaymentDao {
+public class MethodOfPaymentDaoHibernate extends
+		GenericDaoHibernate<MethodOfPayment, Integer> implements
+		MethodOfPaymentDao {
 
 }

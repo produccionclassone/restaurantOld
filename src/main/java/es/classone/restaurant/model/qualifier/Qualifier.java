@@ -1,16 +1,18 @@
 package es.classone.restaurant.model.qualifier;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+@Entity
 @Table(name = "Res14cnt_CF")
 public class Qualifier {
 
-	private String qualifierId; // RCCNTR00
+	private int qualifierId; // RCCNTR00
 	private String qualifierNameLang1; // RCCNT002_01
 	private String qualifierNameLang2; // RCCNT002_02
 	private String qualifierNameLang3; // RCCNT002_03
@@ -33,11 +35,11 @@ public class Qualifier {
 	// generators.
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "QualifierIdGenerator")
-	public String getQualifierId() {
+	public int getQualifierId() {
 		return qualifierId;
 	}
 
-	public void setQualifierId(String qualifierId) {
+	public void setQualifierId(int qualifierId) {
 		this.qualifierId = qualifierId;
 	}
 
