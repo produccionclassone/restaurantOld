@@ -46,6 +46,8 @@ public class Command {
 	private MethodOfPayment methodOfPayment2;// Res14cnt_FP_RFCNT3001
 	private MethodOfPayment methodOfPayment3;// Res14cnt_FP_RFCNT3002
 
+	public Command(){}
+	
 	public Command(int tableNumber, int commensalNumber, Long billNumber,
 			Calendar commandDateIni, Calendar commandDateFin, float mp1amount,
 			float mp1amountNoIva, float mp1amountIva, float mp2amount,
