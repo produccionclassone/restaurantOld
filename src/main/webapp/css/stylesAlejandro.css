@@ -27,9 +27,9 @@ min-height: 100%;
   }
 #footer { 
 	position: relative; 
-	margin-top: -50px; 
+	margin-top: -30px; 
 	/* altura en px del footer con valor negativo */ 
-	height: 50px; /* Altura del Footer en px*/
+	 height: 20px; /* Altura del Footer en px*/
 	 clear: both;
 	 text-align: center;
 	 background-color: #F8F8FF;
