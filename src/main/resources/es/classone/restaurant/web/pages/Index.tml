@@ -9,146 +9,130 @@
 	<div class="row">
 		<div class="col-md-3"></div>
 		<div class="col-md-3">
-			<!-- Button trigger modal -->
-			<button class="btn btn-default" data-toggle="modal"
-				data-target="#myModal">
-				Funciones de camarero
-			</button>
-			<!-- Modal -->
-			<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-				aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal"
-								aria-hidden="true">&times;
-							</button>
-							<h4 class="modal-title" id="myModalLabel">Funciones de camarero</h4>
-						</div>
-						<div class="modal-body">
-							<button type="button" class="btn btn-default">Tratamiento de comandas</button>
-							<button type="button" class="btn btn-default">Listado de la carta de platos</button>
-							<button type="button" class="btn btn-default">Apertura de sesión</button>
-							<button type="button" class="btn btn-default">Cierre de sesión</button>
-							<button type="button" class="btn btn-default">Tratamiento de reservas</button>
-							<button type="button" class="btn btn-default">Fichaje salida de camareros</button>
-							<button type="button" class="btn btn-default">Cambio de moneda</button>
-							<button type="button" class="btn btn-default">Coletillas de facturas/tickets</button>
-						</div>
-					</div>
-				</div>
+			<div id="wrapper">
+				<ul class="menu">
+					<li class="item1">
+						<a href="#">Opcion1</a>
+						<ul>
+							<li class="subitem1">
+								<a href="#">Opcion1.1</a>
+							</li>
+							<li class="subitem2">
+								<a href="#">Opcion1.2</a>
+							</li>
+							<li class="subitem3">
+								<a href="#">Opcion1.3</a>
+							</li>
+						</ul>
+					</li>
+					<li class="item2">
+						<a href="#">Opcion2</a>
+						<ul>
+							<li class="subitem1">
+								<a href="#">Opcion2.1</a>
+							</li>
+							<li class="subitem2">
+								<a href="#">Opcion2.2</a>
+							</li>
+							<li class="subitem3">
+								<a href="#">Opcion2.3</a>
+							</li>
+						</ul>
+					</li>
+					<li class="item3">
+						<a href="#">Opcion3</a>
+						<ul>
+							<li class="subitem1">
+								<a href="#">Opcion3.1</a>
+							</li>
+							<li class="subitem2">
+								<a href="#">Opcion3.2</a>
+							</li>
+							<li class="subitem3">
+								<a href="#">Opcion3.3</a>
+							</li>
+						</ul>
+					</li>
+					<li class="item4">
+						<a href="#">Opcion4</a>
+						<ul>
+							<li class="subitem1">
+								<a href="#">Opcion4.1</a>
+							</li>
+							<li class="subitem2">
+								<a href="#">Opcion4.2</a>
+							</li>
+							<li class="subitem3">
+								<a href="#">Opcion4.3</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
 			</div>
 		</div>
 		<div class="col-md-3">
-			<!-- Button trigger modal -->
-			<button class="btn btn-default" data-toggle="modal"
-				data-target="#mantenimientoFicherosMaestros">
-				Mantenimiento de ficheros maestros
-			</button>
-			<!-- Modal -->
-			<div class="modal fade" id="mantenimientoFicherosMaestros" tabindex="-1" role="dialog"
-				aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal"
-								aria-hidden="true">&times;
-							</button>
-							<h4 class="modal-title" id="mantenimientoFicherosMaestros">Mantenimiento de ficheros maestros</h4>
-						</div>
-						<div class="modal-body">
-							<button type="button" class="btn btn-default">Grupos de la carta</button>
-							<button type="button" class="btn btn-default">Platos de la carta</button>
-							<button type="button" class="btn btn-default">Platos de complemento</button>
-							<button type="button" class="btn btn-default">Calificadores de los platos</button>
-							<button type="button" class="btn btn-default">Formas de pago</button>
-							<button type="button" class="btn btn-default">Creación de monedas</button>
-							<button type="button" class="btn btn-default">Fichero de camareros</button>
-							<button type="button" class="btn btn-default">Fichero de clientes</button>
-						</div>
-					</div>
-				</div>
+			<div id="wrapper">
+				<ul class="menu">
+					<li class="item1">
+						<a href="#">Opcion1</a>
+						<ul>
+							<li class="subitem1">
+								<a href="#">Opcion1.1</a>
+							</li>
+							<li class="subitem2">
+								<a href="#">Opcion1.2</a>
+							</li>
+							<li class="subitem3">
+								<a href="#">Opcion1.3</a>
+							</li>
+						</ul>
+					</li>
+					<li class="item2">
+						<a href="#">Opcion2</a>
+						<ul>
+							<li class="subitem1">
+								<a href="#">Opcion2.1</a>
+							</li>
+							<li class="subitem2">
+								<a href="#">Opcion2.2</a>
+							</li>
+							<li class="subitem3">
+								<a href="#">Opcion2.3</a>
+							</li>
+						</ul>
+					</li>
+					<li class="item3">
+						<a href="#">Opcion3</a>
+						<ul>
+							<li class="subitem1">
+								<a href="#">Opcion3.1</a>
+							</li>
+							<li class="subitem2">
+								<a href="#">Opcion3.2</a>
+							</li>
+							<li class="subitem3">
+								<a href="#">Opcion3.3</a>
+							</li>
+						</ul>
+					</li>
+					<li class="item4">
+						<a href="#">Opcion4</a>
+						<ul>
+							<li class="subitem1">
+								<a href="#">Opcion4.1</a>
+							</li>
+							<li class="subitem2">
+								<a href="#">Opcion4.2</a>
+							</li>
+							<li class="subitem3">
+								<a href="#">Opcion4.3</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+
 			</div>
 		</div>
 		<div class="col-md-3"></div>
 	</div>
-
-
-
-
-
-<div class="panel-group" id="accordion">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-          Collapsible Group Item #1
-        </a>
-      </h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse in">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-          Collapsible Group Item #2
-        </a>
-      </h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-          Collapsible Group Item #3
-        </a>
-      </h4>
-    </div>
-    <div id="collapseThree" class="panel-collapse collapse">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit
-      </div>
-    </div>
-  </div>
-</div>
-
-<ul class="nav nav-pills">
-    <li class="active"><a href="#">Regular link</a></li>
-    <li class="dropdown">
-      <a href="#" data-toggle="dropdown" class="dropdown-toggle">Dropdown <b class="caret"></b></a>
-      <ul class="dropdown-menu" id="menu1">
-        <li class="dropdown-submenu">
-          <a href="#">More options</a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Second level link</a></li>
-            <li><a href="#">Second level link</a></li>
-            <li><a href="#">Second level link</a></li>
-            <li><a href="#">Second level link</a></li>
-            <li><a href="#">Second level link</a></li>
-          </ul>
-        </li>
-        <li><a href="#">Another action</a></li>
-        <li><a href="#">Something else here</a></li>
-        <li class="divider"></li>
-        <li><a href="#">Separated link</a></li>
-      </ul>
-    </li>
-    <li class="dropdown">
-      <a href="#">Menu</a>
-    </li>
-    <li class="dropdown">
-      <a href="#">Menu</a>
-    </li>
-</ul>
-
 </html>

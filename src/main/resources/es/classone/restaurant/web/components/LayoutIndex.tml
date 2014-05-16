@@ -10,6 +10,9 @@
 			type="text/css" media="all" />
 		<link rel="StyleSheet" href="${context:/css/bootstrap.css}" type="text/css"
 			media="all" />
+			<script language="javascript" type="text/javascript"
+			src="${context:/javaScript/layout.js}"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	</head>
 
 	<body>
