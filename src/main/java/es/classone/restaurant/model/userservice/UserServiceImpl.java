@@ -23,6 +23,9 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,7 +38,6 @@ import es.classone.restaurant.model.userprofile.UserProfileDao;
 import es.classone.restaurant.model.userservice.util.PasswordEncrypter;
 import es.classone.restaurant.modelutil.exceptions.DuplicateInstanceException;
 import es.classone.restaurant.modelutil.exceptions.InstanceNotFoundException;
-
 
 @Service("userService")
 @Transactional
@@ -56,7 +58,8 @@ public class UserServiceImpl implements UserService {
 			String encryptedPassword = PasswordEncrypter.crypt(clearPassword);
 
 			UserProfile userProfile = new UserProfile(loginName,
-					encryptedPassword, userProfileDetails.getEmail(), privilege, null, null, null);
+					encryptedPassword, userProfileDetails.getEmail(),
+					privilege, null, null, null);
 			try {
 				userProfile.setIpAddressIn(getIpIn().toString());
 			} catch (UnknownHostException e1) {
@@ -150,17 +153,23 @@ public class UserServiceImpl implements UserService {
 
 	}
 
-	public boolean checkPersonification(String path) throws ParserConfigurationException,
-			SAXException, IOException, NoSuchAlgorithmException,
-			TransformerException {
+	public boolean checkPersonification(String path)
+			throws ParserConfigurationException, SAXException, IOException,
+			NoSuchAlgorithmException, TransformerException,
+			XPathExpressionException {
 		File pers = new File("res14prs.xml");
-		System.out.println("el path es"+ path);
+		System.out.println("el path es" + path);
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 		Document doc = dBuilder.parse(pers);
 		String str = (xmlToString(doc));
+		XPathFactory xpathFactory = XPathFactory.newInstance();
+		XPath xpath = xpathFactory.newXPath();
+		String os = xpath.evaluate("personification/os", doc);
 		String md5str = toMd5(str);
-		pers = new File("C:/Users/"+path+"/res14prs.xml");
+		if(os=="Linux")
+			pers = new File("/u/"+path+"/res14prs.xml");
+		else pers = new File("c:/Users/"+path+"/res14prs.xml");
 		dbFactory = DocumentBuilderFactory.newInstance();
 		dBuilder = dbFactory.newDocumentBuilder();
 		doc = dBuilder.parse(pers);

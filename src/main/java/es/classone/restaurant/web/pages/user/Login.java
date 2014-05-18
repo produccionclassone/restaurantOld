@@ -5,6 +5,7 @@ import java.security.NoSuchAlgorithmException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
+import javax.xml.xpath.XPathExpressionException;
 
 import org.apache.tapestry5.annotations.ActivationRequestParameter;
 import org.apache.tapestry5.annotations.Component;
@@ -94,6 +95,9 @@ public class Login {
 		} catch (TransformerException e) {
 			loginForm.recordError(messages
 					.get("error-notCorrectPersonification"));
+		} catch (XPathExpressionException e) {
+			loginForm.recordError(messages
+					.get("error-path"));
 		}
 
 	}

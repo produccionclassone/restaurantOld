@@ -5,6 +5,7 @@ import java.security.NoSuchAlgorithmException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
+import javax.xml.xpath.XPathExpressionException;
 
 import org.xml.sax.SAXException;
 
@@ -35,6 +36,6 @@ public interface UserService {
 			InstanceNotFoundException;
 
 	public boolean checkPersonification(String path) throws ParserConfigurationException,
-			SAXException, IOException, NoSuchAlgorithmException, TransformerException;
+			SAXException, IOException, NoSuchAlgorithmException, TransformerException, XPathExpressionException;
 
 }
