@@ -167,8 +167,7 @@ public class UserServiceImpl implements UserService {
 		XPath xpath = xpathFactory.newXPath();
 		String os = xpath.evaluate("personification/os", doc);
 		String md5str = toMd5(str);
-		if(os=="Linux")
-			pers = new File("/u/"+path+"/res14prs.xml");
+		if(os.equals("Linux")) pers = new File("/u/"+path+"/res14prs.xml");
 		else pers = new File("c:/Users/"+path+"/res14prs.xml");
 		dbFactory = DocumentBuilderFactory.newInstance();
 		dBuilder = dbFactory.newDocumentBuilder();
