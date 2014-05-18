@@ -11,6 +11,10 @@ import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.net.URL;
 import java.net.UnknownHostException;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -157,29 +161,46 @@ public class UserServiceImpl implements UserService {
 			throws ParserConfigurationException, SAXException, IOException,
 			NoSuchAlgorithmException, TransformerException,
 			XPathExpressionException {
+		String content = null;
 		File pers = new File("res14prs.xml");
-		System.out.println("el path es" + path);
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 		Document doc = dBuilder.parse(pers);
 		String str = (xmlToString(doc));
 		XPathFactory xpathFactory = XPathFactory.newInstance();
 		XPath xpath = xpathFactory.newXPath();
+
+		
 		String os = xpath.evaluate("personification/os", doc);
-		String md5str = toMd5(str);
-		if(os.equals("Linux")) pers = new File("/u/"+path+"/res14prs.xml");
-		else pers = new File("c:/Users/"+path+"/res14prs.xml");
+		if(os.equals("Linux")){
+			pers = new File("/u/"+path+"/res14prs.xml");
+			content = readFile("/u/"+path+"/res14prs.md5", StandardCharsets.UTF_8);
+		}
+		else{
+			pers = new File("c:/Users/"+path+"/res14prs.xml");
+			content = readFile("c:/Users/"+path+"/res14prs.md5", StandardCharsets.UTF_8);
+		}
+		
+		
 		dbFactory = DocumentBuilderFactory.newInstance();
 		dBuilder = dbFactory.newDocumentBuilder();
 		doc = dBuilder.parse(pers);
 		str = (xmlToString(doc));
-		String md5local = toMd5(str);
-		if (md5str.equals(md5local))
+		String md5 = toMd5(str);
+		
+		if (md5.equals(content))
 			return true;
 		else
 			return false;
 	}
 
+	private static String readFile(String path, Charset encoding) 
+			  throws IOException 
+			{
+			  byte[] encoded = Files.readAllBytes(Paths.get(path));
+			  return new String(encoded, encoding);
+			}
+	
 	private String xmlToString(Document doc) throws TransformerException {
 		TransformerFactory tf = TransformerFactory.newInstance();
 		Transformer transformer = tf.newTransformer();
@@ -201,7 +222,7 @@ public class UserServiceImpl implements UserService {
 		while (hashtext.length() < 32) {
 			hashtext = "0" + hashtext;
 		}
-		return "classone" + hashtext;
+		return "classone" + hashtext+"\n";
 	}
 
 	private String getIpExt() throws IOException {
