@@ -51,9 +51,49 @@ text-align:center;
 }
 
 /* Content. */
-div.row{
-padding:20px;
+div.row30{
+padding-top: 30px;
 }
+div.row10{
+padding-top: 10px;
+}
+
+
+
+/*Configuration*/
+	div.radiogroup{
+	margin-left:10px;
+	border: 1px solid #eee;
+	background-color: #F8F8FF;
+	border-radius:5px; 
+	}
+	form.formchecks{
+	}
+	
+	input.panelcheck{
+	margin-right:7px;
+	}
+	input.panelchecksep{
+	margin-right:14px;
+	}
+	input.radiomap{
+	margin-right:10px;
+	}
+	span.scheme{
+	font-weight:bold;
+	margin-right:9.5px;
+	padding-left:2px;
+	}
+	span.schemesep{
+	margin-right:17.5px;
+	font-weight:bold;
+	padding-left:2px;
+	}
+	div.map{
+	border: 1px solid #eee;
+	background-color: #F8F8FF;
+	border-radius:5px; 
+	}
 
 p.welcome {
     font-size: 16px;
@@ -61,7 +101,7 @@ p.welcome {
 
 /* Forms. */
 
-form {
+form.loginform {
 	background-color: #F8F8FF;
   	border: 1px solid #888;
     border-radius:3px;    

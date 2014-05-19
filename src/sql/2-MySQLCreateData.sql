@@ -72,7 +72,6 @@ INSERT INTO `ayx14res`.`Res14cnt_PG` (`idRes14cnt_PG`, `code`, `privilegeValue`)
 INSERT INTO `ayx14res`.`Res14cnt_PG` (`idRes14cnt_PG`, `code`, `privilegeValue`) VALUES (4, 'R1CNT009_05', 'SSSSSSSSSSSSSSSSSSSSSSSSSSS');
 INSERT INTO `ayx14res`.`Res14cnt_PG` (`idRes14cnt_PG`, `code`, `privilegeValue`) VALUES (5, 'R1CNT009_06', 'SSSSSSSSSSSSSSSSSSSSSSSSSSS');
 INSERT INTO `ayx14res`.`Res14cnt_PG` (`idRes14cnt_PG`, `code`, `privilegeValue`) VALUES (6, 'R1CNT009_07', 'SSSSSSSSSSSSSSSSSSSSSSSSSSS');
-INSERT INTO `ayx14res`.`Res14cnt_PG` (`idRes14cnt_PG`, `code`, `privilegeValue`) VALUES (7, 'R1CNT009_08', 'SSSSSSSSSSSSSSSSSSSSSSSSSSS');
 INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `value`) VALUES (1, 'R4CNT005', FALSE);
 INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `value`) VALUES (2, 'R4CNT007', FALSE);
 INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `value`) VALUES (3, 'R4CNT009', FALSE);

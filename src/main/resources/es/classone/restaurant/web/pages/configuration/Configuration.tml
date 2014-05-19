@@ -1,0 +1,964 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	t:type="LayoutLogin" t:pageTitle="title">
+
+	<!-- Large modal -->
+	<button class="btn btn-primary" data-toggle="modal"
+		data-target=".bs-example-modal-lg">Claves</button>
+
+	<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
+		aria-labelledby="myLargeModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;
+					</button>
+					<div class="row">
+						<div class="row10"></div>
+					</div>
+					<h2 class="modal-title">Claves</h2>
+					<div class="modal-body">
+						<div class="row">
+
+							<div class="col-md-3">
+								<div class="radiogroup">
+									<div class="row">
+										<div class="row10"></div>
+									</div>
+									<t:form>
+										<t:radiogroup t:id="rGroup" t:value="rGroup">
+											<h3>Niveles</h3>
+											<div class="row">
+												<div class="row30"></div>
+												<div class="span" />
+												<label>
+													<input t:type="radio" t:id="privilege3" t:value="privilege3"
+														class="radiomap" />
+													Privilegio 3
+												</label>
+												<div class="row">
+													<div class="row10"></div>
+												</div>
+												<div class="span" />
+												<label>
+													<input t:type="radio" t:id="privilege4" t:value="privilege4"
+														class="radiomap" />
+													Privilegio 4
+												</label>
+
+												<div class="row">
+													<div class="row10"></div>
+												</div>
+												<div class="span" />
+
+												<label>
+													<input t:type="radio" t:id="privilege5" t:value="privilege5"
+														class="radiomap" />
+													Privilegio 5
+												</label>
+
+												<div class="row">
+													<div class="row10"></div>
+												</div>
+												<div class="span" />
+
+												<label>
+													<input t:type="radio" t:id="privilege6" t:value="privilege6"
+														class="radiomap" />
+													Privilegio 6
+												</label>
+
+												<div class="row">
+													<div class="row10"></div>
+												</div>
+												<div class="span" />
+
+
+												<label>
+													<input t:type="radio" t:id="privilege7" t:value="privilege7"
+														class="radiomap" />
+													Privilegio 7
+												</label>
+
+
+												<div class="row">
+													<div class="row10"></div>
+												</div>
+												<div class="span" />
+
+												<label>
+													<input t:type="radio" t:id="privilege8" t:value="privilege8"
+														class="radiomap" />
+													Privilegio 8
+												</label>
+
+												<div class="row">
+													<div class="row10"></div>
+												</div>
+												<div class="span" />
+											</div>
+										</t:radiogroup>
+									</t:form>
+								</div>
+							</div>
+							<div class="col-md-1">
+								<div class="row">
+									<div class="row30"></div>
+								</div>
+							</div>
+
+							<div class="col-md-7">
+								<div class="map">
+									<t:form class="formchecks">
+										<div class="row">
+											<div class="row10"></div>
+											<span class="scheme">1</span>
+											<span class="scheme">2</span>
+											<span class="scheme">3</span>
+											<span class="scheme">4</span>
+											<span class="scheme">5</span>
+											<span class="scheme">6</span>
+											<span class="scheme">7</span>
+											<span class="scheme">8</span>
+											<span class="scheme">9</span>
+											<span class="scheme">A</span>
+											<span class="scheme">B</span>
+											<span class="scheme">C</span>
+											<span class="scheme">D</span>
+											<span class="scheme">E</span>
+											<span class="scheme">F</span>
+											<span class="scheme">G</span>
+											<span class="scheme">H</span>
+											<span class="schemesep">I</span>
+											<span class="scheme">X</span>
+											<span class="scheme">X</span>
+											<span class="scheme">X</span>
+										</div>
+										<div class="row">
+											<input t:type="checkbox" t:id="cbox11" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox12" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox13" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox14" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox15" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox16" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox17" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox18" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox19" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox1A" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox1B" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox1C" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox1D" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox1E" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox1F" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox1G" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox1H" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox1I" t:value="true"
+												class="panelchecksep" />
+											<input t:type="checkbox" t:id="cbox1esp1" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox1esp2" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox1esp3" t:value="false"
+												class="panelcheck" />
+										</div>
+										<div class="row">
+
+											<input t:type="checkbox" t:id="cbox21" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox22" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox23" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox24" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox25" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox26" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox27" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox28" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox29" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox2A" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox2B" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox2C" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox2D" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox2E" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox2F" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox2G" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox2H" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox2I" t:value="true"
+												class="panelchecksep" />
+											<input t:type="checkbox" t:id="cbox2esp1" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox2esp2" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox2esp3" t:value="false"
+												class="panelcheck" />
+										</div>
+										<div class="row">
+
+											<input t:type="checkbox" t:id="cbox31" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox32" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox33" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox34" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox35" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox36" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox37" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox38" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox39" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox3A" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox3B" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox3C" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox3D" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox3E" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox3F" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox3G" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox3H" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox3I" t:value="true"
+												class="panelchecksep" />
+											<input t:type="checkbox" t:id="cbox3esp1" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox3esp2" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox3esp3" t:value="false"
+												class="panelcheck" />
+										</div>
+										<div class="row">
+
+											<input t:type="checkbox" t:id="cbox41" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox42" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox43" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox44" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox45" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox46" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox47" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox48" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox49" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox4A" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox4B" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox4C" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox4D" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox4E" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox4F" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox4G" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox4H" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox4I" t:value="true"
+												class="panelchecksep" />
+											<input t:type="checkbox" t:id="cbox4esp1" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox4esp2" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox4esp3" t:value="false"
+												class="panelcheck" />
+										</div>
+										<div class="row">
+
+											<input t:type="checkbox" t:id="cbox51" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox52" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox53" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox54" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox55" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox56" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox57" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox58" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox59" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox5A" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox5B" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox5C" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox5D" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox5E" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox5F" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox5G" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox5H" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox5I" t:value="true"
+												class="panelchecksep" />
+											<input t:type="checkbox" t:id="cbox5esp1" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox5esp2" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox5esp3" t:value="false"
+												class="panelcheck" />
+										</div>
+										<div class="row">
+
+											<input t:type="checkbox" t:id="cbox61" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox62" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox63" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox64" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox65" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox66" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox67" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox68" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox69" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox6A" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox6B" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox6C" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox6D" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox6E" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox6F" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox6G" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox6H" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox6I" t:value="true"
+												class="panelchecksep" />
+											<input t:type="checkbox" t:id="cbox6esp1" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox6esp2" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox6esp3" t:value="false"
+												class="panelcheck" />
+										</div>
+										<div class="row">
+
+											<input t:type="checkbox" t:id="cbox71" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox72" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox73" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox74" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox75" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox76" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox77" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox78" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox79" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox7A" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox7B" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox7C" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox7D" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox7E" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox7F" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox7G" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox7H" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox7I" t:value="true"
+												class="panelchecksep" />
+											<input t:type="checkbox" t:id="cbox7esp1" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox7esp2" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox7esp3" t:value="false"
+												class="panelcheck" />
+										</div>
+										<div class="row">
+
+											<input t:type="checkbox" t:id="cbox81" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox82" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox83" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox84" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox85" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox86" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox87" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox88" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox89" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox8A" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox8B" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox8C" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox8D" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox8E" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox8F" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox8G" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox8H" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox8I" t:value="true"
+												class="panelchecksep" />
+											<input t:type="checkbox" t:id="cbox8esp1" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox8esp2" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox8esp3" t:value="false"
+												class="panelcheck" />
+										</div>
+										<div class="row">
+
+											<input t:type="checkbox" t:id="cbox91" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox92" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox93" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox94" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox95" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox96" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox97" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox98" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox99" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox9A" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox9B" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox9C" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox9D" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox9E" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox9F" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox9G" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox9H" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox9I" t:value="true"
+												class="panelchecksep" />
+											<input t:type="checkbox" t:id="cbox9esp1" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox9esp2" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cbox9esp3" t:value="false"
+												class="panelcheck" />
+										</div>
+										<div class="row">
+
+											<input t:type="checkbox" t:id="cboxA1" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxA2" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxA3" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxA4" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxA5" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxA6" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxA7" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxA8" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxA9" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxAA" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxAB" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxAC" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxAD" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxAE" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxAF" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxAG" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxAH" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxAI" t:value="true"
+												class="panelchecksep" />
+											<input t:type="checkbox" t:id="cboxAesp1" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxAesp2" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxAesp3" t:value="false"
+												class="panelcheck" />
+										</div>
+										<div class="row">
+
+											<input t:type="checkbox" t:id="cboxB1" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxB2" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxB3" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxB4" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxB5" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxB6" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxB7" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxB8" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxB9" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxBA" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxBB" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxBC" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxBD" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxBE" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxBF" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxBG" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxBH" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxBI" t:value="true"
+												class="panelchecksep" />
+											<input t:type="checkbox" t:id="cboxBesp1" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxBesp2" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxBesp3" t:value="false"
+												class="panelcheck" />
+										</div>
+										<div class="row">
+
+											<input t:type="checkbox" t:id="cboxC1" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxC2" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxC3" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxC4" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxC5" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxC6" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxC7" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxC8" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxC9" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxCA" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxCB" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxCC" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxCD" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxCE" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxCF" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxCG" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxCH" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxCI" t:value="true"
+												class="panelchecksep" />
+											<input t:type="checkbox" t:id="cboxCesp1" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxCesp2" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxCesp3" t:value="false"
+												class="panelcheck" />
+										</div>
+										<div class="row">
+
+											<input t:type="checkbox" t:id="cboxD1" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxD2" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxD3" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxD4" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxD5" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxD6" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxD7" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxD8" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxD9" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxDA" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxDB" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxDC" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxDD" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxDE" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxDF" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxDG" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxDH" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxDI" t:value="true"
+												class="panelchecksep" />
+											<input t:type="checkbox" t:id="cboxDesp1" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxDesp2" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxDesp3" t:value="false"
+												class="panelcheck" />
+										</div>
+										<div class="row">
+
+											<input t:type="checkbox" t:id="cboxE1" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxE2" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxE3" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxE4" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxE5" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxE6" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxE7" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxE8" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxE9" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxEA" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxEB" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxEC" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxED" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxEE" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxEF" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxEG" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxEH" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxEI" t:value="true"
+												class="panelchecksep" />
+											<input t:type="checkbox" t:id="cboxEesp1" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxEesp2" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxEesp3" t:value="false"
+												class="panelcheck" />
+										</div>
+										<div class="row">
+
+											<input t:type="checkbox" t:id="cboxF1" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxF2" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxF3" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxF4" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxF5" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxF6" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxF7" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxF8" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxF9" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxFA" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxFB" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxFC" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxFD" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxFE" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxFF" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxFG" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxFH" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxFI" t:value="true"
+												class="panelchecksep" />
+											<input t:type="checkbox" t:id="cboxFesp1" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxFesp2" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxFesp3" t:value="false"
+												class="panelcheck" />
+										</div>
+										<div class="row">
+
+											<input t:type="checkbox" t:id="cboxG1" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxG2" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxG3" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxG4" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxG5" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxG6" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxG7" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxG8" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxG9" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxGA" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxGB" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxGC" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxGD" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxGE" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxGF" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxGG" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxGH" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxGI" t:value="true"
+												class="panelchecksep" />
+											<input t:type="checkbox" t:id="cboxGesp1" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxGesp2" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxGesp3" t:value="false"
+												class="panelcheck" />
+										</div>
+										<div class="row">
+
+											<input t:type="checkbox" t:id="cboxH1" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxH2" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxH3" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxH4" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxH5" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxH6" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxH7" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxH8" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxH9" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxHA" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxHB" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxHC" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxHD" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxHE" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxHF" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxHG" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxHH" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxHI" t:value="true"
+												class="panelchecksep" />
+											<input t:type="checkbox" t:id="cboxHesp1" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxHesp2" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxHesp3" t:value="false"
+												class="panelcheck" />
+										</div>
+										<div class="row">
+
+											<input t:type="checkbox" t:id="cboxI1" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxI2" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxI3" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxI4" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxI5" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxI6" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxI7" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxI8" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxI9" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxIA" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxIB" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxIC" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxID" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxIE" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxIF" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxIG" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxIH" t:value="true"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxII" t:value="true"
+												class="panelchecksep" />
+											<input t:type="checkbox" t:id="cboxIesp1" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxIesp2" t:value="false"
+												class="panelcheck" />
+											<input t:type="checkbox" t:id="cboxIesp3" t:value="false"
+												class="panelcheck" />
+										</div>
+									</t:form>
+								</div>
+							</div>
+							<div class="col-md-1"></div>
+
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+						<button type="button" class="btn btn-default">Refrescar</button>
+						<button type="button" class="btn btn-primary">Guardar</button>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</html>

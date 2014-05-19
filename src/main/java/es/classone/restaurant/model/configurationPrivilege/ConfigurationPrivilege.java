@@ -9,7 +9,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Res14cnt_GN")
+@Table(name = "Res14cnt_")
 public class ConfigurationPrivilege {
 
 	private int confPrivilegeId;
