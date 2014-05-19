@@ -9,31 +9,27 @@
 	<div class="row">
 		<div class="col-md-3"></div>
 		<div class="col-md-3">
-			<div class="btn-group-vertical">
-				<button type="button" class="btn btn-default">Opcion 1</button>
-				<button type="button" class="btn btn-default">Opcion 2</button>
-				<button type="button" class="btn btn-default">Opcion 3</button>
-				<button type="button" class="btn btn-default">Opcion 4</button>
-				<button type="button" class="btn btn-default">Opcion 5</button>
-				<button type="button" class="btn btn-default">Opcion 6</button>
-				<button type="button" class="btn btn-default">Opcion 7</button>
-				<button type="button" class="btn btn-default">Opcion 8</button>
-				<button type="button" class="btn btn-default">Opcion 9</button>
-			</div>
+				<a type="button" class="btn btn-default btn-block">Opcion 1</a>
+				<a type="button" class="btn btn-default btn-block">Opcion 2</a>
+				<a type="button" class="btn btn-default btn-block">Opcion 3</a>
+				<a type="button" class="btn btn-default btn-block">Opcion 4</a>
+				<a type="button" class="btn btn-default btn-block">Opcion 5</a>
+				<a type="button" class="btn btn-default btn-block">Opcion 6</a>
+				<a type="button" class="btn btn-default btn-block">Opcion 7</a>
+				<a type="button" class="btn btn-default btn-block">Opcion 8</a>
+				<a type="button" class="btn btn-default btn-block">Opcion 9</a>
+			
 		</div>
 		<div class="col-md-3">
-		<div class="btn-group-vertical">
-				<button type="button" class="btn btn-default">Opcion A</button>
-				<button type="button" class="btn btn-default">Opcion B</button>
-				<button type="button" class="btn btn-default">Opcion C</button>
-				<button type="button" class="btn btn-default">Opcion D</button>
-				<button type="button" class="btn btn-default">Opcion E</button>
-				<button type="button" class="btn btn-default">Opcion F</button>
-				<button type="button" class="btn btn-default">Opcion G</button>
-				<button type="button" class="btn btn-default">Opcion H</button>
-				<button type="button" class="btn btn-default">Opcion I</button>
-		</div>
-		</div>
+				<a type="button" class="btn btn-default btn-block">Opcion A</a>
+				<a type="button" class="btn btn-default btn-block">Opcion B</a>
+				<a type="button" class="btn btn-default btn-block">Opcion C</a>
+				<a type="button" class="btn btn-default btn-block">Opcion D</a>
+				<a type="button" class="btn btn-default btn-block">Opcion E</a>
+				<a type="button" class="btn btn-default btn-block">Opcion F</a>
+				<a type="button" class="btn btn-default btn-block">Opcion G</a>
+				<a type="button" class="btn btn-default btn-block">Opcion H</a>
+				<a type="button" class="btn btn-default btn-block">Opcion I</a>		</div>
 		<div class="col-md-3"></div>
 	</div>
 </html>
