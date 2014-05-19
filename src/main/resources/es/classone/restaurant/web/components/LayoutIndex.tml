@@ -10,16 +10,17 @@
 			type="text/css" media="all" />
 		<link rel="StyleSheet" href="${context:/css/bootstrap.css}" type="text/css"
 			media="all" />
-			<script language="javascript" type="text/javascript"
+		<script language="javascript" type="text/javascript"
 			src="${context:/javaScript/layout.js}"></script>
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	</head>
 
 	<body>
 		<div id="wrap">
 			<div id="main">
 				<div class="container">
-					<div class="row"> <!-- cabecera -->
+					<div class="row"> <!-- header -->
 						<div class="col-md-6">
 							<div class="logo">
 								<img src="${context:css/images/restaurant-logo.jpg}" alt="Logo"
@@ -32,7 +33,6 @@
 					</div>
 					<div class="row"> <!-- menu horizontal -->
 						<div class="col-md-12">
-
 							<nav class="navbar navbar-default" role="navigation">
 								<div class="container-fluid">
 									<!-- Brand and toggle get grouped for better mobile display -->
@@ -107,7 +107,7 @@
 													<li>
 														<a href="#">Mantenim. terminales</a>
 													</li>
-													
+
 												</ul>
 											</li>
 											<li class="dropdown">
@@ -151,9 +151,10 @@
 					</div>
 				</div>
 				<div class="container">
-					<div class="row"> <!-- cuerpo -->
-						<div class="col-md-3"> <!-- accesos rápidos vertical + favoritos -->
-							<div class="row"> <!-- accesos rápidos vertical -->
+					<div class="row"> <!-- body -->
+						<div class="col-md-3"> <!-- vertical shortcuts + favorites -->
+							<div class="row">shortcuts</div>
+							<div class="row"> <!-- vertical shortcus -->
 								<div class="col-md-12">
 									<div class="btn-group">
 										<button type="button" class="btn btn-default">LVDE</button>
@@ -174,29 +175,29 @@
 										<button type="button" class="btn btn-default">5.9</button>
 										<button type="button" class="btn btn-default">4.8</button>
 										<button type="button" class="btn btn-default">4.2</button>
-										
+
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col-md-9"> <!-- Accesos rápidos horizontal + contenido -->
-							<div class="row"> <!-- Accesos rápidos horizontal -->
+						<div class="col-md-9"> <!-- Horizontal shortcuts + content -->
+							<div class="row"> <!-- Horizontal shortcuts -->
 								<div class="col-md-12">
-										<button type="button" class="btn btn-default">F!</button>
-										<button type="button" class="btn btn-default">F2</button>
-										<button type="button" class="btn btn-default">F3</button>
-										<button type="button" class="btn btn-default">F4</button>
-										<button type="button" class="btn btn-default">F5</button>
-										<button type="button" class="btn btn-default">F6</button>
-										<button type="button" class="btn btn-default">F7</button>
-										<button type="button" class="btn btn-default">F8</button>
-										<button type="button" class="btn btn-default">F9</button>
-										<button type="button" class="btn btn-default">F10</button>
-										<button type="button" class="btn btn-default">F11</button>
-										<button type="button" class="btn btn-default">F12</button>
+									<button type="button" class="btn btn-default">F!</button>
+									<button type="button" class="btn btn-default">F2</button>
+									<button type="button" class="btn btn-default">F3</button>
+									<button type="button" class="btn btn-default">F4</button>
+									<button type="button" class="btn btn-default">F5</button>
+									<button type="button" class="btn btn-default">F6</button>
+									<button type="button" class="btn btn-default">F7</button>
+									<button type="button" class="btn btn-default">F8</button>
+									<button type="button" class="btn btn-default">F9</button>
+									<button type="button" class="btn btn-default">F10</button>
+									<button type="button" class="btn btn-default">F11</button>
+									<button type="button" class="btn btn-default">F12</button>
 								</div>
 							</div>
-							<div class="row"> <!-- contenido -->
+							<div class="row"> <!-- content -->
 								<div class="content">
 									<t:body />
 								</div>
