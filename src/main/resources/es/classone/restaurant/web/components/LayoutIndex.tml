@@ -273,26 +273,24 @@
 							<div class="row">shortcuts</div>
 							<div class="row"> <!-- vertical shortcus -->
 								<div class="col-md-12">
-									<div class="btn-group">
-										<button type="button" class="btn btn-default">LVDE</button>
-										<button type="button" class="btn btn-default">Mapa web</button>
-										<button type="button" class="btn btn-default">Salir</button>
+									<div class="row">
+										<div class="col-md-6"><a type="button" class="btn btn-default btn-block">LVDE</a></div>
+										<div class="col-md-6"><a type="button" class="btn btn-default btn-block">Mapa web</a></div>
+										<div class="col-md-6"><a type="button" class="btn btn-default btn-block">Trat. Comandas</a></div>
+										<div class="col-md-6"><a type="button" class="btn btn-default btn-block">Cerrar sesión</a></div>
 									</div>
-
 								</div>
 							</div>
-							<div style="height:200px;"></div>
-							<div class="row"> <!-- Favoritos -->
+							<div class="row"> <!-- Favorites -->
 								<div class="col-md-12">
 									Favoritos
-									<div class="btn-group">
-										<button type="button" class="btn btn-default">1.1</button>
-										<button type="button" class="btn btn-default">5.8</button>
-										<button type="button" class="btn btn-default">4.7</button>
-										<button type="button" class="btn btn-default">5.9</button>
-										<button type="button" class="btn btn-default">4.8</button>
-										<button type="button" class="btn btn-default">4.2</button>
-
+									<div class="row">
+										<div class="col-md-6"><a type="button" class="btn btn-default btn-block">1.1</a></div>
+										<div class="col-md-6"><a type="button" class="btn btn-default btn-block">5.8</a></div>
+										<div class="col-md-6"><a type="button" class="btn btn-default btn-block">4.7</a></div>
+										<div class="col-md-6"><a type="button" class="btn btn-default btn-block">5.9</a></div>
+										<div class="col-md-6"><a type="button" class="btn btn-default btn-block">4.8</a></div>
+										<div class="col-md-6"><a type="button" class="btn btn-default btn-block">4.2</a></div>
 									</div>
 								</div>
 							</div>
