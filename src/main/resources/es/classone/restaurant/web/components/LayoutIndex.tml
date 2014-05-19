@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
 	xmlns:p="tapestry:parameter">
 
-	<head> 
+	<head>
 		<title>${pageTitle}</title>
 		<link rel="StyleSheet" href="${context:/css/stylesVanina.css}"
 			type="text/css" media="all" />
@@ -24,7 +24,7 @@
 						<div class="col-md-6">
 							<div class="logo">
 								<img src="${context:css/images/restaurant-logo.jpg}" alt="Logo"
-									class="img-rounded" height="200px" />
+									class="img-rounded" height="100px" />
 							</div>
 						</div>
 						<div class="col-md-6">
@@ -110,17 +110,37 @@
 
 												</ul>
 											</li>
-											<li class="dropdown">
+											<li class="menu-item dropdown">
 												<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-													Visualización
+													Visualizacion
 													<b class="caret"></b>
 												</a>
 												<ul class="dropdown-menu">
-													<li>
-														<a href="#">Nuestros clientes</a>
+													<li class="menu-item dropdown dropdown-submenu">
+														<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+															Nuestros clientes
+														</a>
+														<ul class="dropdown-menu">
+															<li class="menu-item ">
+																<a href="#">Submenu1</a>
+															</li>
+															<li class="menu-item ">
+																<a href="#">Submenu2</a>
+															</li>
+														</ul>
 													</li>
-													<li>
-														<a href="#">Estadísticas</a>
+													<li class="menu-item dropdown dropdown-submenu">
+														<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+															Estadisticas
+														</a>
+														<ul class="dropdown-menu">
+															<li class="menu-item ">
+																<a href="#">Submenu1</a>
+															</li>
+															<li class="menu-item ">
+																<a href="#">Submenu2</a>
+															</li>
+														</ul>
 													</li>
 												</ul>
 											</li>
@@ -139,7 +159,7 @@
 													<li>
 														<a href="#">Gráficas (LVDE)</a>
 													</li>
-													
+
 												</ul>
 											</li>
 											<li class="dropdown">
@@ -159,7 +179,7 @@
 													</li>
 													<li>
 														<a href="#">Inicializar restaurante</a>
-													</li>													
+													</li>
 												</ul>
 											</li>
 											<li class="dropdown">
@@ -180,7 +200,7 @@
 													</li>
 													<li>
 														<a href="#">Recuperar sesiones</a>
-													</li>	
+													</li>
 													<li>
 														<a href="#">Especial Stat Mesas</a>
 													</li>
@@ -192,7 +212,7 @@
 													</li>
 													<li>
 														<a href="#">Anular comanda/factura</a>
-													</li>	
+													</li>
 													<li>
 														<a href="#">Borrar duplicados</a>
 													</li>
@@ -209,7 +229,7 @@
 													</li>
 													<li>
 														<a href="#">Avanzadas</a>
-													</li>												
+													</li>
 												</ul>
 											</li>
 											<li class="dropdown">
@@ -222,7 +242,7 @@
 														<a href="#">Deshabilitar Pantalla Procesos</a>
 													</li>
 													<li>
-														<a href="#">Habilitar Pantalla	de Procesos</a>
+														<a href="#">Habilitar Pantalla de Procesos</a>
 													</li>
 													<li class="divider"></li>
 													<li>
@@ -235,10 +255,10 @@
 													<li>
 														<a href="#">StarPL StartEcon - Quien // Who</a>
 													</li>
-													
+
 													<li>
 														<a href="#">StarTouch StarPOS) - Quien // Who</a>
-													</li>												
+													</li>
 												</ul>
 											</li>
 										</ul>
@@ -269,15 +289,23 @@
 				</div>
 				<div class="container">
 					<div class="row"> <!-- body -->
-						<div class="col-md-3"> <!-- vertical shortcuts + favorites -->
+						<div class="col-md-1"> <!-- vertical shortcuts + favorites -->
 							<div class="row">shortcuts</div>
 							<div class="row"> <!-- vertical shortcus -->
 								<div class="col-md-12">
 									<div class="row">
-										<div class="col-md-6"><a type="button" class="btn btn-default btn-block">LVDE</a></div>
-										<div class="col-md-6"><a type="button" class="btn btn-default btn-block">Mapa web</a></div>
-										<div class="col-md-6"><a type="button" class="btn btn-default btn-block">Trat. Comandas</a></div>
-										<div class="col-md-6"><a type="button" class="btn btn-default btn-block">Cerrar sesión</a></div>
+										<div class="col-md-6">
+											<a type="button" class="btn btn-default btn-block">LVDE</a>
+										</div>
+										<div class="col-md-6">
+											<a type="button" class="btn btn-default btn-block">Mapa web</a>
+										</div>
+										<div class="col-md-6">
+											<a type="button" class="btn btn-default btn-block">Trat. Comandas</a>
+										</div>
+										<div class="col-md-6">
+											<a type="button" class="btn btn-default btn-block">Cerrar sesión</a>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -285,17 +313,29 @@
 								<div class="col-md-12">
 									Favoritos
 									<div class="row">
-										<div class="col-md-6"><a type="button" class="btn btn-default btn-block">1.1</a></div>
-										<div class="col-md-6"><a type="button" class="btn btn-default btn-block">5.8</a></div>
-										<div class="col-md-6"><a type="button" class="btn btn-default btn-block">4.7</a></div>
-										<div class="col-md-6"><a type="button" class="btn btn-default btn-block">5.9</a></div>
-										<div class="col-md-6"><a type="button" class="btn btn-default btn-block">4.8</a></div>
-										<div class="col-md-6"><a type="button" class="btn btn-default btn-block">4.2</a></div>
+										<div class="col-md-6">
+											<a type="button" class="btn btn-default btn-block">1.1</a>
+										</div>
+										<div class="col-md-6">
+											<a type="button" class="btn btn-default btn-block">5.8</a>
+										</div>
+										<div class="col-md-6">
+											<a type="button" class="btn btn-default btn-block">4.7</a>
+										</div>
+										<div class="col-md-6">
+											<a type="button" class="btn btn-default btn-block">5.9</a>
+										</div>
+										<div class="col-md-6">
+											<a type="button" class="btn btn-default btn-block">4.8</a>
+										</div>
+										<div class="col-md-6">
+											<a type="button" class="btn btn-default btn-block">4.2</a>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col-md-9"> <!-- Horizontal shortcuts + content -->
+						<div class="col-md-11"> <!-- Horizontal shortcuts + content -->
 							<div class="row"> <!-- Horizontal shortcuts -->
 								<div class="col-md-12">
 									<button type="button" class="btn btn-default">F!</button>
