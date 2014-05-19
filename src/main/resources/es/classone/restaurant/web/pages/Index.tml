@@ -8,8 +8,32 @@
 	</div>
 	<div class="row">
 		<div class="col-md-3"></div>
-		<div class="col-md-3"></div>
-		<div class="col-md-3"></div>
+		<div class="col-md-3">
+			<div class="btn-group-vertical">
+				<button type="button" class="btn btn-default">Opcion 1</button>
+				<button type="button" class="btn btn-default">Opcion 2</button>
+				<button type="button" class="btn btn-default">Opcion 3</button>
+				<button type="button" class="btn btn-default">Opcion 4</button>
+				<button type="button" class="btn btn-default">Opcion 5</button>
+				<button type="button" class="btn btn-default">Opcion 6</button>
+				<button type="button" class="btn btn-default">Opcion 7</button>
+				<button type="button" class="btn btn-default">Opcion 8</button>
+				<button type="button" class="btn btn-default">Opcion 9</button>
+			</div>
+		</div>
+		<div class="col-md-3">
+		<div class="btn-group-vertical">
+				<button type="button" class="btn btn-default">Opcion A</button>
+				<button type="button" class="btn btn-default">Opcion B</button>
+				<button type="button" class="btn btn-default">Opcion C</button>
+				<button type="button" class="btn btn-default">Opcion D</button>
+				<button type="button" class="btn btn-default">Opcion E</button>
+				<button type="button" class="btn btn-default">Opcion F</button>
+				<button type="button" class="btn btn-default">Opcion G</button>
+				<button type="button" class="btn btn-default">Opcion H</button>
+				<button type="button" class="btn btn-default">Opcion I</button>
+		</div>
+		</div>
 		<div class="col-md-3"></div>
 	</div>
 </html>
@@ -17,124 +41,46 @@
 
 
 
-<!--   <div id="wrapper">
-				<ul class="menu">
-					<li class="item1">
-						<a href="#">Opcion1</a>
-						<ul>
-							<li class="subitem1">
-								<a href="#">Opcion1.1</a>
-							</li>
-							<li class="subitem2">
-								<a href="#">Opcion1.2</a>
-							</li>
-							<li class="subitem3">
-								<a href="#">Opcion1.3</a>
-							</li>
-						</ul>
-					</li>
-					<li class="item2">
-						<a href="#">Opcion2</a>
-						<ul>
-							<li class="subitem1">
-								<a href="#">Opcion2.1</a>
-							</li>
-							<li class="subitem2">
-								<a href="#">Opcion2.2</a>
-							</li>
-							<li class="subitem3">
-								<a href="#">Opcion2.3</a>
-							</li>
-						</ul>
-					</li>
-					<li class="item3">
-						<a href="#">Opcion3</a>
-						<ul>
-							<li class="subitem1">
-								<a href="#">Opcion3.1</a>
-							</li>
-							<li class="subitem2">
-								<a href="#">Opcion3.2</a>
-							</li>
-							<li class="subitem3">
-								<a href="#">Opcion3.3</a>
-							</li>
-						</ul>
-					</li>
-					<li class="item4">
-						<a href="#">Opcion4</a>
-						<ul>
-							<li class="subitem1">
-								<a href="#">Opcion4.1</a>
-							</li>
-							<li class="subitem2">
-								<a href="#">Opcion4.2</a>
-							</li>
-							<li class="subitem3">
-								<a href="#">Opcion4.3</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-			<div id="wrapper">
-				<ul class="menu">
-					<li class="item1">
-						<a href="#">Opcion1</a>
-						<ul>
-							<li class="subitem1">
-								<a href="#">Opcion1.1</a>
-							</li>
-							<li class="subitem2">
-								<a href="#">Opcion1.2</a>
-							</li>
-							<li class="subitem3">
-								<a href="#">Opcion1.3</a>
-							</li>
-						</ul>
-					</li>
-					<li class="item2">
-						<a href="#">Opcion2</a>
-						<ul>
-							<li class="subitem1">
-								<a href="#">Opcion2.1</a>
-							</li>
-							<li class="subitem2">
-								<a href="#">Opcion2.2</a>
-							</li>
-							<li class="subitem3">
-								<a href="#">Opcion2.3</a>
-							</li>
-						</ul>
-					</li>
-					<li class="item3">
-						<a href="#">Opcion3</a>
-						<ul>
-							<li class="subitem1">
-								<a href="#">Opcion3.1</a>
-							</li>
-							<li class="subitem2">
-								<a href="#">Opcion3.2</a>
-							</li>
-							<li class="subitem3">
-								<a href="#">Opcion3.3</a>
-							</li>
-						</ul>
-					</li>
-					<li class="item4">
-						<a href="#">Opcion4</a>
-						<ul>
-							<li class="subitem1">
-								<a href="#">Opcion4.1</a>
-							</li>
-							<li class="subitem2">
-								<a href="#">Opcion4.2</a>
-							</li>
-							<li class="subitem3">
-								<a href="#">Opcion4.3</a>
-							</li>
-						</ul>
-					</li>
-				</ul>			
-			
--->
+<!-- <div id="wrapper"> <ul class="menu"> <li class="item1"> <a href="#">Opcion1</a> 
+	<ul> <li class="subitem1"> <a href="#">Opcion1.1</a> </li> <li class="subitem2"> 
+	<a href="#">Opcion1.2</a> </li> <li class="subitem3"> <a href="#">Opcion1.3</a> 
+	</li> </ul> </li> <li class="item2"> <a href="#">Opcion2</a> <ul> <li class="subitem1"> 
+	<a href="#">Opcion2.1</a> </li> <li class="subitem2"> <a href="#">Opcion2.2</a> 
+	</li> <li class="subitem3"> <a href="#">Opcion2.3</a> </li> </ul> </li> <li 
+	class="item3"> <a href="#">Opcion3</a> <ul> <li class="subitem1"> <a href="#">Opcion3.1</a> 
+	</li> <li class="subitem2"> <a href="#">Opcion3.2</a> </li> <li class="subitem3"> 
+	<a href="#">Opcion3.3</a> </li> </ul> </li> <li class="item4"> <a href="#">Opcion4</a> 
+	<ul> <li class="subitem1"> <a href="#">Opcion4.1</a> </li> <li class="subitem2"> 
+	<a href="#">Opcion4.2</a> </li> <li class="subitem3"> <a href="#">Opcion4.3</a> 
+	</li> </ul> </li> </ul> </div> <div id="wrapper"> <ul class="menu"> <li class="item1"> 
+	<a href="#">Opcion1</a> <ul> <li class="subitem1"> <a href="#">Opcion1.1</a> 
+	</li> <li class="subitem2"> <a href="#">Opcion1.2</a> </li> <li class="subitem3"> 
+	<a href="#">Opcion1.3</a> </li> </ul> </li> <li class="item2"> <a href="#">Opcion2</a> 
+	<ul> <li class="subitem1"> <a href="#">Opcion2.1</a> </li> <li class="subitem2"> 
+	<a href="#">Opcion2.2</a> </li> <li class="subitem3"> <a href="#">Opcion2.3</a> 
+	</li> </ul> </li> <li class="item3"> <a href="#">Opcion3</a> <ul> <li class="subitem1"> 
+	<a href="#">Opcion3.1</a> </li> <li class="subitem2"> <a href="#">Opcion3.2</a> 
+	</li> <li class="subitem3"> <a href="#">Opcion3.3</a> </li> </ul> </li> <li 
+	class="item4"> <a href="#">Opcion4</a> <ul> <li class="subitem1"> <a href="#">Opcion4.1</a> 
+	</li> <li class="subitem2"> <a href="#">Opcion4.2</a> </li> <li class="subitem3"> 
+	<a href="#">Opcion4.3</a> </li> </ul> </li> </ul> 
+	
+	
+					<div class="btn-group">
+					<button type="button" class="btn btn-default dropdown-toggle"
+						data-toggle="dropdown">
+						Dropdown
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="#">Dropdown link</a>
+						</li>
+						<li>
+							<a href="#">Dropdown link</a>
+						</li>
+					</ul>
+				</div>
+	
+	
+	-->

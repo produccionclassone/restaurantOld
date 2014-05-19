@@ -124,6 +124,123 @@
 													</li>
 												</ul>
 											</li>
+											<li class="dropdown">
+												<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+													Informes
+													<b class="caret"></b>
+												</a>
+												<ul class="dropdown-menu">
+													<li>
+														<a href="#">Oficina (función gerencia)</a>
+													</li>
+													<li>
+														<a href="#">Diversos informes</a>
+													</li>
+													<li>
+														<a href="#">Gráficas (LVDE)</a>
+													</li>
+													
+												</ul>
+											</li>
+											<li class="dropdown">
+												<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+													Herramientas
+													<b class="caret"></b>
+												</a>
+												<ul class="dropdown-menu">
+													<li>
+														<a href="#">Enlace contable</a>
+													</li>
+													<li>
+														<a href="#">Cierre mensual-anual</a>
+													</li>
+													<li>
+														<a href="#">Gráficas (LVDE)</a>
+													</li>
+													<li>
+														<a href="#">Inicializar restaurante</a>
+													</li>													
+												</ul>
+											</li>
+											<li class="dropdown">
+												<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+													Utilidades
+													<b class="caret"></b>
+												</a>
+												<ul class="dropdown-menu">
+													<li>
+														<a href="#">Auditor informático</a>
+													</li>
+													<li>
+														<a href="#">Auditor de facturas</a>
+													</li>
+													<li class="divider"></li>
+													<li>
+														<a href="#">Borrado parcial sesiones</a>
+													</li>
+													<li>
+														<a href="#">Recuperar sesiones</a>
+													</li>	
+													<li>
+														<a href="#">Especial Stat Mesas</a>
+													</li>
+													<li>
+														<a href="#">Exportar a txt</a>
+													</li>
+													<li>
+														<a href="#">Uds dimens. Starecon</a>
+													</li>
+													<li>
+														<a href="#">Anular comanda/factura</a>
+													</li>	
+													<li>
+														<a href="#">Borrar duplicados</a>
+													</li>
+													<li>
+														<a href="#">Recálculo totales</a>
+													</li>
+													<li class="divider"></li>
+													<li>
+														<a href="#">Recuperación de indices</a>
+													</li>
+													<li class="divider"></li>
+													<li>
+														<a href="#">Opciones</a>
+													</li>
+													<li>
+														<a href="#">Avanzadas</a>
+													</li>												
+												</ul>
+											</li>
+											<li class="dropdown">
+												<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+													Runtime Properties
+													<b class="caret"></b>
+												</a>
+												<ul class="dropdown-menu">
+													<li>
+														<a href="#">Deshabilitar Pantalla Procesos</a>
+													</li>
+													<li>
+														<a href="#">Habilitar Pantalla	de Procesos</a>
+													</li>
+													<li class="divider"></li>
+													<li>
+														<a href="#">Control de Procesos</a>
+													</li>
+													<li class="divider"></li>
+													<li>
+														<a href="#">Allar Seven Stars - Quien // Who</a>
+													</li>
+													<li>
+														<a href="#">StarPL StartEcon - Quien // Who</a>
+													</li>
+													
+													<li>
+														<a href="#">StarTouch StarPOS) - Quien // Who</a>
+													</li>												
+												</ul>
+											</li>
 										</ul>
 										<ul class="nav navbar-nav navbar-right">
 											<li class="dropdown">
