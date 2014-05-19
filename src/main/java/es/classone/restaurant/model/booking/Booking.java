@@ -18,7 +18,7 @@ import javax.persistence.TemporalType;
 import es.classone.restaurant.model.client.Client;
 
 @Entity
-@Table(name="Res14res")
+@Table(name = "Res14res")
 public class Booking {
 	private Long bookingId;// R1RES000
 	private int bookingType;// R1RES001
@@ -33,6 +33,9 @@ public class Booking {
 	private String bookingObservations2;// R1RES011_02
 	private String bookingObservations3;// R1RES011_03
 	private Client client;// Res14cli_R1CLI001
+
+	public Booking() {
+	}
 
 	public Booking(int bookingType, Calendar bookingDate, int tableNumber,
 			char sessionType, int commensalNumber, String bookingNotes1,

@@ -16,6 +16,9 @@ public class ConfigurationPrivilege {
 	private String code;
 	private String privilegeValue;
 
+	public ConfigurationPrivilege() {
+	}
+
 	public ConfigurationPrivilege(String code, String privilegeValue) {
 		this.code = code;
 		this.privilegeValue = privilegeValue;
@@ -23,7 +26,8 @@ public class ConfigurationPrivilege {
 
 	@Column(name = "idRes14cnt_GN")
 	@SequenceGenerator( // It only takes effect for
-	name = "ConfigurationPrivilegeIdGenerator", // databases providing identifier
+	name = "ConfigurationPrivilegeIdGenerator", // databases providing
+												// identifier
 	sequenceName = "ConfigurationPrivilegeSeq")
 	// generators.
 	@Id

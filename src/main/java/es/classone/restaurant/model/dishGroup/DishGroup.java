@@ -70,8 +70,7 @@ public class DishGroup {
 		return salesLedgerAccount;
 	}
 
-	public void setsalesLedgerAccount(
-			String salesLedgerAccount) {
+	public void setsalesLedgerAccount(String salesLedgerAccount) {
 		this.salesLedgerAccount = salesLedgerAccount;
 	}
 

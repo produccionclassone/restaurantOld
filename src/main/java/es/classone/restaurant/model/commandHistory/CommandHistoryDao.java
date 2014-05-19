@@ -1,5 +1,7 @@
 package es.classone.restaurant.model.commandHistory;
 
-public class CommandHistoryDao {
+import es.classone.restaurant.modelutil.dao.GenericDao;
+
+public interface CommandHistoryDao extends GenericDao<CommandHistory, Long>{
 
 }

@@ -43,6 +43,9 @@ public class Order {
 	private Command command;// Res14mes_1_R1MES000_1
 	private Set<Qualifier> qualifiers = new HashSet<Qualifier>(); // Res14cnt_CF_RCCNTR00
 
+	public Order() {
+	}
+
 	public Order(float numberOfUnits, float unitPrice, boolean charged,
 			int ivaType, String salesAccount, char valueOne, int printer,
 			boolean modified, boolean printed, String incomeType,

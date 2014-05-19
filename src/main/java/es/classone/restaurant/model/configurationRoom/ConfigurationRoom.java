@@ -17,6 +17,9 @@ public class ConfigurationRoom {
 	private int lastTab;
 	private String paramCode;
 
+	public ConfigurationRoom() {
+	}
+
 	public ConfigurationRoom(String roomDescription, int firstTab, int lastTab,
 			String paramCode) {
 		this.roomDescription = roomDescription;

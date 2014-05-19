@@ -16,6 +16,9 @@ public class Session {
 	private int sessionNumber; // R1MES001
 	private char sessionType; // R1MES002
 
+	public Session() {
+	}
+
 	public Session(int sessionNumber, char sessionType) {
 		this.sessionNumber = sessionNumber;
 		this.sessionType = sessionType;

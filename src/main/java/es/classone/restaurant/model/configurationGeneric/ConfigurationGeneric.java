@@ -15,6 +15,9 @@ public class ConfigurationGeneric {
 	private String code;
 	private String value;
 
+	public ConfigurationGeneric() {
+	}
+
 	public ConfigurationGeneric(String code, String value) {
 		this.code = code;
 		this.value = value;

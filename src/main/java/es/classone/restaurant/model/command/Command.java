@@ -1,7 +1,10 @@
 package es.classone.restaurant.model.command;
 
 import java.util.Calendar;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,6 +12,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
@@ -19,6 +24,7 @@ import javax.persistence.TemporalType;
 import es.classone.restaurant.model.client.Client;
 import es.classone.restaurant.model.methodOfPayment.MethodOfPayment;
 import es.classone.restaurant.model.session.Session;
+import es.classone.restaurant.model.waiter.Waiter;
 
 @Entity
 @Table(name = "Res14mes_1")
@@ -45,17 +51,17 @@ public class Command {
 	private MethodOfPayment methodOfPayment1;// Res14cnt_FP_RFCNT300
 	private MethodOfPayment methodOfPayment2;// Res14cnt_FP_RFCNT3001
 	private MethodOfPayment methodOfPayment3;// Res14cnt_FP_RFCNT3002
+	private Set<Waiter> waiters = new HashSet<Waiter>();
 
-	public Command(){}
-	
+	public Command() {
+	}
+
 	public Command(int tableNumber, int commensalNumber, Long billNumber,
 			Calendar commandDateIni, Calendar commandDateFin, float mp1amount,
 			float mp1amountNoIva, float mp1amountIva, float mp2amount,
 			float mp2amountNoIva, float mp2amountIva, float mp3amount,
 			float mp3amountNoIva, float mp3amountIva, float grossAmount,
-			float ivaAmount, Session session, Client client,
-			MethodOfPayment methodOfPayment1, MethodOfPayment methodOfPayment2,
-			MethodOfPayment methodOfPayment3) {
+			float ivaAmount) {
 		this.tableNumber = tableNumber;
 		this.commensalNumber = commensalNumber;
 		this.billNumber = billNumber;
@@ -72,11 +78,6 @@ public class Command {
 		this.mp3amountIva = mp3amountIva;
 		this.grossAmount = grossAmount;
 		this.ivaAmount = ivaAmount;
-		this.session = session;
-		this.client = client;
-		this.methodOfPayment1 = methodOfPayment1;
-		this.methodOfPayment2 = methodOfPayment2;
-		this.methodOfPayment3 = methodOfPayment3;
 	}
 
 	@Column(name = "R1MES000_1")
@@ -288,6 +289,16 @@ public class Command {
 
 	public void setMethodOfPayment3(MethodOfPayment methodOfPayment3) {
 		this.methodOfPayment3 = methodOfPayment3;
+	}
+
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinTable(name = "Res14mes_1Cam", joinColumns = @JoinColumn(name = "R1MES000_1"), inverseJoinColumns = @JoinColumn(name = "R1CAM001"))
+	public Set<Waiter> getWaiters() {
+		return waiters;
+	}
+
+	public void setWaiters(Set<Waiter> waiters) {
+		this.waiters = waiters;
 	}
 
 }

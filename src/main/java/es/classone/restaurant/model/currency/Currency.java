@@ -23,7 +23,7 @@ public class Currency {
 	}
 
 	public Currency(String currencyCode, String currencyName,
-		int currencyChange, float currencyQuote, float commisionPercent) {
+			int currencyChange, float currencyQuote, float commisionPercent) {
 		this.currencyCode = currencyCode;
 		this.currencyName = currencyName;
 		this.currencyChange = currencyChange;

@@ -9,18 +9,21 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Res14cnt_GN")
+@Table(name = "Res14cnt_GN")
 public class ConfigurationBool {
 	private int confGenericId;
 	private String code;
 	private boolean value;
-	
+
+	public ConfigurationBool() {
+	}
+
 	public ConfigurationBool(String code, boolean value) {
 		this.code = code;
 		this.value = value;
 	}
-	
-	@Column(name="idRes14cnt_1_1")
+
+	@Column(name = "idRes14cnt_1_1")
 	@SequenceGenerator( // It only takes effect for
 	name = "ConfigurationBoolIdGenerator", // databases providing identifier
 	sequenceName = "ConfigurationBoolSeq")
@@ -34,7 +37,8 @@ public class ConfigurationBool {
 	public void setConfGenericId(int confGenericId) {
 		this.confGenericId = confGenericId;
 	}
-	@Column(name="code")
+
+	@Column(name = "code")
 	public String getCode() {
 		return code;
 	}
@@ -42,8 +46,8 @@ public class ConfigurationBool {
 	public void setCode(String code) {
 		this.code = code;
 	}
-	
-	@Column(name="value")
+
+	@Column(name = "value")
 	public boolean getValue() {
 		return value;
 	}
@@ -51,12 +55,12 @@ public class ConfigurationBool {
 	public void setValue(boolean value) {
 		this.value = value;
 	}
-	
+
 }
-//CREATE TABLE IF NOT EXISTS `Ayx14res`.`Res14cnt_GN_BOOL` (
-//		  `idRes14cnt_1_1` INT NOT NULL,
-//		  `code` VARCHAR(11) NOT NULL,
-//		  `value` TINYINT(1) NOT NULL,
-//		  `version` INT NOT NULL,
-//		  PRIMARY KEY (`idRes14cnt_1_1`))
-//		ENGINE = InnoDB;
+// CREATE TABLE IF NOT EXISTS `Ayx14res`.`Res14cnt_GN_BOOL` (
+// `idRes14cnt_1_1` INT NOT NULL,
+// `code` VARCHAR(11) NOT NULL,
+// `value` TINYINT(1) NOT NULL,
+// `version` INT NOT NULL,
+// PRIMARY KEY (`idRes14cnt_1_1`))
+// ENGINE = InnoDB;
