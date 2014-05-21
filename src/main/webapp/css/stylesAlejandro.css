@@ -9,7 +9,6 @@ html, body {
 /* Links. */
 
 a {
-    font-weight: bold;
     text-decoration: none;
 }
 
@@ -58,7 +57,58 @@ div.row10{
 padding-top: 10px;
 }
 
+/*Layout Login.*/
+div.rowbreadcrumb{
+margin:-10px;
+width:100%;
+/*background-color: #C0C0C0;*/
+}
+div.navbar-window{
+margin:-10px;
+max-height:10px;
 
+}
+
+div.menuwindow{
+padding-left:20px;	
+margin:-20px;
+}
+HTML>BODY
+.navbar{
+width:100%;
+min-height:20px;	
+}
+
+HTML>BODY
+.navbar-default{
+	min-height:20px;	
+	}
+
+HTML>BODY
+.navbar-nav{
+min-height:20px;
+}
+
+
+HTML>BODY
+.navbar-nav > li > a {
+height:20px;
+padding-top: 0px;
+padding-bottom: 0px;
+}
+HTML>BODY
+.navbar-nav > li > .dropdown-menu{
+
+} 
+
+HTML>BODY
+li.dropdown{
+ min-height:20px;
+ }
+HTML>BODY
+a.dropdown-toggle{
+max-height:20px;
+}
 
 /*Configuration*/
 	div.radiogroup{

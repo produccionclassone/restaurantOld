@@ -6,7 +6,7 @@
 
 	<head>
 		<title>${pageTitle}</title>
-		<link rel="StyleSheet" href="${context:/css/stylesVanina.css}"
+		<link rel="StyleSheet" href="${context:/css/stylesAlejandro.css}"
 			type="text/css" media="all" />
 		<link rel="StyleSheet" href="${context:/css/bootstrap.css}" type="text/css"
 			media="all" />
@@ -19,49 +19,37 @@
 	<body>
 		<div id="wrap">
 			<div id="main">
-				<div class="container">
-					<div class="row"> <!-- header -->
-						<div class="col-md-6">
-							<div class="logo">
-								<img src="${context:css/images/restaurant-logo.jpg}" alt="Logo"
-									class="img-rounded" height="80px" />
-							</div>
+				<div class="row">
+					<ol class="breadcrumb">
+						<div class="rowbreadcrumb">
+							<li class="active ">
+								<a href="#">Menu Principal</a>
+							</li>
 						</div>
-						<div class="col-md-6">
-							<h2>Info restaurante</h2>
-						</div>
-					</div>
+					</ol>
+				</div>
+				<div class="menuwindow">
 					<div class="row"> <!-- menu horizontal -->
 						<div class="col-md-12">
-						
+
+
+
 							<nav class="navbar navbar-default" role="navigation">
 								<div class="container-fluid">
-									<!-- Brand and toggle get grouped for better mobile display -->
-									<div class="navbar-header">
-										<button type="button" class="navbar-toggle"
-											data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-											<span class="sr-only">Toggle navigation</span>
-											<span class="icon-bar"></span>
-											<span class="icon-bar"></span>
-											<span class="icon-bar"></span>
-										</button>
-										<a class="navbar-brand" href="Index">Inicio</a>
-									</div>
-
-									<!-- Collect the nav links, forms, and other content for toggling -->
 									<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 										<ul class="nav navbar-nav">
 											<li class="dropdown">
 												<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 													Procesos
-													<b class="caret"></b>
+													<span class="caret"></span>
 												</a>
 												<ul class="dropdown-menu">
 													<li>
 														<a href="#">Apertura de Sesión</a>
 													</li>
 													<li>
-														<a href="#">Cierre de Sesión</a>
+														<a href="#">Cierre de
+															Sesión</a>
 													</li>
 													<li>
 														<a href="#">Consulta de la Sesión</a>
@@ -72,7 +60,7 @@
 													</li>
 												</ul>
 											</li>
-<!--  											<li class="dropdown">
+											<li class="dropdown">
 												<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 													Mantenimientos
 													<b class="caret"></b>
@@ -108,7 +96,6 @@
 													<li>
 														<a href="#">Mantenim. terminales</a>
 													</li>
-
 												</ul>
 											</li>
 											<li class="menu-item dropdown">
@@ -125,12 +112,14 @@
 															<li class="menu-item ">
 																<a href="#">Submenu1</a>
 															</li>
-															<li class="menu-item ">
+															<li class="menu-item 
+								">
 																<a href="#">Submenu2</a>
 															</li>
 														</ul>
 													</li>
-													<li class="menu-item dropdown dropdown-submenu">
+													<li class="menu-item dropdown 
+								dropdown-submenu">
 														<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 															Estadisticas
 														</a>
@@ -152,7 +141,8 @@
 												</a>
 												<ul class="dropdown-menu">
 													<li>
-														<a href="#">Oficina (función gerencia)</a>
+														<a href="#">Oficina
+															(función gerencia)</a>
 													</li>
 													<li>
 														<a href="#">Diversos informes</a>
@@ -160,7 +150,6 @@
 													<li>
 														<a href="#">Gráficas (LVDE)</a>
 													</li>
-
 												</ul>
 											</li>
 											<li class="dropdown">
@@ -170,7 +159,8 @@
 												</a>
 												<ul class="dropdown-menu">
 													<li>
-														<a href="#">Enlace contable</a>
+														<a href="#">Enlace
+															contable</a>
 													</li>
 													<li>
 														<a href="#">Cierre mensual-anual</a>
@@ -193,11 +183,13 @@
 														<a href="#">Auditor informático</a>
 													</li>
 													<li>
-														<a href="#">Auditor de facturas</a>
+														<a href="#">Auditor de
+															facturas</a>
 													</li>
 													<li class="divider"></li>
 													<li>
-														<a href="#">Borrado parcial sesiones</a>
+														<a href="#">Borrado parcial
+															sesiones</a>
 													</li>
 													<li>
 														<a href="#">Recuperar sesiones</a>
@@ -212,7 +204,8 @@
 														<a href="#">Uds dimens. Starecon</a>
 													</li>
 													<li>
-														<a href="#">Anular comanda/factura</a>
+														<a href="#">Anular
+															comanda/factura</a>
 													</li>
 													<li>
 														<a href="#">Borrar duplicados</a>
@@ -243,133 +236,117 @@
 														<a href="#">Deshabilitar Pantalla Procesos</a>
 													</li>
 													<li>
-														<a href="#">Habilitar Pantalla de Procesos</a>
+														<a href="#">Habilitar
+															Pantalla de Procesos</a>
 													</li>
 													<li class="divider"></li>
 													<li>
-														<a href="#">Control de Procesos</a>
+														<a href="#">Control
+															de Procesos</a>
 													</li>
 													<li class="divider"></li>
 													<li>
-														<a href="#">Allar Seven Stars - Quien // Who</a>
+														<a href="#">Allar Seven
+															Stars - Quien // Who</a>
 													</li>
 													<li>
-														<a href="#">StarPL StartEcon - Quien // Who</a>
+														<a href="#">StarPL StartEcon - Quien
+															// Who</a>
 													</li>
-
 													<li>
 														<a href="#">StarTouch StarPOS) - Quien // Who</a>
 													</li>
 												</ul>
 											</li>
- --> 										</ul>
-<!-- 										<ul class="nav navbar-nav navbar-right">
-											<li class="dropdown">
-												<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-													Help
-													<b class="caret"></b>
-												</a>
-												<ul class="dropdown-menu">
-													<li>
-														<a href="#">Mapa Programas</a>
-													</li>
-													<li>
-														<a href="#">Quienes somos (Class One)</a>
-													</li>
-													<li>
-														<a href="#">Manuales online</a>
-													</li>
-												</ul>
-											</li>
 										</ul>
- -->									</div><!-- /.navbar-collapse -->
-								</div><!-- /.container-fluid -->
+									</div>
+								</div>
 							</nav>
 						</div>
 					</div>
 				</div>
-				<div class="container">
-					<div class="row"> <!-- body -->
-						
-						<div class="col-md-1"> <!-- vertical shortcuts + favorites -->
-							<div class="row">shortcuts</div>
-							<div class="row"> <!-- vertical shortcus -->
-								<div class="col-md-12">
-									<div class="row">
-										<div class="col-md-6">
-											<a type="button" class="btn btn-default btn-block">LVDE</a>
-										</div>
-										<div class="col-md-6">
-											<a type="button" class="btn btn-default btn-block">Mapa web</a>
-										</div>
-										<div class="col-md-6">
-											<a type="button" class="btn btn-default btn-block">Trat. Comandas</a>
-										</div>
-										<div class="col-md-6">
-											<a type="button" class="btn btn-default btn-block">Cerrar sesión</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="row"> <!-- Favorites -->
-								<div class="col-md-12">
-									Favoritos
-									<div class="row">
-										<div class="col-md-6">
-											<a type="button" class="btn btn-default btn-block">1.1</a>
-										</div>
-										<div class="col-md-6">
-											<a type="button" class="btn btn-default btn-block">5.8</a>
-										</div>
-										<div class="col-md-6">
-											<a type="button" class="btn btn-default btn-block">4.7</a>
-										</div>
-										<div class="col-md-6">
-											<a type="button" class="btn btn-default btn-block">5.9</a>
-										</div>
-										<div class="col-md-6">
-											<a type="button" class="btn btn-default btn-block">4.8</a>
-										</div>
-										<div class="col-md-6">
-											<a type="button" class="btn btn-default btn-block">4.2</a>
-										</div>
-									</div>
-								</div>
-							</div>
+				<div class="row"> <!-- header -->
+					<div class="col-md-4">
+						<div class="logo">
+							<img src="${context:css/images/restaurant-logo.jpg}" alt="Logo"
+								class="img-rounded" height="80px" />
 						</div>
-						<div class="col-md-11"> <!-- Horizontal shortcuts + content -->
-							<div class="row"> <!-- Horizontal shortcuts -->
-								<div class="col-md-12">
-									<button type="button" class="btn btn-default">F!</button>
-									<button type="button" class="btn btn-default">F2</button>
-									<button type="button" class="btn btn-default">F3</button>
-									<button type="button" class="btn btn-default">F4</button>
-									<button type="button" class="btn btn-default">F5</button>
-									<button type="button" class="btn btn-default">F6</button>
-									<button type="button" class="btn btn-default">F7</button>
-									<button type="button" class="btn btn-default">F8</button>
-									<button type="button" class="btn btn-default">F9</button>
-									<button type="button" class="btn btn-default">F10</button>
-									<button type="button" class="btn btn-default">F11</button>
-									<button type="button" class="btn btn-default">F12</button>
-								</div>
-							</div>
-							<div class="row"> <!-- content -->
-								<div class="content">
-									<t:body />
-								</div>
-							</div>
-						</div>
-
+					</div>
+					<div class="col-md-4">
+						<h2>Info restaurante</h2>
 					</div>
 				</div>
+
+
+
+				<div class="row"> <!-- body -->
+
+					<div class="col-md-1"/> <!-- vertical shortcuts + favorites -->
+						<div class="col-md-2">
+						<div class="row">shortcuts</div>
+						<div class="row"> <!-- vertical shortcus -->
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-6">
+										<a type="button" class="btn btn-default btn-block">LVDE</a>
+									</div>
+									<div class="col-md-6">
+										<a type="button" class="btn btn-default btn-block">Mapa web</a>
+									</div>
+									<div class="col-md-6">
+										<a type="button" class="btn btn-default btn-block">Trat. Comandas</a>
+									</div>
+									<div class="col-md-6">
+										<a type="button" class="btn btn-default btn-block">Cerrar sesión</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row"> <!-- Favorites -->
+							<div class="col-md-12">
+								Favoritos
+								<div class="row">
+									<div class="col-md-6">
+										<a type="button" class="btn btn-default btn-block">1.1</a>
+									</div>
+									<div class="col-md-6">
+										<a type="button" class="btn btn-default btn-block">5.8</a>
+									</div>
+									<div class="col-md-6">
+										<a type="button" class="btn btn-default btn-block">4.7</a>
+									</div>
+									<div class="col-md-6">
+										<a type="button" class="btn btn-default btn-block">5.9</a>
+									</div>
+									<div class="col-md-6">
+										<a type="button" class="btn btn-default btn-block">4.8</a>
+									</div>
+									<div class="col-md-6">
+										<a type="button" class="btn btn-default btn-block">4.2</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-9"> <!-- Horizontal shortcuts + content -->
+						
+						<div class="row"> <!-- content -->
+							<div class="content">
+								<t:body />
+							</div>
+						</div>
+					</div>
+
+				</div>
 			</div>
+
 		</div>
 
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6">
-					<img src="${context:css/images/logo.gif}" alt="Logo" width="50" height="50" />
+					<img src="${context:css/images/logo.gif}" alt="Logo" width="50"
+						height="50" />
 					Class One, S.L. C/Rafael Alberti, 6 ,Perillo (La Coruña)
 				</div>
 				<div class="col-md-6">

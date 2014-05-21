@@ -7,37 +7,40 @@
 		<div class="col-md-4"></div>
 	</div>
 	<div class="row">
-		<div class="col-md-3"></div>
-		<div class="col-md-3">
-				<a type="button" class="btn btn-default btn-block">Opcion 1</a>
-				<a type="button" class="btn btn-default btn-block">Opcion 2</a>
-				<a type="button" class="btn btn-default btn-block">Opcion 3</a>
-				<a type="button" class="btn btn-default btn-block">Opcion 4</a>
-				<a type="button" class="btn btn-default btn-block">Opcion 5</a>
-				<a type="button" class="btn btn-default btn-block">Opcion 6</a>
-				<a type="button" class="btn btn-default btn-block">Opcion 7</a>
-				<a type="button" class="btn btn-default btn-block">Opcion 8</a>
-				<a type="button" class="btn btn-default btn-block">Opcion 9</a>
-			
+		<div class="col-md-2"/>
+		<div class="col-md-4">
+			<a type="button" class="btn btn-default btn-block">Opcion 1</a>
+			<a type="button" class="btn btn-default btn-block">Opcion 2</a>
+			<a type="button" class="btn btn-default btn-block">Opcion 3</a>
+			<a type="button" class="btn btn-default btn-block">Opcion 4</a>
+			<a type="button" class="btn btn-default btn-block">Opcion 5</a>
+			<a type="button" class="btn btn-default btn-block">Opcion 6</a>
+			<a type="button" class="btn btn-default btn-block">Opcion 7</a>
+			<a type="button" class="btn btn-default btn-block">Opcion 8</a>
+			<a type="button" class="btn btn-default btn-block">Opcion 9</a>
+
 		</div>
-		<div class="col-md-3">
-				<a type="button" class="btn btn-default btn-block">Opcion A</a>
-				<a type="button" class="btn btn-default btn-block">Opcion B</a>
-				<a type="button" class="btn btn-default btn-block">Opcion C</a>
-				<a type="button" class="btn btn-default btn-block">Opcion D</a>
-				<a type="button" class="btn btn-default btn-block">Opcion E</a>
-				<a type="button" class="btn btn-default btn-block">Opcion F</a>
-				<a type="button" class="btn btn-default btn-block">Opcion G</a>
-				<a type="button" class="btn btn-default btn-block">Opcion H</a>
-				<a type="button" class="btn btn-default btn-block">Opcion I</a>		</div>
-		<div class="col-md-3"></div>
+		<div class="col-md-4">
+			<a type="button" class="btn btn-default btn-block">Opcion A</a>
+			<a type="button" class="btn btn-default btn-block">Opcion B</a>
+			<a type="button" class="btn btn-default btn-block">Opcion C</a>
+			<a type="button" class="btn btn-default btn-block">Opcion D</a>
+			<a type="button" class="btn btn-default btn-block">Opcion E</a>
+			<a type="button" class="btn btn-default btn-block">Opcion F</a>
+			<a type="button" class="btn btn-default btn-block">Opcion G</a>
+			<a type="button" class="btn btn-default btn-block">Opcion H</a>
+			<a type="button" class="btn btn-default btn-block">Opcion I</a>
+		</div>
+
 	</div>
 </html>
 
 
 
 
-<!-- <div id="wrapper"> <ul class="menu"> <li class="item1"> <a href="#">Opcion1</a> 
+<!--
+
+ <div id="wrapper"> <ul class="menu"> <li class="item1"> <a href="#">Opcion1</a> 
 	<ul> <li class="subitem1"> <a href="#">Opcion1.1</a> </li> <li class="subitem2"> 
 	<a href="#">Opcion1.2</a> </li> <li class="subitem3"> <a href="#">Opcion1.3</a> 
 	</li> </ul> </li> <li class="item2"> <a href="#">Opcion2</a> <ul> <li class="subitem1"> 
@@ -59,24 +62,8 @@
 	</li> <li class="subitem3"> <a href="#">Opcion3.3</a> </li> </ul> </li> <li 
 	class="item4"> <a href="#">Opcion4</a> <ul> <li class="subitem1"> <a href="#">Opcion4.1</a> 
 	</li> <li class="subitem2"> <a href="#">Opcion4.2</a> </li> <li class="subitem3"> 
-	<a href="#">Opcion4.3</a> </li> </ul> </li> </ul> 
-	
-	
-					<div class="btn-group">
-					<button type="button" class="btn btn-default dropdown-toggle"
-						data-toggle="dropdown">
-						Dropdown
-						<span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu">
-						<li>
-							<a href="#">Dropdown link</a>
-						</li>
-						<li>
-							<a href="#">Dropdown link</a>
-						</li>
-					</ul>
-				</div>
-	
-	
-	-->
+	<a href="#">Opcion4.3</a> </li> </ul> </li> </ul> <div class="btn-group"> 
+	<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> 
+	Dropdown <span class="caret"></span> </button> <ul class="dropdown-menu"> 
+	<li> <a href="#">Dropdown link</a> </li> <li> <a href="#">Dropdown link</a> 
+	</li> </ul> </div> -->
