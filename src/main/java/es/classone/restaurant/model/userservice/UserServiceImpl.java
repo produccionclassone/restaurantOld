@@ -27,9 +27,7 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathExpressionException;
-import javax.xml.xpath.XPathFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -162,30 +160,15 @@ public class UserServiceImpl implements UserService {
 			NoSuchAlgorithmException, TransformerException,
 			XPathExpressionException {
 		String content = null;
-		File pers = new File("res14prs.xml");
+		URL resource = getClass().getResource("/");
+		String contextPath = resource.getPath();
+		System.out.println(contextPath+path+"/res14prs.xml");
+		File pers = new File(contextPath+path+"/res14prs.xml");
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 		Document doc = dBuilder.parse(pers);
 		String str = (xmlToString(doc));
-		XPathFactory xpathFactory = XPathFactory.newInstance();
-		XPath xpath = xpathFactory.newXPath();
-
-		
-		String os = xpath.evaluate("personification/os", doc);
-		System.out.println(os);
-		if(os.equals("Linux")){
-			pers = new File("/u/"+path+"/res14prs.xml");
-			content = readFile("/u/"+path+"/res14prs.md5", StandardCharsets.UTF_8);
-		}
-		else{
-			pers = new File("c:/Users/"+path+"/res14prs.xml");
-			content = readFile("c:/Users/"+path+"/res14prs.md5", StandardCharsets.UTF_8);
-		}
-		
-		dbFactory = DocumentBuilderFactory.newInstance();
-		dBuilder = dbFactory.newDocumentBuilder();
-		doc = dBuilder.parse(pers);
-		str = (xmlToString(doc));
+		content = readFile(contextPath+path+"/res14prs.md5", StandardCharsets.UTF_8);
 		String md5 = toMd5(str);
 		System.out.println(md5+content);
 
