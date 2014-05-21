@@ -24,7 +24,7 @@
 						<div class="col-md-6">
 							<div class="logo">
 								<img src="${context:css/images/restaurant-logo.jpg}" alt="Logo"
-									class="img-rounded" height="100px" />
+									class="img-rounded" height="80px" />
 							</div>
 						</div>
 						<div class="col-md-6">
@@ -33,6 +33,7 @@
 					</div>
 					<div class="row"> <!-- menu horizontal -->
 						<div class="col-md-12">
+						
 							<nav class="navbar navbar-default" role="navigation">
 								<div class="container-fluid">
 									<!-- Brand and toggle get grouped for better mobile display -->
@@ -71,7 +72,7 @@
 													</li>
 												</ul>
 											</li>
-											<li class="dropdown">
+<!--  											<li class="dropdown">
 												<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 													Mantenimientos
 													<b class="caret"></b>
@@ -261,8 +262,8 @@
 													</li>
 												</ul>
 											</li>
-										</ul>
-										<ul class="nav navbar-nav navbar-right">
+ --> 										</ul>
+<!-- 										<ul class="nav navbar-nav navbar-right">
 											<li class="dropdown">
 												<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 													Help
@@ -281,7 +282,7 @@
 												</ul>
 											</li>
 										</ul>
-									</div><!-- /.navbar-collapse -->
+ -->									</div><!-- /.navbar-collapse -->
 								</div><!-- /.container-fluid -->
 							</nav>
 						</div>
@@ -289,6 +290,7 @@
 				</div>
 				<div class="container">
 					<div class="row"> <!-- body -->
+						
 						<div class="col-md-1"> <!-- vertical shortcuts + favorites -->
 							<div class="row">shortcuts</div>
 							<div class="row"> <!-- vertical shortcus -->
@@ -364,15 +366,15 @@
 			</div>
 		</div>
 
-		<div id="footer">
-			<div class="container">
-				<p>
-					<img src="${context:css/images/logo.gif}" alt="Logo" width="50"
-						height="50" />
-					Class One, S.L. con domicilio social en C/Rafael Alberti, 6 ,CP
-					15172-Perillo (La Coruña)
-				</p>
-
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<img src="${context:css/images/logo.gif}" alt="Logo" width="50" height="50" />
+					Class One, S.L. C/Rafael Alberti, 6 ,Perillo (La Coruña)
+				</div>
+				<div class="col-md-6">
+					Info sesión
+				</div>
 			</div>
 		</div>
 		<script src="http://code.jquery.com/jquery.js"></script>
