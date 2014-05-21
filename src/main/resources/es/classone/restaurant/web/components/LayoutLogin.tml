@@ -5,29 +5,26 @@
 
 	<head>
 		<title>${pageTitle}</title>
-		<link rel="StyleSheet" href="${context:/css/bootstrap.css}" type="text/css"
-			media="all" />
+		<link rel="StyleSheet" href="${context:/css/bootstrap.css}"
+			type="text/css" media="all" />
 		<link rel="StyleSheet" href="${context:/css/stylesAlejandro.css}"
 			type="text/css" media="all" />
-
+		
 	</head>
 
 	<body>
 		<!-- Window. -->
 
 		<div id="wrap">
-
+			
 			<div id="main">
 				<div class="container">
-					<div class="row">
-						<div class="row30"></div>
-					</div>
 					<div class="row">
 						<div class="col-md-4"></div>
 						<div class="col-md-4">
 							<div class="logo">
 								<img src="${context:css/images/restaurant-logo.jpg}" alt="Logo"
-									 width="200" height="200" />
+									class="img-rounded" width="200" height="200" />
 							</div>
 						</div>
 						<div class="col-md-4">
@@ -56,17 +53,14 @@
 						</div>
 					</div>
 				</div>
-				<div class="row">
-				<div class="row30"/>
 				<!-- Content. -->
-
-				<div class="content">
+				<div class="row30"></div>
+				<div class="content">	
 					<t:body />
 				</div>
-			
 			</div>
 		</div>
-</div>
+		
 		<div id="footer">
 			<div class="container">
 				<p>
@@ -78,8 +72,8 @@
 
 			</div>
 		</div>
-		<script src="http://code.jquery.com/jquery.js"></script>
-		<script src="${context:/javaScript/bootstrap.min.js}"></script>
+	<script src="http://code.jquery.com/jquery.js"></script>
+    <script src="${context:/javaScript/bootstrap.min.js}"></script>
 	</body>
 
 </html>

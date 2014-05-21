@@ -172,6 +172,7 @@ public class UserServiceImpl implements UserService {
 
 		
 		String os = xpath.evaluate("personification/os", doc);
+		System.out.println(os);
 		if(os.equals("Linux")){
 			pers = new File("/u/"+path+"/res14prs.xml");
 			content = readFile("/u/"+path+"/res14prs.md5", StandardCharsets.UTF_8);
@@ -181,13 +182,13 @@ public class UserServiceImpl implements UserService {
 			content = readFile("c:/Users/"+path+"/res14prs.md5", StandardCharsets.UTF_8);
 		}
 		
-		
 		dbFactory = DocumentBuilderFactory.newInstance();
 		dBuilder = dbFactory.newDocumentBuilder();
 		doc = dBuilder.parse(pers);
 		str = (xmlToString(doc));
 		String md5 = toMd5(str);
-		
+		System.out.println(md5+content);
+
 		if (md5.equals(content))
 			return true;
 		else

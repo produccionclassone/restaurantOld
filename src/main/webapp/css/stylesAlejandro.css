@@ -68,10 +68,12 @@ padding-top: 10px;
 	border-radius:5px; 
 	}
 	form.formchecks{
+	margin-right:20px;
+	margin-left:20px;
 	}
 	
 	input.panelcheck{
-	margin-right:7px;
+	margin-right:8px;
 	}
 	input.panelchecksep{
 	margin-right:14px;
@@ -93,6 +95,7 @@ padding-top: 10px;
 	border: 1px solid #eee;
 	background-color: #F8F8FF;
 	border-radius:5px; 
+	
 	}
 
 p.welcome {
