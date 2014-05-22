@@ -62,15 +62,14 @@
 		</div>
 		
 		<div id="footer">
-			<div class="container">
-				<p>
-					<img src="${context:css/images/logo.gif}" alt="Logo" width="50"
-						height="40" />
-					Class One, S.L. con domicilio social en C/Rafael Alberti, 6 ,CP
-					15172-Perillo (La Coruña)
-				</p>
+	
+			<p>
+				<img src="${context:css/images/logo.gif}" alt="Logo" width="30"
+					height="20" />
+				Class One, S.L. con domicilio social en C/Rafael Alberti, 6 ,CP
+				15172-Perillo (La Coruña)
+			</p>
 
-			</div>
 		</div>
 	<script src="http://code.jquery.com/jquery.js"></script>
     <script src="${context:/javaScript/bootstrap.min.js}"></script>
