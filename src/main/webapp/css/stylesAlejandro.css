@@ -153,14 +153,34 @@ min-height: 100%;
 	  display: inline-block;
 	  width: 0;
 	  height: 0;
-	  margin left:18px;
-	  margin-top:-10px;
-	  float:right;
+	  margin-left:10px;
 	  vertical-align: middle;
 	  border-left: 4px solid;
 	  border-bottom: 4px solid transparent;
 	  border-top: 4px solid transparent;
 	}
+
+/*CLOCK*/
+div.bodyclock {
+	padding-right:22px;
+	padding-left:22px;
+	padding-top:5px;
+	padding-bottom:5px;
+	font-family: 'digi';
+	font-size: 76%;
+	
+}
+
+div.clock {
+	
+	background: white;
+	font-size: 30px;
+	color: #707070;
+	
+	/* Centering everything */
+	border: 5px solid #E54B6B;
+	background-image: linear-gradient(#f0f0f0, white);
+}
 
 /*Configuration*/
 	div.radiogroup{
