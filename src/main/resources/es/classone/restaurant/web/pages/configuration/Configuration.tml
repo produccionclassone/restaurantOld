@@ -94,7 +94,7 @@
 								</div>
 							</div>
 							<div class="tab-pane" id="general">
-								<div class="row">
+								<div class="row" style="padding-left:0px;">
 									<div class="col-md-5"><!-- Left -->
 										<div class="row5"></div>
 										<div class="row">
@@ -125,6 +125,7 @@
 										</div>
 										<div class="row5"></div>
 										<div class="row" style="border: 1px solid #d0d0d0;">
+											<div class="row5"></div>
 											<div class="row">
 												<div class="col-md-8">
 													<span class="input-group-addon">Cobro por servicio/Cbtos.</span>
@@ -152,12 +153,14 @@
 													<input type="text" class="form-control"></input>
 												</div>
 											</div>
+											<div class="row5"></div>
 										</div>
 										<div class="row5"></div>
 										<div class="row" style="border: 1px solid #d0d0d0;">
+											<div class="row5"></div>
 											<div class="row">
 												<div class="col-md-8">
-													<span class="input-group-addon">Prop, camareros en fact</span>
+													<span class="input-group-addon">Prop. camareros en fact</span>
 												</div>
 												<div class="col-md-4">
 													<input type="checkbox" class="form-control"></input>
@@ -182,7 +185,7 @@
 													<input type="text" class="form-control"></input>
 												</div>
 											</div>
-
+											<div class="row5"></div>
 										</div>
 										<div class="row5"></div>
 										<div class="row">
@@ -294,7 +297,7 @@
 											<div class="row5"></div>
 
 											<div class="row">
-												<div class="col-md-6">
+												<div class="col-md-5">
 													<span class="input-group-addon">Desayunos</span>
 												</div>
 												<div class="col-md-3">
@@ -306,7 +309,7 @@
 											</div>
 											<div class="row5"></div>
 											<div class="row">
-												<div class="col-md-6">
+												<div class="col-md-5">
 													<span class="input-group-addon">Almuerzos</span>
 												</div>
 												<div class="col-md-3">
@@ -318,7 +321,7 @@
 											</div>
 											<div class="row5"></div>
 											<div class="row">
-												<div class="col-md-6">
+												<div class="col-md-5">
 													<span class="input-group-addon">Cenas</span>
 												</div>
 												<div class="col-md-3">
@@ -330,7 +333,7 @@
 											</div>
 											<div class="row5"></div>
 											<div class="row">
-												<div class="col-md-6">
+												<div class="col-md-5">
 													<span class="input-group-addon">Otros</span>
 												</div>
 												<div class="col-md-3">
@@ -365,13 +368,60 @@
 										<div class="row5"></div>
 										<div class="row">
 											<div class="col-md-10">
-												<span class="input-group-addon">Calif. Platos PRN-Cocina [S/N/R]</span>
+												<span class="input-group-addon">Calif. Platos PRN-Cocina</span>
 											</div>
 											<div class="col-md-2">
 												<input type="text" class="form-control"></input>
 											</div>
 										</div>
 										<div class="row5"></div>
+										<div class="row" style="border: 1px solid #d0d0d0;">
+											<div class="row">
+												<span class="input-group-addon" style="text-align:center;">Impresora de comandas:</span>
+											</div>
+											<div class="row5"></div>
+											<div class="row">
+												<div class="col-md-4">
+													<span class="input-group-addon">Printer 1</span>
+												</div>
+												<div class="col-md-1">
+													<input type="checkbox" class="form-control"></input>
+												</div>
+												<div class="col-md-3">
+													<span class="input-group-addon">Prt</span>
+												</div>
+												<div class="col-md-3">
+													<input type="text" class="form-control"></input>
+												</div>
+											</div>
+											<div class="row5"></div>
+											<div class="row">
+												<div class="col-md-4">
+													<span class="input-group-addon">Printer 2</span>
+												</div>
+												<div class="col-md-1">
+													<input type="checkbox" class="form-control"></input>
+												</div>
+												<div class="col-md-3">
+													<span class="input-group-addon">Prt</span>
+												</div>
+												<div class="col-md-3">
+													<input type="text" class="form-control"></input>
+												</div>
+											</div>
+											<div class="row5"></div>
+											<div class="row">
+												<div class="col-md-4">
+													<span class="input-group-addon">Especial</span>
+												</div>
+												<div class="col-md-1">
+													<input type="checkbox" class="form-control"></input>
+												</div>
+											</div>
+											<div class="row5"></div>
+										</div>
+										
+										<div class="row5"></div>
 										<div class="row">
 											<div class="col-md-8">
 												<span class="input-group-addon">Div. comandas por plato</span>
@@ -381,12 +431,89 @@
 											</div>
 										</div>
 										<div class="row5"></div>
-										<div class="row">
-											<div class="col-md-6">
-												<span class="input-group-addon">Elem. asoc Propinas</span>
+										<div class="row" style="border: 1px solid #d0d0d0;">
+											<div class="row">
+												<span class="input-group-addon" style="text-align:center;">Elementos
+													asociados a:</span>
 											</div>
-											<div class="col-md-1">
-												<input type="checkbox" class="form-control"></input>
+											<div class="row5"></div>
+
+											<div class="row">
+												<div class="col-md-4">
+													<span class="input-group-addon">Propinas</span>
+												</div>
+												<div class="col-md-1">
+													<input type="checkbox" class="form-control"></input>
+												</div>
+												<div class="col-md-3">
+													<input type="text" class="form-control"></input>
+												</div>
+											</div>
+											<div class="row5"></div>
+											<div class="row">
+												<div class="col-md-4">
+													<span class="input-group-addon">Dto1 y %</span>
+												</div>
+												<div class="col-md-1">
+													<input type="checkbox" class="form-control"></input>
+												</div>
+												<div class="col-md-3">
+													<input type="text" class="form-control"></input>
+												</div>
+												<div class="col-md-3">
+													<input type="text" class="form-control"></input>
+												</div>
+
+											</div>
+											<div class="row5"></div>
+											<div class="row">
+												<div class="col-md-4">
+													<span class="input-group-addon">Dto2 y %</span>
+												</div>
+												<div class="col-md-1">
+													<input type="checkbox" class="form-control"></input>
+												</div>
+												<div class="col-md-3">
+													<input type="text" class="form-control"></input>
+												</div>
+												<div class="col-md-3">
+													<input type="text" class="form-control"></input>
+												</div>
+											</div>
+											<div class="row5"></div>
+											<div class="row">
+												<div class="col-md-4">
+													<span class="input-group-addon">Dto3 y %</span>
+												</div>
+												<div class="col-md-1">
+													<input type="checkbox" class="form-control"></input>
+												</div>
+												<div class="col-md-3">
+													<input type="text" class="form-control"></input>
+												</div>
+												<div class="col-md-3">
+													<input type="text" class="form-control"></input>
+												</div>
+											</div>
+											<div class="row5"></div>
+										<div class="row">
+											<div class="col-md-4">
+												<span class="input-group-addon">Cargo TPV</span>
+											</div>
+											<div class="col-md-3">
+												<input type="text" class="form-control"></input>
+											</div>
+											<div class="col-md-3">
+												<input type="text" class="form-control"></input>
+											</div>
+											
+										</div>
+											
+										</div>
+										<div class="row5"></div>
+										<div class="row">
+											<div class="col-md-8">
+												<span class="input-group-addon">Separador campo TXT</span>
 											</div>
 											<div class="col-md-3">
 												<input type="text" class="form-control"></input>
@@ -395,66 +522,13 @@
 										<div class="row5"></div>
 										<div class="row">
 											<div class="col-md-8">
-												<span class="input-group-addon">Elem. asoc. Dto1 y %</span>
-											</div>
-											<div class="col-md-1">
-												<input type="checkbox" class="form-control"></input>
+												<span class="input-group-addon">Separador alfab. TXT</span>
 											</div>
 											<div class="col-md-3">
 												<input type="text" class="form-control"></input>
 											</div>
-											<div class="col-md-3">
-												<input type="text" class="form-control"></input>
-											</div>
-
-
 										</div>
-										<div class="row5"></div>
-										<div class="row">
-											<div class="col-md-8">
-												<span class="input-group-addon">Div. comandas por plato</span>
-											</div>
-											<div class="col-md-1">
-												<input type="checkbox" class="form-control"></input>
-											</div>
-										</div>
-										<div class="row5"></div>
-										<div class="row">
-											<div class="col-md-8">
-												<span class="input-group-addon">Div. comandas por plato</span>
-											</div>
-											<div class="col-md-1">
-												<input type="checkbox" class="form-control"></input>
-											</div>
-										</div>
-										<div class="row5"></div>
-										<div class="row">
-											<div class="col-md-8">
-												<span class="input-group-addon">Div. comandas por plato</span>
-											</div>
-											<div class="col-md-1">
-												<input type="checkbox" class="form-control"></input>
-											</div>
-										</div>
-										<div class="row5"></div>
-										<div class="row">
-											<div class="col-md-8">
-												<span class="input-group-addon">Div. comandas por plato</span>
-											</div>
-											<div class="col-md-1">
-												<input type="checkbox" class="form-control"></input>
-											</div>
-										</div>
-										<div class="row5"></div>
-										<div class="row">
-											<div class="col-md-8">
-												<span class="input-group-addon">Div. comandas por plato</span>
-											</div>
-											<div class="col-md-1">
-												<input type="checkbox" class="form-control"></input>
-											</div>
-										</div>
-
+										
 									</div>
 								</div>
 
