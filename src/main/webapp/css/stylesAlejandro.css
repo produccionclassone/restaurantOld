@@ -66,9 +66,7 @@ width:100%;
 div.navbar-window{
 margin:-10px;
 max-height:10px;
-
 }
-
 div.menuwindow{
 padding-left:20px;	
 margin:-20px;
@@ -95,12 +93,15 @@ HTML>BODY
 height:20px;
 padding-top: 0px;
 padding-bottom: 0px;
+
 }
 HTML>BODY
 .navbar-nav > li > .dropdown-menu{
-
 } 
 
+.dropdown:hover .dropdown-menu {
+    display: block;
+ }
 HTML>BODY
 li.dropdown{
  min-height:20px;
@@ -108,7 +109,25 @@ li.dropdown{
 HTML>BODY
 a.dropdown-toggle{
 max-height:20px;
+
 }
+HTML>BODY
+.dropdown-menu .divider{
+margin:0px;
+}
+HTML>BODY
+.navbar-nav > li > .dropdown-menu > li > a{
+max-height:19px;
+font-size: 12.5px;
+padding:3px;
+margin:3px;
+line-height:11px;
+}
+HTML>BODY
+.dropdown-menu > li > a:hover
+{
+background-color: #CACACA;
+} 
 
 /*Configuration*/
 	div.radiogroup{
