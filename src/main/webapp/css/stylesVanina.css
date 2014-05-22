@@ -28,6 +28,24 @@ div.logo{
 	text-align:center;
 }
 
+
+HTML > BODY .input-group-addon {
+	padding: 0 0 0 0;
+	font-size: 12px;
+	text-align:right;
+}
+
+HTML > BODY .form-control {
+	height: 22px;
+  	padding: 0px 0px;
+  	font-size: 12px;
+}
+
+HTML > BODY .jumbotron {
+	padding: 2px 2px;
+	background-color:#ccc;
+}
+
 .navbar-collapse {
   max-height: 640px;
   padding-right: 15px;

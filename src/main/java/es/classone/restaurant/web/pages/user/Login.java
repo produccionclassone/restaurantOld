@@ -76,7 +76,7 @@ public class Login {
 			loginForm.recordError(messages.get("error-authenticationFailed2"));
 
 		}
-		try {
+/*		try {
 			if (!userService.checkPersonification(path))
 				loginForm.recordError(messages
 						.get("error-notCorrectPersonification"));
@@ -99,7 +99,7 @@ public class Login {
 			loginForm.recordError(messages
 					.get("error-path"));
 		}
-
+*/
 	}
 
 	Object onSuccess() {
