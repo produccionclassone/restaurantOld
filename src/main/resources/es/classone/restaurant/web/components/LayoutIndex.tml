@@ -288,14 +288,34 @@
 					</div>
 
 					<div class="row"> <!-- header -->
-						<div class="col-md-4">
+						<div class="col-md-05"/>
+						<div class="col-md-2">
+						<div class="row10"></div>
+						<div class="date">
+								<script type="text/javascript">
+									var currentTime = new Date();
+									var month =
+									currentTime.getMonth() + 1;
+									var day = currentTime.getDate();
+									var
+									year = currentTime.getFullYear();
+									document.write(day + "/" +
+									month + "/" + year);
+								</script>
+							</div>
+							<div class="bodyclock">
+								<div class="clock"></div>
+							</div>
+							</div>
+							<div class="col-md-1"/>
+							<div class="col-md-1">
 							<div class="logo">
 								<img src="${context:css/images/restaurant-logo.jpg}" alt="Logo"
-									class="img-rounded" height="80px" />
+									 height="80px" />
 							</div>
 						</div>
-						<div class="col-md-4">
-							<h2>Info restaurante</h2>
+						<div class="col-md-6">
+							<h1 class="info">LINCOLN RESTAURANT</h1>
 						</div>
 					</div>
 
@@ -303,23 +323,46 @@
 					<!-- body -->
 
 					<div class="row">
-						<div class="col-md-1"/>
+						<div class="col-md-05"></div>
 						<div class="col-md-2">
-							<div class="row30"></div>
-							<!-- vertical shortcus -->
-							<div class="bodyclock">
-								<div class="clock"></div>
+
+							
+							<div class="row30" />
+							<div class="row">
+
+								<div class="col-md-4">
+									<a class="imagelink" href="#">
+										<img class="zoom" src="${context:css/images/book_search.png}"
+											width="90" height="90" title="LVDE" alt="LVDE" />
+									</a>
+								</div>
+								<div class="col-md-1" />
+								<div class="col-md-4">
+									<a class="imagelink" href="#">
+										<img class="zoom" src="${context:css/images/next.png}"
+											width="90" height="90" title="Mapa Web" alt="Mapa Web" />
+									</a>
+								</div>
+								<div class="col-md-2" />
 							</div>
-							<a type="button" class="btn btn-default btn-block">LVDE</a>
 
+							<div class="row">
 
-							<a type="button" class="btn btn-default btn-block">Mapa web</a>
-
-							<a type="button" class="btn btn-default btn-block">Trat. Comandas</a>
-
-
-							<a type="button" class="btn btn-default btn-block">Cerrar sesión</a>
-
+								<div class="col-md-4">
+									<a href="#">
+										<img class="zoom" src="${context:css/images/note_book.png}"
+											width="90" height="90" title="Tratamiento de comandas" alt="Tratamiento de comandas" />
+									</a>
+								</div>
+								<div class="col-md-1" />
+								<div class="col-md-4">
+									<a class="imagelink" href="#">
+										<img class="zoom" src="${context:css/images/shut_down.png}"
+											width="90" height="90" title="Cerrar Sesión" alt="Cerrar Sesion" />
+									</a>
+								</div>
+								<div class="col-md-2" />
+							</div>
 						</div>
 
 
