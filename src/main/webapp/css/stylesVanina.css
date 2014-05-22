@@ -28,17 +28,28 @@ div.logo{
 	text-align:center;
 }
 
-
-HTML > BODY .input-group-addon {
-	padding: 0 0 0 0;
-	font-size: 12px;
-	text-align:right;
+div.row5{
+padding-top: 5px;
 }
 
-HTML > BODY .form-control {
-	height: 22px;
+
+HTML > BODY .input-group-addon {
+	padding: 0px 0px;
+	font-size: 12px;
+	text-align:right;
+	border:none;
+	background-color:transparent;
+}
+
+HTML > BODY .form-control{
+	height: 18px;
+	font-size: 14px;
   	padding: 0px 0px;
-  	font-size: 12px;
+  	border-radius: 1px;
+  	border: 1px solid #ccc;
+  	margin-left:0px;
+  	text-align:left;
+  	float:left;
 }
 
 HTML > BODY .jumbotron {
