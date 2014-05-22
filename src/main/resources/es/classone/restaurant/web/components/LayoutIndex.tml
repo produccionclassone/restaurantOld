@@ -19,6 +19,7 @@
 	<body>
 		<div id="wrap">
 			<div id="main">
+			<div class="container-full">
 				<div class="row">
 					<ol class="breadcrumb">
 						<div class="rowbreadcrumb">
@@ -30,7 +31,7 @@
 				</div>
 				<div class="menuwindow">
 					<div class="row"> <!-- menu horizontal -->
-						<div class="col-md-12">
+				
 
 
 
@@ -98,42 +99,62 @@
 													</li>
 												</ul>
 											</li>
-<!-- 											<li class="menu-item dropdown"> -->
-<!-- 												<a href="#" class="dropdown-toggle" data-toggle="dropdown"> -->
-<!-- 													Visualizacion -->
-<!-- 													<b class="caret"></b> -->
-<!-- 												</a> -->
-<!-- 												<ul class="dropdown-menu"> -->
-<!-- 													<li class="menu-item dropdown dropdown-submenu"> -->
-<!-- 														<a href="#" class="dropdown-toggle" data-toggle="dropdown"> -->
-<!-- 															Nuestros clientes -->
-<!-- 														</a> -->
-<!-- 														<ul class="dropdown-menu"> -->
-<!-- 															<li class="menu-item "> -->
-<!-- 																<a href="#">Submenu1</a> -->
-<!-- 															</li> -->
-<!-- 															<li class="menu-item  -->
-<!-- 								"> -->
-<!-- 																<a href="#">Submenu2</a> -->
-<!-- 															</li> -->
-<!-- 														</ul> -->
-<!-- 													</li> -->
-<!-- 													<li class="menu-item dropdown  -->
-<!-- 								dropdown-submenu"> -->
-<!-- 														<a href="#" class="dropdown-toggle" data-toggle="dropdown"> -->
-<!-- 															Estadisticas -->
-<!-- 														</a> -->
-<!-- 														<ul class="dropdown-menu"> -->
-<!-- 															<li class="menu-item "> -->
-<!-- 																<a href="#">Submenu1</a> -->
-<!-- 															</li> -->
-<!-- 															<li class="menu-item "> -->
-<!-- 																<a href="#">Submenu2</a> -->
-<!-- 															</li> -->
-<!-- 														</ul> -->
-<!-- 													</li> -->
-<!-- 												</ul> -->
-<!-- 											</li> -->
+											<li class="dropdown">
+												<a href="#" data-toggle="dropdown" class="dropdown-toggle">
+													Visualización
+													<b class="caret"></b>
+												</a>
+												<ul class="dropdown-menu" id="menu1">
+													<li>
+														<a href="#">
+															Nuestros Clientes
+															<b class="right-caret"></b>
+														</a>
+														<ul class="dropdown-menu sub-menu">
+															<li>
+																<a href="#">Pendientes de pago</a>
+															</li>
+															<li>
+																<a href="#">Últimas visitas</a>
+															</li>
+															<li>
+																<a href="#">Facturas</a>
+															</li>
+															<li>
+																<a href="#">Facturas por Forma de Pago</a>
+															</li>
+															<li>
+																<a href="#">Selección por...</a>
+															</li>
+															<li>
+																<a href="#">Padrón de Clientes</a>
+															</li>
+															<!-- <li class="divider"></li> -->
+															<!-- <li class="nav-header">Nav header</li> -->
+															<!-- <li><a href="#">Separated link</a></li> -->
+															<!-- <li><a href="#">One more separated link</a></li> -->
+														</ul>
+													</li>
+													<li>
+														<a href="#">
+															Estadísticas
+															<b class="right-caret"></b>
+														</a>
+														<ul class="dropdown-menu sub-menu">
+															<li>
+																<a href="#">Grupos de platos</a>
+															</li>
+															<li>
+																<a href="#">Platos</a>
+															</li>
+															<li>
+																<a href="#">Camareros</a>
+															</li>
+														</ul>
+													</li>
+												</ul>
+											</li>
+
 											<li class="dropdown">
 												<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 													Informes
@@ -262,100 +283,78 @@
 									</div>
 								</div>
 							</nav>
-						</div>
+				
 					</div>
 				</div>
-				<div class="row"> <!-- header -->
-					<div class="col-md-4">
-						<div class="logo">
-							<img src="${context:css/images/restaurant-logo.jpg}" alt="Logo"
-								class="img-rounded" height="80px" />
-						</div>
-					</div>
-					<div class="col-md-4">
-						<h2>Info restaurante</h2>
-					</div>
-				</div>
-
-
-
-				<div class="row"> <!-- body -->
-
-					<div class="col-md-1" /> <!-- vertical shortcuts + favorites -->
-					<div class="col-md-2">
-						<div class="row">shortcuts</div>
-						<div class="row"> <!-- vertical shortcus -->
-							<div class="col-md-12">
-								<div class="row">
-									<div class="col-md-6">
-										<a type="button" class="btn btn-default btn-block">LVDE</a>
-									</div>
-									<div class="col-md-6">
-										<a type="button" class="btn btn-default btn-block">Mapa web</a>
-									</div>
-									<div class="col-md-6">
-										<a type="button" class="btn btn-default btn-block">Trat. Comandas</a>
-									</div>
-									<div class="col-md-6">
-										<a type="button" class="btn btn-default btn-block">Cerrar sesión</a>
-									</div>
-								</div>
+				
+					<div class="row"> <!-- header -->
+						<div class="col-md-4">
+							<div class="logo">
+								<img src="${context:css/images/restaurant-logo.jpg}" alt="Logo"
+									class="img-rounded" height="80px" />
 							</div>
 						</div>
-						<div class="row"> <!-- Favorites -->
-							<div class="col-md-12">
-								Favoritos
-								<div class="row">
-									<div class="col-md-6">
-										<a type="button" class="btn btn-default btn-block">1.1</a>
-									</div>
-									<div class="col-md-6">
-										<a type="button" class="btn btn-default btn-block">5.8</a>
-									</div>
-									<div class="col-md-6">
-										<a type="button" class="btn btn-default btn-block">4.7</a>
-									</div>
-									<div class="col-md-6">
-										<a type="button" class="btn btn-default btn-block">5.9</a>
-									</div>
-									<div class="col-md-6">
-										<a type="button" class="btn btn-default btn-block">4.8</a>
-									</div>
-									<div class="col-md-6">
-										<a type="button" class="btn btn-default btn-block">4.2</a>
-									</div>
-								</div>
-							</div>
+						<div class="col-md-4">
+							<h2>Info restaurante</h2>
 						</div>
 					</div>
-					<div class="col-md-9"> <!-- Horizontal shortcuts + content -->
 
-						<div class="row"> <!-- content -->
+
+					<!-- body -->
+
+					<div class="row">
+						<div class="col-md-2">
+							<div class="row30"></div>
+							<!-- vertical shortcus -->
+						
+
+							<a type="button" class="btn btn-default btn-block">LVDE</a>
+
+
+							<a type="button" class="btn btn-default btn-block">Mapa web</a>
+
+							<a type="button" class="btn btn-default btn-block">Trat. Comandas</a>
+
+
+							<a type="button" class="btn btn-default btn-block">Cerrar sesión</a>
+
+						</div>
+
+
+
+						<div class="col-md-10">
+							<!-- content -->
 							<div class="content">
 								<t:body />
 							</div>
+
 						</div>
+
 					</div>
 
 				</div>
+
 			</div>
 
 		</div>
 
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6">
-					<img src="${context:css/images/logo.gif}" alt="Logo" width="50"
-						height="50" />
-					Class One, S.L. C/Rafael Alberti, 6 ,Perillo (La Coruña)
-				</div>
-				<div class="col-md-6">
-					Info sesión
-				</div>
-			</div>
+		<div id="footer">
+
+			<p>
+				<img src="${context:css/images/logo.gif}" alt="Logo" width="30"
+					height="20" />
+				Class One, S.L. con domicilio social en C/Rafael Alberti, 6 ,CP
+				15172-Perillo (La Coruña)
+			</p>
+
 		</div>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js"></script>
+	
 		<script src="http://code.jquery.com/jquery.js"></script>
 		<script src="${context:/javaScript/bootstrap.min.js}"></script>
+		
 	</body>
+	
+
 
 </html>
