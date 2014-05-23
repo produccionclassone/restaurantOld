@@ -125,7 +125,7 @@
 											</div>
 										</div>
 										<div class="row5"></div>
-										<div class="row" style="border: 1px solid #d0d0d0;">
+										<div class="rowBorder">
 											<div class="row5"></div>
 											<div class="row">
 												<div class="col-md-8">
@@ -157,7 +157,7 @@
 											<div class="row5"></div>
 										</div>
 										<div class="row5"></div>
-										<div class="row" style="border: 1px solid #d0d0d0;">
+										<div class="rowBorder">
 											<div class="row5"></div>
 											<div class="row">
 												<div class="col-md-8">
@@ -274,7 +274,7 @@
 											<div class="col-md-8">
 												<span class="input-group-addon">Linea del euro</span>
 											</div>
-											<div class="col-md-1">
+											<div class="col-md-4">
 												<input type="checkbox" class="form-control"></input>
 											</div>
 										</div>
@@ -291,7 +291,7 @@
 									<div class="col-md-1" style="widht:10%;"></div>
 									<div class="col-md-5"> <!-- Right -->
 										<div class="row5"></div>
-										<div class="row" style="border: 1px solid #d0d0d0;">
+										<div class="rowBorder">
 											<div class="row">
 												<span class="input-group-addon" style="text-align:center;">Serv. Hotel/Dpto:</span>
 											</div>
@@ -344,17 +344,15 @@
 													<input type="text" class="form-control"></input>
 												</div>
 											</div>
+											<div class="row5"></div>
 										</div>
 										<div class="row5"></div>
 										<div class="row">
-											<div class="col-md-6">
-												<span class="input-group-addon">Integración hotel</span>
+											<div class="col-md-8">
+												<span class="input-group-addon">Integración hotel [S/N/R]</span>
 											</div>
-											<div class="col-md-3">
+											<div class="col-md-4">
 												<input type="text" class="form-control"></input>
-											</div>
-											<div class="col-md-3">
-												<span class="input-group-addon">[S/N/R]</span>
 											</div>
 										</div>
 										<div class="row5"></div>
@@ -362,21 +360,21 @@
 											<div class="col-md-8">
 												<span class="input-group-addon">Integración Econ.</span>
 											</div>
-											<div class="col-md-1">
+											<div class="col-md-4">
 												<input type="checkbox" class="form-control"></input>
 											</div>
 										</div>
 										<div class="row5"></div>
 										<div class="row">
-											<div class="col-md-10">
+											<div class="col-md-8">
 												<span class="input-group-addon">Calif. Platos PRN-Cocina</span>
 											</div>
-											<div class="col-md-2">
+											<div class="col-md-4">
 												<input type="text" class="form-control"></input>
 											</div>
 										</div>
 										<div class="row5"></div>
-										<div class="row" style="border: 1px solid #d0d0d0;">
+										<div class="rowBorder">
 											<div class="row">
 												<span class="input-group-addon" style="text-align:center;">Impresora de
 													comandas:</span>
@@ -428,12 +426,12 @@
 											<div class="col-md-8">
 												<span class="input-group-addon">Div. comandas por plato</span>
 											</div>
-											<div class="col-md-1">
+											<div class="col-md-4">
 												<input type="checkbox" class="form-control"></input>
 											</div>
 										</div>
 										<div class="row5"></div>
-										<div class="row" style="border: 1px solid #d0d0d0;">
+										<div class="rowBorder">
 											<div class="row">
 												<span class="input-group-addon" style="text-align:center;">Elementos
 													asociados a:</span>
@@ -502,22 +500,22 @@
 												<div class="col-md-4">
 													<span class="input-group-addon">Cargo TPV</span>
 												</div>
+												<div class="col-md-1"></div>
 												<div class="col-md-3">
 													<input type="text" class="form-control"></input>
 												</div>
 												<div class="col-md-3">
 													<input type="text" class="form-control"></input>
 												</div>
-
 											</div>
-
+											<div class="row5"></div>
 										</div>
 										<div class="row5"></div>
 										<div class="row">
 											<div class="col-md-8">
 												<span class="input-group-addon">Separador campo TXT</span>
 											</div>
-											<div class="col-md-3">
+											<div class="col-md-4">
 												<input type="text" class="form-control"></input>
 											</div>
 										</div>
@@ -526,7 +524,7 @@
 											<div class="col-md-8">
 												<span class="input-group-addon">Separador alfab. TXT</span>
 											</div>
-											<div class="col-md-3">
+											<div class="col-md-4">
 												<input type="text" class="form-control"></input>
 											</div>
 										</div>
@@ -539,103 +537,125 @@
 							<div class="tab-pane" id="restaurante">
 								<div class="row5"></div>
 								<div class="row">
-									<div class="col-md-5" style="border: 1px solid #d0d0d0;"><!-- Left -->
+									<div class="col-md-5"><!-- Left -->
+										<div class="rowBorder">
+											<div class="row5"></div>
+											<div class="row">
+												<span class="input-group-addon" style="text-align:left; padding-left:10px;"><h5>Color</h5></span>
+											</div>
+											<div class="row5"></div>
+											<div class="rowBorder">
+												<div class="row">
+													<span class="input-group-addon" style="text-align:center;">Panel de
+														artículos</span>
+												</div>
+												<div class="row5"></div>
+												<div class="row">
+													<div class="col-md-8">
+														<span class="input-group-addon">Comanda</span>
+													</div>
+													<div class="col-md-4">
+														<input type="text" class="form-control"></input>
+													</div>
+												</div>
+												<div class="row5"></div>
+												<div class="row">
+													<div class="col-md-8">
+														<span class="input-group-addon">Factura</span>
+													</div>
+													<div class="col-md-4">
+														<input type="text" class="form-control"></input>
+													</div>
+												</div>
+												<div class="row5"></div>
+												<div class="row">
+													<div class="col-md-8">
+														<span class="input-group-addon">Cobro</span>
+													</div>
+													<div class="col-md-4">
+														<input type="text" class="form-control"></input>
+													</div>
+												</div>
+												<div class="row5"></div>
+												<div class="row">
+													<div class="col-md-8">
+														<span class="input-group-addon">Trsp Cargos</span>
+													</div>
+													<div class="col-md-4">
+														<input type="text" class="form-control"></input>
+													</div>
+												</div>
+												<div class="row5"></div>
+											</div>
+											<div class="row5"></div>
+											<div class="rowBorder">
+												<div class="row5"></div>
+												<div class="row">
+													<span class="input-group-addon" style="text-align:center;">Situación de la
+														mesa</span>
+												</div>
+												<div class="row5"></div>
+												<div class="row">
+													<div class="col-md-8">
+														<span class="input-group-addon">Vacia</span>
+													</div>
+													<div class="col-md-4">
+														<input type="text" class="form-control"></input>
+													</div>
+												</div>
+												<div class="row5"></div>
+												<div class="row">
+													<div class="col-md-8">
+														<span class="input-group-addon">Ocupada</span>
+													</div>
+													<div class="col-md-4">
+														<input type="text" class="form-control"></input>
+													</div>
+												</div>
+												<div class="row5"></div>
+												<div class="row">
+													<div class="col-md-8">
+														<span class="input-group-addon">Unida</span>
+													</div>
+													<div class="col-md-4">
+														<input type="text" class="form-control"></input>
+													</div>
+												</div>
+												<div class="row5"></div>
+												<div class="row">
+													<div class="col-md-8">
+														<span class="input-group-addon">Reservada</span>
+													</div>
+													<div class="col-md-4">
+														<input type="text" class="form-control"></input>
+													</div>
+												</div>
+												<div class="row5"></div>
+												<div class="row">
+													<div class="col-md-8">
+														<span class="input-group-addon">Facturada</span>
+													</div>
+													<div class="col-md-4">
+														<input type="text" class="form-control"></input>
+													</div>
+												</div>
+												<div class="row5"></div>
+											</div>
+											<div class="row5"></div>
+										</div>
 										<div class="row5"></div>
 										<div class="row">
-											<span class="input-group-addon" style="text-align:center;">Color</span>
-										</div>
-
-										<div class="col-md-12" style="border: 1px solid #d0d0d0;">
-											<div class="row">
-												<span class="input-group-addon" style="text-align:center;">Panel de
-													artículos</span>
+											<div class="col-md-8">
+												<span class="input-group-addon">Ult. Num. Impreso</span>
 											</div>
-											<div class="row5"></div>
-
-											<div class="row">
-												<div class="col-md-8">
-													<span class="input-group-addon">Comanda</span>
-												</div>
-												<div class="col-md-3">
-													<input type="text" class="form-control"></input>
-												</div>
-											</div>
-											<div class="row5"></div>
-											<div class="row">
-												<div class="col-md-8">
-													<span class="input-group-addon">Factura</span>
-												</div>
-												<div class="col-md-3">
-													<input type="text" class="form-control"></input>
-												</div>
-											</div>
-											<div class="row5"></div>
-											<div class="row">
-												<div class="col-md-8">
-													<span class="input-group-addon">Cobro</span>
-												</div>
-												<div class="col-md-3">
-													<input type="text" class="form-control"></input>
-												</div>
-											</div>
-											<div class="row5"></div>
-											<div class="row">
-												<div class="col-md-8">
-													<span class="input-group-addon">Trsp Cargos</span>
-												</div>
-												<div class="col-md-3">
-													<input type="text" class="form-control"></input>
-												</div>
-											</div>
-																					<div class="row5"></div>
-											
-										</div>
-										<div class="col-md-12" style="border: 1px solid #d0d0d0;">
-																					<div class="row5"></div>
-											<div class="row">
-												<span class="input-group-addon" style="text-align:center;">Panel de
-													artículos</span>
-											</div>
-											<div class="row5"></div>
-
-											<div class="row">
-												<div class="col-md-8">
-													<span class="input-group-addon">Comanda</span>
-												</div>
-												<div class="col-md-3">
-													<input type="text" class="form-control"></input>
-												</div>
-											</div>
-											<div class="row5"></div>
-											<div class="row">
-												<div class="col-md-8">
-													<span class="input-group-addon">Factura</span>
-												</div>
-												<div class="col-md-3">
-													<input type="text" class="form-control"></input>
-												</div>
-											</div>
-											<div class="row5"></div>
-											<div class="row">
-												<div class="col-md-8">
-													<span class="input-group-addon">Cobro</span>
-												</div>
-												<div class="col-md-3">
-													<input type="text" class="form-control"></input>
-												</div>
-											</div>
-											<div class="row5"></div>
-											<div class="row">
-												<div class="col-md-8">
-													<span class="input-group-addon">Trsp Cargos</span>
-												</div>
-												<div class="col-md-3">
-													<input type="text" class="form-control"></input>
-												</div>
+											<div class="col-md-4">
+												<input type="text" class="form-control"></input>
 											</div>
 										</div>
+										<div class="row5"></div>
 
 									</div>
+
 									<div class="col-md-5"><!-- Right -->
 										<div class="row5"></div>
 									</div>
