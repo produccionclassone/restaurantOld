@@ -8,9 +8,11 @@
 		<title>${pageTitle}</title>
 		<link rel="StyleSheet" href="${context:/css/stylesAlejandro.css}"
 			type="text/css" media="all" />
+			
+
 		<link rel="StyleSheet" href="${context:/css/bootstrap.css}" type="text/css"
 			media="all" />
-	
+
 		<script
 			src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	</head>
@@ -28,12 +30,30 @@
 							</div>
 						</ol>
 					</div>
+
+					<!-- MENU PRINCIPAL -->
 					<div class="menuwindow">
 						<div class="row"> <!-- menu horizontal -->
 							<nav class="navbar navbar-default" role="navigation">
 								<div class="container-fluid">
 									<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 										<ul class="nav navbar-nav">
+											<div class="expert">
+												<div class="col-md-2">
+												
+													<div class="col-md-11">
+													<div class="expert">
+													<div class="input-group input-group-sm">
+														<input type="text" class="form-control" />
+														<span class="input-group-addon">
+															<img src="${context:css/images/accept.png}" title="Expert"
+																alt="Expert" width="17" height="17"/>
+														</span>
+													</div>
+													</div>
+													</div>
+												</div>
+											</div>
 											<li class="dropdown">
 												<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 													Procesos
@@ -274,12 +294,8 @@
 													</li>
 												</ul>
 											</li>
+											
 
-											<!-- <div class="input-group"> -->
-											<!-- <span class="input-group-addon">></span> -->
-											<!-- <input type="text" class="form-control" placeholder="Menú 
-												experto"/> -->
-											<!-- </div> -->
 										</ul>
 									</div>
 								</div>
@@ -287,10 +303,16 @@
 
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-md-05" />
-						<div class="col-md-2">	
-							<div class="row10"></div>
+
+					<!-- SIDEBAR -->
+
+
+
+					<div class="col-md-2">
+
+						<div class="sidebar">
+
+
 							<div class="date">
 								<script type="text/javascript">
 									var currentTime = new Date();
@@ -306,76 +328,71 @@
 							<div class="bodyclock">
 								<div class="clock"></div>
 							</div>
-						</div>
-						<div class="col-md-1" />
-						<div class="col-md-1">
-							<div class="logo">
-								<img src="${context:css/images/restaurant-logo.jpg}" alt="Logo"
-									height="80px" />
-							</div>
-						</div>
-						<div class="col-md-6">
-							<h1 class="info">LINCOLN RESTAURANT</h1>
-						</div>
-					</div>
-
-
-					<!-- body -->
-
-					<div class="row">
-						<div class="col-md-05"></div>
-						<div class="col-md-2">
-
 
 							<div class="row30" />
-							<div class="row">
 
-								<div class="col-md-4">
-									<a class="imagelink" href="#">
-										<img class="zoom" src="${context:css/images/book_search.png}"
-											width="90" height="90" title="LVDE" alt="LVDE" />
-									</a>
-								</div>
-								<div class="col-md-1" />
-								<div class="col-md-4">
-									<a class="imagelink" href="#">
-										<img class="zoom" src="${context:css/images/next.png}"
-											width="90" height="90" title="Mapa Web" alt="Mapa Web" />
-									</a>
-								</div>
-								<div class="col-md-2" />
-							</div>
+							<div class="col-md-3" />
+							<div class="col-md-4">
+								<a class="imagelink" href="#">
+									<img class="zoom" src="${context:css/images/book_search.png}"
+										width="64" height="64" title="LVDE" alt="LVDE" />
+								</a>
+								<a class="imagelink" href="#">
+									<img class="zoom" src="${context:css/images/folder_full.png}"
+										width="64" height="64" title="Manuales" alt="Manuales" />
+								</a>
+								<a href="#">
+									<img class="zoom" src="${context:css/images/note_book.png}"
+										width="64" height="64" title="Tratamiento de comandas" alt="Tratamiento de comandas" />
+								</a>
 
-							<div class="row">
+								<a class="imagelink" href="#">
+									<img class="zoom" src="${context:css/images/next.png}"
+										width="64" height="64" title="Mapa Web" alt="Mapa Web" />
+								</a>
+								<a class="imagelink" href="#">
+									<img class="zoom" src="${context:css/images/mail_send.png}"
+										width="64" height="64" title="Enviar email" alt="Enviar email" />
+								</a>
+								<a class="imagelink" href="#">
+									<img class="zoom" src="${context:css/images/sms.png}"
+										width="64" height="64" title="Enviar SMS" alt="Enviar SMS" />
+								</a>
+								<a class="imagelink" href="#">
+									<img class="zoom" src="${context:css/images/shut_down.png}"
+										width="64" height="64" title="Cerrar Sesión" alt="Cerrar Sesion" />
+								</a>
 
-								<div class="col-md-4">
-									<a href="#">
-										<img class="zoom" src="${context:css/images/note_book.png}"
-											width="90" height="90" title="Tratamiento de comandas" alt="Tratamiento de comandas" />
-									</a>
-								</div>
-								<div class="col-md-1" />
-								<div class="col-md-4">
-									<a class="imagelink" href="#">
-										<img class="zoom" src="${context:css/images/shut_down.png}"
-											width="90" height="90" title="Cerrar Sesión" alt="Cerrar Sesion" />
-									</a>
-								</div>
-								<div class="col-md-2" />
+
 							</div>
 						</div>
+					</div>
+					<!-- HEADER -->
+					<div class="col-md-9">
+						<div class="row">
+							<div class="col-md-05">
 
+							</div>
 
-
-						<div class="col-md-9">
+							<div class="col-md-1">
+								<div class="logo">
+									<img src="${context:css/images/restaurant-logo.jpg}" alt="Logo"
+										height="80px" />
+								</div>
+							</div>
+							<div class="col-md-9">
+								<h1 class="info">LINCOLN RESTAURANT</h1>
+							</div>
+						</div>
+						<div class="row">
 							<!-- content -->
 							<div class="content">
 								<t:body />
 							</div>
-
 						</div>
-
 					</div>
+
+
 
 				</div>
 

@@ -18,13 +18,13 @@ a:hover {
 
 .zoom:hover {
     cursor: pointer;
-    height:92px;
-    width: 92px;
-    transform:scale(1.2);
-    -ms-transform:scale(1.2); /* IE 9 */
-    -moz-transform:scale(1.2); /* Firefox */
-    -webkit-transform:scale(1.2); /* Safari and Chrome */
-    -o-transform:scale(1.2); /* Opera */
+    height:69px;
+    width: 69px;
+    transform:scale(1.06);
+    -ms-transform:scale(1.06); /* IE 9 */
+    -moz-transform:scale(1.06); /* Firefox */
+    -webkit-transform:scale(1.06); /* Safari and Chrome */
+    -o-transform:scale(1.06); /* Opera */
 }
 
 #wrap { 
@@ -52,9 +52,9 @@ min-height: 100%;
 	src: url('../fonts/trench.otf');
 }	
 h1.info{
-font-size:60px;
-font-family: 'trench';
-font-weight:bold;
+	font-size:60px;
+	font-family: 'trench';
+	font-weight:bold;
 }
 
 /* Page Header. */
@@ -170,7 +170,26 @@ font-weight:bold;
 	} 
 	
 	
+/*SIDEBAR*/
 
+
+.sidebar{
+margin-top:10px;
+}
+HTML>BODY
+.input-group-sm > .form-control{
+margin:5px;
+height:20px;
+}
+HTML>BODY
+.input-group-sm > .input-group-addon{
+height:20px;
+}
+
+.expert > .input-group {
+margin-top: -4px;
+margin-bottom: -4px;
+}
 
 /*	Submenu*/
 	.dropdown-menu .sub-menu {
@@ -209,16 +228,16 @@ font-weight:bold;
 }
 div.bodyclock {
 	font-family: 'digi';
-	font-size: 76%;
-	margin:40px;
-	margin-bottom:5px;
-	margin-top:5px;	
+	font-size: 50%;
+	margin:50px;
+	margin-bottom:4px;
+	margin-top:4px;	
 }
 
 div.clock {
 	
 	background: white;
-	font-size: 30px;
+	font-size: 23px;
 	color: #707070;
 	
 	/* Centering everything */
@@ -228,14 +247,14 @@ div.clock {
 	
 }
 div.date{
-font-size:25px;
+font-size:21px;
 font-family: 'digi';
 color: #707070;
 	
 border: 2.5px solid rgba(16, 18, 85, .5);
 	border-radius:5px; 
 	background-image: linear-gradient(#f0f0f0, white);
-	margin:30px;
+	margin:40px;
 	margin-bottom:3px;
 	margin-top:5px;	
 
