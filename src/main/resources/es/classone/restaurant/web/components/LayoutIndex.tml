@@ -8,7 +8,8 @@
 		<title>${pageTitle}</title>
 		<link rel="StyleSheet" href="${context:/css/stylesAlejandro.css}"
 			type="text/css" media="all" />
-			
+<!-- 		<link rel="StyleSheet" href="${context:/css/stylesVanina.css}" -->
+<!-- 			type="text/css" media="all" /> -->
 
 		<link rel="StyleSheet" href="${context:/css/bootstrap.css}" type="text/css"
 			media="all" />
@@ -38,19 +39,20 @@
 								<div class="container-fluid">
 									<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 										<ul class="nav navbar-nav">
+											<div class="col-md-2">
 											<div class="expert">
-												<div class="col-md-2">
 												
+
 													<div class="col-md-11">
-													<div class="expert">
-													<div class="input-group input-group-sm">
-														<input type="text" class="form-control" />
-														<span class="input-group-addon">
-															<img src="${context:css/images/accept.png}" title="Expert"
-																alt="Expert" width="17" height="17"/>
-														</span>
-													</div>
-													</div>
+														<div class="expert">
+															<div class="input-group input-group-sm">
+																<input type="text" class="form-control" />
+																<span class="input-group-addon">
+																	<img src="${context:css/images/accept.png}" title="Expert"
+																		alt="Expert" width="17" height="17" />
+																</span>
+															</div>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -294,7 +296,7 @@
 													</li>
 												</ul>
 											</li>
-											
+
 
 										</ul>
 									</div>
