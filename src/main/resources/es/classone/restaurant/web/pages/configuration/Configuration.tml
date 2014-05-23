@@ -212,7 +212,7 @@
 												<span class="input-group-addon">I.V.A. incluido</span>
 											</div>
 											<div class="col-md-4">
-												<input type="checkbox" class="panelcheck"></input>
+												<input type="checkbox" class="form-control"></input>
 											</div>
 										</div>
 										<div class="row5"></div>
@@ -541,7 +541,9 @@
 										<div class="rowBorder">
 											<div class="row5"></div>
 											<div class="row">
-												<span class="input-group-addon" style="text-align:left; padding-left:10px;"><h5>Color</h5></span>
+												<span class="input-group-addon" style="text-align:left; padding-left:10px;">
+													<h5>Color</h5>
+												</span>
 											</div>
 											<div class="row5"></div>
 											<div class="rowBorder">
@@ -653,11 +655,219 @@
 											</div>
 										</div>
 										<div class="row5"></div>
-
+										<div class="row">
+											<div class="col-md-8">
+												<span class="input-group-addon">Caja asignada al cobro</span>
+											</div>
+											<div class="col-md-4">
+												<input type="text" class="form-control"></input>
+											</div>
+										</div>
+										<div class="row5"></div>
+										<div class="row5"></div>
+										<div class="row">
+											<div class="col-md-8">
+												<span class="input-group-addon">Suma consumiciones</span>
+											</div>
+											<div class="col-md-4">
+												<input type="checkbox" class="form-control"></input>
+											</div>
+										</div>
+										<div class="row5"></div>
+										<div class="row">
+											<div class="col-md-8">
+												<span class="input-group-addon">Control de actividad</span>
+											</div>
+											<div class="col-md-4">
+												<input type="checkbox" class="form-control"></input>
+											</div>
+										</div>
+										<div class="row5"></div>
 									</div>
 
 									<div class="col-md-5"><!-- Right -->
+										<div class="rowBorder">
+											<div class="row">
+												<div class="col-md-1">
+													<span class="input-group-addon" style="text-align:center;">
+														Num
+													</span>
+												</div>
+												<div class="col-md-4">
+													<span class="input-group-addon" style="text-align:center;">
+														Descr.
+													</span>
+												</div>
+												<div class="col-md-3">
+													<span class="input-group-addon" style="text-align:center;">
+														Desde
+													</span>
+												</div>
+												<div class="col-md-3">
+													<span class="input-group-addon" style="text-align:center;">
+														Hasta
+													</span>
+												</div>
+											</div>
+											<div class="row5"></div>
+											<div class="row">
+												<div class="col-md-1">
+													<span class="input-group-addon">1</span>
+												</div>
+												<div class="col-md-4">
+													<input type="text" class="form-control"></input>
+												</div>
+												<div class="col-md-3">
+													<input type="text" class="form-control"></input>
+												</div>
+
+												<div class="col-md-3">
+													<input type="text" class="form-control"></input>
+												</div>
+											</div>
+											<div class="row5"></div>
+											<div class="row">
+												<div class="col-md-1">
+													<span class="input-group-addon">2</span>
+												</div>
+												<div class="col-md-4">
+													<input type="text" class="form-control"></input>
+												</div>
+												<div class="col-md-3">
+													<input type="text" class="form-control"></input>
+												</div>
+
+												<div class="col-md-3">
+													<input type="text" class="form-control"></input>
+												</div>
+											</div>
+											<div class="row5"></div>
+											<div class="row">
+												<div class="col-md-1">
+													<span class="input-group-addon">3</span>
+												</div>
+												<div class="col-md-4">
+													<input type="text" class="form-control"></input>
+												</div>
+												<div class="col-md-3">
+													<input type="text" class="form-control"></input>
+												</div>
+
+												<div class="col-md-3">
+													<input type="text" class="form-control"></input>
+												</div>
+											</div>
+											<div class="row5"></div>
+											<div class="row">
+												<div class="col-md-1">
+													<span class="input-group-addon">4</span>
+												</div>
+												<div class="col-md-4">
+													<input type="text" class="form-control"></input>
+												</div>
+												<div class="col-md-3">
+													<input type="text" class="form-control"></input>
+												</div>
+
+												<div class="col-md-3">
+													<input type="text" class="form-control"></input>
+												</div>
+											</div>
+											<div class="row5"></div>
+										</div>
 										<div class="row5"></div>
+										<div class="rowBorder">
+											<div class="row">
+												<span class="input-group-addon" style="text-align:center;">
+													Calificadores
+													grupos de platos
+												</span>
+											</div>
+											<div class="row5"></div>
+											<div class="row">
+												<div class="col-md-4">
+													<span class="input-group-addon">Primero</span>
+												</div>
+												<div class="col-md-8">
+													<input type="text" class="form-control"></input>
+												</div>
+											</div>
+											<div class="row5"></div>
+											<div class="row">
+												<div class="col-md-4">
+													<span class="input-group-addon">Segundo</span>
+												</div>
+												<div class="col-md-8">
+													<input type="text" class="form-control"></input>
+												</div>
+											</div>
+											<div class="row5"></div>
+											<div class="row">
+												<div class="col-md-4">
+													<span class="input-group-addon">Tercero</span>
+												</div>
+												<div class="col-md-8">
+													<input type="text" class="form-control"></input>
+												</div>
+											</div>
+											<div class="row5"></div>
+											<div class="row">
+												<div class="col-md-4">
+													<span class="input-group-addon">Cuarto</span>
+												</div>
+												<div class="col-md-8">
+													<input type="text" class="form-control"></input>
+												</div>
+											</div>
+											<div class="row5"></div>
+										</div>
+										<div class="row5"></div>
+										<div class="rowBorder">
+											<div class="row">
+												<span class="input-group-addon" style="text-align:center;">
+													Print
+												</span>
+											</div>
+											<div class="row5"></div>
+											<div class="row">
+												<div class="col-md-8">
+													<span class="input-group-addon">Impresión estandar</span>
+												</div>
+												<div class="col-md-4">
+													<input type="checkbox" class="form-control"></input>
+												</div>
+											</div>
+											<div class="row5"></div>
+											<div class="row">
+												<div class="col-md-8">
+													<span class="input-group-addon">Longitud de página</span>
+												</div>
+												<div class="col-md-4">
+													<input type="text" class="form-control"></input>
+												</div>
+											</div>
+											<div class="row5"></div>
+											<div class="row">
+												<div class="col-md-8">
+													<span class="input-group-addon">Lineas al tope</span>
+												</div>
+												<div class="col-md-4">
+													<input type="text" class="form-control"></input>
+												</div>
+											</div>
+											<div class="row5"></div>
+											<div class="row">
+												<div class="col-md-8">
+													<span class="input-group-addon">Margen Izquierdo</span>
+												</div>
+												<div class="col-md-4">
+													<input type="text" class="form-control"></input>
+												</div>
+											</div>
+											<div class="row5"></div>
+										</div>
+										<div class="row5"></div>
+
 									</div>
 								</div>
 							</div>
