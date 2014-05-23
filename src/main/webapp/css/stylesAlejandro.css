@@ -289,7 +289,28 @@ HTML > BODY .input-group-addon {
 	background-color:transparent;
 }
 
-HTML > BODY .form-control{
+
+.row > .col-md-3 > .form-control{
+	height: 18px;
+	font-size: 14px;
+  	padding: 0px 0px;
+  	border-radius: 1px;
+  	border: 1px solid #ccc;
+  	margin-left:0px;
+  	text-align:left;
+  	float:left;
+}
+.row > .col-md-4 > .form-control{
+	height: 18px;
+	font-size: 14px;
+  	padding: 0px 0px;
+  	border-radius: 1px;
+  	border: 1px solid #ccc;
+  	margin-left:0px;
+  	text-align:left;
+  	float:left;
+}
+.row > .col-md-2 > .form-control{
 	height: 18px;
 	font-size: 14px;
   	padding: 0px 0px;
