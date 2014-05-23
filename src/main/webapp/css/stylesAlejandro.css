@@ -69,24 +69,25 @@ font-weight:bold;
 	}
 
 /* Content. */
+
 	div.row30{
 	padding-top: 30px;
 	}
 	div.row10{
 	padding-top: 10px;
 	}
-	
-	 div.col-md-05 {
-    width: 4%;
-     position: relative;
-  min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
-    float: left;
-    
-  }
-	
-	}
+	div.row5{
+		padding-top: 5px;
+	}	
+ 	div.col-md-05 {
+    	width: 4%;
+     	position: relative;
+  		min-height: 1px;
+	    padding-right: 15px;
+		padding-left: 15px;
+  		float: left;
+  	}	
+
 
 
 /*Layout Login.*/
@@ -167,9 +168,11 @@ font-weight:bold;
 	.dropdown-menu > li > a:hover{
 	background-color: #CACACA;
 	} 
+	
+	
 
 
-/*Submenu*/
+/*	Submenu*/
 	.dropdown-menu .sub-menu {
 	    left: 100%;
 	    position: absolute;
@@ -275,10 +278,33 @@ border: 2.5px solid rgba(16, 18, 85, .5);
 	border-radius:5px; 
 	
 	}
+	
 
-p.welcome {
-    font-size: 16px;
+
+HTML > BODY .input-group-addon {
+	padding: 0px 0px;
+	font-size: 12px;
+	text-align:right;
+	border:none;
+	background-color:transparent;
 }
+
+HTML > BODY .form-control{
+	height: 18px;
+	font-size: 14px;
+  	padding: 0px 0px;
+  	border-radius: 1px;
+  	border: 1px solid #ccc;
+  	margin-left:0px;
+  	text-align:left;
+  	float:left;
+}
+
+HTML > BODY .jumbotron {
+	padding: 2px 2px;
+	background-color:#ccc;
+}
+
 
 /* Forms. */
 

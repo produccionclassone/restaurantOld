@@ -10,8 +10,7 @@
 			type="text/css" media="all" />
 		<link rel="StyleSheet" href="${context:/css/bootstrap.css}" type="text/css"
 			media="all" />
-		<script language="javascript" type="text/javascript"
-			src="${context:/javaScript/layout.js}"></script>
+	
 		<script
 			src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	</head>
@@ -279,6 +278,12 @@
 													</li>
 												</ul>
 											</li>
+
+											<!-- <div class="input-group"> -->
+											<!-- <span class="input-group-addon">></span> -->
+											<!-- <input type="text" class="form-control" placeholder="Menú 
+												experto"/> -->
+											<!-- </div> -->
 										</ul>
 									</div>
 								</div>
@@ -286,12 +291,11 @@
 
 						</div>
 					</div>
-
-					<div class="row"> <!-- header -->
-						<div class="col-md-05"/>
-						<div class="col-md-2">
-						<div class="row10"></div>
-						<div class="date">
+					<div class="row">
+						<div class="col-md-05" />
+						<div class="col-md-2">	
+							<div class="row10"></div>
+							<div class="date">
 								<script type="text/javascript">
 									var currentTime = new Date();
 									var month =
@@ -306,12 +310,12 @@
 							<div class="bodyclock">
 								<div class="clock"></div>
 							</div>
-							</div>
-							<div class="col-md-1"/>
-							<div class="col-md-1">
+						</div>
+						<div class="col-md-1" />
+						<div class="col-md-1">
 							<div class="logo">
 								<img src="${context:css/images/restaurant-logo.jpg}" alt="Logo"
-									 height="80px" />
+									height="80px" />
 							</div>
 						</div>
 						<div class="col-md-6">
@@ -326,7 +330,7 @@
 						<div class="col-md-05"></div>
 						<div class="col-md-2">
 
-							
+
 							<div class="row30" />
 							<div class="row">
 
