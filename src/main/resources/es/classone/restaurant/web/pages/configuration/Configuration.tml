@@ -1153,7 +1153,73 @@
 										</div>
 									</div>
 									<div class="col-md-6"><!-- Right -->
+										<div class="row5"></div>
+										<div class="rowBorder">
+											<div class="row">
+												<span class="input-group-addon" style="text-align:center;">Cta Contable
+													I.V.A.:</span>
+											</div>
+											<div class="row5"></div>
 
+											<div class="row">
+												<div class="col-md-2">
+													<span class="input-group-addon" style="text-align:center;">Tipo</span>
+												</div>
+												<div class="col-md-5">
+													<span class="input-group-addon" style="text-align:center;">% I.V.A.</span>
+												</div>
+												<div class="col-md-5">
+													<span class="input-group-addon" style="text-align:center;">Cta. I.V.A.</span>
+												</div>
+											</div>
+											<div class="row5"></div>
+											<div class="row">
+												<div class="col-md-2">
+													<span class="input-group-addon" style="text-align:center;">1</span>
+												</div>
+												<div class="col-md-5">
+													<input type="text" class="form-control"></input>
+												</div>
+												<div class="col-md-5">
+													<input type="text" class="form-control"></input>
+												</div>
+											</div>
+											<div class="row5"></div>
+											<div class="row">
+												<div class="col-md-2">
+													<span class="input-group-addon" style="text-align:center;">2</span>
+												</div>
+												<div class="col-md-5">
+													<input type="text" class="form-control"></input>
+												</div>
+												<div class="col-md-5">
+													<input type="text" class="form-control"></input>
+												</div>
+											</div>
+											<div class="row5"></div>
+											<div class="row">
+												<div class="col-md-2">
+													<span class="input-group-addon" style="text-align:center;">3</span>
+												</div>
+												<div class="col-md-5">
+													<input type="text" class="form-control"></input>
+												</div>
+												<div class="col-md-5">
+													<input type="text" class="form-control"></input>
+												</div>
+											</div>
+											<div class="row5"></div>
+										</div>
+										<div class="row5"></div>
+										<div class="row5"></div>
+										<div class="row">
+											<div class="col-md-7">
+												<span class="input-group-addon">Literal del impuesto:</span>
+											</div>
+											<div class="col-md-5">
+												<input type="text" class="form-control"></input>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -1169,7 +1235,105 @@
 		</div>
 	</div>
 
+	<div class="row"> <!-- Configuración del sistema - Avanzadas -->
+		<!-- Button trigger modal -->
+		<button class="btn btn-primary btn" data-toggle="modal"
+			data-target="#configSistema">
+			Configuración del sistema avanzada
+		</button>
 
+		<!-- Modal -->
+		<div class="modal fade" id="configSistema" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">&times;
+						</button>
+						<h4 class="modal-title" id="myModalLabel">Configuración del sistema avanzada</h4>
+					</div>
+					<div class="modal-body">
+						<div class="rowBorder">
+							<div class="row5"></div>
+							<div class="row">
+								<div class="col-md-3">
+									<span class="input-group-addon">Anular mesa</span>
+								</div>
+								<div class="col-md-3">
+									<select class="selectpicker">
+										<option>0</option>
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+									</select>
+								</div>
+							</div>
+							<div class="row5"></div>
+							<div class="row">
+								<div class="col-md-3">
+									<span class="input-group-addon">Factura Especial</span>
+								</div>
+								<div class="col-md-3">
+									<select class="selectpicker">
+										<option>0</option>
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+									</select>
+								</div>
+								<div class="col-md-3">
+									<span class="input-group-addon">Literal Factura Especial:</span>
+								</div>
+								<div class="col-md-3">
+									<input type="text" class="form-control"></input>
+								</div>
+							</div>
+							<div class="row5"></div>
+						</div>
+						<div class="row5"></div>
+						<div class="row5"></div>
+						<div class="row5"></div>
+						<div class="rowBorder">
+							<div class="row5"></div>
+							<div class="row">
+								<span class="input-group-addon" style="text-align:center;">Literales en Facturas</span>
+							</div>
+							<div class="row5"></div>
+							<div class="row">
+								<div class="col-md-6">
+									<span class="input-group-addon">Cobro por Servicio/Cubierto</span>
+								</div>
+								<div class="col-md-6">
+									<input type="text" class="form-control"></input>
+								</div>
+							</div>
+							<div class="row5"></div>
+						</div>
+						<div class="row5"></div>
+						<div class="row">
+							<div class="col-md-6">
+								<span class="input-group-addon">Precio / Persona</span>
+							</div>
+							<div class="col-md-6">
+								<input type="text" class="form-control"></input>
+							</div>
+						</div>
+						<div class="row5"></div>
+						<div class="row">
+							<div class="col-md-6">
+								<span class="input-group-addon">Nuevo Antibloqueo</span>
+							</div>
+							<div class="col-md-6">
+								<input type="text" class="form-control"></input>
+							</div>
+						</div>
+						<div class="row5"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<div class="row">
 
@@ -1191,7 +1355,6 @@
 						<h2 class="modal-title">Claves</h2>
 						<div class="modal-body">
 							<div class="row">
-
 								<div class="col-md-3">
 									<div class="radiogroup">
 										<div class="row">
@@ -1282,7 +1445,6 @@
 								<div class="col-md-7">
 									<div class="map">
 										<t:form class="formchecks">
-											<div class="row10"></div>
 											<div class="row">
 												<span class="scheme">1</span>
 												<span class="scheme">2</span>
@@ -2136,28 +2298,5 @@
 	</div>
 
 
-	<div class="row"> <!-- Avanzadas -->
-		<!-- Button trigger modal -->
-		<button class="btn btn-primary btn" data-toggle="modal"
-			data-target="#avanzadas">
-			Avanzadas
-		</button>
 
-		<!-- Modal -->
-		<div class="modal fade" id="avanzadas" tabindex="-1" role="dialog"
-			aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"
-							aria-hidden="true">&times;
-						</button>
-						<h4 class="modal-title" id="myModalLabel">Avanzadas</h4>
-					</div>
-					<div class="modal-body">...
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 </html>

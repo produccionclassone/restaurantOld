@@ -1,10 +1,39 @@
-/*Configuration*/
-
+	div.radiogroup{
+	margin-left:10px;
+	border: 1px solid #eee;
+	background-color: #F8F8FF;
+	border-radius:5px; 
+	}
+	.form.formchecks{
+	margin-right:20px;
+	margin-left:20px;
+	}
+	
+	input.panelcheck{
+	margin-right:8px;
+	}
+	input.panelchecksep{
+	margin-right:14px;
+	}
+	input.radiomap{
+	margin-right:10px;
+	}
+	span.scheme{
+	font-weight:bold;
+	margin-right:9.5px;
+	padding-left:2px;
+	}
+	span.schemesep{
+	margin-right:17.5px;
+	font-weight:bold;
+	padding-left:2px;
+	}
+	div.map{
+	border: 1px solid #eee;
 	background-color: #F8F8FF;
 	border-radius:5px; 
 	
-	}
-	
+	}	
 HTML > BODY .input-group-addon {
 	padding: 0px 0px;
 	font-size: 12px;
@@ -56,6 +85,19 @@ HTML > BODY .input-group-addon {
   	text-align:left;
   	float:left;
 }
+
+.row > .col-md-3 > .selectpicker{
+	height: 20px;
+	width:50px;
+	font-size: 14px;
+  	padding: 0px 0px;
+  	border-radius: 1px;
+  	border: 1px solid #ccc;
+	margin: 0px 0px 0px;
+  	text-align:center;
+  	float:left;
+ }
+
 .row > .col-md-3 > .form-control{
 	height: 18px;
 	font-size: 14px;
