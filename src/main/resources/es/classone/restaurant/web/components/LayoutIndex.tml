@@ -8,8 +8,8 @@
 		<title>${pageTitle}</title>
 		<link rel="StyleSheet" href="${context:/css/stylesAlejandro.css}"
 			type="text/css" media="all" />
-<!-- 		<link rel="StyleSheet" href="${context:/css/stylesVanina.css}" -->
-<!-- 			type="text/css" media="all" /> -->
+		<!-- <link rel="StyleSheet" href="${context:/css/stylesVanina.css}" -->
+		<!-- type="text/css" media="all" /> -->
 
 		<link rel="StyleSheet" href="${context:/css/bootstrap.css}" type="text/css"
 			media="all" />
@@ -22,13 +22,10 @@
 		<div id="wrap">
 			<div id="main">
 				<div class="container-full">
-					<div class="row">
+					<div class="row" id="headernav">
 						<ol class="breadcrumb">
-							<div class="rowbreadcrumb">
-								<li class="active ">
-									<a href="#">Menu Principal</a>
-								</li>
-							</div>
+							
+							<li class="active" id="activemenu">Menú principal</li>
 						</ol>
 					</div>
 
@@ -40,16 +37,19 @@
 									<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 										<ul class="nav navbar-nav">
 											<div class="col-md-2">
-											<div class="expert">
-												
+												<div class="expert">
+
 
 													<div class="col-md-11">
 														<div class="expert">
 															<div class="input-group input-group-sm">
-																<input type="text" class="form-control" />
-																<span class="input-group-addon">
-																	<img src="${context:css/images/accept.png}" title="Expert"
-																		alt="Expert" width="17" height="17" />
+																<input id="menuexperto" type="text" class="form-control"
+																	autofocus="true" />
+																<span class="input-group-btn">
+																	<button class="btn btn-default">
+																		<img class="expertbutton" src="${context:css/images/accept.png}"
+																			title="Expert" alt="Expert" width="17" height="17" />
+																	</button>
 																</span>
 															</div>
 														</div>
@@ -315,55 +315,75 @@
 						<div class="sidebar">
 
 
-							<div class="date">
-								<script type="text/javascript">
-									var currentTime = new Date();
-									var month =
-									currentTime.getMonth() + 1;
-									var day = currentTime.getDate();
-									var
-									year = currentTime.getFullYear();
-									document.write(day + "/" +
-									month + "/" + year);
-								</script>
-							</div>
-							<div class="bodyclock">
-								<div class="clock"></div>
-							</div>
+							<div class="row">
 
+								<div class="date">
+									<script type="text/javascript">
+										var currentTime = new Date();
+										var month =
+										currentTime.getMonth() + 1;
+										var day = currentTime.getDate();
+										var
+										year = currentTime.getFullYear();
+										document.write(day + "/" +
+										month + "/" + year);
+									</script>
+								</div>
+								<div class="bodyclock">
+									<div class="clock"></div>
+								</div>
+							</div>
 							<div class="row30" />
 
-							<div class="col-md-3" />
-							<div class="col-md-4">
-								<a class="imagelink" href="#">
-									<img class="zoom" src="${context:css/images/book_search.png}"
-										width="64" height="64" title="LVDE" alt="LVDE" />
-								</a>
-								<a class="imagelink" href="#">
-									<img class="zoom" src="${context:css/images/folder_full.png}"
-										width="64" height="64" title="Manuales" alt="Manuales" />
-								</a>
-								<a href="#">
-									<img class="zoom" src="${context:css/images/note_book.png}"
-										width="64" height="64" title="Tratamiento de comandas" alt="Tratamiento de comandas" />
-								</a>
+							<div class="row">
+								<div class="col-md-2" />
+								<div class="col-md-8">
 
-								<a class="imagelink" href="#">
-									<img class="zoom" src="${context:css/images/next.png}"
-										width="64" height="64" title="Mapa Web" alt="Mapa Web" />
-								</a>
-								<a class="imagelink" href="#">
-									<img class="zoom" src="${context:css/images/mail_send.png}"
-										width="64" height="64" title="Enviar email" alt="Enviar email" />
-								</a>
-								<a class="imagelink" href="#">
-									<img class="zoom" src="${context:css/images/sms.png}"
-										width="64" height="64" title="Enviar SMS" alt="Enviar SMS" />
-								</a>
-								<a class="imagelink" href="#">
-									<img class="zoom" src="${context:css/images/shut_down.png}"
-										width="64" height="64" title="Cerrar Sesión" alt="Cerrar Sesion" />
-								</a>
+									<div class="row">
+										<a class="imagelink" href="#">
+											<img class="zoom" src="${context:css/images/book_search.png}"
+												width="64" height="64" title="LVDE" alt="LVDE" />
+										</a>
+									</div>
+
+									<div class="row">
+										<a class="imagelink" href="#">
+											<img class="zoom" src="${context:css/images/folder_full.png}"
+												width="64" height="64" title="Manuales" alt="Manuales" />
+										</a>
+									</div>
+									<div class="row">
+										<a href="#">
+											<img class="zoom" src="${context:css/images/note_book.png}"
+												width="64" height="64" title="Tratamiento de comandas" alt="Tratamiento de comandas" />
+										</a>
+									</div>
+									<div class="row">
+										<a class="imagelink" href="#">
+											<img class="zoom" src="${context:css/images/next.png}"
+												width="64" height="64" title="Mapa Web" alt="Mapa Web" />
+										</a>
+									</div>
+									<div class="row">
+										<a class="imagelink" href="#">
+											<img class="zoom" src="${context:css/images/mail_send.png}"
+												width="64" height="64" title="Enviar email" alt="Enviar email" />
+										</a>
+									</div>
+									<div class="row">
+										<a class="imagelink" href="#">
+											<img class="zoom" src="${context:css/images/sms.png}"
+												width="64" height="64" title="Enviar SMS" alt="Enviar SMS" />
+										</a>
+									</div>
+									<div class="row">
+										<a class="imagelink" href="#">
+											<img class="zoom" src="${context:css/images/shut_down.png}"
+												width="64" height="64" title="Cerrar Sesión" alt="Cerrar Sesion" />
+										</a>
+									</div>
+								</div>
+								<div class="col-md-2" />
 
 
 							</div>

@@ -18,13 +18,11 @@ a:hover {
 
 .zoom:hover {
     cursor: pointer;
-    height:69px;
-    width: 69px;
-    transform:scale(1.06);
-    -ms-transform:scale(1.06); /* IE 9 */
-    -moz-transform:scale(1.06); /* Firefox */
-    -webkit-transform:scale(1.06); /* Safari and Chrome */
-    -o-transform:scale(1.06); /* Opera */
+    transform:scale(1.10);
+    -ms-transform:scale(1.10); /* IE 9 */
+    -moz-transform:scale(1.10); /* Firefox */
+    -webkit-transform:scale(1.10); /* Safari and Chrome */
+    -o-transform:scale(1.10); /* Opera */
 }
 
 #wrap { 
@@ -86,7 +84,15 @@ h1.info{
 	    padding-right: 15px;
 		padding-left: 15px;
   		float: left;
-  	}	
+  	}
+  	div.col-md-02 {
+    	width: 2%;
+     	position: relative;
+  		min-height: 1px;
+	    padding-right: 10px;
+		padding-left: 10px;
+  		float: left;
+  	}		
 
 
 
@@ -95,19 +101,23 @@ h1.info{
 	  margin: 0 auto;
 	  width: 100%;
 	}
-	div.rowbreadcrumb{
-	
-	margin-bottom:-17px;
-	margin-top:-6px;
-	background:linear-gradient(#6D6E87, #B5B6D0);
-	width:101%;
-	font-weight:bold;
-	color:white;
-	height:25px;
+	HTML>BODY
+	.breadcrumb{
+		padding: 2px 15px;
+		margin-bottom:7px;
+		background:linear-gradient(#6D6E87, #B5B6D0);
+		width:101%;
+		font-weight:bold;
+		color:white;
+		height:25px;
 	}
-	
-	div.rowbreadcrumb > li > a{
+	HTML>BODY
+	.breadcrumb > .active{
+	color:#E4E7FA;
+	}
+	.breadcrumb > li > a{
 	color:white;
+
 	}
 	
 	div.menuwindow{	
@@ -174,17 +184,30 @@ h1.info{
 
 
 .sidebar{
-margin-top:10px;
+padding-top:13px;
+margin-left:45px;
+width:140px;
+margin-right:40px;
+border: 1px solid #e7e7e7;
+background-color: #f8f8f8
+
 }
+
 HTML>BODY
 .input-group-sm > .form-control{
 margin:5px;
 height:20px;
 }
+
 HTML>BODY
-.input-group-sm > .input-group-addon{
+.input-group-sm > .input-group-btn > .btn {
+margin:5px;
 height:20px;
 }
+.expertbutton{
+margin-top:-12px;
+}
+
 
 .expert > .input-group {
 margin-top: -4px;
@@ -220,6 +243,22 @@ margin-bottom: -4px;
 	  border-bottom: 4px solid transparent;
 	  border-top: 4px solid transparent;
 	}
+/*MENU PRINCIPAL*/
+
+
+.btn-text{
+ width:250px;
+}
+.btn-fav{
+width:40px;
+}
+.btn-option{
+width:40px
+}
+
+
+
+
 
 /*CLOCK AND DATE*/
 @font-face {
@@ -229,9 +268,10 @@ margin-bottom: -4px;
 div.bodyclock {
 	font-family: 'digi';
 	font-size: 50%;
-	margin:50px;
+	margin:40px;
 	margin-bottom:4px;
 	margin-top:4px;	
+	
 }
 
 div.clock {
@@ -239,7 +279,7 @@ div.clock {
 	background: white;
 	font-size: 23px;
 	color: #707070;
-	
+	width:90px;
 	/* Centering everything */
 	border: 2.5px solid rgba(16, 18, 85, .5);
 	border-radius:5px; 
@@ -254,9 +294,10 @@ color: #707070;
 border: 2.5px solid rgba(16, 18, 85, .5);
 	border-radius:5px; 
 	background-image: linear-gradient(#f0f0f0, white);
-	margin:40px;
+	margin:35px;
 	margin-bottom:3px;
 	margin-top:5px;	
+	width:100px;
 
 }
 
@@ -381,5 +422,13 @@ HTML>BODY DIV.t-error             {  border:none; }
 BODY div.t-error div.t-banner    {background-color:inherit;  color:red;}
 BODY div.t-error ul          { border:none; background-color: inherit; font-weight:bold; list-style: none; }
 BODY div.t-error li          {border:none; text-align: center; font-weight: normal; }
+
+
+
+/*MENU PRINCIPAL*/
+.menu > .col-md-5 > .btn-group > .btn {
+height: 34px;
+margin-top:10px;
+}
 
 
