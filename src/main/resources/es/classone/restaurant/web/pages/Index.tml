@@ -18,73 +18,56 @@
 					<button type="button" id="button1opt" class="btn btn-default btn-option">1</button>
 					<div class="col-md-02"></div>
 					<button type="button" id="button1txt" class="btn btn-default btn-text">${message:opcion1}</button>
-					<button type="button" id="button1fav" class="btn btn-default btn-fav">
-						<span class="glyphicon glyphicon-star-empty"></span>
-					</button>
+				
+					
 				</div>
 				<div class="btn-group">
 					<button type="button" id="button2opt" class="btn btn-default btn-option">2</button>
 					<div class="col-md-02"></div>
 					<button type="button" id="button2txt" class="btn btn-default btn-text">${message:opcion2}</button>
-					<button type="button" id="button2fav" class="btn btn-default btn-fav">
-						<span class="glyphicon glyphicon-star-empty"></span>
-					</button>
+				
 				</div>
 				<div class="btn-group">
 					<button type="button" id="button3opt" class="btn btn-default btn-option">3</button>
 					<div class="col-md-02"></div>
 					<button type="button" id="button3txt" class="btn btn-default btn-text">${message:opcion3}</button>
-					<button type="button" id="button3fav" class="btn btn-default btn-fav">
-						<span class="glyphicon glyphicon-star-empty"></span>
-					</button>
+					
 				</div>
 				<div class="btn-group">
 					<button type="button" id="button4opt" class="btn btn-default btn-option">4</button>
 					<div class="col-md-02"></div>
 					<button type="button" id="button4txt" class="btn btn-default btn-text">${message:opcion4}</button>
-					<button type="button" id="button4fav" class="btn btn-default btn-fav">
-						<span class="glyphicon glyphicon-star-empty"></span>
-					</button>
+					
 				</div>
 				<div class="btn-group">
 					<button type="button" id="button5opt" class="btn btn-default btn-option">5</button>
 					<div class="col-md-02"></div>
 					<button type="button" id="button5txt" class="btn btn-default btn-text">${message:opcion5}</button>
-					<button type="button" id="button5fav" class="btn btn-default btn-fav">
-						<span class="glyphicon glyphicon-star-empty"></span>
-					</button>
+				
 				</div>
 				<div class="btn-group">
 					<button type="button" id="button6opt" class="btn btn-default btn-option">6</button>
 					<div class="col-md-02"></div>
 					<button type="button" id="button6txt" class="btn btn-default btn-text">${message:opcion6}</button>
-					<button type="button" id="button6fav" class="btn btn-default btn-fav">
-						<span class="glyphicon glyphicon-star-empty"></span>
-					</button>
+					
 				</div>
 				<div class="btn-group">
 					<button type="button" id="button7opt" class="btn btn-default btn-option">7</button>
 					<div class="col-md-02"></div>
 					<button type="button" id="button7txt" class="btn btn-default btn-text">${message:opcion7}</button>
-					<button type="button" id="button7fav" class="btn btn-default btn-fav">
-						<span class="glyphicon glyphicon-star-empty"></span>
-					</button>
+					
 				</div>
 				<div class="btn-group">
 					<button type="button" id="button8opt" class="btn btn-default btn-option">8</button>
 					<div class="col-md-02"></div>
 					<button type="button" id="button8txt" class="btn btn-default btn-text">${message:opcion8}</button>
-					<button type="button" id="button8fav" class="btn btn-default btn-fav">
-						<span class="glyphicon glyphicon-star-empty"></span>
-					</button>
+					
 				</div>
 				<div class="btn-group">
 					<button type="button" id="button9opt" class="btn btn-default btn-option">9</button>
 					<div class="col-md-02"></div>
 					<button type="button" id="button9txt" class="btn btn-default btn-text">${message:opcion9}</button>
-					<button type="button" id="button9fav" class="btn btn-default btn-fav">
-						<span class="glyphicon glyphicon-star-empty"></span>
-					</button>
+					
 				</div>
 
 			</div>
@@ -93,140 +76,71 @@
 					<button type="button" id="buttonAopt" class="btn btn-default btn-option">A</button>
 					<div class="col-md-02"></div>
 					<button type="button" id="buttonAtxt" class="btn btn-default btn-text">${message:opciona}</button>
-					<button type="button" id="buttonAfav" class="btn btn-default btn-fav">
-						<span class="glyphicon glyphicon-star-empty"></span>
-					</button>
+					
 				</div>
 				<div class="btn-group">
 					<button type="button" id="buttonBopt" class="btn btn-default btn-option">B</button>
 					<div class="col-md-02"></div>
 					<button type="button" id="buttonBtxt" class="btn btn-default btn-text">${message:opcionb}</button>
-					<button type="button" id="buttonBfav" class="btn btn-default btn-fav">
-						<span class="glyphicon glyphicon-star-empty"></span>
-					</button>
+					
 				</div>
 				<div class="btn-group">
 					<button type="button" id="buttonCopt" class="btn btn-default btn-option">C</button>
 					<div class="col-md-02"></div>
 					<button type="button" id="buttonCtxt" class="btn btn-default btn-text">${message:opcionc}</button>
-					<button type="button" id="buttonCfav" class="btn btn-default btn-fav">
-						<span class="glyphicon glyphicon-star-empty"></span>
-					</button>
+					
 				</div>
 				<div class="btn-group">
 					<button type="button" id="buttonDopt" class="btn btn-default btn-option">D</button>
 					<div class="col-md-02"></div>
 					<button type="button" id="buttonDtxt" class="btn btn-default btn-text">${message:opcionD}</button>
-					<button type="button" id="buttonDfav" class="btn btn-default btn-fav">
-						<span class="glyphicon glyphicon-star-empty"></span>
-					</button>
+					
 				</div>
 				<div class="btn-group">
 					<button type="button" id="buttonEopt" class="btn btn-default btn-option">E</button>
 					<div class="col-md-02"></div>
 					<button type="button" id="buttonEtxt" class="btn btn-default btn-text">${message:opcionE}</button>
-					<button type="button" id="buttonEfav" class="btn btn-default btn-fav">
-						<span class="glyphicon glyphicon-star-empty"></span>
-					</button>
+					
 				</div>
 				<div class="btn-group">
 					<button type="button" id="buttonFopt" class="btn btn-default btn-option">F</button>
 					<div class="col-md-02"></div>
 					<button type="button" id="buttonFtxt" class="btn btn-default btn-text">${message:opcionf}</button>
-					<button type="button" id="buttonFfav" class="btn btn-default btn-fav">
-						<span class="glyphicon glyphicon-star-empty"></span>
-					</button>
+					
 				</div>
 				<div class="btn-group">
 					<button type="button" id="buttonGopt" class="btn btn-default btn-option">G</button>
 					<div class="col-md-02"></div>
 					<button type="button" id="buttonGtxt" class="btn btn-default btn-text">${message:opciong}</button>
-					<button type="button" id="buttonGfav" class="btn btn-default btn-fav">
-						<span class="glyphicon glyphicon-star-empty"></span>
-					</button>
+				
 				</div>
 				<div class="btn-group">
 					<button type="button" id="buttonHopt" class="btn btn-default btn-option">H</button>
 					<div class="col-md-02"></div>
 					<button type="button" id="buttonHtxt" class="btn btn-default btn-text">${message:opcionh}</button>
-					<button type="button" id="buttonHfav" class="btn btn-default btn-fav">
-						<span class="glyphicon glyphicon-star-empty"></span>
-					</button>
+					
 				</div>
 				<div class="btn-group">
 					<button type="button" id="buttonIopt" class="btn btn-default btn-option">I</button>
 					<div class="col-md-02"></div>
 					<button type="button" id="buttonItxt" class="btn btn-default btn-text">${message:opcioni}</button>
-					<button type="button" id="buttonIfav" class="btn btn-default btn-fav">
-						<span class="glyphicon glyphicon-star-empty"></span>
-					</button>
+					
 				</div>
 			</div>
 		</div>
 	</div>
 	<script>
-		$(document).ready(function(){
-		$("#menuexperto").keypress(function(e){
-		e.preventDefault();
-		e.preventDefault();
-		console.log(e.which + ": " +
-		String.fromCharCode(e.which))
-		if(String.fromCharCode(e.which)==1){
-		$("#button1txt").text("${message:opcion11}");
-		$("#button2txt").text("${message:opcion12}");
-		$("#button3txt").text("${message:opcion13}");
-		$("#button4txt").text("${message:opcion14}");
-		$("#button5txt").text("${message:opcion15}");
-		$("#button6txt").text("${message:opcion16}");
-		$("#button7txt").text("${message:opcion17}");
-		$("#button8txt").text("${message:opcion18}");
-		$("#button9txt").text("${message:opcion19}");
-		$("#buttonAtxt").text("");
-		$("#buttonBtxt").text("");
-		$("#buttonCtxt").text("");
-		$("#buttonDtxt").text("");
-		$("#buttonEtxt").text("");
-		$("#buttonFtxt").text("");
-		$("#buttonGtxt").text("");
-		$("#buttonHtxt").text("");
-		$("#buttonItxt").text("");
-		$("#activemenu").replaceWith( "<li><a>Menu principal</a></li>");
-		$("#headernav ol li a").attr("href","/restaurant");
-		$("#headernav ol").append("<li>${message:opcion1}</li>");
-		$("#headernav ol li").attr("class","active");
-			}
-		});
+		$(document).ready(function() {
+		 $("#menuexperto").keypress(function(e){
+		  menuBehaviour(e);
+		 });
+		
 		});
 	</script>
+	<script type="text/javascript" language="JavaScript"
+		src="${context:/javaScript/menu.js}"></script>
+
 </html>
 
 
 
-
-<!-- <div id="wrapper"> <ul class="menu"> <li class="item1"> <a href="#">Opcion1</a> 
-	<ul> <li class="subitem1"> <a href="#">Opcion1.1</a> </li> <li class="subitem2"> 
-	<a href="#">Opcion1.2</a> </li> <li class="subitem3"> <a href="#">Opcion1.3</a> 
-	</li> </ul> </li> <li class="item2"> <a href="#">Opcion2</a> <ul> <li class="subitem1"> 
-	<a href="#">Opcion2.1</a> </li> <li class="subitem2"> <a href="#">Opcion2.2</a> 
-	</li> <li class="subitem3"> <a href="#">Opcion2.3</a> </li> </ul> </li> <li 
-	class="item3"> <a href="#">Opcion3</a> <ul> <li class="subitem1"> <a href="#">Opcion3.1</a> 
-	</li> <li class="subitem2"> <a href="#">Opcion3.2</a> </li> <li class="subitem3"> 
-	<a href="#">Opcion3.3</a> </li> </ul> </li> <li class="item4"> <a href="#">Opcion4</a> 
-	<ul> <li class="subitem1"> <a href="#">Opcion4.1</a> </li> <li class="subitem2"> 
-	<a href="#">Opcion4.2</a> </li> <li class="subitem3"> <a href="#">Opcion4.3</a> 
-	</li> </ul> </li> </ul> </div> <div id="wrapper"> <ul class="menu"> <li class="item1"> 
-	<a href="#">Opcion1</a> <ul> <li class="subitem1"> <a href="#">Opcion1.1</a> 
-	</li> <li class="subitem2"> <a href="#">Opcion1.2</a> </li> <li class="subitem3"> 
-	<a href="#">Opcion1.3</a> </li> </ul> </li> <li class="item2"> <a href="#">Opcion2</a> 
-	<ul> <li class="subitem1"> <a href="#">Opcion2.1</a> </li> <li class="subitem2"> 
-	<a href="#">Opcion2.2</a> </li> <li class="subitem3"> <a href="#">Opcion2.3</a> 
-	</li> </ul> </li> <li class="item3"> <a href="#">Opcion3</a> <ul> <li class="subitem1"> 
-	<a href="#">Opcion3.1</a> </li> <li class="subitem2"> <a href="#">Opcion3.2</a> 
-	</li> <li class="subitem3"> <a href="#">Opcion3.3</a> </li> </ul> </li> <li 
-	class="item4"> <a href="#">Opcion4</a> <ul> <li class="subitem1"> <a href="#">Opcion4.1</a> 
-	</li> <li class="subitem2"> <a href="#">Opcion4.2</a> </li> <li class="subitem3"> 
-	<a href="#">Opcion4.3</a> </li> </ul> </li> </ul> <div class="btn-group"> 
-	<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> 
-	Dropdown <span class="caret"></span> </button> <ul class="dropdown-menu"> 
-	<li> <a href="#">Dropdown link</a> </li> <li> <a href="#">Dropdown link</a> 
-	</li> </ul> </div> -->

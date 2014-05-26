@@ -159,6 +159,11 @@
             <artifactId>tapestry-spring</artifactId>
             <version>${tapestry.version}</version>
         </dependency>
+        <dependency>
+    <groupId>org.apache.tapestry</groupId>
+    <artifactId>tapestry-yuicompressor</artifactId>
+    <version>${tapestry.version}</version>
+</dependency>
          <dependency>
 <groupId>org.got5</groupId>
 <artifactId>tapestry5-jquery</artifactId>

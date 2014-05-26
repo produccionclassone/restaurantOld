@@ -25,7 +25,7 @@
 					<div class="row" id="headernav">
 						<ol class="breadcrumb">
 							
-							<li class="active" id="activemenu">Menú principal</li>
+							<li class="active" id="activemenu" name="menu">${message:menuprincipal}</li>
 						</ol>
 					</div>
 
@@ -38,8 +38,6 @@
 										<ul class="nav navbar-nav">
 											<div class="col-md-2">
 												<div class="expert">
-
-
 													<div class="col-md-11">
 														<div class="expert">
 															<div class="input-group input-group-sm">
@@ -433,9 +431,10 @@
 
 		</div>
 
-		<script src="http://code.jquery.com/jquery.js"></script>
+		<script src="http://code.jquery.com/jquery.min.js"></script>
 		<script src="${context:/javaScript/bootstrap.min.js}"></script>
 		<script src="${context:/javaScript/clock.js}"></script>
+
 
 	</body>
 
