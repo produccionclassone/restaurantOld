@@ -55,7 +55,7 @@
 										<span class="input-group-addon">(1) Nro. sesión actual</span>
 									</div>
 									<div class="col-md-3">
-										<input type="text" class="form-control"></input>
+										<input type="text" class="form-control textcontrol"></input>
 									</div>
 								</div>
 								<div class="row5"></div>
@@ -64,7 +64,7 @@
 										<span class="input-group-addon">(2) Nro. última factura</span>
 									</div>
 									<div class="col-md-3">
-										<input type="text" class="form-control"></input>
+										<input type="text" class="form-control textcontrol"></input>
 									</div>
 								</div>
 								<div class="row5"></div>
@@ -73,7 +73,7 @@
 										<span class="input-group-addon">(3) Nro. última comanda</span>
 									</div>
 									<div class="col-md-3">
-										<input type="text" class="form-control"></input>
+										<input type="text" class="form-control textcontrol"></input>
 									</div>
 								</div>
 								<div class="row5"></div>
@@ -82,7 +82,7 @@
 										<span class="input-group-addon">(4) Nro. último cliente</span>
 									</div>
 									<div class="col-md-3">
-										<input type="text" class="form-control"></input>
+										<input type="text" class="form-control textcontrol"></input>
 									</div>
 								</div>
 								<div class="row5"></div>
@@ -91,7 +91,7 @@
 										<span class="input-group-addon">(5) Nro. Nota Fiscal ar,br</span>
 									</div>
 									<div class="col-md-3">
-										<input type="text" class="form-control"></input>
+										<input type="text" class="form-control textcontrol"></input>
 									</div>
 								</div>
 							</div>
@@ -105,7 +105,7 @@
 												<span class="input-group-addon">Categoría restaurante</span>
 											</div>
 											<div class="col-md-4">
-												<input type="text" class="form-control"></input>
+												<input type="text" class="form-control textcontrol"></input>
 											</div>
 										</div>
 										<div class="row5"></div>
@@ -114,7 +114,7 @@
 												<span class="input-group-addon">C.A.D de la explotación</span>
 											</div>
 											<div class="col-md-4">
-												<input type="text" class="form-control"></input>
+												<input type="text" class="form-control textcontrol"></input>
 											</div>
 										</div>
 										<div class="row5"></div>
@@ -133,7 +133,7 @@
 												<div class="col-md-8">
 													<span class="input-group-addon">Cobro por servicio/Cbtos.</span>
 												</div>
-												<div class="col-md-4">
+												<div class="col-md-1">
 													<input type="checkbox" class="form-control checkcontrol"></input>
 												</div>
 											</div>
@@ -143,7 +143,7 @@
 													<span class="input-group-addon">Importe</span>
 												</div>
 												<div class="col-md-4">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 
 												</div>
 											</div>
@@ -153,7 +153,7 @@
 													<span class="input-group-addon">I.V.A.</span>
 												</div>
 												<div class="col-md-4">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 											</div>
 											<div class="row5"></div>
@@ -165,8 +165,8 @@
 												<div class="col-md-8">
 													<span class="input-group-addon">Prop. camareros en fact</span>
 												</div>
-												<div class="col-md-4">
-													<input type="checkbox" class="form-control"></input>
+												<div class="col-md-1">
+													<input type="checkbox" class="form-control checkcontrol"></input>
 												</div>
 											</div>
 											<div class="row5"></div>
@@ -175,7 +175,7 @@
 													<span class="input-group-addon">Porcentaje</span>
 												</div>
 												<div class="col-md-4">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 
 												</div>
 											</div>
@@ -185,7 +185,7 @@
 													<span class="input-group-addon">I.V.A.</span>
 												</div>
 												<div class="col-md-4">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 											</div>
 											<div class="row5"></div>
@@ -196,7 +196,7 @@
 												<span class="input-group-addon">Cobro Platos complem.</span>
 											</div>
 											<div class="col-md-4">
-												<input type="checkbox" class="form-control"></input>
+												<input type="checkbox" class="form-control checkcontrol"></input>
 											</div>
 										</div>
 										<div class="row5"></div>
@@ -205,7 +205,7 @@
 												<span class="input-group-addon">Decimales</span>
 											</div>
 											<div class="col-md-4">
-												<input type="checkbox" class="form-control"></input>
+												<input type="checkbox" class="form-control checkcontrol"></input>
 											</div>
 										</div>
 										<div class="row5"></div>
@@ -214,7 +214,7 @@
 												<span class="input-group-addon">I.V.A. incluido</span>
 											</div>
 											<div class="col-md-4">
-												<input type="checkbox" class="form-control"></input>
+												<input type="checkbox" class="form-control checkcontrol"></input>
 											</div>
 										</div>
 										<div class="row5"></div>
@@ -223,7 +223,7 @@
 												<span class="input-group-addon">Fecha sesión actual</span>
 											</div>
 											<div class="col-md-4">
-												<input type="text" class="form-control"></input>
+												<input type="text" class="form-control textcontrol"></input>
 											</div>
 										</div>
 										<div class="row5"></div>
@@ -232,7 +232,7 @@
 												<span class="input-group-addon">Sesión actual abierta</span>
 											</div>
 											<div class="col-md-4">
-												<input type="checkbox" class="form-control"></input>
+												<input type="checkbox" class="form-control checkcontrol"></input>
 											</div>
 										</div>
 										<div class="row5"></div>
@@ -241,7 +241,7 @@
 												<span class="input-group-addon">Efectuar E. Contable Vtas</span>
 											</div>
 											<div class="col-md-4">
-												<input type="checkbox" class="form-control"></input>
+												<input type="checkbox" class="form-control checkcontrol"></input>
 											</div>
 										</div>
 										<div class="row5"></div>
@@ -250,7 +250,7 @@
 												<span class="input-group-addon">Tipo Ing. Servicio Cbto</span>
 											</div>
 											<div class="col-md-4">
-												<input type="text" class="form-control"></input>
+												<input type="text" class="form-control textcontrol"></input>
 											</div>
 										</div>
 										<div class="row5"></div>
@@ -259,7 +259,7 @@
 												<span class="input-group-addon">Tipo Ing. Propinas</span>
 											</div>
 											<div class="col-md-4">
-												<input type="text" class="form-control"></input>
+												<input type="text" class="form-control textcontrol"></input>
 											</div>
 										</div>
 										<div class="row5"></div>
@@ -268,7 +268,7 @@
 												<span class="input-group-addon">C.A.D. Departamento</span>
 											</div>
 											<div class="col-md-4">
-												<input type="text" class="form-control"></input>
+												<input type="text" class="form-control textcontrol"></input>
 											</div>
 										</div>
 										<div class="row5"></div>
@@ -277,7 +277,7 @@
 												<span class="input-group-addon">Linea del euro</span>
 											</div>
 											<div class="col-md-4">
-												<input type="checkbox" class="form-control"></input>
+												<input type="checkbox" class="form-control checkcontrol"></input>
 											</div>
 										</div>
 										<div class="row5"></div>
@@ -286,7 +286,7 @@
 												<span class="input-group-addon">Cambio fijo Euro</span>
 											</div>
 											<div class="col-md-4">
-												<input type="text" class="form-control"></input>
+												<input type="text" class="form-control textcontrol"></input>
 											</div>
 										</div>
 									</div>
@@ -303,10 +303,10 @@
 													<span class="input-group-addon">Desayunos</span>
 												</div>
 												<div class="col-md-3">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 												<div class="col-md-3">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 											</div>
 											<div class="row5"></div>
@@ -315,10 +315,10 @@
 													<span class="input-group-addon">Almuerzos</span>
 												</div>
 												<div class="col-md-3">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 												<div class="col-md-3">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 											</div>
 											<div class="row5"></div>
@@ -327,10 +327,10 @@
 													<span class="input-group-addon">Cenas</span>
 												</div>
 												<div class="col-md-3">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 												<div class="col-md-3">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 											</div>
 											<div class="row5"></div>
@@ -339,10 +339,10 @@
 													<span class="input-group-addon">Otros</span>
 												</div>
 												<div class="col-md-3">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 												<div class="col-md-3">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 											</div>
 											<div class="row5"></div>
@@ -353,7 +353,7 @@
 												<span class="input-group-addon">Integración hotel [S/N/R]</span>
 											</div>
 											<div class="col-md-4">
-												<input type="text" class="form-control"></input>
+												<input type="text" class="form-control textcontrol"></input>
 											</div>
 										</div>
 										<div class="row5"></div>
@@ -362,7 +362,7 @@
 												<span class="input-group-addon">Integración Econ.</span>
 											</div>
 											<div class="col-md-4">
-												<input type="checkbox" class="form-control"></input>
+												<input type="checkbox" class="form-control checkcontrol"></input>
 											</div>
 										</div>
 										<div class="row5"></div>
@@ -371,7 +371,7 @@
 												<span class="input-group-addon">Calif. Platos PRN-Cocina</span>
 											</div>
 											<div class="col-md-4">
-												<input type="text" class="form-control"></input>
+												<input type="text" class="form-control textcontrol"></input>
 											</div>
 										</div>
 										<div class="row5"></div>
@@ -386,13 +386,13 @@
 													<span class="input-group-addon">Printer 1</span>
 												</div>
 												<div class="col-md-1">
-													<input type="checkbox" class="form-control"></input>
+													<input type="checkbox" class="form-control checkcontrol"></input>
 												</div>
 												<div class="col-md-3">
 													<span class="input-group-addon">Prt</span>
 												</div>
 												<div class="col-md-3">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 											</div>
 											<div class="row5"></div>
@@ -401,13 +401,13 @@
 													<span class="input-group-addon">Printer 2</span>
 												</div>
 												<div class="col-md-1">
-													<input type="checkbox" class="form-control"></input>
+													<input type="checkbox" class="form-control checkcontrol"></input>
 												</div>
 												<div class="col-md-3">
 													<span class="input-group-addon">Prt</span>
 												</div>
 												<div class="col-md-3">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 											</div>
 											<div class="row5"></div>
@@ -416,7 +416,7 @@
 													<span class="input-group-addon">Especial</span>
 												</div>
 												<div class="col-md-1">
-													<input type="checkbox" class="form-control"></input>
+													<input type="checkbox" class="form-control checkcontrol"></input>
 												</div>
 											</div>
 											<div class="row5"></div>
@@ -428,7 +428,7 @@
 												<span class="input-group-addon">Div. comandas por plato</span>
 											</div>
 											<div class="col-md-4">
-												<input type="checkbox" class="form-control"></input>
+												<input type="checkbox" class="form-control checkcontrol"></input>
 											</div>
 										</div>
 										<div class="row5"></div>
@@ -444,10 +444,10 @@
 													<span class="input-group-addon">Propinas</span>
 												</div>
 												<div class="col-md-1">
-													<input type="checkbox" class="form-control"></input>
+													<input type="checkbox" class="form-control checkcontrol"></input>
 												</div>
 												<div class="col-md-3">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 											</div>
 											<div class="row5"></div>
@@ -456,13 +456,13 @@
 													<span class="input-group-addon">Dto1 y %</span>
 												</div>
 												<div class="col-md-1">
-													<input type="checkbox" class="form-control"></input>
+													<input type="checkbox" class="form-control checkcontrol"></input>
 												</div>
 												<div class="col-md-3">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 												<div class="col-md-3">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 
 											</div>
@@ -472,13 +472,13 @@
 													<span class="input-group-addon">Dto2 y %</span>
 												</div>
 												<div class="col-md-1">
-													<input type="checkbox" class="form-control"></input>
+													<input type="checkbox" class="form-control checkcontrol"></input>
 												</div>
 												<div class="col-md-3">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 												<div class="col-md-3">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 											</div>
 											<div class="row5"></div>
@@ -487,13 +487,13 @@
 													<span class="input-group-addon">Dto3 y %</span>
 												</div>
 												<div class="col-md-1">
-													<input type="checkbox" class="form-control"></input>
+													<input type="checkbox" class="form-control checkcontrol"></input>
 												</div>
 												<div class="col-md-3">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 												<div class="col-md-3">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 											</div>
 											<div class="row5"></div>
@@ -503,10 +503,10 @@
 												</div>
 												<div class="col-md-1"></div>
 												<div class="col-md-3">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 												<div class="col-md-3">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 											</div>
 											<div class="row5"></div>
@@ -517,7 +517,7 @@
 												<span class="input-group-addon">Separador campo TXT</span>
 											</div>
 											<div class="col-md-4">
-												<input type="text" class="form-control"></input>
+												<input type="text" class="form-control textcontrol"></input>
 											</div>
 										</div>
 										<div class="row5"></div>
@@ -526,7 +526,7 @@
 												<span class="input-group-addon">Separador alfab. TXT</span>
 											</div>
 											<div class="col-md-4">
-												<input type="text" class="form-control"></input>
+												<input type="text" class="form-control textcontrol"></input>
 											</div>
 										</div>
 
@@ -558,7 +558,7 @@
 														<span class="input-group-addon">Comanda</span>
 													</div>
 													<div class="col-md-4">
-														<input type="text" class="form-control"></input>
+														<input type="text" class="form-control textcontrol"></input>
 													</div>
 												</div>
 												<div class="row5"></div>
@@ -567,7 +567,7 @@
 														<span class="input-group-addon">Factura</span>
 													</div>
 													<div class="col-md-4">
-														<input type="text" class="form-control"></input>
+														<input type="text" class="form-control textcontrol"></input>
 													</div>
 												</div>
 												<div class="row5"></div>
@@ -576,7 +576,7 @@
 														<span class="input-group-addon">Cobro</span>
 													</div>
 													<div class="col-md-4">
-														<input type="text" class="form-control"></input>
+														<input type="text" class="form-control textcontrol"></input>
 													</div>
 												</div>
 												<div class="row5"></div>
@@ -585,7 +585,7 @@
 														<span class="input-group-addon">Trsp Cargos</span>
 													</div>
 													<div class="col-md-4">
-														<input type="text" class="form-control"></input>
+														<input type="text" class="form-control textcontrol"></input>
 													</div>
 												</div>
 												<div class="row5"></div>
@@ -603,7 +603,7 @@
 														<span class="input-group-addon">Vacia</span>
 													</div>
 													<div class="col-md-4">
-														<input type="text" class="form-control"></input>
+														<input type="text" class="form-control textcontrol"></input>
 													</div>
 												</div>
 												<div class="row5"></div>
@@ -612,7 +612,7 @@
 														<span class="input-group-addon">Ocupada</span>
 													</div>
 													<div class="col-md-4">
-														<input type="text" class="form-control"></input>
+														<input type="text" class="form-control textcontrol"></input>
 													</div>
 												</div>
 												<div class="row5"></div>
@@ -621,7 +621,7 @@
 														<span class="input-group-addon">Unida</span>
 													</div>
 													<div class="col-md-4">
-														<input type="text" class="form-control"></input>
+														<input type="text" class="form-control textcontrol"></input>
 													</div>
 												</div>
 												<div class="row5"></div>
@@ -630,7 +630,7 @@
 														<span class="input-group-addon">Reservada</span>
 													</div>
 													<div class="col-md-4">
-														<input type="text" class="form-control"></input>
+														<input type="text" class="form-control textcontrol"></input>
 													</div>
 												</div>
 												<div class="row5"></div>
@@ -639,7 +639,7 @@
 														<span class="input-group-addon">Facturada</span>
 													</div>
 													<div class="col-md-4">
-														<input type="text" class="form-control"></input>
+														<input type="text" class="form-control textcontrol"></input>
 													</div>
 												</div>
 												<div class="row5"></div>
@@ -652,7 +652,7 @@
 												<span class="input-group-addon">Ult. Num. Impreso</span>
 											</div>
 											<div class="col-md-4">
-												<input type="text" class="form-control"></input>
+												<input type="text" class="form-control textcontrol"></input>
 											</div>
 										</div>
 										<div class="row5"></div>
@@ -661,7 +661,7 @@
 												<span class="input-group-addon">Caja asignada al cobro</span>
 											</div>
 											<div class="col-md-4">
-												<input type="text" class="form-control"></input>
+												<input type="text" class="form-control textcontrol"></input>
 											</div>
 										</div>
 										<div class="row5"></div>
@@ -670,7 +670,7 @@
 												<span class="input-group-addon">Suma consumiciones</span>
 											</div>
 											<div class="col-md-4">
-												<input type="checkbox" class="form-control"></input>
+												<input type="checkbox" class="form-control checkcontrol"></input>
 											</div>
 										</div>
 										<div class="row5"></div>
@@ -679,7 +679,7 @@
 												<span class="input-group-addon">Control de actividad</span>
 											</div>
 											<div class="col-md-4">
-												<input type="checkbox" class="form-control"></input>
+												<input type="checkbox" class="form-control checkcontrol"></input>
 											</div>
 										</div>
 										<div class="row5"></div>
@@ -719,14 +719,14 @@
 													<span class="input-group-addon">1</span>
 												</div>
 												<div class="col-md-4">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 												<div class="col-md-3">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 
 												<div class="col-md-3">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 											</div>
 											<div class="row5"></div>
@@ -735,14 +735,14 @@
 													<span class="input-group-addon">2</span>
 												</div>
 												<div class="col-md-4">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 												<div class="col-md-3">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 
 												<div class="col-md-3">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 											</div>
 											<div class="row5"></div>
@@ -751,14 +751,14 @@
 													<span class="input-group-addon">3</span>
 												</div>
 												<div class="col-md-4">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 												<div class="col-md-3">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 
 												<div class="col-md-3">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 											</div>
 											<div class="row5"></div>
@@ -767,14 +767,14 @@
 													<span class="input-group-addon">4</span>
 												</div>
 												<div class="col-md-4">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 												<div class="col-md-3">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 
 												<div class="col-md-3">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 											</div>
 											<div class="row5"></div>
@@ -793,7 +793,7 @@
 													<span class="input-group-addon">Primero</span>
 												</div>
 												<div class="col-md-8">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 											</div>
 											<div class="row5"></div>
@@ -802,7 +802,7 @@
 													<span class="input-group-addon">Segundo</span>
 												</div>
 												<div class="col-md-8">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 											</div>
 											<div class="row5"></div>
@@ -811,7 +811,7 @@
 													<span class="input-group-addon">Tercero</span>
 												</div>
 												<div class="col-md-8">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 											</div>
 											<div class="row5"></div>
@@ -820,7 +820,7 @@
 													<span class="input-group-addon">Cuarto</span>
 												</div>
 												<div class="col-md-8">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 											</div>
 											<div class="row5"></div>
@@ -838,7 +838,7 @@
 													<span class="input-group-addon">Impresión estandar</span>
 												</div>
 												<div class="col-md-4">
-													<input type="checkbox" class="form-control"></input>
+													<input type="checkbox" class="form-control checkcontrol"></input>
 												</div>
 											</div>
 											<div class="row5"></div>
@@ -847,7 +847,7 @@
 													<span class="input-group-addon">Longitud de página</span>
 												</div>
 												<div class="col-md-4">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 											</div>
 											<div class="row5"></div>
@@ -856,7 +856,7 @@
 													<span class="input-group-addon">Lineas al tope</span>
 												</div>
 												<div class="col-md-4">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 											</div>
 											<div class="row5"></div>
@@ -865,7 +865,7 @@
 													<span class="input-group-addon">Margen Izquierdo</span>
 												</div>
 												<div class="col-md-4">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 											</div>
 											<div class="row5"></div>
@@ -874,7 +874,7 @@
 													<span class="input-group-addon">Decimales en cant. x art.</span>
 												</div>
 												<div class="col-md-4">
-													<input type="checkbox" class="form-control"></input>
+													<input type="checkbox" class="form-control checkcontrol"></input>
 												</div>
 											</div>
 
@@ -895,7 +895,7 @@
 										</span>
 									</div>
 									<div class="col-md-2">
-										<input type="checkbox" class="form-control"></input>
+										<input type="checkbox" class="form-control checkcontrol"></input>
 									</div>
 								</div>
 								<div class="row5"></div>
@@ -906,7 +906,7 @@
 										</span>
 									</div>
 									<div class="col-md-2">
-										<input type="checkbox" class="form-control"></input>
+										<input type="checkbox" class="form-control checkcontrol"></input>
 									</div>
 								</div>
 								<div class="row5"></div>
@@ -918,7 +918,7 @@
 										</span>
 									</div>
 									<div class="col-md-2">
-										<input type="checkbox" class="form-control"></input>
+										<input type="checkbox" class="form-control checkcontrol"></input>
 									</div>
 								</div>
 								<div class="row5"></div>
@@ -930,7 +930,7 @@
 										</span>
 									</div>
 									<div class="col-md-2">
-										<input type="checkbox" class="form-control"></input>
+										<input type="checkbox" class="form-control checkcontrol"></input>
 									</div>
 								</div>
 								<div class="row5"></div>
@@ -942,7 +942,7 @@
 										</span>
 									</div>
 									<div class="col-md-1">
-										<input type="text" class="form-control"></input>
+										<input type="text" class="form-control textcontrol"></input>
 									</div>
 								</div>
 								<div class="row5"></div>
@@ -953,7 +953,7 @@
 										</span>
 									</div>
 									<div class="col-md-2">
-										<input type="text" class="form-control"></input>
+										<input type="text" class="form-control textcontrol"></input>
 									</div>
 								</div>
 								<div class="row5"></div>
@@ -965,7 +965,7 @@
 										</span>
 									</div>
 									<div class="col-md-1">
-										<input type="text" class="form-control"></input>
+										<input type="text" class="form-control textcontrol"></input>
 									</div>
 								</div>
 								<div class="row5"></div>
@@ -988,7 +988,7 @@
 										</span>
 									</div>
 									<div class="col-md-4">
-										<input type="text" class="form-control"></input>
+										<input type="text" class="form-control textcontrol"></input>
 									</div>
 								</div>
 								<div class="row5"></div>
@@ -1000,7 +1000,7 @@
 										</span>
 									</div>
 									<div class="col-md-4">
-										<input type="text" class="form-control"></input>
+										<input type="text" class="form-control textcontrol"></input>
 									</div>
 								</div>
 								<div class="row5"></div>
@@ -1012,7 +1012,7 @@
 										</span>
 									</div>
 									<div class="col-md-4">
-										<input type="text" class="form-control"></input>
+										<input type="text" class="form-control textcontrol"></input>
 									</div>
 								</div>
 								<div class="row5"></div>
@@ -1024,7 +1024,7 @@
 										</span>
 									</div>
 									<div class="col-md-4">
-										<input type="text" class="form-control"></input>
+										<input type="text" class="form-control textcontrol"></input>
 									</div>
 								</div>
 								<div class="row5"></div>
@@ -1036,7 +1036,7 @@
 										</span>
 									</div>
 									<div class="col-md-2">
-										<input type="text" class="form-control"></input>
+										<input type="text" class="form-control textcontrol"></input>
 									</div>
 									<div class="col-md-2">
 										<span class="input-group-addon" style="text-align:right;">
@@ -1044,7 +1044,7 @@
 										</span>
 									</div>
 									<div class="col-md-2">
-										<input type="text" class="form-control"></input>
+										<input type="text" class="form-control textcontrol"></input>
 									</div>
 								</div>
 								<div class="row5"></div>
@@ -1056,7 +1056,7 @@
 										</span>
 									</div>
 									<div class="col-md-2">
-										<input type="text" class="form-control"></input>
+										<input type="text" class="form-control textcontrol"></input>
 									</div>
 									<div class="col-md-2">
 										<span class="input-group-addon" style="text-align:right;">
@@ -1064,7 +1064,7 @@
 										</span>
 									</div>
 									<div class="col-md-2">
-										<input type="text" class="form-control"></input>
+										<input type="text" class="form-control textcontrol"></input>
 									</div>
 								</div>
 							</div>
@@ -1078,7 +1078,7 @@
 												<span class="input-group-addon">Código CONTABILIDAD</span>
 											</div>
 											<div class="col-md-4">
-												<input type="text" class="form-control"></input>
+												<input type="text" class="form-control textcontrol"></input>
 											</div>
 										</div>
 										<div class="row5"></div>
@@ -1094,7 +1094,7 @@
 													<span class="input-group-addon">Caja:</span>
 												</div>
 												<div class="col-md-5">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 											</div>
 											<div class="row5"></div>
@@ -1103,7 +1103,7 @@
 													<span class="input-group-addon">Invitación:</span>
 												</div>
 												<div class="col-md-5">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 											</div>
 											<div class="row5"></div>
@@ -1116,7 +1116,7 @@
 												<span class="input-group-addon">Cta. General VENTAS:</span>
 											</div>
 											<div class="col-md-5">
-												<input type="text" class="form-control"></input>
+												<input type="text" class="form-control textcontrol"></input>
 											</div>
 										</div>
 										<div class="row5"></div>
@@ -1127,7 +1127,7 @@
 												<span class="input-group-addon">Cta. Servicio Cbtos.:</span>
 											</div>
 											<div class="col-md-5">
-												<input type="text" class="form-control"></input>
+												<input type="text" class="form-control textcontrol"></input>
 											</div>
 										</div>
 										<div class="row5"></div>
@@ -1138,7 +1138,7 @@
 												<span class="input-group-addon">Cta. Propinas camareros:</span>
 											</div>
 											<div class="col-md-5">
-												<input type="text" class="form-control"></input>
+												<input type="text" class="form-control textcontrol"></input>
 											</div>
 										</div>
 										<div class="row5"></div>
@@ -1149,7 +1149,7 @@
 												<span class="input-group-addon">Cta. Descuadre VTAS.:</span>
 											</div>
 											<div class="col-md-5">
-												<input type="text" class="form-control"></input>
+												<input type="text" class="form-control textcontrol"></input>
 											</div>
 										</div>
 									</div>
@@ -1179,10 +1179,10 @@
 													<span class="input-group-addon" style="text-align:center;">1</span>
 												</div>
 												<div class="col-md-5">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 												<div class="col-md-5">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 											</div>
 											<div class="row5"></div>
@@ -1191,10 +1191,10 @@
 													<span class="input-group-addon" style="text-align:center;">2</span>
 												</div>
 												<div class="col-md-5">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 												<div class="col-md-5">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 											</div>
 											<div class="row5"></div>
@@ -1203,10 +1203,10 @@
 													<span class="input-group-addon" style="text-align:center;">3</span>
 												</div>
 												<div class="col-md-5">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 												<div class="col-md-5">
-													<input type="text" class="form-control"></input>
+													<input type="text" class="form-control textcontrol"></input>
 												</div>
 											</div>
 											<div class="row5"></div>
@@ -1218,7 +1218,7 @@
 												<span class="input-group-addon">Literal del impuesto:</span>
 											</div>
 											<div class="col-md-5">
-												<input type="text" class="form-control"></input>
+												<input type="text" class="form-control textcontrol"></input>
 											</div>
 										</div>
 									</div>
@@ -1289,7 +1289,7 @@
 									<span class="input-group-addon">Literal Factura Especial:</span>
 								</div>
 								<div class="col-md-3">
-									<input type="text" class="form-control"></input>
+									<input type="text" class="form-control textcontrol"></input>
 								</div>
 							</div>
 							<div class="row5"></div>
@@ -1308,7 +1308,7 @@
 									<span class="input-group-addon">Cobro por Servicio/Cubierto</span>
 								</div>
 								<div class="col-md-6">
-									<input type="text" class="form-control"></input>
+									<input type="text" class="form-control textcontrol"></input>
 								</div>
 							</div>
 							<div class="row5"></div>
@@ -1319,7 +1319,7 @@
 								<span class="input-group-addon">Precio / Persona</span>
 							</div>
 							<div class="col-md-6">
-								<input type="text" class="form-control"></input>
+								<input type="text" class="form-control textcontrol"></input>
 							</div>
 						</div>
 						<div class="row5"></div>
@@ -1328,7 +1328,7 @@
 								<span class="input-group-addon">Nuevo Antibloqueo</span>
 							</div>
 							<div class="col-md-6">
-								<input type="text" class="form-control"></input>
+								<input type="text" class="form-control textcontrol"></input>
 							</div>
 						</div>
 						<div class="row5"></div>

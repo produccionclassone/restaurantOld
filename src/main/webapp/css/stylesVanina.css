@@ -1,39 +1,369 @@
+/* Body. */
+
+* { margin: 0; padding: 0; }
+
+html, body {    
+        height: 100%;  
+}
+
+/* Links. */
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.zoom:hover {
+    cursor: pointer;
+    transform:scale(1.10);
+    -ms-transform:scale(1.10); /* IE 9 */
+    -moz-transform:scale(1.10); /* Firefox */
+    -webkit-transform:scale(1.10); /* Safari and Chrome */
+    -o-transform:scale(1.10); /* Opera */
+}
+
+#wrap { 
+min-height: 100%;
+ }
+
+#main { 
+	width:98.96%;
+ 	padding-bottom: 50px;
+  	text-align: center; 
+  }
+#footer { 
+	font-size:10px;
+	margin-top: -30px; 
+	/* altura en px del footer con valor negativo */ 
+	 height: 30px; /* Altura del Footer en px*/
+	 clear: both;
+	 background-color: #F8F8FF;
+	 padding-left:20px;
+	 }
+
+
+@font-face {
+	font-family: 'trench';
+	src: url('../fonts/trench.otf');
+}	
+h1.info{
+	font-size:60px;
+	font-family: 'trench';
+	font-weight:bold;
+}
+
+/* Page Header. */
+
+	div.language{
+		margin-top:20px;
+		margin-left:80px;
+	}
+	
+	div.logo{
+	text-align:center;
+	}
+
+/* Content. */
+
+	div.row30{
+	padding-top: 30px;
+	}
+	div.row10{
+	padding-top: 10px;
+	}
+	div.row5{
+		padding-top: 5px;
+	}	
+ 	div.col-md-05 {
+    	width: 4%;
+     	position: relative;
+  		min-height: 1px;
+	    padding-right: 15px;
+		padding-left: 15px;
+  		float: left;
+  	}
+  	div.col-md-02 {
+    	width: 2%;
+     	position: relative;
+  		min-height: 1px;
+	    padding-right: 10px;
+		padding-left: 10px;
+  		float: left;
+  	}		
+
+
+
+/*Layout Login.*/
+	.container-full {
+	  margin: 0 auto;
+	  width: 100%;
+	}
+	HTML>BODY
+	.breadcrumb{
+		padding: 2px 15px;
+		margin-bottom:7px;
+		background:linear-gradient(#6D6E87, #B5B6D0);
+		width:101%;
+		font-weight:bold;
+		color:white;
+		height:25px;
+	}
+	HTML>BODY
+		.breadcrumb > .active{
+		color:#E4E7FA;
+	}
+	.breadcrumb > li > a{
+		color:white;
+
+	}
+	
+	div.menuwindow{	
+		margin-top:-10px;
+	}
+	HTML>BODY
+	.navbar{
+		min-height:20px;	
+	}
+	
+	HTML>BODY
+		.navbar-default{
+		min-height:20px;	
+	}
+	
+	HTML>BODY
+		.navbar-nav{
+		min-height:20px;
+	}
+	
+	
+	HTML>BODY
+		.navbar-nav > li > a {
+		height:20px;
+		padding-top: 0px;
+		padding-bottom: 0px;
+	
+	}
+	HTML>BODY
+		.navbar-nav > li > .dropdown-menu{
+	} 
+	
+	.dropdown:hover .dropdown-menu {
+	    display: block;
+	 }
+	HTML>BODY
+	li.dropdown{
+	 	min-height:20px;
+	}
+	HTML>BODY
+	a.dropdown-toggle{
+		max-height:20px;
+	}
+	
+	HTML>BODY
+	.dropdown-menu .divider{
+		margin:0px;
+	}
+	
+	HTML>BODY
+	.navbar-nav > li > .dropdown-menu > li > a{
+		max-height:19px;
+		font-size: 12.5px;	
+		padding:3px;
+		margin:3px;
+		line-height:11px;
+	}
+	
+	HTML>BODY
+	.dropdown-menu > li > a:hover{
+		background-color: #CACACA;
+	} 
+	
+	
+/*SIDEBAR*/
+
+
+.sidebar{
+	padding-top:13px;
+	margin-left:45px;
+	width:140px;
+	margin-right:40px;
+	border: 1px solid #e7e7e7;
+	background-color: #f8f8f8
+}
+
+HTML>BODY
+.input-group-sm > .form-control{
+	margin:5px;
+	height:20px;
+}
+
+HTML>BODY
+.input-group-sm > .input-group-btn > .btn {
+	margin:5px;
+	height:20px;
+}
+.expertbutton{
+	margin-top:-12px;
+}
+
+
+.expert > .input-group {
+margin-top: -4px;
+margin-bottom: -4px;
+}
+
+/*Submenu*/
+	.dropdown-menu .sub-menu {
+	    left: 100%;
+	    position: absolute;
+	    top: 0;
+	    visibility: hidden;
+	    margin-top: -1px;
+	    
+	}
+	.dropdown-menu li:hover .sub-menu {
+	    visibility: visible;
+	    font-size: 12.5px;
+	}
+	.dropdown-menu .sub-menu > li > a{
+		max-height:19px;
+		padding:3px;
+		margin:3px;
+		line-height:11px;
+	}
+	.right-caret {
+	  display: inline-block;
+	  width: 0;
+	  height: 0;
+	  margin-left:10px;
+	  vertical-align: middle;
+	  border-left: 4px solid;
+	  border-bottom: 4px solid transparent;
+	  border-top: 4px solid transparent;
+	}
+
+/*MENU PRINCIPAL*/
+.menu > .col-md-5 > .btn-group > .btn {
+	 margin-top:10px;
+	 padding: 0px 0px;
+	 display:table-cell;  /*Propiedad obligatoria*/
+	 height:30px; 
+	 line-height: 0;	 
+}
+
+HTML>BODY
+.btn-menu{
+ width:270px;
+ height:30px; 
+ line-height: 0;
+}
+.btn-text{
+ width:270px;
+}
+
+.btn-option{
+	width:30px
+}
+
+
+/*CLOCK AND DATE*/
+@font-face {
+	font-family: 'digi';
+	src: url('../fonts/DS-DIGII.TTF');
+}
+div.bodyclock {
+	font-family: 'digi';
+	font-size: 50%;
+	margin:40px;
+	margin-bottom:4px;
+	margin-top:4px;	
+}
+
+div.clock {
+	background: white;
+	font-size: 23px;
+	color: #707070;
+	width:90px;
+	/* Centering everything */
+	border: 2.5px solid rgba(16, 18, 85, .5);
+	border-radius:5px; 
+	background-image: linear-gradient(#f0f0f0, white);
+	
+}
+div.date{
+font-size:21px;
+font-family: 'digi';
+color: #707070;
+	
+border: 2.5px solid rgba(16, 18, 85, .5);
+	border-radius:5px; 
+	background-image: linear-gradient(#f0f0f0, white);
+	margin:35px;
+	margin-bottom:3px;
+	margin-top:5px;	
+	width:100px;
+
+}
+
+/*Configuration*/
+
+	HTML > BODY
+	.checkcontrol {
+		height: 10px;
+		width:10px;
+		margin-left:30px;
+		
+		}
+
 	div.radiogroup{
 	margin-left:10px;
 	border: 1px solid #eee;
 	background-color: #F8F8FF;
 	border-radius:5px; 
 	}
-	.form.formchecks{
+
+	form.formchecks{
 	margin-right:20px;
 	margin-left:20px;
 	}
 	
+	HTML>BODY
 	input.panelcheck{
-	margin-right:8px;
+	margin-right:6px;
 	}
+
 	input.panelchecksep{
 	margin-right:14px;
 	}
+
 	input.radiomap{
 	margin-right:10px;
 	}
+
 	span.scheme{
 	font-weight:bold;
 	margin-right:9.5px;
 	padding-left:2px;
 	}
+
 	span.schemesep{
 	margin-right:17.5px;
 	font-weight:bold;
 	padding-left:2px;
 	}
+
 	div.map{
 	border: 1px solid #eee;
 	background-color: #F8F8FF;
 	border-radius:5px; 
 	
-	}	
+	}
+	
+
+
 HTML > BODY .input-group-addon {
 	padding: 0px 0px;
 	font-size: 12px;
@@ -42,90 +372,15 @@ HTML > BODY .input-group-addon {
 	background-color:transparent;
 }
 
-.row > .col-md-8 > .form-control{
-	height: 18px;
-	font-size: 14px;
-  	padding: 0px 0px;
-  	border-radius: 1px;
-  	border: 1px solid #ccc;
-  	margin: 0px 0px 0px;
-  	text-align:left;
-  	float:left;
-}
 
-.row > .col-md-6 > .form-control{
+HTML>BODY
+.textcontrol{
 	height: 18px;
 	font-size: 14px;
   	padding: 0px 0px;
   	border-radius: 1px;
   	border: 1px solid #ccc;
-  	margin: 0px 0px 0px;
-  	text-align:left;
-  	float:left;
-}
-
-.row > .col-md-5 > .form-control{
-	height: 18px;
-	font-size: 14px;
-  	padding: 0px 0px;
-  	border-radius: 1px;
-  	border: 1px solid #ccc;
-  	margin: 0px 0px 0px;
-  	text-align:left;
-  	float:left;
-}
-
-.row > .col-md-4 > .form-control{
-	height: 18px;
-	font-size: 14px;
-  	padding: 0px 0px;
-  	border-radius: 1px;
-  	border: 1px solid #ccc;
-  	margin: 0px 0px 0px;
-  	text-align:left;
-  	float:left;
-}
-
-.row > .col-md-3 > .selectpicker{
-	height: 20px;
-	width:50px;
-	font-size: 14px;
-  	padding: 0px 0px;
-  	border-radius: 1px;
-  	border: 1px solid #ccc;
-	margin: 0px 0px 0px;
-  	text-align:center;
-  	float:left;
- }
-
-.row > .col-md-3 > .form-control{
-	height: 18px;
-	font-size: 14px;
-  	padding: 0px 0px;
-  	border-radius: 1px;
-  	border: 1px solid #ccc;
-	margin: 0px 0px 0px;
-  	text-align:left;
-  	float:left;
-}
-.row > .col-md-2 > .form-control{
-	height: 18px;
-	font-size: 14px;
-  	padding: 0px 0px;
-  	border-radius: 1px;
-  	border: 1px solid #ccc;
-  	margin: 0px 0px 0px;
-  	text-align:left;
-  	float:left;
-}
-
-.row > .col-md-1 > .form-control{
-	height: 18px;
-	font-size: 14px;
-  	padding: 0px 0px;
-  	border-radius: 1px;
-  	border: 1px solid #ccc;
-  	margin: 0px 0px 0px;
+  	margin-left:0px;
   	text-align:left;
   	float:left;
 }
@@ -136,6 +391,47 @@ HTML > BODY .jumbotron {
 }
 
 .rowBorder{
-	border: 1px solid #d0d0d0;
-	padding:5px 5px 0px 5px;
+border: 1px solid #d0d0d0;
+padding:5px 5px 0px 5px;
 }
+
+/* Forms. */
+
+form.loginform {
+	background-color: #F8F8FF;
+  	border: 1px solid #888;
+    border-radius:3px;    
+  	text-align:center;
+  	padding: 10px 50px 10px 50px;
+}
+
+div.form-group {
+    padding-top: 1.5em;    
+}
+
+
+div.form-group label {
+    font-weight: bold;
+}
+
+
+div.button {
+    clear: both;
+    text-align:center;
+}
+
+input, select, textarea  {
+    background-color: #f4f4f4;
+}
+
+/* Error messages. */
+
+HTML>BODY DIV.t-error             {  border:none; }
+BODY div.t-error div.t-banner    {background-color:inherit;  color:red;}
+BODY div.t-error ul          { border:none; background-color: inherit; font-weight:bold; list-style: none; }
+BODY div.t-error li          {border:none; text-align: center; font-weight: normal; }
+
+
+
+
+
