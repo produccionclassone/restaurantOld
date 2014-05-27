@@ -123,7 +123,7 @@
 												<span class="input-group-addon">Número de mesas</span>
 											</div>
 											<div class="col-md-4">
-												<input type="text" class="form-control"></input>
+												<input type="text" class="form-control textcontrol"></input>
 											</div>
 										</div>
 										<div class="row5"></div>
@@ -134,7 +134,7 @@
 													<span class="input-group-addon">Cobro por servicio/Cbtos.</span>
 												</div>
 												<div class="col-md-4">
-													<input type="checkbox" class="form-control"></input>
+													<input type="checkbox" class="form-control checkcontrol"></input>
 												</div>
 											</div>
 											<div class="row5"></div>

@@ -8,25 +8,35 @@
 		<title>${pageTitle}</title>
 		<link rel="StyleSheet" href="${context:/css/stylesAlejandro.css}"
 			type="text/css" media="all" />
-		<!-- <link rel="StyleSheet" href="${context:/css/stylesVanina.css}" -->
-		<!-- type="text/css" media="all" /> -->
+<!-- 		 <link rel="StyleSheet" href="${context:/css/stylesVanina.css}" -->
+<!-- 		 type="text/css" media="all" />  -->
 
 		<link rel="StyleSheet" href="${context:/css/bootstrap.css}" type="text/css"
 			media="all" />
 
-		<script
-			src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		
 	</head>
+			<script src="${context:/javaScript/jquery-2.1.1.js}"></script>
+		<script src="${context:/javaScript/bootstrap.min.js}"></script>
+		
 
 	<body>
 		<div id="wrap">
 			<div id="main">
 				<div class="container-full">
 					<div class="row" id="headernav">
-						<ol class="breadcrumb">
+						<div class="col-md-4">
+						<div class="modulos"/>
+						</div>
 							
-							<li class="active" id="activemenu" name="menu">${message:menuprincipal}</li>
+						<div class="col-md-4">
+						<ol class="breadcrumb">
+							<li class="active" name="menu" id="activemenu" >${message:menuprincipal}</li>
 						</ol>
+						</div>
+						<div class="col-md-4">
+						<div class="user"/>
+						</div>
 					</div>
 
 					<!-- MENU PRINCIPAL -->
@@ -144,10 +154,6 @@
 															<li>
 																<a href="#">Padrón de Clientes</a>
 															</li>
-															<!-- <li class="divider"></li> -->
-															<!-- <li class="nav-header">Nav header</li> -->
-															<!-- <li><a href="#">Separated link</a></li> -->
-															<!-- <li><a href="#">One more separated link</a></li> -->
 														</ul>
 													</li>
 													<li>
@@ -340,44 +346,44 @@
 									<div class="row">
 										<a class="imagelink" href="#">
 											<img class="zoom" src="${context:css/images/book_search.png}"
-												width="64" height="64" title="LVDE" alt="LVDE" />
+												width="64" height="64" title="${message:lvde}" alt="${message:lvde}" />
 										</a>
 									</div>
 
 									<div class="row">
 										<a class="imagelink" href="#">
 											<img class="zoom" src="${context:css/images/folder_full.png}"
-												width="64" height="64" title="Manuales" alt="Manuales" />
+												width="64" height="64" title="${message:manuales}" alt="${message:manuales}" />
 										</a>
 									</div>
 									<div class="row">
 										<a href="#">
 											<img class="zoom" src="${context:css/images/note_book.png}"
-												width="64" height="64" title="Tratamiento de comandas" alt="Tratamiento de comandas" />
+												width="64" height="64" title="${message:comandas}" alt="${message:comandas}" />
 										</a>
 									</div>
 									<div class="row">
 										<a class="imagelink" href="#">
 											<img class="zoom" src="${context:css/images/next.png}"
-												width="64" height="64" title="Mapa Web" alt="Mapa Web" />
+												width="64" height="64" title="${message:web}" alt="${message:web}" />
 										</a>
 									</div>
 									<div class="row">
 										<a class="imagelink" href="#">
 											<img class="zoom" src="${context:css/images/mail_send.png}"
-												width="64" height="64" title="Enviar email" alt="Enviar email" />
+												width="64" height="64" title="${message:mail}" alt="${message:mail}" />
 										</a>
 									</div>
 									<div class="row">
 										<a class="imagelink" href="#">
 											<img class="zoom" src="${context:css/images/sms.png}"
-												width="64" height="64" title="Enviar SMS" alt="Enviar SMS" />
+												width="64" height="64" title="${message:sms}" alt="${message:sms}" />
 										</a>
 									</div>
 									<div class="row">
 										<a class="imagelink" href="#">
 											<img class="zoom" src="${context:css/images/shut_down.png}"
-												width="64" height="64" title="Cerrar Sesión" alt="Cerrar Sesion" />
+												width="64" height="64" title="${message:logout}" alt="${message:logout}" />
 										</a>
 									</div>
 								</div>
@@ -402,6 +408,7 @@
 							</div>
 							<div class="col-md-9">
 								<h1 class="info">LINCOLN RESTAURANT</h1>
+<!-- 								lo cogere de personificacion -->
 							</div>
 						</div>
 						<div class="row">
@@ -425,15 +432,12 @@
 			<p>
 				<img src="${context:css/images/logo.gif}" alt="Logo" width="30"
 					height="20" />
-				Class One, S.L. con domicilio social en C/Rafael Alberti, 6 ,CP
-				15172-Perillo (La Coruña)
+				${message:footer}
 			</p>
 
 		</div>
 
-		<script src="http://code.jquery.com/jquery.min.js"></script>
-		<script src="${context:/javaScript/bootstrap.min.js}"></script>
-		<script src="${context:/javaScript/clock.js}"></script>
+<script src="${context:/javaScript/clock.js}"></script>
 
 
 	</body>

@@ -112,42 +112,42 @@ h1.info{
 		height:25px;
 	}
 	HTML>BODY
-	.breadcrumb > .active{
-	color:#E4E7FA;
+		.breadcrumb > .active{
+		color:#E4E7FA;
 	}
 	.breadcrumb > li > a{
-	color:white;
+		color:white;
 
 	}
 	
 	div.menuwindow{	
-	margin-top:-10px;
+		margin-top:-10px;
 	}
 	HTML>BODY
 	.navbar{
-	min-height:20px;	
-	}
-	
-	HTML>BODY
-	.navbar-default{
 		min-height:20px;	
-		}
+	}
 	
 	HTML>BODY
-	.navbar-nav{
-	min-height:20px;
+		.navbar-default{
+		min-height:20px;	
+	}
+	
+	HTML>BODY
+		.navbar-nav{
+		min-height:20px;
 	}
 	
 	
 	HTML>BODY
-	.navbar-nav > li > a {
-	height:20px;
-	padding-top: 0px;
-	padding-bottom: 0px;
+		.navbar-nav > li > a {
+		height:20px;
+		padding-top: 0px;
+		padding-bottom: 0px;
 	
 	}
 	HTML>BODY
-	.navbar-nav > li > .dropdown-menu{
+		.navbar-nav > li > .dropdown-menu{
 	} 
 	
 	.dropdown:hover .dropdown-menu {
@@ -155,28 +155,30 @@ h1.info{
 	 }
 	HTML>BODY
 	li.dropdown{
-	 min-height:20px;
-	 }
+	 	min-height:20px;
+	}
 	HTML>BODY
 	a.dropdown-toggle{
-	max-height:20px;
-	
+		max-height:20px;
 	}
+	
 	HTML>BODY
 	.dropdown-menu .divider{
-	margin:0px;
+		margin:0px;
 	}
+	
 	HTML>BODY
 	.navbar-nav > li > .dropdown-menu > li > a{
-	max-height:19px;
-	font-size: 12.5px;
-	padding:3px;
-	margin:3px;
-	line-height:11px;
+		max-height:19px;
+		font-size: 12.5px;	
+		padding:3px;
+		margin:3px;
+		line-height:11px;
 	}
+	
 	HTML>BODY
 	.dropdown-menu > li > a:hover{
-	background-color: #CACACA;
+		background-color: #CACACA;
 	} 
 	
 	
@@ -184,28 +186,27 @@ h1.info{
 
 
 .sidebar{
-padding-top:13px;
-margin-left:45px;
-width:140px;
-margin-right:40px;
-border: 1px solid #e7e7e7;
-background-color: #f8f8f8
-
+	padding-top:13px;
+	margin-left:45px;
+	width:140px;
+	margin-right:40px;
+	border: 1px solid #e7e7e7;
+	background-color: #f8f8f8
 }
 
 HTML>BODY
 .input-group-sm > .form-control{
-margin:5px;
-height:20px;
+	margin:5px;
+	height:20px;
 }
 
 HTML>BODY
 .input-group-sm > .input-group-btn > .btn {
-margin:5px;
-height:20px;
+	margin:5px;
+	height:20px;
 }
 .expertbutton{
-margin-top:-12px;
+	margin-top:-12px;
 }
 
 
@@ -214,7 +215,7 @@ margin-top: -4px;
 margin-bottom: -4px;
 }
 
-/*	Submenu*/
+/*Submenu*/
 	.dropdown-menu .sub-menu {
 	    left: 100%;
 	    position: absolute;
@@ -243,17 +244,28 @@ margin-bottom: -4px;
 	  border-bottom: 4px solid transparent;
 	  border-top: 4px solid transparent;
 	}
+
 /*MENU PRINCIPAL*/
+.menu > .col-md-5 > .btn-group > .btn {
+	 margin-top:10px;
+	 padding: 0px 0px;
+	 display:table-cell;  /*Propiedad obligatoria*/
+	 height:30px; 
+	 line-height: 0;	 
+}
 
-
+HTML>BODY
+.btn-menu{
+ width:270px;
+ height:30px; 
+ line-height: 0;
+}
 .btn-text{
- width:300px;
+ width:270px;
 }
-.btn-fav{
-width:40px;
-}
+
 .btn-option{
-width:40px
+	width:30px
 }
 
 
@@ -271,7 +283,6 @@ div.bodyclock {
 }
 
 div.clock {
-	
 	background: white;
 	font-size: 23px;
 	color: #707070;
@@ -298,6 +309,10 @@ border: 2.5px solid rgba(16, 18, 85, .5);
 }
 
 /*Configuration*/
+	HTML>BODY
+	.checkcontrol{
+		height:13px;
+	}
 	div.radiogroup{
 	margin-left:10px;
 	border: 1px solid #eee;
@@ -308,7 +323,6 @@ border: 2.5px solid rgba(16, 18, 85, .5);
 	margin-right:20px;
 	margin-left:20px;
 	}
-	
 	input.panelcheck{
 	margin-right:8px;
 	}
@@ -356,7 +370,8 @@ HTML > BODY .input-group-addon {
   	text-align:left;
   	float:left;
 }
-.row > .col-md-4 > .form-control{
+HTML>BODY
+.textcontrol{
 	height: 18px;
 	font-size: 14px;
   	padding: 0px 0px;
@@ -421,10 +436,5 @@ BODY div.t-error li          {border:none; text-align: center; font-weight: norm
 
 
 
-/*MENU PRINCIPAL*/
-.menu > .col-md-5 > .btn-group > .btn {
-height: 34px;
-margin-top:10px;
-}
 
 
