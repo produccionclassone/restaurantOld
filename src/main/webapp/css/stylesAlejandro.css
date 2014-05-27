@@ -101,22 +101,33 @@ h1.info{
 	  margin: 0 auto;
 	  width: 100%;
 	}
-	HTML>BODY
-	.breadcrumb{
+	
+	#headernav{
 		padding: 2px 15px;
 		margin-bottom:7px;
 		background:linear-gradient(#6D6E87, #B5B6D0);
-		width:101%;
+		width:102%;
 		font-weight:bold;
 		color:white;
 		height:25px;
 	}
 	HTML>BODY
+	.breadcrumb{
+		background-color:transparent;
+		height:25px;
+		margin-bottom:-4px;
+		padding: 2px 15px;
+		line-height: 1.17;
+	}
+	HTML>BODY
 		.breadcrumb > .active{
 		color:#E4E7FA;
+	
 	}
+	HTML>BODY
 	.breadcrumb > li > a{
 		color:white;
+
 
 	}
 	
@@ -187,8 +198,8 @@ h1.info{
 
 .sidebar{
 	padding-top:13px;
-	margin-left:45px;
-	width:140px;
+	margin-left:40px;
+	width:180px;
 	margin-right:40px;
 	border: 1px solid #e7e7e7;
 	background-color: #f8f8f8
@@ -207,6 +218,15 @@ HTML>BODY
 }
 .expertbutton{
 	margin-top:-12px;
+}
+
+.btn-image{
+	height:50px;
+	weight:70px;
+	margin:10px;
+}
+.zoom{
+	margin-top:-7px;
 }
 
 

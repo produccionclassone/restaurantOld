@@ -36,15 +36,15 @@ var changeLiterals = function(value,spec){
 		$("#button7txt").text(spec.opcion17);
 		$("#button8txt").text(spec.opcion18);
 		$("#button9txt").text(spec.opcion19);
-		$("#buttonAtxt").text("");
-		$("#buttonBtxt").text("");
-		$("#buttonCtxt").text("");
-		$("#buttonDtxt").text("");
-		$("#buttonEtxt").text("");
-		$("#buttonFtxt").text("");
-		$("#buttonGtxt").text("");
-		$("#buttonHtxt").text("");
-		$("#buttonItxt").text("");
+		$("#buttonAtxt").text(spec.opcion1a);
+		$("#buttonBtxt").text(spec.opcion1b);
+		$("#buttonCtxt").text(spec.opcion1c);
+		$("#buttonDtxt").text(spec.opcion1d);
+		$("#buttonEtxt").text(spec.opcion1e);
+		$("#buttonFtxt").text(spec.opcion1f);
+		$("#buttonGtxt").text(spec.opcion1g);
+		$("#buttonHtxt").text(spec.opcion1h);
+		$("#buttonItxt").text(spec.opcion1i);
 		$("#activemenu").replaceWith( "<li><a>"+spec.menu+"</a></li>");
 		$("#headernav ol li a").attr("href","/restaurant");
 		$("#headernav ol li").attr("id","disablemenu");
@@ -140,6 +140,34 @@ var changeLiterals = function(value,spec){
 	}		 		 
 }
 
+var menuClickBehaviour = function(spec){
+	$( "#button1opt" ).click(function() {
+		var currentOption=$('.active').attr('name');
+   		if (currentOption=="menu") changeLiterals(1,spec);
+	});
+	$( "#button1txt" ).click(function() {
+		var currentOption=$('.active').attr('name');
+   		if (currentOption=="menu") changeLiterals(1,spec);
+	});
+	$( "#button2opt" ).click(function() {
+		var currentOption=$('.active').attr('name');
+   		if (currentOption=="menu") changeLiterals(2,spec);
+	});
+	$( "#button2txt" ).click(function() {
+		var currentOption=$('.active').attr('name');
+   		if (currentOption=="menu") changeLiterals(2,spec);
+	});
+	$( "#button3opt" ).click(function() {
+		var currentOption=$('.active').attr('name');
+   		if (currentOption=="menu") changeLiterals(3,spec);
+	});
+	$( "#button3txt" ).click(function() {
+		var currentOption=$('.active').attr('name');
+   		if (currentOption=="menu") changeLiterals(3,spec);
+	});
+	
+}	
+
 
 var menuBehaviour = function(e,spec){
 		e.preventDefault();
@@ -152,8 +180,11 @@ var menuBehaviour = function(e,spec){
 		  if((String.fromCharCode(e.which)==2)&&(currentOption=="menu")){
 			changeLiterals(2,spec);
 		  }
+		    if((String.fromCharCode(e.which)==3)&&(currentOption=="menu")){
+			changeLiterals(3,spec);
+		  }
 		};
-		
+
 		
 (function( $, window ) {		
 	 'use scrict';  
@@ -162,11 +193,13 @@ var menuBehaviour = function(e,spec){
 	 	 $("#menuexperto").keypress(function(e){
  			menuBehaviour(e,spec);	
 		 });
+		 menuClickBehaviour(spec);
 		 $(document).keyup(function(e) {
   				if (e.keyCode == 27) { 
   				if ($("#activemenu").attr("name")!="menu")
   				changeLiterals(0,spec);}  
 		 });
+		 
 	    }
 	   })
 })(jQuery, window);

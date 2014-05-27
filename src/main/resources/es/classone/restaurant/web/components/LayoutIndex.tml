@@ -8,17 +8,17 @@
 		<title>${pageTitle}</title>
 		<link rel="StyleSheet" href="${context:/css/stylesAlejandro.css}"
 			type="text/css" media="all" />
-<!-- 		 <link rel="StyleSheet" href="${context:/css/stylesVanina.css}" -->
-<!-- 		 type="text/css" media="all" />  -->
+		<!-- <link rel="StyleSheet" href="${context:/css/stylesVanina.css}" -->
+		<!-- type="text/css" media="all" /> -->
 
 		<link rel="StyleSheet" href="${context:/css/bootstrap.css}" type="text/css"
 			media="all" />
 
-		
+
 	</head>
-			<script src="${context:/javaScript/jquery-2.1.1.js}"></script>
-		<script src="${context:/javaScript/bootstrap.min.js}"></script>
-		
+	<script src="${context:/javaScript/jquery-2.1.1.js}"></script>
+	<script src="${context:/javaScript/bootstrap.min.js}"></script>
+
 
 	<body>
 		<div id="wrap">
@@ -26,19 +26,24 @@
 				<div class="container-full">
 					<div class="row" id="headernav">
 						<div class="col-md-4">
-						<div class="modulos"/>
+							<div class="modulos">
+								Módulos 1.1.0.0.1.1
+
+							</div>
 						</div>
-							
+
 						<div class="col-md-4">
-						<ol class="breadcrumb">
-							<li class="active" name="menu" id="activemenu" >${message:menuprincipal}</li>
-						</ol>
+							<ol class="breadcrumb">
+								<li class="active" name="menu" id="activemenu">${message:menuprincipal}</li>
+							</ol>
 						</div>
 						<div class="col-md-4">
-						<div class="user"/>
+							<div class="col-md-3"></div>
+							<div class="col-md-4">Usuario: admin</div>
+							<div class="col-md-4">Idioma: 1</div>
+
 						</div>
 					</div>
-
 					<!-- MENU PRINCIPAL -->
 					<div class="menuwindow">
 						<div class="row"> <!-- menu horizontal -->
@@ -338,59 +343,150 @@
 								</div>
 							</div>
 							<div class="row30" />
-
+							<div class="row30" />
+					
 							<div class="row">
-								<div class="col-md-2" />
-								<div class="col-md-8">
+								
+								<div class="col-md-4">
 
 									<div class="row">
-										<a class="imagelink" href="#">
+										<button class="btn btn-default btn-image">
 											<img class="zoom" src="${context:css/images/book_search.png}"
-												width="64" height="64" title="${message:lvde}" alt="${message:lvde}" />
-										</a>
+												width="50" height="50" title="${message:lvde}" alt="${message:lvde}" />
+										</button>
+										
 									</div>
 
 									<div class="row">
-										<a class="imagelink" href="#">
+										<button class="btn btn-default btn-image">
 											<img class="zoom" src="${context:css/images/folder_full.png}"
-												width="64" height="64" title="${message:manuales}" alt="${message:manuales}" />
-										</a>
+												width="50" height="50" title="${message:manuales}" alt="${message:manuales}" />
+										</button>
 									</div>
 									<div class="row">
-										<a href="#">
-											<img class="zoom" src="${context:css/images/note_book.png}"
-												width="64" height="64" title="${message:comandas}" alt="${message:comandas}" />
-										</a>
-									</div>
-									<div class="row">
-										<a class="imagelink" href="#">
-											<img class="zoom" src="${context:css/images/next.png}"
-												width="64" height="64" title="${message:web}" alt="${message:web}" />
-										</a>
-									</div>
-									<div class="row">
-										<a class="imagelink" href="#">
+										<button class="btn btn-default btn-image">
 											<img class="zoom" src="${context:css/images/mail_send.png}"
-												width="64" height="64" title="${message:mail}" alt="${message:mail}" />
-										</a>
+												width="50" height="50" title="${message:mail}" alt="${message:mail}" />
+										</button>
 									</div>
 									<div class="row">
-										<a class="imagelink" href="#">
+										<button class="btn btn-default btn-image">
 											<img class="zoom" src="${context:css/images/sms.png}"
-												width="64" height="64" title="${message:sms}" alt="${message:sms}" />
-										</a>
+												width="50" height="50" title="${message:sms}" alt="${message:sms}" />
+										</button>
 									</div>
 									<div class="row">
-										<a class="imagelink" href="#">
+										<button class="btn btn-default btn-image">
+											<img class="zoom" src="${context:css/images/note_book.png}"
+												width="50" height="50" title="${message:comandas}" alt="${message:comandas}" />
+										</button>
+									</div>
+									<div class="row">
+										<button class="btn btn-default btn-image">
+											<img class="zoom" src="${context:css/images/next.png}"
+												width="50" height="50" title="${message:web}" alt="${message:web}" />
+										</button>
+									</div>
+									</div>
+									<div class="col-md-1"/>
+									<div class="col-md-4">
+									<div class="row">
+										<button class="btn btn-default btn-image">
+											<img class="zoom" src="${context:css/images/mail_send.png}"
+												width="50" height="50" title="${message:mail}" alt="${message:mail}" />
+										</button>
+									</div>
+									<div class="row">
+										<button class="btn btn-default btn-image">
+											<img class="zoom" src="${context:css/images/sms.png}"
+												width="50" height="50" title="${message:sms}" alt="${message:sms}" />
+										</button>
+									</div>
+									
+									<div class="row">
+										<button class="btn btn-default btn-image">
+											<img class="zoom" src="${context:css/images/star_full.png}"
+												width="50" height="50" title="${message:favourites}" alt="${message:favourites}" />
+										</button>
+									</div>
+									<div class="row">
+										<button class="btn btn-default btn-image">
+											<img class="zoom" src="${context:css/images/sms.png}"
+												width="50" height="50" title="${message:sms}" alt="${message:sms}" />
+										</button>
+									</div>
+									<div class="row">
+										<button class="btn btn-default btn-image">
+											<img class="zoom" src="${context:css/images/star_full.png}"
+												width="50" height="50" title="${message:favourites}" alt="${message:favourites}" />
+										</button>
+									</div>
+									<div class="row">
+										<button class="btn btn-default btn-image">
 											<img class="zoom" src="${context:css/images/shut_down.png}"
-												width="64" height="64" title="${message:logout}" alt="${message:logout}" />
-										</a>
+												width="50" height="50" title="${message:logout}" alt="${message:logout}" />
+										</button>
 									</div>
 								</div>
 								<div class="col-md-2" />
-
-
 							</div>
+<!-- 							<div class="row"> -->
+<!-- 								<div class="col-md-2" /> -->
+<!-- 								<div class="col-md-8"> -->
+
+<!-- 									<div class="row"> -->
+<!-- 										<button class="btn btn-default btn-image"> -->
+<!-- 											<img class="zoom" src="${context:css/images/book_search.png}" -->
+<!-- 												width="50" height="50" title="${message:lvde}" alt="${message:lvde}" /> -->
+<!-- 										</button> -->
+										
+<!-- 									</div> -->
+
+<!-- 									<div class="row"> -->
+<!-- 										<button class="btn btn-default btn-image"> -->
+<!-- 											<img class="zoom" src="${context:css/images/folder_full.png}" -->
+<!-- 												width="50" height="50" title="${message:manuales}" alt="${message:manuales}" /> -->
+<!-- 										</button> -->
+<!-- 									</div> -->
+<!-- 									<div class="row"> -->
+<!-- 										<button class="btn btn-default btn-image"> -->
+<!-- 											<img class="zoom" src="${context:css/images/note_book.png}" -->
+<!-- 												width="50" height="50" title="${message:comandas}" alt="${message:comandas}" /> -->
+<!-- 										</button> -->
+<!-- 									</div> -->
+<!-- 									<div class="row"> -->
+<!-- 										<button class="btn btn-default btn-image"> -->
+<!-- 											<img class="zoom" src="${context:css/images/next.png}" -->
+<!-- 												width="50" height="50" title="${message:web}" alt="${message:web}" /> -->
+<!-- 										</button> -->
+<!-- 									</div> -->
+<!-- 									<div class="row"> -->
+<!-- 										<button class="btn btn-default btn-image"> -->
+<!-- 											<img class="zoom" src="${context:css/images/mail_send.png}" -->
+<!-- 												width="50" height="50" title="${message:mail}" alt="${message:mail}" /> -->
+<!-- 										</button> -->
+<!-- 									</div> -->
+<!-- 									<div class="row"> -->
+<!-- 										<button class="btn btn-default btn-image"> -->
+<!-- 											<img class="zoom" src="${context:css/images/sms.png}" -->
+<!-- 												width="50" height="50" title="${message:sms}" alt="${message:sms}" /> -->
+<!-- 										</button> -->
+<!-- 									</div> -->
+<!-- 									<div class="row"> -->
+<!-- 										<button class="btn btn-default btn-image"> -->
+<!-- 											<img class="zoom" src="${context:css/images/star_full.png}" -->
+<!-- 												width="50" height="50" title="${message:favourites}" alt="${message:favourites}" /> -->
+<!-- 										</button> -->
+<!-- 									</div> -->
+<!-- 									<div class="row"> -->
+<!-- 										<button class="btn btn-default btn-image"> -->
+<!-- 											<img class="zoom" src="${context:css/images/shut_down.png}" -->
+<!-- 												width="50" height="50" title="${message:logout}" alt="${message:logout}" /> -->
+<!-- 										</button> -->
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 								<div class="col-md-2" /> -->
+<!-- 							</div> -->
 						</div>
 					</div>
 					<!-- HEADER -->
@@ -408,7 +504,7 @@
 							</div>
 							<div class="col-md-9">
 								<h1 class="info">LINCOLN RESTAURANT</h1>
-<!-- 								lo cogere de personificacion -->
+								<!-- lo cogere de personificacion -->
 							</div>
 						</div>
 						<div class="row">
@@ -437,7 +533,7 @@
 
 		</div>
 
-<script src="${context:/javaScript/clock.js}"></script>
+		<script src="${context:/javaScript/clock.js}"></script>
 
 
 	</body>
