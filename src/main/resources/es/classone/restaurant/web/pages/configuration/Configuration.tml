@@ -3,14 +3,15 @@
 
 	<div class="row"> <!-- diversos contadores -->
 		<!-- Button trigger modal -->
-		<button class="btn btn-primary btn" data-toggle="modal"
-			data-target="#diversosContadores">
-			Diversos contadores
+		<button class="btn btn-primary btn" style="float:left; background:transparent;"
+			data-toggle="modal" data-target="#diversosContadores">
+			<img class="zoom" src="${context:css/images/process.png}" width="64"
+				height="64" title="Diversos contadores" alt="Diversos contadores" />
 		</button>
 
 		<!-- Diversos contadores -->
-		<div class="modal fade" id="diversosContadores" tabindex="-1"
-			role="dialog" aria-labelledby="myModalLabel" style="padding:0px 0px;"
+		<div class="modal fade bs-example-modal-lg" id="diversosContadores"
+			tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="padding:0px 0px;"
 			aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -18,11 +19,11 @@
 						<button type="button" class="close" data-dismiss="modal"
 							aria-hidden="true">&times;
 						</button>
-						<h4 class="modal-title" id="myModalLabel">Diversos contadores</h4>
+						<h4 class="modal-title" id="myModalLabel">B 7 1 - Diversos contadores</h4>
 					</div>
 					<div class="modal-body" style="padding:4px 4px;">
 						<!-- Nav tabs -->
-						<ul class="nav nav-tabs">
+						<ul class="nav nav-tabs" style="padding:0px 0px;">
 							<li class="active">
 								<a href="#contadores" data-toggle="tab">Contadores</a>
 							</li>
@@ -1234,24 +1235,26 @@
 			</div>
 		</div>
 	</div>
+	<div class="row5"></div>
 
 	<div class="row"> <!-- Configuración del sistema - Avanzadas -->
 		<!-- Button trigger modal -->
-		<button class="btn btn-primary btn" data-toggle="modal"
-			data-target="#configSistema">
-			Configuración del sistema avanzada
+		<button class="btn btn-primary btn" style="float:left; background:transparent;"
+			data-toggle="modal" data-target="#configSistema">
+			<img class="zoom" src="${context:css/images/fact.png}" width="64"
+				height="64" title="Configuración avanzada" alt="Configuración avanzada" />
 		</button>
 
 		<!-- Modal -->
 		<div class="modal fade" id="configSistema" tabindex="-1" role="dialog"
-			aria-labelledby="myModalLabel" aria-hidden="true">
+			aria-labelledby="myModalLabel" aria-hidden="true" style="padding:0px 0px;">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal"
 							aria-hidden="true">&times;
 						</button>
-						<h4 class="modal-title" id="myModalLabel">Configuración del sistema avanzada</h4>
+						<h4 class="modal-title" id="myModalLabel">B 7 2 - Configuración avanzada</h4>
 					</div>
 					<div class="modal-body">
 						<div class="rowBorder">
@@ -1335,11 +1338,15 @@
 		</div>
 	</div>
 
+	<div class="row5"></div>
 	<div class="row">
 
 		<!-- Large modal -->
-		<button class="btn btn-primary" data-toggle="modal"
-			data-target=".bs-example-modal-lg">Claves</button>
+		<button class="btn btn-primary" style="float:left; background:transparent"
+			data-toggle="modal" data-target=".bs-example-modal-lg">
+			<img class="zoom" src="${context:css/images/permisos.png}" width="64"
+				height="64" title="Claves" alt="Claves" />
+		</button>
 
 		<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
 			aria-labelledby="myLargeModalLabel" aria-hidden="true">
