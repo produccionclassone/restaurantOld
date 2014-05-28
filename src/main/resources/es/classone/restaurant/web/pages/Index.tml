@@ -6,12 +6,11 @@
 		<div class="col-md-4"></div>
 		<div class="col-md-4"></div>
 	</div>
-
 	<div class="row30" />
 	<div class="row">
 		<div class="col-md-4"></div>
 		<div class="col-md-4">
-			<button type="button" id="buttonmenu" class="btn btn-default btn-menu">${message:menuprincipal}</button>
+			<button id="buttonmenu" class="btn btn-default btn-menu">${message:menuprincipal}</button>
 		</div> 
 	</div>
 	<div class="row10" />

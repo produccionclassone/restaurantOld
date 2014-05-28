@@ -6,13 +6,14 @@
 
 	<head>
 		<title>${pageTitle}</title>
-		<link rel="StyleSheet" href="${context:/css/stylesAlejandro.css}"
-			type="text/css" media="all" />
-		<!-- <link rel="StyleSheet" href="${context:/css/stylesVanina.css}" -->
-		<!-- type="text/css" media="all" /> -->
+<!-- 		<link rel="StyleSheet" href="${context:/css/stylesAlejandro.css}" -->
+<!-- 			type="text/css" media="all" /> -->
+		<link rel="StyleSheet" href="${context:/css/stylesVanina.css}"
+		type="text/css" media="all" />
 
 		<link rel="StyleSheet" href="${context:/css/bootstrap.css}" type="text/css"
 			media="all" />
+		<link rel="shortcut icon" type="image/x-icon" href="${context:/css/images/favicon.ico}"/>
 
 
 	</head>
@@ -346,8 +347,8 @@
 							<div class="row30" />
 					
 							<div class="row">
-								
-								<div class="col-md-4">
+							
+								<div class="col-md-6">
 
 									<div class="row">
 										<button class="btn btn-default btn-image">
@@ -355,6 +356,12 @@
 												width="50" height="50" title="${message:lvde}" alt="${message:lvde}" />
 										</button>
 										
+									</div>
+									<div class="row">
+										<button class="btn btn-default btn-image">
+											<img class="zoom" src="${context:css/images/note_book.png}"
+												width="50" height="50" title="${message:comandas}" alt="${message:comandas}" />
+										</button>
 									</div>
 
 									<div class="row">
@@ -371,41 +378,36 @@
 									</div>
 									<div class="row">
 										<button class="btn btn-default btn-image">
-											<img class="zoom" src="${context:css/images/sms.png}"
-												width="50" height="50" title="${message:sms}" alt="${message:sms}" />
+											<img class="zoom" src="${context:css/images/star_full.png}"
+												width="50" height="50" title="${message:favourites}" alt="${message:favourites}" />
 										</button>
 									</div>
-									<div class="row">
+										<div class="row">
 										<button class="btn btn-default btn-image">
-											<img class="zoom" src="${context:css/images/note_book.png}"
-												width="50" height="50" title="${message:comandas}" alt="${message:comandas}" />
+											<img class="zoom" src="${context:css/images/back.png}"
+												width="50" height="50" title="${message:back}" alt="${message:back}" />
 										</button>
 									</div>
+									
+									</div>
+									<div class="col-md-6">
 									<div class="row">
 										<button class="btn btn-default btn-image">
-											<img class="zoom" src="${context:css/images/next.png}"
+											<img class="zoom" src="${context:css/images/search_globe.png}"
 												width="50" height="50" title="${message:web}" alt="${message:web}" />
 										</button>
 									</div>
-									</div>
-									<div class="col-md-1"/>
-									<div class="col-md-4">
+									
 									<div class="row">
 										<button class="btn btn-default btn-image">
-											<img class="zoom" src="${context:css/images/mail_send.png}"
-												width="50" height="50" title="${message:mail}" alt="${message:mail}" />
-										</button>
-									</div>
-									<div class="row">
-										<button class="btn btn-default btn-image">
-											<img class="zoom" src="${context:css/images/sms.png}"
+											<img class="zoom" src="${context:css/images/workflow.png}"
 												width="50" height="50" title="${message:sms}" alt="${message:sms}" />
 										</button>
 									</div>
 									
 									<div class="row">
 										<button class="btn btn-default btn-image">
-											<img class="zoom" src="${context:css/images/star_full.png}"
+											<img class="zoom" src="${context:css/images/chart.png}"
 												width="50" height="50" title="${message:favourites}" alt="${message:favourites}" />
 										</button>
 									</div>
@@ -417,8 +419,8 @@
 									</div>
 									<div class="row">
 										<button class="btn btn-default btn-image">
-											<img class="zoom" src="${context:css/images/star_full.png}"
-												width="50" height="50" title="${message:favourites}" alt="${message:favourites}" />
+											<img class="zoom" src="${context:css/images/history.png}"
+												width="50" height="50" title="${message:history}" alt="${message:history}" />
 										</button>
 									</div>
 									<div class="row">
@@ -428,7 +430,7 @@
 										</button>
 									</div>
 								</div>
-								<div class="col-md-2" />
+		
 							</div>
 <!-- 							<div class="row"> -->
 <!-- 								<div class="col-md-2" /> -->

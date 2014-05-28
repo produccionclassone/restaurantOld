@@ -9,6 +9,7 @@
 			type="text/css" media="all" />
 		<link rel="StyleSheet" href="${context:/css/stylesAlejandro.css}"
 			type="text/css" media="all" />
+			<link rel="shortcut icon" type="image/x-icon" href="${context:/css/images/favicon.ico}"/>
 		
 	</head>
 
