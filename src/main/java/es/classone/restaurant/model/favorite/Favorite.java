@@ -13,18 +13,19 @@ import javax.persistence.Table;
 
 import es.classone.restaurant.model.userprofile.UserProfile;
 
-
 @Entity
 @Table(name = "Res14fav")
 public class Favorite {
-	 
+
 	private int favoriteId;
 	private int useCase;
 	private UserProfile userProfile;
-	
-	
-	public Favorite(){
 
+	public Favorite() {
+	}
+
+	public Favorite(int useCase) {
+		this.useCase= useCase;
 	}
 
 	@Column(name = "R1FAV001")
@@ -38,7 +39,6 @@ public class Favorite {
 		return favoriteId;
 	}
 
-
 	public void setFavoriteId(int favoriteId) {
 		this.favoriteId = favoriteId;
 	}
@@ -48,27 +48,22 @@ public class Favorite {
 		return useCase;
 	}
 
-
 	public void setUseCase(int useCase) {
 		this.useCase = useCase;
 	}
 
-	@Column(name = "Res14usr_R1USR001_K1")
 	@ManyToOne(optional = false, fetch = FetchType.LAZY)
-	@JoinColumn(name = "R1USR001_K1")
+	@JoinColumn(name = "Res14usr_R1USR001_K1")
 	public UserProfile getUserProfile() {
 		return userProfile;
 	}
 
-
 	public void setUserProfile(UserProfile userProfile) {
 		this.userProfile = userProfile;
 	}
-	
-	
 
 }
-//CREATE TABLE IF NOT EXISTS `ayx14res`.`Res14fav` (
+// CREATE TABLE IF NOT EXISTS `ayx14res`.`Res14fav` (
 // `R1FAV001` INT NOT NULL,
 // `R1FAV002` INT NOT NULL,
-//`Res14usr_R1USR001_K1` INT NOT NULL,
+// `Res14usr_R1USR001_K1` INT NOT NULL,

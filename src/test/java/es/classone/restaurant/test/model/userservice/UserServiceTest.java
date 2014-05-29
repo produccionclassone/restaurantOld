@@ -201,12 +201,10 @@ public class UserServiceTest {
 			throws InstanceNotFoundException, IncorrectPasswordException, DuplicateInstanceException {
 		UserProfile userProfile = userService.registerUser("user",
 				"userPassword", new UserProfileDetails("user@udc.es"),'1');
-		Favorite favorite = new Favorite();
-		favorite.setUseCase(111);
+		Favorite favorite = new Favorite(112);
 		favorite.setUserProfile(userProfile);
 		favoriteDao.save(favorite);
-		Favorite favorite2 = new Favorite();
-		favorite.setUseCase(112);
+		Favorite favorite2 = new Favorite(111);
 		favorite.setUserProfile(userProfile);
 		favoriteDao.save(favorite2);
 		List<Favorite> favorites = favoriteDao.getFavoritesByUserId(userProfile.getUserProfileId());
