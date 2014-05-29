@@ -12,6 +12,6 @@
         <property name="hibernate.use_sql_comments">${hibernate.use_sql_comments}</property>
 
         <mapping class="es.classone.restaurant.model.userprofile.UserProfile" />
-        
+        <mapping class="es.classone.restaurant.model.favorite.Favorite" />
     </session-factory>
 </hibernate-configuration>
