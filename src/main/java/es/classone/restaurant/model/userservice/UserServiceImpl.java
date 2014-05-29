@@ -254,4 +254,12 @@ public class UserServiceImpl implements UserService {
 		return favoriteDao.getFavoritesByUserId(userId);
 	}
 
+
+	public Favorite createFavorite(Favorite favorite, int userId) throws InstanceNotFoundException {
+		UserProfile userProfile = userProfileDao.find(userId);
+		favorite.setUserProfile(userProfile);
+		favoriteDao.save(favorite);
+		return favorite;
+	}
+
 }

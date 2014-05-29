@@ -14,7 +14,7 @@ public class FavoriteDaoHibernate extends
 	public List<Favorite> getFavoritesByUserId(int usrId) {
 		return getSession()
 				.createQuery(
-						"SELECT f FROM Favorite f"
+						"SELECT f FROM Favorite f "
 								+ "WHERE f.userProfile.userProfileId = :usrId ")
 				.setParameter("usrId", usrId).list();
 	}

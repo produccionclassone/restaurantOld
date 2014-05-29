@@ -202,11 +202,9 @@ public class UserServiceTest {
 		UserProfile userProfile = userService.registerUser("user",
 				"userPassword", new UserProfileDetails("user@udc.es"),'1');
 		Favorite favorite = new Favorite(112);
-		favorite.setUserProfile(userProfile);
-		favoriteDao.save(favorite);
-		Favorite favorite2 = new Favorite(111);
-		favorite.setUserProfile(userProfile);
-		favoriteDao.save(favorite2);
+		userService.createFavorite(favorite, userProfile.getUserProfileId());
+		Favorite favorite2 = new Favorite(777);
+		userService.createFavorite(favorite2, userProfile.getUserProfileId());
 		List<Favorite> favorites = favoriteDao.getFavoritesByUserId(userProfile.getUserProfileId());
 		assertEquals(favorites.size(), 2);
 	}
