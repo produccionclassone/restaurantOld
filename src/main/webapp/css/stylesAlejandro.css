@@ -93,6 +93,15 @@ h1.info{
 		padding-left: 10px;
   		float: left;
   	}		
+  	div.col-md-01 {
+    	width: 1%;
+     	position: relative;
+  		min-height: 1px;
+	    padding-right: 4px;
+		padding-left: 4px;
+  		float: left;
+  	}		
+  	
 
 
 
@@ -151,7 +160,7 @@ h1.info{
 	
 	
 	HTML>BODY
-		.navbar-nav > li > a {
+	.navbar-nav > li > a {
 		height:20px;
 		padding-top: 0px;
 		padding-bottom: 0px;
@@ -224,7 +233,8 @@ HTML>BODY
 	height:50px;
 	weight:70px;
 	margin-top:12px;
-	
+	background-color: #f8f8f8;
+	border: 0px solid #e7e7e7;
 }
 .zoom{
 	margin-top:-7px;
@@ -450,7 +460,7 @@ input, select, textarea  {
 
 /* Error messages. */
 
-HTML>BODY DIV.t-error             {  border:none; }
+HTML>BODY DIV.t-error             { border:none; }
 BODY div.t-error div.t-banner    {background-color:inherit;  color:red;}
 BODY div.t-error ul          { border:none; background-color: inherit; font-weight:bold; list-style: none; }
 BODY div.t-error li          {border:none; text-align: center; font-weight: normal; }

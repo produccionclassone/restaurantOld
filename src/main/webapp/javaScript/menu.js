@@ -137,7 +137,35 @@ var changeLiterals = function(value,spec){
 		$("#disablemenu").attr("name","menu");
 		$("#disablemenu").attr("class","disable");
 		$("#buttonmenu").text(spec.opcion4);		
-	}		 		 
+	}
+	if (value=="a"){
+		$("#button1txt").text(spec.opciona1);
+		$("#button2txt").text(spec.opciona2);
+		$("#button3txt").text(spec.opciona3);
+		$("#button4txt").text(spec.opciona4);
+		$("#button5txt").text(spec.opciona5);
+		$("#button6txt").text(spec.opciona6);
+		$("#button7txt").text(spec.opciona7);
+		$("#button8txt").text(spec.opciona8);
+		$("#button9txt").text("");
+		$("#buttonAtxt").text("");
+		$("#buttonBtxt").text("");
+		$("#buttonCtxt").text("");
+		$("#buttonDtxt").text("");
+		$("#buttonEtxt").text("");
+		$("#buttonFtxt").text("");
+		$("#buttonGtxt").text("");
+		$("#buttonHtxt").text("");
+		$("#buttonItxt").text("");
+		$("#activemenu").replaceWith( "<li><a>"+spec.menu+"</a></li>");
+		$("#headernav ol li a").attr("href","/restaurant");
+		$("#headernav ol li").attr("id","disablemenu");
+		$("#headernav ol").append("<li>"+spec.opciona+"</li>");
+		$("#headernav ol li").attr("class","active");
+		$("#disablemenu").attr("name","menu");
+		$("#disablemenu").attr("class","disable");
+		$("#buttonmenu").text(spec.opciona);		
+	}			 		 
 }
 
 var menuClickBehaviour = function(spec){
@@ -165,6 +193,14 @@ var menuClickBehaviour = function(spec){
 		var currentOption=$('.active').attr('name');
    		if (currentOption=="menu") changeLiterals(3,spec);
 	});
+	$( "#buttonaopt" ).click(function() {
+		var currentOption=$('.active').attr('name');
+   		if (currentOption=="menu") changeLiterals("a",spec);
+	});
+	$( "#buttonatxt" ).click(function() {
+		var currentOption=$('.active').attr('name');
+   		if (currentOption=="menu") changeLiterals("a",spec);
+	});
 	
 }	
 
@@ -182,6 +218,9 @@ var menuBehaviour = function(e,spec){
 		  }
 		    if((String.fromCharCode(e.which)==3)&&(currentOption=="menu")){
 			changeLiterals(3,spec);
+		  }
+		     if((String.fromCharCode(e.which)=="a")&&(currentOption=="menu")){
+			changeLiterals("a",spec);
 		  }
 		};
 

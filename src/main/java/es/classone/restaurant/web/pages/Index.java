@@ -293,7 +293,7 @@ public class Index {
 						.put("opcioneg", messages.get("opcioneg"))
 						.put("opcioneh", messages.get("opcioneh"))
 						.put("opcionei", messages.get("opcionei"))
-						.put("opciona1", messages.get("opcionf1"))
+						.put("opcionf1", messages.get("opcionf1"))
 						.put("opcionf2", messages.get("opcionf2"))
 						.put("opcionf3", messages.get("opcionf3"))
 						.put("opcionf4", messages.get("opcionf4"))

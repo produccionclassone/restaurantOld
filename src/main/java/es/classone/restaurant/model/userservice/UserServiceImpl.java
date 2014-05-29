@@ -17,6 +17,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -35,6 +36,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
+import es.classone.restaurant.model.favorite.Favorite;
+import es.classone.restaurant.model.favorite.FavoriteDao;
 import es.classone.restaurant.model.userprofile.UserProfile;
 import es.classone.restaurant.model.userprofile.UserProfileDao;
 import es.classone.restaurant.model.userservice.util.PasswordEncrypter;
@@ -47,6 +50,9 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserProfileDao userProfileDao;
+	
+	@Autowired
+	private FavoriteDao favoriteDao;
 
 	public UserProfile registerUser(String loginName, String clearPassword,
 			UserProfileDetails userProfileDetails, char privilege)
@@ -240,6 +246,12 @@ public class UserServiceImpl implements UserService {
 
 		}
 		return "";
+	}
+
+	
+	public List<Favorite> getFavoritesByUserId(int userId) {
+		
+		return favoriteDao.getFavoritesByUserId(userId);
 	}
 
 }

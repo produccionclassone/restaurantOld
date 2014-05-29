@@ -1,19 +1,19 @@
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
 	t:type="LayoutIndex" t:pageTitle="title">
-
+	<div class="container-fluid">
 	<div class="row">
 		<div class="col-md-4"></div>
 		<div class="col-md-4"></div>
 		<div class="col-md-4"></div>
 	</div>
-	<div class="row30" />
+	<div class="row row30" />
 	<div class="row">
 		<div class="col-md-4"></div>
 		<div class="col-md-4">
 			<button id="buttonmenu" class="btn btn-default btn-menu">${message:menuprincipal}</button>
 		</div> 
 	</div>
-	<div class="row10" />
+	<div class="row row10" />
 	<div class="row">
 		<div class="col-md-05" />
 		<div class="col-md-05" />
@@ -21,56 +21,54 @@
 			<div class="col-md-5">
 				<div class="btn-group">
 					<button type="button" id="button1opt" class="btn btn-default btn-option">1</button>
-					<div class="col-md-02"></div>
+					<div class="col-md-01"></div>
 					<button type="button" id="button1txt" class="btn btn-default btn-text">${message:opcion1}</button>
-				
-					
 				</div>
 				<div class="btn-group">
 					<button type="button" id="button2opt" class="btn btn-default btn-option">2</button>
-					<div class="col-md-02"></div>
+					<div class="col-md-01"></div>
 					<button type="button" id="button2txt" class="btn btn-default btn-text">${message:opcion2}</button>
 				
 				</div>
 				<div class="btn-group">
 					<button type="button" id="button3opt" class="btn btn-default btn-option">3</button>
-					<div class="col-md-02"></div>
+					<div class="col-md-01"></div>
 					<button type="button" id="button3txt" class="btn btn-default btn-text">${message:opcion3}</button>
 					
 				</div>
 				<div class="btn-group">
 					<button type="button" id="button4opt" class="btn btn-default btn-option">4</button>
-					<div class="col-md-02"></div>
+					<div class="col-md-01"></div>
 					<button type="button" id="button4txt" class="btn btn-default btn-text">${message:opcion4}</button>
 					
 				</div>
 				<div class="btn-group">
 					<button type="button" id="button5opt" class="btn btn-default btn-option">5</button>
-					<div class="col-md-02"></div>
+					<div class="col-md-01"></div>
 					<button type="button" id="button5txt" class="btn btn-default btn-text">${message:opcion5}</button>
 				
 				</div>
 				<div class="btn-group">
 					<button type="button" id="button6opt" class="btn btn-default btn-option">6</button>
-					<div class="col-md-02"></div>
+					<div class="col-md-01"></div>
 					<button type="button" id="button6txt" class="btn btn-default btn-text">${message:opcion6}</button>
 					
 				</div>
 				<div class="btn-group">
 					<button type="button" id="button7opt" class="btn btn-default btn-option">7</button>
-					<div class="col-md-02"></div>
+					<div class="col-md-01"></div>
 					<button type="button" id="button7txt" class="btn btn-default btn-text">${message:opcion7}</button>
 					
 				</div>
 				<div class="btn-group">
 					<button type="button" id="button8opt" class="btn btn-default btn-option">8</button>
-					<div class="col-md-02"></div>
+					<div class="col-md-01"></div>
 					<button type="button" id="button8txt" class="btn btn-default btn-text">${message:opcion8}</button>
 					
 				</div>
 				<div class="btn-group">
 					<button type="button" id="button9opt" class="btn btn-default btn-option">9</button>
-					<div class="col-md-02"></div>
+					<div class="col-md-01"></div>
 					<button type="button" id="button9txt" class="btn btn-default btn-text">${message:opcion9}</button>
 					
 				</div>
@@ -79,62 +77,62 @@
 			<div class="col-md-5">
 				<div class="btn-group">
 					<button type="button" id="buttonAopt" class="btn btn-default btn-option">A</button>
-					<div class="col-md-02"></div>
+					<div class="col-md-01"></div>
 					<button type="button" id="buttonAtxt" class="btn btn-default btn-text">${message:opciona}</button>
 					
 				</div>
 				<div class="btn-group">
 					<button type="button" id="buttonBopt" class="btn btn-default btn-option">B</button>
-					<div class="col-md-02"></div>
+					<div class="col-md-01"></div>
 					<button type="button" id="buttonBtxt" class="btn btn-default btn-text">${message:opcionb}</button>
 					
 				</div>
 				<div class="btn-group">
 					<button type="button" id="buttonCopt" class="btn btn-default btn-option">C</button>
-					<div class="col-md-02"></div>
+					<div class="col-md-01"></div>
 					<button type="button" id="buttonCtxt" class="btn btn-default btn-text">${message:opcionc}</button>
 					
 				</div>
 				<div class="btn-group">
 					<button type="button" id="buttonDopt" class="btn btn-default btn-option">D</button>
-					<div class="col-md-02"></div>
+					<div class="col-md-01"></div>
 					<button type="button" id="buttonDtxt" class="btn btn-default btn-text">${message:opcionD}</button>
 					
 				</div>
 				<div class="btn-group">
 					<button type="button" id="buttonEopt" class="btn btn-default btn-option">E</button>
-					<div class="col-md-02"></div>
+					<div class="col-md-01"></div>
 					<button type="button" id="buttonEtxt" class="btn btn-default btn-text">${message:opcionE}</button>
 					
 				</div>
 				<div class="btn-group">
 					<button type="button" id="buttonFopt" class="btn btn-default btn-option">F</button>
-					<div class="col-md-02"></div>
+					<div class="col-md-01"></div>
 					<button type="button" id="buttonFtxt" class="btn btn-default btn-text">${message:opcionf}</button>
 					
 				</div>
 				<div class="btn-group">
 					<button type="button" id="buttonGopt" class="btn btn-default btn-option">G</button>
-					<div class="col-md-02"></div>
+					<div class="col-md-01"></div>
 					<button type="button" id="buttonGtxt" class="btn btn-default btn-text">${message:opciong}</button>
 				
 				</div>
 				<div class="btn-group">
 					<button type="button" id="buttonHopt" class="btn btn-default btn-option">H</button>
-					<div class="col-md-02"></div>
+					<div class="col-md-01"></div>
 					<button type="button" id="buttonHtxt" class="btn btn-default btn-text">${message:opcionh}</button>
 					
 				</div>
 				<div class="btn-group">
 					<button type="button" id="buttonIopt" class="btn btn-default btn-option">I</button>
-					<div class="col-md-02"></div>
+					<div class="col-md-01"></div>
 					<button type="button" id="buttonItxt" class="btn btn-default btn-text">${message:opcioni}</button>
 					
 				</div>
 			</div>
 		</div>
 	</div>
-
+</div>
 </html>
 
 

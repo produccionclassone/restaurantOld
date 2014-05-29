@@ -26,5 +26,6 @@
         
         <!--  List of persistent classes -->
         <mapping class="es.classone.restaurant.model.userprofile.UserProfile" />
+        <mapping class="es.classone.restaurant.model.favorite.Favorite" />
     </session-factory>
 </hibernate-configuration>

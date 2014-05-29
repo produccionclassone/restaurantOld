@@ -6,6 +6,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
@@ -18,6 +19,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 import org.xml.sax.SAXException;
 
+import es.classone.restaurant.model.favorite.Favorite;
+import es.classone.restaurant.model.favorite.FavoriteDao;
 import es.classone.restaurant.model.userprofile.UserProfile;
 import es.classone.restaurant.model.userservice.IncorrectPasswordException;
 import es.classone.restaurant.model.userservice.UserProfileDetails;
@@ -34,6 +37,8 @@ public class UserServiceTest {
 
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private FavoriteDao favoriteDao;
 
 	@Test
 	public void testRegisterUserAndFindUserProfile()
@@ -190,6 +195,22 @@ public class UserServiceTest {
 		userService.changePassword(NON_EXISTENT_USER_PROFILE_ID,
 				"userPassword", "XuserPassword");
 
+	}
+	@Test
+	public void testGetFavorites()
+			throws InstanceNotFoundException, IncorrectPasswordException, DuplicateInstanceException {
+		UserProfile userProfile = userService.registerUser("user",
+				"userPassword", new UserProfileDetails("user@udc.es"),'1');
+		Favorite favorite = new Favorite();
+		favorite.setUseCase(111);
+		favorite.setUserProfile(userProfile);
+		favoriteDao.save(favorite);
+		Favorite favorite2 = new Favorite();
+		favorite.setUseCase(112);
+		favorite.setUserProfile(userProfile);
+		favoriteDao.save(favorite2);
+		List<Favorite> favorites = favoriteDao.getFavoritesByUserId(userProfile.getUserProfileId());
+		assertEquals(favorites.size(), 2);
 	}
 
 	private UserProfile registerUser(String loginName, String clearPassword) {

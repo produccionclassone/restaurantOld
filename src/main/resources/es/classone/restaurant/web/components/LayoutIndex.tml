@@ -6,10 +6,10 @@
 
 	<head>
 		<title>${pageTitle}</title>
-<!-- 		<link rel="StyleSheet" href="${context:/css/stylesAlejandro.css}" -->
-<!-- 			type="text/css" media="all" /> -->
-		<link rel="StyleSheet" href="${context:/css/stylesVanina.css}"
-		type="text/css" media="all" />
+		<link rel="StyleSheet" href="${context:/css/stylesAlejandro.css}"
+			type="text/css" media="all" />
+<!-- 		<link rel="StyleSheet" href="${context:/css/stylesVanina.css}" -->
+<!-- 		type="text/css" media="all" /> -->
 
 		<link rel="StyleSheet" href="${context:/css/bootstrap.css}" type="text/css"
 			media="all" />
@@ -24,12 +24,11 @@
 	<body>
 		<div id="wrap">
 			<div id="main">
-				<div class="container-full">
+				<div class="container-fluid">
 					<div class="row" id="headernav">
 						<div class="col-md-4">
 							<div class="modulos">
 								Módulos 1.1.0.0.1.1
-
 							</div>
 						</div>
 
@@ -343,8 +342,8 @@
 									<div class="clock"></div>
 								</div>
 							</div>
-							<div class="row30" />
-							<div class="row30" />
+							<div class="row row30" />
+							<div class="row row30" />
 					
 							<div class="row">
 							
