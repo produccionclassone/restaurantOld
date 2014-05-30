@@ -320,6 +320,13 @@ div.logo{
 
 /* ----------- Configuration ------------ */
 
+HTML > BODY .navtabs{
+	margin-top: 0px;
+	padding:0px 0px;
+	/*font-size:10px;*/
+	height:auto;
+}
+
  HTML > BODY .input-group-addon {
 	padding-left: 0px;
 	padding-right: 0px;
