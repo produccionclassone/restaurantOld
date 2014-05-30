@@ -24,20 +24,26 @@
 						<div class="modal-body" style="padding:0px 0px;">
 
 							<!-- Nav tabs -->
-							<ul class="nav nav-tabs navtabs">
-								<li class="active navtabs">
-									<a href="#diversosContadores" data-toggle="tab"><h6>B 7 1 - Diversos
-										contadores</h6></a>
-								</li>
-								<li>
-									<a href="#configSistema" data-toggle="tab"><h6>B 7 2 - Configuración
-										del
-										sistema</h6></a>
-								</li>
-								<li>
-									<a href="#claves" data-toggle="tab"><h6>B 7 3 Claves</h6></a>
-								</li>
-							</ul>
+										<ul class="nav nav-tabs">
+											<li class="active">
+												<a href="#diversosContadores" data-toggle="tab">
+													<h6>B 7 1 - Diversos
+														contadores</h6>
+												</a>
+											</li>
+											<li>
+												<a href="#configSistema" data-toggle="tab">
+													<h6>B 7 2 - Configuración
+														del
+														sistema</h6>
+												</a>
+											</li>
+											<li>
+												<a href="#claves" data-toggle="tab">
+													<h6>B 7 3 Claves</h6>
+												</a>
+											</li>
+										</ul>
 							<!-- Tab panes -->
 							<div class="tab-content">
 								<div class="tab-pane active" id="diversosContadores">
