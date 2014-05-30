@@ -18,6 +18,8 @@ public class Index {
 
 	@Inject
 	private JavaScriptSupport javaScriptSupport;
+	
+
 
 	void afterRender() {
 		javaScriptSupport.addInitializerCall(
@@ -348,4 +350,5 @@ public class Index {
 						.put("opcionih", messages.get("opcionih"))
 						.put("opcionii", messages.get("opcionii")));
 	}
+
 }

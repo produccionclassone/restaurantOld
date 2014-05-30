@@ -34,7 +34,7 @@ public interface UserService {
 
 	public List<Favorite> getFavoritesByUserId(int userId);
 
-	public Favorite createFavorite(Favorite favorite, int userId) throws InstanceNotFoundException;
+	public Favorite createFavorite(Favorite favorite, int userId) throws InstanceNotFoundException, DuplicateFavoriteException;
 
 	public void changePassword(int userProfileId, String oldClearPassword,
 			String newClearPassword) throws IncorrectPasswordException,

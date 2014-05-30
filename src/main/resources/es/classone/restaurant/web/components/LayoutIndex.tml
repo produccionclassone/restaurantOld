@@ -8,12 +8,13 @@
 		<title>${pageTitle}</title>
 		<link rel="StyleSheet" href="${context:/css/stylesAlejandro.css}"
 			type="text/css" media="all" />
-<!-- 		<link rel="StyleSheet" href="${context:/css/stylesVanina.css}" -->
-<!-- 		type="text/css" media="all" /> -->
+		<!-- <link rel="StyleSheet" href="${context:/css/stylesVanina.css}" -->
+		<!-- type="text/css" media="all" /> -->
 
 		<link rel="StyleSheet" href="${context:/css/bootstrap.css}" type="text/css"
 			media="all" />
-		<link rel="shortcut icon" type="image/x-icon" href="${context:/css/images/favicon.ico}"/>
+		<link rel="shortcut icon" type="image/x-icon"
+			href="${context:/css/images/favicon.ico}" />
 
 
 	</head>
@@ -344,9 +345,9 @@
 							</div>
 							<div class="row row30" />
 							<div class="row row30" />
-					
+
 							<div class="row">
-							
+
 								<div class="col-md-6">
 
 									<div class="row">
@@ -354,7 +355,7 @@
 											<img class="zoom" src="${context:css/images/book_search.png}"
 												width="50" height="50" title="${message:lvde}" alt="${message:lvde}" />
 										</button>
-										
+
 									</div>
 									<div class="row">
 										<button class="btn btn-default btn-image">
@@ -376,34 +377,38 @@
 										</button>
 									</div>
 									<div class="row">
-										<button class="btn btn-default btn-image">
-											<img class="zoom" src="${context:css/images/star_full.png}"
-												width="50" height="50" title="${message:favourites}" alt="${message:favourites}" />
-										</button>
+										<a href="${favouriteLink}">
+											<button class="btn btn-default btn-image">
+												<img class="zoom" src="${context:css/images/star_full.png}"
+													width="50" height="50" title="${message:favourites}" alt="${message:favourites}" />
+											</button>
+										</a>
 									</div>
-										<div class="row">
+									<div class="row">
 										<button class="btn btn-default btn-image">
 											<img class="zoom" src="${context:css/images/back.png}"
 												width="50" height="50" title="${message:back}" alt="${message:back}" />
 										</button>
 									</div>
-									
-									</div>
-									<div class="col-md-6">
+
+								</div>
+								<div class="col-md-6">
 									<div class="row">
 										<button class="btn btn-default btn-image">
 											<img class="zoom" src="${context:css/images/search_globe.png}"
 												width="50" height="50" title="${message:web}" alt="${message:web}" />
 										</button>
 									</div>
-									
+
 									<div class="row">
-										<button class="btn btn-default btn-image">
-											<img class="zoom" src="${context:css/images/workflow.png}"
-												width="50" height="50" title="${message:sms}" alt="${message:sms}" />
-										</button>
+										<a href="#" t:type="PageLink" t:page="configuration/configuration2">
+											<button class="btn btn-default btn-image">
+												<img class="zoom" src="${context:css/images/workflow.png}"
+													width="50" height="50" title="${message:sms}" alt="${message:sms}" />
+											</button>
+										</a>
 									</div>
-									
+
 									<div class="row">
 										<button class="btn btn-default btn-image">
 											<img class="zoom" src="${context:css/images/chart.png}"
@@ -429,65 +434,8 @@
 										</button>
 									</div>
 								</div>
-		
+
 							</div>
-<!-- 							<div class="row"> -->
-<!-- 								<div class="col-md-2" /> -->
-<!-- 								<div class="col-md-8"> -->
-
-<!-- 									<div class="row"> -->
-<!-- 										<button class="btn btn-default btn-image"> -->
-<!-- 											<img class="zoom" src="${context:css/images/book_search.png}" -->
-<!-- 												width="50" height="50" title="${message:lvde}" alt="${message:lvde}" /> -->
-<!-- 										</button> -->
-										
-<!-- 									</div> -->
-
-<!-- 									<div class="row"> -->
-<!-- 										<button class="btn btn-default btn-image"> -->
-<!-- 											<img class="zoom" src="${context:css/images/folder_full.png}" -->
-<!-- 												width="50" height="50" title="${message:manuales}" alt="${message:manuales}" /> -->
-<!-- 										</button> -->
-<!-- 									</div> -->
-<!-- 									<div class="row"> -->
-<!-- 										<button class="btn btn-default btn-image"> -->
-<!-- 											<img class="zoom" src="${context:css/images/note_book.png}" -->
-<!-- 												width="50" height="50" title="${message:comandas}" alt="${message:comandas}" /> -->
-<!-- 										</button> -->
-<!-- 									</div> -->
-<!-- 									<div class="row"> -->
-<!-- 										<button class="btn btn-default btn-image"> -->
-<!-- 											<img class="zoom" src="${context:css/images/next.png}" -->
-<!-- 												width="50" height="50" title="${message:web}" alt="${message:web}" /> -->
-<!-- 										</button> -->
-<!-- 									</div> -->
-<!-- 									<div class="row"> -->
-<!-- 										<button class="btn btn-default btn-image"> -->
-<!-- 											<img class="zoom" src="${context:css/images/mail_send.png}" -->
-<!-- 												width="50" height="50" title="${message:mail}" alt="${message:mail}" /> -->
-<!-- 										</button> -->
-<!-- 									</div> -->
-<!-- 									<div class="row"> -->
-<!-- 										<button class="btn btn-default btn-image"> -->
-<!-- 											<img class="zoom" src="${context:css/images/sms.png}" -->
-<!-- 												width="50" height="50" title="${message:sms}" alt="${message:sms}" /> -->
-<!-- 										</button> -->
-<!-- 									</div> -->
-<!-- 									<div class="row"> -->
-<!-- 										<button class="btn btn-default btn-image"> -->
-<!-- 											<img class="zoom" src="${context:css/images/star_full.png}" -->
-<!-- 												width="50" height="50" title="${message:favourites}" alt="${message:favourites}" /> -->
-<!-- 										</button> -->
-<!-- 									</div> -->
-<!-- 									<div class="row"> -->
-<!-- 										<button class="btn btn-default btn-image"> -->
-<!-- 											<img class="zoom" src="${context:css/images/shut_down.png}" -->
-<!-- 												width="50" height="50" title="${message:logout}" alt="${message:logout}" /> -->
-<!-- 										</button> -->
-<!-- 									</div> -->
-<!-- 								</div> -->
-<!-- 								<div class="col-md-2" /> -->
-<!-- 							</div> -->
 						</div>
 					</div>
 					<!-- HEADER -->

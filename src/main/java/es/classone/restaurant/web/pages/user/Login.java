@@ -1,12 +1,6 @@
 package es.classone.restaurant.web.pages.user;
 
-import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
-
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.TransformerException;
-import javax.xml.xpath.XPathExpressionException;
-
+import org.apache.tapestry5.Link;
 import org.apache.tapestry5.annotations.ActivationRequestParameter;
 import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Property;
@@ -15,7 +9,7 @@ import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Cookies;
-import org.xml.sax.SAXException;
+import org.apache.tapestry5.services.PageRenderLinkSource;
 
 import es.classone.restaurant.model.userprofile.UserProfile;
 import es.classone.restaurant.model.userservice.IncorrectPasswordException;
@@ -49,6 +43,9 @@ public class Login {
 	@Inject
 	private Messages messages;
 
+	@Inject
+	private PageRenderLinkSource linkSource;
+	
 	@Inject
 	private UserService userService;
 
@@ -116,7 +113,10 @@ public class Login {
 			CookiesManager.leaveCookies(cookies, loginName,
 					userProfile.getEncryptedPassword());
 		}
-		return Index.class;
+		Link link = linkSource.createPageRenderLink(Index.class);
+		link.addParameterValue("showFavorites", false);
+		link.addParameterValue("showHistory", false);
+		return link;
 
 	}
 

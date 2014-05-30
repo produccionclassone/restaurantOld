@@ -18,5 +18,4 @@ public class FavoriteDaoHibernate extends
 								+ "WHERE f.userProfile.userProfileId = :usrId ")
 				.setParameter("usrId", usrId).list();
 	}
-
 }

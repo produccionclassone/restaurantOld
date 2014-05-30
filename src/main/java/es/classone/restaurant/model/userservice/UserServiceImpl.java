@@ -255,8 +255,12 @@ public class UserServiceImpl implements UserService {
 	}
 
 
-	public Favorite createFavorite(Favorite favorite, int userId) throws InstanceNotFoundException {
+	public Favorite createFavorite(Favorite favorite, int userId) throws InstanceNotFoundException, DuplicateFavoriteException {
 		UserProfile userProfile = userProfileDao.find(userId);
+		List<Favorite> favorites = getFavoritesByUserId(userProfile.getUserProfileId());
+		for (Favorite f: favorites){
+			if (f.getUseCase()==favorite.getUseCase()) throw new DuplicateFavoriteException(f.getUseCase());
+		}
 		favorite.setUserProfile(userProfile);
 		favoriteDao.save(favorite);
 		return favorite;

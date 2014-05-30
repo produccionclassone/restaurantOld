@@ -22,6 +22,7 @@ import org.xml.sax.SAXException;
 import es.classone.restaurant.model.favorite.Favorite;
 import es.classone.restaurant.model.favorite.FavoriteDao;
 import es.classone.restaurant.model.userprofile.UserProfile;
+import es.classone.restaurant.model.userservice.DuplicateFavoriteException;
 import es.classone.restaurant.model.userservice.IncorrectPasswordException;
 import es.classone.restaurant.model.userservice.UserProfileDetails;
 import es.classone.restaurant.model.userservice.UserService;
@@ -46,13 +47,12 @@ public class UserServiceTest {
 			NoSuchAlgorithmException, ParserConfigurationException,
 			SAXException, IOException, TransformerException {
 
-
 		UserProfile userProfile = userService.registerUser("user",
-				"userPassword", new UserProfileDetails("user@udc.es"),'1');
+				"userPassword", new UserProfileDetails("user@udc.es"), '1');
 
 		UserProfile userProfile2 = userService.findUserProfile(userProfile
 				.getUserProfileId());
-		
+
 		/* Check data. */
 		assertEquals(userProfile, userProfile2);
 
@@ -64,11 +64,14 @@ public class UserServiceTest {
 
 		String loginName = "user";
 		String clearPassword = "userPassword";
-		UserProfileDetails userProfileDetails = new UserProfileDetails("user@udc.es");
+		UserProfileDetails userProfileDetails = new UserProfileDetails(
+				"user@udc.es");
 
-		userService.registerUser(loginName, clearPassword, userProfileDetails,'1');
+		userService.registerUser(loginName, clearPassword, userProfileDetails,
+				'1');
 
-		userService.registerUser(loginName, clearPassword, userProfileDetails,'1');
+		userService.registerUser(loginName, clearPassword, userProfileDetails,
+				'1');
 
 	}
 
@@ -196,32 +199,46 @@ public class UserServiceTest {
 				"userPassword", "XuserPassword");
 
 	}
+
 	@Test
-	public void testGetFavorites()
-			throws InstanceNotFoundException, IncorrectPasswordException, DuplicateInstanceException {
+	public void testGetFavorites() throws InstanceNotFoundException,
+			IncorrectPasswordException, DuplicateInstanceException,
+			DuplicateFavoriteException {
 		UserProfile userProfile = userService.registerUser("user",
-				"userPassword", new UserProfileDetails("user@udc.es"),'1');
+				"userPassword", new UserProfileDetails("user@udc.es"), '1');
 		Favorite favorite = new Favorite(112);
 		userService.createFavorite(favorite, userProfile.getUserProfileId());
 		Favorite favorite2 = new Favorite(777);
 		userService.createFavorite(favorite2, userProfile.getUserProfileId());
-		List<Favorite> favorites = favoriteDao.getFavoritesByUserId(userProfile.getUserProfileId());
+		List<Favorite> favorites = favoriteDao.getFavoritesByUserId(userProfile
+				.getUserProfileId());
 		assertEquals(favorites.size(), 2);
 	}
-
+	
+	@Test(expected = DuplicateFavoriteException.class)
+	public void testCreateDuplicateFavorite() throws DuplicateInstanceException, InstanceNotFoundException, DuplicateFavoriteException{
+		UserProfile userProfile = userService.registerUser("user",
+				"userPassword", new UserProfileDetails("user@udc.es"), '1');
+		Favorite favorite = new Favorite(112);
+		userService.createFavorite(favorite, userProfile.getUserProfileId());
+		Favorite favorite2 = new Favorite(112);
+		userService.createFavorite(favorite2, userProfile.getUserProfileId());
+	}
 	private UserProfile registerUser(String loginName, String clearPassword) {
 
-		UserProfileDetails userProfileDetails = new UserProfileDetails( "user@udc.es");
+		UserProfileDetails userProfileDetails = new UserProfileDetails(
+				"user@udc.es");
 
 		try {
 
 			return userService.registerUser(loginName, clearPassword,
-					userProfileDetails,'1');
+					userProfileDetails, '1');
 
 		} catch (DuplicateInstanceException e) {
 			throw new RuntimeException(e);
 		}
 
 	}
+	
 
 }
