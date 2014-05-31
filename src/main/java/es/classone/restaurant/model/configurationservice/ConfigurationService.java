@@ -6,4 +6,9 @@ public interface ConfigurationService {
 
 	public void setPrvilegeConfiguration(String privileges, int privilegeId)
 			throws InstanceNotFoundException;
+
+	public String getParameter(String code) throws InstanceNotFoundException;
+
+	public void setParameter(String code, String newValue)
+			throws InstanceNotFoundException;
 }

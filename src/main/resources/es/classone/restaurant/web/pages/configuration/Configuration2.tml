@@ -24,26 +24,26 @@
 						<div class="modal-body" style="padding:0px 0px;">
 
 							<!-- Nav tabs -->
-										<ul class="nav nav-tabs">
-											<li class="active">
-												<a href="#diversosContadores" data-toggle="tab">
-													<h6>B 7 1 - Diversos
-														contadores</h6>
-												</a>
-											</li>
-											<li>
-												<a href="#configSistema" data-toggle="tab">
-													<h6>B 7 2 - Configuración
-														del
-														sistema</h6>
-												</a>
-											</li>
-											<li>
-												<a href="#claves" data-toggle="tab">
-													<h6>B 7 3 Claves</h6>
-												</a>
-											</li>
-										</ul>
+							<ul class="nav nav-tabs">
+								<li class="active">
+									<a href="#diversosContadores" data-toggle="tab">
+										<h6>B 7 1 - Diversos
+											contadores</h6>
+									</a>
+								</li>
+								<li>
+									<a href="#configSistema" data-toggle="tab">
+										<h6>B 7 2 - Configuración
+											del
+											sistema</h6>
+									</a>
+								</li>
+								<li>
+									<a href="#claves" data-toggle="tab">
+										<h6>B 7 3 Claves</h6>
+									</a>
+								</li>
+							</ul>
 							<!-- Tab panes -->
 							<div class="tab-content">
 								<div class="tab-pane active" id="diversosContadores">
@@ -84,14 +84,28 @@
 												</div>
 												<div class="row row5"></div>
 												<div class="row">
-													<div class="col-md-4"></div>
-													<div class="col-md-2">
-														<span class="input-group-addon">(1) Nro. sesión actual</span>
-													</div>
-													<div class="col-md-2">
-														<input type="text" class="form-control textcontrol"></input>
-													</div>
-													<div class="col-md-4"></div>
+													<form role="form" t:id="actualSessionForm"
+														data-toggle="validator" id="actualSessionForm">
+														<t:errors />
+														<div class="form-group">
+															<div class="col-md-3"></div>
+															<div class="col-md-2">
+																<!-- <span class="input-group-addon">(1) Nro. sesión actual</span> -->
+																<span class="input-group-addon"><t:label for="actualSession" /></span>
+															</div>
+															<div class="col-md-2">
+																<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																<input class="form-control textcontrol" t:id="actualSession"
+																	name="actualSession" t:type="TextField"
+																	placeholder="${message:actualSession-label}" />
+															</div>
+															<div class="col-md-2">
+																<input type="submit" class="btn btn-primary btn-block"
+																	value="${message:submit}" />
+															</div>
+															<div class="col-md-3"></div>
+														</div>
+													</form>
 
 												</div>
 												<div class="row row5"></div>
@@ -2594,4 +2608,5 @@
 			</div>
 		</div>
 	</div>
+
 </html>
