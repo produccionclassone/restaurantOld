@@ -13,6 +13,7 @@ import javax.persistence.Table;
 public class ConfigurationGeneric {
 	private int confGenericId;
 	private String code;
+	private String name;
 	private String value;
 
 	public ConfigurationGeneric() {
@@ -46,6 +47,15 @@ public class ConfigurationGeneric {
 	public void setCode(String code) {
 		this.code = code;
 	}
+	
+	@Column(name="name")
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	@Column(name = "value")
 	public String getValue() {
@@ -61,6 +71,7 @@ public class ConfigurationGeneric {
 // CREATE TABLE IF NOT EXISTS `Ayx14res`.`Res14cnt_GN` (
 // `idRes14cnt_GN` INT NOT NULL AUTO_INCREMENT,
 // `code` VARCHAR(11) NOT NULL,
+// `name` VARCHAR(20) NOT NULL,
 // `value` VARCHAR(45) NULL,
 // `version` INT NOT NULL,
 // PRIMARY KEY (`idRes14cnt_GN`))

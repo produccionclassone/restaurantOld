@@ -1,5 +1,7 @@
 package es.classone.restaurant.model.configurationGeneric;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import es.classone.restaurant.modelutil.dao.GenericDaoHibernate;
@@ -25,5 +27,19 @@ public class ConfigurationGenericDaoHibernate extends
 		else
 			return cg;
 	}
-
+	
+	@SuppressWarnings("unchecked")
+	public List<ConfigurationGeneric> findAll() {
+		return (getSession()
+				.createQuery(
+						"SELECT * FROM ConfigurationGeneric cg ")
+				.list());
+	}
+	
+	public void updateAll(List<ConfigurationGeneric> cgList){
+		String query = "";
+		for (ConfigurationGeneric cg : cgList)
+			query += "UPDATE ConfigurationGeneric set value = + " + cg.getValue() +  "where code = " + cg.getCode() + ";";
+		getSession().createQuery(query);
+	}
 }

@@ -219,6 +219,7 @@ DROP TABLE IF EXISTS `ayx14res`.`Res14cnt_GN` ;
 CREATE TABLE IF NOT EXISTS `ayx14res`.`Res14cnt_GN` (
   `idRes14cnt_GN` INT NOT NULL AUTO_INCREMENT,
   `code` VARCHAR(11) NOT NULL,
+  `name` VARCHAR(20) NOT NULL,
   `value` VARCHAR(45) NULL,
   PRIMARY KEY (`idRes14cnt_GN`))
 ENGINE = InnoDB;

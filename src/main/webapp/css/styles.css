@@ -85,7 +85,6 @@ HTML > BODY .navbar-nav > li > a {
 	padding-top: 0px;
 	padding-bottom: 0px;
 }
-	
 
 HTML > BODY .navbar-nav > li > .dropdown-menu > li > a {
 	max-height:19px;
@@ -327,7 +326,15 @@ HTML > BODY .navtabs{
 	height: auto;
 }
 
- HTML > BODY .input-group-addon {
+h6.text{
+	font-size:10px;
+}
+
+HTML > BODY .nav > li > a {
+	padding: 2px 2px;
+}
+
+HTML > BODY .input-group-addon {
 	padding-left: 0px;
 	padding-right: 0px;
 	font-size: 12px;
@@ -341,6 +348,12 @@ HTML > BODY .navtabs{
 HTML > BODY .checkcontrol {
 	height: auto;
 }
+
+HTML > BODY .bottoncontrol {
+	height: 17px;
+	padding: 0px 0px 0px;
+}
+
 
 HTML > BODY .textcontrol{
 	height: auto;

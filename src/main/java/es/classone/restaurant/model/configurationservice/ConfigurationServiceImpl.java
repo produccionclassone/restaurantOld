@@ -1,5 +1,7 @@
 package es.classone.restaurant.model.configurationservice;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,15 +30,11 @@ public class ConfigurationServiceImpl implements ConfigurationService {
 		configurationPrivilegeDao.save(configurationPrivilege);
 	}
 
-	public String getParameter(String code) throws InstanceNotFoundException {
-
-		return (configurationGenericDao.findByCode(code)).getValue();
+	public List<ConfigurationGeneric> getParameters() throws InstanceNotFoundException {
+		return (configurationGenericDao.findAll());
 	}
 
-	public void setParameter(String code, String newValue)
-			throws InstanceNotFoundException {
-		ConfigurationGeneric cg = configurationGenericDao.findByCode(code);
-		cg.setValue(newValue);
-		configurationGenericDao.save(cg);
+	public void setParameters (List<ConfigurationGeneric> configurationGenericList) {
+		configurationGenericDao.updateAll(configurationGenericList);
 	}
 }
