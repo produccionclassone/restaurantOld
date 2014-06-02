@@ -1,5 +1,6 @@
 package es.classone.restaurant.web.pages;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.tapestry5.ComponentResources;
@@ -17,6 +18,7 @@ import es.classone.restaurant.model.userservice.UserService;
 import es.classone.restaurant.web.services.AuthenticationPolicy;
 import es.classone.restaurant.web.services.AuthenticationPolicyType;
 import es.classone.restaurant.web.services.appMap.AppMap;
+import es.classone.restaurant.web.services.appMap.Option;
 import es.classone.restaurant.web.util.UserSession;
 
 @AuthenticationPolicy(AuthenticationPolicyType.AUTHENTICATED_USERS)
@@ -44,8 +46,17 @@ public class Index {
 	Request request;
 	
 	void onActivate(){
-		AppMap appmap=new AppMap();
-		System.out.println(appmap.getMap().get(2).getOption());
+//		AppMap appmap=new AppMap();
+//		ArrayList<Option> map=appmap.getMap();
+//		for (Option o: map){
+//			System.out.println(o.getOption()+ " "+ o.getOptionName());
+//			if (o.isHasSubLevel()){
+//				ArrayList<Option> submap=o.getOptions();
+//				for (Option so: submap){
+//					System.out.println(so.getOption()+ " "+ so.getOptionName());
+//				}
+//			}
+//		}
 	}
 
 	void afterRender() {
