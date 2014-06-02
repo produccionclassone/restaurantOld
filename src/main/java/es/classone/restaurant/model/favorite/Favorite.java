@@ -19,13 +19,15 @@ public class Favorite {
 
 	private int favoriteId;
 	private int useCase;
+	private String path;
 	private UserProfile userProfile;
 
 	public Favorite() {
 	}
 
-	public Favorite(int useCase) {
+	public Favorite(int useCase,String path) {
 		this.useCase= useCase;
+		this.path=path;
 	}
 
 	@Column(name = "R1FAV001")
@@ -60,6 +62,14 @@ public class Favorite {
 
 	public void setUserProfile(UserProfile userProfile) {
 		this.userProfile = userProfile;
+	}
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
 	}
 
 }

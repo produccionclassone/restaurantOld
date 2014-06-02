@@ -20,6 +20,7 @@ public class LayoutIndex {
 	public Link getFavouriteLink(){
 		Link link = linkSource.createPageRenderLink(Index.class);
 		link.addParameterValue("showFavorites", true);
+		link.addParameterValue("showHistory", false);
 		return link;
 	}
 
