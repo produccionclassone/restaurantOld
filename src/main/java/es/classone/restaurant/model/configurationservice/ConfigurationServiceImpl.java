@@ -1,5 +1,7 @@
 package es.classone.restaurant.model.configurationservice;
 
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,11 +32,18 @@ public class ConfigurationServiceImpl implements ConfigurationService {
 		configurationPrivilegeDao.save(configurationPrivilege);
 	}
 
-	public List<ConfigurationGeneric> getParameters() throws InstanceNotFoundException {
-		return (configurationGenericDao.findAll());
+	public HashMap<String,String> getParameters() throws InstanceNotFoundException {
+		HashMap<String,String> cgHashMap = new HashMap<String,String>();
+		List<ConfigurationGeneric> cgList = configurationGenericDao.findAll();
+		for (ConfigurationGeneric cg : cgList){
+			cgHashMap.put(cg.getName(), cg.getValue());
+		}
+		return cgHashMap;
 	}
-
-	public void setParameters (List<ConfigurationGeneric> configurationGenericList) {
-		configurationGenericDao.updateAll(configurationGenericList);
+	
+	public void setParameters(HashMap <String,String> newParameters) throws InstanceNotFoundException{
+		ConfigurationGeneric cg = configurationGenericDao.findByName("actualSession");
+		cg.setValue(newParameters.get("actualSession"));
+		configurationGenericDao.save(cg);
 	}
 }

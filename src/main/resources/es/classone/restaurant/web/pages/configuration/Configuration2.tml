@@ -190,14 +190,13 @@
 																	<div class="col-md-4">
 																		<!-- <span class="input-group-addon">Categoría restaurante</span> -->
 																		<span class="input-group-addon">
-																			<t:label for="restaurantCategory" />
+																			<t:label for="restCateg" />
 																		</span>
 																	</div>
 																	<div class="col-md-4">
 																		<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																		<input class="form-control textcontrol" t:id="restaurantCategory"
-																			name="restaurantCategory" t:type="TextField"
-																			placeholder="${message:restaurantCategory-label}" />
+																		<input class="form-control textcontrol" t:id="restCateg"
+																			name="restCateg" t:type="TextField" placeholder="${message:restCateg-label}" />
 																	</div>
 																	<div class="col-md-2"></div>
 																</div>
@@ -206,60 +205,81 @@
 																	<div class="col-md-4">
 																		<!-- <span class="input-group-addon">CAD de la explotación</span> -->
 																		<span class="input-group-addon">
-																			<t:label for="CADExplotacion" />
+																			<t:label for="CADExplot" />
 																		</span>
 																	</div>
 																	<div class="col-md-4">
 																		<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																		<input class="form-control textcontrol" t:id="CADExplotacion"
-																			name="CADExplotacion" t:type="TextField"
-																			placeholder="${message:CADExplotacion-label}" />
+																		<input class="form-control textcontrol" t:id="CADExplot"
+																			name="CADExplot" t:type="TextField" placeholder="${message:CADExplot-label}" />
 																	</div>
 																	<div class="col-md-2"></div>
 																</div>
 																<div class="row">
 																	<div class="col-md-2"></div>
 																	<div class="col-md-4">
-																		<span class="input-group-addon">Número de mesas</span>
+																		<!-- <span class="input-group-addon">Número de mesas</span> -->
+																		<span class="input-group-addon">
+																			<t:label for="tableNumber" />
+																		</span>
 																	</div>
 																	<div class="col-md-4">
-																		<input type="text" class="form-control textcontrol"></input>
+																		<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																		<input class="form-control textcontrol" t:id="tableNumber"
+																			name="tableNumber" t:type="TextField"
+																			placeholder="${message:tableNumber-label}" />
 																	</div>
 																	<div class="col-md-2"></div>
 																</div>
 																<div class="row">
 																	<div class="col-md-1"></div>
 																	<div class="col-md-10 rowBorder">
-																		<div class="row5"></div>
 																		<div class="row">
 																			<div class="col-md-1"></div>
 																			<div class="col-md-5">
-																				<span class="input-group-addon">Cobro por servicio/Cbtos.</span>
+																				<!-- <span class="input-group-addon">Cobro por servicio/Cbtos.</span> -->
+																				<span class="input-group-addon">
+																					<t:label for="covServChar" />
+																				</span>
 																			</div>
 																			<div class="col-md-5">
-																				<input type="checkbox" class="form-control checkcontrol"></input>
+																				<!-- <input type="checkbox" class="form-control checkcontrol"></input> -->
+																				<input class="form-control checkcontrol" t:id="covServChar"
+																					name="covServChar" t:type="CheckBox"
+																					placeholder="${message:covServChar-label}" />
+
 																			</div>
 																			<div class="col-md-1"></div>
 																		</div>
-																		<div class="row row5"></div>
 																		<div class="row">
 																			<div class="col-md-1"></div>
 																			<div class="col-md-5">
-																				<span class="input-group-addon">Importe</span>
+																				<!--<span class="input-group-addon">Importe</span> -->
+																				<span class="input-group-addon">
+																					<t:label for="covServCharImp" />
+																				</span>
 																			</div>
 																			<div class="col-md-5">
-																				<input type="text" class="form-control textcontrol"></input>
+																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																				<input class="form-control textcontrol" t:id="covServCharImp"
+																					name="covServCharImp" t:type="TextField"
+																					placeholder="${message:covServCharImp-label}" />
 																			</div>
 																			<div class="col-md-1"></div>
 																		</div>
-																		<div class="row row5"></div>
 																		<div class="row">
 																			<div class="col-md-1"></div>
 																			<div class="col-md-5">
-																				<span class="input-group-addon">I.V.A.</span>
+																				<!-- <span class="input-group-addon">I.V.A.</span> -->
+																				<span class="input-group-addon">
+																					<t:label for="covSErvCharIVAType" />
+																				</span>
 																			</div>
 																			<div class="col-md-5">
-																				<input type="text" class="form-control textcontrol"></input>
+																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																				<input class="form-control textcontrol" t:id="covSErvCharIVAType"
+																					name="covSErvCharIVAType" t:type="TextField"
+																					placeholder="${message:covSErvCharIVAType-label}" />
 																			</div>
 																			<div class="col-md-1"></div>
 																		</div>
@@ -505,7 +525,7 @@
 																		<span class="input-group-addon">Calif. Platos PRN-Cocina</span>
 																	</div>
 																	<div class="col-md-4">
-																		<input type="text" class="form-control textcontrol"></input>
+																		<input type="checkbox" class="form-control checkcontrol"></input>
 																	</div>
 																	<div class="col-md-2"></div>
 																</div>
@@ -1247,7 +1267,8 @@
 																	<div class="col-md-4"></div>
 																	<div class="col-md-2">
 																		<span class="input-group-addon" style="text-align:right;">
-																			Ultimo cierre
+																			Ultimo
+																			cierre
 																			mes
 																		</span>
 																	</div>
@@ -1261,7 +1282,8 @@
 																	<div class="col-md-4"></div>
 																	<div class="col-md-2">
 																		<span class="input-group-addon" style="text-align:right;">
-																			Tipo fecha /
+																			Tipo fecha
+																			/
 																			Date
 																			type
 																		</span>
@@ -1271,7 +1293,8 @@
 																	</div>
 																	<div class="col-md-1">
 																		<span class="input-group-addon" style="text-align:right;">
-																			1: DD-MM-AAAA
+																			1:
+																			DD-MM-AAAA
 																			|
 																			2:
 																			MM-DD-AAAA | 3: AAAA-MM-DD

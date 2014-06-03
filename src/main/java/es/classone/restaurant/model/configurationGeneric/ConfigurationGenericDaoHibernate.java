@@ -12,17 +12,17 @@ public class ConfigurationGenericDaoHibernate extends
 		GenericDaoHibernate<ConfigurationGeneric, Integer> implements
 		ConfigurationGenericDao {
 
-	public ConfigurationGeneric findByCode(String code)
+	public ConfigurationGeneric findByName(String name)
 			throws InstanceNotFoundException {
 
 		ConfigurationGeneric cg = (ConfigurationGeneric) getSession()
 				.createQuery(
 						"SELECT cg FROM ConfigurationGeneric cg WHERE "
-								+ "cg.code = :code").setParameter("code", code)
+								+ "cg.name = :name").setParameter("name", name)
 				.uniqueResult();
 
 		if (cg == null)
-			throw new InstanceNotFoundException(code,
+			throw new InstanceNotFoundException(name,
 					ConfigurationGeneric.class.getName());
 		else
 			return cg;
@@ -32,14 +32,7 @@ public class ConfigurationGenericDaoHibernate extends
 	public List<ConfigurationGeneric> findAll() {
 		return (getSession()
 				.createQuery(
-						"SELECT * FROM ConfigurationGeneric cg ")
+						"SELECT cg FROM ConfigurationGeneric cg ")
 				.list());
-	}
-	
-	public void updateAll(List<ConfigurationGeneric> cgList){
-		String query = "";
-		for (ConfigurationGeneric cg : cgList)
-			query += "UPDATE ConfigurationGeneric set value = + " + cg.getValue() +  "where code = " + cg.getCode() + ";";
-		getSession().createQuery(query);
 	}
 }

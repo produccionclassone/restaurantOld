@@ -66,6 +66,15 @@ public class ConfigurationGeneric {
 		this.value = value;
 	}
 
+	@Override
+	public String toString() {
+		return "ConfigurationGeneric [confGenericId=" + confGenericId
+				+ ", code=" + code + ", name=" + name + ", value=" + value
+				+ "]";
+	}
+	
+	
+
 }
 
 // CREATE TABLE IF NOT EXISTS `Ayx14res`.`Res14cnt_GN` (

@@ -8,7 +8,6 @@ import es.classone.restaurant.modelutil.exceptions.InstanceNotFoundException;
 
 public interface ConfigurationGenericDao extends GenericDao<ConfigurationGeneric, Integer>{
 
-	ConfigurationGeneric findByCode(String code) throws InstanceNotFoundException;
+	ConfigurationGeneric findByName(String name) throws InstanceNotFoundException;
 	List<ConfigurationGeneric> findAll();
-	void updateAll(List<ConfigurationGeneric> cgList);
 }
