@@ -3,6 +3,7 @@ package es.classone.restaurant.web.components;
 import org.apache.tapestry5.Link;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.PageRenderLinkSource;
 
@@ -15,15 +16,15 @@ public class LayoutIndex {
 	private String pageTitle;
 
 	@Inject
+	Messages messages;
+	@Inject
 	private PageRenderLinkSource linkSource;
-	
-	public Link getFavouriteLink(){
+
+	public Link getFavouriteLink() {
 		Link link = linkSource.createPageRenderLink(Index.class);
 		link.addParameterValue("showFavorites", true);
 		link.addParameterValue("showHistory", false);
 		return link;
 	}
-
-	
 
 }

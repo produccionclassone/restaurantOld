@@ -63,7 +63,7 @@ public class Favorite {
 	public void setUserProfile(UserProfile userProfile) {
 		this.userProfile = userProfile;
 	}
-
+	@Column(name = "R1FAV003")
 	public String getPath() {
 		return path;
 	}

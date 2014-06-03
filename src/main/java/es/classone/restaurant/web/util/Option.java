@@ -1,4 +1,4 @@
-package es.classone.restaurant.web.services.appMap;
+package es.classone.restaurant.web.util;
 
 import java.util.ArrayList;
 
@@ -6,14 +6,13 @@ public class Option {
 
 	private String option;
 	private String path;
-	private boolean hasSubLevel;
+	private boolean parent;
 	private String optionName;
 	private ArrayList<Option> options;
 	
-	public Option(String option, String path, boolean hasSubLevel, String optionName) {
+	public Option(String option, String path, boolean parent) {
 		this.option = option;
-		this.hasSubLevel = hasSubLevel;
-		this.optionName = optionName;
+		this.parent = parent;
 		this.path=path;
 	}
 
@@ -33,14 +32,6 @@ public class Option {
 		this.path = path;
 	}
 
-	public boolean isHasSubLevel() {
-		return hasSubLevel;
-	}
-
-	public void setHasSubLevel(boolean hasSubLevel) {
-		this.hasSubLevel = hasSubLevel;
-	}
-
 	public String getOptionName() {
 		return optionName;
 	}
@@ -55,5 +46,13 @@ public class Option {
 
 	public void setOptions(ArrayList<Option> options) {
 		this.options = options;
+	}
+
+	public boolean isParent() {
+		return parent;
+	}
+
+	public void setParent(boolean parent) {
+		this.parent = parent;
 	}
 }
