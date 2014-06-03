@@ -13,6 +13,7 @@ import javax.persistence.Table;
 public class ConfigurationBool {
 	private int confGenericId;
 	private String code;
+	private String name;
 	private boolean value;
 
 	public ConfigurationBool() {
@@ -47,6 +48,15 @@ public class ConfigurationBool {
 		this.code = code;
 	}
 
+	@Column(name="name")
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	@Column(name = "value")
 	public boolean getValue() {
 		return value;
@@ -60,6 +70,7 @@ public class ConfigurationBool {
 // CREATE TABLE IF NOT EXISTS `Ayx14res`.`Res14cnt_GN_BOOL` (
 // `idRes14cnt_1_1` INT NOT NULL,
 // `code` VARCHAR(11) NOT NULL,
+// `name` VARCHAR(20) NOT NULL,
 // `value` TINYINT(1) NOT NULL,
 // `version` INT NOT NULL,
 // PRIMARY KEY (`idRes14cnt_1_1`))

@@ -45,7 +45,8 @@ public class Configuration2 {
 	/* Diversos contadores */
 
 	private HashMap <String,String> cgHashMap = new HashMap<String,String>();
-		
+	private HashMap <String,Boolean> cbHashMap = new HashMap<String,Boolean>();
+	
 	@Inject
 	private ConfigurationService configurationService;
 	
@@ -80,22 +81,37 @@ public class Configuration2 {
 	private String tableNumber;
 
 	@Property
-	private String covServChar;
+	private boolean covServChar;
 
 	@Property
 	private String covServCharImp;
 	
 	@Property
-	private String covSErvCharIVAType;
+	private String covServCharIVAType;
 	
 	@Property
-	private String tipWaiterInvoicelPorcent;
+	private boolean tipWaiterInvoice;
+	
+	@Property
+	private String tipWaiterInvoicePorcent;
 	
 	@Property
 	private String tipWaiterInvoiceIVA;
 	
 	@Property
+	private boolean	chargeAddonDish;
+
+	@Property
+	private boolean	decimal;
+	
+	@Property
+	private boolean	ivaIncluded;
+	
+	@Property
 	private String actualSessionDate;
+	
+	@Property
+	private boolean accountingLinkVtas;
 	
 	@Property
 	private String covIncomeType;
@@ -105,6 +121,9 @@ public class Configuration2 {
 	
 	@Property
 	private String cadDept;
+	
+	@Property
+	private boolean euroLine;
 	
 	@Property
 	private String eurUSDChange;
@@ -156,21 +175,32 @@ public class Configuration2 {
 
 	void onPrepareForRender() throws InstanceNotFoundException {
 		cgHashMap = configurationService.getParameters();
+		cbHashMap = configurationService.getParametersBool();
+		
 		actualSession = cgHashMap.get("actualSession");
 		lastBill = cgHashMap.get("lastBill");
 		lastCommand = cgHashMap.get("lastCommand");
 		lastClient = cgHashMap.get("lastClient");
+		//falta nota fiscal
 		restCateg = cgHashMap.get("restCateg");
 		CADExplot = cgHashMap.get("CADExplot");
 		tableNumber = cgHashMap.get("tableNumber");
+		covServChar = cbHashMap.get("covServChar");
 		covServCharImp = cgHashMap.get("covServCharImp");
-		covSErvCharIVAType = cgHashMap.get("covSErvCharIVAType");
-		tipWaiterInvoicelPorcent = cgHashMap.get("tipWaiterInvoicel%");
+		covServCharIVAType = cgHashMap.get("covServCharIVAType");
+		tipWaiterInvoice = cbHashMap.get("tipWaiterInvoicel%");
+		tipWaiterInvoicePorcent = cgHashMap.get("tipWaiterInvoicel%");
 		tipWaiterInvoiceIVA = cgHashMap.get("tipWaiterInvoiceIVA");
+		chargeAddonDish = cbHashMap.get("chargeAddonDish");
+		decimal = cbHashMap.get("decimal");
+		ivaIncluded = cbHashMap.get("ivaIncluded");
 		actualSessionDate = cgHashMap.get("actualSessionDate");
+		//falta sesión actual abierta
+		accountingLinkVtas = cbHashMap.get("accountingLinkVtas");
 		covIncomeType = cgHashMap.get("covIncomeType");
 		tipsIncomeType = cgHashMap.get("tipsIncomeType");
 		cadDept = cgHashMap.get("cadDept");
+		euroLine = cbHashMap.get("euroLine");
 		eurUSDChange = cgHashMap.get("eurUSDChange");
 		//falta serv hot/dpto
 		integrationHotel = cgHashMap.get("integrationHotel");
@@ -187,6 +217,30 @@ public class Configuration2 {
 		fieldSeparator = cgHashMap.get("fieldSeparator");
 		alphabSeparator = cgHashMap.get("alphabSeparator");
 
+		/*
+		
+		integrationEcon
+		qualifyKitchenDish
+		entirePrintCommand
+		splitCommand
+		printEntireCommandP2
+		enableTPVVirtual
+		enableStarCard
+		bmpToPrint
+		
+		tips
+		discount1
+		discount2
+		discount3
+		decimal
+		compressPrintBillStd
+		literalPrecPers
+		newAntibloq
+		headerBill
+
+		 */
+		
+		
 		/*		
 		appName
 		release

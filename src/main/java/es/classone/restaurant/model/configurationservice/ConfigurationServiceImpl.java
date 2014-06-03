@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import es.classone.restaurant.model.configurationBool.ConfigurationBool;
+import es.classone.restaurant.model.configurationBool.ConfigurationBoolDao;
 import es.classone.restaurant.model.configurationGeneric.ConfigurationGeneric;
 import es.classone.restaurant.model.configurationGeneric.ConfigurationGenericDao;
 import es.classone.restaurant.model.configurationPrivilege.ConfigurationPrivilege;
@@ -23,6 +25,9 @@ public class ConfigurationServiceImpl implements ConfigurationService {
 
 	@Autowired
 	private ConfigurationGenericDao configurationGenericDao;
+
+	@Autowired
+	private ConfigurationBoolDao configurationBoolDao;
 
 	public void setPrvilegeConfiguration(String privileges, int privilegeId)
 			throws InstanceNotFoundException {
@@ -46,4 +51,20 @@ public class ConfigurationServiceImpl implements ConfigurationService {
 		cg.setValue(newParameters.get("actualSession"));
 		configurationGenericDao.save(cg);
 	}
+	
+	public HashMap<String,Boolean> getParametersBool() throws InstanceNotFoundException {
+		HashMap<String,Boolean> cbHashMap = new HashMap<String,Boolean>();
+		List<ConfigurationBool> cbList = configurationBoolDao.findAll();
+		for (ConfigurationBool cb : cbList){
+			cbHashMap.put(cb.getName(), cb.getValue());
+		}
+		return cbHashMap;
+	}
+	
+	public void setParametersBool(HashMap <String,Boolean> newParameters) throws InstanceNotFoundException{
+		ConfigurationBool cb = configurationBoolDao.findByName("decimal");
+		cb.setValue(newParameters.get("decimal"));
+		configurationBoolDao.save(cb);
+	}
+
 }

@@ -13,4 +13,7 @@ public interface ConfigurationService {
 
 	HashMap<String,String> getParameters() throws InstanceNotFoundException;
 	public void setParameters(HashMap <String,String> newParameters) throws InstanceNotFoundException;
+
+	HashMap<String,Boolean> getParametersBool() throws InstanceNotFoundException;
+	public void setParametersBool(HashMap <String,Boolean> newParameters) throws InstanceNotFoundException;
 }
