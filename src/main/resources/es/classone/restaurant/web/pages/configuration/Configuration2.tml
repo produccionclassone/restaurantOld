@@ -831,51 +831,6 @@
 													<div class="container-fluid">
 														<div class="row">
 															<div class="col-md-6"><!-- Left -->
-																<div class="row">
-																	<div class="col-md-1"></div>
-																	<div class="col-md-10 rowBorder">
-																		<div class="row row5"></div>
-																		<div class="row">
-																			<div class="col-md-4"></div>
-																			<div class="col-md-3">
-																				<span class="input-group-addon">Anular mesa</span>
-																			</div>
-																			<div class="col-md-1">
-																				<select class="selectpicker">
-																					<option>0</option>
-																					<option>1</option>
-																					<option>2</option>
-																					<option>3</option>
-																				</select>
-																			</div>
-																			<div class="col-md-4"></div>
-																		</div>
-																		<div class="row row5"></div>
-																		<div class="row">
-																			<div class="col-md-1"></div>
-																			<div class="col-md-3">
-																				<span class="input-group-addon">Factura Especial</span>
-																			</div>
-																			<div class="col-md-2">
-																				<select class="selectpicker">
-																					<option>0</option>
-																					<option>1</option>
-																					<option>2</option>
-																					<option>3</option>
-																				</select>
-																			</div>
-																			<div class="col-md-3">
-																				<span class="input-group-addon">Literal Factura Especial:</span>
-																			</div>
-																			<div class="col-md-2">
-																				<input type="text" class="form-control textcontrol"></input>
-																			</div>
-																			<div class="col-md-1"></div>
-																		</div>
-																		<div class="row row5"></div>
-																	</div>
-																	<div class="col-md-1"></div>
-																</div>
 																<div class="row row5"></div>
 																<div class="row">
 																	<div class="col-md-1"></div>
@@ -890,18 +845,64 @@
 																		</div>
 																		<div class="row row5"></div>
 																		<div class="row">
-																			<div class="col-md-3"></div>
-																			<div class="col-md-3">
-																				<span class="input-group-addon">Cobro por Servicio/Cubierto</span>
+																			<div class="col-md-5">
+																				<!-- <span class="input-group-addon">Cobro por Servicio/Cubierto</span> -->
+																				<span class="input-group-addon">
+																					<t:label for="literalCharCov" />
+																				</span>
 																			</div>
-																			<div class="col-md-3">
-																				<input type="text" class="form-control textcontrol"></input>
+																			<div class="col-md-7">
+																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																				<input class="form-control textcontrol" t:id="literalCharCov"
+																					name="literalCharCov" t:type="TextField"
+																					placeholder="${message:literalCharCov-label}" />
 																			</div>
-																			<div class="col-md-3"></div>
 																		</div>
 																		<div class="row row5"></div>
+																		<div class="row">
+																			<div class="col-md-5">
+																				<span class="input-group-addon">Literal Factura Especial:</span>
+																			</div>
+																			<div class="col-md-7">
+																				<input type="text" class="form-control textcontrol"></input>
+																			</div>
+																		</div>
+																		<div class="row row5"></div>
+																		<div class="row">
+																			<div class="col-md-5">
+																				<span class="input-group-addon">Propina camareros incluida en
+																					factura:</span>
+																			</div>
+																			<div class="col-md-7">
+																				<input type="text" class="form-control textcontrol"></input>
+																			</div>
+																		</div>
 																	</div>
 																	<div class="col-md-1"></div>
+																</div>
+																<div class="row">
+																	<div class="col-md-3">
+																		<span class="input-group-addon">Anular mesa</span>
+																	</div>
+																	<div class="col-md-1">
+																		<select class="selectpicker">
+																			<option>0</option>
+																			<option>1</option>
+																			<option>2</option>
+																			<option>3</option>
+																		</select>
+																	</div>
+																	<div class="col-md-3">
+																		<span class="input-group-addon">Factura Especial</span>
+																	</div>
+																	<div class="col-md-2">
+																		<select class="selectpicker">
+																			<option>0</option>
+																			<option>1</option>
+																			<option>2</option>
+																			<option>3</option>
+																		</select>
+																	</div>
 																</div>
 																<div class="row row5"></div>
 																<div class="row">
@@ -910,7 +911,7 @@
 																		<span class="input-group-addon">Precio / Persona</span>
 																	</div>
 																	<div class="col-md-6">
-																		<input type="text" class="form-control textcontrol"></input>
+																		<input type="checkbox" class="form-control checkcontrol"></input>
 																	</div>
 																	<div class="col-md-2"></div>
 																</div>
@@ -921,7 +922,7 @@
 																		<span class="input-group-addon">Nuevo Antibloqueo</span>
 																	</div>
 																	<div class="col-md-6">
-																		<input type="text" class="form-control textcontrol"></input>
+																		<input type="checkbox" class="form-control checkcontrol"></input>
 																	</div>
 																	<div class="col-md-2"></div>
 																</div>
@@ -1458,8 +1459,7 @@
 																	<div class="col-md-3">
 																		<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
 																		<input class="form-control textcontrol" t:id="sendEmail"
-																			name="sendEmail" t:type="TextField"
-																			placeholder="${message:sendEmail-label}" />
+																			name="sendEmail" t:type="TextField" placeholder="${message:sendEmail-label}" />
 																	</div>
 																	<div class="col-md-1">
 																		<!-- <span class="input-group-addon">IP Alternativa</span> -->
@@ -1470,8 +1470,7 @@
 																	<div class="col-md-2">
 																		<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
 																		<input class="form-control textcontrol" t:id="sendLogin"
-																			name="sendLogin" t:type="TextField"
-																			placeholder="${message:sendLogin-label}" />
+																			name="sendLogin" t:type="TextField" placeholder="${message:sendLogin-label}" />
 																	</div>
 																	<div class="col-md-2"></div>
 																</div>
@@ -1499,8 +1498,7 @@
 																	<div class="col-md-2">
 																		<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
 																		<input class="form-control textcontrol" t:id="sendPsw"
-																			name="sendPsw" t:type="TextField"
-																			placeholder="${message:sendPsw-label}" />
+																			name="sendPsw" t:type="TextField" placeholder="${message:sendPsw-label}" />
 																	</div>
 																	<div class="col-md-2"></div>
 																</div>

@@ -273,6 +273,28 @@ public class Configuration2 {
 	@Property
 	private String sendPsw;
 	
+	//-----------Restaurant----------
+	@Property
+	private String literalEspBill;
+	@Property
+	private String literalCharCov;
+	@Property
+	private String literalTipsAuto;
+	@Property
+	private Boolean dayMenuLevel;
+	@Property
+	private Boolean cancelTableLevel;
+	@Property
+	private String newAntibloq;
+	@Property
+	private String literalPrecPers;
+	//falta ultimo numero impreso
+	@Property
+	private String cajaCobro;
+	//falta suma consumiciones
+	//falta control de actividad
+
+	
 	/*
 	 * @Property private String colCommand;
 	 * 
@@ -384,6 +406,20 @@ public class Configuration2 {
 		sendService = cgHashMap.get("sendService");
 		sendLogin = cgHashMap.get("sendLogin");
 		sendPsw = cgHashMap.get("sendPsw");
+		//------------Restaurant---------------------
+		literalEspBill = cgHashMap.get("literalEspBill");
+		literalCharCov  = cgHashMap.get("literalCharCov");
+		literalTipsAuto = cgHashMap.get("literalTipsAuto");
+		dayMenuLevel = cbHashMap.get("dayMenuLevel");
+		cancelTableLevel = cbHashMap.get("cancelTableLevel");
+		newAntibloq = cgHashMap.get("newAntibloq");
+		literalPrecPers = cgHashMap.get("literalPrecPers");
+		//falta ultimo numero impreso
+		cajaCobro = cgHashMap.get("cajaCobro");
+		//falta suma consumiciones
+		//falta control de actividad
+		
+		
 		
 		/*
 		 * colCommand = cgHashMap.get("colCommand"); colBackground =
@@ -399,14 +435,14 @@ public class Configuration2 {
 
 		/*
 		 * entirePrintCommand printEntireCommandP2 
-		 *  bmpToPrint compressPrintBillStd literalPrecPers
-		 * newAntibloq headerBill
+		 *  bmpToPrint compressPrintBillStd 
+		 *  headerBill
 		 */
 
 		/*
 		 * appName release BBDDRest maxRegAud BBDDCont BBDD/Stars BBDDStarEco
 		 * BBDDStarCar actualSessionState sessionType kitchenPrinter printer2
-		 * bmpSize dayMenuLevel cancelTableLevel
+		 * bmpSize 
 		 * 
 		 * 
 		 * breakfastServHot lunchServHotel dinnerServHotel otherServHotel
@@ -416,8 +452,7 @@ public class Configuration2 {
 		 *   emailSMS SMSApiId
 		 * smsUser smsPwd
 		 * 
-		 *  cajaCobro literalEspBill
-		 * literalCharCov literalTipsAuto beforCharacters
+		 *    beforCharacters
 		 */
 
 	}
