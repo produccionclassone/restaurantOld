@@ -42,7 +42,7 @@ public class Configuration2 {
 	@SessionState(create = false)
 	private UserSession userSession;
 
-	/* Diversos contadores */
+	/*================================================= Diversos contadores ======================================================================*/
 
 	private HashMap<String, String> cgHashMap = new HashMap<String, String>();
 	private HashMap<String, Boolean> cbHashMap = new HashMap<String, Boolean>();
@@ -56,6 +56,7 @@ public class Configuration2 {
 	@InjectComponent
 	private Zone diversosContadoresFormZone;
 
+	/*----------Contadores -------------------*/
 	@Property
 	private String actualSession;
 
@@ -69,8 +70,9 @@ public class Configuration2 {
 	private String lastClient;
 
 	@Property
-	private String notaFiscal;
+	private String notaFiscal; //falta
 
+	/*----------General---------------*/
 	@Property
 	private String restCateg;
 
@@ -110,6 +112,9 @@ public class Configuration2 {
 	@Property
 	private String actualSessionDate;
 
+	@Property
+	private String closureLastMonth;
+	
 	@Property
 	private Boolean accountingLinkVtas;
 
@@ -188,35 +193,14 @@ public class Configuration2 {
 
 	@Property
 	private String alphabSeparator;
+	
+	@Property
+	private String dateFormat;
 
+ /* --------- Contabilidad */
 	@Property
 	private String contCode;
 	
-	/*
-	 * @Property private String colCommand;
-	 * 
-	 * @Property private String colBackground;
-	 * 
-	 * @Property private String colBill;
-	 * 
-	 * @Property private String colBackground2;
-	 * 
-	 * @Property private String colCharge;
-	 * 
-	 * @Property
-	 * 
-	 * private String colTrasp;
-	 * 
-	 * @Property private String colTabEmpty;
-	 * 
-	 * @Property private String colTabBusy;
-	 * 
-	 * @Property private String colTabAtached;
-	 * 
-	 * @Property private String colTabReserved;
-	 * 
-	 * @Property private String colTabBill;
-	 */
 	@Property
 	private String ivaType1;
 
@@ -256,6 +240,65 @@ public class Configuration2 {
 	@Property
 	private String literalIVA;
 
+	/*----Conectividad---------*/
+	@Property
+	private Boolean enableTPVVirtual;
+	
+	@Property
+	private Boolean enableStarCard;
+	
+	//falta habilitar impresora fiscal
+	
+	@Property
+	private String ipLVDE;
+	
+	@Property
+	private String ipHelp;
+	
+	@Property
+	private String ipCCC;
+	
+	@Property
+	private String ipAlternative;
+	
+	@Property
+	private String sendEmail;
+	
+	@Property
+	private String sendService;
+	
+	@Property
+	private String sendLogin;
+	
+	@Property
+	private String sendPsw;
+	
+	/*
+	 * @Property private String colCommand;
+	 * 
+	 * @Property private String colBackground;
+	 * 
+	 * @Property private String colBill;
+	 * 
+	 * @Property private String colBackground2;
+	 * 
+	 * @Property private String colCharge;
+	 * 
+	 * @Property
+	 * 
+	 * private String colTrasp;
+	 * 
+	 * @Property private String colTabEmpty;
+	 * 
+	 * @Property private String colTabBusy;
+	 * 
+	 * @Property private String colTabAtached;
+	 * 
+	 * @Property private String colTabReserved;
+	 * 
+	 * @Property private String colTabBill;
+	 */
+	
 	@Inject
 	private Request request;
 
@@ -263,11 +306,13 @@ public class Configuration2 {
 		cgHashMap = configurationService.getParameters();
 		cbHashMap = configurationService.getParametersBool();
 
+		//-----Contadores------
 		actualSession = cgHashMap.get("actualSession");
 		lastBill = cgHashMap.get("lastBill");
 		lastCommand = cgHashMap.get("lastCommand");
 		lastClient = cgHashMap.get("lastClient");
 		// falta nota fiscal
+		//-----General---------
 		restCateg = cgHashMap.get("restCateg");
 		CADExplot = cgHashMap.get("CADExplot");
 		tableNumber = cgHashMap.get("tableNumber");
@@ -281,6 +326,7 @@ public class Configuration2 {
 		decimal = cbHashMap.get("decimal");
 		ivaIncluded = cbHashMap.get("ivaIncluded");
 		actualSessionDate = cgHashMap.get("actualSessionDate");
+		closureLastMonth = cgHashMap.get("closureLastMonth");
 		// falta sesión actual abierta
 		accountingLinkVtas = cbHashMap.get("accountingLinkVtas");
 		covIncomeType = cgHashMap.get("covIncomeType");
@@ -292,7 +338,6 @@ public class Configuration2 {
 		integrationHotel = cgHashMap.get("integrationHotel");
 		integrationEcon = cbHashMap.get("integrationEcon");
 		qualifyKitchenDish = cbHashMap.get("qualifyKitchenDish");
-		// falta impresoras de comandas
 		splitCommand = cbHashMap.get("splitCommand");
 		tips = cbHashMap.get("tips");
 		assocElemTips = cgHashMap.get("assocElemTips");
@@ -309,6 +354,8 @@ public class Configuration2 {
 		chargeTPV = cgHashMap.get("chargeTPV");
 		fieldSeparator = cgHashMap.get("fieldSeparator");
 		alphabSeparator = cgHashMap.get("alphabSeparator");
+		dateFormat = cgHashMap.get("dateFormat");
+		//------Contabilidad ------------------
 		contCode = cgHashMap.get("contCode");
 		ivaType1 = cgHashMap.get("ivaType1");
 		ledgerAccIVA1 = cgHashMap.get("ledgerAccIVA1");
@@ -323,7 +370,20 @@ public class Configuration2 {
 		ledgerAccPropCam = cgHashMap.get("ledgerAccPropCam");
 		ledgerAccDescVtas = cgHashMap.get("ledgerAccDescVtas");
 		literalIVA = cgHashMap.get("literalIVA");
-
+		//----------Impresion--------------
+		// falta impresoras de comandas
+		//----------Conectividad-----------
+		enableTPVVirtual = cbHashMap.get("enableTPVVirtual");
+		enableStarCard = cbHashMap.get("enableStarCard");
+		//falta habilitar impresora fiscal
+		ipLVDE = cgHashMap.get("ipLVDE");
+		ipHelp = cgHashMap.get("ipHelp");
+		ipCCC = cgHashMap.get("ipCCC");
+		ipAlternative = cgHashMap.get("ipAlternative");
+		sendEmail = cgHashMap.get("sendEmail");
+		sendService = cgHashMap.get("sendService");
+		sendLogin = cgHashMap.get("sendLogin");
+		sendPsw = cgHashMap.get("sendPsw");
 		
 		/*
 		 * colCommand = cgHashMap.get("colCommand"); colBackground =
@@ -338,25 +398,25 @@ public class Configuration2 {
 		 */
 
 		/*
-		 * entirePrintCommand printEntireCommandP2 enableTPVVirtual
-		 * enableStarCard bmpToPrint compressPrintBillStd literalPrecPers
+		 * entirePrintCommand printEntireCommandP2 
+		 *  bmpToPrint compressPrintBillStd literalPrecPers
 		 * newAntibloq headerBill
 		 */
 
 		/*
 		 * appName release BBDDRest maxRegAud BBDDCont BBDD/Stars BBDDStarEco
 		 * BBDDStarCar actualSessionState sessionType kitchenPrinter printer2
-		 * bmpSize closureLastMonth dayMenuLevel cancelTableLevel
+		 * bmpSize dayMenuLevel cancelTableLevel
 		 * 
 		 * 
 		 * breakfastServHot lunchServHotel dinnerServHotel otherServHotel
 		 * 
 		 * breakfastDept lunchDept dinnerDept otherDept
 		 * 
-		 * dateFormat sendEmail sendService sendLogin sendPsw emailSMS SMSApiId
+		 *   emailSMS SMSApiId
 		 * smsUser smsPwd
 		 * 
-		 * ipLVDE ipHelp ipCCC ipAlternative cajaCobro literalEspBill
+		 *  cajaCobro literalEspBill
 		 * literalCharCov literalTipsAuto beforCharacters
 		 */
 

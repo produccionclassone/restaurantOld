@@ -401,6 +401,22 @@
 																<div class="row">
 																	<div class="col-md-2"></div>
 																	<div class="col-md-4">
+																		<!-- <span class="input-group-addon">Ultimo cierre mes</span> -->
+																		<span class="input-group-addon">
+																			<t:label for="closureLastMonth" />
+																		</span>
+																	</div>
+																	<div class="col-md-4">
+																		<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																		<input class="form-control textcontrol" t:id="closureLastMonth"
+																			name="closureLastMonth" t:type="TextField"
+																			placeholder="${message:closureLastMonth-label}" />
+																	</div>
+																	<div class="col-md-2"></div>
+																</div>
+																<div class="row">
+																	<div class="col-md-2"></div>
+																	<div class="col-md-4">
 																		<span class="input-group-addon">Sesión actual abierta</span>
 																	</div>
 																	<div class="col-md-4">
@@ -467,59 +483,7 @@
 																	</div>
 																	<div class="col-md-2"></div>
 																</div>
-																<div class="row">
-																	<div class="col-md-1"></div>
-																	<div class="col-md-2">
-																		<!-- <span class="input-group-addon">Linea del euro</span> -->
-																		<span class="input-group-addon">
-																			<t:label for="euroLine" />
-																		</span>
-																	</div>
-																	<div class="col-md-3">
-																		<!-- <input type="checkbox" class="form-control checkcontrol"></input> -->
-																		<input class="form-control checkcontrol" t:id="euroLine"
-																			name="euroLine" t:type="CheckBox" placeholder="${message:euroLine-label}" />
-																	</div>
-																	<div class="col-md-3">
-																		<!-- <span class="input-group-addon">Cambio fijo Euro</span> -->
-																		<span class="input-group-addon">
-																			<t:label for="eurUSDChange" />
-																		</span>
-																	</div>
-																	<div class="col-md-3">
-																		<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																		<input class="form-control textcontrol" t:id="eurUSDChange"
-																			name="eurUSDChange" t:type="TextField"
-																			placeholder="${message:eurUSDChange-label}" />
-																	</div>
-																</div>
-																<div class="row">
-																	<div class="col-md-5">
-																		<!-- <span class="input-group-addon">Calif. Platos PRN-Cocina</span> -->
-																		<span class="input-group-addon">
-																			<t:label for="qualifyKitchenDish" />
-																		</span>
-																	</div>
-																	<div class="col-md-1">
-																		<!-- <input type="checkbox" class="form-control checkcontrol"></input> -->
-																		<input class="form-control checkcontrol" t:id="qualifyKitchenDish"
-																			name="qualifyKitchenDish" t:type="CheckBox"
-																			placeholder="${message:qualifyKitchenDish-label}" />
-																	</div>
-																	<div class="col-md-5">
-																		<!-- <span class="input-group-addon">Div. comandas por 
-																			plato</span> -->
-																		<span class="input-group-addon">
-																			<t:label for="splitCommand" />
-																		</span>
-																	</div>
-																	<div class="col-md-1">
-																		<!-- <input type="checkbox" class="form-control checkcontrol"></input> -->
-																		<input class="form-control checkcontrol" t:id="splitCommand"
-																			name="splitCommand" t:type="CheckBox"
-																			placeholder="${message:splitCommand-label}" />
-																	</div>
-																</div>
+
 															</div>
 															<div class="col-md-6"> <!-- Right -->
 																<div class="row">
@@ -607,65 +571,6 @@
 																		<input class="form-control checkcontrol" t:id="integrationEcon"
 																			name="integrationEcon" t:type="CheckBox"
 																			placeholder="${message:integrationEcon-label}" />
-																	</div>
-																	<div class="col-md-1"></div>
-																</div>
-																<div class="row">
-																	<div class="col-md-1"></div>
-																	<div class="col-md-10 rowBorder">
-																		<div class="row">
-																			<div class="col-md-3"></div>
-																			<div class="col-md-6">
-																				<span class="input-group-addon" style="text-align:center;">Impresora
-																					de
-																					comandas:</span>
-																			</div>
-																			<div class="col-md-3"></div>
-																		</div>
-																		<div class="row">
-																			<div class="col-md-2"></div>
-																			<div class="col-md-2">
-																				<span class="input-group-addon">Printer 1</span>
-																			</div>
-																			<div class="col-md-1">
-																				<input type="checkbox" class="form-control checkcontrol"></input>
-																			</div>
-																			<div class="col-md-1"></div>
-																			<div class="col-md-1">
-																				<span class="input-group-addon">Prt</span>
-																			</div>
-																			<div class="col-md-3">
-																				<input type="text" class="form-control textcontrol"></input>
-																			</div>
-																			<div class="col-md-2"></div>
-																		</div>
-																		<div class="row">
-																			<div class="col-md-2"></div>
-																			<div class="col-md-2">
-																				<span class="input-group-addon">Printer 2</span>
-																			</div>
-																			<div class="col-md-1">
-																				<input type="checkbox" class="form-control checkcontrol"></input>
-																			</div>
-																			<div class="col-md-1"></div>
-																			<div class="col-md-1">
-																				<span class="input-group-addon">Prt</span>
-																			</div>
-																			<div class="col-md-3">
-																				<input type="text" class="form-control textcontrol"></input>
-																			</div>
-																			<div class="col-md-2"></div>
-																		</div>
-																		<div class="row">
-																			<div class="col-md-2"></div>
-																			<div class="col-md-2">
-																				<span class="input-group-addon">Especial</span>
-																			</div>
-																			<div class="col-md-1">
-																				<input type="checkbox" class="form-control checkcontrol"></input>
-																			</div>
-																			<div class="col-md-7"></div>
-																		</div>
 																	</div>
 																	<div class="col-md-1"></div>
 																</div>
@@ -841,110 +746,187 @@
 																	</div>
 																	<div class="col-md-1"></div>
 																</div>
+																<div class="row">
+																	<div class="col-md-1"></div>
+																	<div class="col-md-2">
+																		<!-- <span class="input-group-addon">Linea del euro</span> -->
+																		<span class="input-group-addon">
+																			<t:label for="euroLine" />
+																		</span>
+																	</div>
+																	<div class="col-md-3">
+																		<!-- <input type="checkbox" class="form-control checkcontrol"></input> -->
+																		<input class="form-control checkcontrol" t:id="euroLine"
+																			name="euroLine" t:type="CheckBox" placeholder="${message:euroLine-label}" />
+																	</div>
+																	<div class="col-md-3">
+																		<!-- <span class="input-group-addon">Cambio fijo Euro</span> -->
+																		<span class="input-group-addon">
+																			<t:label for="eurUSDChange" />
+																		</span>
+																	</div>
+																	<div class="col-md-3">
+																		<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																		<input class="form-control textcontrol" t:id="eurUSDChange"
+																			name="eurUSDChange" t:type="TextField"
+																			placeholder="${message:eurUSDChange-label}" />
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-md-5">
+																		<!-- <span class="input-group-addon">Calif. Platos PRN-Cocina</span> -->
+																		<span class="input-group-addon">
+																			<t:label for="qualifyKitchenDish" />
+																		</span>
+																	</div>
+																	<div class="col-md-1">
+																		<!-- <input type="checkbox" class="form-control checkcontrol"></input> -->
+																		<input class="form-control checkcontrol" t:id="qualifyKitchenDish"
+																			name="qualifyKitchenDish" t:type="CheckBox"
+																			placeholder="${message:qualifyKitchenDish-label}" />
+																	</div>
+																	<div class="col-md-5">
+																		<!-- <span class="input-group-addon">Div. comandas por 
+																			plato</span> -->
+																		<span class="input-group-addon">
+																			<t:label for="splitCommand" />
+																		</span>
+																	</div>
+																	<div class="col-md-1">
+																		<!-- <input type="checkbox" class="form-control checkcontrol"></input> -->
+																		<input class="form-control checkcontrol" t:id="splitCommand"
+																			name="splitCommand" t:type="CheckBox"
+																			placeholder="${message:splitCommand-label}" />
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-md-3">
+																		<!-- <span class="input-group-addon">Formato de fecha</span> -->
+																		<span class="input-group-addon">
+																			<t:label for="dateFormat" />
+																		</span>
+																	</div>
+																	<div class="col-md-1">
+																		<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																		<input class="form-control textcontrol" t:id="dateFormat"
+																			name="dateFormat" t:type="TextField"
+																			placeholder="${message:dateFormat-label}" />
+																	</div>
+																	<div class="col-md-8">
+																		<span class="input-group-addon" style="text-align:right;">
+																			1:
+																			DD-MM-AAAA
+																			|
+																			2:
+																			MM-DD-AAAA | 3: AAAA-MM-DD
+																		</span>
+																	</div>
+																</div>
+
 															</div>
 														</div>
 													</div>
 												</div>
 												<div class="tab-pane" id="restaurante">
 													<div class="container-fluid">
-																												<div class="row">
+														<div class="row">
 															<div class="col-md-6"><!-- Left -->
 																<div class="row">
-															<div class="col-md-1"></div>
-															<div class="col-md-10 rowBorder">
-																<div class="row row5"></div>
-																<div class="row">
-																	<div class="col-md-4"></div>
-																	<div class="col-md-3">
-																		<span class="input-group-addon">Anular mesa</span>
+																	<div class="col-md-1"></div>
+																	<div class="col-md-10 rowBorder">
+																		<div class="row row5"></div>
+																		<div class="row">
+																			<div class="col-md-4"></div>
+																			<div class="col-md-3">
+																				<span class="input-group-addon">Anular mesa</span>
+																			</div>
+																			<div class="col-md-1">
+																				<select class="selectpicker">
+																					<option>0</option>
+																					<option>1</option>
+																					<option>2</option>
+																					<option>3</option>
+																				</select>
+																			</div>
+																			<div class="col-md-4"></div>
+																		</div>
+																		<div class="row row5"></div>
+																		<div class="row">
+																			<div class="col-md-1"></div>
+																			<div class="col-md-3">
+																				<span class="input-group-addon">Factura Especial</span>
+																			</div>
+																			<div class="col-md-2">
+																				<select class="selectpicker">
+																					<option>0</option>
+																					<option>1</option>
+																					<option>2</option>
+																					<option>3</option>
+																				</select>
+																			</div>
+																			<div class="col-md-3">
+																				<span class="input-group-addon">Literal Factura Especial:</span>
+																			</div>
+																			<div class="col-md-2">
+																				<input type="text" class="form-control textcontrol"></input>
+																			</div>
+																			<div class="col-md-1"></div>
+																		</div>
+																		<div class="row row5"></div>
 																	</div>
-																	<div class="col-md-1">
-																		<select class="selectpicker">
-																			<option>0</option>
-																			<option>1</option>
-																			<option>2</option>
-																			<option>3</option>
-																		</select>
-																	</div>
-																	<div class="col-md-4"></div>
+																	<div class="col-md-1"></div>
 																</div>
 																<div class="row row5"></div>
 																<div class="row">
 																	<div class="col-md-1"></div>
-																	<div class="col-md-3">
-																		<span class="input-group-addon">Factura Especial</span>
-																	</div>
-																	<div class="col-md-2">
-																		<select class="selectpicker">
-																			<option>0</option>
-																			<option>1</option>
-																			<option>2</option>
-																			<option>3</option>
-																		</select>
-																	</div>
-																	<div class="col-md-3">
-																		<span class="input-group-addon">Literal Factura Especial:</span>
-																	</div>
-																	<div class="col-md-2">
-																		<input type="text" class="form-control textcontrol"></input>
+																	<div class="col-md-10 rowBorder">
+																		<div class="row row5"></div>
+																		<div class="row">
+																			<div class="col-md-12">
+																				<span class="input-group-addon" style="text-align:center;">Literales
+																					en
+																					Facturas</span>
+																			</div>
+																		</div>
+																		<div class="row row5"></div>
+																		<div class="row">
+																			<div class="col-md-3"></div>
+																			<div class="col-md-3">
+																				<span class="input-group-addon">Cobro por Servicio/Cubierto</span>
+																			</div>
+																			<div class="col-md-3">
+																				<input type="text" class="form-control textcontrol"></input>
+																			</div>
+																			<div class="col-md-3"></div>
+																		</div>
+																		<div class="row row5"></div>
 																	</div>
 																	<div class="col-md-1"></div>
 																</div>
 																<div class="row row5"></div>
-															</div>
-															<div class="col-md-1"></div>
-														</div>
-														<div class="row row5"></div>
-														<div class="row">
-															<div class="col-md-1"></div>
-															<div class="col-md-10 rowBorder">
-																<div class="row row5"></div>
 																<div class="row">
-																	<div class="col-md-12">
-																		<span class="input-group-addon" style="text-align:center;">Literales
-																			en
-																			Facturas</span>
+																	<div class="col-md-2"></div>
+																	<div class="col-md-2">
+																		<span class="input-group-addon">Precio / Persona</span>
 																	</div>
-																</div>
-																<div class="row row5"></div>
-																<div class="row">
-																	<div class="col-md-3"></div>
-																	<div class="col-md-3">
-																		<span class="input-group-addon">Cobro por Servicio/Cubierto</span>
-																	</div>
-																	<div class="col-md-3">
+																	<div class="col-md-6">
 																		<input type="text" class="form-control textcontrol"></input>
 																	</div>
-																	<div class="col-md-3"></div>
+																	<div class="col-md-2"></div>
 																</div>
 																<div class="row row5"></div>
-															</div>
-															<div class="col-md-1"></div>
-														</div>
-														<div class="row row5"></div>
-														<div class="row">
-															<div class="col-md-2"></div>
-															<div class="col-md-2">
-																<span class="input-group-addon">Precio / Persona</span>
-															</div>
-															<div class="col-md-6">
-																<input type="text" class="form-control textcontrol"></input>
-															</div>
-															<div class="col-md-2"></div>
-														</div>
-														<div class="row row5"></div>
-														<div class="row">
-															<div class="col-md-2"></div>
-															<div class="col-md-2">
-																<span class="input-group-addon">Nuevo Antibloqueo</span>
-															</div>
-															<div class="col-md-6">
-																<input type="text" class="form-control textcontrol"></input>
-															</div>
-															<div class="col-md-2"></div>
-														</div>
-														<div class="row row5"></div>
-																
+																<div class="row">
+																	<div class="col-md-2"></div>
+																	<div class="col-md-2">
+																		<span class="input-group-addon">Nuevo Antibloqueo</span>
+																	</div>
+																	<div class="col-md-6">
+																		<input type="text" class="form-control textcontrol"></input>
+																	</div>
+																	<div class="col-md-2"></div>
+																</div>
+																<div class="row row5"></div>
+
 																<div class="row">
 																	<div class="col-md-2"></div>
 																	<div class="col-md-4">
@@ -1186,7 +1168,7 @@
 																	<div class="col-md-1"></div>
 																</div>
 															</div>
-														
+
 														</div>
 													</div>
 												</div>
@@ -1195,7 +1177,7 @@
 													<div class="container-fluid">
 														<div class="row">
 															<div class="col-md-6"><!-- Left -->
-																															<div class="row">
+																<div class="row">
 																	<div class="col-md-1"></div>
 																	<div class="col-md-10 rowBorder">
 																		<div class="row">
@@ -1248,49 +1230,68 @@
 																	</div>
 																	<div class="col-md-1"></div>
 																</div>
-															
+
 															</div>
 															<div class="col-md-6"><!-- Right -->
-															</div>
-														</div>
-													</div>
-
-												</div>
-												<div class="tab-pane" id="conectividad">
-													<div class="container-fluid">
-														<div class="row">
-															<div class="col-md-1"></div>
-															<div class="col-md-10">
-																<div class="row row5"></div>
 																<div class="row">
-																	<div class="col-md-4"></div>
-																	<div class="col-md-2">
-																		<span class="input-group-addon" style="text-align:right;">
-																			Habilitado
-																			TPV
-																			Virtual
-																		</span>
+																	<div class="col-md-1"></div>
+																	<div class="col-md-10 rowBorder">
+																		<div class="row">
+																			<div class="col-md-3"></div>
+																			<div class="col-md-6">
+																				<span class="input-group-addon" style="text-align:center;">Impresora
+																					de
+																					comandas:</span>
+																			</div>
+																			<div class="col-md-3"></div>
+																		</div>
+																		<div class="row">
+																			<div class="col-md-2"></div>
+																			<div class="col-md-2">
+																				<span class="input-group-addon">Printer 1</span>
+																			</div>
+																			<div class="col-md-1">
+																				<input type="checkbox" class="form-control checkcontrol"></input>
+																			</div>
+																			<div class="col-md-1"></div>
+																			<div class="col-md-1">
+																				<span class="input-group-addon">Prt</span>
+																			</div>
+																			<div class="col-md-3">
+																				<input type="text" class="form-control textcontrol"></input>
+																			</div>
+																			<div class="col-md-2"></div>
+																		</div>
+																		<div class="row">
+																			<div class="col-md-2"></div>
+																			<div class="col-md-2">
+																				<span class="input-group-addon">Printer 2</span>
+																			</div>
+																			<div class="col-md-1">
+																				<input type="checkbox" class="form-control checkcontrol"></input>
+																			</div>
+																			<div class="col-md-1"></div>
+																			<div class="col-md-1">
+																				<span class="input-group-addon">Prt</span>
+																			</div>
+																			<div class="col-md-3">
+																				<input type="text" class="form-control textcontrol"></input>
+																			</div>
+																			<div class="col-md-2"></div>
+																		</div>
+																		<div class="row">
+																			<div class="col-md-2"></div>
+																			<div class="col-md-2">
+																				<span class="input-group-addon">Especial</span>
+																			</div>
+																			<div class="col-md-1">
+																				<input type="checkbox" class="form-control checkcontrol"></input>
+																			</div>
+																			<div class="col-md-7"></div>
+																		</div>
 																	</div>
-																	<div class="col-md-2">
-																		<input type="checkbox" class="form-control checkcontrol"></input>
-																	</div>
-																	<div class="col-md-4"></div>
+																	<div class="col-md-1"></div>
 																</div>
-																<div class="row row5"></div>
-																<div class="row">
-																	<div class="col-md-4"></div>
-																	<div class="col-md-2">
-																		<span class="input-group-addon" style="text-align:right;">
-																			Habilitado
-																			StarCard
-																		</span>
-																	</div>
-																	<div class="col-md-2">
-																		<input type="checkbox" class="form-control checkcontrol"></input>
-																	</div>
-																	<div class="col-md-4"></div>
-																</div>
-																<div class="row row5"></div>
 																<div class="row">
 																	<div class="col-md-4"></div>
 																	<div class="col-md-2">
@@ -1305,6 +1306,65 @@
 																	</div>
 																	<div class="col-md-4"></div>
 																</div>
+																<div class="row">
+																	<div class="col-md-4"></div>
+																	<div class="col-md-2">
+																		<span class="input-group-addon" style="text-align:right;">
+																			Tamaño BMP
+																			[0-3]
+																		</span>
+																	</div>
+																	<div class="col-md-2">
+																		<input type="text" class="form-control textcontrol"></input>
+																	</div>
+																	<div class="col-md-4"></div>
+																</div>
+
+															</div>
+														</div>
+													</div>
+
+												</div>
+												<div class="tab-pane" id="conectividad">
+													<div class="container-fluid">
+														<div class="row">
+															<div class="col-md-1"></div>
+															<div class="col-md-10">
+																<div class="row row5"></div>
+																<div class="row">
+																	<div class="col-md-4"></div>
+																	<div class="col-md-2">
+																		<!-- <span class="input-group-addon">Habilitado TPV Virtual</span> -->
+																		<span class="input-group-addon">
+																			<t:label for="enableTPVVirtual" />
+																		</span>
+																	</div>
+																	<div class="col-md-2">
+																		<!-- <input type="checkbox" class="form-control checkcontrol"></input> -->
+																		<input class="form-control checkcontrol" t:id="enableTPVVirtual"
+																			name="enableTPVVirtual" t:type="CheckBox"
+																			placeholder="${message:enableTPVVirtual-label}" />
+																	</div>
+																	<div class="col-md-4"></div>
+																</div>
+																<div class="row row5"></div>
+																<div class="row">
+																	<div class="col-md-4"></div>
+																	<div class="col-md-2">
+																		<!-- <span class="input-group-addon"> Habilitado StarCard</span> -->
+																		<span class="input-group-addon">
+																			<t:label for="enableStarCard" />
+																		</span>
+																	</div>
+																	<div class="col-md-2">
+																		<!-- <input type="checkbox" class="form-control checkcontrol"></input> -->
+																		<input class="form-control checkcontrol" t:id="enableStarCard"
+																			name="enableStarCard" t:type="CheckBox"
+																			placeholder="${message:enableStarCard-label}" />
+																	</div>
+																	<div class="col-md-4"></div>
+																</div>
+																<div class="row row5"></div>
 																<div class="row row5"></div>
 																<div class="row">
 																	<div class="col-md-4"></div>
@@ -1321,16 +1381,19 @@
 																	<div class="col-md-4"></div>
 																</div>
 																<div class="row row5"></div>
+																<div class="row row5"></div>
 																<div class="row">
 																	<div class="col-md-4"></div>
 																	<div class="col-md-2">
-																		<span class="input-group-addon" style="text-align:right;">
-																			Tamaño BMP
-																			[0-3]
+																		<!-- <span class="input-group-addon">IP LVDE</span> -->
+																		<span class="input-group-addon">
+																			<t:label for="ipLVDE" />
 																		</span>
 																	</div>
 																	<div class="col-md-2">
-																		<input type="text" class="form-control textcontrol"></input>
+																		<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																		<input class="form-control textcontrol" t:id="ipLVDE"
+																			name="ipLVDE" t:type="TextField" placeholder="${message:ipLVDE-label}" />
 																	</div>
 																	<div class="col-md-4"></div>
 																</div>
@@ -1338,14 +1401,15 @@
 																<div class="row">
 																	<div class="col-md-4"></div>
 																	<div class="col-md-2">
-																		<span class="input-group-addon" style="text-align:right;">
-																			Ultimo
-																			cierre
-																			mes
+																		<!-- <span class="input-group-addon">IP Manuales</span> -->
+																		<span class="input-group-addon">
+																			<t:label for="ipHelp" />
 																		</span>
 																	</div>
 																	<div class="col-md-2">
-																		<input type="text" class="form-control textcontrol"></input>
+																		<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																		<input class="form-control textcontrol" t:id="ipHelp"
+																			name="ipHelp" t:type="TextField" placeholder="${message:ipHelp-label}" />
 																	</div>
 																	<div class="col-md-4"></div>
 																</div>
@@ -1353,24 +1417,15 @@
 																<div class="row">
 																	<div class="col-md-4"></div>
 																	<div class="col-md-2">
-																		<span class="input-group-addon" style="text-align:right;">
-																			Tipo fecha
-																			/
-																			Date
-																			type
+																		<!-- <span class="input-group-addon">IP CCC</span> -->
+																		<span class="input-group-addon">
+																			<t:label for="ipCCC" />
 																		</span>
 																	</div>
-																	<div class="col-md-1">
-																		<input type="text" class="form-control textcontrol"></input>
-																	</div>
-																	<div class="col-md-1">
-																		<span class="input-group-addon" style="text-align:right;">
-																			1:
-																			DD-MM-AAAA
-																			|
-																			2:
-																			MM-DD-AAAA | 3: AAAA-MM-DD
-																		</span>
+																	<div class="col-md-2">
+																		<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																		<input class="form-control textcontrol" t:id="ipCCC"
+																			name="ipCCC" t:type="TextField" placeholder="${message:ipCCC-label}" />
 																	</div>
 																	<div class="col-md-4"></div>
 																</div>
@@ -1378,51 +1433,16 @@
 																<div class="row">
 																	<div class="col-md-4"></div>
 																	<div class="col-md-2">
-																		<span class="input-group-addon" style="text-align:right;">
-																			IP LVDE
+																		<!-- <span class="input-group-addon">IP Alternativa</span> -->
+																		<span class="input-group-addon">
+																			<t:label for="ipAlternative" />
 																		</span>
 																	</div>
 																	<div class="col-md-2">
-																		<input type="text" class="form-control textcontrol"></input>
-																	</div>
-																	<div class="col-md-4"></div>
-																</div>
-																<div class="row row5"></div>
-																<div class="row">
-																	<div class="col-md-4"></div>
-																	<div class="col-md-2">
-																		<span class="input-group-addon" style="text-align:right;">
-																			IP Manuales
-																		</span>
-																	</div>
-																	<div class="col-md-2">
-																		<input type="text" class="form-control textcontrol"></input>
-																	</div>
-																	<div class="col-md-4"></div>
-																</div>
-																<div class="row row5"></div>
-																<div class="row">
-																	<div class="col-md-4"></div>
-																	<div class="col-md-2">
-																		<span class="input-group-addon" style="text-align:right;">
-																			IP CCC
-																		</span>
-																	</div>
-																	<div class="col-md-2">
-																		<input type="text" class="form-control textcontrol"></input>
-																	</div>
-																	<div class="col-md-4"></div>
-																</div>
-																<div class="row row5"></div>
-																<div class="row">
-																	<div class="col-md-4"></div>
-																	<div class="col-md-2">
-																		<span class="input-group-addon" style="text-align:right;">
-																			IP Altern.
-																		</span>
-																	</div>
-																	<div class="col-md-2">
-																		<input type="text" class="form-control textcontrol"></input>
+																		<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																		<input class="form-control textcontrol" t:id="ipAlternative"
+																			name="ipAlternative" t:type="TextField"
+																			placeholder="${message:ipAlternative-label}" />
 																	</div>
 																	<div class="col-md-4"></div>
 																</div>
@@ -1430,20 +1450,28 @@
 																<div class="row">
 																	<div class="col-md-2"></div>
 																	<div class="col-md-2">
-																		<span class="input-group-addon" style="text-align:right;">
-																			Email[CFG-FROM]
+																		<!-- <span class="input-group-addon">Email[CFG-FROM]</span> -->
+																		<span class="input-group-addon">
+																			<t:label for="sendEmail" />
 																		</span>
 																	</div>
 																	<div class="col-md-3">
-																		<input type="text" class="form-control textcontrol"></input>
+																		<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																		<input class="form-control textcontrol" t:id="sendEmail"
+																			name="sendEmail" t:type="TextField"
+																			placeholder="${message:sendEmail-label}" />
 																	</div>
 																	<div class="col-md-1">
-																		<span class="input-group-addon" style="text-align:right;">
-																			Log
+																		<!-- <span class="input-group-addon">IP Alternativa</span> -->
+																		<span class="input-group-addon">
+																			<t:label for="sendLogin" />
 																		</span>
 																	</div>
 																	<div class="col-md-2">
-																		<input type="text" class="form-control textcontrol"></input>
+																		<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																		<input class="form-control textcontrol" t:id="sendLogin"
+																			name="sendLogin" t:type="TextField"
+																			placeholder="${message:sendLogin-label}" />
 																	</div>
 																	<div class="col-md-2"></div>
 																</div>
@@ -1451,20 +1479,28 @@
 																<div class="row">
 																	<div class="col-md-2"></div>
 																	<div class="col-md-2">
-																		<span class="input-group-addon" style="text-align:right;">
-																			CFG-SRV
+																		<!-- <span class="input-group-addon">CFG-SRV </span> -->
+																		<span class="input-group-addon">
+																			<t:label for="sendService" />
 																		</span>
 																	</div>
 																	<div class="col-md-3">
-																		<input type="text" class="form-control textcontrol"></input>
+																		<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																		<input class="form-control textcontrol" t:id="sendService"
+																			name="sendService" t:type="TextField"
+																			placeholder="${message:sendService-label}" />
 																	</div>
 																	<div class="col-md-1">
-																		<span class="input-group-addon" style="text-align:right;">
-																			Pwd.
+																		<!-- <span class="input-group-addon">Pwd</span> -->
+																		<span class="input-group-addon">
+																			<t:label for="sendPsw" />
 																		</span>
 																	</div>
 																	<div class="col-md-2">
-																		<input type="text" class="form-control textcontrol"></input>
+																		<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																		<input class="form-control textcontrol" t:id="sendPsw"
+																			name="sendPsw" t:type="TextField"
+																			placeholder="${message:sendPsw-label}" />
 																	</div>
 																	<div class="col-md-2"></div>
 																</div>
