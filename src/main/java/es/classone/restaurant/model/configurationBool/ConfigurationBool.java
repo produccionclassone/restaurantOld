@@ -9,7 +9,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Res14cnt_GN")
+@Table(name = "Res14cnt_GN_BOOL")
 public class ConfigurationBool {
 	private int confGenericId;
 	private String code;

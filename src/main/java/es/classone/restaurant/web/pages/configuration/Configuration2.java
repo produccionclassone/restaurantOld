@@ -81,7 +81,7 @@ public class Configuration2 {
 	private String tableNumber;
 
 	@Property
-	private boolean covServChar;
+	private Boolean covServChar;
 
 	@Property
 	private String covServCharImp;
@@ -90,7 +90,7 @@ public class Configuration2 {
 	private String covServCharIVAType;
 	
 	@Property
-	private boolean tipWaiterInvoice;
+	private Boolean tipWaiterInvoice;
 	
 	@Property
 	private String tipWaiterInvoicePorcent;
@@ -99,19 +99,19 @@ public class Configuration2 {
 	private String tipWaiterInvoiceIVA;
 	
 	@Property
-	private boolean	chargeAddonDish;
+	private Boolean	chargeAddonDish;
 
 	@Property
-	private boolean	decimal;
+	private Boolean	decimal;
 	
 	@Property
-	private boolean	ivaIncluded;
+	private Boolean	ivaIncluded;
 	
 	@Property
 	private String actualSessionDate;
 	
 	@Property
-	private boolean accountingLinkVtas;
+	private Boolean accountingLinkVtas;
 	
 	@Property
 	private String covIncomeType;
@@ -123,7 +123,7 @@ public class Configuration2 {
 	private String cadDept;
 	
 	@Property
-	private boolean euroLine;
+	private Boolean euroLine;
 	
 	@Property
 	private String eurUSDChange;
@@ -133,10 +133,25 @@ public class Configuration2 {
 	@Property
 	private String integrationHotel;
 	
+	@Property
+	private Boolean integrationEcon;
+	
+	@Property
+	private Boolean qualifyKitchenDish;
+	
 	//falta impresoras de comandas
 	
 	@Property
+	private Boolean splitCommand;
+	
+	@Property
+	private Boolean tips;
+	
+	@Property
 	private String assocElemTips;
+	
+	@Property
+	private Boolean discount1;
 	
 	@Property
 	private String assocElemDto1;
@@ -145,10 +160,16 @@ public class Configuration2 {
 	private String assocElemDto1Porcent;
 	
 	@Property
+	private Boolean discount2;
+	
+	@Property
 	private String assocElemDto2;
 	
 	@Property
 	private String assocElemDto2Porcent;
+	
+	@Property
+	private Boolean discount3;
 	
 	@Property
 	private String assocElemDto3;
@@ -161,6 +182,7 @@ public class Configuration2 {
 	
 	@Property
 	private String chargeTPV;
+	
 	@Property
 	private String fieldSeparator;
 	
@@ -170,6 +192,40 @@ public class Configuration2 {
 	@Property
 	private String coveredServiceCharge;
 
+	@Property
+	private String colCommand;
+	
+	@Property
+	private String colBackground;
+	
+	@Property
+	private String colBill;
+	
+	@Property
+	private String colBackground2;
+	
+	@Property
+	private String colCharge;
+	
+	@Property
+	
+	private String colTrasp;
+	
+	@Property
+	private String colTabEmpty;
+	
+	@Property
+	private String colTabBusy;
+	
+	@Property
+	private String colTabAtached;
+	
+	@Property
+	private String colTabReserved;
+	
+	@Property
+	private String colTabBill;
+	
 	@Inject
 	private Request request;
 
@@ -204,42 +260,50 @@ public class Configuration2 {
 		eurUSDChange = cgHashMap.get("eurUSDChange");
 		//falta serv hot/dpto
 		integrationHotel = cgHashMap.get("integrationHotel");
+		integrationEcon = cbHashMap.get("integrationEcon");
+		qualifyKitchenDish = cbHashMap.get("qualifyKitchenDish");
 		//falta impresoras de comandas
+		splitCommand = cbHashMap.get("splitCommand");
+		tips=cbHashMap.get("tips");
 		assocElemTips = cgHashMap.get("assocElemTips");
+		discount1=cbHashMap.get("discount1");
 		assocElemDto1 = cgHashMap.get("assocElemDto1");
 		assocElemDto1Porcent = cgHashMap.get("assocElemDto1%");
+		discount2=cbHashMap.get("discount2");
 		assocElemDto2 = cgHashMap.get("assocElemDto2");
 		assocElemDto2Porcent = cgHashMap.get("assocElemDto2%");
+		discount3=cbHashMap.get("discount3");
 		assocElemDto3 = cgHashMap.get("assocElemDto3");
 		assocElemDto3Porcent = cgHashMap.get("assocElemDto3%");
 		assocElemTPV = cgHashMap.get("assocElemTPV");
 		chargeTPV = cgHashMap.get("chargeTPV");
 		fieldSeparator = cgHashMap.get("fieldSeparator");
 		alphabSeparator = cgHashMap.get("alphabSeparator");
+		colCommand = cgHashMap.get("colCommand");
+		colBackground = cgHashMap.get("colBackground");
+		colBill = cgHashMap.get("colBill");
+		colBackground2 = cgHashMap.get("colBackground2");
+		colCharge = cgHashMap.get("colCharge");
+		colTrasp = cgHashMap.get("colTrasp");
+		colTabEmpty = cgHashMap.get("colTabEmpty");
+		colTabBusy = cgHashMap.get("colTabBusy");
+		colTabAtached = cgHashMap.get("colTabAtached");
+		colTabReserved = cgHashMap.get("colTabReserved");
+		colTabBill = cgHashMap.get("colTabBill");
 
-		/*
 		
-		integrationEcon
-		qualifyKitchenDish
+		/*
 		entirePrintCommand
-		splitCommand
 		printEntireCommandP2
 		enableTPVVirtual
 		enableStarCard
 		bmpToPrint
-		
-		tips
-		discount1
-		discount2
-		discount3
 		decimal
 		compressPrintBillStd
 		literalPrecPers
 		newAntibloq
 		headerBill
-
 		 */
-		
 		
 		/*		
 		appName
@@ -250,22 +314,15 @@ public class Configuration2 {
 		BBDD/Stars
 		BBDDStarEco
 		BBDDStarCar
-		restCateg
-		contCode
-		tableNumber
-		actualSession
-		lastBill
-		lastCommand
-		lastClient
 		actualSessionState
 		sessionType
-		cadExplot
 		kitchenPrinter
 		printer2
 		bmpSize
 		closureLastMonth
 		dayMenuLevel
 		cancelTableLevel
+		
 		ivaType1
 		ledgerAccIVA1
 		ivaType2
@@ -279,14 +336,17 @@ public class Configuration2 {
 		ledgerAccPropCam
 		ledgerAccDescVtas
 		literalIVA
+		
 		breakfastServHot
 		lunchServHotel
 		dinnerServHotel
 		otherServHotel
+		
 		breakfastDept
 		lunchDept
 		dinnerDept
 		otherDept
+		
 		dateFormat
 		sendEmail
 		sendService
@@ -296,21 +356,11 @@ public class Configuration2 {
 		SMSApiId
 		smsUser
 		smsPwd
+		
 		ipLVDE
 		ipHelp
 		ipCCC
 		ipAlternative
-		colCommand
-		colBackground
-		colBill
-		colBackground2
-		colCharge
-		colTrasp
-		colTabEmpty
-		colTabBusy
-		colTabAtached
-		colTabReserved
-		colTabBill
 		cajaCobro
 		literalEspBill
 		literalCharCov

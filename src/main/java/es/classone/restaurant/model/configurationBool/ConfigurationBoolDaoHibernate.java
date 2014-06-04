@@ -2,10 +2,13 @@ package es.classone.restaurant.model.configurationBool;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import es.classone.restaurant.model.configurationGeneric.ConfigurationGeneric;
 import es.classone.restaurant.modelutil.dao.GenericDaoHibernate;
 import es.classone.restaurant.modelutil.exceptions.InstanceNotFoundException;
 
+@Repository("configurationBoolDao")
 public class ConfigurationBoolDaoHibernate extends
 		GenericDaoHibernate<ConfigurationBool, Integer> implements
 		ConfigurationBoolDao {

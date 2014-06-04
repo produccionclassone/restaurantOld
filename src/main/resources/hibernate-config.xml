@@ -14,5 +14,6 @@
         <mapping class="es.classone.restaurant.model.userprofile.UserProfile" />
         <mapping class="es.classone.restaurant.model.favorite.Favorite" />
         <mapping class="es.classone.restaurant.model.configurationGeneric.ConfigurationGeneric" />
+        <mapping class="es.classone.restaurant.model.configurationBool.ConfigurationBool" />
     </session-factory>
 </hibernate-configuration>
