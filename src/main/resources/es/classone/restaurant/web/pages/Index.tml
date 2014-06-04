@@ -137,25 +137,35 @@
 									</button>
 									<h4 class="modal-title">${message:add-favorite}</h4>
 								</div>
-								
+
 								<div class="modal-body">
-								
-									<div t:type="Loop" t:source="options" t:value="option">										
-										<div class="panel panel-warning panel-favorites">
-											<div class="panel-heading option-heading">${option.option}. ${option.optionName}</div>
-											<t:if test="${option.parent}">
-												<div class="panel-body suboptions-group">
-												<div class="list-group suboptions-group">
-													<div t:type="Loop" t:source="option.options" t:value="option">
-														  <t:eventlink t:event="addFavorite"  t:context="${option.option}" class="list-group-item suboption-item">${option.option}. ${option.optionName}</t:eventlink>
-													</div>
-													</div>
-													</div>
-											</t:if>
-								
+								<div class="row">
+									<div class="col-md-2"></div>
+									<div class="col-md-8">
+										
+											<div t:type="Loop" t:source="options" t:value="option">
+												<div class="panel panel-warning panel-favorites">
+													<div class="panel-heading option-heading">${option.option}. ${option.optionName}</div>
+													<t:if test="${option.parent}">
+														<div class="panel-body suboptions-group">
+															<div class="list-group suboptions-group">
+																<div t:type="Loop" t:source="option.options"
+																	t:value="option">
+																	<t:eventlink t:event="addFavorite"
+																		t:context="${option.option}" class="list-group-item suboption-item">${option.option}.
+																		${option.optionName}</t:eventlink>
+																</div>
+															</div>
+														</div>
+													</t:if>
+
+												</div>
+
+											</div>
 										</div>
+										<div class="col-md-2"></div>
+									</div>
 									
-								</div>
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-default"

@@ -178,17 +178,21 @@ public class Index {
 				}
 			}
 		}
+		System.out.println(MapApp.getOptionObjByOption("A").getOptionName());
 		if (changeFavorites.equals("true")) {
 			List<Favorite> favorites = userService
 					.getFavoritesByUserId(userSession.getUserProfileId());
-			JSONArray jsonArray = new JSONArray();
+			JSONArray favoriteNames = new JSONArray();
+			JSONArray favoritePaths = new JSONArray();
 
 			for (Favorite f : favorites) {
 				
-				jsonArray.put(f.getFavoriteId(), MapApp.getOptionObjByOption(f.getUseCase()).getOptionName());
+				favoriteNames.put(f.getFavoriteId(), MapApp.getOptionObjByOption(f.getUseCase()).getOptionName());
+				favoritePaths.put(f.getFavoriteId(), MapApp.getOptionObjByOption(f.getUseCase()).getPath());
 			}
 
-			literals.put("favorites", jsonArray);
+			literals.put("favoriteNames", favoriteNames);
+			literals.put("favoritePaths", favoritePaths);
 
 			javaScriptSupport.addInitializerCall("favorites", literals);
 		} else {

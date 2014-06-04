@@ -9,9 +9,9 @@ var clearButtons = function() {
 }
 
 var changeLiterals = function(value, spec) {
-	// ARREGLAR BUG DE SI NO TIENE SUBNIVEL EN CLICK
+	// ARREGLAR BUG DE SI NO TIENE SUBNIVEL O SI NO EXISTE OPCION TODO EN BLANCO
 	clearButtons();
-	console.log(value);
+	
 	$("#activemenu")
 			.replaceWith(
 					"<li id='disablemenu' class='disable'><a href='/restaurant/?showFavorites=false&showHistory=false'>"
@@ -156,10 +156,8 @@ var menuClickBehaviour = function(spec) {
 			if ($(this).text()=="")
 			$("#add-favorite-modal").modal("show");
 			else{
-				//$(location).attr('href', );ENLAZAR A LA RUTA DEL FAVORITO
+				$(location).attr('href',spec[($(this).attr('id')[6])]); //ENLAZAR A LA RUTA DEL FAVORITO
 			}
-				
-			
 		}
 	});
 	$(".btn-text").click(function() {
@@ -167,7 +165,11 @@ var menuClickBehaviour = function(spec) {
 		if (currentOption == "menu")
 			changeLiterals(($(this).attr('id')[6]), spec);
 		if (currentOption == "favorites") {
-			$("#add-favorite-modal").modal("show");
+			if ($(this).text()=="")
+				$("#add-favorite-modal").modal("show");
+				else{
+					$(location).attr('href',spec[($(this).attr('id')[6])]); //ENLAZAR A LA RUTA DEL FAVORITO
+				}
 		}
 	});
 
@@ -175,41 +177,12 @@ var menuClickBehaviour = function(spec) {
 
 var menuBehaviour = function(e, spec) {
 	e.preventDefault();
-	console.log(e.which + ": " + String.fromCharCode(e.which));
 	var currentOption = $('.active').attr('name');
-	console.log(currentOption);
-	if ((String.fromCharCode(e.which) == 1) && (currentOption == "menu")) {
-		changeLiterals(1, spec);
-	}
-	if ((String.fromCharCode(e.which) == 3) && (currentOption == "menu")) {
-		changeLiterals(3, spec);
-	}
-	if ((String.fromCharCode(e.which) == 4) && (currentOption == "menu")) {
-		changeLiterals(4, spec);
-	}
-	if ((String.fromCharCode(e.which) == 5) && (currentOption == "menu")) {
-		changeLiterals(5, spec);
-	}
-	if ((String.fromCharCode(e.which) == 6) && (currentOption == "menu")) {
-		changeLiterals(6, spec);
-	}
-	if ((String.fromCharCode(e.which) == 7) && (currentOption == "menu")) {
-		changeLiterals(7, spec);
-	}
-	if ((String.fromCharCode(e.which) == 7) && (currentOption == spec.optionb)) {
-
-		$(location).attr('href', spec.pathb7);
-	}
-	if ((String.fromCharCode(e.which) == "a") && (currentOption == "menu")) {
-		changeLiterals("a", spec);
-	}
-	if ((String.fromCharCode(e.which) == "b") && (currentOption == "menu")) {
-		changeLiterals("b", spec);
-	}
+	if (currentOption=="menu")
+		changeLiterals((String.fromCharCode(e.which).toUpperCase()),spec);
 };
 
 var changeToFavorite = function(i, option) {
-	console.log(option);
 	var chars = "ABCDEFGHI";
 	var button, buttonOpt;
 	if (i <= 9) {
@@ -229,6 +202,7 @@ var changeToFavorite = function(i, option) {
 	} else {
 		$(button).text(option.toString());
 	}
+	
 
 };
 (function($, window) {
@@ -255,11 +229,12 @@ var changeToFavorite = function(i, option) {
 					Tapestry.Initializer,
 					{
 						favorites : function(spec) {
-							var favorites = spec.favorites;
+							var favoriteNames = spec.favoriteNames;
+							var favoritePaths = spec.favoritePaths;
 							for (var i = 1; i <= 19; i++) {
-								changeToFavorite(i, favorites[i]);
+								changeToFavorite(i, favoriteNames[i]);
 							}
-							menuClickBehaviour(null);
+							menuClickBehaviour(favoritePaths);
 							$("#buttonmenu").text("Favoritos");
 							$("#activemenu")
 									.replaceWith(

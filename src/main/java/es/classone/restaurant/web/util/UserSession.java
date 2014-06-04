@@ -5,6 +5,7 @@ public class UserSession {
 
 	private int userProfileId;
 	private char userPrivilege;
+	private String loginName;
 	private String ipIn;
 	private String ipExt;
 	private String macAddress;
@@ -56,6 +57,14 @@ public class UserSession {
 	
 	public void setPersPath(String persPath){
 		this.persPath=persPath;
+	}
+
+	public String getLoginName() {
+		return loginName;
+	}
+
+	public void setLoginName(String loginName) {
+		this.loginName = loginName;
 	}
 
 }

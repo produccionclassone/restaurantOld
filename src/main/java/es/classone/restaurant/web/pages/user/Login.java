@@ -105,6 +105,7 @@ public class Login {
 		userSession.setUserPrivilege(userProfile.getUserPrivilege());
 		userSession.setIpIn(userProfile.getIpAddressIn());
 		userSession.setPersPath(path);
+		userSession.setLoginName(userProfile.getLoginName());
 		if (!userProfile.getIpAddressExt().equals(""))
 			userSession.setIpExt(userProfile.getIpAddressExt());
 		userSession.setMacAddress(userProfile.getMacAddress());

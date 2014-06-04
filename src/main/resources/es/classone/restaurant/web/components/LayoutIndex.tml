@@ -27,21 +27,21 @@
 			<div id="main">
 				<div class="container-fluid">
 					<div class="row" id="headernav">
-						<div class="col-md-4">
+						<div class="col-md-2">
 							<div class="modulos">
 								Módulos 1.1.0.0.1.1
 							</div>
 						</div>
 
-						<div class="col-md-4">
+						<div class="col-md-8">
 							<ol class="breadcrumb">
 								<li class="active" name="menu" id="activemenu">${message:menuprincipal}</li>
 							</ol>
 						</div>
-						<div class="col-md-4">
-							<div class="col-md-3"></div>
-							<div class="col-md-4">Usuario: admin</div>
-							<div class="col-md-4">Idioma: 1</div>
+						<div class="col-md-2">
+							<span style="margin-left:40px;">${message:user}: ${loginName}</span>
+							
+							<span style="margin-left:20px;"><img src="${context:/css/images/spanish.png}" width="20" height="18" ></img></span>
 
 						</div>
 					</div>
