@@ -2,7 +2,7 @@
 	t:type="LayoutIndex" t:pageTitle="title">
 
 	<div class="container">
-		<div class="row"> <!-- diversos contadores -->
+		<div class="row"> <!-- Mantenimiento reg. control -->
 			<!-- Button trigger modal -->
 			<button class="btn btn-primary btn" style="float:left; background:transparent;"
 				data-toggle="modal" data-target="#regControl">
@@ -68,13 +68,24 @@
 													</a>
 												</li>
 												<li>
-													<a href="#otros" data-toggle="tab">
-														<h6 class="text">Otros</h6>
+													<a href="#impresion" data-toggle="tab">
+														<h6 class="text">Impresión</h6>
+													</a>
+												</li>
+
+												<li>
+													<a href="#conectividad" data-toggle="tab">
+														<h6 class="text">Conectividad</h6>
 													</a>
 												</li>
 												<li>
 													<a href="#contabilidad" data-toggle="tab">
 														<h6 class="text">Contabilidad</h6>
+													</a>
+												</li>
+												<li>
+													<a href="#apariencia" data-toggle="tab">
+														<h6 class="text">Apariencia</h6>
 													</a>
 												</li>
 											</ul>
@@ -836,138 +847,104 @@
 												</div>
 												<div class="tab-pane" id="restaurante">
 													<div class="container-fluid">
-														<div class="row">
+																												<div class="row">
 															<div class="col-md-6"><!-- Left -->
 																<div class="row">
+															<div class="col-md-1"></div>
+															<div class="col-md-10 rowBorder">
+																<div class="row row5"></div>
+																<div class="row">
+																	<div class="col-md-4"></div>
+																	<div class="col-md-3">
+																		<span class="input-group-addon">Anular mesa</span>
+																	</div>
+																	<div class="col-md-1">
+																		<select class="selectpicker">
+																			<option>0</option>
+																			<option>1</option>
+																			<option>2</option>
+																			<option>3</option>
+																		</select>
+																	</div>
+																	<div class="col-md-4"></div>
+																</div>
+																<div class="row row5"></div>
+																<div class="row">
 																	<div class="col-md-1"></div>
-																	<div class="col-md-10 rowBorder">
-																		<div class="row">
-																			<div class="col-md-12">
-																				<span class="input-group-addon">
-																					Color
-																				</span>
-																			</div>
-																		</div>
-																		<div class="row">
-																			<div class="col-md-1"></div>
-																			<div class="col-md-10 rowBorder">
-																				<div class="row">
-																					<div class="col-md-12">
-																						<span class="input-group-addon" style="text-align:center;">Panel
-																							de
-																							artículos</span>
-																					</div>
-																				</div>
-																				<div class="row">
-																					<div class="col-md-1"></div>
-																					<div class="col-md-5">
-																						<span class="input-group-addon">Comanda</span>
-																					</div>
-																					<div class="col-md-5">
-																						<input type="text" class="form-control textcontrol"></input>
-																					</div>
-																					<div class="col-md-1"></div>
-																				</div>
-																				<div class="row">
-																					<div class="col-md-1"></div>
-																					<div class="col-md-5">
-																						<span class="input-group-addon">Factura</span>
-																					</div>
-																					<div class="col-md-5">
-																						<input type="text" class="form-control textcontrol"></input>
-																					</div>
-																					<div class="col-md-1"></div>
-																				</div>
-																				<div class="row">
-																					<div class="col-md-1"></div>
-																					<div class="col-md-5">
-																						<span class="input-group-addon">Cobro</span>
-																					</div>
-																					<div class="col-md-5">
-																						<input type="text" class="form-control textcontrol"></input>
-																					</div>
-																					<div class="col-md-1"></div>
-																				</div>
-																				<div class="row">
-																					<div class="col-md-1"></div>
-																					<div class="col-md-5">
-																						<span class="input-group-addon">Trso Cargos</span>
-																					</div>
-																					<div class="col-md-5">
-																						<input type="text" class="form-control textcontrol"></input>
-																					</div>
-																					<div class="col-md-1"></div>
-																				</div>
-																			</div>
-																			<div class="col-md-1"></div>
-																		</div>
-																		<div class="row">
-																			<div class="col-md-1"></div>
-																			<div class="col-md-10 rowBorder">
-																				<div class="row">
-																					<div class="col-md-12">
-																						<span class="input-group-addon" style="text-align:center;">Situación
-																							de
-																							la
-																							mesa</span>
-																					</div>
-																				</div>
-																				<div class="row">
-																					<div class="col-md-1"></div>
-																					<div class="col-md-5">
-																						<span class="input-group-addon">Vacia</span>
-																					</div>
-																					<div class="col-md-5">
-																						<input type="text" class="form-control textcontrol"></input>
-																					</div>
-																					<div class="col-md-1"></div>
-																				</div>
-																				<div class="row">
-																					<div class="col-md-1"></div>
-																					<div class="col-md-5">
-																						<span class="input-group-addon">Ocupada</span>
-																					</div>
-																					<div class="col-md-5">
-																						<input type="text" class="form-control textcontrol"></input>
-																					</div>
-																					<div class="col-md-1"></div>
-																				</div>
-																				<div class="row">
-																					<div class="col-md-1"></div>
-																					<div class="col-md-5">
-																						<span class="input-group-addon">Unida</span>
-																					</div>
-																					<div class="col-md-5">
-																						<input type="text" class="form-control textcontrol"></input>
-																					</div>
-																					<div class="col-md-1"></div>
-																				</div>
-																				<div class="row">
-																					<div class="col-md-1"></div>
-																					<div class="col-md-5">
-																						<span class="input-group-addon">Reservada</span>
-																					</div>
-																					<div class="col-md-5">
-																						<input type="text" class="form-control textcontrol"></input>
-																					</div>
-																					<div class="col-md-1"></div>
-																				</div>
-																				<div class="row">
-																					<div class="col-md-1"></div>
-																					<div class="col-md-5">
-																						<span class="input-group-addon">Facturada</span>
-																					</div>
-																					<div class="col-md-5">
-																						<input type="text" class="form-control textcontrol"></input>
-																					</div>
-																					<div class="col-md-1"></div>
-																				</div>
-																			</div>
-																			<div class="col-md-1"></div>
-																		</div>
+																	<div class="col-md-3">
+																		<span class="input-group-addon">Factura Especial</span>
+																	</div>
+																	<div class="col-md-2">
+																		<select class="selectpicker">
+																			<option>0</option>
+																			<option>1</option>
+																			<option>2</option>
+																			<option>3</option>
+																		</select>
+																	</div>
+																	<div class="col-md-3">
+																		<span class="input-group-addon">Literal Factura Especial:</span>
+																	</div>
+																	<div class="col-md-2">
+																		<input type="text" class="form-control textcontrol"></input>
 																	</div>
 																	<div class="col-md-1"></div>
 																</div>
+																<div class="row row5"></div>
+															</div>
+															<div class="col-md-1"></div>
+														</div>
+														<div class="row row5"></div>
+														<div class="row">
+															<div class="col-md-1"></div>
+															<div class="col-md-10 rowBorder">
+																<div class="row row5"></div>
+																<div class="row">
+																	<div class="col-md-12">
+																		<span class="input-group-addon" style="text-align:center;">Literales
+																			en
+																			Facturas</span>
+																	</div>
+																</div>
+																<div class="row row5"></div>
+																<div class="row">
+																	<div class="col-md-3"></div>
+																	<div class="col-md-3">
+																		<span class="input-group-addon">Cobro por Servicio/Cubierto</span>
+																	</div>
+																	<div class="col-md-3">
+																		<input type="text" class="form-control textcontrol"></input>
+																	</div>
+																	<div class="col-md-3"></div>
+																</div>
+																<div class="row row5"></div>
+															</div>
+															<div class="col-md-1"></div>
+														</div>
+														<div class="row row5"></div>
+														<div class="row">
+															<div class="col-md-2"></div>
+															<div class="col-md-2">
+																<span class="input-group-addon">Precio / Persona</span>
+															</div>
+															<div class="col-md-6">
+																<input type="text" class="form-control textcontrol"></input>
+															</div>
+															<div class="col-md-2"></div>
+														</div>
+														<div class="row row5"></div>
+														<div class="row">
+															<div class="col-md-2"></div>
+															<div class="col-md-2">
+																<span class="input-group-addon">Nuevo Antibloqueo</span>
+															</div>
+															<div class="col-md-6">
+																<input type="text" class="form-control textcontrol"></input>
+															</div>
+															<div class="col-md-2"></div>
+														</div>
+														<div class="row row5"></div>
+																
 																<div class="row">
 																	<div class="col-md-2"></div>
 																	<div class="col-md-4">
@@ -1208,7 +1185,17 @@
 																	</div>
 																	<div class="col-md-1"></div>
 																</div>
-																<div class="row">
+															</div>
+														
+														</div>
+													</div>
+												</div>
+												<div class="tab-pane" id="impresion">
+
+													<div class="container-fluid">
+														<div class="row">
+															<div class="col-md-6"><!-- Left -->
+																															<div class="row">
 																	<div class="col-md-1"></div>
 																	<div class="col-md-10 rowBorder">
 																		<div class="row">
@@ -1261,11 +1248,15 @@
 																	</div>
 																	<div class="col-md-1"></div>
 																</div>
+															
+															</div>
+															<div class="col-md-6"><!-- Right -->
 															</div>
 														</div>
 													</div>
+
 												</div>
-												<div class="tab-pane" id="otros">
+												<div class="tab-pane" id="conectividad">
 													<div class="container-fluid">
 														<div class="row">
 															<div class="col-md-1"></div>
@@ -1491,10 +1482,15 @@
 																<div class="row">
 																	<div class="col-md-2"></div>
 																	<div class="col-md-4">
-																		<span class="input-group-addon">Código CONTABILIDAD</span>
+																		<!-- <span class="input-group-addon">Código CONTABILIDAD</span> -->
+																		<span class="input-group-addon">
+																			<t:label for="contCode" />
+																		</span>
 																	</div>
 																	<div class="col-md-4">
-																		<input type="text" class="form-control textcontrol"></input>
+																		<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																		<input class="form-control textcontrol" t:id="contCode"
+																			name="contCode" t:type="TextField" placeholder="${message:contCode-label}" />
 																	</div>
 																	<div class="col-md-2"></div>
 																</div>
@@ -1513,10 +1509,16 @@
 																		<div class="row">
 																			<div class="col-md-2"></div>
 																			<div class="col-md-3">
-																				<span class="input-group-addon">Caja:</span>
+																				<!-- <span class="input-group-addon">Caja</span> -->
+																				<span class="input-group-addon">
+																					<t:label for="ledgerAccCaja" />
+																				</span>
 																			</div>
 																			<div class="col-md-5">
-																				<input type="text" class="form-control textcontrol"></input>
+																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																				<input class="form-control textcontrol" t:id="ledgerAccCaja"
+																					name="ledgerAccCaja" t:type="TextField"
+																					placeholder="${message:ledgerAccCaja-label}" />
 																			</div>
 																			<div class="col-md-2"></div>
 																		</div>
@@ -1524,10 +1526,16 @@
 																		<div class="row">
 																			<div class="col-md-2"></div>
 																			<div class="col-md-3">
-																				<span class="input-group-addon">Invitación:</span>
+																				<!-- <span class="input-group-addon">Invitación </span> -->
+																				<span class="input-group-addon">
+																					<t:label for="ledgerAccInvi" />
+																				</span>
 																			</div>
 																			<div class="col-md-5">
-																				<input type="text" class="form-control textcontrol"></input>
+																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																				<input class="form-control textcontrol" t:id="ledgerAccInvi"
+																					name="ledgerAccInvi" t:type="TextField"
+																					placeholder="${message:ledgerAccInvi-label}" />
 																			</div>
 																			<div class="col-md-2"></div>
 																		</div>
@@ -1538,11 +1546,36 @@
 																<div class="row row5"></div>
 																<div class="row">
 																	<div class="col-md-2"></div>
+																	<div class="col-md-3">
+																		<!-- <span class="input-group-addon">Cta. General Ventas</span> -->
+																		<span class="input-group-addon">
+																			<t:label for="ledgerAccGerVtas" />
+																		</span>
+																	</div>
+																	<div class="col-md-5">
+																		<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																		<input class="form-control textcontrol" t:id="ledgerAccGerVtas"
+																			name="ledgerAccGerVtas" t:type="TextField"
+																			placeholder="${message:ledgerAccGerVtas-label}" />
+																	</div>
+																	<div class="col-md-2"></div>
+																</div>
+																<div class="row row5"></div>
+
+																<div class="row row5"></div>
+																<div class="row">
+																	<div class="col-md-2"></div>
 																	<div class="col-md-4">
-																		<span class="input-group-addon">Cta. General VENTAS:</span>
+																		<!-- <span class="input-group-addon">Cta Propina camareros</span> -->
+																		<span class="input-group-addon">
+																			<t:label for="ledgerAccPropCam" />
+																		</span>
 																	</div>
 																	<div class="col-md-4">
-																		<input type="text" class="form-control textcontrol"></input>
+																		<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																		<input class="form-control textcontrol" t:id="ledgerAccPropCam"
+																			name="ledgerAccPropCam" t:type="TextField"
+																			placeholder="${message:ledgerAccPropCam-label}" />
 																	</div>
 																	<div class="col-md-2"></div>
 																</div>
@@ -1550,35 +1583,36 @@
 																<div class="row">
 																	<div class="col-md-2"></div>
 																	<div class="col-md-4">
-																		<span class="input-group-addon">Cta. Servicio Cbtos.:</span>
+																		<!-- <span class="input-group-addon">Invitación</span> -->
+																		<span class="input-group-addon">
+																			<t:label for="ledgerAccDescVtas" />
+																		</span>
 																	</div>
 																	<div class="col-md-4">
-																		<input type="text" class="form-control textcontrol"></input>
+																		<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																		<input class="form-control textcontrol" t:id="ledgerAccDescVtas"
+																			name="ledgerAccDescVtas" t:type="TextField"
+																			placeholder="${message:ledgerAccDescVtas-label}" />
 																	</div>
 																	<div class="col-md-2"></div>
 																</div>
-																<div class="row row5"></div>
 																<div class="row">
 																	<div class="col-md-2"></div>
 																	<div class="col-md-4">
-																		<span class="input-group-addon">Cta. Propinas camareros:</span>
+																		<!-- <span class="input-group-addon">(1) Nro. sesión actual</span> -->
+																		<span class="input-group-addon">
+																			<t:label for="ledgerAccServCbtos" />
+																		</span>
 																	</div>
 																	<div class="col-md-4">
-																		<input type="text" class="form-control textcontrol"></input>
+																		<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																		<input class="form-control textcontrol" t:id="ledgerAccServCbtos"
+																			name="ledgerAccServCbtos" t:type="TextField"
+																			placeholder="${message:ledgerAccServCbtos-label}" />
 																	</div>
 																	<div class="col-md-2"></div>
 																</div>
-																<div class="row row5"></div>
-																<div class="row">
-																	<div class="col-md-2"></div>
-																	<div class="col-md-4">
-																		<span class="input-group-addon">Cta. Descuadre VTAS.:</span>
-																	</div>
-																	<div class="col-md-4">
-																		<input type="text" class="form-control textcontrol"></input>
-																	</div>
-																	<div class="col-md-2"></div>
-																</div>
+
 															</div>
 															<div class="col-md-6"><!-- Right -->
 																<div class="row row5"></div>
@@ -1598,10 +1632,10 @@
 																			<div class="col-md-1">
 																				<span class="input-group-addon" style="text-align:center;">Tipo</span>
 																			</div>
-																			<div class="col-md-2">
+																			<div class="col-md-3">
 																				<span class="input-group-addon" style="text-align:center;">% I.V.A.</span>
 																			</div>
-																			<div class="col-md-5">
+																			<div class="col-md-4">
 																				<span class="input-group-addon" style="text-align:center;">Cta.
 																					I.V.A.</span>
 																			</div>
@@ -1611,27 +1645,21 @@
 																		<div class="row">
 																			<div class="col-md-2"></div>
 																			<div class="col-md-1">
-																				<span class="input-group-addon" style="text-align:center;">1</span>
+																				<!-- <span class="input-group-addon">IVA 1</span> -->
+																				<span class="input-group-addon">
+																					<t:label for="ivaType1" />
+																				</span>
 																			</div>
-																			<div class="col-md-2">
-																				<input type="text" class="form-control textcontrol"></input>
+																			<div class="col-md-3">
+																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																				<input class="form-control textcontrol" t:id="ivaType1"
+																					name="ivaType1" t:type="TextField" placeholder="${message:ivaType1-label}" />
 																			</div>
-																			<div class="col-md-5">
-																				<input type="text" class="form-control textcontrol"></input>
-																			</div>
-																			<div class="col-md-2"></div>
-																		</div>
-																		<div class="row row5"></div>
-																		<div class="row">
-																			<div class="col-md-2"></div>
-																			<div class="col-md-1">
-																				<span class="input-group-addon" style="text-align:center;">2</span>
-																			</div>
-																			<div class="col-md-2">
-																				<input type="text" class="form-control textcontrol"></input>
-																			</div>
-																			<div class="col-md-5">
-																				<input type="text" class="form-control textcontrol"></input>
+																			<div class="col-md-4">
+																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																				<input class="form-control textcontrol" t:id="ledgerAccIVA1"
+																					name="ledgerAccIVA1" t:type="TextField"
+																					placeholder="${message:ledgerAccIVA1-label}" />
 																			</div>
 																			<div class="col-md-2"></div>
 																		</div>
@@ -1639,13 +1667,43 @@
 																		<div class="row">
 																			<div class="col-md-2"></div>
 																			<div class="col-md-1">
-																				<span class="input-group-addon" style="text-align:center;">3</span>
+																				<!-- <span class="input-group-addon">IVA 2</span> -->
+																				<span class="input-group-addon">
+																					<t:label for="ivaType2" />
+																				</span>
 																			</div>
-																			<div class="col-md-2">
-																				<input type="text" class="form-control textcontrol"></input>
+																			<div class="col-md-3">
+																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																				<input class="form-control textcontrol" t:id="ivaType2"
+																					name="ivaType2" t:type="TextField" placeholder="${message:ivaType2-label}" />
 																			</div>
-																			<div class="col-md-5">
-																				<input type="text" class="form-control textcontrol"></input>
+																			<div class="col-md-4">
+																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																				<input class="form-control textcontrol" t:id="ledgerAccIVA2"
+																					name="ledgerAccIVA2" t:type="TextField"
+																					placeholder="${message:ledgerAccIVA2-label}" />
+																			</div>
+																			<div class="col-md-2"></div>
+																		</div>
+																		<div class="row row5"></div>
+																		<div class="row">
+																			<div class="col-md-2"></div>
+																			<div class="col-md-1">
+																				<!-- <span class="input-group-addon">IVA 3</span> -->
+																				<span class="input-group-addon">
+																					<t:label for="ivaType3" />
+																				</span>
+																			</div>
+																			<div class="col-md-3">
+																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																				<input class="form-control textcontrol" t:id="ivaType3"
+																					name="ivaType3" t:type="TextField" placeholder="${message:ivaType3-label}" />
+																			</div>
+																			<div class="col-md-4">
+																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																				<input class="form-control textcontrol" t:id="ledgerAccIVA3"
+																					name="ledgerAccIVA3" t:type="TextField"
+																					placeholder="${message:ledgerAccIVA3-label}" />
 																			</div>
 																			<div class="col-md-2"></div>
 																		</div>
@@ -1654,18 +1712,163 @@
 																	<div class="col-md-1"></div>
 																</div>
 																<div class="row5"></div>
-																<div class="row5"></div>
 																<div class="row">
 																	<div class="col-md-2"></div>
 																	<div class="col-md-4">
-																		<span class="input-group-addon">Literal del impuesto:</span>
+																		<!-- <span class="input-group-addon">Literal del impuesto</span> -->
+																		<span class="input-group-addon">
+																			<t:label for="literalIVA" />
+																		</span>
 																	</div>
 																	<div class="col-md-4">
-																		<input type="text" class="form-control textcontrol"></input>
+																		<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																		<input class="form-control textcontrol" t:id="literalIVA"
+																			name="literalIVA" t:type="TextField"
+																			placeholder="${message:literalIVA-label}" />
 																	</div>
 																	<div class="col-md-2"></div>
 																</div>
 															</div>
+														</div>
+													</div>
+												</div>
+												<div class="tab-pane" id="apariencia">
+													<div class="container-fluid">
+														<div class="row">
+															<div class="col-md-6">
+																<div class="row">
+																	<div class="col-md-1"></div>
+																	<div class="col-md-10 rowBorder">
+																		<div class="row">
+																			<div class="col-md-12">
+																				<span class="input-group-addon">
+																					Color
+																				</span>
+																			</div>
+																		</div>
+																		<div class="row">
+																			<div class="col-md-1"></div>
+																			<div class="col-md-10 rowBorder">
+																				<div class="row">
+																					<div class="col-md-12">
+																						<span class="input-group-addon" style="text-align:center;">Panel
+																							de
+																							artículos</span>
+																					</div>
+																				</div>
+																				<div class="row">
+																					<div class="col-md-1"></div>
+																					<div class="col-md-5">
+																						<span class="input-group-addon">Comanda</span>
+																					</div>
+																					<div class="col-md-5">
+																						<input type="text" class="form-control textcontrol"></input>
+																					</div>
+																					<div class="col-md-1"></div>
+																				</div>
+																				<div class="row">
+																					<div class="col-md-1"></div>
+																					<div class="col-md-5">
+																						<span class="input-group-addon">Factura</span>
+																					</div>
+																					<div class="col-md-5">
+																						<input type="text" class="form-control textcontrol"></input>
+																					</div>
+																					<div class="col-md-1"></div>
+																				</div>
+																				<div class="row">
+																					<div class="col-md-1"></div>
+																					<div class="col-md-5">
+																						<span class="input-group-addon">Cobro</span>
+																					</div>
+																					<div class="col-md-5">
+																						<input type="text" class="form-control textcontrol"></input>
+																					</div>
+																					<div class="col-md-1"></div>
+																				</div>
+																				<div class="row">
+																					<div class="col-md-1"></div>
+																					<div class="col-md-5">
+																						<span class="input-group-addon">Trso Cargos</span>
+																					</div>
+																					<div class="col-md-5">
+																						<input type="text" class="form-control textcontrol"></input>
+																					</div>
+																					<div class="col-md-1"></div>
+																				</div>
+																			</div>
+																			<div class="col-md-1"></div>
+																		</div>
+																		<div class="row">
+																			<div class="col-md-1"></div>
+																			<div class="col-md-10 rowBorder">
+																				<div class="row">
+																					<div class="col-md-12">
+																						<span class="input-group-addon" style="text-align:center;">Situación
+																							de
+																							la
+																							mesa</span>
+																					</div>
+																				</div>
+																				<div class="row">
+																					<div class="col-md-1"></div>
+																					<div class="col-md-5">
+																						<span class="input-group-addon">Vacia</span>
+																					</div>
+																					<div class="col-md-5">
+																						<input type="text" class="form-control textcontrol"></input>
+																					</div>
+																					<div class="col-md-1"></div>
+																				</div>
+																				<div class="row">
+																					<div class="col-md-1"></div>
+																					<div class="col-md-5">
+																						<span class="input-group-addon">Ocupada</span>
+																					</div>
+																					<div class="col-md-5">
+																						<input type="text" class="form-control textcontrol"></input>
+																					</div>
+																					<div class="col-md-1"></div>
+																				</div>
+																				<div class="row">
+																					<div class="col-md-1"></div>
+																					<div class="col-md-5">
+																						<span class="input-group-addon">Unida</span>
+																					</div>
+																					<div class="col-md-5">
+																						<input type="text" class="form-control textcontrol"></input>
+																					</div>
+																					<div class="col-md-1"></div>
+																				</div>
+																				<div class="row">
+																					<div class="col-md-1"></div>
+																					<div class="col-md-5">
+																						<span class="input-group-addon">Reservada</span>
+																					</div>
+																					<div class="col-md-5">
+																						<input type="text" class="form-control textcontrol"></input>
+																					</div>
+																					<div class="col-md-1"></div>
+																				</div>
+																				<div class="row">
+																					<div class="col-md-1"></div>
+																					<div class="col-md-5">
+																						<span class="input-group-addon">Facturada</span>
+																					</div>
+																					<div class="col-md-5">
+																						<input type="text" class="form-control textcontrol"></input>
+																					</div>
+																					<div class="col-md-1"></div>
+																				</div>
+																			</div>
+																			<div class="col-md-1"></div>
+																		</div>
+																	</div>
+																	<div class="col-md-1"></div>
+																</div>
+
+															</div>
+															<div class="col-md-6"></div>
 														</div>
 													</div>
 												</div>
@@ -1683,100 +1886,7 @@
 								<div class="tab-pane" id="configSistema">
 
 									<div class="container-fluid">
-										<div class="row">
-											<div class="col-md-1"></div>
-											<div class="col-md-10 rowBorder">
-												<div class="row row5"></div>
-												<div class="row">
-													<div class="col-md-4"></div>
-													<div class="col-md-3">
-														<span class="input-group-addon">Anular mesa</span>
-													</div>
-													<div class="col-md-1">
-														<select class="selectpicker">
-															<option>0</option>
-															<option>1</option>
-															<option>2</option>
-															<option>3</option>
-														</select>
-													</div>
-													<div class="col-md-4"></div>
-												</div>
-												<div class="row row5"></div>
-												<div class="row">
-													<div class="col-md-1"></div>
-													<div class="col-md-3">
-														<span class="input-group-addon">Factura Especial</span>
-													</div>
-													<div class="col-md-2">
-														<select class="selectpicker">
-															<option>0</option>
-															<option>1</option>
-															<option>2</option>
-															<option>3</option>
-														</select>
-													</div>
-													<div class="col-md-3">
-														<span class="input-group-addon">Literal Factura Especial:</span>
-													</div>
-													<div class="col-md-2">
-														<input type="text" class="form-control textcontrol"></input>
-													</div>
-													<div class="col-md-1"></div>
-												</div>
-												<div class="row row5"></div>
-											</div>
-											<div class="col-md-1"></div>
-										</div>
-										<div class="row row5"></div>
-										<div class="row">
-											<div class="col-md-1"></div>
-											<div class="col-md-10 rowBorder">
-												<div class="row row5"></div>
-												<div class="row">
-													<div class="col-md-12">
-														<span class="input-group-addon" style="text-align:center;">Literales en
-															Facturas</span>
-													</div>
-												</div>
-												<div class="row row5"></div>
-												<div class="row">
-													<div class="col-md-3"></div>
-													<div class="col-md-3">
-														<span class="input-group-addon">Cobro por Servicio/Cubierto</span>
-													</div>
-													<div class="col-md-3">
-														<input type="text" class="form-control textcontrol"></input>
-													</div>
-													<div class="col-md-3"></div>
-												</div>
-												<div class="row row5"></div>
-											</div>
-											<div class="col-md-1"></div>
-										</div>
-										<div class="row row5"></div>
-										<div class="row">
-											<div class="col-md-2"></div>
-											<div class="col-md-2">
-												<span class="input-group-addon">Precio / Persona</span>
-											</div>
-											<div class="col-md-6">
-												<input type="text" class="form-control textcontrol"></input>
-											</div>
-											<div class="col-md-2"></div>
-										</div>
-										<div class="row row5"></div>
-										<div class="row">
-											<div class="col-md-2"></div>
-											<div class="col-md-2">
-												<span class="input-group-addon">Nuevo Antibloqueo</span>
-											</div>
-											<div class="col-md-6">
-												<input type="text" class="form-control textcontrol"></input>
-											</div>
-											<div class="col-md-2"></div>
-										</div>
-										<div class="row row5"></div>
+
 									</div>
 								</div>
 								<div class="tab-pane" id="claves">
