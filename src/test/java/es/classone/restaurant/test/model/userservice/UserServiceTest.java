@@ -206,9 +206,9 @@ public class UserServiceTest {
 			DuplicateFavoriteException {
 		UserProfile userProfile = userService.registerUser("user",
 				"userPassword", new UserProfileDetails("user@udc.es"), '1');
-		Favorite favorite = new Favorite(11,"/restaurant/configuration");
+		Favorite favorite = new Favorite("1.1","/restaurant/configuration");
 		userService.createFavorite(favorite, userProfile.getUserProfileId());
-		Favorite favorite2 = new Favorite(12,"/restaurant/configuration");
+		Favorite favorite2 = new Favorite("1.2","/restaurant/configuration");
 		userService.createFavorite(favorite2, userProfile.getUserProfileId());
 		List<Favorite> favorites = favoriteDao.getFavoritesByUserId(userProfile
 				.getUserProfileId());
@@ -219,9 +219,9 @@ public class UserServiceTest {
 	public void testCreateDuplicateFavorite() throws DuplicateInstanceException, InstanceNotFoundException, DuplicateFavoriteException{
 		UserProfile userProfile = userService.registerUser("user",
 				"userPassword", new UserProfileDetails("user@udc.es"), '1');
-		Favorite favorite = new Favorite(112,"/restaurant/configuration");
+		Favorite favorite = new Favorite("1.1.2","/restaurant/configuration");
 		userService.createFavorite(favorite, userProfile.getUserProfileId());
-		Favorite favorite2 = new Favorite(112,"/restaurant/configuration");
+		Favorite favorite2 = new Favorite("1.1.2","/restaurant/configuration");
 		userService.createFavorite(favorite2, userProfile.getUserProfileId());
 	}
 	private UserProfile registerUser(String loginName, String clearPassword) {
