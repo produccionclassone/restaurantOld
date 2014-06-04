@@ -131,6 +131,17 @@ var changeLiterals = function(value, spec) {
 				"<li class='active'>" + spec.optiona + "</li>");
 		$("#buttonmenu").text(spec.optiona);
 	}
+	if (value == "b") {
+		$("#button1txt").text(spec.optionb1);
+		$("#button3txt").text(spec.optionb3);
+		$("#button4txt").text(spec.optionb4);
+		$("#button5txt").text(spec.optionb5);
+		$("#button6txt").text(spec.optionb6);
+		$("#button7txt").text(spec.optionb7);
+		$("#headernav ol").append(
+				"<li class='active' name='"+spec.optionb+"'>" + spec.optionb + "</li>");
+		$("#buttonmenu").text(spec.optionb);
+	}
 }
 
 var menuClickBehaviour = function(spec) {
@@ -139,7 +150,6 @@ var menuClickBehaviour = function(spec) {
 		if (currentOption == "menu")
 			changeLiterals(1, spec);
 		if (currentOption == "favorites") {
-			console.log("ESTOY EN FAVORITOS");
 			$("#add-favorite-modal").modal("show");
 		}
 
@@ -183,6 +193,16 @@ var menuClickBehaviour = function(spec) {
 		if (currentOption == "menu")
 			changeLiterals("a", spec);
 	});
+	$("#buttonBopt").click(function() {
+		var currentOption = $('.active').attr('name');
+		if (currentOption == "menu")
+			changeLiterals("b", spec);
+	});
+	$("#buttonBtxt").click(function() {
+		var currentOption = $('.active').attr('name');
+		if (currentOption == "menu")
+			changeLiterals("b", spec);
+	});
 
 }
 
@@ -209,8 +229,17 @@ var menuBehaviour = function(e, spec) {
 	if ((String.fromCharCode(e.which) == 7) && (currentOption == "menu")) {
 		changeLiterals(7, spec);
 	}
+	if((String.fromCharCode(e.which)==7) &&(currentOption==spec.optionb)){
+		
+		$(location)
+		.attr('href',
+				spec.pathb7);
+	}
 	if ((String.fromCharCode(e.which) == "a") && (currentOption == "menu")) {
 		changeLiterals("a", spec);
+	}
+	if ((String.fromCharCode(e.which) == "b") && (currentOption == "menu")) {
+		changeLiterals("b", spec);
 	}
 };
 

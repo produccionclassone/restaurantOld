@@ -10,10 +10,11 @@ public class Option {
 	private String optionName;
 	private ArrayList<Option> options;
 	
-	public Option(String option, String path, boolean parent) {
+	public Option(String option,String name, String path, boolean parent) {
 		this.option = option;
 		this.parent = parent;
 		this.path=path;
+		this.optionName=name;
 	}
 
 	public String getOption() {
