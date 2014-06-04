@@ -49,12 +49,18 @@ public class MapApp {
 
 	}
 
-	private static Option getOptionObjByOption(String option) {
+	public static Option getOptionObjByOption(String option) {
 		for (Option o : map) {
 			if (o.getOption().equals(option)) {
 				return o;
 			}
-
+			if (o.isParent()){
+				for (Option so: o.getOptions()){
+					if (so.getOption().equals(option)) {
+						return so;
+					}
+				}
+			}
 		}
 		return null;
 	}

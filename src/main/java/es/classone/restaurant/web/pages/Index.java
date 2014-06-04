@@ -3,6 +3,7 @@ package es.classone.restaurant.web.pages;
 import java.util.List;
 
 import org.apache.tapestry5.ComponentResources;
+import org.apache.tapestry5.Link;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.annotations.SessionState;
@@ -10,11 +11,14 @@ import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.json.JSONArray;
 import org.apache.tapestry5.json.JSONObject;
+import org.apache.tapestry5.services.PageRenderLinkSource;
 import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
 import es.classone.restaurant.model.favorite.Favorite;
+import es.classone.restaurant.model.userservice.DuplicateFavoriteException;
 import es.classone.restaurant.model.userservice.UserService;
+import es.classone.restaurant.modelutil.exceptions.InstanceNotFoundException;
 import es.classone.restaurant.web.services.AuthenticationPolicy;
 import es.classone.restaurant.web.services.AuthenticationPolicyType;
 import es.classone.restaurant.web.util.MapApp;
@@ -33,7 +37,10 @@ public class Index {
 
 	@Inject
 	private ComponentResources componentResources;
-
+	
+	@Inject
+	private PageRenderLinkSource linkSource;
+	
 	@Inject
 	private UserService userService;
 
@@ -141,7 +148,22 @@ public class Index {
 		}
 		options=MapApp.getMapApp();
 	}
-
+	Object onAddFavorite(String option){
+		System.out.println(option);
+		Option opt= MapApp.getOptionObjByOption(option);
+		Favorite favorite = new Favorite(opt.getOption(),opt.getPath());
+		try {
+			userService.createFavorite(favorite, userSession.getUserProfileId());
+		} catch (InstanceNotFoundException e) {
+			System.out.println("NO ENCONTRADO");
+		} catch (DuplicateFavoriteException e) {
+			System.out.println("FAVORITO DUPLICADO");
+		}
+		Link link = linkSource.createPageRenderLink(Index.class);
+		link.addParameterValue("showFavorites", false);
+		link.addParameterValue("showHistory", false);
+		return link;
+	}
 	void afterRender() {
 		changeFavorites = request.getParameter("showFavorites");
 		JSONObject literals = new JSONObject();
@@ -162,7 +184,8 @@ public class Index {
 			JSONArray jsonArray = new JSONArray();
 
 			for (Favorite f : favorites) {
-				jsonArray.put(f.getFavoriteId(), f.getUseCase());
+				
+				jsonArray.put(f.getFavoriteId(), MapApp.getOptionObjByOption(f.getUseCase()).getOptionName());
 			}
 
 			literals.put("favorites", jsonArray);

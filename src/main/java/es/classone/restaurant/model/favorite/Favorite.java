@@ -18,14 +18,14 @@ import es.classone.restaurant.model.userprofile.UserProfile;
 public class Favorite {
 
 	private int favoriteId;
-	private int useCase;
+	private String useCase;
 	private String path;
 	private UserProfile userProfile;
 
 	public Favorite() {
 	}
 
-	public Favorite(int useCase,String path) {
+	public Favorite(String useCase,String path) {
 		this.useCase= useCase;
 		this.path=path;
 	}
@@ -46,11 +46,11 @@ public class Favorite {
 	}
 
 	@Column(name = "R1FAV002")
-	public int getUseCase() {
+	public String getUseCase() {
 		return useCase;
 	}
 
-	public void setUseCase(int useCase) {
+	public void setUseCase(String useCase) {
 		this.useCase = useCase;
 	}
 

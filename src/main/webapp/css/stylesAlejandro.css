@@ -299,7 +299,33 @@ HTML>BODY
 	width:30px
 }
 
+/*FAVORITES*/
+.panel-favorites{
+text-align:left;
+}
+HTML>BODY
+.option-heading{
+padding:5px 7px;
+font-weight:bold;
+}
+HTML>BODY
+.suboption-item{
+padding:0px;
+padding-left:15px;
+margin-bottom:2px;
+font-size:14px;
+}
+HTML>BODY
+.list-group-item:last-child{
+margin-bottom:3px;
+width:300px;
+}
 
+HTML>BODY
+.suboptions-group{
+margin-bottom:0px;
+padding:5px;
+}
 /*CLOCK AND DATE*/
 @font-face {
 	font-family: 'digi';

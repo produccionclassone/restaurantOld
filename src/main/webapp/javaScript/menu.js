@@ -3,13 +3,15 @@ var clearButtons = function() {
 	for (var i = 1; i <= 9; i++) {
 		var buttonNum = "#button" + i.toString() + "txt";
 		$(buttonNum).text("");
-		var buttonChar = "#button" + chars[i - 1] + "txt"
+		var buttonChar = "#button" + chars[i - 1] + "txt";
 		$(buttonChar).text("");
 	}
 }
 
 var changeLiterals = function(value, spec) {
+	// ARREGLAR BUG DE SI NO TIENE SUBNIVEL EN CLICK
 	clearButtons();
+	console.log(value);
 	$("#activemenu")
 			.replaceWith(
 					"<li id='disablemenu' class='disable'><a href='/restaurant/?showFavorites=false&showHistory=false'>"
@@ -35,7 +37,7 @@ var changeLiterals = function(value, spec) {
 		$("#buttonmenu").text(spec.menu);
 
 	}
-	if (value == 1) {
+	if (value == "1") {
 		$("#button1txt").text(spec.option11);
 		$("#button2txt").text(spec.option12);
 		$("#button3txt").text(spec.option13);
@@ -48,7 +50,7 @@ var changeLiterals = function(value, spec) {
 				"<li class='active'>" + spec.option1 + "</li>");
 		$("#buttonmenu").text(spec.option1);
 	}
-	if (value == 3) {
+	if (value == "3") {
 		$("#button1txt").text(spec.option31);
 		$("#button2txt").text(spec.option32);
 		$("#button3txt").text(spec.option33);
@@ -61,7 +63,7 @@ var changeLiterals = function(value, spec) {
 				"<li class='active'>" + spec.option3 + "</li>");
 		$("#buttonmenu").text(spec.option3);
 	}
-	if (value == 4) {
+	if (value == "4") {
 		$("#button1txt").text(spec.option41);
 		$("#button2txt").text(spec.option42);
 		$("#button3txt").text(spec.option43);
@@ -83,7 +85,7 @@ var changeLiterals = function(value, spec) {
 				"<li class='active'>" + spec.option4 + "</li>");
 		$("#buttonmenu").text(spec.option4);
 	}
-	if (value == 5) {
+	if (value == "5") {
 		$("#button1txt").text(spec.option51);
 		$("#button2txt").text(spec.option52);
 		$("#button3txt").text(spec.option53);
@@ -98,7 +100,7 @@ var changeLiterals = function(value, spec) {
 				"<li class='active'>" + spec.option5 + "</li>");
 		$("#buttonmenu").text(spec.option5);
 	}
-	if (value == 6) {
+	if (value == "6") {
 		$("#button1txt").text(spec.option61);
 		$("#button2txt").text(spec.option62);
 		$("#button3txt").text(spec.option63);
@@ -109,7 +111,7 @@ var changeLiterals = function(value, spec) {
 				"<li class='active'>" + spec.option6 + "</li>");
 		$("#buttonmenu").text(spec.option6);
 	}
-	if (value == 6) {
+	if (value == "7") {
 		$("#button1txt").text(spec.option71);
 		$("#button2txt").text(spec.option72);
 		$("#button3txt").text(spec.option73);
@@ -118,7 +120,7 @@ var changeLiterals = function(value, spec) {
 				"<li class='active'>" + spec.option7 + "</li>");
 		$("#buttonmenu").text(spec.option7);
 	}
-	if (value == "a") {
+	if (value == "A") {
 		$("#button1txt").text(spec.optiona1);
 		$("#button2txt").text(spec.optiona2);
 		$("#button3txt").text(spec.optiona3);
@@ -131,7 +133,7 @@ var changeLiterals = function(value, spec) {
 				"<li class='active'>" + spec.optiona + "</li>");
 		$("#buttonmenu").text(spec.optiona);
 	}
-	if (value == "b") {
+	if (value == "B") {
 		$("#button1txt").text(spec.optionb1);
 		$("#button3txt").text(spec.optionb3);
 		$("#button4txt").text(spec.optionb4);
@@ -139,69 +141,34 @@ var changeLiterals = function(value, spec) {
 		$("#button6txt").text(spec.optionb6);
 		$("#button7txt").text(spec.optionb7);
 		$("#headernav ol").append(
-				"<li class='active' name='"+spec.optionb+"'>" + spec.optionb + "</li>");
+				"<li class='active' name='" + spec.optionb + "'>"
+						+ spec.optionb + "</li>");
 		$("#buttonmenu").text(spec.optionb);
 	}
 }
 
 var menuClickBehaviour = function(spec) {
-	$("#button1opt").click(function() {
+	$(".btn-option").click(function() {
 		var currentOption = $('.active').attr('name');
 		if (currentOption == "menu")
-			changeLiterals(1, spec);
+			changeLiterals(($(this).attr('id')[6]), spec);
+		if (currentOption == "favorites") {
+			if ($(this).text()=="")
+			$("#add-favorite-modal").modal("show");
+			else{
+				//$(location).attr('href', );ENLAZAR A LA RUTA DEL FAVORITO
+			}
+				
+			
+		}
+	});
+	$(".btn-text").click(function() {
+		var currentOption = $('.active').attr('name');
+		if (currentOption == "menu")
+			changeLiterals(($(this).attr('id')[6]), spec);
 		if (currentOption == "favorites") {
 			$("#add-favorite-modal").modal("show");
 		}
-
-	});
-	$("#button1txt").click(function() {
-		var currentOption = $('.active').attr('name');
-		if (currentOption == "menu")
-			changeLiterals(1, spec);
-		if (currentOption == "favorites") {
-			console.log("ESTOY EN FAVORITOS");
-			$("#add-favorite-modal").modal("show");
-		}
-	});
-	$("#button2opt").click(function() {
-		var currentOption = $('.active').attr('name');
-		if (currentOption == "menu")
-			changeLiterals(2, spec);
-	});
-	$("#button2txt").click(function() {
-		var currentOption = $('.active').attr('name');
-		if (currentOption == "menu")
-			changeLiterals(2, spec);
-	});
-	$("#button3opt").click(function() {
-		var currentOption = $('.active').attr('name');
-		if (currentOption == "menu")
-			changeLiterals(3, spec);
-	});
-	$("#button3txt").click(function() {
-		var currentOption = $('.active').attr('name');
-		if (currentOption == "menu")
-			changeLiterals(3, spec);
-	});
-	$("#buttonAopt").click(function() {
-		var currentOption = $('.active').attr('name');
-		if (currentOption == "menu")
-			changeLiterals("a", spec);
-	});
-	$("#buttonAtxt").click(function() {
-		var currentOption = $('.active').attr('name');
-		if (currentOption == "menu")
-			changeLiterals("a", spec);
-	});
-	$("#buttonBopt").click(function() {
-		var currentOption = $('.active').attr('name');
-		if (currentOption == "menu")
-			changeLiterals("b", spec);
-	});
-	$("#buttonBtxt").click(function() {
-		var currentOption = $('.active').attr('name');
-		if (currentOption == "menu")
-			changeLiterals("b", spec);
 	});
 
 }
@@ -229,11 +196,9 @@ var menuBehaviour = function(e, spec) {
 	if ((String.fromCharCode(e.which) == 7) && (currentOption == "menu")) {
 		changeLiterals(7, spec);
 	}
-	if((String.fromCharCode(e.which)==7) &&(currentOption==spec.optionb)){
-		
-		$(location)
-		.attr('href',
-				spec.pathb7);
+	if ((String.fromCharCode(e.which) == 7) && (currentOption == spec.optionb)) {
+
+		$(location).attr('href', spec.pathb7);
 	}
 	if ((String.fromCharCode(e.which) == "a") && (currentOption == "menu")) {
 		changeLiterals("a", spec);
@@ -245,191 +210,26 @@ var menuBehaviour = function(e, spec) {
 
 var changeToFavorite = function(i, option) {
 	console.log(option);
-	switch (i) {
-	case 1:
-		if (option == null) {
-			$("#button1txt").text("");
-			$("#button1opt")
-					.replaceWith(
-							"<button type='button' id='button1opt' class='btn btn-default btn-option btn-addFavorite'><img src='css/images/add.png' width='20' height='20'/></button>");
-		} else {
-			$("#button1txt").text(option.toString());
-		}
-		break;
-
-	case 2:
-		if (option == null) {
-			$("#button2txt").text("");
-			$("#button2opt")
-					.replaceWith(
-							"<button type='button' id='button2opt' class='btn btn-default btn-option btn-addFavorite'><img src='css/images/add.png' width='20' height='20'/></button>");
-		} else {
-			$("#button2txt").text(option.toString());
-		}
-		break;
-	case 3:
-		if (option == null) {
-			$("#button3txt").text("");
-			$("#button3opt")
-					.replaceWith(
-							"<button type='button' id='button3opt' class='btn btn-default btn-option btn-addFavorite'><img src='css/images/add.png' width='20' height='20'/></button>");
-		} else {
-			$("#button3txt").text(option.toString());
-		}
-		break;
-	case 4:
-		if (option == null) {
-			$("#button4txt").text("");
-			$("#button4opt")
-					.replaceWith(
-							"<button type='button' id='button4opt' class='btn btn-default btn-option btn-addFavorite'><img src='css/images/add.png' width='20' height='20'/></button>");
-		} else {
-			$("#button4txt").text("FAVORITO 4");
-		}
-		break;
-	case 5:
-		if (option == null) {
-			$("#button5txt").text("");
-			$("#button5opt")
-					.replaceWith(
-							"<button type='button' id='button5opt' class='btn btn-default btn-option btn-addFavorite'><img src='css/images/add.png' width='20' height='20'/></button>");
-		} else {
-			$("#button5txt").text("FAVORITO 5");
-		}
-		break;
-	case 6:
-		if (option == null) {
-			$("#button6txt").text("");
-			$("#button6opt")
-					.replaceWith(
-							"<button type='button' id='button6opt' class='btn btn-default btn-option btn-addFavorite'><img src='css/images/add.png' width='20' height='20'/></button>");
-		} else {
-			$("#button6txt").text("FAVORITO 6");
-		}
-		break;
-	case 7:
-		if (option == null) {
-			$("#button7txt").text("");
-			$("#button7opt")
-					.replaceWith(
-							"<button type='button' id='button7opt' class='btn btn-default btn-option btn-addFavorite'><img src='css/images/add.png' width='20' height='20'/></button>");
-		} else {
-			$("#button7txt").text("FAVORITO 7");
-		}
-		break;
-	case 8:
-		if (option == null) {
-			$("#button8txt").text("");
-			$("#button8opt")
-					.replaceWith(
-							"<button type='button' id='button8opt' class='btn btn-default btn-option btn-addFavorite'><img src='css/images/add.png' width='20' height='20'/></button>");
-		} else {
-			$("#button8txt").text("FAVORITO 8");
-		}
-		break;
-	case 9:
-		if (option == null) {
-			$("#button9txt").text("");
-			$("#button9opt")
-					.replaceWith(
-							"<button type='button' id='button9opt' class='btn btn-default btn-option btn-addFavorite'><img src='css/images/add.png' width='20' height='20'/></button>");
-		} else {
-			$("#button9txt").text("FAVORITO 9");
-		}
-		break;
-	case 10:
-		if (option == null) {
-			$("#buttonAtxt").text("");
-			$("#buttonAopt")
-					.replaceWith(
-							"<button type='button' id='buttonAopt' class='btn btn-default btn-option btn-addFavorite'><img src='css/images/add.png' width='20' height='20'/></button>");
-		} else {
-			$("#buttonAtxt").text("FAVORITO A");
-		}
-		break;
-
-	case 11:
-		if (option == null) {
-			$("#buttonBtxt").text("");
-			$("#buttonBopt")
-					.replaceWith(
-							"<button type='button' id='buttonBopt' class='btn btn-default btn-option btn-addFavorite'><img src='css/images/add.png' width='20' height='20'/></button>");
-		} else {
-			$("#buttonBtxt").text("FAVORITO B");
-		}
-		break;
-	case 12:
-		if (option == null) {
-			$("#buttonCtxt").text("");
-			$("#buttonCopt")
-					.replaceWith(
-							"<button type='button' id='buttonCopt' class='btn btn-default btn-option btn-addFavorite'><img src='css/images/add.png' width='20' height='20'/></button>");
-		} else {
-			$("#buttonCtxt").text("FAVORITO C");
-		}
-		break;
-	case 13:
-		if (option == null) {
-			$("#buttonDtxt").text("");
-			$("#buttonDopt")
-					.replaceWith(
-							"<button type='button' id='buttonDopt' class='btn btn-default btn-option btn-addFavorite'><img src='css/images/add.png' width='20' height='20'/></button>");
-		} else {
-			$("#buttonDtxt").text("FAVORITO D");
-		}
-		break;
-	case 14:
-		if (option == null) {
-			$("#buttonEtxt").text("");
-			$("#buttonEopt")
-					.replaceWith(
-							"<button type='button' id='buttonEopt' class='btn btn-default btn-option btn-addFavorite'><img src='css/images/add.png' width='20' height='20'/></button>");
-		} else {
-			$("#buttonEtxt").text("FAVORITO E");
-		}
-		break;
-	case 15:
-		if (option == null) {
-			$("#buttonFtxt").text("");
-			$("#buttonFopt")
-					.replaceWith(
-							"<button type='button' id='buttonFopt' class='btn btn-default btn-option btn-addFavorite'><img src='css/images/add.png' width='20' height='20'/></button>");
-		} else {
-			$("#buttonFtxt").text("FAVORITO F");
-		}
-		break;
-	case 16:
-		if (option == null) {
-			$("#buttonGtxt").text("");
-			$("#buttonGopt")
-					.replaceWith(
-							"<button type='button' id='buttonGopt' class='btn btn-default btn-option btn-addFavorite'><img src='css/images/add.png' width='20' height='20'/></button>");
-		} else {
-			$("#buttonGtxt").text("FAVORITO G");
-		}
-		break;
-	case 17:
-		if (option == null) {
-			$("#buttonHtxt").text("");
-			$("#buttonHopt")
-					.replaceWith(
-							"<button type='button' id='buttonHopt' class='btn btn-default btn-option btn-addFavorite'><img src='css/images/add.png' width='20' height='20'/></button>");
-		} else {
-			$("#buttonHtxt").text("FAVORITO H");
-		}
-		break;
-	case 18:
-		if (option == null) {
-			$("#buttonItxt").text("");
-			$("#buttonIopt")
-					.replaceWith(
-							"<button type='button' id='buttonIopt' class='btn btn-default btn-option btn-addFavorite'><img src='css/images/add.png' width='20' height='20'/></button>");
-		} else {
-			$("#buttonItxt").text("FAVORITO I");
-		}
-		break;
-
+	var chars = "ABCDEFGHI";
+	var button, buttonOpt;
+	if (i <= 9) {
+		button = "#button" + i.toString() + "txt";
+		buttonOpt = "#button" + i.toString() + "opt";
+	} else {
+		button = "#button" + chars[i - 10] + "txt";
+		buttonOpt = "#button" + chars[i - 10] + "opt";
 	}
+	if (option == null) {
+		$(button).text("");
+		$(buttonOpt)
+				.replaceWith(
+						"<button type='button' id='"
+								+ buttonOpt
+								+ "' class='btn btn-default btn-option btn-addFavorite'><img src='css/images/add.png' width='20' height='20'/></button>");
+	} else {
+		$(button).text(option.toString());
+	}
+
 };
 (function($, window) {
 	'use scrict';

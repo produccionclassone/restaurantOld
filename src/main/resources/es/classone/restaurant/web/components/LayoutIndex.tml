@@ -351,86 +351,97 @@
 								<div class="col-md-6">
 
 									<div class="row">
-										<button class="btn btn-default btn-image">
+										<button class="btn btn-default btn-image" data-toggle="tooltip"
+											data-placement="top" title="${message:lvde}">
 											<img class="zoom" src="${context:css/images/book_search.png}"
-												width="50" height="50" title="${message:lvde}" alt="${message:lvde}" />
+												width="50" height="50"  alt="${message:lvde}" />
 										</button>
 
 									</div>
 									<div class="row">
-										<button class="btn btn-default btn-image">
+										<button class="btn btn-default btn-image" data-toggle="tooltip"
+											data-placement="top" title="${message:comandas}">
 											<img class="zoom" src="${context:css/images/note_book.png}"
-												width="50" height="50" title="${message:comandas}" alt="${message:comandas}" />
+												width="50" height="50"  alt="${message:comandas}" />
 										</button>
 									</div>
-
+	
 									<div class="row">
-										<button class="btn btn-default btn-image">
+										<button class="btn btn-default btn-image" data-toggle="tooltip"
+											data-placement="top" title="${message:manuales}">
 											<img class="zoom" src="${context:css/images/folder_full.png}"
-												width="50" height="50" title="${message:manuales}" alt="${message:manuales}" />
+												width="50" height="50" alt="${message:manuales}" />
 										</button>
 									</div>
 									<div class="row">
-										<button class="btn btn-default btn-image">
+										<button class="btn btn-default btn-image" data-toggle="tooltip"
+											data-placement="top" title="${message:mail}">
 											<img class="zoom" src="${context:css/images/mail_send.png}"
-												width="50" height="50" title="${message:mail}" alt="${message:mail}" />
+												width="50" height="50"  alt="${message:mail}" />
 										</button>
 									</div>
 									<div class="row">
 										<a href="${favouriteLink}">
-											<button class="btn btn-default btn-image">
+											<button class="btn btn-default btn-image" data-toggle="tooltip"
+											data-placement="top" title="${message:favourites}">
 												<img class="zoom" src="${context:css/images/star_full.png}"
-													width="50" height="50" title="${message:favourites}" alt="${message:favourites}" />
+													width="50" height="50"  alt="${message:favourites}" />
 											</button>
 										</a>
 									</div>
 									<div class="row">
-										<button class="btn btn-default btn-image">
+										<button class="btn btn-default btn-image" data-toggle="tooltip"
+											data-placement="bottom" title="${message:back}" >
 											<img class="zoom" src="${context:css/images/back.png}"
-												width="50" height="50" title="${message:back}" alt="${message:back}" />
+												width="50" height="50"  alt="${message:back}" />
 										</button>
 									</div>
 
 								</div>
 								<div class="col-md-6">
 									<div class="row">
-										<button class="btn btn-default btn-image">
+										<button class="btn btn-default btn-image" data-toggle="tooltip"
+											data-placement="right" title="${message:web}">
 											<img class="zoom" src="${context:css/images/search_globe.png}"
-												width="50" height="50" title="${message:web}" alt="${message:web}" />
+												width="50" height="50" alt="${message:web}" />
 										</button>
 									</div>
 
 									<div class="row">
 										<a href="#" t:type="PageLink" t:page="configuration/configuration2">
-											<button class="btn btn-default btn-image">
+											<button class="btn btn-default btn-image" data-toggle="tooltip"
+												data-placement="right" title="${message:sms}">
 												<img class="zoom" src="${context:css/images/workflow.png}"
-													width="50" height="50" title="${message:sms}" alt="${message:sms}" />
-											</button>
+												width="50" height="50"  alt="${message:sms}"/> </button>
 										</a>
 									</div>
 
 									<div class="row">
-										<button class="btn btn-default btn-image">
+										<button class="btn btn-default btn-image" data-toggle="tooltip"
+											data-placement="right" title="${message:favourites}">
 											<img class="zoom" src="${context:css/images/chart.png}"
-												width="50" height="50" title="${message:favourites}" alt="${message:favourites}" />
+												width="50" height="50" alt="${message:favourites}" />
 										</button>
 									</div>
 									<div class="row">
-										<button class="btn btn-default btn-image">
+										<button class="btn btn-default btn-image" data-toggle="tooltip"
+											data-placement="right" title="${message:sms}">
 											<img class="zoom" src="${context:css/images/sms.png}"
-												width="50" height="50" title="${message:sms}" alt="${message:sms}" />
+												width="50" height="50" alt="${message:sms}" />
 										</button>
 									</div>
 									<div class="row">
-										<button class="btn btn-default btn-image">
+										<button class="btn btn-default btn-image" data-toggle="tooltip"
+											data-placement="right" title="${message:history}">
 											<img class="zoom" src="${context:css/images/history.png}"
-												width="50" height="50" title="${message:history}" alt="${message:history}" />
+												width="50" height="50"  alt="${message:history}" />
 										</button>
 									</div>
 									<div class="row">
-										<button class="btn btn-default btn-image">
+										<button class="btn btn-default btn-image" data-toggle="tooltip"
+											data-placement="bottom" title="${message:logout}">
 											<img class="zoom" src="${context:css/images/shut_down.png}"
-												width="50" height="50" title="${message:logout}" alt="${message:logout}" />
+												width="50" height="50"  alt="${message:logout}" />
 										</button>
 									</div>
 								</div>
@@ -482,8 +493,14 @@
 
 		</div>
 
-		<script src="${context:/javaScript/clock.js}"></script>
-
+		<script  type="text/javascript" src="${context:/javaScript/clock.js}"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+			$(".btn-image").tooltip({
+			'show': true,
+			});
+			});
+		</script>
 
 	</body>
 

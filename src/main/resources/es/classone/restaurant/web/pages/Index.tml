@@ -137,17 +137,25 @@
 									</button>
 									<h4 class="modal-title">${message:add-favorite}</h4>
 								</div>
+								
 								<div class="modal-body">
-									
-										<div t:type="Loop" t:source="options" t:value="option">
-											<button type="button" id="buttonHopt" class="btn btn-default">${option.option} ${option.optionName}</button>
+								
+									<div t:type="Loop" t:source="options" t:value="option">										
+										<div class="panel panel-warning panel-favorites">
+											<div class="panel-heading option-heading">${option.option}. ${option.optionName}</div>
 											<t:if test="${option.parent}">
-												<div t:type="Loop" t:source="option.options" t:value="option">
-												<div>${option.option} ${option.optionName}</div>
-												</div>
+												<div class="panel-body suboptions-group">
+												<div class="list-group suboptions-group">
+													<div t:type="Loop" t:source="option.options" t:value="option">
+														  <t:eventlink t:event="addFavorite"  t:context="${option.option}" class="list-group-item suboption-item">${option.option}. ${option.optionName}</t:eventlink>
+													</div>
+													</div>
+													</div>
 											</t:if>
+								
 										</div>
 									
+								</div>
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-default"
