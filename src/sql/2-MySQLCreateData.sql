@@ -131,3 +131,10 @@ INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `name`, `va
 INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `name`, `value`) VALUES (22, 'RSCNT034', 'literalPrecPers', false);
 INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `name`, `value`) VALUES (23, 'RSCNT035', 'newAntibloq', false);
 INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `name`, `value`) VALUES (24, 'RSCNT101', 'headerBill', false);
+INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `firstTab`, `lastTab`, `paramCode`) VALUES (1, 'DescripcionSala1', 1, 342, 'RSCNT020_01');
+INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `firstTab`, `lastTab`, `paramCode`) VALUES (2, 'DescripcionSala2', 1, 342, 'RSCNT020_02');
+INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `firstTab`, `lastTab`, `paramCode`) VALUES (3, 'DescripcionSala3', 1, 342, 'RSCNT020_03');
+INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `firstTab`, `lastTab`, `paramCode`) VALUES (4, 'DescripcionSala4', 1, 342, 'RSCNT020_04');
+INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `firstTab`, `lastTab`, `paramCode`) VALUES (5, 'DescripcionSala5', 1, 342, 'RSCNT020_05');
+INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `firstTab`, `lastTab`, `paramCode`) VALUES (6, 'DescripcionSala6', 1, 342, 'RSCNT020_06');
+INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `firstTab`, `lastTab`, `paramCode`) VALUES (7, 'DescripcionSala7', 1, 342, 'RSCNT020_07');

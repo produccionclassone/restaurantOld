@@ -1,6 +1,7 @@
 package es.classone.restaurant.web.pages.configuration;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.InjectComponent;
@@ -44,8 +45,12 @@ public class Configuration2 {
 
 	/*================================================= Diversos contadores ======================================================================*/
 
-	private HashMap<String, String> cgHashMap = new HashMap<String, String>();
+	private List<ConfigurationGeneric> cgList;
+	private HashMap<String,ConfigurationGeneric> cgHashMap = new HashMap<String,ConfigurationGeneric>();
+	private List<String> newParameters;
+	
 	private HashMap<String, Boolean> cbHashMap = new HashMap<String, Boolean>();
+	private HashMap<String, String> crHashMap = new HashMap<String, String>();
 
 	@Inject
 	private ConfigurationService configurationService;
@@ -77,7 +82,7 @@ public class Configuration2 {
 	private String restCateg;
 
 	@Property
-	private String CADExplot;
+	private String cadExplot;
 
 	@Property
 	private String tableNumber;
@@ -197,7 +202,7 @@ public class Configuration2 {
 	@Property
 	private String dateFormat;
 
- /* --------- Contabilidad */
+ /* --------- Contabilidad --------*/
 	@Property
 	private String contCode;
 	
@@ -293,8 +298,70 @@ public class Configuration2 {
 	private String cajaCobro;
 	//falta suma consumiciones
 	//falta control de actividad
-
 	
+	@Property
+	private String desc1;
+	
+	@Property
+	private String firstTab1;
+	
+	@Property
+	private String lastTab1;
+	
+	@Property
+	private String desc2;
+	
+	@Property
+	private String firstTab2;
+	
+	@Property
+	private String lastTab2;
+	
+	@Property
+	private String desc3;
+	
+	@Property
+	private String firstTab3;
+	
+	@Property
+	private String lastTab3;
+	
+	@Property
+	private String desc4;
+	
+	@Property
+	private String firstTab4;
+	
+	@Property
+	private String lastTab4;
+
+	@Property
+	private String desc5;
+	
+	@Property
+	private String firstTab5;
+	
+	@Property
+	private String lastTab5;
+	
+	@Property
+	private String desc6;
+	
+	@Property
+	private String firstTab6;
+	
+	@Property
+	private String lastTab6;
+	
+	@Property
+	private String desc7;
+	
+	@Property
+	private String firstTab7;
+	
+	@Property
+	private String lastTab7;
+
 	/*
 	 * @Property private String colCommand;
 	 * 
@@ -324,103 +391,131 @@ public class Configuration2 {
 	@Inject
 	private Request request;
 
+	private void loadHashMap(){
+		for (ConfigurationGeneric cg : cgList){
+		 	cgHashMap.put(cg.getName(), cg);
+		}
+	}
+	
 	void onPrepareForRender() throws InstanceNotFoundException {
-		cgHashMap = configurationService.getParameters();
+		cgList = configurationService.getParametersGeneric();
+		loadHashMap();
+		
 		cbHashMap = configurationService.getParametersBool();
+		crHashMap = configurationService.getParametersRoom();
 
 		//-----Contadores------
-		actualSession = cgHashMap.get("actualSession");
-		lastBill = cgHashMap.get("lastBill");
-		lastCommand = cgHashMap.get("lastCommand");
-		lastClient = cgHashMap.get("lastClient");
+		actualSession = cgHashMap.get("lastBill").getValue();
+		lastBill = cgHashMap.get("lastBill").getValue();
+		lastCommand = cgHashMap.get("lastCommand").getValue();
+		lastClient = cgHashMap.get("lastClient").getValue();
 		// falta nota fiscal
 		//-----General---------
-		restCateg = cgHashMap.get("restCateg");
-		CADExplot = cgHashMap.get("CADExplot");
-		tableNumber = cgHashMap.get("tableNumber");
+		restCateg = cgHashMap.get("restCateg").getValue();
+		cadExplot = cgHashMap.get("cadExplot").getValue();
+		tableNumber = cgHashMap.get("tableNumber").getValue();
 		covServChar = cbHashMap.get("covServChar");
-		covServCharImp = cgHashMap.get("covServCharImp");
-		covServCharIVAType = cgHashMap.get("covServCharIVAType");
+		covServCharImp = cgHashMap.get("covServCharImp").getValue();
+		covServCharIVAType = cgHashMap.get("covServCharIVAType").getValue();
 		tipWaiterInvoice = cbHashMap.get("tipWaiterInvoicel%");
-		tipWaiterInvoicePorcent = cgHashMap.get("tipWaiterInvoicel%");
-		tipWaiterInvoiceIVA = cgHashMap.get("tipWaiterInvoiceIVA");
+		tipWaiterInvoicePorcent = cgHashMap.get("tipWaiterInvoicel%").getValue();
+		tipWaiterInvoiceIVA = cgHashMap.get("tipWaiterInvoiceIVA").getValue();
 		chargeAddonDish = cbHashMap.get("chargeAddonDish");
 		decimal = cbHashMap.get("decimal");
 		ivaIncluded = cbHashMap.get("ivaIncluded");
-		actualSessionDate = cgHashMap.get("actualSessionDate");
-		closureLastMonth = cgHashMap.get("closureLastMonth");
+		actualSessionDate = cgHashMap.get("actualSessionDate").getValue();
+		closureLastMonth = cgHashMap.get("closureLastMonth").getValue();
 		// falta sesión actual abierta
 		accountingLinkVtas = cbHashMap.get("accountingLinkVtas");
-		covIncomeType = cgHashMap.get("covIncomeType");
-		tipsIncomeType = cgHashMap.get("tipsIncomeType");
-		cadDept = cgHashMap.get("cadDept");
+		covIncomeType = cgHashMap.get("covIncomeType").getValue();
+		tipsIncomeType = cgHashMap.get("tipsIncomeType").getValue();
+		cadDept = cgHashMap.get("cadDept").getValue();
 		euroLine = cbHashMap.get("euroLine");
-		eurUSDChange = cgHashMap.get("eurUSDChange");
+		eurUSDChange = cgHashMap.get("eurUSDChange").getValue();
 		// falta serv hot/dpto
-		integrationHotel = cgHashMap.get("integrationHotel");
+		integrationHotel = cgHashMap.get("integrationHotel").getValue();
 		integrationEcon = cbHashMap.get("integrationEcon");
 		qualifyKitchenDish = cbHashMap.get("qualifyKitchenDish");
 		splitCommand = cbHashMap.get("splitCommand");
 		tips = cbHashMap.get("tips");
-		assocElemTips = cgHashMap.get("assocElemTips");
+		assocElemTips = cgHashMap.get("assocElemTips").getValue();
 		discount1 = cbHashMap.get("discount1");
-		assocElemDto1 = cgHashMap.get("assocElemDto1");
-		assocElemDto1Porcent = cgHashMap.get("assocElemDto1%");
+		assocElemDto1 = cgHashMap.get("assocElemDto1").getValue();
+		assocElemDto1Porcent = cgHashMap.get("assocElemDto1%").getValue();
 		discount2 = cbHashMap.get("discount2");
-		assocElemDto2 = cgHashMap.get("assocElemDto2");
-		assocElemDto2Porcent = cgHashMap.get("assocElemDto2%");
+		assocElemDto2 = cgHashMap.get("assocElemDto2").getValue();
+		assocElemDto2Porcent = cgHashMap.get("assocElemDto2%").getValue();
 		discount3 = cbHashMap.get("discount3");
-		assocElemDto3 = cgHashMap.get("assocElemDto3");
-		assocElemDto3Porcent = cgHashMap.get("assocElemDto3%");
-		assocElemTPV = cgHashMap.get("assocElemTPV");
-		chargeTPV = cgHashMap.get("chargeTPV");
-		fieldSeparator = cgHashMap.get("fieldSeparator");
-		alphabSeparator = cgHashMap.get("alphabSeparator");
-		dateFormat = cgHashMap.get("dateFormat");
+		assocElemDto3 = cgHashMap.get("assocElemDto3").getValue();
+		assocElemDto3Porcent = cgHashMap.get("assocElemDto3%").getValue();
+		assocElemTPV = cgHashMap.get("assocElemTPV").getValue();
+		chargeTPV = cgHashMap.get("chargeTPV").getValue();
+		fieldSeparator = cgHashMap.get("fieldSeparator").getValue();
+		alphabSeparator = cgHashMap.get("alphabSeparator").getValue();
+		dateFormat = cgHashMap.get("dateFormat").getValue();
 		//------Contabilidad ------------------
-		contCode = cgHashMap.get("contCode");
-		ivaType1 = cgHashMap.get("ivaType1");
-		ledgerAccIVA1 = cgHashMap.get("ledgerAccIVA1");
-		ivaType2 = cgHashMap.get("ivaType2");
-		ledgerAccIVA2 = cgHashMap.get("ledgerAccIVA2");
-		ivaType3 = cgHashMap.get("ivaType3");
-		ledgerAccIVA3 = cgHashMap.get("ledgerAccIVA3");
-		ledgerAccCaja = cgHashMap.get("ledgerAccCaja");
-		ledgerAccInvi = cgHashMap.get("ledgerAccInvi");
-		ledgerAccGerVtas = cgHashMap.get("ledgerAccGerVtas");
-		ledgerAccServCbtos = cgHashMap.get("ledgerAccServCbtos");
-		ledgerAccPropCam = cgHashMap.get("ledgerAccPropCam");
-		ledgerAccDescVtas = cgHashMap.get("ledgerAccDescVtas");
-		literalIVA = cgHashMap.get("literalIVA");
+		contCode = cgHashMap.get("contCode").getValue();
+		ivaType1 = cgHashMap.get("ivaType1").getValue();
+		ledgerAccIVA1 = cgHashMap.get("ledgerAccIVA1").getValue();
+		ivaType2 = cgHashMap.get("ivaType2").getValue();
+		ledgerAccIVA2 = cgHashMap.get("ledgerAccIVA2").getValue();
+		ivaType3 = cgHashMap.get("ivaType3").getValue();
+		ledgerAccIVA3 = cgHashMap.get("ledgerAccIVA3").getValue();
+		ledgerAccCaja = cgHashMap.get("ledgerAccCaja").getValue();
+		ledgerAccInvi = cgHashMap.get("ledgerAccInvi").getValue();
+		ledgerAccGerVtas = cgHashMap.get("ledgerAccGerVtas").getValue();
+		ledgerAccServCbtos = cgHashMap.get("ledgerAccServCbtos").getValue();
+		ledgerAccPropCam = cgHashMap.get("ledgerAccPropCam").getValue();
+		ledgerAccDescVtas = cgHashMap.get("ledgerAccDescVtas").getValue();
+		literalIVA = cgHashMap.get("literalIVA").getValue();
 		//----------Impresion--------------
 		// falta impresoras de comandas
 		//----------Conectividad-----------
 		enableTPVVirtual = cbHashMap.get("enableTPVVirtual");
 		enableStarCard = cbHashMap.get("enableStarCard");
 		//falta habilitar impresora fiscal
-		ipLVDE = cgHashMap.get("ipLVDE");
-		ipHelp = cgHashMap.get("ipHelp");
-		ipCCC = cgHashMap.get("ipCCC");
-		ipAlternative = cgHashMap.get("ipAlternative");
-		sendEmail = cgHashMap.get("sendEmail");
-		sendService = cgHashMap.get("sendService");
-		sendLogin = cgHashMap.get("sendLogin");
-		sendPsw = cgHashMap.get("sendPsw");
+		ipLVDE = cgHashMap.get("ipLVDE").getValue();
+		ipHelp = cgHashMap.get("ipHelp").getValue();
+		ipCCC = cgHashMap.get("ipCCC").getValue();
+		ipAlternative = cgHashMap.get("ipAlternative").getValue();
+		sendEmail = cgHashMap.get("sendEmail").getValue();
+		sendService = cgHashMap.get("sendService").getValue();
+		sendLogin = cgHashMap.get("sendLogin").getValue();
+		sendPsw = cgHashMap.get("sendPsw").getValue();
 		//------------Restaurant---------------------
-		literalEspBill = cgHashMap.get("literalEspBill");
-		literalCharCov  = cgHashMap.get("literalCharCov");
-		literalTipsAuto = cgHashMap.get("literalTipsAuto");
+		literalEspBill = cgHashMap.get("literalEspBill").getValue();
+		literalCharCov  = cgHashMap.get("literalCharCov").getValue();
+		literalTipsAuto = cgHashMap.get("literalTipsAuto").getValue();
 		dayMenuLevel = cbHashMap.get("dayMenuLevel");
 		cancelTableLevel = cbHashMap.get("cancelTableLevel");
-		newAntibloq = cgHashMap.get("newAntibloq");
-		literalPrecPers = cgHashMap.get("literalPrecPers");
+		//newAntibloq = cgHashMap.get("newAntibloq").getValue();
+		//literalPrecPers = cgHashMap.get("literalPrecPers").getValue();
 		//falta ultimo numero impreso
-		cajaCobro = cgHashMap.get("cajaCobro");
+		cajaCobro = cgHashMap.get("cajaCobro").getValue();
 		//falta suma consumiciones
 		//falta control de actividad
-		
-		
-		
+		desc1 = crHashMap.get("desc1");
+		firstTab1 = crHashMap.get("firstTab1");
+		lastTab1 = crHashMap.get("lastTab1");
+		desc2 = crHashMap.get("desc2");
+		firstTab2 = crHashMap.get("firstTab2");
+		lastTab2 = crHashMap.get("lastTab2");
+		desc3 = crHashMap.get("desc3");
+		firstTab3 = crHashMap.get("firstTab3");
+		lastTab3 = crHashMap.get("lastTab3");
+		desc4 = crHashMap.get("desc4");
+		firstTab4 = crHashMap.get("firstTab4");
+		lastTab4 = crHashMap.get("lastTab4");
+		desc5 = crHashMap.get("desc5");
+		firstTab5 = crHashMap.get("firstTab5");
+		lastTab5 = crHashMap.get("lastTab5");
+		desc6 = crHashMap.get("desc6");
+		firstTab6 = crHashMap.get("firstTab6");
+		lastTab6 = crHashMap.get("lastTab6");
+		desc7 = crHashMap.get("desc7");
+		firstTab7 = crHashMap.get("firstTab7");
+		lastTab7 = crHashMap.get("lastTab7");
+				
 		/*
 		 * colCommand = cgHashMap.get("colCommand"); colBackground =
 		 * cgHashMap.get("colBackground"); colBill = cgHashMap.get("colBill");
@@ -433,35 +528,29 @@ public class Configuration2 {
 		 * cgHashMap.get("colTabBill");
 		 */
 
-		/*
-		 * entirePrintCommand printEntireCommandP2 
-		 *  bmpToPrint compressPrintBillStd 
-		 *  headerBill
-		 */
-
-		/*
-		 * appName release BBDDRest maxRegAud BBDDCont BBDD/Stars BBDDStarEco
-		 * BBDDStarCar actualSessionState sessionType kitchenPrinter printer2
-		 * bmpSize 
-		 * 
-		 * 
+		/* entirePrintCommand printEntireCommandP2 bmpToPrint compressPrintBillStd headerBill
+		 * appName release BBDDRest maxRegAud BBDDCont BBDD/Stars BBDDStarEco BBDDStarCar
+		 * actualSessionState sessionType kitchenPrinter printer2 bmpSize 
 		 * breakfastServHot lunchServHotel dinnerServHotel otherServHotel
-		 * 
 		 * breakfastDept lunchDept dinnerDept otherDept
-		 * 
-		 *   emailSMS SMSApiId
-		 * smsUser smsPwd
-		 * 
-		 *    beforCharacters
+		 * emailSMS SMSApiId smsUser smsPwd beforCharacters
 		 */
 
 	}
 
+	void addNewParameter(String name){
+		int index = cgHashMap.get(name).getConfGenericId();
+		System.out.println("index" + index);
+		newParameters.add("prueba");
+		//for (String nP: newParameters)
+		//	System.out.println("index" + newParameters.indexOf(nP) + nP);
+	}
+	
 	Object onSuccessFromDiversosContadoresForm()
 			throws InstanceNotFoundException {
-		HashMap<String, String> newParameters = new HashMap<String, String>();
-		newParameters.put("actualSession", actualSession);
-		configurationService.setParameters(newParameters);
+		
+		addNewParameter("actualSession");
+		//configurationService.setParametersGeneric(newParameters);
 		return request.isXHR() ? diversosContadoresFormZone.getBody() : null;
 	}
 }
