@@ -160,7 +160,7 @@ public class Index {
 			System.out.println("FAVORITO DUPLICADO");
 		}
 		Link link = linkSource.createPageRenderLink(Index.class);
-		link.addParameterValue("showFavorites", false);
+		link.addParameterValue("showFavorites", true);
 		link.addParameterValue("showHistory", false);
 		return link;
 	}
@@ -186,9 +186,8 @@ public class Index {
 			JSONArray favoritePaths = new JSONArray();
 
 			for (Favorite f : favorites) {
-				
-				favoriteNames.put(f.getFavoriteId(), MapApp.getOptionObjByOption(f.getUseCase()).getOptionName());
-				favoritePaths.put(f.getFavoriteId(), MapApp.getOptionObjByOption(f.getUseCase()).getPath());
+				favoriteNames.put(MapApp.getOptionObjByOption(f.getUseCase()).getOptionName());
+				favoritePaths.put(MapApp.getOptionObjByOption(f.getUseCase()).getPath());
 			}
 
 			literals.put("favoriteNames", favoriteNames);

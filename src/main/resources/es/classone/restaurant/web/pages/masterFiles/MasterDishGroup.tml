@@ -1,0 +1,22 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	t:type="LayoutIndex" t:pageTitle="title">
+	<script type="text/javascript">
+		$(document).ready(function() {
+		$("#example").dataTable();
+		} );
+	</script>
+	<div class="container">
+	<div class="row30"></div>
+		<div class="row">
+			<div class="col-md-1"></div>
+			<div class="col-md-10">
+				<t:jquery.datatable cellpadding="0" cellspacing="0"
+					border="0" class="table" t:id="dishGroupsDataTable"
+					t:source="dishGroups" t:row="dishGroup" t:options="options" t:rowsPerPage="5"
+					 t:tableInformation="tableInformation">
+				</t:jquery.datatable>
+			</div>
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+</html>

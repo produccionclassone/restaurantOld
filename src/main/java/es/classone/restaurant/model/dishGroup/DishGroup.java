@@ -41,8 +41,7 @@ public class DishGroup {
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "DishCategoryIdGenerator")
 	public int getDishGroupId() {
 		return dishGroupId;
-	}
-
+	} 
 	public void setDishGroupId(int dishGroupId) {
 		this.dishGroupId = dishGroupId;
 	}

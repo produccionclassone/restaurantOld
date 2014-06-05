@@ -8,8 +8,6 @@
 		<title>${pageTitle}</title>
 		<link rel="StyleSheet" href="${context:/css/stylesAlejandro.css}"
 			type="text/css" media="all" />
-		<!-- <link rel="StyleSheet" href="${context:/css/stylesVanina.css}" -->
-		<!-- type="text/css" media="all" /> -->
 
 		<link rel="StyleSheet" href="${context:/css/bootstrap.css}" type="text/css"
 			media="all" />
@@ -39,9 +37,9 @@
 							</ol>
 						</div>
 						<div class="col-md-2">
-							<span style="margin-left:40px;">${message:user}: ${loginName}</span>
+							<span style="margin-left:-20px;">${message:user}: ${loginName}</span>
 							
-							<span style="margin-left:20px;"><img src="${context:/css/images/spanish.png}" width="20" height="18" ></img></span>
+							<span style="margin-left:50px;"><img src="${context:/css/images/spanish.png}" width="20" height="18" ></img></span>
 
 						</div>
 					</div>
