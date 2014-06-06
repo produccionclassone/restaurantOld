@@ -27,12 +27,10 @@ public class ConfigurationGenericDaoHibernate extends
 		else
 			return cg;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public List<ConfigurationGeneric> findAll() {
-		return (getSession()
-				.createQuery(
-						"SELECT cg FROM ConfigurationGeneric cg ")
-				.list());
+		return (getSession().createQuery(
+				"SELECT cg FROM ConfigurationGeneric cg ").list());
 	}
 }

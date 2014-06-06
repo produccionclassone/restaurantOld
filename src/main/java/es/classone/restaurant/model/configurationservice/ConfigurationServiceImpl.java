@@ -1,6 +1,5 @@
 package es.classone.restaurant.model.configurationservice;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,30 +40,33 @@ public class ConfigurationServiceImpl implements ConfigurationService {
 		configurationPrivilegeDao.save(configurationPrivilege);
 	}
 
-	public List<ConfigurationGeneric> getParametersGeneric() throws InstanceNotFoundException {
+	public List<ConfigurationGeneric> getParametersGeneric()
+			throws InstanceNotFoundException {
 		return configurationGenericDao.findAll();
 	}
-		
-	public List<ConfigurationBool> getParametersBool() throws InstanceNotFoundException {
+
+	public List<ConfigurationBool> getParametersBool()
+			throws InstanceNotFoundException {
 		return configurationBoolDao.findAll();
 	}
-	
-	public List<ConfigurationRoom> getParametersRoom() throws InstanceNotFoundException {
+
+	public List<ConfigurationRoom> getParametersRoom()
+			throws InstanceNotFoundException {
 		return configurationRoomDao.findAll();
 	}
-	
-	public void setParameterGeneric(String name, String newValue) throws InstanceNotFoundException{
+
+	public void setParameterGeneric(String name, String newValue)
+			throws InstanceNotFoundException {
 		ConfigurationGeneric cg = configurationGenericDao.findByName(name);
 		cg.setValue(newValue);
 		configurationGenericDao.save(cg);
 	}
-	
-	public void setParameterBool(String name, Boolean newValue) throws InstanceNotFoundException{
+
+	public void setParameterBool(String name, Boolean newValue)
+			throws InstanceNotFoundException {
 		ConfigurationBool cb = configurationBoolDao.findByName(name);
 		cb.setValue(newValue);
 		configurationBoolDao.save(cb);
 	}
-		
-		
 
 }

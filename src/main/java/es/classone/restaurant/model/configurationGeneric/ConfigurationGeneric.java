@@ -47,8 +47,8 @@ public class ConfigurationGeneric {
 	public void setCode(String code) {
 		this.code = code;
 	}
-	
-	@Column(name="name")
+
+	@Column(name = "name")
 	public String getName() {
 		return name;
 	}
@@ -65,15 +65,6 @@ public class ConfigurationGeneric {
 	public void setValue(String value) {
 		this.value = value;
 	}
-
-	@Override
-	public String toString() {
-		return "ConfigurationGeneric [confGenericId=" + confGenericId
-				+ ", code=" + code + ", name=" + name + ", value=" + value
-				+ "]";
-	}
-	
-	
 
 }
 

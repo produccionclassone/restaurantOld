@@ -48,7 +48,7 @@ public class ConfigurationBool {
 		this.code = code;
 	}
 
-	@Column(name="name")
+	@Column(name = "name")
 	public String getName() {
 		return name;
 	}

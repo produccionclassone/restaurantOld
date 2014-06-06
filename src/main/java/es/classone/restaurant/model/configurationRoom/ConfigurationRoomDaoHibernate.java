@@ -14,10 +14,8 @@ public class ConfigurationRoomDaoHibernate extends
 	@SuppressWarnings("unchecked")
 	public List<ConfigurationRoom> findAll() {
 		List<ConfigurationRoom> list;
-		list =  (getSession()
-				.createQuery( 
-						"SELECT cr FROM ConfigurationRoom cr ")
-				.list());
+		list = (getSession()
+				.createQuery("SELECT cr FROM ConfigurationRoom cr ").list());
 		return list;
 	}
 }

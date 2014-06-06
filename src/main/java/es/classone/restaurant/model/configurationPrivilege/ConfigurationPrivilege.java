@@ -9,7 +9,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Res14cnt_")
+@Table(name = "Res14cnt_pg")
 public class ConfigurationPrivilege {
 
 	private int confPrivilegeId;
@@ -24,7 +24,7 @@ public class ConfigurationPrivilege {
 		this.privilegeValue = privilegeValue;
 	}
 
-	@Column(name = "idRes14cnt_GN")
+	@Column(name = "idRes14cnt_pg")
 	@SequenceGenerator( // It only takes effect for
 	name = "ConfigurationPrivilegeIdGenerator", // databases providing
 												// identifier

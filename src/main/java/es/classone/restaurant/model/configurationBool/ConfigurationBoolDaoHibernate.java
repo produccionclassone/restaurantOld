@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import es.classone.restaurant.model.configurationGeneric.ConfigurationGeneric;
 import es.classone.restaurant.modelutil.dao.GenericDaoHibernate;
 import es.classone.restaurant.modelutil.exceptions.InstanceNotFoundException;
 
@@ -12,7 +11,7 @@ import es.classone.restaurant.modelutil.exceptions.InstanceNotFoundException;
 public class ConfigurationBoolDaoHibernate extends
 		GenericDaoHibernate<ConfigurationBool, Integer> implements
 		ConfigurationBoolDao {
-	
+
 	public ConfigurationBool findByName(String name)
 			throws InstanceNotFoundException {
 
@@ -28,14 +27,11 @@ public class ConfigurationBoolDaoHibernate extends
 		else
 			return cb;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public List<ConfigurationBool> findAll() {
 		return (getSession()
-				.createQuery(
-						"SELECT cb FROM ConfigurationBool cb ")
-				.list());
+				.createQuery("SELECT cb FROM ConfigurationBool cb ").list());
 	}
-
 
 }
