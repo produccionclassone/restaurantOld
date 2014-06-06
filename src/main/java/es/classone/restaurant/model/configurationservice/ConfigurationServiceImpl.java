@@ -53,10 +53,16 @@ public class ConfigurationServiceImpl implements ConfigurationService {
 		return configurationRoomDao.findAll();
 	}
 	
-	public void setParameter(String name, String newValue) throws InstanceNotFoundException{
+	public void setParameterGeneric(String name, String newValue) throws InstanceNotFoundException{
 		ConfigurationGeneric cg = configurationGenericDao.findByName(name);
 		cg.setValue(newValue);
 		configurationGenericDao.save(cg);
+	}
+	
+	public void setParameterBool(String name, Boolean newValue) throws InstanceNotFoundException{
+		ConfigurationBool cb = configurationBoolDao.findByName(name);
+		cb.setValue(newValue);
+		configurationBoolDao.save(cb);
 	}
 		
 		
