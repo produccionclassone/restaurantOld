@@ -38,8 +38,7 @@ table.dataTable th {
 	box-sizing: content-box;
 }
 
-
-table.dataTable {
+jquery-table.dataTable {
 	clear: both;
 	margin-top: 6px !important;
 	margin-bottom: 6px !important;

@@ -1,22 +1,71 @@
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
 	t:type="LayoutIndex" t:pageTitle="title">
-	<script type="text/javascript">
-		$(document).ready(function() {
-		$("#example").dataTable();
-		} );
-	</script>
-	<div class="container">
-	<div class="row30"></div>
-		<div class="row">
-			<div class="col-md-1"></div>
-			<div class="col-md-10">
-				<t:jquery.datatable cellpadding="0" cellspacing="0"
-					border="0" class="table" t:id="dishGroupsDataTable"
-					t:source="dishGroups" t:row="dishGroup" t:options="options" t:rowsPerPage="5"
-					 t:tableInformation="tableInformation">
-				</t:jquery.datatable>
+
+	<head>
+		<link rel="stylesheet" type="text/css"
+			href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css"
+			href="${context:/css/dataTables.bootstrap.css}" />
+		<link rel="stylesheet" type="text/css"
+			href="${context:/css/dataTables.colVis.css}" />
+		<link rel="stylesheet" type="text/css"
+			href="${context:/css/dataTables.colReorder.css}" />
+		<link rel="stylesheet" type="text/css"
+			href="${context:/css/dataTables.tableTools.css}" />
+			<link rel="stylesheet" type="text/css"
+			href="${context:/css/editor.bootstrap.css}" />
+		<script type="text/javascript" language="javascript"
+			src="//cdn.datatables.net/1.10-dev/js/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" language="javascript"
+			src="${context:javaScript/dataTables.bootstrap.js}"></script>
+		<script type="text/javascript" language="javascript"
+			src="${context:javaScript/dataTables.colVis.min.js}"></script>
+		<script type="text/javascript" language="javascript"
+			src="${context:javaScript/dataTables.colReorder.min.js}"></script>
+		<script type="text/javascript" language="javascript"
+			src="${context:javaScript/dataTables.tableTools.min.js}"></script>
+		<script type="text/javascript" language="javascript"
+			src="${context:javaScript/table.js}"></script>
+			<script type="text/javascript" language="javascript"
+			src="${context:javaScript/dataTables.editor.js}"></script>
+			<script type="text/javascript" language="javascript"
+			src="${context:javaScript/editor.bootstrap.js}"></script>
+
+	</head>
+	<body>
+		<div class="container">
+			<div class="row30"></div>
+			<div class="row">
+				<div class="col-md-05"></div>
+				<div class="col-md-10">
+					<table cellpadding="0" cellspacing="0" border="0"
+						class="table table-striped table-bordered hover" id="example">
+						<thead>
+							<tr>
+								<th>${message:dish-group-id}</th>
+								<th>${message:dish-group-description}</th>
+								<th>${message:iva-type}</th>
+								<th>${message:salesLedgerAccount}</th>
+								<th>${message:typeIncome}</th>
+								<th>${message:macroGroup}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<div t:type="Loop" t:source="dishgroups" t:value="dishGroup">
+								<tr>
+									<td>${dishGroup.dishGroupId}</td>
+									<td>${dishGroup.dishGroupDescription}</td>
+									<td>${dishGroup.ivaType}</td>
+									<td>${dishGroup.salesLedgerAccount}</td>
+									<td>${dishGroup.typeIncome}</td>
+									<td>${dishGroup.macroGroup}</td>
+								</tr>
+							</div>
+						</tbody>
+					</table>
+				</div>
+
 			</div>
 		</div>
-		<div class="col-md-1"></div>
-	</div>
+	</body>
 </html>

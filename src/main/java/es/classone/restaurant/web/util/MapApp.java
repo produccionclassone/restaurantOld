@@ -12,14 +12,12 @@ public class MapApp {
 
 	public static MapApp getInstance() {
 		if (instance == null) {
-			System.out.println("NO HAY INSTANCIA");
 			instance = new MapApp();
 		}
 		return instance;
 	}
 
 	public static void setOptionName(String option, String name, String path) { 
-		System.out.println("Voy a meter la option "+option);
 		if (map.isEmpty())
 			map.add(new Option(option,name, path, false));
 		for (Option o : map) {
@@ -68,6 +66,4 @@ public class MapApp {
 	public static ArrayList<Option> getMapApp() {
 		return map;
 	}
-
-	// GET OPTION BY INDEX
 }
