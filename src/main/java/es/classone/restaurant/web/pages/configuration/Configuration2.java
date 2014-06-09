@@ -3,55 +3,48 @@ package es.classone.restaurant.web.pages.configuration;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.tapestry5.PersistenceConstants;
 import org.apache.tapestry5.annotations.Component;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
+import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.annotations.SessionState;
 import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.corelib.components.Zone;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Request;
+import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
 import es.classone.restaurant.model.configurationBool.ConfigurationBool;
 import es.classone.restaurant.model.configurationGeneric.ConfigurationGeneric;
+import es.classone.restaurant.model.configurationPrivilege.ConfigurationPrivilege;
 import es.classone.restaurant.model.configurationRoom.ConfigurationRoom;
 import es.classone.restaurant.model.configurationservice.ConfigurationService;
 import es.classone.restaurant.modelutil.exceptions.InstanceNotFoundException;
 import es.classone.restaurant.web.util.UserSession;
 
+@Import(library = { "context:javaScript/configuration.js" })
 public class Configuration2 {
-
-	@Property
-	private String privilege3;
-
-	@Property
-	private String privilege4;
-
-	@Property
-	private String privilege5;
-
-	@Property
-	private String privilege6;
-
-	@Property
-	private String privilege7;
-
-	@Property
-	private String privilege8;
-
-	@Property
-	private int rGroup;
 
 	@SessionState(create = false)
 	private UserSession userSession;
 
-	/*
-	 * ================================================= Diversos contadores
-	 * ======================================================================
-	 */
+	@Inject 
+	private ConfigurationService configurationService;
 
 	@Inject
-	private ConfigurationService configurationService;
+	private JavaScriptSupport javaScriptSupport;
+
+	/*
+	 * ================ Diversos contadores==============
+	 */
+	private List<ConfigurationGeneric> cgList;
+	private List<ConfigurationBool> cbList;
+	private List<ConfigurationRoom> crList;
+
+	@Inject
+	private Request requestDivCont;
 
 	@Component
 	private Form diversosContadoresForm;
@@ -279,19 +272,26 @@ public class Configuration2 {
 	// -----------Restaurant----------
 	@Property
 	private String literalEspBill;
+
 	@Property
 	private String literalCharCov;
+	
 	@Property
 	private String literalTipsAuto;
+	
 	@Property
 	private Boolean dayMenuLevel;
+	
 	@Property
 	private Boolean cancelTableLevel;
+	
 	@Property
 	private String newAntibloq;
+	
 	@Property
 	private String literalPrecPers;
 	// falta ultimo numero impreso
+	
 	@Property
 	private String cajaCobro;
 	// falta suma consumiciones
@@ -360,25 +360,63 @@ public class Configuration2 {
 	@Property
 	private String lastTab7;
 
-	@Inject
-	private Request request;
+	
+	//================Privileges =========================
 
-	private List<ConfigurationGeneric> cgList;
-	private List<ConfigurationBool> cbList;
-	private List<ConfigurationRoom> crList;
+	private List<ConfigurationPrivilege> cpList;
+	
+	@Inject
+	private Request requestPriv;
+
+	@Component
+	private Form privForm;
+
+	@InjectComponent
+	private Zone privFormZone;
+	
+	@Property
+	@Persist(PersistenceConstants.FLASH)
+	private String radioSelectedValue;
+	
+	@Property
+	private String level1;
+
+	@Property
+	private String level2;
+
+	@Property
+	private String level3;
 
 	void onActivate() throws InstanceNotFoundException {
 		cgList = configurationService.getParametersGeneric();
 		cbList = configurationService.getParametersBool();
 		crList = configurationService.getParametersRoom();
+		cpList = configurationService.getPrivileges();
 		loadData();
+		for (ConfigurationPrivilege cp : cpList) System.out.println("id " + cp.getConfPrivilegeId() + " Privileges: " + cp.getPrivilegeValue());
 	}
-	
+
+	Object onSuccessFromPrivForm()
+			throws InstanceNotFoundException {
+		return requestDivCont.isXHR() ? privFormZone.getBody() : null;
+	}
+		
+	Object onSuccessFromDiversosContadoresForm()
+			throws InstanceNotFoundException {
+		/*System.out.println("Se ha accedido a los parámetros");
+		System.out.println("generic: " + cgList.size() + " bool: " + cbList.size() + " Room: " + crList.size());
+		for (ConfigurationGeneric cg : cgList) System.out.println("id " + cg.getConfGenericId() + " name: " + cg.getName() + " value: " + cg.getValue());
+		*/
+		saveData();
+		return requestDivCont.isXHR() ? diversosContadoresFormZone.getBody() : null;
+	}
+
 	void loadData(){
 		HashMap <String,String> cgHashMap = new HashMap<String,String>();
 		HashMap <String,Boolean> cbHashMap = new HashMap<String,Boolean>();
 		HashMap <String,String> crHashMap = new HashMap<String,String>();
-
+		HashMap <Integer,String> cpHashMap = new HashMap<Integer,String>();
+		
 		for (ConfigurationGeneric cg : cgList)
 			cgHashMap.put(cg.getName(), cg.getValue());
 		
@@ -390,8 +428,13 @@ public class Configuration2 {
 			crHashMap.put("firstTab" + cr.getConfigurationRoomId(), Integer.toString(cr.getFirstTab()));
 			crHashMap.put("lastTab" + cr.getConfigurationRoomId(), Integer.toString(cr.getLastTab()));
 		}
-
-		 //-----Contadores------ 
+		for (ConfigurationPrivilege cp : cpList)
+			cpHashMap.put(cp.getConfPrivilegeId(), cp.getPrivilegeValue());
+		
+		level1= cpHashMap.get(1);
+		level2= cpHashMap.get(2);
+		level3= cpHashMap.get(3);
+		//-----Contadores------ 
 		 actualSession = cgHashMap.get("actualSession");
 		 lastBill = cgHashMap.get("lastBill");
 		 lastCommand = cgHashMap.get("lastCommand");
@@ -502,16 +545,6 @@ public class Configuration2 {
 		 desc7 = crHashMap.get("desc7"); 
 		 firstTab7 = crHashMap.get("firstTab7"); 
 		 lastTab7 = crHashMap.get("lastTab7");
-	}
-
-	Object onSuccessFromDiversosContadoresForm()
-			throws InstanceNotFoundException {
-		/*System.out.println("Se ha accedido a los parámetros");
-		System.out.println("generic: " + cgList.size() + " bool: " + cbList.size() + " Room: " + crList.size());
-		for (ConfigurationGeneric cg : cgList) System.out.println("id " + cg.getConfGenericId() + " name: " + cg.getName() + " value: " + cg.getValue());
-		*/
-		saveData();
-		return request.isXHR() ? diversosContadoresFormZone.getBody() : null;
 	}
 	
 	void saveData() throws InstanceNotFoundException{

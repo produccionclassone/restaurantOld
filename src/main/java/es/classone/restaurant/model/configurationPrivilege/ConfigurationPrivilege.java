@@ -9,7 +9,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Res14cnt_pg")
+@Table(name = "Res14cnt_PG")
 public class ConfigurationPrivilege {
 
 	private int confPrivilegeId;
@@ -24,19 +24,18 @@ public class ConfigurationPrivilege {
 		this.privilegeValue = privilegeValue;
 	}
 
-	@Column(name = "idRes14cnt_pg")
+	@Column(name = "idRes14cnt_PG")
 	@SequenceGenerator( // It only takes effect for
-	name = "ConfigurationPrivilegeIdGenerator", // databases providing
-												// identifier
-	sequenceName = "ConfigurationPrivilegeSeq")
+	name = "ConfigurationPGIdGenerator", // databases providing identifier
+	sequenceName = "ConfigurationPGSeq")
 	// generators.
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO, generator = "ConfigurationPrivilegeIdGenerator")
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "ConfigurationPGIdGenerator")
 	public int getConfPrivilegeId() {
 		return confPrivilegeId;
 	}
 
-	public void setConfGenericId(int confPrivilegeId) {
+	public void setConfPrivilegeId(int confPrivilegeId) {
 		this.confPrivilegeId = confPrivilegeId;
 	}
 
@@ -44,7 +43,6 @@ public class ConfigurationPrivilege {
 	public String getCode() {
 		return code;
 	}
-
 	public void setCode(String code) {
 		this.code = code;
 	}

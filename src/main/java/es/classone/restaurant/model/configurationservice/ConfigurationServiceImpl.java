@@ -54,6 +54,10 @@ public class ConfigurationServiceImpl implements ConfigurationService {
 			throws InstanceNotFoundException {
 		return configurationRoomDao.findAll();
 	}
+	
+	public List<ConfigurationPrivilege> getPrivileges(){
+		return configurationPrivilegeDao.findAll();
+	}
 
 	public void setParameterGeneric(String name, String newValue)
 			throws InstanceNotFoundException {
