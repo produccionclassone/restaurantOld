@@ -66,7 +66,7 @@ public class Configuration2 {
 	private String lastClient;
 
 	@Property
-	private String notaFiscal; // falta
+	private String notaFiscal; //falta en BBDD
 
 	/*----------General---------------*/
 	@Property

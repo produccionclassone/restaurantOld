@@ -1,6 +1,12 @@
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
 	t:type="LayoutIndex" t:pageTitle="title">
-
+	<script>
+	$(document).ready(function(){
+  
+	if( $("#nivel1").is(':checked')) { 
+			console.log("click");
+		} 
+});</script>
 	<div class="container">
 		<div class="row"> <!-- Mantenimiento reg. control -->
 			<!-- Button trigger modal -->
@@ -19,27 +25,24 @@
 							<button type="button" class="close" data-dismiss="modal"
 								aria-hidden="true">&times;
 							</button>
-							<h5 class="modal-title" id="myModalLabel">B 7 - Mantenimiento Reg. Control</h5>
+							<h5 class="modal-title" id="myModalLabel">${message:mantRegControl}</h5>
 						</div>
 						<div class="modal-body" style="padding:0px 0px;">
 							<!-- Nav tabs -->
 							<ul class="nav nav-tabs" style="padding:0px 0px;">
 								<li class="active">
 									<a href="#diversosContadores" data-toggle="tab">
-										<h6 class="text"> B 7 1 - Diversos
-											contadores</h6>
+										<h6 class="text">${message:diversosContadores}</h6>
 									</a>
 								</li>
 								<li>
 									<a href="#configSistema" data-toggle="tab">
-										<h6 class="text">B 7 2 - Configuración
-											del
-											sistema</h6>
+										<h6 class="text">${message:bussinesIntelig}</h6>
 									</a>
 								</li>
 								<li>
 									<a href="#claves" data-toggle="tab">
-										<h6 class="text">B 7 3 Claves</h6>
+										<h6 class="text">${message:keys}</h6>
 									</a>
 								</li>
 							</ul>
@@ -54,38 +57,38 @@
 											<ul class="nav nav-tabs" style="padding:0px 0px;">
 												<li class="active">
 													<a href="#contadores" data-toggle="tab">
-														<h6 class="text">Contadores</h6>
+														<h6 class="text">${message:contadores}</h6>
 													</a>
 												</li>
 												<li>
 													<a href="#general" data-toggle="tab">
-														<h6 class="text">General</h6>
+														<h6 class="text">${message:general}</h6>
 													</a>
 												</li>
 												<li>
 													<a href="#restaurante" data-toggle="tab">
-														<h6 class="text">Restaurante</h6>
+														<h6 class="text">${message:restaurante}</h6>
 													</a>
 												</li>
 												<li>
 													<a href="#impresion" data-toggle="tab">
-														<h6 class="text">Impresión</h6>
+														<h6 class="text">${message:impresion}</h6>
 													</a>
 												</li>
 
 												<li>
 													<a href="#conectividad" data-toggle="tab">
-														<h6 class="text">Conectividad</h6>
+														<h6 class="text">${message:conectividad}</h6>
 													</a>
 												</li>
 												<li>
 													<a href="#contabilidad" data-toggle="tab">
-														<h6 class="text">Contabilidad</h6>
+														<h6 class="text">${message:contabilidad}</h6>
 													</a>
 												</li>
 												<li>
 													<a href="#apariencia" data-toggle="tab">
-														<h6 class="text">Apariencia</h6>
+														<h6 class="text">${message:apariencia}</h6>
 													</a>
 												</li>
 											</ul>
@@ -192,6 +195,7 @@
 												</div>
 												<div class="tab-pane" id="general">
 													<div class="container-fluid">
+														<div class="row row5"></div>
 														<div class="row">
 															<div class="col-md-6"><!-- Left -->
 																<div class="row">
@@ -290,17 +294,17 @@
 																		</div>
 																		<div class="row">
 																			<div class="col-md-1"></div>
-																			<div class="col-md-2">
+																			<div class="col-md-4">
 																				<!-- <span class="input-group-addon">Porcentaje</span> -->
 																				<span class="input-group-addon">
 																					<t:label for="tipWaiterInvoicePorcent" />
 																				</span>
 																			</div>
-																			<div class="col-md-4">
+																			<div class="col-md-2">
 																				<!-- <input type="text" class="form-control textcontrol"></input> -->
 																				<input class="form-control textcontrol" t:id="tipWaiterInvoicePorcent"
 																					name="tipWaiterInvoicePorcent" t:type="TextField"
-																					placeholder="${message:tipWaiterInvoicePorcent}" />
+																					placeholder="${message:tipWaiterInvoicePorcent-label}" />
 																			</div>
 																			<div class="col-md-2">
 																				<!-- <span class="input-group-addon">I.V.A.</span> -->
@@ -800,7 +804,7 @@
 																	</div>
 																</div>
 																<div class="row">
-																	<div class="col-md-3">
+																	<div class="col-md-2">
 																		<!-- <span class="input-group-addon">Formato de fecha</span> -->
 																		<span class="input-group-addon">
 																			<t:label for="dateFormat" />
@@ -1990,7 +1994,7 @@
 											<t:errors />
 											<div class="row">
 												<div class="col-md-3">
-													<t:RadioGroup value="radioSelectedValue">
+													<t:RadioGroup class="radioGroup" value="radioSelectedValue">
 														<t:Radio t:id="nivel1" value="literal:N1" label="Nivel 1"
 															type="radio" name="group" />
 														<t:label for="nivel1" />
