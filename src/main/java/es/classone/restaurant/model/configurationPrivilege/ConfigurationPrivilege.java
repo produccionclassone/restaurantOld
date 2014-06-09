@@ -14,6 +14,7 @@ public class ConfigurationPrivilege {
 
 	private int confPrivilegeId;
 	private String code;
+	private String name;
 	private String privilegeValue;
 
 	public ConfigurationPrivilege() {
@@ -47,6 +48,15 @@ public class ConfigurationPrivilege {
 		this.code = code;
 	}
 
+	@Column(name="name")
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	@Column(name = "privilegeValue")
 	public String getPrivilegeValue() {
 		return privilegeValue;
@@ -60,6 +70,7 @@ public class ConfigurationPrivilege {
 // CREATE TABLE IF NOT EXISTS `Ayx14res`.`Res14cnt_PG` (
 // `idRes14cnt_PG` INT NOT NULL AUTO_INCREMENT,
 // `code` VARCHAR(11) NOT NULL,
+// `name` VARCHAR(11) NOT NULL,
 // `privilegeValue` VARCHAR(324) NOT NULL,
 // PRIMARY KEY (`idRes14cnt_PG`))
 // ENGINE = InnoDB;

@@ -1,12 +1,12 @@
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
 	t:type="LayoutIndex" t:pageTitle="title">
 	<script>
-	$(document).ready(function(){
-  
-	if( $("#nivel1").is(':checked')) { 
-			console.log("click");
-		} 
-});</script>
+		$(document).ready(function(){
+
+		if( $("#nivel1").is(':checked')) {
+		console.log("click");
+		}
+		});</script>
 	<div class="container">
 		<div class="row"> <!-- Mantenimiento reg. control -->
 			<!-- Button trigger modal -->
@@ -1994,62 +1994,24 @@
 											<t:errors />
 											<div class="row">
 												<div class="col-md-3">
-													<t:RadioGroup class="radioGroup" value="radioSelectedValue">
-														<t:Radio t:id="nivel1" value="literal:N1" label="Nivel 1"
-															type="radio" name="group" />
-														<t:label for="nivel1" />
+													<t:RadioGroup value="radioSelectedValue" id="radiogroup">
+														<input t:type="radio" t:id="level1" class="radiogroup"
+															value="literal:N1" label="Nivel 1" name="group" />
+														<t:label for="level1" />
 														<br />
-														<t:Radio t:id="nivel2" value="literal:N2" label="Nivel 2"
-															type="radio" name="group" />
-														<t:label for="nivel2" />
+														<input t:type="radio" t:id="level2" value="literal:N2"
+															label="Nivel 2" class="radiogroup" name="group" />
+														<t:label for="level2" />
 														<br />
-														<t:Radio t:id="nivel3" value="literal:N3" label="Nivel 3"
-															type="radio" name="group" />
-														<t:label for="nivel3" />
+														<input t:type="radio" t:id="level3" value="literal:N3"
+															label="Nivel 3" class="radiogroup" name="group" />
+														<t:label for="level3" />
 													</t:RadioGroup>
 												</div>
 												<div class="col-md-9">
-													<div class="row">
-														<div class="col-md-2">
-															<!-- <span class="input-group-addon">Nivel 1</span> -->
-															<span class="input-group-addon">
-																<t:label for="level1" />
-															</span>
-														</div>
-														<div class="col-md-10">
-															<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-															<input class="form-control textcontrol" t:id="level1"
-																name="level1" t:type="TextField" placeholder="${message:level1-label}" />
-														</div>
+													<div t:type="Loop" t:source="privileges" t:value="privilege">
+														
 													</div>
-													<div class="row">
-														<div class="col-md-2">
-															<!-- <span class="input-group-addon">Nivel 2</span> -->
-															<span class="input-group-addon">
-																<t:label for="level2" />
-															</span>
-														</div>
-														<div class="col-md-10">
-															<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-															<input class="form-control textcontrol" t:id="level2"
-																name="level2" t:type="TextField" placeholder="${message:level2-label}" />
-														</div>
-													</div>
-													
-													<div class="row">
-														<div class="col-md-2">
-															<!-- <span class="input-group-addon">Nivel 3</span> -->
-															<span class="input-group-addon">
-																<t:label for="level3" />
-															</span>
-														</div>
-														<div class="col-md-10">
-															<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-															<input class="form-control textcontrol" t:id="level3"
-																name="level3" t:type="TextField" placeholder="${message:level1-labe3}" />
-														</div>
-													</div>
-													
 												</div>
 											</div>
 											<div class="row">${radioSelectedValue}</div>
