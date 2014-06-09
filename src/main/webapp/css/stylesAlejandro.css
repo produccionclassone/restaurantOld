@@ -484,6 +484,12 @@ input, select, textarea  {
     background-color: #f4f4f4;
 }
 
+
+/*DATATABLES */
+HTML>BODY
+ul.ColVis_collection{
+	width:250px;
+}
 /* Error messages. */
 
 HTML>BODY DIV.t-error             { border:none; }

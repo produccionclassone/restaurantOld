@@ -20,4 +20,10 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 		return dishGroupDao.findAll();
 	}
 
+	
+	public DishGroup createDishGroup(DishGroup dishGroup) {
+		 dishGroupDao.save(dishGroup);
+		 return dishGroup;
+	}
+
 }

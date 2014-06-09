@@ -184,7 +184,7 @@ public class Index {
 					.getFavoritesByUserId(userSession.getUserProfileId());
 			JSONArray favoriteNames = new JSONArray();
 			JSONArray favoritePaths = new JSONArray();
-
+			
 			for (Favorite f : favorites) {
 				favoriteNames.put(MapApp.getOptionObjByOption(f.getUseCase()).getOptionName());
 				favoritePaths.put(MapApp.getOptionObjByOption(f.getUseCase()).getPath());
