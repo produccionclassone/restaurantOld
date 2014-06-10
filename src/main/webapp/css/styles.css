@@ -376,7 +376,7 @@ HTML > BODY input.panelcheck {
 }
 
 input.panelchecksep {
-	margin-right:14px;
+	margin-right:16px;
 }
 
 span.scheme {
@@ -388,7 +388,7 @@ span.scheme {
 span.schemesep {
 	margin-right:17.5px;
 	font-weight:bold;
-	padding-left:2px;
+	padding-left:3px;
 }
 
 input.radiomap{

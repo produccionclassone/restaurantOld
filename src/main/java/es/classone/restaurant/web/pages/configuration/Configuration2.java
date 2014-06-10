@@ -370,9 +370,8 @@ public class Configuration2 {
 
 	// ================Privileges =========================
 
+
 	private List<ConfigurationPrivilege> cpList;
-	private List<Boolean> privileges;
-	private Boolean privilege;
 
 	@Inject
 	private Request requestPriv;
@@ -386,25 +385,6 @@ public class Configuration2 {
 	@Property
 	@Persist(PersistenceConstants.FLASH)
 	private String radioSelectedValue;
-
-	
-	
-	
-	public List<Boolean> getPrivileges() {
-		return privileges;
-	}
-
-	public void setPrivileges(List<Boolean> privileges) {
-		this.privileges = privileges;
-	}
-
-	public Boolean getPrivilege() {
-		return privilege;
-	}
-
-	public void setPrivilege(Boolean privilege) {
-		this.privilege = privilege;
-	}
 
 	void afterRender() {
 		cpList = configurationService.getPrivileges();
