@@ -206,6 +206,9 @@ public class Configuration2 {
 	private String contCode;
 
 	@Property
+	private String contSerie;
+
+	@Property
 	private String ivaType1;
 
 	@Property
@@ -370,7 +373,6 @@ public class Configuration2 {
 
 	// ================Privileges =========================
 
-
 	private List<ConfigurationPrivilege> cpList;
 
 	@Inject
@@ -498,6 +500,7 @@ public class Configuration2 {
 		dateFormat = cgHashMap.get("dateFormat");
 		// ------Contabilidad------------------
 		contCode = cgHashMap.get("contCode");
+		contSerie = cgHashMap.get("contSerie");
 		ivaType1 = cgHashMap.get("ivaType1");
 		ledgerAccIVA1 = cgHashMap.get("ledgerAccIVA1");
 		ivaType2 = cgHashMap.get("ivaType2");
@@ -636,6 +639,7 @@ public class Configuration2 {
 		configurationService.setParameterGeneric("dateFormat", dateFormat);
 		// ------Contabilidad------------------
 		configurationService.setParameterGeneric("contCode", contCode);
+		configurationService.setParameterGeneric("contSerie", contSerie);
 		configurationService.setParameterGeneric("ivaType1", ivaType1);
 		configurationService
 				.setParameterGeneric("ledgerAccIVA1", ledgerAccIVA1);

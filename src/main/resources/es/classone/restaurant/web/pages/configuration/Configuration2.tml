@@ -7,7 +7,7 @@
 		console.log("click");
 		}
 		});</script>
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row"> <!-- Mantenimiento reg. control -->
 			<!-- Button trigger modal -->
 			<button class="btn btn-primary btn" style="float:left; background:transparent;"
@@ -17,7 +17,8 @@
 			</button>
 
 			<div class="modal fade bs-example-modal-lg" id="regControl"
-				tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="padding:0px 0px;"
+				tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+				style="padding:0px 0px; margin-top:40px; margin-left:8px;"
 				aria-hidden="true">
 				<div class="modal-dialog modal-lg">
 					<div class="modal-content">
@@ -25,26 +26,27 @@
 							<button type="button" class="close" data-dismiss="modal"
 								aria-hidden="true">&times;
 							</button>
-							<h5 class="modal-title" id="myModalLabel">${message:mantRegControl}</h5>
+							<h6 class="modal-title text" id="myModalLabel">${message:mantRegControl}</h6>
 						</div>
 						<div class="modal-body" style="padding:0px 0px;">
 							<!-- Nav tabs -->
 							<ul class="nav nav-tabs" style="padding:0px 0px;">
-								<li class="active">
+								<li class="active liNavTab">
 									<a href="#diversosContadores" data-toggle="tab">
-										<h6 class="text">${message:diversosContadores}</h6>
+										<h5 class="text">${message:diversosContadores}</h5>
 									</a>
 								</li>
-								<li>
-									<a href="#configSistema" data-toggle="tab">
-										<h6 class="text">${message:bussinesIntelig}</h6>
-									</a>
-								</li>
-								<li>
+								<li class="liNavTab">
 									<a href="#claves" data-toggle="tab">
-										<h6 class="text">${message:keys}</h6>
+										<h5 class="text">${message:keys}</h5>
 									</a>
 								</li>
+								<li class="liNavTab">
+									<a href="#configSistema" data-toggle="tab">
+										<h5 class="text">${message:bussinesIntelig}</h5>
+									</a>
+								</li>
+
 							</ul>
 							<!-- Tab panes -->
 							<div class="tab-content">
@@ -55,57 +57,59 @@
 											<t:errors />
 											<!-- Nav tabs -->
 											<ul class="nav nav-tabs" style="padding:0px 0px;">
-												<li class="active">
+												<li class="active liNavTab">
 													<a href="#contadores" data-toggle="tab">
-														<h6 class="text">${message:contadores}</h6>
+														<h4 class="text">${message:contadores}</h4>
 													</a>
 												</li>
-												<li>
+												<li class="liNavTab">
 													<a href="#general" data-toggle="tab">
-														<h6 class="text">${message:general}</h6>
+														<h4 class="text">${message:general}</h4>
 													</a>
 												</li>
-												<li>
+												<li class="liNavTab">
 													<a href="#restaurante" data-toggle="tab">
-														<h6 class="text">${message:restaurante}</h6>
+														<h4 class="text">${message:restaurante}</h4>
 													</a>
 												</li>
-												<li>
+												<li class="liNavTab">
 													<a href="#impresion" data-toggle="tab">
-														<h6 class="text">${message:impresion}</h6>
+														<h4 class="text">${message:impresion}</h4>
 													</a>
 												</li>
 
-												<li>
+												<li class="liNavTab">
 													<a href="#conectividad" data-toggle="tab">
-														<h6 class="text">${message:conectividad}</h6>
+														<h4 class="text">${message:conectividad}</h4>
 													</a>
 												</li>
-												<li>
+												<li class="liNavTab">
 													<a href="#contabilidad" data-toggle="tab">
-														<h6 class="text">${message:contabilidad}</h6>
+														<h4 class="text">${message:contabilidad}</h4>
 													</a>
 												</li>
-												<li>
+												<li class="liNavTab">
 													<a href="#apariencia" data-toggle="tab">
-														<h6 class="text">${message:apariencia}</h6>
+														<h4 class="text">${message:apariencia}</h4>
 													</a>
 												</li>
 											</ul>
 
 											<!-- Tab panes -->
-											<div class="tab-content">
+											<div class="tab-content" style="height: 510px;">
 												<div class="tab-pane active" id="contadores">
 													<div class="container-fluid">
-														<div class="row row5"></div>
+														<div class="row row120"></div>
 														<div class="row">
-															<div class="col-md-12">
+															<div class="col-md-3"></div>
+															<div class="col-md-6">
 																<div class="jumbotron">
-																	<h6 class="text" style="text-align:center">
+																	<h4 class="text" style="text-align:center">
 																		${message:info-label}
-																	</h6>
+																	</h4>
 																</div>
 															</div>
+															<div class="col-md-3"></div>
 														</div>
 														<div class="row row5"></div>
 														<div class="row">
@@ -118,9 +122,8 @@
 															</div>
 															<div class="col-md-2">
 																<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																<input class="form-control textcontrol" t:id="actualSession"
-																	name="actualSession" t:type="TextField"
-																	placeholder="${message:actualSession-label}" />
+																<input class="form-control textcontrolL" t:id="actualSession"
+																	name="actualSession" t:type="TextField" />
 															</div>
 															<div class="col-md-4"></div>
 														</div>
@@ -135,8 +138,8 @@
 															</div>
 															<div class="col-md-2">
 																<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																<input class="form-control textcontrol" t:id="lastBill"
-																	name="lastBill" t:type="TextField" placeholder="${message:lastBill-label}" />
+																<input class="form-control textcontrolL" t:id="lastBill"
+																	name="lastBill" t:type="TextField" />
 															</div>
 															<div class="col-md-4"></div>
 														</div>
@@ -151,9 +154,8 @@
 															</div>
 															<div class="col-md-2">
 																<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																<input class="form-control textcontrol" t:id="lastCommand"
-																	name="lastCommand" t:type="TextField"
-																	placeholder="${message:lastCommand-label}" />
+																<input class="form-control textcontrolL" t:id="lastCommand"
+																	name="lastCommand" t:type="TextField" />
 															</div>
 															<div class="col-md-4"></div>
 														</div>
@@ -168,8 +170,8 @@
 															</div>
 															<div class="col-md-2">
 																<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																<input class="form-control textcontrol" t:id="lastClient"
-																	name="lastClient" t:type="TextField" placeholder="${message:lastClient-label}" />
+																<input class="form-control textcontrolL" t:id="lastClient"
+																	name="lastClient" t:type="TextField" />
 															</div>
 															<div class="col-md-4"></div>
 														</div>
@@ -185,12 +187,11 @@
 															</div>
 															<div class="col-md-2">
 																<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																<input class="form-control textcontrol" t:id="notaFiscal"
-																	name="notaFiscal" t:type="TextField" placeholder="${message:notaFiscal-label}" />
+																<input class="form-control textcontrolL" t:id="notaFiscal"
+																	name="notaFiscal" t:type="TextField" />
 															</div>
 															<div class="col-md-4"></div>
 														</div>
-														<div class="row row5"></div>
 													</div>
 												</div>
 												<div class="tab-pane" id="general">
@@ -199,35 +200,25 @@
 														<div class="row">
 															<div class="col-md-6"><!-- Left -->
 																<div class="row">
-																	<div class="col-md-4">
+																	<div class="col-md-1"></div>
+																	<div class="col-md-5">
 																		<!-- <span class="input-group-addon">Categoría restaurante</span> -->
 																		<span class="input-group-addon">
 																			<t:label for="restCateg" />
 																		</span>
 																	</div>
-																	<div class="col-md-2">
+																	<div class="col-md-4">
 																		<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
 																		<input class="form-control textcontrol" t:id="restCateg"
-																			name="restCateg" t:type="TextField" placeholder="${message:restCateg-label}" />
+																			name="restCateg" t:type="TextField" />
 																	</div>
-																	<div class="col-md-4">
-																		<!-- <span class="input-group-addon">CAD de la explotación</span> -->
-																		<span class="input-group-addon">
-																			<t:label for="CADExplot" />
-																		</span>
-																	</div>
-																	<div class="col-md-2">
-																		<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																		<input class="form-control textcontrol" t:id="CADExplot"
-																			name="CADExplot" t:type="TextField" placeholder="${message:CADExplot-label}" />
-																	</div>
+																	<div class="col-md-2"></div>
 																</div>
 																<div class="row">
 																	<div class="col-md-1"></div>
 																	<div class="col-md-10 rowBorder">
 																		<div class="row">
-																			<div class="col-md-1"></div>
-																			<div class="col-md-5">
+																			<div class="col-md-6">
 																				<!-- <span class="input-group-addon">Cobro por servicio/Cbtos.</span> -->
 																				<span class="input-group-addon">
 																					<t:label for="covServChar" />
@@ -242,26 +233,30 @@
 																			<div class="col-md-1"></div>
 																		</div>
 																		<div class="row">
-																			<div class="col-md-1"></div>
-																			<div class="col-md-2">
+																			<div class="col-md-5">
 																				<!--<span class="input-group-addon">Importe</span> -->
 																				<span class="input-group-addon">
 																					<t:label for="covServCharImp" />
 																				</span>
 																			</div>
-																			<div class="col-md-4">
+																			<div class="col-md-1"></div>
+																			<div class="col-md-5">
 																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
 																				<input class="form-control textcontrol" t:id="covServCharImp"
 																					name="covServCharImp" t:type="TextField"
 																					placeholder="${message:covServCharImp-label}" />
 																			</div>
-																			<div class="col-md-2">
+																			<div class="col-md-1"></div>
+																		</div>
+																		<div class="row">
+																			<div class="col-md-5">
 																				<!-- <span class="input-group-addon">I.V.A.</span> -->
 																				<span class="input-group-addon">
 																					<t:label for="covServCharIVAType" />
 																				</span>
 																			</div>
-																			<div class="col-md-2">
+																			<div class="col-md-1"></div>
+																			<div class="col-md-5">
 																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
 																				<input class="form-control textcontrol" t:id="covSErvCharIVAType"
 																					name="covServCharIVAType" t:type="TextField"
@@ -269,15 +264,16 @@
 																			</div>
 																			<div class="col-md-1"></div>
 																		</div>
+																		<div class="col-md-2"></div>
 																	</div>
 																	<div class="col-md-1"></div>
 																</div>
+																<div class="row row5"></div>
 																<div class="row">
 																	<div class="col-md-1"></div>
 																	<div class="col-md-10 rowBorder">
 																		<div class="row">
-																			<div class="col-md-1"></div>
-																			<div class="col-md-5">
+																			<div class="col-md-6">
 																				<!-- <span class="input-group-addon">Prop. camareros 
 																					en fact</span> -->
 																				<span class="input-group-addon">
@@ -293,39 +289,43 @@
 																			<div class="col-md-1"></div>
 																		</div>
 																		<div class="row">
-																			<div class="col-md-1"></div>
-																			<div class="col-md-4">
+																			<div class="col-md-5">
 																				<!-- <span class="input-group-addon">Porcentaje</span> -->
 																				<span class="input-group-addon">
 																					<t:label for="tipWaiterInvoicePorcent" />
 																				</span>
 																			</div>
-																			<div class="col-md-2">
+																			<div class="col-md-1"></div>
+																			<div class="col-md-5">
 																				<!-- <input type="text" class="form-control textcontrol"></input> -->
 																				<input class="form-control textcontrol" t:id="tipWaiterInvoicePorcent"
-																					name="tipWaiterInvoicePorcent" t:type="TextField"
-																					placeholder="${message:tipWaiterInvoicePorcent-label}" />
+																					name="tipWaiterInvoicePorcent" t:type="TextField" />
 																			</div>
-																			<div class="col-md-2">
+																			<div class="col-md-1"></div>
+																		</div>
+																		<div class="row">
+																			<div class="col-md-5">
 																				<!-- <span class="input-group-addon">I.V.A.</span> -->
 																				<span class="input-group-addon">
 																					<t:label for="tipWaiterInvoiceIVA" />
 																				</span>
 																			</div>
-																			<div class="col-md-2">
+																			<div class="col-md-1"></div>
+																			<div class="col-md-5">
 																				<!-- <input type="text" class="form-control textcontrol"></input> -->
 																				<input class="form-control textcontrol" t:id="tipWaiterInvoiceIVA"
 																					name="tipWaiterInvoiceIVA" t:type="TextField"
 																					placeholder="${message:tipWaiterInvoiceIVA-label}" />
 																			</div>
 																			<div class="col-md-1"></div>
+
 																		</div>
 																	</div>
 																	<div class="col-md-1"></div>
 																</div>
 																<div class="row">
-																	<div class="col-md-2"></div>
-																	<div class="col-md-4">
+																	<div class="col-md-1"></div>
+																	<div class="col-md-5">
 																		<!-- <span class="input-group-addon">Cobro Platos complem.</span> -->
 																		<span class="input-group-addon">
 																			<t:label for="chargeAddonDish" />
@@ -340,8 +340,8 @@
 																	<div class="col-md-2"></div>
 																</div>
 																<div class="row">
-																	<div class="col-md-2"></div>
-																	<div class="col-md-4">
+																	<div class="col-md-1"></div>
+																	<div class="col-md-5">
 																		<!-- <span class="input-group-addon">Decimales</span> -->
 																		<span class="input-group-addon">
 																			<t:label for="decimal" />
@@ -355,8 +355,8 @@
 																	<div class="col-md-2"></div>
 																</div>
 																<div class="row">
-																	<div class="col-md-2"></div>
-																	<div class="col-md-4">
+																	<div class="col-md-1"></div>
+																	<div class="col-md-5">
 																		<!-- <span class="input-group-addon">I.V.A. incluido</span> -->
 																		<span class="input-group-addon">
 																			<t:label for="ivaIncluded" />
@@ -371,8 +371,8 @@
 																	<div class="col-md-2"></div>
 																</div>
 																<div class="row">
-																	<div class="col-md-2"></div>
-																	<div class="col-md-4">
+																	<div class="col-md-1"></div>
+																	<div class="col-md-5">
 																		<!-- <span class="input-group-addon">Número de mesas</span> -->
 																		<span class="input-group-addon">
 																			<t:label for="tableNumber" />
@@ -387,8 +387,8 @@
 																	<div class="col-md-2"></div>
 																</div>
 																<div class="row">
-																	<div class="col-md-2"></div>
-																	<div class="col-md-4">
+																	<div class="col-md-1"></div>
+																	<div class="col-md-5">
 																		<!-- <span class="input-group-addon">Fecha sesión actual</span> -->
 																		<span class="input-group-addon">
 																			<t:label for="actualSessionDate" />
@@ -403,8 +403,8 @@
 																	<div class="col-md-2"></div>
 																</div>
 																<div class="row">
-																	<div class="col-md-2"></div>
-																	<div class="col-md-4">
+																	<div class="col-md-1"></div>
+																	<div class="col-md-5">
 																		<!-- <span class="input-group-addon">Ultimo cierre mes</span> -->
 																		<span class="input-group-addon">
 																			<t:label for="closureLastMonth" />
@@ -419,8 +419,8 @@
 																	<div class="col-md-2"></div>
 																</div>
 																<div class="row">
-																	<div class="col-md-2"></div>
-																	<div class="col-md-4">
+																	<div class="col-md-1"></div>
+																	<div class="col-md-5">
 																		<span class="input-group-addon">Sesión actual abierta</span>
 																	</div>
 																	<div class="col-md-4">
@@ -429,8 +429,8 @@
 																	<div class="col-md-2"></div>
 																</div>
 																<div class="row">
-																	<div class="col-md-2"></div>
-																	<div class="col-md-4">
+																	<div class="col-md-1"></div>
+																	<div class="col-md-5">
 																		<!-- <span class="input-group-addon">Efectuar E. Contable 
 																			Vtas</span> -->
 																		<span class="input-group-addon">
@@ -445,62 +445,15 @@
 																	</div>
 																	<div class="col-md-2"></div>
 																</div>
-																<div class="row">
-																	<div class="col-md-4">
-																		<!-- <span class="input-group-addon">Tipo Ing. Servicio 
-																			Cbto</span> -->
-																		<span class="input-group-addon">
-																			<t:label for="covIncomeType" />
-																		</span>
-																	</div>
-																	<div class="col-md-2">
-																		<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																		<input class="form-control textcontrol" t:id="covIncomeType"
-																			name="covIncomeType" t:type="TextField"
-																			placeholder="${message:covIncomeType-label}" />
-																	</div>
-																	<div class="col-md-4">
-																		<!-- <span class="input-group-addon">Tipo Ing. Propinas</span> -->
-																		<span class="input-group-addon">
-																			<t:label for="tipsIncomeType" />
-																		</span>
-																	</div>
-																	<div class="col-md-2">
-																		<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																		<input class="form-control textcontrol" t:id="tipsIncomeType"
-																			name="tipsIncomeType" t:type="TextField"
-																			placeholder="${message:tipsIncomeType-label}" />
-																	</div>
-																</div>
-																<div class="row">
-																	<div class="col-md-2"></div>
-																	<div class="col-md-4">
-																		<!-- <span class="input-group-addon">C.A.D. Departamento</span> -->
-																		<span class="input-group-addon">
-																			<t:label for="cadDept" />
-																		</span>
-																	</div>
-																	<div class="col-md-4">
-																		<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																		<input class="form-control textcontrol" t:id="cadDept"
-																			name="cadDept" t:type="TextField" placeholder="${message:cadDept-label}" />
-																	</div>
-																	<div class="col-md-2"></div>
-																</div>
-
 															</div>
 															<div class="col-md-6"> <!-- Right -->
 																<div class="row">
 																	<dic class="col-md-1"></dic>
 																	<div class="col-md-10 rowBorder">
 																		<div clas="row">
-																			<div class="col-md-4"></div>
-																			<div class="col-md-4">
-																				<span class="input-group-addon">Serv.
-																					Hotel/Dpto:
-																				</span>
+																			<div class="col-md-12">
+																				<h5 class="textRowBorder">Serv. Hotel/Dpto:</h5>
 																			</div>
-																			<div class="col-md-4"></div>
 																		</div>
 																		<div class="row">
 																			<div class="col-md-5">
@@ -1576,192 +1529,198 @@
 														<div class="row row5"></div>
 														<div class="row">
 															<div class="col-md-6"><!-- Left -->
-																<div class="row row5"></div>
-																<div class="row">
-																	<div class="col-md-2"></div>
-																	<div class="col-md-4">
-																		<!-- <span class="input-group-addon">Código CONTABILIDAD</span> -->
-																		<span class="input-group-addon">
-																			<t:label for="contCode" />
-																		</span>
-																	</div>
-																	<div class="col-md-4">
-																		<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																		<input class="form-control textcontrol" t:id="contCode"
-																			name="contCode" t:type="TextField" placeholder="${message:contCode-label}" />
-																	</div>
-																	<div class="col-md-2"></div>
-																</div>
-																<div class="row row5"></div>
+																<div class="row row10"></div>
+																<div class="row row10"></div>
 																<div class="row">
 																	<div class="col-md-1"></div>
 																	<div class="col-md-10 rowBorder">
-																		<div class="row">
+																		<div clas="row">
 																			<div class="col-md-12">
-																				<span class="input-group-addon" style="text-align:center;">Cuenta
-																					contable
-																					Caja</span>
+																				<h5 class="textRowBorder">Cuentas generales</h5>
 																			</div>
 																		</div>
-																		<div class="row row5"></div>
+																		<div class="row row90"></div>
+																		<div class="row row10"></div>
 																		<div class="row">
 																			<div class="col-md-2"></div>
+																			<div class="col-md-5">
+																				<!-- <span class="input-group-addon">Código CONTABILIDAD</span> -->
+																				<span class="input-group-addon">
+																					<t:label for="contCode" />
+																				</span>
+																			</div>
 																			<div class="col-md-3">
+																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																				<input class="form-control textcontrolL" t:id="contCode"
+																					name="contCode" t:type="TextField" placeholder="${message:contCode-label}" />
+																			</div>
+																			<div class="col-md-2"></div>
+																		</div>
+																		<div class="row">
+																			<div class="col-md-2"></div>
+																			<div class="col-md-5">
+																				<!-- <span class="input-group-addon">Serie contable</span> -->
+																				<span class="input-group-addon">
+																					<t:label for="contSerie" />
+																				</span>
+																			</div>
+																			<div class="col-md-2">
+																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																				<input class="form-control textcontrolL" t:id="contSerie"
+																					name="contSerie" t:type="TextField" />
+																			</div>
+																			<div class="col-md-3"></div>
+																		</div>
+																		<div class="row row60"></div>
+																		<div class="row row30"></div>
+																		<div class="row row10"></div>
+																		<div class="row">
+																			<div class="col-md-1"></div>
+																			<div class="col-md-6">
 																				<!-- <span class="input-group-addon">Caja</span> -->
 																				<span class="input-group-addon">
 																					<t:label for="ledgerAccCaja" />
 																				</span>
 																			</div>
-																			<div class="col-md-5">
+																			<div class="col-md-4">
 																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																				<input class="form-control textcontrol" t:id="ledgerAccCaja"
-																					name="ledgerAccCaja" t:type="TextField"
-																					placeholder="${message:ledgerAccCaja-label}" />
+																				<input class="form-control textcontrolL" t:id="ledgerAccCaja"
+																					name="ledgerAccCaja" t:type="TextField" />
 																			</div>
-																			<div class="col-md-2"></div>
+																			<div class="col-md-1"></div>
 																		</div>
-																		<div class="row row5"></div>
 																		<div class="row">
-																			<div class="col-md-2"></div>
-																			<div class="col-md-3">
+																			<div class="col-md-1"></div>
+																			<div class="col-md-6">
 																				<!-- <span class="input-group-addon">Invitación </span> -->
 																				<span class="input-group-addon">
 																					<t:label for="ledgerAccInvi" />
 																				</span>
 																			</div>
-																			<div class="col-md-5">
+																			<div class="col-md-4">
 																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																				<input class="form-control textcontrol" t:id="ledgerAccInvi"
+																				<input class="form-control textcontrolL" t:id="ledgerAccInvi"
 																					name="ledgerAccInvi" t:type="TextField"
 																					placeholder="${message:ledgerAccInvi-label}" />
 																			</div>
-																			<div class="col-md-2"></div>
+																			<div class="col-md-1"></div>
 																		</div>
-																		<div class="row row5"></div>
+																		<div class="row">
+																			<div class="col-md-1"></div>
+																			<div class="col-md-6">
+																				<!-- <span class="input-group-addon">Cta. General Ventas</span> -->
+																				<span class="input-group-addon">
+																					<t:label for="ledgerAccGerVtas" />
+																				</span>
+																			</div>
+																			<div class="col-md-4">
+																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																				<input class="form-control textcontrolL" t:id="ledgerAccGerVtas"
+																					name="ledgerAccGerVtas" t:type="TextField"
+																					placeholder="${message:ledgerAccGerVtas-label}" />
+																			</div>
+																			<div class="col-md-1"></div>
+																		</div>
+																		<div class="row">
+																			<div class="col-md-1"></div>
+																			<div class="col-md-6">
+																				<!-- <span class="input-group-addon">Servicio Cbtos actual</span> -->
+																				<span class="input-group-addon">
+																					<t:label for="ledgerAccServCbtos" />
+																				</span>
+																			</div>
+																			<div class="col-md-4">
+																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																				<input class="form-control textcontrolL" t:id="ledgerAccServCbtos"
+																					name="ledgerAccServCbtos" t:type="TextField"
+																					placeholder="${message:ledgerAccServCbtos-label}" />
+																			</div>
+																			<div class="col-md-1"></div>
+																		</div>
+																		<div class="row">
+																			<div class="col-md-1"></div>
+																			<div class="col-md-6">
+																				<!-- <span class="input-group-addon">Cta Propina camareros</span> -->
+																				<span class="input-group-addon">
+																					<t:label for="ledgerAccPropCam" />
+																				</span>
+																			</div>
+																			<div class="col-md-4">
+																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																				<input class="form-control textcontrolL" t:id="ledgerAccPropCam"
+																					name="ledgerAccPropCam" t:type="TextField"
+																					placeholder="${message:ledgerAccPropCam-label}" />
+																			</div>
+																			<div class="col-md-1"></div>
+																		</div>
+																		<div class="row">
+																			<div class="col-md-1"></div>
+																			<div class="col-md-6">
+																				<!-- <span class="input-group-addon">Invitación</span> -->
+																				<span class="input-group-addon">
+																					<t:label for="ledgerAccDescVtas" />
+																				</span>
+																			</div>
+																			<div class="col-md-4">
+																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																				<input class="form-control textcontrolL" t:id="ledgerAccDescVtas"
+																					name="ledgerAccDescVtas" t:type="TextField"
+																					placeholder="${message:ledgerAccDescVtas-label}" />
+																			</div>
+																			<div class="col-md-1"></div>
+																		</div>
+																		<div class="row row10"></div>
+																		<div class="row row10"></div>
 																	</div>
 																	<div class="col-md-1"></div>
 																</div>
-																<div class="row row5"></div>
-																<div class="row">
-																	<div class="col-md-2"></div>
-																	<div class="col-md-3">
-																		<!-- <span class="input-group-addon">Cta. General Ventas</span> -->
-																		<span class="input-group-addon">
-																			<t:label for="ledgerAccGerVtas" />
-																		</span>
-																	</div>
-																	<div class="col-md-5">
-																		<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																		<input class="form-control textcontrol" t:id="ledgerAccGerVtas"
-																			name="ledgerAccGerVtas" t:type="TextField"
-																			placeholder="${message:ledgerAccGerVtas-label}" />
-																	</div>
-																	<div class="col-md-2"></div>
-																</div>
-																<div class="row row5"></div>
-
-																<div class="row row5"></div>
-																<div class="row">
-																	<div class="col-md-2"></div>
-																	<div class="col-md-4">
-																		<!-- <span class="input-group-addon">Cta Propina camareros</span> -->
-																		<span class="input-group-addon">
-																			<t:label for="ledgerAccPropCam" />
-																		</span>
-																	</div>
-																	<div class="col-md-4">
-																		<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																		<input class="form-control textcontrol" t:id="ledgerAccPropCam"
-																			name="ledgerAccPropCam" t:type="TextField"
-																			placeholder="${message:ledgerAccPropCam-label}" />
-																	</div>
-																	<div class="col-md-2"></div>
-																</div>
-																<div class="row row5"></div>
-																<div class="row">
-																	<div class="col-md-2"></div>
-																	<div class="col-md-4">
-																		<!-- <span class="input-group-addon">Invitación</span> -->
-																		<span class="input-group-addon">
-																			<t:label for="ledgerAccDescVtas" />
-																		</span>
-																	</div>
-																	<div class="col-md-4">
-																		<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																		<input class="form-control textcontrol" t:id="ledgerAccDescVtas"
-																			name="ledgerAccDescVtas" t:type="TextField"
-																			placeholder="${message:ledgerAccDescVtas-label}" />
-																	</div>
-																	<div class="col-md-2"></div>
-																</div>
-																<div class="row">
-																	<div class="col-md-2"></div>
-																	<div class="col-md-4">
-																		<!-- <span class="input-group-addon">(1) Nro. sesión actual</span> -->
-																		<span class="input-group-addon">
-																			<t:label for="ledgerAccServCbtos" />
-																		</span>
-																	</div>
-																	<div class="col-md-4">
-																		<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																		<input class="form-control textcontrol" t:id="ledgerAccServCbtos"
-																			name="ledgerAccServCbtos" t:type="TextField"
-																			placeholder="${message:ledgerAccServCbtos-label}" />
-																	</div>
-																	<div class="col-md-2"></div>
-																</div>
-
 															</div>
 															<div class="col-md-6"><!-- Right -->
-																<div class="row row5"></div>
+																<div class="row row10"></div>
+																<div class="row row10"></div>
 																<div class="row">
 																	<div class="col-md-1"></div>
 																	<div class="col-md-10 rowBorder">
-																		<div class="row">
+																		<div clas="row">
 																			<div class="col-md-12">
-																				<span class="input-group-addon" style="text-align:center;">Cta
-																					Contable
-																					I.V.A.:</span>
+																				<h5 class="textRowBorder">Tasas</h5>
 																			</div>
 																		</div>
 																		<div class="row row5"></div>
 																		<div class="row">
 																			<div class="col-md-2"></div>
 																			<div class="col-md-1">
-																				<span class="input-group-addon" style="text-align:center;">Tipo</span>
+																				<h4 class="textRowBorder">Tipo</h4>
 																			</div>
 																			<div class="col-md-3">
-																				<span class="input-group-addon" style="text-align:center;">% I.V.A.</span>
+																				<h4 class="textRowBorder">% I.V.A.</h4>
 																			</div>
 																			<div class="col-md-4">
-																				<span class="input-group-addon" style="text-align:center;">Cta.
-																					I.V.A.</span>
+																				<h4 class="textRowBorder">CTA. I.V.A.</h4>
 																			</div>
 																			<div class="col-md-2"></div>
 																		</div>
-																		<div class="row row5"></div>
 																		<div class="row">
 																			<div class="col-md-2"></div>
 																			<div class="col-md-1">
 																				<!-- <span class="input-group-addon">IVA 1</span> -->
 																				<span class="input-group-addon">
-																					<t:label for="ivaType1" />
+																					<t:label for="ivaType1" style="text-align:center;" />
 																				</span>
 																			</div>
 																			<div class="col-md-3">
 																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																				<input class="form-control textcontrol" t:id="ivaType1"
-																					name="ivaType1" t:type="TextField" placeholder="${message:ivaType1-label}" />
+																				<input class="form-control textcontrolR" t:id="ivaType1"
+																					name="ivaType1" t:type="TextField" />
 																			</div>
 																			<div class="col-md-4">
 																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																				<input class="form-control textcontrol" t:id="ledgerAccIVA1"
+																				<input class="form-control textcontrolL" t:id="ledgerAccIVA1"
 																					name="ledgerAccIVA1" t:type="TextField"
 																					placeholder="${message:ledgerAccIVA1-label}" />
 																			</div>
 																			<div class="col-md-2"></div>
 																		</div>
-																		<div class="row row5"></div>
 																		<div class="row">
 																			<div class="col-md-2"></div>
 																			<div class="col-md-1">
@@ -1772,18 +1731,17 @@
 																			</div>
 																			<div class="col-md-3">
 																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																				<input class="form-control textcontrol" t:id="ivaType2"
+																				<input class="form-control textcontrolR" t:id="ivaType2"
 																					name="ivaType2" t:type="TextField" placeholder="${message:ivaType2-label}" />
 																			</div>
 																			<div class="col-md-4">
 																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																				<input class="form-control textcontrol" t:id="ledgerAccIVA2"
+																				<input class="form-control textcontrolL" t:id="ledgerAccIVA2"
 																					name="ledgerAccIVA2" t:type="TextField"
 																					placeholder="${message:ledgerAccIVA2-label}" />
 																			</div>
 																			<div class="col-md-2"></div>
 																		</div>
-																		<div class="row row5"></div>
 																		<div class="row">
 																			<div class="col-md-2"></div>
 																			<div class="col-md-1">
@@ -1794,38 +1752,118 @@
 																			</div>
 																			<div class="col-md-3">
 																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																				<input class="form-control textcontrol" t:id="ivaType3"
+																				<input class="form-control textcontrolR" t:id="ivaType3"
 																					name="ivaType3" t:type="TextField" placeholder="${message:ivaType3-label}" />
 																			</div>
 																			<div class="col-md-4">
 																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																				<input class="form-control textcontrol" t:id="ledgerAccIVA3"
+																				<input class="form-control textcontrolL" t:id="ledgerAccIVA3"
 																					name="ledgerAccIVA3" t:type="TextField"
 																					placeholder="${message:ledgerAccIVA3-label}" />
 																			</div>
 																			<div class="col-md-2"></div>
 																		</div>
-																		<div class="row row5"></div>
+																		<div class="row row30"></div>
+																		<div class="row">
+																			<div class="col-md-2"></div>
+																			<div class="col-md-4">
+																				<!-- <span class="input-group-addon">Literal del impuesto</span> -->
+																				<span class="input-group-addon">
+																					<t:label for="literalIVA" />
+																				</span>
+																			</div>
+																			<div class="col-md-4">
+																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																				<input class="form-control textcontrolL" t:id="literalIVA"
+																					name="literalIVA" t:type="TextField" />
+																			</div>
+																			<div class="col-md-2"></div>
+																		</div>
 																	</div>
 																	<div class="col-md-1"></div>
 																</div>
-																<div class="row5"></div>
+																<div class="row row10"></div>
+																<div class="row row5"></div>
+																<div class="row row5"></div>
 																<div class="row">
-																	<div class="col-md-2"></div>
-																	<div class="col-md-4">
-																		<!-- <span class="input-group-addon">Literal del impuesto</span> -->
-																		<span class="input-group-addon">
-																			<t:label for="literalIVA" />
-																		</span>
+																	<div class="col-md-1"></div>
+																	<div class="col-md-10 rowBorder">
+																		<div clas="row">
+																			<div class="col-md-12">
+																				<h5 class="textRowBorder">C.A.D.</h5>
+																			</div>
+																		</div>
+																		<div class="row row60"></div>
+																		<div class="row">
+																			<div class="col-md-2"></div>
+																			<div class="col-md-6">
+																				<!-- <span class="input-group-addon">CAD de la explotación</span> -->
+																				<span class="input-group-addon">
+																					<t:label for="CADExplot" />
+																				</span>
+																			</div>
+																			<div class="col-md-2">
+																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																				<input class="form-control textcontrolL" t:id="CADExplot"
+																					name="CADExplot" t:type="TextField" />
+																			</div>
+																			<div class="col-md-2"></div>
+																		</div>
+																		<div class="row">
+																			<div class="col-md-2"></div>
+																			<div class="col-md-6">
+																				<!-- <span class="input-group-addon">C.A.D. Departamento</span> -->
+																				<span class="input-group-addon">
+																					<t:label for="cadDept" />
+																				</span>
+																			</div>
+																			<div class="col-md-2">
+																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																				<input class="form-control textcontrolL" t:id="cadDept"
+																					name="cadDept" t:type="TextField" />
+																			</div>
+																			<div class="col-md-2"></div>
+																		</div>
+																		<div class="row">
+																			<div class="col-md-2"></div>
+																			<div class="col-md-6">
+																				<!-- <span class="input-group-addon">Tipo Ing. Servicio 
+																					Cbto</span> -->
+																				<span class="input-group-addon">
+																					<t:label for="covIncomeType" />
+																				</span>
+																			</div>
+																			<div class="col-md-2">
+																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																				<input class="form-control textcontrolL" t:id="covIncomeType"
+																					name="covIncomeType" t:type="TextField"
+																					placeholder="${message:covIncomeType-label}" />
+																			</div>
+																			<div class="col-md-2"></div>
+																		</div>
+																		<div class="row">
+																			<div class="col-md-2"></div>
+																			<div class="col-md-6">
+																				<!-- <span class="input-group-addon">Tipo Ing. Propinas</span> -->
+																				<span class="input-group-addon">
+																					<t:label for="tipsIncomeType" />
+																				</span>
+																			</div>
+																			<div class="col-md-2">
+																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																				<input class="form-control textcontrolL" t:id="tipsIncomeType"
+																					name="tipsIncomeType" t:type="TextField"
+																					placeholder="${message:tipsIncomeType-label}" />
+																			</div>
+																			<div class="col-md-2"></div>
+																		</div>
+																		<div class="row row30"></div>
 																	</div>
-																	<div class="col-md-4">
-																		<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																		<input class="form-control textcontrol" t:id="literalIVA"
-																			name="literalIVA" t:type="TextField"
-																			placeholder="${message:literalIVA-label}" />
-																	</div>
-																	<div class="col-md-2"></div>
+																	<div class="col-md-1"></div>
 																</div>
+
+
+
 															</div>
 														</div>
 													</div>
@@ -1981,12 +2019,7 @@
 									</t:zone>
 
 								</div>
-								<div class="tab-pane" id="configSistema">
 
-									<div class="container-fluid">
-
-									</div>
-								</div>
 								<div class="tab-pane" id="claves">
 
 									<t:zone t:id="privFormZone" id="privFormZone">
@@ -2926,6 +2959,12 @@
 										</form>
 									</t:zone>
 
+								</div>
+								<div class="tab-pane" id="configSistema">
+
+									<div class="container-fluid">
+
+									</div>
 								</div>
 							</div>
 						</div>

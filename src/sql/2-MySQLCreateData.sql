@@ -14,7 +14,7 @@ INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) 
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (14, 'R4CNT008', 'tipWaiterInvoice%', '	');
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (15, 'R4CNT108', 'tipWaiterInvoiceIVA', '1');
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (16, 'R4CNT012', 'actualSessionDate', '20130201');
-INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (17, 'R4CNT013_01', 'actualSession', '1');
+INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (17, 'R4CNT013_01', 'actualSession', '0');
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (18, 'R4CNT013_02', 'lastBill', '1');
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (19, 'R4CNT013_03', 'lastCommand', '1');
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (20, 'R4CNT013_04', 'lastClient', '1');
@@ -101,6 +101,7 @@ INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) 
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (102, 'RSCNT031', 'literalCharCov', 'Pan,Cubiertos y Servicio Mesa');
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (103, 'RSCNT032', 'literalTipsAuto', 'Servicio Inluido en Factura');
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (104, 'RSCNT102', 'beforCharacters', '0');
+INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (105, 'R4CNT005', 'contSerie', 'R');
 INSERT INTO `ayx14res`.`Res14cnt_PG` (`idRes14cnt_PG`, `code`, `name`, `privilegeValue`) VALUES (1, 'R1CNT009_03', 'level3', 'NNNNNNNNNNSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS');
 INSERT INTO `ayx14res`.`Res14cnt_PG` (`idRes14cnt_PG`, `code`, `name`, `privilegeValue`) VALUES (2, 'R1CNT009_04', 'level4', 'SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS');
 INSERT INTO `ayx14res`.`Res14cnt_PG` (`idRes14cnt_PG`, `code`, `name`, `privilegeValue`) VALUES (3, 'R1CNT009_05', 'level5', 'SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS');
@@ -137,4 +138,4 @@ INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `first
 INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `firstTab`, `lastTab`, `paramCode`) VALUES (4, 'DescripcionSala4', 1, 342, 'RSCNT020_04');
 INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `firstTab`, `lastTab`, `paramCode`) VALUES (5, 'DescripcionSala5', 1, 342, 'RSCNT020_05');
 INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `firstTab`, `lastTab`, `paramCode`) VALUES (6, 'DescripcionSala6', 1, 342, 'RSCNT020_06');
-INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `firstTab`, `lastTab`, `paramCode`) VALUES (7, 'DescripcionSala7', 1, 342, 'RSCNT020_07');
+INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `firstTab`, `lastTab`, `paramCode`) VALUES (7, 'DescripcionSala7', 1, 342, 'R4CNT020_07');

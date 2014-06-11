@@ -17,38 +17,43 @@ html, body {
   	text-align:center; 
   }
   
-.container-full {
-	margin: 0 auto;
-	padding:0px 0px;
-	width: 100%;
-}
-  
-#headernav {
-	padding: 2px 15px;
-	margin-bottom:7px;
-	background:linear-gradient(#6D6E87, #B5B6D0);
-	width:102%;
-	font-weight:bold;
-	color:white;
-	height:25px;
-}
-
-HTML > BODY .breadcrumb {
-	background-color:transparent;
-	height:25px;
-	margin-bottom:-4px;
-	padding: 2px 15px;
-	line-height: 1.17;
-}
+	.container-full {
+	  margin: 0 auto;
+	  width: 100%;
+	}
 	
-HTML > BODY .breadcrumb > .active {
-	color:#E4E7FA;
-}
+#headernav{
+		padding: 2px 15px;
+		margin-bottom:7px;
+		background:linear-gradient(#6D6E87, #B5B6D0);
+		width:102%;
+		font-weight:bold;
+		color:white;
+		height:25px;
+	}
 
-HTML > BODY .breadcrumb > li > a {
-	color:white;
-}
 
+	HTML>BODY
+	.breadcrumb{
+		background-color:transparent;
+		height:25px;
+		margin-bottom:-4px;
+		padding: 2px 15px;
+		line-height: 1.17;
+	}
+
+	HTML>BODY
+		.breadcrumb > .active{
+		color:#E4E7FA;
+	
+	}
+	HTML>BODY
+	.breadcrumb > li > a{
+		color:white;
+
+
+	}
+	
 div.menuwindow {	
 	margin-top:-10px;
 }
@@ -63,6 +68,25 @@ div.menuwindow {
 	padding-left:20px;
 }
 
+	HTML>BODY
+		.navbar-nav > li > .dropdown-menu{
+	} 
+	
+	.dropdown:hover .dropdown-menu {
+	    display: block;
+	 }
+	
+	HTML>BODY
+	a.dropdown-toggle{
+		max-height:20px;
+	}
+	
+	HTML>BODY
+	.dropdown-menu .divider{
+		margin:0px;
+	}
+
+
 /* --------------------- Menu horizontal (desplegable)---------------------------*/
 
 HTML > BODY .navbar {
@@ -74,7 +98,7 @@ HTML > BODY .navbar-default {
 }
 	
 HTML > BODY .navbar-nav {
-		min-height:20px;
+	min-height:20px;
 }
 
 HTML > BODY .navbar-nav > li > .dropdown-menu {
@@ -94,9 +118,6 @@ HTML > BODY .navbar-nav > li > .dropdown-menu > li > a {
 	line-height:11px;
 }
 	
-.dropdown:hover .dropdown-menu {
-	display: block;
-}
 
 HTML > BODY .dropdown-menu .divider {
 	margin:0px;
@@ -116,46 +137,47 @@ HTML > BODY a.dropdown-toggle {
 
 /*Submenu*/
 
-.dropdown-menu .sub-menu {
-	left: 100%;
-	position: absolute;
-	top: 0;
-	visibility: hidden;
-	margin-top: -1px;
-}
-
-.dropdown-menu li:hover .sub-menu {
-	visibility: visible;
-	font-size: 12.5px;
-}
-
-.dropdown-menu .sub-menu > li > a{
-	max-height:19px;
-	padding:3px;
-	margin:3px;
-	line-height:11px;
-}
-
-.right-caret {
-	display: inline-block;
-	width: 0;
-	height: 0;
-	margin-left:10px;
-	vertical-align: middle;
-	border-left: 4px solid;
-	border-bottom: 4px solid transparent;
-	border-top: 4px solid transparent;
-}
-
+	.dropdown-menu .sub-menu {
+	    left: 100%;
+	    position: absolute;
+	    top: 0;
+	    visibility: hidden;
+	    margin-top: -1px;
+	    
+	}
+	
+	.dropdown-menu li:hover .sub-menu {
+	    visibility: visible;
+	    font-size: 12.5px;
+	}
+	
+	.dropdown-menu .sub-menu > li > a{
+		max-height:19px;
+		padding:3px;
+		margin:3px;
+		line-height:11px;
+	}
+	
+	.right-caret {
+	  display: inline-block;
+	  width: 0;
+	  height: 0;
+	  margin-left:10px;
+	  vertical-align: middle;
+	  border-left: 4px solid;
+	  border-bottom: 4px solid transparent;
+	  border-top: 4px solid transparent;
+	}
+	
 .menu > .col-md-5 > .btn-group > .btn {
-	margin-top:10px;
-	padding: 0px 0px;
-	display:table-cell;  /*Propiedad obligatoria*/
-	height:30px; 
-	line-height: 0;	 
+	 margin-top:10px;
+	 padding: 0px 0px;
+	 display:table-cell;  /*Propiedad obligatoria*/
+	 height:30px; 
+	 line-height: 0;	 
 }
 
-HTML > BODY .btn-menu {
+HTML>BODY .btn-menu {
 	width:270px;
 	height:30px; 
 	line-height: 0;
@@ -169,9 +191,10 @@ HTML > BODY .btn-menu {
 	width:30px
 }
 
+
 /* -------------------- SIDEBAR ------------------- */
 
-.sidebar {
+.sidebar{
 	padding: 15px 22px 10px 20px;
 	margin-left:20px;
 	width:180px;
@@ -180,28 +203,35 @@ HTML > BODY .btn-menu {
 	background-color: #f8f8f8
 }
 
-HTML > BODY .input-group-sm > .form-control {
+HTML>BODY
+.input-group-sm > .form-control{
 	margin:5px;
 	height:20px;
 }
 
-HTML > BODY .input-group-sm > .input-group-btn > .btn {
+HTML>BODY
+.input-group-sm > .input-group-btn > .btn {
 	margin:5px;
 	height:20px;
 }
-
-HTML > BODY .btn-image {
+.expertbutton{
+	margin-top:-12px;
+}
+HTML>BODY
+.btn-image{
 	height:50px;
 	weight:70px;
 	margin-top:12px;
+	background-color: #f8f8f8;
+	border: 0px solid #e7e7e7;
 }
-
-.expertbutton {
-	margin-top:-12px;
-}
-
-.zoom {
+.zoom{
 	margin-top:-7px;
+}
+
+.expert > .input-group {
+margin-top: -4px;
+margin-bottom: -4px;
 }
 
 .zoom:hover {
@@ -213,9 +243,32 @@ HTML > BODY .btn-image {
     -o-transform:scale(1.10); /* Opera */
 }
 
-.expert > .input-group {
-	margin-top: -4px;
-	margin-bottom: -4px;
+/*FAVORITES*/
+.panel-favorites{
+text-align:left;
+}
+HTML>BODY
+.option-heading{
+padding:5px 7px;
+font-weight:bold;
+}
+HTML>BODY
+.suboption-item{
+padding:0px;
+padding-left:15px;
+margin-bottom:2px;
+font-size:14px;
+}
+HTML>BODY
+.list-group-item:last-child{
+margin-bottom:3px;
+width:300px;
+}
+
+HTML>BODY
+.suboptions-group{
+margin-bottom:0px;
+padding:5px;
 }
 
 /*CLOCK AND DATE*/
@@ -223,7 +276,6 @@ HTML > BODY .btn-image {
 	font-family: 'digi';
 	src: url('../fonts/DS-DIGII.TTF');
 }
-
 div.bodyclock {
 	font-family: 'digi';
 	font-size: 50%;
@@ -241,19 +293,21 @@ div.clock {
 	border: 2.5px solid rgba(16, 18, 85, .5);
 	border-radius:5px; 
 	background-image: linear-gradient(#f0f0f0, white);
+	
 }
-
-div.date {
-	font-size:21px;
-	font-family: 'digi';
-	color: #707070;
-	border: 2.5px solid rgba(16, 18, 85, .5);
+div.date{
+font-size:21px;
+font-family: 'digi';
+color: #707070;
+	
+border: 2.5px solid rgba(16, 18, 85, .5);
 	border-radius:5px; 
 	background-image: linear-gradient(#f0f0f0, white);
 	margin:35px;
 	margin-bottom:4px;
 	margin-top:5px;	
 	width:100px;
+
 }
 
 /* ---------------- Links - Title -------------------*/
@@ -269,66 +323,134 @@ a:hover {
 @font-face {
 	font-family: 'trench';
 	src: url('../fonts/trench.otf');
-}
-	
+}	
+
 h1.info{
 	font-size:60px;
 	font-family: 'trench';
-	font-weight:bold;
-}
+	font-weight: bold;}
 
 /* ---------------- row - col -------------------*/
-div.row30{
+	div.row30{
 	padding-top: 30px;
-}
-
-div.row10{
+	}
+	div.row60{
+	padding-top: 60px;
+	}
+	div.row90{
+	padding-top: 90px;
+	}
+	div.row120{
+	padding-top: 120px;
+	}
+	div.row150{
+	padding-top: 150px;
+	}	
+	div.row180{
+	padding-top: 180px;
+	}
+	div.row210{
+	padding-top: 120px;
+	}	
+	div.row240{
+	padding-top: 120px;
+	}	
+		
+		
+	div.row10{
 	padding-top: 10px;
-}
+	}
+	div.row5{
+		padding-top: 5px;
+	}	
+ 	div.col-md-05 {
+    	width: 4%;
+     	position: relative;
+  		min-height: 1px;
+	    padding-right: 15px;
+		padding-left: 15px;
+  		float: left;
+  	}
+  	div.col-md-02 {
+    	width: 2%;
+     	position: relative;
+  		min-height: 1px;
+	    padding-right: 10px;
+		padding-left: 10px;
+  		float: left;
+  	}		
+  	div.col-md-01 {
+    	width: 1%;
+     	position: relative;
+  		min-height: 1px;
+	    padding-right: 4px;
+		padding-left: 4px;
+  		float: left;
+  	}		
 
-div.row5{
-	padding-top: 5px;
-}	
-
-div.col-md-05 {
-    width: 4%;
-    position: relative;
-  	min-height: 1px;
-	padding-right: 15px;
-	padding-left: 15px;
-  	float: left;
- }
- 
- div.col-md-02 {
-    width: 2%;
-    position: relative;
-  	min-height: 1px;
-	padding-right: 10px;
-	padding-left: 10px;
-  	float: left;
-}
-
-div.language{
-	margin-top:20px;
-	margin-left:80px;
-}
+	div.language{
+		margin-top:20px;
+		margin-left:80px;
+	}
 	
-div.logo{
+	div.logo{
 	text-align:center;
-}
+	}
 
 /* ----------- Configuration ------------ */
+
+HTML > BODY .nav-tabs > li.active > a,
+HTML > BODY .nav-tabs > li.active > a:hover,
+HTML > BODY .nav-tabs > li.active > a:focus {
+	background:linear-gradient(#6D6E87, #B5B6D0) repeat scroll 0% 0% transparent;
+	color:#FFF;
+	font-size:14px;
+	
+}
+
+.liNavTab {
+	padding-left:15px;
+}
 
 HTML > BODY .navtabs{
 	margin-top: 0px;
 	padding:0px 0px;
-	/*font-size:10px;*/
+	font-size:14px;
 	height: auto;
 }
 
 h6.text{
-	font-size:10px;
+	font-size:16px;
+	font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+	font-weight: bold;
 }
+
+h5.text{
+	font-size:14px;
+	font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+	font-weight: bold;
+}
+
+h4.text{
+	font-size:12px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-weight: bold;
+}
+
+h5.textRowBorder {
+	font-size:14px;
+	text-align:center;
+	font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+	font-weight: bold;
+}
+
+h4.textRowBorder {
+	font-size:12px;
+	text-align:center;
+	font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+	font-weight: bold;
+}
+
 
 HTML > BODY .nav > li > a {
 	padding: 2px 2px;
@@ -355,7 +477,7 @@ HTML > BODY .bottoncontrol {
 }
 
 
-HTML > BODY .textcontrol{
+HTML > BODY .textcontrolR{
 	height: auto;
 	font-size: 14px;
   	padding: 0px 0px;
@@ -363,7 +485,18 @@ HTML > BODY .textcontrol{
   	border: 1px solid #ccc;
   	margin-left:0px;
   	text-align:right;
-  	float:left;
+  	float:right;
+}
+
+HTML > BODY .textcontrolL{
+	height: auto;
+	font-size: 14px;
+  	padding: 0px 0px;
+  	border-radius: 1px;
+  	border: 1px solid #ccc;
+  	margin-left:0px;
+  	text-align:left;
+  	float:right;
 }
 
 HTML > BODY .jumbotron {
@@ -418,9 +551,20 @@ div.map {
 	padding:5px 5px;
 }
 
-.rowBorderInt {
-	background-color:#00315C;
+
+
+/*DATATABLES */
+HTML>BODY
+ul.ColVis_collection{
+	width:250px;
 }
+/* Error messages. */
+
+HTML>BODY DIV.t-error             { border:none; }
+BODY div.t-error div.t-banner    {background-color:inherit;  color:red;}
+BODY div.t-error ul          { border:none; background-color: inherit; font-weight:bold; list-style: none; }
+BODY div.t-error li          {border:none; text-align: center; font-weight: normal; }
+
 
 /* Forms. */
 
