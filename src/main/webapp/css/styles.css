@@ -469,6 +469,7 @@ HTML > BODY .input-group-addon {
 
 HTML > BODY .checkcontrol {
 	height: auto;
+	float:left;
 }
 
 HTML > BODY .bottoncontrol {

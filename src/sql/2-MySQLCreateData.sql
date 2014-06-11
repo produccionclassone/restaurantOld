@@ -18,7 +18,6 @@ INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) 
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (18, 'R4CNT013_02', 'lastBill', '1');
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (19, 'R4CNT013_03', 'lastCommand', '1');
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (20, 'R4CNT013_04', 'lastClient', '1');
-INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (21, 'R4CNT014', 'actualSessionState', 'C             ');
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (22, 'R4CNT017', 'sessionType', '1');
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (23, 'R4CNT018', 'cadExplot', '100');
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (24, 'R4CNT030', 'covIncomeType', '0');
@@ -132,6 +131,7 @@ INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `name`, `va
 INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `name`, `value`) VALUES (22, 'RSCNT034', 'literalPrecPers', false);
 INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `name`, `value`) VALUES (23, 'RSCNT035', 'newAntibloq', false);
 INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `name`, `value`) VALUES (24, 'RSCNT101', 'headerBill', false);
+INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `name`, `value`) VALUES (25, 'R4CNT014', 'actualSessionState', false);
 INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `firstTab`, `lastTab`, `paramCode`) VALUES (1, 'DescripcionSala1', 1, 342, 'RSCNT020_01');
 INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `firstTab`, `lastTab`, `paramCode`) VALUES (2, 'DescripcionSala2', 1, 342, 'RSCNT020_02');
 INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `firstTab`, `lastTab`, `paramCode`) VALUES (3, 'DescripcionSala3', 1, 342, 'RSCNT020_03');

@@ -118,7 +118,10 @@ public class Configuration2 {
 
 	@Property
 	private String closureLastMonth;
-
+	
+	@Property
+	private Boolean actualSessionState;
+	
 	@Property
 	private Boolean accountingLinkVtas;
 
@@ -137,8 +140,18 @@ public class Configuration2 {
 	@Property
 	private String eurUSDChange;
 
-	// falta serv hot/dpto
-
+	@Property
+	private String breakfastServHot;
+	
+	@Property
+	private String lunchServHotel;
+	
+	@Property
+	private String dinnerServHotel;
+	
+	@Property
+	private String otherServHotel;
+	
 	@Property
 	private String integrationHotel;
 
@@ -470,14 +483,17 @@ public class Configuration2 {
 		ivaIncluded = cbHashMap.get("ivaIncluded");
 		actualSessionDate = cgHashMap.get("actualSessionDate");
 		closureLastMonth = cgHashMap.get("closureLastMonth");
-		// falta sesión actual abierta
+		actualSessionState = cbHashMap.get("actualSessionState");
 		accountingLinkVtas = cbHashMap.get("accountingLinkVtas");
 		covIncomeType = cgHashMap.get("covIncomeType");
 		tipsIncomeType = cgHashMap.get("tipsIncomeType");
 		cadDept = cgHashMap.get("cadDept");
 		euroLine = cbHashMap.get("euroLine");
 		eurUSDChange = cgHashMap.get("eurUSDChange");
-		// falta serv hot/dpto
+		breakfastServHot = cgHashMap.get("breakfastServHot");
+		lunchServHotel = cgHashMap.get("lunchServHotel");
+		dinnerServHotel = cgHashMap.get("dinnerServHotel");
+		otherServHotel = cgHashMap.get("otherServHotel");
 		integrationHotel = cgHashMap.get("integrationHotel");
 		integrationEcon = cbHashMap.get("integrationEcon");
 		qualifyKitchenDish = cbHashMap.get("qualifyKitchenDish");
@@ -565,8 +581,7 @@ public class Configuration2 {
 
 	void saveData() throws InstanceNotFoundException {
 		// -----Contadores------
-		configurationService
-				.setParameterGeneric("actualSession", actualSession);
+		configurationService.setParameterGeneric("actualSession", actualSession);
 		configurationService.setParameterGeneric("lastBill", lastBill);
 		configurationService.setParameterGeneric("lastCommand", lastCommand);
 		configurationService.setParameterGeneric("lastClient", lastClient);
@@ -576,91 +591,62 @@ public class Configuration2 {
 		configurationService.setParameterGeneric("cadExplot", cadExplot);
 		configurationService.setParameterGeneric("tableNumber", tableNumber);
 		configurationService.setParameterBool("covServChar", covServChar);
-		configurationService.setParameterGeneric("covServCharImp",
-				covServCharImp);
-		configurationService.setParameterGeneric("covServCharIVAType",
-				covServCharIVAType);
-		configurationService.setParameterBool("tipWaiterInvoice",
-				tipWaiterInvoice);
-		configurationService.setParameterGeneric("tipWaiterInvoice%",
-				tipWaiterInvoicePorcent);
-		configurationService.setParameterGeneric("tipWaiterInvoiceIVA",
-				tipWaiterInvoiceIVA);
-		configurationService.setParameterBool("chargeAddonDish",
-				chargeAddonDish);
+		configurationService.setParameterGeneric("covServCharImp",covServCharImp);
+		configurationService.setParameterGeneric("covServCharIVAType",covServCharIVAType);
+		configurationService.setParameterBool("tipWaiterInvoice",tipWaiterInvoice);
+		configurationService.setParameterGeneric("tipWaiterInvoice%",tipWaiterInvoicePorcent);
+		configurationService.setParameterGeneric("tipWaiterInvoiceIVA",tipWaiterInvoiceIVA);
+		configurationService.setParameterBool("chargeAddonDish",chargeAddonDish);
 		// configurationService.setParameterBool("decimal",decimal);
 		configurationService.setParameterBool("ivaIncluded", ivaIncluded);
-		configurationService.setParameterGeneric("actualSessionDate",
-				actualSessionDate);
-		configurationService.setParameterGeneric("closureLastMonth",
-				closureLastMonth);
-		// falta sesión actual abierta
-		configurationService.setParameterBool("accountingLinkVtas",
-				accountingLinkVtas);
-		configurationService
-				.setParameterGeneric("covIncomeType", covIncomeType);
-		configurationService.setParameterGeneric("tipsIncomeType",
-				tipsIncomeType);
+		configurationService.setParameterGeneric("actualSessionDate",actualSessionDate);
+		configurationService.setParameterGeneric("closureLastMonth",closureLastMonth);
+		configurationService.setParameterBool("actualSessionState", actualSessionState);
+		configurationService.setParameterBool("accountingLinkVtas",	accountingLinkVtas);
+		configurationService.setParameterGeneric("covIncomeType", covIncomeType);
+		configurationService.setParameterGeneric("tipsIncomeType",	tipsIncomeType);
 		configurationService.setParameterGeneric("cadDept", cadDept);
 		configurationService.setParameterBool("euroLine", euroLine);
 		configurationService.setParameterGeneric("eurUSDChange", eurUSDChange);
-		// falta serv hot/dpto
-		configurationService.setParameterGeneric("integrationHotel",
-				integrationHotel);
-		configurationService.setParameterBool("integrationEcon",
-				integrationEcon);
-		configurationService.setParameterBool("qualifyKitchenDish",
-				qualifyKitchenDish);
+		configurationService.setParameterGeneric("breakfastServHot",breakfastServHot);
+		configurationService.setParameterGeneric("lunchServHotel",lunchServHotel);
+		configurationService.setParameterGeneric("dinnerServHotel",dinnerServHotel);
+		configurationService.setParameterGeneric("otherServHotel",otherServHotel);
+		configurationService.setParameterGeneric("integrationHotel",integrationHotel);
+		configurationService.setParameterBool("integrationEcon",integrationEcon);
+		configurationService.setParameterBool("qualifyKitchenDish",qualifyKitchenDish);
 		configurationService.setParameterBool("splitCommand", splitCommand);
 		configurationService.setParameterBool("tips", tips);
-		configurationService
-				.setParameterGeneric("assocElemTips", assocElemTips);
+		configurationService.setParameterGeneric("assocElemTips", assocElemTips);
 		configurationService.setParameterBool("discount1", discount1);
-		configurationService
-				.setParameterGeneric("assocElemDto1", assocElemDto1);
-		configurationService.setParameterGeneric("assocElemDto1%",
-				assocElemDto1Porcent);
+		configurationService.setParameterGeneric("assocElemDto1", assocElemDto1);
+		configurationService.setParameterGeneric("assocElemDto1%",assocElemDto1Porcent);
 		configurationService.setParameterBool("discount2", discount2);
-		configurationService
-				.setParameterGeneric("assocElemDto2", assocElemDto2);
-		configurationService.setParameterGeneric("assocElemDto2%",
-				assocElemDto2Porcent);
+		configurationService.setParameterGeneric("assocElemDto2", assocElemDto2);
+		configurationService.setParameterGeneric("assocElemDto2%",assocElemDto2Porcent);
 		configurationService.setParameterBool("discount3", discount3);
-		configurationService
-				.setParameterGeneric("assocElemDto3", assocElemDto3);
-		configurationService.setParameterGeneric("assocElemDto3%",
-				assocElemDto3Porcent);
+		configurationService.setParameterGeneric("assocElemDto3", assocElemDto3);
+		configurationService.setParameterGeneric("assocElemDto3%",assocElemDto3Porcent);
 		configurationService.setParameterGeneric("assocElemTPV", assocElemTPV);
 		configurationService.setParameterGeneric("chargeTPV", chargeTPV);
-		configurationService.setParameterGeneric("fieldSeparator",
-				fieldSeparator);
-		configurationService.setParameterGeneric("alphabSeparator",
-				alphabSeparator);
+		configurationService.setParameterGeneric("fieldSeparator",fieldSeparator);
+		configurationService.setParameterGeneric("alphabSeparator",alphabSeparator);
 		configurationService.setParameterGeneric("dateFormat", dateFormat);
 		// ------Contabilidad------------------
 		configurationService.setParameterGeneric("contCode", contCode);
 		configurationService.setParameterGeneric("contSerie", contSerie);
 		configurationService.setParameterGeneric("ivaType1", ivaType1);
-		configurationService
-				.setParameterGeneric("ledgerAccIVA1", ledgerAccIVA1);
+		configurationService.setParameterGeneric("ledgerAccIVA1", ledgerAccIVA1);
 		configurationService.setParameterGeneric("ivaType2", ivaType2);
-		configurationService
-				.setParameterGeneric("ledgerAccIVA2", ledgerAccIVA2);
+		configurationService.setParameterGeneric("ledgerAccIVA2", ledgerAccIVA2);
 		configurationService.setParameterGeneric("ivaType3", ivaType3);
-		configurationService
-				.setParameterGeneric("ledgerAccIVA3", ledgerAccIVA3);
-		configurationService
-				.setParameterGeneric("ledgerAccCaja", ledgerAccCaja);
-		configurationService
-				.setParameterGeneric("ledgerAccInvi", ledgerAccInvi);
-		configurationService.setParameterGeneric("ledgerAccGerVtas",
-				ledgerAccGerVtas);
-		configurationService.setParameterGeneric("ledgerAccServCbtos",
-				ledgerAccServCbtos);
-		configurationService.setParameterGeneric("ledgerAccPropCam",
-				ledgerAccPropCam);
-		configurationService.setParameterGeneric("ledgerAccDescVtas",
-				ledgerAccDescVtas);
+		configurationService.setParameterGeneric("ledgerAccIVA3", ledgerAccIVA3);
+		configurationService.setParameterGeneric("ledgerAccCaja", ledgerAccCaja);
+		configurationService.setParameterGeneric("ledgerAccInvi", ledgerAccInvi);
+		configurationService.setParameterGeneric("ledgerAccGerVtas",ledgerAccGerVtas);
+		configurationService.setParameterGeneric("ledgerAccServCbtos",ledgerAccServCbtos);
+		configurationService.setParameterGeneric("ledgerAccPropCam",ledgerAccPropCam);
+		configurationService.setParameterGeneric("ledgerAccDescVtas",ledgerAccDescVtas);
 		configurationService.setParameterGeneric("literalIVA", literalIVA);
 		// ----------Impresion--------------
 		// falta impresoras de comandas
@@ -672,19 +658,15 @@ public class Configuration2 {
 		configurationService.setParameterGeneric("ipLVDE", ipLVDE);
 		configurationService.setParameterGeneric("ipHelp", ipHelp);
 		configurationService.setParameterGeneric("ipCCC", ipCCC);
-		configurationService
-				.setParameterGeneric("ipAlternative", ipAlternative);
+		configurationService.setParameterGeneric("ipAlternative", ipAlternative);
 		configurationService.setParameterGeneric("sendEmail", sendEmail);
 		configurationService.setParameterGeneric("sendService", sendService);
 		configurationService.setParameterGeneric("sendLogin", sendLogin);
 		configurationService.setParameterGeneric("sendPsw", sendPsw);
 		// ------------Restaurant---------------------
-		configurationService.setParameterGeneric("literalEspBill",
-				literalEspBill);
-		configurationService.setParameterGeneric("literalCharCov",
-				literalCharCov);
-		configurationService.setParameterGeneric("literalTipsAuto",
-				literalTipsAuto);
+		configurationService.setParameterGeneric("literalEspBill",literalEspBill);
+		configurationService.setParameterGeneric("literalCharCov",literalCharCov);
+		configurationService.setParameterGeneric("literalTipsAuto",	literalTipsAuto);
 		// configurationService.setParameterBool("dayMenuLevel",dayMenuLevel);
 		// configurationService.setParameterBool("cancelTableLevel",cancelTableLevel);
 		// newAntibloq "newAntibloq");
@@ -693,6 +675,9 @@ public class Configuration2 {
 		configurationService.setParameterGeneric("cajaCobro", cajaCobro);
 		// falta suma consumiciones
 		// falta control de actividad
+		
+		
+		
 		/*
 		 * desc1 = crHashMap.get("desc1"); firstTab1 =
 		 * crHashMap.get("firstTab1"); lastTab1 = crHashMap.get("lastTab1");
@@ -725,9 +710,8 @@ public class Configuration2 {
 /*
  * entirePrintCommand printEntireCommandP2 bmpToPrint compressPrintBillStd
  * headerBill appName release BBDDRest maxRegAud BBDDCont BBDD/Stars BBDDStarEco
- * BBDDStarCar actualSessionState sessionType kitchenPrinter printer2 bmpSize
- * breakfastServHot lunchServHotel dinnerServHotel otherServHotel breakfastDept
- * lunchDept dinnerDept otherDept emailSMS SMSApiId smsUser smsPwd
+ * BBDDStarCar  sessionType kitchenPrinter printer2 bmpSize
+ *  breakfastDept lunchDept dinnerDept otherDept emailSMS SMSApiId smsUser smsPwd
  * beforCharacters
  */
 
