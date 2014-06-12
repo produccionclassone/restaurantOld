@@ -31,7 +31,7 @@ public class Dish {
 	private boolean dishDiscount; // R1PLA009;
 	private boolean dishDeleted;// R1PLA021
 	private boolean dishPending;// R1PLA022
-	private DishGroup dishGroup; // Res14grp_R1GRP001
+	private DishGroup dishGroup; // Res14grp_R1GRP000
 
 	public Dish() {
 
@@ -169,7 +169,7 @@ public class Dish {
 	}
 
 	@ManyToOne(optional = false, fetch = FetchType.LAZY)
-	@JoinColumn(name = "R1GRP001")
+	@JoinColumn(name = "R1GRP000")
 	public DishGroup getDishGroup() {
 		return dishGroup;
 	}
@@ -179,24 +179,27 @@ public class Dish {
 	}
 
 }
-// CREATE TABLE IF NOT EXISTS `Ayx14res`.`Res14pla` (
-// `R1PLA001` INT NOT NULL AUTO_INCREMENT,
-// `R1PLA002_01` VARCHAR(30) NOT NULL,
-// `R1PLA002_02` VARCHAR(30) NULL,
-// `R1PLA002_03` VARCHAR(30) NULL,
-// `R1PLA004` INT NOT NULL DEFAULT 1,
-// `R1PLA005` INT NOT NULL DEFAULT 0,
-// `R1PLA006` DECIMAL(9,2) NOT NULL DEFAULT 0,
-// `R1PLA007` DECIMAL(9,2) NOT NULL DEFAULT 0,
-// `R1PLA008` CHAR NOT NULL DEFAULT 'P',
-// `R1PLA009` CHAR NOT NULL DEFAULT ' ',
-// `R1PLA021` CHAR NOT NULL DEFAULT 'N',
-// `R1PLA022` CHAR NOT NULL DEFAULT 'N',
-// `Res14grp_R1GRP001` INT NOT NULL,
-// PRIMARY KEY (`R1PLA001`),
-// CONSTRAINT `fk_Res14pla_Res14grp1`
-// FOREIGN KEY (`Res14grp_R1GRP001`)
-// REFERENCES `Ayx14res`.`Res14grp` (`R1GRP001`)
-// ON DELETE NO ACTION
-// ON UPDATE NO ACTION)
-// ENGINE = InnoDB;
+/*
+ * CREATE TABLE IF NOT EXISTS `ayx14res`.`Res14pla` (
+  `R1PLA001` INT NOT NULL AUTO_INCREMENT,
+  `R1PLA002_01` VARCHAR(30) NOT NULL,
+  `R1PLA002_02` VARCHAR(30) NULL,
+  `R1PLA002_03` VARCHAR(30) NULL,
+  `R1PLA004` INT NOT NULL DEFAULT 1,
+  `R1PLA005` INT NOT NULL DEFAULT 0,
+  `R1PLA006` DECIMAL(9,2) NOT NULL DEFAULT 0,
+  `R1PLA007` DECIMAL(9,2) NOT NULL DEFAULT 0,
+  `R1PLA008` CHAR NOT NULL DEFAULT 'P',
+  `R1PLA009` CHAR NOT NULL DEFAULT ' ',
+  `R1PLA021` CHAR NOT NULL DEFAULT 'N',
+  `R1PLA022` CHAR NOT NULL DEFAULT 'N',
+  `Res14grp_R1GRP000` INT NOT NULL,
+  PRIMARY KEY (`R1PLA001`),
+  INDEX `fk_Res14pla_Res14grp1_idx` (`Res14grp_R1GRP000` ASC),
+  CONSTRAINT `fk_Res14pla_Res14grp1`
+    FOREIGN KEY (`Res14grp_R1GRP000`)
+    REFERENCES `ayx14res`.`Res14grp` (`R1GRP000`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+*/

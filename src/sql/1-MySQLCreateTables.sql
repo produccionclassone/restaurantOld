@@ -108,17 +108,18 @@ ENGINE = InnoDB;
 -- Table `ayx14res`.`Res14grp`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `ayx14res`.`Res14grp` ;
-
 CREATE TABLE IF NOT EXISTS `ayx14res`.`Res14grp` (
-  `R1GRP001` INT NOT NULL AUTO_INCREMENT,
+  `R1GRP000` INT NOT NULL AUTO_INCREMENT,
+  `R1GRP001` VARCHAR(4) NOT NULL,
   `R1GRP002_01` VARCHAR(30) NOT NULL,
   `R1GRP003` SMALLINT NULL DEFAULT 1,
   `R1GRP004` VARCHAR(8) NOT NULL,
   `R1GRP112` VARCHAR(3) NOT NULL,
   `R1GRP011` SMALLINT NOT NULL DEFAULT 1,
-  PRIMARY KEY (`R1GRP001`))
+  `Res14grpcol` VARCHAR(45) NULL,
+  PRIMARY KEY (`R1GRP000`),
+  UNIQUE INDEX `R1GRP001_UNIQUE` (`R1GRP001` ASC))
 ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `ayx14res`.`Res14pla`
@@ -138,16 +139,16 @@ CREATE TABLE IF NOT EXISTS `ayx14res`.`Res14pla` (
   `R1PLA009` CHAR NOT NULL DEFAULT ' ',
   `R1PLA021` CHAR NOT NULL DEFAULT 'N',
   `R1PLA022` CHAR NOT NULL DEFAULT 'N',
-  `Res14grp_R1GRP001` INT NOT NULL,
+  `Res14grp_R1GRP000` INT NOT NULL,
   PRIMARY KEY (`R1PLA001`),
+  INDEX `fk_Res14pla_Res14grp1_idx` (`Res14grp_R1GRP000` ASC),
   CONSTRAINT `fk_Res14pla_Res14grp1`
-    FOREIGN KEY (`Res14grp_R1GRP001`)
-    REFERENCES `ayx14res`.`Res14grp` (`R1GRP001`)
+    FOREIGN KEY (`Res14grp_R1GRP000`)
+    REFERENCES `ayx14res`.`Res14grp` (`R1GRP000`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `fk_Res14pla_Res14grp1_idx` ON `ayx14res`.`Res14pla` (`Res14grp_R1GRP001` ASC);
 
 
 -- -----------------------------------------------------

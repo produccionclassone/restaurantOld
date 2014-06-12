@@ -12,7 +12,8 @@ import javax.persistence.Table;
 @Table(name = "Res14grp")
 public class DishGroup {
 
-	private int dishGroupId; // R1GRP001
+	private int dishGroupId; // R1GRP000
+	private String dishGroupCode; // R1GRP001
 	private String dishGroupDescription; // R1GRP002_01
 	private int ivaType; // R1GRP003 Tipo de IVA (1,2 or 3)
 	private String salesLedgerAccount; // R1GRP004
@@ -23,8 +24,9 @@ public class DishGroup {
 
 	}
 
-	public DishGroup(String description, int ivaType,
+	public DishGroup(String dishGroupCode, String description, int ivaType,
 			String salesLedgerAccount, String typeIncome, int macroGroup) {
+		this.dishGroupCode = dishGroupCode;
 		this.dishGroupDescription = description;
 		this.ivaType = ivaType;
 		this.salesLedgerAccount = salesLedgerAccount;
@@ -32,7 +34,7 @@ public class DishGroup {
 		this.macroGroup = macroGroup;
 	}
 
-	@Column(name = "R1GRP001")
+	@Column(name = "R1GRP000")
 	@SequenceGenerator( // It only takes effect for
 	name = "DishCategoryIdGenerator", // databases providing identifier
 	sequenceName = "DishCategorySeq")
@@ -44,6 +46,15 @@ public class DishGroup {
 	} 
 	public void setDishGroupId(int dishGroupId) {
 		this.dishGroupId = dishGroupId;
+	}
+
+	@Column(name="R1GRP001")
+	public String getDishGroupCode() {
+		return dishGroupCode;
+	}
+
+	public void setDishGroupCode(String dishGroupCode) {
+		this.dishGroupCode = dishGroupCode;
 	}
 
 	@Column(name = "R1GRP002_01")
@@ -92,3 +103,22 @@ public class DishGroup {
 	}
 
 }
+
+/*
+-- -----------------------------------------------------
+-- Table `ayx14res`.`Res14grp`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `ayx14res`.`Res14grp` ;
+CREATE TABLE IF NOT EXISTS `ayx14res`.`Res14grp` (
+  `R1GRP000` INT NOT NULL AUTO_INCREMENT,
+  `R1GRP001` VARCHAR(4) NOT NULL,
+  `R1GRP002_01` VARCHAR(30) NOT NULL,
+  `R1GRP003` SMALLINT NULL DEFAULT 1,
+  `R1GRP004` VARCHAR(8) NOT NULL,
+  `R1GRP112` VARCHAR(3) NOT NULL,
+  `R1GRP011` SMALLINT NOT NULL DEFAULT 1,
+  `Res14grpcol` VARCHAR(45) NULL,
+  PRIMARY KEY (`R1GRP000`),
+  UNIQUE INDEX `R1GRP001_UNIQUE` (`R1GRP001` ASC))
+ENGINE = InnoDB;
+*/
