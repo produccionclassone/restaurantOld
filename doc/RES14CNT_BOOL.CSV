@@ -19,3 +19,12 @@
 19,"R4CNT708","enableImpFiscal","false"
 20,"R4CNT709","enableSegmentCh","false"
 21,"R4CNT703","bmpToPrint","false"
+22,"R4CNT704","enableMeteorology","false"
+23,"RSCNT033","standardPrint","false"
+24,"RSCNT025","decimalArt","false"
+25,"R4CNT043","printKitchenCalif","false"
+26,"R4CNT141","printer1","false"
+27,"R4CNT142","printer2","false"
+28,"R4CNT143","printerEsp","false"
+
+

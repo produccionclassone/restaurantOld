@@ -8,7 +8,8 @@ INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) 
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (8, 'R4CNT006', 'covServCharImp', ' ');
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (9, 'R4CNT106', 'covServCharIVAType', '1');
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (10, 'RSCNT031', 'literalCharCov', 'Pan, Cubiertos y Servicio Mesa');
-INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (11, 'R4CNT008', 'tipWaiterInvoice%', '\"\r\n12,R4CNT108\"');
+INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (11, 'R4CNT008', 'tipWaiterInvoice%','1');
+INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (12, 'R4CNT108', 'tipWaiterInvoiceIVA','1');
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (13, 'RSCNT032', 'literalTipsAuto', 'Servicio Inluido en Factura');
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (14, 'R4CNT012', 'actualSessionDate', '20130201');
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (15, 'R4CNT102', 'eurUSDChange', '1,35067');
@@ -103,7 +104,7 @@ INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `name`, `va
 INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `name`, `value`) VALUES (4, 'R4CNT010', 'decimal', false);
 INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `name`, `value`) VALUES (5, 'R4CNT011', 'ivaIncluded', false);
 INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `name`, `value`) VALUES (6, 'R4CNT014', 'actualSessionState', false);
-INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `name`, `value`) VALUES (7, 'R4CNT019', 'accountingLink', false);
+INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `name`, `value`) VALUES (7, 'R4CNT019', 'accountingLinkVtas', false);
 INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `name`, `value`) VALUES (8, 'R4CNT101', 'euroLine', false);
 INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `name`, `value`) VALUES (9, 'R4CNT042', 'integrationEcon', false);
 INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `name`, `value`) VALUES (10, 'R4CNT043', 'qualifyKitchenDish', false);
@@ -118,6 +119,13 @@ INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `name`, `va
 INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `name`, `value`) VALUES (19, 'R4CNT708', 'enableImpFiscal', false);
 INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `name`, `value`) VALUES (20, 'R4CNT709', 'enableSegmentCh', false);
 INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `name`, `value`) VALUES (21, 'R4CNT703', 'bmpToPrint', false);
+INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `name`, `value`) VALUES (22, 'R4CNT704', 'enableMeteorology',false);
+INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `name`, `value`) VALUES (23, 'RSCNT033', 'standardPrint',false);
+INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `name`, `value`) VALUES (24, 'RSCNT025', 'decimalArt',false);
+INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `name`, `value`) VALUES (25, 'RSCNT043', 'printKitchenCalif',false);
+INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `name`, `value`) VALUES (26, 'RSCNT141', 'printer1',false);
+INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `name`, `value`) VALUES (27, 'RSCNT142', 'printer2',false);
+INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `name`, `value`) VALUES (28, 'RSCNT143', 'printerEsp',false);
 INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `firstTab`, `lastTab`, `paramCode`) VALUES (1, 'DescripcionSala1', 1, 342, 'RSCNT020_01');
 INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `firstTab`, `lastTab`, `paramCode`) VALUES (2, 'DescripcionSala2', 1, 342, 'RSCNT020_02');
 INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `firstTab`, `lastTab`, `paramCode`) VALUES (3, 'DescripcionSala3', 1, 342, 'RSCNT020_03');

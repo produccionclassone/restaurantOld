@@ -74,9 +74,10 @@ public class Configuration2 {
 	private String lastClient;
 
 	@Property
-	private String notaFiscal; // falta en BBDD
+	private String notaFiscal;
 
 	/*----------General---------------*/
+
 	@Property
 	private String restCateg;
 
@@ -135,13 +136,25 @@ public class Configuration2 {
 	private String breakfastServHot;
 
 	@Property
+	private String breakfastServCode;
+
+	@Property
 	private String lunchServHotel;
+	
+	@Property
+	private String lunchServCode;
 
 	@Property
 	private String dinnerServHotel;
 
 	@Property
+	private String dinnerServCode;
+
+	@Property
 	private String otherServHotel;
+
+	@Property
+	private String otherServCode;
 
 	@Property
 	private String integrationHotel;
@@ -245,17 +258,14 @@ public class Configuration2 {
 	private String colTabBill;
 
 	@Property
-	private String lastNumPrint; //falta en BBDD
+	private String lastNumPrint;
 	
 	@Property
 	private String closureLastMonth;
 
 	@Property
-	private Boolean sumConsum; // falta en BBDD
-	
-	@Property
-	private Boolean activityControl; // falta en BBDD
-	
+	private Boolean sumDrinks;
+		
 	@Property
 	private String desc1;
 
@@ -340,14 +350,12 @@ public class Configuration2 {
 	@Property
 	private Boolean enableImpFiscal;
 
-	@Property 
-	private Boolean bmpToPrint;
-	
-	@Property 
-	private String bmpSize;
+	@Property
+	private Boolean enableMeteorology;
 	
 	@Property
-	private String secuence; //falta en BBDD
+	private Boolean enableSegmentCh;
+	
 
 	/* --------- Contabilidad -------- */
 	@Property
@@ -407,11 +415,51 @@ public class Configuration2 {
 	@Property
 	private String tipsIncomeType;
 
-
-//----------------------------Parámetros que faltan------------------------------
+	//------Printer-----------
+	@Property 
+	private Boolean bmpToPrint;
+	
+	@Property 
+	private String bmpSize;
+	
 	@Property
-	private String dateFormat;
+	private String secuence;
+	
+	@Property 
+	private String standardPrint;
 
+	@Property
+	private String pageLength;
+	
+	@Property 
+	private String skipHeaderLines;
+	
+	@Property
+	private String leftTab;
+	
+	@Property
+	private Boolean decimalArt;
+	
+	@Property 
+	private Boolean printKitchenCalif;
+	
+	@Property
+	private Boolean printer1;
+
+	@Property 
+	private String commandPortPrt1;
+	
+	@Property
+	private Boolean printer2;
+	
+	@Property 
+	private String commandPortPrt2;
+	
+	@Property
+	private Boolean printerEsp;
+
+	//----------Conectividad----------
+	
 	@Property
 	private String ipLVDE;
 
@@ -435,15 +483,7 @@ public class Configuration2 {
 
 	@Property
 	private String sendPsw;
-
-	@Property
-	private String newAntibloq;
-
-	@Property
-	private String literalPrecPers;
-
-	@Property
-	private String cajaCobro;
+	
 
 
 	// ================Privileges =========================
