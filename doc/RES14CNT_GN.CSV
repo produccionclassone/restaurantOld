@@ -57,7 +57,7 @@
 57,"RSCNT019_03","desCalif3","De Segundo"
 58,"RSCNT018_04","codCalif4","F3"
 59,"RSCNT019_04","desCalif4","De Tercero"
-60,"RSCNT020","channel segment","WEB"
+60,"RSCNT020","channelSegment","WEB"
 61,"R4CNT003","contCode","R14"
 62,"R4CNT004","contSerie","R"
 63,"R4CNT023_01","ledgerAccCaja","57000000"

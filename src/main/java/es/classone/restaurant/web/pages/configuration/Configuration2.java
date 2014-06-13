@@ -356,7 +356,9 @@ public class Configuration2 {
 	@Property
 	private Boolean enableSegmentCh;
 	
-
+	@Property
+	private String 	channelSegment;
+	
 	/* --------- Contabilidad -------- */
 	@Property
 	private String contCode;
@@ -440,6 +442,9 @@ public class Configuration2 {
 	@Property
 	private Boolean decimalArt;
 	
+	@Property
+	private Boolean precioxPax;
+	
 	@Property 
 	private Boolean printKitchenCalif;
 	
@@ -457,6 +462,19 @@ public class Configuration2 {
 	
 	@Property
 	private Boolean printerEsp;
+	
+	@Property
+	private String autocorte;
+	
+	@Property
+	private String drawerOpen;
+	
+	@Property
+	private String DoubleBoldOn;
+	
+	@Property
+	private String DoubleBoldOff;
+
 
 	//----------Conectividad----------
 	
