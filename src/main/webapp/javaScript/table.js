@@ -3,8 +3,16 @@ var editor;
 $(document)
 		.ready(
 				function() {
-					$('#example').dataTable({
+					var table = $('#example').dataTable({
 						"dom" : '<"top row"TfC>Rrt<"bottom"lp>',
+						"lengthMenu": [[10, 25, 50, 100, -1], [10 ,25, 50, 100, "*"]],
+//						 aoColumnDefs: [
+//						               { sWidth: "9%", aTargets: 0 },
+//						               { sWidth: "13%", aTargets: 2 },
+//						               { sWidth: "24%", aTargets: 3 },
+//						               { sWidth: "15%", aTargets: 4 },
+//						               { sWidth: "15%", aTargets: 5 }
+//						         ],
 						"language" : {
 							"search" : "",
 							"paginate": {
@@ -21,7 +29,8 @@ $(document)
 						}
 
 					});
-					$("#headernav ol").append("<li class='active' name='A'>"+"Mantenimiento de ficheros maestros" + "</li>"+ "<li class='active' name='1'>" + "Grupos a la carta" + "</li>");
+					 new $.fn.dataTable.FixedHeader( table );
+					 $(".FixedHeader_Cloned")[0].style["cssText"]=$(".FixedHeader_Cloned")[0].style["cssText"].replace("absolute","relative");					$("#headernav ol").append("<li class='active' name='A'>"+"Mantenimiento de ficheros maestros" + "</li>"+ "<li class='active' name='1'>" + "Grupos a la carta" + "</li>");
 					$(".header").hide();
 					$(".dataTables_empty").text("");
 					$(".dataTables_empty").append("<img src='../images/database.png' width='25' height='25'></img>");
