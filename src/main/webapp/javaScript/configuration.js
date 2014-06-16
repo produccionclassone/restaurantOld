@@ -102,7 +102,9 @@ var loadParametersRoom = function(spec) {
 														return false;
 													}
 												}
-											});
+												if (evt.keyCode == 27) {
+													alert("escape");
+												}											});
 
 						}
 					})
