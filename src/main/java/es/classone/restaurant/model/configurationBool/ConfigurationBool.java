@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Res14cnt_GN_BOOL")
 public class ConfigurationBool {
-	private int confGenericId;
+	private int confBoolId;
 	private String code;
 	private String name;
 	private boolean value;
@@ -31,12 +31,12 @@ public class ConfigurationBool {
 	// generators.
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "ConfigurationBoolIdGenerator")
-	public int getConfGenericId() {
-		return confGenericId;
+	public int getConfBoolId() {
+		return confBoolId;
 	}
 
-	public void setConfGenericId(int confGenericId) {
-		this.confGenericId = confGenericId;
+	public void setConfBoolId(int confBoolId) {
+		this.confBoolId = confBoolId;
 	}
 
 	@Column(name = "code")
