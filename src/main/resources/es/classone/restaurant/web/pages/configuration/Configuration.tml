@@ -31,7 +31,7 @@
 						<div class="modal-body" style="padding:0px 0px;"> <!-- Modal body -->
 							<!-- Nav tabs -->
 							<ul class="nav nav-tabs" style="padding:0px 0px;"> <!-- ul Level 1 -->
-								<li class="liNavTab">
+								<li class="active liNavTab">
 									<a href="#generalParameters" data-toggle="tab">
 										<h5 class="text">${message:generalParameters}</h5>
 									</a>
@@ -52,7 +52,7 @@
 								<div class="tab-pane active" id="generalParameters">
 									<!-- Nav tabs general parameters -->
 									<ul class="nav nav-tabs sub" style="padding:0px 0px;"> <!-- ul general parameters -->
-										<li class="liNavTab sub" id="contadoresTab">
+										<li class="active liNavTab sub" id="contadoresTab">
 											<a href="#contadores" data-toggle="tab">
 												<h4 class="text">${message:contadores}</h4>
 											</a>
@@ -86,7 +86,7 @@
 									</ul>
 									<!-- Tab panes general parameters -->
 									<div class="tab-content" style="height: 560px;"> <!-- tab-content general parameters -->
-										<div class="tab-pane" id="contadores">
+										<div class="tab-pane active" id="contadores">
 											<div class="container-fluid"> <!-- container contadores -->
 												<t:form t:type="form" id="contadores">
 													<div class="row row120"></div>
