@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import es.classone.restaurant.model.dish.Dish;
+import es.classone.restaurant.model.dish.DishDao;
 import es.classone.restaurant.model.dishGroup.DishGroup;
 import es.classone.restaurant.model.dishGroup.DishGroupDao;
 import es.classone.restaurant.modelutil.exceptions.InstanceNotFoundException;
@@ -20,6 +22,8 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 	@Autowired
 	private DishGroupDao dishGroupDao;
 
+	@Autowired DishDao dishDao;
+	
 	public List<DishGroup> findAll() {
 		return dishGroupDao.findAll();
 	}
@@ -78,5 +82,107 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 			}
 			j++;
 		}
+	}
+
+	@Override
+	public List<Dish> findAllDish() {
+		return dishDao.findAll();
+	}
+
+	@Override
+	public Dish createDish(Dish dish) {
+		dishDao.save(dish);
+		return dish;
+	}
+
+	@Override
+	public Dish getDishByDishId(int dishId)
+			throws InstanceNotFoundException {
+		return dishDao.find(dishId);
+	}
+
+	@Override
+	public void deleteDish(int dishId) throws InstanceNotFoundException {
+		dishDao.find(dishId);
+		dishDao.remove(dishId);
+		
+	}
+
+	@Override
+	public Dish editDish(int dishId, String dishDescriptionLang1,
+			String dishDescriptionLang2, String dishDescriptionLang3,
+			int dishPrint, int dishListPrice, int dishPVP, int dishCostPrice,
+			char dishType, boolean dishDiscount, boolean dishDeleted,
+			boolean dishPending, DishGroup dishGroup, boolean dishTractable,
+			boolean dishOrderer, boolean dishVisible, int dishNumbers,
+			String dishLongDesc, String dishShortDesc) throws InstanceNotFoundException {
+
+
+		Dish dish = dishDao.find(dishId);
+		dish.setDishDescriptionLang1(dishDescriptionLang1);
+		dish.setDishDescriptionLang2(dishDescriptionLang2);
+		dish.setDishDescriptionLang3(dishDescriptionLang3);
+		dish.setDishPrint(dishPrint);
+		dish.setDishListPrice(dishNumbers);
+		dish.setDishPVP(dishPVP);
+		dish.setDishCostPrice(dishCostPrice);
+		dish.setDishType(dishType);
+		dish.setDishDiscount(dishDiscount);
+		dish.setDishDeleted(dishDeleted);
+		dish.setDishPending(dishPending);
+		dish.setDishGroup(dishGroup);
+		dish.setDishTractable(dishTractable);
+		dish.setDishOrderer(dishOrderer);
+		dish.setDishVisible(dishVisible);
+		dish.setDishNumbers(dishNumbers);
+		dish.setDishLongDesc(dishLongDesc);
+		dish.setDishShortDesc(dishShortDesc);
+		return null;
+	}
+
+	@Override
+	public void importDishFile(String path) throws IOException {
+		FileReader input = new FileReader(path);
+		@SuppressWarnings("resource")
+		BufferedReader bufRead = new BufferedReader(input);
+		String myLine = null;
+		int j = 1;
+		while ((myLine = bufRead.readLine()) != null) {
+			System.out.println("LINEA" + j);
+			String[] row = myLine.split(";");
+/*			Dish dish = new Dish(
+					row[0].replace('"', ' ').trim(),
+					row[1].replace('"', ' ').trim(), Integer.parseInt(row[4].replace('"', ' ')
+							.trim()), row[5].replace('"', ' ').trim(), row[7]
+							.replace('"', ' ').trim(), Integer.parseInt(row[6]
+							.replace('"', ' ').trim()));
+			createDishGroup(dishGroup);
+	*/		
+			
+/*
+"0001";"VARIOS                        ";"                              ";"                              ";"01";1;0;       0,00;       0,00;"P";" "
+			 * 		this.dishDescriptionLang1 = dishDescriptionLang1;
+		this.dishDescriptionLang2 = dishDescriptionLang2;
+		this.dishDescriptionLang3 = dishDescriptionLang3;
+		this.dishPrint = dishPrint;
+		this.dishListPrice = dishListPrice;
+		this.dishPVP = dishPVP;
+		this.dishCostPrice = dishCostPrice;
+		this.dishType = dishType;
+		this.dishDiscount = dishDiscount;
+		this.dishDeleted = dishDeleted;
+		this.dishPending = dishPending;
+		this.dishGroup = dishGroup;
+
+			 * 
+			 * 
+			 */
+			for (int i = 0; i < row.length; i++) {
+				System.out.print("string " + i + ": "
+						+ row[i].replace('"', ' '));
+			}
+			j++;
+		}
+		
 	}
 }

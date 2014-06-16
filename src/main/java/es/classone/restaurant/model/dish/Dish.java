@@ -32,15 +32,24 @@ public class Dish {
 	private boolean dishDeleted;// R1PLA021
 	private boolean dishPending;// R1PLA022
 	private DishGroup dishGroup; // Res14grp_R1GRP000
-
+	private boolean dishTractable; //R1PLA023 
+	private boolean dishOrderer; //R1PLA024
+	private boolean dishVisible; //R1PLA025
+	private int dishNumbers; //R1PLA026
+	private String dishLongDesc; // R1PLA027
+	private String dishShortDesc;  //R1PLA028
+	
+	
 	public Dish() {
 
 	}
 
+	
 	public Dish(String dishDescriptionLang1, String dishDescriptionLang2,
 			String dishDescriptionLang3, int dishPrint, int dishListPrice,
 			int dishPVP, int dishCostPrice, char dishType,
-			boolean dishDiscount, boolean dishDeleted, boolean dishPending) {
+			boolean dishDiscount, boolean dishDeleted, boolean dishPending,
+			DishGroup dishGroup) {
 		this.dishDescriptionLang1 = dishDescriptionLang1;
 		this.dishDescriptionLang2 = dishDescriptionLang2;
 		this.dishDescriptionLang3 = dishDescriptionLang3;
@@ -52,7 +61,9 @@ public class Dish {
 		this.dishDiscount = dishDiscount;
 		this.dishDeleted = dishDeleted;
 		this.dishPending = dishPending;
+		this.dishGroup = dishGroup;
 	}
+
 
 	@Column(name = "R1PLA001")
 	@SequenceGenerator( // It only takes effect for
@@ -178,9 +189,71 @@ public class Dish {
 		this.dishGroup = dishGroup;
 	}
 
+	@Column(name="R1PLA023")
+	public boolean isDishTractable() {
+		return dishTractable;
+	}
+
+
+	public void setDishTractable(boolean dishTractable) {
+		this.dishTractable = dishTractable;
+	}
+
+	@Column(name="R1PLA024")
+	public boolean isDishOrderer() {
+		return dishOrderer;
+	}
+
+
+	public void setDishOrderer(boolean dishOrderer) {
+		this.dishOrderer = dishOrderer;
+	}
+
+	@Column(name="R1PLA025")
+	public boolean isDishVisible() {
+		return dishVisible;
+	}
+
+
+	public void setDishVisible(boolean dishVisible) {
+		this.dishVisible = dishVisible;
+	}
+
+	@Column(name="R1PLA026")
+	public int getDishNumbers() {
+		return dishNumbers;
+	}
+
+
+	public void setDishNumbers(int dishNumbers) {
+		this.dishNumbers = dishNumbers;
+	}
+
+	@Column(name="R1PLA027")
+	public String getDishLongDesc() {
+		return dishLongDesc;
+	}
+
+
+	public void setDishLongDesc(String dishLongDesc) {
+		this.dishLongDesc = dishLongDesc;
+	}
+
+	@Column(name="R1PLA028")
+	public String getDishShortDesc() {
+		return dishShortDesc;
+	}
+
+
+	public void setDishShortDesc(String dishShortDesc) {
+		this.dishShortDesc = dishShortDesc;
+	}
+	
+	
+
 }
 /*
- * CREATE TABLE IF NOT EXISTS `ayx14res`.`Res14pla` (
+ *CREATE TABLE IF NOT EXISTS `ayx14res`.`Res14pla` (
   `R1PLA001` INT NOT NULL AUTO_INCREMENT,
   `R1PLA002_01` VARCHAR(30) NOT NULL,
   `R1PLA002_02` VARCHAR(30) NULL,
@@ -190,10 +263,16 @@ public class Dish {
   `R1PLA006` DECIMAL(9,2) NOT NULL DEFAULT 0,
   `R1PLA007` DECIMAL(9,2) NOT NULL DEFAULT 0,
   `R1PLA008` CHAR NOT NULL DEFAULT 'P',
-  `R1PLA009` CHAR NOT NULL DEFAULT ' ',
-  `R1PLA021` CHAR NOT NULL DEFAULT 'N',
-  `R1PLA022` CHAR NOT NULL DEFAULT 'N',
+  `R1PLA009` TINYINT(1) NOT NULL DEFAULT false,
+  `R1PLA021` TINYINT(1) NOT NULL DEFAULT false,
+  `R1PLA022` TINYINT(1) NOT NULL DEFAULT false,
   `Res14grp_R1GRP000` INT NOT NULL,
+  `R1PLA023` TINYINT(1) NULL,
+  `R1PLA024` TINYINT(1) NULL,
+  `R1PLA025` TINYINT(1) NULL,
+  `R1PLA026` SMALLINT NULL,
+  `R1PLA027` VARCHAR(64) NULL,
+  `R1PLA028` VARCHAR(256) NULL,
   PRIMARY KEY (`R1PLA001`),
   INDEX `fk_Res14pla_Res14grp1_idx` (`Res14grp_R1GRP000` ASC),
   CONSTRAINT `fk_Res14pla_Res14grp1`

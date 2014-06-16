@@ -561,13 +561,34 @@ HTML>BODY
 ul.ColVis_collection{
 	width:250px;
 }
+
+.dataTables_filter{
+	float:left;
+	padding-top:5px;
+}
+.top{
+	margin-top:0px;
+padding-right:10px;
+padding-left:10px;
+}
+
+HTML>BODY
+.modal-footer-center{
+	text-align:center;
+	padding: 19px 20px;
+	margin-bottom: 0px;
+}
+
+.even { background-color: #f8f8f9;}
+.table-head{
+	background-color:#f8f8f8;	
+}
 /* Error messages. */
 
 HTML>BODY DIV.t-error             { border:none; }
 BODY div.t-error div.t-banner    {background-color:inherit;  color:red;}
 BODY div.t-error ul          { border:none; background-color: inherit; font-weight:bold; list-style: none; }
 BODY div.t-error li          {border:none; text-align: center; font-weight: normal; }
-
 
 /* Forms. */
 

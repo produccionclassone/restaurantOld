@@ -19,6 +19,7 @@ public class DishGroup {
 	private String salesLedgerAccount; // R1GRP004
 	private String typeIncome; // R1GRP112
 	private int macroGroup; // R1GRP011 1= Comida 2= Bebida 3= Otros
+	private boolean deleted; //R1GRP012 
 
 	public DishGroup() {
 
@@ -102,6 +103,17 @@ public class DishGroup {
 		this.macroGroup = macroGroup;
 	}
 
+	@Column(name="R1GRP012")
+	public boolean isDeleted() {
+		return deleted;
+	}
+
+	public void setDeleted(boolean deleted) {
+		this.deleted = deleted;
+	}
+	
+	
+
 }
 
 /*
@@ -117,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `ayx14res`.`Res14grp` (
   `R1GRP004` VARCHAR(8) NOT NULL,
   `R1GRP112` VARCHAR(3) NULL,
   `R1GRP011` SMALLINT NOT NULL DEFAULT 1,
-  `Res14grpcol` VARCHAR(45) NULL,
+  `R1GRP012` TINYINT(1) NOT NULL DEFAULT false,
   PRIMARY KEY (`R1GRP000`),
   UNIQUE INDEX `R1GRP001_UNIQUE` (`R1GRP001` ASC))
 ENGINE = InnoDB;
