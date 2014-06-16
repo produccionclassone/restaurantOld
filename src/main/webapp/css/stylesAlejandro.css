@@ -65,6 +65,8 @@ h1.info{
 	div.logo{
 	text-align:center;
 	}
+	.header{
+	}
 
 /* Content. */
 
@@ -489,6 +491,28 @@ input, select, textarea  {
 HTML>BODY
 ul.ColVis_collection{
 	width:250px;
+}
+
+.dataTables_filter{
+	float:left;
+	padding-top:5px;
+}
+.top{
+	margin-top:0px;
+padding-right:10px;
+padding-left:10px;
+}
+
+HTML>BODY
+.modal-footer-center{
+	text-align:center;
+	padding: 19px 20px;
+	margin-bottom: 0px;
+}
+
+.even { background-color: #f8f8f9;}
+.table-head{
+	background-color:#f8f8f8;	
 }
 /* Error messages. */
 

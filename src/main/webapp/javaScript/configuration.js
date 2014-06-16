@@ -20,7 +20,7 @@ function permite(elEvento, permitidos) {
 
 	}
 
-	// Obtener la tecla pulsada 
+	// Obtener la tecla pulsada
 	var evento = elEvento || window.event;
 	var codigoCaracter = evento.charCode || evento.keyCode;
 	var caracter = String.fromCharCode(codigoCaracter);
@@ -78,34 +78,40 @@ var loadParametersRoom = function(spec) {
 							loadParametersRoom(spec);
 							console.log(spec.parametersGeneric);
 							console.log(spec.parametersBool);
-							$("input")
-									.not($(":button"))
-									.keypress(
-											function(evt) {
-												if (evt.keyCode == 13) {
-													var iname = $(this).val();
-													if (iname !== 'Submit') {
-														var fields = $(this)
-																.parents(
-																		'form:eq(0),body')
-																.find(
-																		'button, input, textarea, select');
-														var index = fields
-																.index(this);
-														if (index > -1
-																&& (index + 1) < fields.length) {
-															fields
-																	.eq(
-																			index + 1)
-																	.focus();
-														}
-														return false;
-													}
-												}
-												if (evt.keyCode == 27) {
-													alert("escape");
-												}											});
 
+							$('body').on('keydown', 'input, select, textarea', function(e) {
+								var self = $(this)
+								  , form = self.parents('form:eq(0)')
+								  , focusable
+								  , next
+								  , prev
+								  ;
+
+							
+								 if (e.keyCode == 27) {
+								     focusable =   form.find('input,a,select,button,textarea').filter(':visible');
+								     prev = focusable.eq(focusable.index(this)-1); 
+								     if ((focusable.index(this))==0){
+								     }
+								     else if (prev.length) {
+								        prev.focus();
+								     } else {
+
+								    }
+								  }
+								
+								  else
+								if (e.keyCode == 13) {
+								    focusable = form.find('input,a,select,button,textarea').filter(':visible');
+								    next = focusable.eq(focusable.index(this)+1);
+								    if (next.length) {
+								        next.focus();
+								    } else {
+	
+								    }
+								    return false;
+								}
+								});
 						}
 					})
 })(jQuery, window);
