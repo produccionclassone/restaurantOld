@@ -105,7 +105,7 @@
 														<div class="col-md-2">
 															<input class="form-control textcontrolL" t:id="actualSession"
 																t:validate="maxlength=8" name="actualSession" t:type="TextField"
-																onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
+																 t:mixins="jquery/zoneUpdater"
 																t:clientEvent="focusout" t:event="actualSessionChanged"
 																t:zone="msgZone" />
 														</div>
@@ -122,7 +122,7 @@
 														<div class="col-md-2">
 															<input class="form-control textcontrolL" t:id="lastBill"
 																t:validate="maxlength=8" name="lastBill" t:type="TextField"
-																onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
+																t:mixins="jquery/zoneUpdater"
 																t:clientEvent="focusout" t:event="lastBillChanged"
 																t:zone="msgZone" />
 														</div>
@@ -139,7 +139,7 @@
 														<div class="col-md-2">
 															<input class="form-control textcontrolL" t:id="lastCommand"
 																t:validate="maxlength=8" name="lastCommand" t:type="TextField"
-																onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
+																 t:mixins="jquery/zoneUpdater"
 																t:clientEvent="focusout" t:event="lastCommandChanged"
 																t:zone="msgZone" />
 														</div>
@@ -156,7 +156,7 @@
 														<div class="col-md-2">
 															<input class="form-control textcontrolL" t:id="lastClient"
 																t:validate="maxlength=8" name="lastClient" t:type="TextField"
-																onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
+																 t:mixins="jquery/zoneUpdater"
 																t:clientEvent="focusout" t:event="lastClientChanged"
 																t:zone="msgZone" />
 														</div>
@@ -173,7 +173,7 @@
 														<div class="col-md-2">
 															<input class="form-control textcontrolL" t:id="numNotaFis"
 																t:validate="maxlength=8" name="numNotaFis" t:type="TextField"
-																onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
+																 t:mixins="jquery/zoneUpdater"
 																t:clientEvent="focusout" t:event="numNotaFisChanged"
 																t:zone="msgZone" />
 														</div>

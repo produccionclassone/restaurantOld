@@ -97,7 +97,7 @@
 										<label for="dishGroupCode" class="col-sm-4 control-label">${message:dish-group-code}</label>
 										<div class="col-sm-8">
 											<input class="form-control" t:id="dishGroupCode"
-												t:type="TextField" validate="required" />
+												t:type="TextField" validate="required" autofocus="true" />
 										</div>
 									</div>
 									<div class="form-group">
@@ -160,6 +160,13 @@
 										<input class="form-control" t:id="dishGroupId" t:type="TextField"
 											validate="required" />
 
+									</div>
+									<div class="form-group">
+										<label for="dishGroupCode" class="col-sm-4 control-label">${message:dish-group-code}</label>
+										<div class="col-sm-8">
+											<input class="form-control" t:id="editdishGroupCode"
+												t:type="TextField" validate="required" autofocus="true" />
+										</div>
 									</div>
 									<div class="form-group">
 										<label for="dishGroupDesc" class="col-sm-4 control-label">${message:dish-group-description}</label>

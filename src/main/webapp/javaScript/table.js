@@ -3,37 +3,57 @@ var editor;
 $(document)
 		.ready(
 				function() {
-					var table = $('#example').dataTable({
-						"dom" : '<"top row"TfC>Rrt<"bottom"lp>',
-						"lengthMenu": [[10, 25, 50, 100, -1], [10 ,25, 50, 100, "*"]],
-//						 aoColumnDefs: [
-//						               { sWidth: "9%", aTargets: 0 },
-//						               { sWidth: "13%", aTargets: 2 },
-//						               { sWidth: "24%", aTargets: 3 },
-//						               { sWidth: "15%", aTargets: 4 },
-//						               { sWidth: "15%", aTargets: 5 }
-//						         ],
-						"language" : {
-							"search" : "",
-							"paginate": {
-								            "previous": "<",
-								            "next": ">"
-								           },
-								           "lengthMenu": ""
-								           
-							
-						},
-						"tableTools" : {
-							"sRowSelect" : "os",
-							"sSwfPath" : "../swf/copy_csv_xls_pdf.swf"
-						}
+					var table = $('#example').dataTable(
+							{
+								"dom" : '<"top row"TfC>Rrt<"bottom"lp>',
+								"lengthMenu" : [ [ 10, 25, 50, 100, -1 ],
+										[ 10, 25, 50, 100, "*" ] ],
+										  stateSave: true,
+								// aoColumnDefs: [
+								// { sWidth: "9%", aTargets: 0 },
+								// { sWidth: "13%", aTargets: 2 },
+								// { sWidth: "24%", aTargets: 3 },
+								// { sWidth: "15%", aTargets: 4 },
+								// { sWidth: "15%", aTargets: 5 }
+								// ],
+										columnDefs: [ {
+								            targets: [ 0 ],
+								            orderData: [ 0, 1 ]
+								        }, {
+								            targets: [ 1 ],
+								            orderData: [ 1, 0 ]
+								        }, {
+								            targets: [ 4 ],
+								            orderData: [ 4, 0 ]
+								        } ],
+								"language" : {
+									"search" : "",
+									"paginate" : {
+										"previous" : "<",
+										"next" : ">"
+									},
+									"lengthMenu" : ""
 
-					});
-					 new $.fn.dataTable.FixedHeader( table );
-					 $(".FixedHeader_Cloned")[0].style["cssText"]=$(".FixedHeader_Cloned")[0].style["cssText"].replace("absolute","relative");					$("#headernav ol").append("<li class='active' name='A'>"+"Mantenimiento de ficheros maestros" + "</li>"+ "<li class='active' name='1'>" + "Grupos a la carta" + "</li>");
+								},
+								"tableTools" : {
+									"sRowSelect" : "os",
+									"sSwfPath" : "../swf/copy_csv_xls_pdf.swf"
+								}
+
+							});
+					new $.fn.dataTable.FixedHeader(table);
+					$(".FixedHeader_Cloned")[0].style["cssText"] = $(".FixedHeader_Cloned")[0].style["cssText"]
+							.replace("absolute", "relative");
+					$("#headernav ol").append(
+							"<li class='active' name='A'>"
+									+ "Mantenimiento de ficheros maestros"
+									+ "</li>" + "<li class='active' name='1'>"
+									+ "Grupos a la carta" + "</li>");
 					$(".header").hide();
 					$(".dataTables_empty").text("");
-					$(".dataTables_empty").append("<img src='../images/database.png' width='25' height='25'></img>");
+					$(".dataTables_empty")
+							.append(
+									"<img src='../images/database.png' width='25' height='25'></img>");
 					$("#ToolTables_example_0")
 							.children()
 							.replaceWith(
@@ -61,18 +81,17 @@ $(document)
 
 					$(
 							"<img	src='../images/search.png' width='30' height='30'></img>")
-							.appendTo(".dataTables_filter");	
+							.appendTo(".dataTables_filter");
 					$("#deleteRowButton").prop('disabled', true);
 					$("#editRowButton").prop('disabled', true);
 					$('#example tbody').on('click', 'tr', function() {
 						var size = ($(".selected").size());
 						$("#deleteRowButton").prop('disabled', false);
 						console.log(size)
-						if (size==0){
+						if (size == 0) {
 							$("#deleteRowButton").prop('disabled', true);
 							$("#editRowButton").prop('disabled', true);
-						}
-						else if (size == 1)
+						} else if (size == 1)
 							$("#editRowButton").prop('disabled', false);
 						else if (size != 1)
 							$("#editRowButton").prop('disabled', true);
@@ -120,5 +139,25 @@ $(document)
 												+ strRows);
 
 							});
+					$('#modalCreate').on('shown.bs.modal', function() {
+						$('#dishGroupCode').focus();
+
+					});
+					$.urlParam = function(name) {
+						var results = new RegExp('[\?&]' + name + '=([^&#]*)')
+								.exec(window.location.href);
+						if (results == null) {
+							return null;
+						} else {
+							return results[1] || 0;
+						}
+					}
+					if ($.urlParam('id') != null) {
+						$('#modalEdit').modal('show');
+						$('#modalEdit').on('shown.bs.modal', function() {
+							$('#editdishGroupCode').focus();
+
+						});
+					}
 
 				});
