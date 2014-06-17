@@ -3,21 +3,21 @@
 	<script>
 		$(document).ready(function(){
 		$('#regControl').modal({
- 		 keyboard: false
+		keyboard: false
 		});
 		$('#regControl').on('shown.bs.modal', function() {
-								$('#actualSession').focus();
+		$('#actualSession').focus();
 
-							});
 		});
-		
+		});
+
 	</script>
 
 	<div class="container-fluid">
 		<div class="row"> <!-- Mantenimiento reg. control -->
 			<!-- Button trigger modal -->
-			<div class="modal fade bs-example-modal-lg" id="regControl"
-				 role="dialog" aria-labelledby="myModalLabel" tabindex="-1" 
+			<div class="modal fade bs-example-modal-lg" id="regControl" role="dialog"
+				aria-labelledby="myModalLabel" tabindex="-1"
 				style="padding:0px 0px; margin-top:-10px; margin-left:8px;"
 				aria-hidden="true">
 				<div class="modal-dialog modal-lg"> <!-- modal-dialog -->
@@ -30,55 +30,62 @@
 						</div> <!-- modal header -->
 						<div class="modal-body" style="padding:0px 0px;"> <!-- Modal body -->
 							<!-- Nav tabs -->
-							<ul class="nav nav-tabs" style="padding:0px 0px;"> <!-- ul Level 1 -->
-								<li class="active liNavTab">
-									<a href="#generalParameters" data-toggle="tab">
-										<h5 class="text">${message:generalParameters}</h5>
-									</a>
-								</li>
-								<li class="liNavTab">
-									<a href="#claves" data-toggle="tab">
-										<h5 class="text">${message:keys}</h5>
-									</a>
-								</li>
-								<li class="liNavTab">
-									<a href="#configSistema" data-toggle="tab">
-										<h5 class="text">${message:bussinesIntelig}</h5>
-									</a>
-								</li>
-							</ul>
+							<div class="row row5"></div>
+							<div class="row">
+								<ul class="nav nav-tabs" > <!-- ul Level 1 -->
+									<div class="col-md-1 col-md-2px"></div>	
+									<div class="col-md-2 col-md-200px rowBorder active">
+										<a href="#generalParameters" data-toggle="tab">
+											<h5 class="text">${message:generalParameters}</h5>
+										</a>
+									</div>
+									<div class="col-md-2 col-md-200px rowBorder">
+										<a href="#claves" data-toggle="tab">
+											<h5 class="text">${message:keys}</h5>
+										</a>
+									</div>
+									<div class="col-md-2 col-md-200px rowBorder">
+										<a href="#configSistema" data-toggle="tab">
+											<h5 class="text">${message:bussinesIntelig}</h5>
+										</a>
+									</div>
+									<div class="col-md-1"></div>
+								<div class="col-md-1"></div>
+								</ul>
+							</div>
+
 							<!-- Tab panes Level 1 -->
 							<div class="tab-content" style="height: 650px;"> <!-- tab-content Level 1 -->
 								<div class="tab-pane active" id="generalParameters">
 									<!-- Nav tabs general parameters -->
 									<ul class="nav nav-tabs sub" style="padding:0px 0px;"> <!-- ul general parameters -->
-										<li class="active liNavTab sub" id="contadoresTab">
-											<a href="#contadores" data-toggle="tab">
+										<li class="active" id="contadoresTab">
+											<a href="#contadores" data-toggle="tab" class="prueba">
 												<h4 class="text">${message:contadores}</h4>
 											</a>
 										</li>
-										<li class="liNavTab sub" id="generalTab">
+										<li>
 											<a href="#general" data-toggle="tab">
 												<h4 class="text">${message:general}</h4>
 											</a>
 										</li>
-										<li class="liNavTab sub">
+										<li>
 											<a href="#restaurante" data-toggle="tab">
 												<h4 class="text">${message:restaurante}</h4>
 											</a>
 										</li>
-										<li class="liNavTab sub">
+										<li>
 											<a href="#conectividad" data-toggle="tab">
 												<h4 class="text">${message:conectividad}</h4>
 											</a>
 										</li>
-										<li class="liNavTab sub">
+										<li>
 											<a href="#contabilidad" data-toggle="tab">
 												<h4 class="text">${message:contabilidad}</h4>
 											</a>
 										</li>
 
-										<li class="liNavTab sub">
+										<li>
 											<a href="#printer" data-toggle="tab">
 												<h4 class="text">${message:printer}</h4>
 											</a>
@@ -110,11 +117,11 @@
 															</span>
 														</div>
 														<div class="col-md-2">
-															<input class="form-control textcontrolL" t:id="actualSession"
-																autofocus="true" t:validate="maxlength=8" name="actualSession" t:type="TextField"
-																onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
+															<input class="form-control textcontrolR" t:id="actualSession"
+																autofocus="true" name="actualSession" t:type="TextField"
+																t:validate="required,regexp,maxlength=8" maxlength="8"
 																t:clientEvent="focusout" t:event="actualSessionChanged"
-																t:zone="msgZone" />
+																t:mixins="jquery/zoneUpdater" t:zone="msgZone" />
 														</div>
 														<div class="col-md-4"></div>
 													</div> <!-- Row 2 -->
@@ -127,11 +134,10 @@
 															</span>
 														</div>
 														<div class="col-md-2">
-															<input class="form-control textcontrolL" t:id="lastBill"
-																t:validate="maxlength=8" name="lastBill" t:type="TextField"
-																onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																t:clientEvent="focusout" t:event="lastBillChanged"
-																t:zone="msgZone" />
+															<input class="form-control textcontrolR" t:id="lastBill"
+																name="lastBill" t:type="TextField" t:validate="required,regexp,maxlength=8"
+																maxlength="8" t:clientEvent="focusout" t:event="lastBillChanged"
+																t:mixins="jquery/zoneUpdater" t:zone="msgZone" />
 														</div>
 														<div class="col-md-4"></div>
 													</div> <!-- Row 3 -->
@@ -144,11 +150,10 @@
 															</span>
 														</div>
 														<div class="col-md-2">
-															<input class="form-control textcontrolL" t:id="lastCommand"
-																t:validate="maxlength=8" name="lastCommand" t:type="TextField"
-																onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																t:clientEvent="focusout" t:event="lastCommandChanged"
-																t:zone="msgZone" />
+															<input class="form-control textcontrolR" t:id="lastCommand"
+																name="lastCommand" t:type="TextField" t:validate="required,regexp,maxlength=8"
+																maxlength="8" t:clientEvent="focusout" t:event="lastCommandChanged"
+																t:mixins="jquery/zoneUpdater" t:zone="msgZone" />
 														</div>
 														<div class="col-md-4"></div>
 													</div> <!-- Row 4 -->
@@ -161,11 +166,10 @@
 															</span>
 														</div>
 														<div class="col-md-2">
-															<input class="form-control textcontrolL" t:id="lastClient"
-																t:validate="maxlength=8" name="lastClient" t:type="TextField"
-																onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																t:clientEvent="focusout" t:event="lastClientChanged"
-																t:zone="msgZone" />
+															<input class="form-control textcontrolR" t:id="lastClient"
+																name="lastClient" t:type="TextField" t:validate="required,regexp,maxlength=8"
+																maxlength="8" t:clientEvent="focusout" t:event="lastClientChanged"
+																t:mixins="jquery/zoneUpdater" t:zone="msgZone" />
 														</div>
 														<div class="col-md-4"></div>
 													</div> <!-- Row 5 -->
@@ -178,11 +182,10 @@
 															</span>
 														</div>
 														<div class="col-md-2">
-															<input class="form-control textcontrolL" t:id="numNotaFis"
-																t:validate="maxlength=8" name="numNotaFis" t:type="TextField"
-																onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																t:clientEvent="focusout" t:event="numNotaFisChanged"
-																t:zone="msgZone" />
+															<input class="form-control textcontrolR" t:id="numNotaFis"
+																name="numNotaFis" t:type="TextField" t:validate="required,regexp,maxlength=8"
+																maxlength="8" t:clientEvent="focusout" t:event="numNotaFisChanged"
+																t:mixins="jquery/zoneUpdater" t:zone="msgZone" />
 														</div>
 														<div class="col-md-4"></div>
 													</div> <!-- Row 6 -->
@@ -224,10 +227,10 @@
 																<div class="col-md-5">
 																	<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
 																	<input class="form-control textcontrolL" t:id="restCateg"
-																		name="restCateg" t:type="TextField" 
-																		onkeypress="return permite(event, 'num_car')"
-																		t:mixins="jquery/zoneUpdater" t:clientEvent="focusout"
-																		t:event="restCategChanged" t:zone="msgZone2" />
+																		name="restCateg" t:type="TextField" t:validate="required,regexp"
+																		maxlength="10" t:mixins="jquery/zoneUpdater"
+																		t:clientEvent="focusout" t:event="restCategChanged"
+																		t:zone="msgZone2" />
 																</div>
 																<div class="col-md-1"></div>
 															</div>
@@ -242,13 +245,13 @@
 																	<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
 																	<input class="form-control textcontrolL" t:id="tableNumber"
 																		name="tableNumber" t:type="TextField"
-																		onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
+																		t:validate="required,regexp, maxlength=3" maxlength="3"
 																		t:clientEvent="focusout" t:event="tableNumberChanged"
-																		t:zone="msgZone2" />
+																		t:mixins="jquery/zoneUpdater" t:zone="msgZone2" />
 																</div>
 																<div class="col-md-4"></div>
 															</div>
- 															<div class="row">
+															<div class="row">
 																<div class="col-md-1"></div>
 																<div class="col-md-10 rowBorder">
 																	<div class="row">
@@ -291,7 +294,7 @@
 																				name="covServCharIVAType" t:type="TextField"
 																				onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
 																				t:clientEvent="focusout" t:event="covServCharIVATypeChanged"
-																				t:zone="msgZone2"/>
+																				t:zone="msgZone2" />
 																		</div>
 																		<div class="col-md-4"></div>
 																	</div>
@@ -312,35 +315,30 @@
 																</div>
 																<div class="col-md-1"></div>
 															</div>
- 															<div class="row row5"></div>
+															<div class="row row5"></div>
 															<div class="row">
 																<div class="col-md-1"></div>
 																<div class="col-md-10 rowBorder">
 																	<div class="row">
 																		<div class="col-md-6">
-																			<span class="input-group-addon">Prop. camareros en 
-																				fact</span>
 																			<span class="input-group-addon">
 																				<t:label for="tipWaiterInvoice" />
 																			</span>
 																		</div>
 																		<div class="col-md-1">
-																			<input type="checkbox" class="form-control checkcontrol"></input>
 																			<input class="form-control checkcontrol" t:id="tipWaiterInvoice"
-																				name="tipWaiterInvoice" t:type="CheckBox"/>
+																				name="tipWaiterInvoice" t:type="CheckBox" />
 																		</div>
 																		<div class="col-md-5"></div>
 																	</div>
 																	<div class="row">
 																		<div class="col-md-5">
-																			<span class="input-group-addon">Porcentaje</span>
 																			<span class="input-group-addon">
 																				<t:label for="tipWaiterInvoicePorcent" />
 																			</span>
 																		</div>
 																		<div class="col-md-1"></div>
 																		<div class="col-md-6">
-																			<input type="text" class="form-control textcontrol"></input>
 																			<input class="form-control textcontrolR" t:id="tipWaiterInvoicePorcent"
 																				name="tipWaiterInvoicePorcent" t:type="TextField"
 																				onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
@@ -351,7 +349,7 @@
 																	<div class="row">
 																		<div class="col-md-5">
 																			<span class="input-group-addon">
-																				<t:label for="tipWaiterInvoiceIVA"/>
+																				<t:label for="tipWaiterInvoiceIVA" />
 																			</span>
 																		</div>
 																		<div class="col-md-1"></div>
@@ -371,7 +369,6 @@
 																			</span>
 																		</div>
 																		<div class="col-md-11">
-																			<input type="text" class="form-control textcontrol"></input>
 																			<input class="form-control textcontrolL" t:id="literalTipsAuto"
 																				name="literalTipsAuto" t:type="TextField"
 																				onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
@@ -491,7 +488,7 @@
 																</div>
 															</div>
 														</div><!-- Left -->
-														<div class="col-md-6"><!-- Right-->
+														<div class="col-md-6"><!-- Right -->
 															<div class="row">
 																<dic class="col-md-1"></dic>
 																<div class="col-md-10 rowBorder">
@@ -668,15 +665,15 @@
 																<div class="col-md-1"></div>
 																<div class="col-md-5">
 																	<span class="input-group-addon">
-																		<t:label for="literalEspBill"/>
+																		<t:label for="literalEspBill" />
 																	</span>
 																</div>
 																<div class="col-md-5">
 																	<input class="form-control textcontrolL" t:id="literalEspBill"
 																		name="literalEspBill" t:type="TextField"
-																		onkeypress="return permite(event, 'num_car')" t:mixins="jquery/zoneUpdater"
-																		t:clientEvent="focusout" t:event="literalEspBillChanged"
-																		t:zone="msgZone2" />
+																		onkeypress="return permite(event, 'num_car')"
+																		t:mixins="jquery/zoneUpdater" t:clientEvent="focusout"
+																		t:event="literalEspBillChanged" t:zone="msgZone2" />
 																</div>
 																<div class="col-md-1"></div>
 															</div>
@@ -713,7 +710,7 @@
 																		</div>
 																		<div class="col-md-3">
 																			<input class="form-control checkcontrol" t:id="discount1"
-																				name="discount1" t:type="CheckBox"/>
+																				name="discount1" t:type="CheckBox" />
 																		</div>
 																		<div class="col-md-3">
 																			<input class="form-control textcontrolL" t:id="assocElemDto1"
@@ -839,7 +836,7 @@
 																</div>
 																<div class="col-md-5"></div>
 															</div>
- 														</div> <!--Right -->
+														</div> <!--Right -->
 													</div> <!-- row general -->
 												</t:form>
 											</div> <!-- container general -->
@@ -863,7 +860,8 @@
 																				<h4 class="textRowBorder">${message:colorPanel-label}
 																				</h4>
 																			</div>
-xº																			<div class="row">
+																			xº
+																			<div class="row">
 																				<div class="col-md-1"></div>
 																				<div class="col-md-5">
 																					<!-- <span class="input-group-addon">comanda</span> -->

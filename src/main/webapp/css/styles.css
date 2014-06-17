@@ -360,9 +360,11 @@ h1.info{
 	div.row10{
 	padding-top: 10px;
 	}
+	
 	div.row5{
 		padding-top: 5px;
 	}	
+	
  	div.col-md-05 {
     	width: 4%;
      	position: relative;
@@ -371,6 +373,24 @@ h1.info{
 		padding-left: 15px;
   		float: left;
   	}
+  	
+  	 div.col-md-5px {
+    	width:5px;
+  		float: left;
+  	}
+ 
+  	 div.col-md-2px {
+    	width:2px;
+  		float: left;
+  	}
+  	
+  	 div.col-md-200px {
+    	width:200px;
+  		float: left;
+  		height:30px;
+  		padding-top:0px;
+  	}
+  	
   	div.col-md-02 {
     	width: 2%;
      	position: relative;
@@ -402,14 +422,22 @@ h1.info{
 HTML > BODY .nav-tabs > li.active > a,
 HTML > BODY .nav-tabs > li.active > a:hover,
 HTML > BODY .nav-tabs > li.active > a:focus {
-	background:linear-gradient(#6D6E87, #B5B6D0) repeat scroll 0% 0% transparent;
-	color:#FFF;
+	/*background:linear-gradient(#6D6E87, #B5B6D0) repeat scroll 0% 0% transparent;*/
+	/*color:#FFF;*/
+	background:#F8F8F8;
 	font-size:14px;
-	
+	border:1px solid #ccc;
+	border-radius:5px;
 }
 
-.liNavTab {
-	padding-left:15px;
+HTML > BODY .nav-tabs > li {
+	font-size:14px;
+	border:1px solid #ccc;
+	border-radius:5px;
+}
+
+HTML > BODY  > .tab-pane .active > .container-fluid{
+	background-color:#F8F8F8;
 }
 
 HTML > BODY .navtabs{
@@ -420,19 +448,19 @@ HTML > BODY .navtabs{
 }
 
 h6.text{
-	font-size:16px;
-	font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
-	font-weight: bold;
-}
-
-h5.text{
 	font-size:14px;
 	font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
 	font-weight: bold;
 }
 
-h4.text{
+h5.text{
 	font-size:12px;
+	font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+	font-weight: bold;
+}
+
+h4.text{
+	font-size:10px;
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-weight: bold;
 }
@@ -552,6 +580,7 @@ div.map {
 .rowBorder {
 	border: 1px solid #d0d0d0;
 	padding:5px 5px;
+	border-radius:5px;
 }
 
 
@@ -618,8 +647,30 @@ input, select, textarea  {
 }
 
 /* Error messages. */
+.tjq-error-popup{
+	font-size:10px;
+	font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+	font-weight:bold;
+	display:block;
+}
 
-HTML>BODY DIV.t-error             {  border:none; }
-BODY div.t-error div.t-banner    {background-color:inherit;  color:red;}
-BODY div.t-error ul          { border:none; background-color: inherit; font-weight:bold; list-style: none; }
-BODY div.t-error li          {border:none; text-align: center; font-weight: normal; }
+HTML>BODY DIV.t-error {
+	border:none;
+	}
+BODY div.t-error div.t-banner {
+	background-color:inherit;
+	color:red;
+}
+
+BODY div.t-error ul {
+	border:none;
+	background-color: inherit;
+	font-weight:bold;
+	font-size:50px;
+	list-style: none;
+}
+BODY div.t-error li {
+	border:none;
+	text-align: center; 
+	font-weight: normal;
+}
