@@ -8,178 +8,104 @@ var clearButtons = function() {
 	}
 }
 
-var changeLiterals = function(value, spec) {
-	// ARREGLAR BUG DE SI NO TIENE SUBNIVEL O SI NO EXISTE OPCION TODO EN BLANCO
-	clearButtons();
-	
-	$("#activemenu")
-			.replaceWith(
-					"<li id='disablemenu' class='disable'><a href='/restaurant/?showFavorites=false&showHistory=false'>"
-							+ spec.menu + "</a></li>");
-	if (value == 0) {
-		$("#button1txt").text(spec.option1);
-		$("#button2txt").text(spec.option2);
-		$("#button3txt").text(spec.option3);
-		$("#button4txt").text(spec.option4);
-		$("#button5txt").text(spec.option5);
-		$("#button6txt").text(spec.option6);
-		$("#button7txt").text(spec.option7);
-		$("#buttonAtxt").text(spec.optiona);
-		$("#buttonBtxt").text(spec.optionb);
-		$("#buttonCtxt").text(spec.optionc);
-		$("#buttonDtxt").text(spec.optiond);
-		$("#buttonEtxt").text(spec.optione);
-		$("#disablemenu").replaceWith("<li>" + spec.menu + "</li>");
-		$(".active").remove();
-		$("#headernav ol li").attr("id", "activemenu");
-		$("#activemenu").attr("class", "active");
-		$("#activemenu").attr("name", "menu");
-		$("#buttonmenu").text(spec.menu);
+var returnMenu = function(options, literalMenu) {
+	console.log(options);
+	for (var i = 1; i < 19; i++) {
+		if (options[i - 1].option != null) {
+			console.log("escribo " + i)
+			var button = "#button" + options[i - 1].option + "txt";
+			$(button).text(options[i - 1].name);
+		}
+	}
+	$("#disablemenu").replaceWith("<li>" + literalMenu + "</li>");
+	$(".active").remove();
+	$("#headernav ol li").attr("id", "activemenu");
+	$("#activemenu").attr("class", "active");
+	$("#activemenu").attr("name", "menu");
+	$("#buttonmenu").text(literalMenu);
+}
 
-	}
-	if (value == "1") {
-		$("#button1txt").text(spec.option11);
-		$("#button2txt").text(spec.option12);
-		$("#button3txt").text(spec.option13);
-		$("#button4txt").text(spec.option14);
-		$("#button5txt").text(spec.option15);
-		$("#button6txt").text(spec.option16);
-		$("#button7txt").text(spec.option17);
-		$("#button8txt").text(spec.option18);
-		$("#headernav ol").append(
-				"<li class='active'>" + spec.option1 + "</li>");
-		$("#buttonmenu").text(spec.option1);
-	}
-	if (value == "3") {
-		$("#button1txt").text(spec.option31);
-		$("#button2txt").text(spec.option32);
-		$("#button3txt").text(spec.option33);
-		$("#button4txt").text(spec.option34);
-		$("#button5txt").text(spec.option35);
-		$("#button6txt").text(spec.option36);
-		$("#button7txt").text(spec.option37);
-
-		$("#headernav ol").append(
-				"<li class='active'>" + spec.option3 + "</li>");
-		$("#buttonmenu").text(spec.option3);
-	}
-	if (value == "4") {
-		$("#button1txt").text(spec.option41);
-		$("#button2txt").text(spec.option42);
-		$("#button3txt").text(spec.option43);
-		$("#button4txt").text(spec.option44);
-		$("#button5txt").text(spec.option45);
-		$("#button6txt").text(spec.option46);
-		$("#button7txt").text(spec.option47);
-		$("#button8txt").text(spec.option48);
-		$("#buttonAtxt").text(spec.option4a);
-		$("#buttonBtxt").text(spec.option4b);
-		$("#buttonCtxt").text(spec.option4c);
-		$("#buttonDtxt").text(spec.option4d);
-		$("#buttonEtxt").text(spec.option4e);
-		$("#activemenu")
-				.replaceWith(
-						"<li id='disablemenu' class='disable'><a href='/restaurant/?showFavorites=false&showHistory=false'>"
-								+ spec.menu + "</a></li>");
-		$("#headernav ol").append(
-				"<li class='active'>" + spec.option4 + "</li>");
-		$("#buttonmenu").text(spec.option4);
-	}
-	if (value == "5") {
-		$("#button1txt").text(spec.option51);
-		$("#button2txt").text(spec.option52);
-		$("#button3txt").text(spec.option53);
-		$("#button4txt").text(spec.option54);
-		$("#button5txt").text(spec.option55);
-		$("#button6txt").text(spec.option56);
-		$("#button7txt").text(spec.option57);
-		$("#button8txt").text(spec.option58);
-		$("#buttonAtxt").text(spec.option5a);
-		$("#buttonBtxt").text(spec.option5b);
-		$("#headernav ol").append(
-				"<li class='active'>" + spec.option5 + "</li>");
-		$("#buttonmenu").text(spec.option5);
-	}
-	if (value == "6") {
-		$("#button1txt").text(spec.option61);
-		$("#button2txt").text(spec.option62);
-		$("#button3txt").text(spec.option63);
-		$("#button4txt").text(spec.option64);
-		$("#button5txt").text(spec.option65);
-		$("#button6txt").text(spec.option66);
-		$("#headernav ol").append(
-				"<li class='active'>" + spec.option6 + "</li>");
-		$("#buttonmenu").text(spec.option6);
-	}
-	if (value == "7") {
-		$("#button1txt").text(spec.option71);
-		$("#button2txt").text(spec.option72);
-		$("#button3txt").text(spec.option73);
-		$("#button4txt").text(spec.option74);
-		$("#headernav ol").append(
-				"<li class='active'>" + spec.option7 + "</li>");
-		$("#buttonmenu").text(spec.option7);
-	}
-	if (value == "A") {
-		$("#button1txt").text(spec.optiona1);
-		$("#button2txt").text(spec.optiona2);
-		$("#button3txt").text(spec.optiona3);
-		$("#button4txt").text(spec.optiona4);
-		$("#button5txt").text(spec.optiona5);
-		$("#button6txt").text(spec.optiona6);
-		$("#button7txt").text(spec.optiona7);
-		$("#button8txt").text(spec.optiona8);
-		$("#headernav ol").append(
-				"<li class='active'>" + spec.optiona + "</li>");
-		$("#buttonmenu").text(spec.optiona);
-	}
-	if (value == "B") {
-		$("#button1txt").text(spec.optionb1);
-		$("#button3txt").text(spec.optionb3);
-		$("#button4txt").text(spec.optionb4);
-		$("#button5txt").text(spec.optionb5);
-		$("#button6txt").text(spec.optionb6);
-		$("#button7txt").text(spec.optionb7);
-		$("#headernav ol").append(
-				"<li class='active' name='" + spec.optionb + "'>"
-						+ spec.optionb + "</li>");
-		$("#buttonmenu").text(spec.optionb);
+var currentOptionNumber = function(literal, options) {
+	for (var i = 0; i < 18; i++) {
+		if (literal == options[i].option)
+			return i;
 	}
 }
 
 var menuClickBehaviour = function(spec) {
+
 	$(".btn-option").click(function() {
 		var currentOption = $('.active').attr('name');
-		if (currentOption == "menu")
-			changeLiterals(($(this).attr('id')[6]), spec);
 		if (currentOption == "favorites") {
-			if ($(this).text()=="")
-			$("#add-favorite-modal").modal("show");
-			else{
-				$(location).attr('href',spec[($(this).attr('id')[6])]); //ENLAZAR A LA RUTA DEL FAVORITO
-			}
-		}
-	});
-	$(".btn-text").click(function() {
-		var currentOption = $('.active').attr('name');
-		if (currentOption == "menu")
-			changeLiterals(($(this).attr('id')[6]), spec);
-		if (currentOption == "favorites") {
-			if ($(this).text()=="")
+			if ($(this).text() == "")
 				$("#add-favorite-modal").modal("show");
-				else{
-					$(location).attr('href',spec[($(this).attr('id')[6])]); //ENLAZAR A LA RUTA DEL FAVORITO
-				}
-		}
+			else {
+				$(location).attr('href', spec[($(this).attr('id')[6])]); // ENLAZAR
+				// A LA
+				// RUTA
+				// DEL
+				// FAVORITO
+			}
+		} else
+			menuBehaviour(($(this).attr('id')[6]), spec.options);
+	});
+	$(".btn-text").mousedown(function(event) {
+		var currentOption = $('.active').attr('name');
+		if (currentOption == "favorites") {
+			if ($(this).text() == "")
+				$("#add-favorite-modal").modal("show");
+			else {
+				$(location).attr('href', spec[($(this).attr('id')[6])]); // ENLAZAR
+				// A LA
+				// RUTA
+				// DEL
+				// FAVORITO
+			}
+		} else
+			menuBehaviour(($(this).attr('id')[6]), spec.options);
 	});
 
 }
 
-var menuBehaviour = function(e, spec) {
-	e.preventDefault();
+var menuBehaviour = function(value, options) {
+
+	var chars = "ABCDEFGHI";
+	var literal = $('.active').text();
 	var currentOption = $('.active').attr('name');
-	if (currentOption=="menu")
-		changeLiterals((String.fromCharCode(e.which).toUpperCase()),spec);
+	console.log(currentOption);
+	console.log(literal);
+	if (currentOption != "menu")
+		options = options[currentOptionNumber(currentOption, options)].suboptions;
+
+	for (var i = 1; i <= 19; i++) {
+		var j;
+		if (i > 9) {
+			j = chars[i - 10];
+		} else
+			j = i;
+		if ((value == j) && (options[i - 1].name != "")) {
+			$("#activemenu")
+					.replaceWith(
+							"<li id='disablemenu' class='disable'><a href='/restaurant/?showFavorites=false&showHistory=false'>"
+									+ literal + "</a></li>");
+			clearButtons();
+			console.log("pulsé " + j + " i =" + i);
+			var suboptions = options[i - 1].suboptions;
+			console.log(suboptions);
+			if (suboptions != null) {
+				for (var k = 0; k < suboptions.length; k++) {
+					var button = "#button" + suboptions[k].option[2] + "txt";
+					$(button).text(suboptions[k].name);
+				}
+				$("#headernav ol").append(
+						"<li class='active' name='" + options[i - 1].option
+								+ "'>" + options[i - 1].name + "</li>");
+				$("#buttonmenu").text(options[i - 1].name);
+			} else
+				$(location).attr('href', options[i - 1].path);
+			break;
+		}
+	}
 };
 
 var changeToFavorite = function(i, option) {
@@ -202,22 +128,36 @@ var changeToFavorite = function(i, option) {
 	} else {
 		$(button).text(option.toString());
 	}
-	
 
 };
 (function($, window) {
 	'use scrict';
 	$.extend(Tapestry.Initializer, {
 		initMenu : function(spec) {
-
+			var options = spec.options;
+			var literalMenu = spec.menu;
+			$.urlParam = function(name) {
+				var results = new RegExp('[\?&]' + name + '=([^&#]*)')
+						.exec(window.location.href);
+				if (results == null) {
+					return null;
+				} else {
+					return results[1] || 0;
+				}
+			}
+			if ($.urlParam('option') != null) 
+				menuBehaviour($.urlParam('option'), options);
+			
 			$("#menuexperto").keypress(function(e) {
-				menuBehaviour(e, spec);
+				e.preventDefault();
+				var value = String.fromCharCode(e.which).toUpperCase();
+				menuBehaviour(value, options);
 			});
 			menuClickBehaviour(spec);
 			$(document).keyup(function(e) {
 				if (e.keyCode == 27) {
 					if ($("#activemenu").attr("name") != "menu")
-						changeLiterals(0, spec);
+						returnMenu(options, literalMenu);
 				}
 			});
 
@@ -232,7 +172,7 @@ var changeToFavorite = function(i, option) {
 							var favoriteNames = spec.favoriteNames;
 							var favoritePaths = spec.favoritePaths;
 							for (var i = 1; i <= 19; i++) {
-								changeToFavorite(i, favoriteNames[i]);
+								changeToFavorite(i, favoriteNames[i - 1]);
 							}
 							menuClickBehaviour(favoritePaths);
 							$("#buttonmenu").text("Favoritos");

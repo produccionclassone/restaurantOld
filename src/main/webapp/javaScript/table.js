@@ -9,13 +9,6 @@ $(document)
 								"lengthMenu" : [ [ 10, 25, 50, 100, -1 ],
 										[ 10, 25, 50, 100, "*" ] ],
 										  stateSave: true,
-								// aoColumnDefs: [
-								// { sWidth: "9%", aTargets: 0 },
-								// { sWidth: "13%", aTargets: 2 },
-								// { sWidth: "24%", aTargets: 3 },
-								// { sWidth: "15%", aTargets: 4 },
-								// { sWidth: "15%", aTargets: 5 }
-								// ],
 										columnDefs: [ {
 								            targets: [ 0 ],
 								            orderData: [ 0, 1 ]
@@ -44,11 +37,6 @@ $(document)
 					new $.fn.dataTable.FixedHeader(table);
 					$(".FixedHeader_Cloned")[0].style["cssText"] = $(".FixedHeader_Cloned")[0].style["cssText"]
 							.replace("absolute", "relative");
-					$("#headernav ol").append(
-							"<li class='active' name='A'>"
-									+ "Mantenimiento de ficheros maestros"
-									+ "</li>" + "<li class='active' name='1'>"
-									+ "Grupos a la carta" + "</li>");
 					$(".header").hide();
 					$(".dataTables_empty").text("");
 					$(".dataTables_empty")
@@ -159,5 +147,23 @@ $(document)
 
 						});
 					}
+					$("#activemenu")
+					.replaceWith(
+							"<li id='disablemenu' class='disable'><a href='/restaurant/?showFavorites=false&showHistory=false'>"
+									+ $("#activemenu").text() + "</a></li>");
+					$("#headernav ol").append(
+							"<li class='disable' name='A'> <a href='/restaurant/?showFavorites=false&showHistory=false&option=A'>"
+									+ "Mantenimiento de ficheros maestros"
+									+ "</a></li>" + "<li class='active' name='1'>"
+									+ "Grupos a la carta" + "</li>");
+					$(document).keyup(function(e) {
+							
+						  if (e.keyCode == 27) { 
+							  $(location)
+								.attr(
+										'href',
+										'/restaurant/?showFavorites=false&showHistory=false?option=A');
+						  }  
+						});
 
 				});

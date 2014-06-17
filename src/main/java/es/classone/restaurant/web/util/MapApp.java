@@ -20,6 +20,7 @@ public class MapApp {
 	public static void setOptionName(String option, String name, String path) { 
 		if (map.isEmpty())
 			map.add(new Option(option,name, path, false));
+
 		for (Option o : map) {
 			if (o.getOption().equals(option)) {
 				return;
