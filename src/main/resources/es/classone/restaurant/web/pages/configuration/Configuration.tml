@@ -203,12 +203,20 @@
 											<div class="container-fluid"> <!-- container general -->
 												<t:form>
 													<div class="row row10"></div>
+													<div class="row"> <!-- Row: Msg iteración con BBDD -->
+														<div class="col-md-12">
+															<t:zone t:id="msgZone2" id="msgZone2">
+																<t:if test="showMsg">
+																	${message:parameterSaved}
+																</t:if>
+															</t:zone>
+														</div>
+													</div> <!-- Row: Msg iteración con BBDD -->
 													<div class="row"> <!-- row general -->
 														<div class="col-md-6"><!-- Left -->
 															<div class="row">
 																<div class="col-md-1"></div>
 																<div class="col-md-5">
-																	<!-- <span class="input-group-addon">Categoría restaurante</span> -->
 																	<span class="input-group-addon">
 																		<t:label for="restCateg" />
 																	</span>
@@ -216,16 +224,16 @@
 																<div class="col-md-5">
 																	<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
 																	<input class="form-control textcontrolL" t:id="restCateg"
-																		name="restCateg" t:type="TextField" onkeypress="return permite(event, 'num')"
+																		name="restCateg" t:type="TextField" 
+																		onkeypress="return permite(event, 'num_car')"
 																		t:mixins="jquery/zoneUpdater" t:clientEvent="focusout"
-																		t:event="restCategChanged" t:zone="msgZone" />
+																		t:event="restCategChanged" t:zone="msgZone2" />
 																</div>
 																<div class="col-md-1"></div>
 															</div>
 															<div class="row">
 																<div class="col-md-1"></div>
 																<div class="col-md-5">
-																	<!-- <span class="input-group-addon">Número de mesas</span> -->
 																	<span class="input-group-addon">
 																		<t:label for="tableNumber" />
 																	</span>
@@ -235,23 +243,21 @@
 																	<input class="form-control textcontrolL" t:id="tableNumber"
 																		name="tableNumber" t:type="TextField"
 																		onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																		t:clientEvent="focusout" t:event="actualSessionChanged"
-																		t:zone="msgZone" />
+																		t:clientEvent="focusout" t:event="tableNumberChanged"
+																		t:zone="msgZone2" />
 																</div>
 																<div class="col-md-4"></div>
 															</div>
-<!-- 															<div class="row">
+ 															<div class="row">
 																<div class="col-md-1"></div>
 																<div class="col-md-10 rowBorder">
 																	<div class="row">
 																		<div class="col-md-6">
-																			<span class="input-group-addon">Cobro por servicio/Cbtos.</span>
 																			<span class="input-group-addon">
 																				<t:label for="covServChar" />
 																			</span>
 																		</div>
 																		<div class="col-md-1">
-																			<input type="checkbox" class="form-control checkcontrol"></input>
 																			<input class="form-control checkcontrol" t:id="covServChar"
 																				name="covServChar" t:type="CheckBox"
 																				placeholder="${message:covServChar-label}" />
@@ -260,36 +266,32 @@
 																	</div>
 																	<div class="row">
 																		<div class="col-md-5">
-																			<span class="input-group-addon">Importe</span>
 																			<span class="input-group-addon">
 																				<t:label for="covServCharImp" />
 																			</span>
 																		</div>
 																		<div class="col-md-1"></div>
 																		<div class="col-md-6">
-																			<input t:type="TextField" class="form-control textcontrol"></input>
 																			<input class="form-control textcontrolR" t:id="covServCharImp"
 																				name="covServCharImp" t:type="TextField"
 																				onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																				t:clientEvent="focusout" t:event="actualSessionChanged"
-																				t:zone="msgZone" />
+																				t:clientEvent="focusout" t:event="covServCharImpChanged"
+																				t:zone="msgZone2" />
 																		</div>
 																	</div>
 																	<div class="row">
 																		<div class="col-md-5">
-																			<span class="input-group-addon">I.V.A.</span>
 																			<span class="input-group-addon">
 																				<t:label for="covServCharIVAType" />
 																			</span>
 																		</div>
 																		<div class="col-md-1"></div>
 																		<div class="col-md-2">
-																			<input t:type="TextField" class="form-control textcontrol"></input>
 																			<input class="form-control textcontrolL" t:id="covServCharIVAType"
 																				name="covServCharIVAType" t:type="TextField"
 																				onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																				t:clientEvent="focusout" t:event="actualSessionChanged"
-																				t:zone="msgZone2" />
+																				t:clientEvent="focusout" t:event="covServCharIVATypeChanged"
+																				t:zone="msgZone2"/>
 																		</div>
 																		<div class="col-md-4"></div>
 																	</div>
@@ -300,18 +302,17 @@
 																			</span>
 																		</div>
 																		<div class="col-md-11">
-																			<input t:type="TextField" class="form-control textcontrol"></input>
 																			<input class="form-control textcontrolL" t:id="literalCharCov"
 																				name="literalCharCov" t:type="TextField"
 																				onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																				t:clientEvent="focusout" t:event="actualSessionChanged"
-																				t:zone="msgZone" />
+																				t:clientEvent="focusout" t:event="literalCharCovChanged"
+																				t:zone="msgZone2" />
 																		</div>
 																	</div>
 																</div>
 																<div class="col-md-1"></div>
 															</div>
- --><!-- 															<div class="row row5"></div>
+ 															<div class="row row5"></div>
 															<div class="row">
 																<div class="col-md-1"></div>
 																<div class="col-md-10 rowBorder">
@@ -326,8 +327,7 @@
 																		<div class="col-md-1">
 																			<input type="checkbox" class="form-control checkcontrol"></input>
 																			<input class="form-control checkcontrol" t:id="tipWaiterInvoice"
-																				name="tipWaiterInvoice" t:type="CheckBox"
-																				placeholder="${message:tipWaiterInvoice-label}" />
+																				name="tipWaiterInvoice" t:type="CheckBox"/>
 																		</div>
 																		<div class="col-md-5"></div>
 																	</div>
@@ -344,28 +344,23 @@
 																			<input class="form-control textcontrolR" t:id="tipWaiterInvoicePorcent"
 																				name="tipWaiterInvoicePorcent" t:type="TextField"
 																				onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																				t:clientEvent="focusout" t:event="actualSessionChanged"
-																				t:zone="msgZone" />
+																				t:clientEvent="focusout" t:event="tipWaiterInvoicePorcentChanged"
+																				t:zone="msgZone2" />
 																		</div>
 																	</div>
 																	<div class="row">
 																		<div class="col-md-5">
-																			<span class="input-group-addon">I.V.A.</span>
 																			<span class="input-group-addon">
-																				<t:label for="tipWaiterInvoiceIVA"
-																					onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																					t:clientEvent="focusout" t:event="actualSessionChanged"
-																					t:zone="msgZone" />
+																				<t:label for="tipWaiterInvoiceIVA"/>
 																			</span>
 																		</div>
 																		<div class="col-md-1"></div>
 																		<div class="col-md-2">
-																			<input type="text" class="form-control textcontrol"></input>
 																			<input class="form-control textcontrolL" t:id="tipWaiterInvoiceIVA"
 																				name="tipWaiterInvoiceIVA" t:type="TextField"
 																				onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																				t:clientEvent="focusout" t:event="actualSessionChanged"
-																				t:zone="msgZone" />
+																				t:clientEvent="focusout" t:event="tipWaiterInvoiceIVAChanged"
+																				t:zone="msgZone2" />
 																		</div>
 																		<div class="col-md-4"></div>
 																	</div>
@@ -380,8 +375,8 @@
 																			<input class="form-control textcontrolL" t:id="literalTipsAuto"
 																				name="literalTipsAuto" t:type="TextField"
 																				onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																				t:clientEvent="focusout" t:event="actualSessionChanged"
-																				t:zone="msgZone" />
+																				t:clientEvent="focusout" t:event="literalTipsAutoChanged"
+																				t:zone="msgZone2" />
 																		</div>
 																	</div>
 
@@ -391,13 +386,11 @@
 															<div class="row">
 																<div class="col-md-1"></div>
 																<div class="col-md-5">
-																	<span class="input-group-addon">Cobro Platos complem.</span>
 																	<span class="input-group-addon">
 																		<t:label for="chargeAddonDish" />
 																	</span>
 																</div>
 																<div class="col-md-1">
-																	<input type="checkbox" class="form-control checkcontrol"></input>
 																	<input class="form-control checkcontrol" t:id="chargeAddonDish"
 																		name="chargeAddonDish" t:type="CheckBox"
 																		placeholder="${message:chargeAddonDish-label}" />
@@ -407,13 +400,11 @@
 															<div class="row">
 																<div class="col-md-1"></div>
 																<div class="col-md-5">
-																	<span class="input-group-addon">Decimales</span>
 																	<span class="input-group-addon">
 																		<t:label for="decimal" />
 																	</span>
 																</div>
 																<div class="col-md-1">
-																	<input type="checkbox" class="form-control checkcontrol"></input>
 																	<input class="form-control checkcontrol" t:id="decimal"
 																		name="decimal" t:type="CheckBox" placeholder="${message:decimal-label}" />
 																</div>
@@ -422,13 +413,11 @@
 															<div class="row">
 																<div class="col-md-1"></div>
 																<div class="col-md-5">
-																	<span class="input-group-addon">I.V.A. incluido</span>
 																	<span class="input-group-addon">
 																		<t:label for="ivaIncluded" />
 																	</span>
 																</div>
 																<div class="col-md-1">
-																	<input type="checkbox" class="form-control checkcontrol"></input>
 																	<input class="form-control checkcontrol" t:id="ivaIncluded"
 																		name="ivaIncluded" t:type="CheckBox"
 																		placeholder="${message:ivaIncluded-label}" />
@@ -438,32 +427,27 @@
 															<div class="row">
 																<div class="col-md-1"></div>
 																<div class="col-md-5">
-																	<span class="input-group-addon">Fecha sesión actual</span>
 																	<span class="input-group-addon">
 																		<t:label for="actualSessionDate" />
 																	</span>
 																</div>
 																<div class="col-md-4">
-																	<input t:type="TextField" class="form-control textcontrol"></input>
 																	<input class="form-control textcontrolL" t:id="actualSessionDate"
 																		name="actualSessionDate" t:type="TextField"
 																		onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																		t:clientEvent="focusout" t:event="actualSessionChanged"
-																		t:zone="msgZone" />
+																		t:clientEvent="focusout" t:event="actualSessionDateChanged"
+																		t:zone="msgZone2" />
 																</div>
 																<div class="col-md-2"></div>
 															</div>
 															<div class="row">
 																<div class="col-md-1"></div>
 																<div class="col-md-5">
-																	<span class="input-group-addon">Sesión actual abierta 
-																		Vtas</span>
 																	<span class="input-group-addon">
 																		<t:label for="actualSessionState" />
 																	</span>
 																</div>
 																<div class="col-md-1">
-																	<input type="checkbox" class="form-control checkcontrol"></input>
 																	<input class="form-control checkcontrol" t:id="actualSessionState"
 																		name="actualSessionState" t:type="CheckBox" />
 																</div>
@@ -472,20 +456,16 @@
 															<div class="row">
 																<div class="col-md-1"></div>
 																<div class="col-md-5">
-																	<span class="input-group-addon">Efectuar E. Contable 
-																		Vtas</span>
 																	<span class="input-group-addon">
 																		<t:label for="accountingLinkVtas" />
 																	</span>
 																</div>
 																<div class="col-md-1">
-																	<input type="checkbox" class="form-control checkcontrol"></input>
 																	<input class="form-control checkcontrol" t:id="accountingLinkVtas"
 																		name="accountingLinkVtas" t:type="CheckBox"
 																		placeholder="${message:accountingLinkVtas-label}" />
 																</div>
 																<div class="col-md-5">
-																	<span class="input-group-addon">Cambio fijo Euro</span>
 																	<span class="input-group-addon">
 																		<t:label for="eurUSDChange" style="text-align:center;" />
 																	</span>
@@ -494,28 +474,24 @@
 															<div class="row">
 																<div class="col-md-1"></div>
 																<div class="col-md-5">
-																	<span class="input-group-addon">Linea del euro</span>
 																	<span class="input-group-addon">
 																		<t:label for="euroLine" />
 																	</span>
 																</div>
 																<div class="col-md-1">
-																	<input type="checkbox" class="form-control checkcontrol"></input>
 																	<input class="form-control checkcontrol" t:id="euroLine"
 																		name="euroLine" t:type="CheckBox" placeholder="${message:euroLine-label}" />
 																</div>
 																<div class="col-md-3">
-																	<input t:type="TextField" class="form-control textcontrol"></input>
 																	<input class="form-control textcontrolR" t:id="eurUSDChange"
 																		name="eurUSDChange" t:type="TextField"
 																		onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																		t:clientEvent="focusout" t:event="actualSessionChanged"
-																		t:zone="msgZone" />
+																		t:clientEvent="focusout" t:event="eurUSDChangeChanged"
+																		t:zone="msgZone2" />
 																</div>
 															</div>
-
-														</div>Left
-														<div class="col-md-6">Right
+														</div><!-- Left -->
+														<div class="col-md-6"><!-- Right-->
 															<div class="row">
 																<dic class="col-md-1"></dic>
 																<div class="col-md-10 rowBorder">
@@ -524,31 +500,27 @@
 																	</div>
 																	<div class="row">
 																		<div class="col-md-6">
-																			<span class="input-group-addon">Desayunos</span>
 																			<span class="input-group-addon" style="padding:0px 0px;">
 																				<t:label for="breakfastServHot" />
 																			</span>
 																		</div>
 																		<div class="col-md-3">
-																			<input type="text" class="form-control textcontrol"></input>
 																			<input class="form-control textcontrolL" t:id="breakfastServHot"
 																				name="breakfastServHot" t:type="TextField"
-																				onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																				t:clientEvent="focusout" t:event="actualSessionChanged"
-																				t:zone="msgZone" />
+																				onkeypress="return permite(event, 'car')" t:mixins="jquery/zoneUpdater"
+																				t:clientEvent="focusout" t:event="breakfastServHotChanged"
+																				t:zone="msgZone2" />
 																		</div>
 																		<div class="col-md-3">
-																			<input type="text" class="form-control textcontrol"></input>
 																			<input class="form-control textcontrolL" t:id="breakfastServCode"
 																				name="breakfastServCode" t:type="TextField"
 																				onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																				t:clientEvent="focusout" t:event="actualSessionChanged"
-																				t:zone="msgZone" />
+																				t:clientEvent="focusout" t:event="breakfastServCodeChanged"
+																				t:zone="msgZone2" />
 																		</div>
 																	</div>
 																	<div class="row">
 																		<div class="col-md-6">
-																			<span class="input-group-addon">Almuerzos</span>
 																			<span class="input-group-addon" style="padding:0px 0px;">
 																				<t:label for="lunchServHotel" />
 																			</span>
@@ -557,66 +529,59 @@
 																			<input type="text" class="form-control textcontrol"></input>
 																			<input class="form-control textcontrolL" t:id="lunchServHotel"
 																				name="lunchServHotel" t:type="TextField"
-																				onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																				t:clientEvent="focusout" t:event="actualSessionChanged"
-																				t:zone="msgZone" />
+																				onkeypress="return permite(event, 'car')" t:mixins="jquery/zoneUpdater"
+																				t:clientEvent="focusout" t:event="lunchServHotelChanged"
+																				t:zone="msgZone2" />
 																		</div>
 																		<div class="col-md-3">
 																			<input type="text" class="form-control textcontrol"></input>
 																			<input class="form-control textcontrolL" t:id="lunchServCode"
 																				name="lunchServCode" t:type="TextField"
 																				onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																				t:clientEvent="focusout" t:event="actualSessionChanged"
-																				t:zone="msgZone" />
+																				t:clientEvent="focusout" t:event="lunchServCodeChanged"
+																				t:zone="msgZone2" />
 																		</div>
 																	</div>
 																	<div class="row">
 																		<div class="col-md-6">
-																			<span class="input-group-addon">Cenas</span>
 																			<span class="input-group-addon" style="padding:0px 0px;">
 																				<t:label for="dinnerServHotel" />
 																			</span>
 																		</div>
 																		<div class="col-md-3">
-																			<input type="text" class="form-control textcontrol"></input>
 																			<input class="form-control textcontrolL" t:id="dinnerServHotel"
 																				name="dinnerServHotel" t:type="TextField"
-																				placeholder="${message:dinnerServHotel-label}"
-																				onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																				t:clientEvent="focusout" t:event="actualSessionChanged"
-																				t:zone="msgZone" />
+																				onkeypress="return permite(event, 'car')" t:mixins="jquery/zoneUpdater"
+																				t:clientEvent="focusout" t:event="dinnerServHotelChanged"
+																				t:zone="msgZone2" />
 																		</div>
 																		<div class="col-md-3">
-																			<input type="text" class="form-control textcontrol"></input>
 																			<input class="form-control textcontrolL" t:id="dinnerServCode"
 																				name="dinnerServCode" t:type="TextField"
-																				onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																				t:clientEvent="focusout" t:event="actualSessionChanged"
-																				t:zone="msgZone" />
+																				onkeypress="return permite(event, 'car')" t:mixins="jquery/zoneUpdater"
+																				t:clientEvent="focusout" t:event="dinnerServCodeChanged"
+																				t:zone="msgZone2" />
 																		</div>
 																	</div>
 																	<div class="row">
 																		<div class="col-md-6">
-																			<span class="input-group-addon">Otros</span>
 																			<span class="input-group-addon" style="padding:0px 0px;">
 																				<t:label for="otherServHotel" />
 																			</span>
 																		</div>
 																		<div class="col-md-3">
-																			<input type="text" class="form-control textcontrol"></input>
 																			<input class="form-control textcontrolL" t:id="otherServHotel"
 																				name="otherServHotel" t:type="TextField"
-																				onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																				t:clientEvent="focusout" t:event="actualSessionChanged"
-																				t:zone="msgZone" />
+																				onkeypress="return permite(event, 'car')" t:mixins="jquery/zoneUpdater"
+																				t:clientEvent="focusout" t:event="otherServHotelChanged"
+																				t:zone="msgZone2" />
 																		</div>
 																		<div class="col-md-3">
-																			<input type="text" class="form-control textcontrol"></input>
 																			<input class="form-control textcontrolL" t:id="otherServCode"
 																				name="otherServCode" t:type="TextField"
-																				onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																				t:clientEvent="focusout" t:event="actualSessionChanged"
-																				t:zone="msgZone" />
+																				onkeypress="return permite(event, 'car')" t:mixins="jquery/zoneUpdater"
+																				t:clientEvent="focusout" t:event="otherServCodeChanged"
+																				t:zone="msgZone2" />
 																		</div>
 																	</div>
 
@@ -626,31 +591,27 @@
 															<div class="row">
 																<div class="col-md-1"></div>
 																<div class="col-md-5">
-																	<span class="input-group-addon">Integración hotel [S/N/R]</span>
 																	<span class="input-group-addon">
 																		<t:label for="integrationHotel" />
 																	</span>
 																</div>
 																<div class="col-md-2">
-																	<input t:type="TextField" class="form-control textcontrol"></input>
 																	<input class="form-control textcontrolL" t:id="integrationHotel"
 																		name="integrationHotel" t:type="TextField"
-																		onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																		t:clientEvent="focusout" t:event="actualSessionChanged"
-																		t:zone="msgZone" />
+																		onkeypress="return permite(event, 'car')" t:mixins="jquery/zoneUpdater"
+																		t:clientEvent="focusout" t:event="integrationHotelChanged"
+																		t:zone="msgZone2" />
 																</div>
 																<div class="col-md-4"></div>
 															</div>
 															<div class="row">
 																<div class="col-md-1"></div>
 																<div class="col-md-5">
-																	<span class="input-group-addon">Integración Econ.</span>
 																	<span class="input-group-addon">
 																		<t:label for="integrationEcon" />
 																	</span>
 																</div>
 																<div class="col-md-1">
-																	<input type="checkbox" class="form-control checkcontrol"></input>
 																	<input class="form-control checkcontrol" t:id="integrationEcon"
 																		name="integrationEcon" t:type="CheckBox"
 																		placeholder="${message:integrationEcon-label}" />
@@ -660,13 +621,11 @@
 															<div class="row">
 																<div class="col-md-1"></div>
 																<div class="col-md-5">
-																	<span class="input-group-addon">Div. comandas por plato</span>
 																	<span class="input-group-addon">
 																		<t:label for="splitCommand" />
 																	</span>
 																</div>
 																<div class="col-md-1">
-																	<input type="checkbox" class="form-control checkcontrol"></input>
 																	<input class="form-control checkcontrol" t:id="splitCommand"
 																		name="splitCommand" t:type="CheckBox"
 																		placeholder="${message:splitCommand-label}" />
@@ -676,56 +635,48 @@
 															<div class="row">
 																<div class="col-md-1"></div>
 																<div class="col-md-5">
-																	<span class="input-group-addon">Nivel anula mesa [S/N/R]</span>
 																	<span class="input-group-addon">
 																		<t:label for="cancelTableLevel" />
 																	</span>
 																</div>
 																<div class="col-md-2">
-																	<input t:type="TextField" class="form-control textcontrol"></input>
 																	<input class="form-control textcontrolL" t:id="cancelTableLevel"
 																		name="cancelTableLevel" t:type="TextField"
-																		onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																		t:clientEvent="focusout" t:event="actualSessionChanged"
-																		t:zone="msgZone" />
+																		onkeypress="return permite(event, 'car')" t:mixins="jquery/zoneUpdater"
+																		t:clientEvent="focusout" t:event="cancelTableLevelChanged"
+																		t:zone="msgZone2" />
 																</div>
 																<div class="col-md-4"></div>
 															</div>
 															<div class="row">
 																<div class="col-md-1"></div>
 																<div class="col-md-5">
-																	<span class="input-group-addon">Factura especial</span>
 																	<span class="input-group-addon">
 																		<t:label for="dayMenuLevel" />
 																	</span>
 																</div>
 																<div class="col-md-2">
-																	<input t:type="TextField" class="form-control textcontrol"></input>
 																	<input class="form-control textcontrolL" t:id="dayMenuLevel"
 																		name="dayMenuLevel" t:type="TextField"
 																		onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																		t:clientEvent="focusout" t:event="actualSessionChanged"
-																		t:zone="msgZone" />
+																		t:clientEvent="focusout" t:event="dayMenuLevelChanged"
+																		t:zone="msgZone2" />
 																</div>
 																<div class="col-md-4"></div>
 															</div>
 															<div class="row">
 																<div class="col-md-1"></div>
 																<div class="col-md-5">
-																	<span class="input-group-addon">Literal Factura Especial:</span>
 																	<span class="input-group-addon">
-																		<t:label for="literalEspBill" onkeypress="return permite(event, 'num')"
-																			t:mixins="jquery/zoneUpdater" t:clientEvent="focusout"
-																			t:event="actualSessionChanged" t:zone="msgZone" />
+																		<t:label for="literalEspBill"/>
 																	</span>
 																</div>
 																<div class="col-md-5">
-																	<input t:type="TextField" class="form-control textcontrol"></input>
 																	<input class="form-control textcontrolL" t:id="literalEspBill"
 																		name="literalEspBill" t:type="TextField"
-																		onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																		t:clientEvent="focusout" t:event="actualSessionChanged"
-																		t:zone="msgZone" />
+																		onkeypress="return permite(event, 'num_car')" t:mixins="jquery/zoneUpdater"
+																		t:clientEvent="focusout" t:event="literalEspBillChanged"
+																		t:zone="msgZone2" />
 																</div>
 																<div class="col-md-1"></div>
 															</div>
@@ -737,83 +688,72 @@
 																	</div>
 																	<div class="row">
 																		<div class="col-md-3">
-																			<span class="input-group-addon">Propinas</span>
 																			<span class="input-group-addon">
 																				<t:label for="tips" />
 																			</span>
 																		</div>
 																		<div class="col-md-3">
-																			<input type="checkbox" class="form-control checkcontrol"></input>
 																			<input class="form-control checkcontrol" t:id="tips"
 																				name="tips" t:type="CheckBox" placeholder="${message:tips-label}" />
 																		</div>
 																		<div class="col-md-3">
-																			<input t:type="TextField" class="form-control textcontrol"></input>
 																			<input class="form-control textcontrolL" t:id="assocElemTips"
 																				name="assocElemTips" t:type="TextField"
 																				onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																				t:clientEvent="focusout" t:event="actualSessionChanged"
-																				t:zone="msgZone" />
+																				t:clientEvent="focusout" t:event="assocElemTipsChanged"
+																				t:zone="msgZone2" />
 																		</div>
 																		<div class="col-md-3"></div>
 																	</div>
 																	<div class="row">
 																		<div class="col-md-3">
-																			<span class="input-group-addon">Dto1 y % </span>
 																			<span class="input-group-addon">
 																				<t:label for="discount1" />
 																			</span>
 																		</div>
 																		<div class="col-md-3">
-																			<input type="checkbox" class="form-control checkcontrol"></input>
 																			<input class="form-control checkcontrol" t:id="discount1"
-																				name="discount1" t:type="CheckBox" placeholder="${message:discount1-label}" />
+																				name="discount1" t:type="CheckBox"/>
 																		</div>
 																		<div class="col-md-3">
-																			<input t:type="TextField" class="form-control textcontrol"></input>
 																			<input class="form-control textcontrolL" t:id="assocElemDto1"
 																				name="assocElemDto1" t:type="TextField"
 																				onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																				t:clientEvent="focusout" t:event="actualSessionChanged"
-																				t:zone="msgZone" />
+																				t:clientEvent="focusout" t:event="assocElemDto1Changed"
+																				t:zone="msgZone2" />
 																		</div>
 																		<div class="col-md-3">
-																			<input t:type="TextField" class="form-control textcontrol"></input>
 																			<input class="form-control textcontrolR" t:id="assocElemDto1Porcent"
 																				name="assocElemDto1Porcent" t:type="TextField"
 																				onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																				t:clientEvent="focusout" t:event="actualSessionChanged"
-																				t:zone="msgZone" />
+																				t:clientEvent="focusout" t:event="assocElemDto1PorcentChanged"
+																				t:zone="msgZone2" />
 
 																		</div>
 																	</div>
 																	<div class="row">
 																		<div class="col-md-3">
-																			<span class="input-group-addon">Dto2 y % </span>
 																			<span class="input-group-addon">
 																				<t:label for="discount2" />
 																			</span>
 																		</div>
 																		<div class="col-md-3">
-																			<input type="checkbox" class="form-control checkcontrol"></input>
 																			<input class="form-control checkcontrol" t:id="discount2"
-																				name="discount2" t:type="CheckBox" placeholder="${message:discount2-label}" />
+																				name="discount2" t:type="CheckBox" />
 																		</div>
 																		<div class="col-md-3">
-																			<input t:type="TextField" class="form-control textcontrol"></input>
 																			<input class="form-control textcontrolL" t:id="assocElemDto2"
 																				name="assocElemDto2" t:type="TextField"
 																				onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																				t:clientEvent="focusout" t:event="actualSessionChanged"
-																				t:zone="msgZone" />
+																				t:clientEvent="focusout" t:event="assocElemDto2Changed"
+																				t:zone="msgZone2" />
 																		</div>
 																		<div class="col-md-3">
-																			<input t:type="TextField" class="form-control textcontrol"></input>
 																			<input class="form-control textcontrolR" t:id="assocElemDto2Porcent"
 																				name="assocElemDto2Porcent" t:type="TextField"
 																				onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																				t:clientEvent="focusout" t:event="actualSessionChanged"
-																				t:zone="msgZone" />
+																				t:clientEvent="focusout" t:event="assocElemDto2PorcentChanged"
+																				t:zone="msgZone2" />
 
 																		</div>
 																	</div>
@@ -830,7 +770,6 @@
 																				name="discount3" t:type="CheckBox" placeholder="${message:discount3-label}" />
 																		</div>
 																		<div class="col-md-3">
-																			<input t:type="TextField" class="form-control textcontrol"></input>
 																			<input class="form-control textcontrolL" t:id="assocElemDto3"
 																				name="assocElemDto3" t:type="TextField"
 																				onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
@@ -838,7 +777,6 @@
 																				t:zone="msgZone" />
 																		</div>
 																		<div class="col-md-3">
-																			<input t:type="TextField" class="form-control textcontrol"></input>
 																			<input class="form-control textcontrolR" t:id="assocElemDto3Porcent"
 																				name="assocElemDto3Porcent" t:type="TextField"
 																				onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
@@ -848,14 +786,12 @@
 																	</div>
 																	<div class="row">
 																		<div class="col-md-3">
-																			<span class="input-group-addon">Cargo TPV</span>
 																			<span class="input-group-addon">
 																				<t:label for="assocElemTPV" />
 																			</span>
 																		</div>
 																		<div class="col-md-3"></div>
 																		<div class="col-md-3">
-																			<input t:type="TextField" class="form-control textcontrol"></input>
 																			<input class="form-control textcontrolL" t:id="assocElemTPV"
 																				name="assocElemTPV" t:type="TextField"
 																				placeholder="${message:assocElemTPV-label}" />
@@ -874,13 +810,11 @@
 															<div class="row">
 																<div class="col-md-1"></div>
 																<div class="col-md-5">
-																	<span class="input-group-addon">Separador campo TXT</span>
 																	<span class="input-group-addon">
 																		<t:label for="fieldSeparator" />
 																	</span>
 																</div>
 																<div class="col-md-1">
-																	<input t:type="TextField" class="form-control textcontrol"></input>
 																	<input class="form-control textcontrolL" t:id="fieldSeparator"
 																		name="fieldSeparator" t:type="TextField"
 																		onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
@@ -892,13 +826,11 @@
 															<div class="row">
 																<div class="col-md-1"></div>
 																<div class="col-md-5">
-																	<span class="input-group-addon">Separador alfab. TXT</span>
 																	<span class="input-group-addon">
 																		<t:label for="alphabSeparator" />
 																	</span>
 																</div>
 																<div class="col-md-1">
-																	<input t:type="TextField" class="form-control textcontrol"></input>
 																	<input class="form-control textcontrolL" t:id="alphabSeparator"
 																		name="alphabSeparator" t:type="TextField"
 																		onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
@@ -907,17 +839,8 @@
 																</div>
 																<div class="col-md-5"></div>
 															</div>
- -->														</div> <!--Right -->
+ 														</div> <!--Right -->
 													</div> <!-- row general -->
-													<div class="row"> <!-- Row 7: Msg iteración con BBDD -->
-														<div class="col-md-12">
-															<t:zone t:id="msgZone2" id="msgZone2">
-																<t:if test="showMsg">
-																	${message:parameterSaved}
-																</t:if>
-															</t:zone>
-														</div>
-													</div> <!-- Row 7 -->
 												</t:form>
 											</div> <!-- container general -->
 										</div> <!-- General -->
@@ -940,7 +863,7 @@
 																				<h4 class="textRowBorder">${message:colorPanel-label}
 																				</h4>
 																			</div>
-																			<div class="row">
+xº																			<div class="row">
 																				<div class="col-md-1"></div>
 																				<div class="col-md-5">
 																					<!-- <span class="input-group-addon">comanda</span> -->
