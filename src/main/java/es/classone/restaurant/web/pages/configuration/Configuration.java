@@ -29,7 +29,7 @@ public class Configuration {
 	private List<ConfigurationGeneric> cgList;
 	private List<ConfigurationBool> cbList;
 	private List<ConfigurationRoom> crList;
-	
+
 	@SessionState(create = false)
 	private UserSession userSession;
 
@@ -38,49 +38,46 @@ public class Configuration {
 
 	@Inject
 	private JavaScriptSupport javaScriptSupport;
-	
+
 	@Inject
-    private Request request;
-	
+	private Request request;
+
 	@Property
-	private boolean showMsg=false;
-	
-	//----------------------------------------------Contadores--------------------------------------------------
+	private boolean showMsg = false;
+
+	// ----------------------------------------------Contadores--------------------------------------------------
 	@Property
 	private String actualSession;
 
 	@Property
 	private String lastBill;
-	
+
 	@Property
 	private String lastCommand;
-	
+
 	@Property
 	private String lastClient;
-	
+
 	@Property
 	private String numNotaFis;
-	
+
 	@InjectComponent
-    private Zone msgZone;
+	private Zone msgZone;
 
 	Object onActualSessionChanged() throws InstanceNotFoundException {
 		actualSession = request.getParameter("param");
-		if (actualSession == null) {
-			actualSession = "";
-		}
-		configurationService.setParameterGeneric("actualSession", actualSession);
-		showMsg = true;
+		System.out.println(actualSession);
+		if (actualSession != null)
+			configurationService.setParameterGeneric("actualSession",
+					actualSession);
+
 		return request.isXHR() ? msgZone.getBody() : null;
 	}
-	
+
 	Object onLastBillChanged() throws InstanceNotFoundException {
 		lastBill = request.getParameter("param");
-		if (lastBill == null) {
-			lastBill = "";
-		}
+		if (lastBill != null) 
 		configurationService.setParameterGeneric("lastBill", lastBill);
-		showMsg = true;
 		return request.isXHR() ? msgZone.getBody() : null;
 	}
 
@@ -103,7 +100,7 @@ public class Configuration {
 		showMsg = true;
 		return request.isXHR() ? msgZone.getBody() : null;
 	}
-	
+
 	Object onNumNotaFisChanged() throws InstanceNotFoundException {
 		numNotaFis = request.getParameter("param");
 		if (numNotaFis == null) {
@@ -114,14 +111,14 @@ public class Configuration {
 		return request.isXHR() ? msgZone.getBody() : null;
 	}
 
-	//----------------------------------------------General--------------------------------------------------
+	// ----------------------------------------------General--------------------------------------------------
 
 	@InjectComponent
-    private Zone msgZone2;
+	private Zone msgZone2;
 
 	@Property
 	private String restCateg;
-	
+
 	Object onRestCategChanged() throws InstanceNotFoundException {
 		restCateg = request.getParameter("param");
 		if (restCateg == null) {
@@ -131,7 +128,6 @@ public class Configuration {
 		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
-
 
 	@Property
 	private String tableNumber;
@@ -149,7 +145,6 @@ public class Configuration {
 	@Property
 	private Boolean covServChar;
 
-	
 	@Property
 	private String covServCharImp;
 
@@ -158,7 +153,8 @@ public class Configuration {
 		if (covServCharImp == null) {
 			covServCharImp = "";
 		}
-		configurationService.setParameterGeneric("covServCharImp", covServCharImp);
+		configurationService.setParameterGeneric("covServCharImp",
+				covServCharImp);
 		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
@@ -171,7 +167,8 @@ public class Configuration {
 		if (covServCharIVAType == null) {
 			covServCharIVAType = "";
 		}
-		configurationService.setParameterGeneric("covServCharIVAType", covServCharIVAType);
+		configurationService.setParameterGeneric("covServCharIVAType",
+				covServCharIVAType);
 		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
@@ -184,7 +181,8 @@ public class Configuration {
 		if (literalCharCov == null) {
 			literalCharCov = "";
 		}
-		configurationService.setParameterGeneric("literalCharCov",literalCharCov);
+		configurationService.setParameterGeneric("literalCharCov",
+				literalCharCov);
 		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
@@ -200,7 +198,8 @@ public class Configuration {
 		if (tipWaiterInvoicePorcent == null) {
 			tipWaiterInvoicePorcent = "";
 		}
-		configurationService.setParameterGeneric("tipWaiterInvoicePorcent", tipWaiterInvoicePorcent);
+		configurationService.setParameterGeneric("tipWaiterInvoicePorcent",
+				tipWaiterInvoicePorcent);
 		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
@@ -213,7 +212,8 @@ public class Configuration {
 		if (tipWaiterInvoiceIVA == null) {
 			tipWaiterInvoiceIVA = "";
 		}
-		configurationService.setParameterGeneric("tipWaiterInvoiceIVA", tipWaiterInvoiceIVA);
+		configurationService.setParameterGeneric("tipWaiterInvoiceIVA",
+				tipWaiterInvoiceIVA);
 		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
@@ -226,7 +226,8 @@ public class Configuration {
 		if (literalTipsAuto == null) {
 			literalTipsAuto = "";
 		}
-		configurationService.setParameterGeneric("literalTipsAuto", literalTipsAuto);
+		configurationService.setParameterGeneric("literalTipsAuto",
+				literalTipsAuto);
 		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
@@ -273,7 +274,8 @@ public class Configuration {
 		if (breakfastServHot == null) {
 			breakfastServHot = "";
 		}
-		configurationService.setParameterGeneric("breakfastServHot", breakfastServHot);
+		configurationService.setParameterGeneric("breakfastServHot",
+				breakfastServHot);
 		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
@@ -286,7 +288,8 @@ public class Configuration {
 		if (breakfastServCode == null) {
 			breakfastServCode = "";
 		}
-		configurationService.setParameterGeneric("breakfastServCode", breakfastServCode);
+		configurationService.setParameterGeneric("breakfastServCode",
+				breakfastServCode);
 		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
@@ -299,7 +302,8 @@ public class Configuration {
 		if (lunchServHotel == null) {
 			lunchServHotel = "";
 		}
-		configurationService.setParameterGeneric("lunchServHotel", lunchServHotel);
+		configurationService.setParameterGeneric("lunchServHotel",
+				lunchServHotel);
 		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
@@ -312,7 +316,8 @@ public class Configuration {
 		if (lunchServCode == null) {
 			lunchServCode = "";
 		}
-		configurationService.setParameterGeneric("lunchServCode", lunchServCode);
+		configurationService
+				.setParameterGeneric("lunchServCode", lunchServCode);
 		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
@@ -325,7 +330,8 @@ public class Configuration {
 		if (dinnerServHotel == null) {
 			dinnerServHotel = "";
 		}
-		configurationService.setParameterGeneric("dinnerServHotel", dinnerServHotel);
+		configurationService.setParameterGeneric("dinnerServHotel",
+				dinnerServHotel);
 		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
@@ -338,7 +344,8 @@ public class Configuration {
 		if (dinnerServCode == null) {
 			dinnerServCode = "";
 		}
-		configurationService.setParameterGeneric("dinnerServCode", dinnerServCode);
+		configurationService.setParameterGeneric("dinnerServCode",
+				dinnerServCode);
 		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
@@ -351,7 +358,8 @@ public class Configuration {
 		if (otherServHotel == null) {
 			otherServHotel = "";
 		}
-		configurationService.setParameterGeneric("otherServHotel", otherServHotel);
+		configurationService.setParameterGeneric("otherServHotel",
+				otherServHotel);
 		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
@@ -364,7 +372,8 @@ public class Configuration {
 		if (otherServCode == null) {
 			otherServCode = "";
 		}
-		configurationService.setParameterGeneric("otherServCode", otherServCode);
+		configurationService
+				.setParameterGeneric("otherServCode", otherServCode);
 		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
@@ -377,7 +386,8 @@ public class Configuration {
 		if (integrationHotel == null) {
 			integrationHotel = "";
 		}
-		configurationService.setParameterGeneric("integrationHotel", integrationHotel);
+		configurationService.setParameterGeneric("integrationHotel",
+				integrationHotel);
 		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
@@ -399,13 +409,15 @@ public class Configuration {
 		if (cancelTableLevel == null) {
 			cancelTableLevel = "";
 		}
-		configurationService.setParameterGeneric("cancelTableLevel", cancelTableLevel);
+		configurationService.setParameterGeneric("cancelTableLevel",
+				cancelTableLevel);
 		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
 	@Property
 	private String dayMenuLevel;
+
 	Object onDayMenuLevelChanged() throws InstanceNotFoundException {
 		dayMenuLevel = request.getParameter("param");
 		if (dayMenuLevel == null) {
@@ -418,12 +430,14 @@ public class Configuration {
 
 	@Property
 	private String literalEspBill;
+
 	Object onLiteralEspBillChanged() throws InstanceNotFoundException {
 		literalEspBill = request.getParameter("param");
 		if (literalEspBill == null) {
 			literalEspBill = "";
 		}
-		configurationService.setParameterGeneric("literalEspBill", literalEspBill);
+		configurationService.setParameterGeneric("literalEspBill",
+				literalEspBill);
 		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
@@ -433,12 +447,14 @@ public class Configuration {
 
 	@Property
 	private String assocElemTips;
+
 	Object onAssocElemTipsChanged() throws InstanceNotFoundException {
 		assocElemTips = request.getParameter("param");
 		if (assocElemTips == null) {
 			assocElemTips = "";
 		}
-		configurationService.setParameterGeneric("assocElemTips", assocElemTips);
+		configurationService
+				.setParameterGeneric("assocElemTips", assocElemTips);
 		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
@@ -448,24 +464,28 @@ public class Configuration {
 
 	@Property
 	private String assocElemDto1;
+
 	Object onAssocElemDto1Changed() throws InstanceNotFoundException {
 		assocElemDto1 = request.getParameter("param");
 		if (assocElemDto1 == null) {
 			assocElemDto1 = "";
 		}
-		configurationService.setParameterGeneric("assocElemDto1", assocElemDto1);
+		configurationService
+				.setParameterGeneric("assocElemDto1", assocElemDto1);
 		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
 	@Property
 	private String assocElemDto1Porcent;
+
 	Object onAssocElemDto1PorcentChanged() throws InstanceNotFoundException {
 		assocElemDto1Porcent = request.getParameter("param");
 		if (assocElemDto1Porcent == null) {
 			assocElemDto1Porcent = "";
 		}
-		configurationService.setParameterGeneric("assocElemDto1Porcent", assocElemDto1Porcent);
+		configurationService.setParameterGeneric("assocElemDto1Porcent",
+				assocElemDto1Porcent);
 		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
@@ -475,24 +495,28 @@ public class Configuration {
 
 	@Property
 	private String assocElemDto2;
+
 	Object onAssocElemDto2Changed() throws InstanceNotFoundException {
 		assocElemDto2 = request.getParameter("param");
 		if (assocElemDto2 == null) {
 			assocElemDto2 = "";
 		}
-		configurationService.setParameterGeneric("assocElemDto2", assocElemDto2);
+		configurationService
+				.setParameterGeneric("assocElemDto2", assocElemDto2);
 		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
 	@Property
 	private String assocElemDto2Porcent;
+
 	Object onAssocElemDto2PorcentChanged() throws InstanceNotFoundException {
 		assocElemDto2Porcent = request.getParameter("param");
 		if (assocElemDto2Porcent == null) {
 			assocElemDto2Porcent = "";
 		}
-		configurationService.setParameterGeneric("assocElemDto2Porcent", assocElemDto2Porcent);
+		configurationService.setParameterGeneric("assocElemDto2Porcent",
+				assocElemDto2Porcent);
 		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
@@ -502,30 +526,35 @@ public class Configuration {
 
 	@Property
 	private String assocElemDto3;
+
 	Object onAssocElemDto3Changed() throws InstanceNotFoundException {
 		assocElemDto3 = request.getParameter("param");
 		if (assocElemDto3 == null) {
 			assocElemDto3 = "";
 		}
-		configurationService.setParameterGeneric("assocElemDto3", assocElemDto3);
+		configurationService
+				.setParameterGeneric("assocElemDto3", assocElemDto3);
 		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
 	@Property
 	private String assocElemDto3Porcent;
+
 	Object onAssocElemDto3PorcentChanged() throws InstanceNotFoundException {
 		assocElemDto3Porcent = request.getParameter("param");
 		if (assocElemDto3Porcent == null) {
 			assocElemDto3Porcent = "";
 		}
-		configurationService.setParameterGeneric("assocElemDto3Porcent", assocElemDto3Porcent);
+		configurationService.setParameterGeneric("assocElemDto3Porcent",
+				assocElemDto3Porcent);
 		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
 	@Property
 	private String assocElemTPV;
+
 	Object onAssocElemTPV() throws InstanceNotFoundException {
 		assocElemTPV = request.getParameter("param");
 		if (assocElemTPV == null) {
@@ -538,6 +567,7 @@ public class Configuration {
 
 	@Property
 	private String chargeTPV;
+
 	Object onchargeTPVChanged() throws InstanceNotFoundException {
 		chargeTPV = request.getParameter("param");
 		if (chargeTPV == null) {
@@ -550,72 +580,77 @@ public class Configuration {
 
 	@Property
 	private String fieldSeparator;
+
 	Object onFieldSeparatorChanged() throws InstanceNotFoundException {
 		fieldSeparator = request.getParameter("param");
 		if (fieldSeparator == null) {
 			fieldSeparator = "";
 		}
-		configurationService.setParameterGeneric("fieldSeparator", fieldSeparator);
+		configurationService.setParameterGeneric("fieldSeparator",
+				fieldSeparator);
 		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
 	@Property
 	private String alphabSeparator;
+
 	Object onAlphabSeparator() throws InstanceNotFoundException {
 		alphabSeparator = request.getParameter("param");
 		if (alphabSeparator == null) {
 			alphabSeparator = "";
 		}
-		configurationService.setParameterGeneric("alphabSeparator",alphabSeparator);
+		configurationService.setParameterGeneric("alphabSeparator",
+				alphabSeparator);
 		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
-	//---------------------------------------------- Restaurante --------------------------------------------------
+	// ---------------------------------------------- Restaurante
+	// --------------------------------------------------
 
 	@Property
 	private String colCommand;
-	
+
 	@Property
 	private String colBackground;
-	
+
 	@Property
 	private String colBill;
-	
+
 	@Property
 	private String colBackground2;
-	
+
 	@Property
 	private String colCharge;
-	
+
 	@Property
 	private String colTrasp;
-	
+
 	@Property
 	private String colTabEmpty;
-	
+
 	@Property
 	private String colTabBusy;
-	
+
 	@Property
 	private String colTabAtached;
-	
+
 	@Property
 	private String colTabReserved;
-	
+
 	@Property
 	private String colTabBill;
 
 	@Property
 	private String lastNumPrint;
-	
+
 	@Property
 	private String closureLastMonth;
 
 	@Property
 	private Boolean sumDrinks;
-		
+
 	@Property
 	private String desc1;
 
@@ -678,22 +713,22 @@ public class Configuration {
 
 	@Property
 	private String lastTab7;
-	
+
 	@Property
 	private String desCalif1;
-	
+
 	@Property
 	private String desCalif2;
-	
+
 	@Property
 	private String desCalif3;
-	
+
 	@Property
 	private String desCalif4;
 
 	@Property
 	private Boolean enableTPVVirtual;
-	
+
 	@Property
 	private Boolean enableStarCard;
 
@@ -702,20 +737,23 @@ public class Configuration {
 
 	@Property
 	private Boolean enableMeteorology;
-	
+
 	@Property
 	private Boolean enableSegmentCh;
-	
+
 	@Property
-	private String 	channelSegment;
-	
-	/* -------------------------------------------------- Contabilidad --------------------------------------------------------------------- */
+	private String channelSegment;
+
+	/*
+	 * -------------------------------------------------- Contabilidad
+	 * ---------------------------------------------------------------------
+	 */
 	@Property
 	private String contCode;
 
 	@Property
-	private String contSerie;  // falta en BBDD
-	
+	private String contSerie; // falta en BBDD
+
 	@Property
 	private String ledgerAccCaja;
 
@@ -733,7 +771,7 @@ public class Configuration {
 
 	@Property
 	private String ledgerAccDescVtas;
-	
+
 	@Property
 	private String ivaType1;
 
@@ -754,7 +792,7 @@ public class Configuration {
 
 	@Property
 	private String literalIVA;
-	
+
 	@Property
 	private String cadExplot;
 
@@ -767,67 +805,66 @@ public class Configuration {
 	@Property
 	private String tipsIncomeType;
 
-	//------Printer-----------
-	@Property 
+	// ------Printer-----------
+	@Property
 	private Boolean bmpToPrint;
-	
-	@Property 
+
+	@Property
 	private String bmpSize;
-	
+
 	@Property
 	private String secuence;
-	
-	@Property 
+
+	@Property
 	private String standardPrint;
 
 	@Property
 	private String pageLength;
-	
-	@Property 
+
+	@Property
 	private String skipHeaderLines;
-	
+
 	@Property
 	private String leftTab;
-	
+
 	@Property
 	private Boolean decimalArt;
-	
+
 	@Property
 	private Boolean precioxPax;
-	
-	@Property 
+
+	@Property
 	private Boolean printKitchenCalif;
-	
+
 	@Property
 	private Boolean printer1;
 
-	@Property 
+	@Property
 	private String commandPortPrt1;
-	
+
 	@Property
 	private Boolean printer2;
-	
-	@Property 
+
+	@Property
 	private String commandPortPrt2;
-	
+
 	@Property
 	private Boolean printerEsp;
-	
+
 	@Property
 	private String autocorte;
-	
+
 	@Property
 	private String drawerOpen;
-	
+
 	@Property
 	private String DoubleBoldOn;
-	
+
 	@Property
 	private String DoubleBoldOff;
 
+	// ---------------------------------------------------------Conectividad-------------------------------------------------------------
 
-	//---------------------------------------------------------Conectividad-------------------------------------------------------------
-	
 	@Property
 	private String ipLVDE;
 
@@ -851,28 +888,33 @@ public class Configuration {
 
 	@Property
 	private String sendPsw;
+
 	void afterRender() throws InstanceNotFoundException {
 		cgList = configurationService.getParametersGeneric();
 		cbList = configurationService.getParametersBool();
 		crList = configurationService.getParametersRoom();
-		
+
 		JSONObject parameters = new JSONObject();
 		JSONArray parametersGeneric = new JSONArray();
 		JSONArray parametersBool = new JSONArray();
 		JSONArray parametersRoom = new JSONArray();
 
 		for (ConfigurationGeneric cg : cgList)
-			parametersGeneric.put(Integer.toString(cg.getConfGenericId()) + "|" + cg.getName() + "|" + cg.getValue());
-		
+			parametersGeneric.put(Integer.toString(cg.getConfGenericId()) + "|"
+					+ cg.getName() + "|" + cg.getValue());
+
 		for (ConfigurationBool cb : cbList)
-			parametersBool.put(Integer.toString(cb.getConfBoolId()) + "|" + cb.getName() + "|" + cb.getValue());
-		
+			parametersBool.put(Integer.toString(cb.getConfBoolId()) + "|"
+					+ cb.getName() + "|" + cb.getValue());
+
 		for (ConfigurationRoom cr : crList)
-			parametersRoom.put(Integer.toString(cr.getConfigurationRoomId()) + "|" + cr.getRoomDescription() + "|" + cr.getFirstTab()+ "|" + cr.getLastTab());
+			parametersRoom.put(Integer.toString(cr.getConfigurationRoomId())
+					+ "|" + cr.getRoomDescription() + "|" + cr.getFirstTab()
+					+ "|" + cr.getLastTab());
 
 		parameters.put("parametersGeneric", parametersGeneric);
 		parameters.put("parametersBool", parametersBool);
 		parameters.put("parametersRoom", parametersRoom);
 		javaScriptSupport.addInitializerCall("loadParameters", parameters);
-	}	
+	}
 }
