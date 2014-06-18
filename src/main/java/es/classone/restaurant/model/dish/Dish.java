@@ -19,15 +19,16 @@ import es.classone.restaurant.model.dishGroup.DishGroup;
 @Table(name = "Res14pla")
 public class Dish {
 
-	private int dishId; // R1PLA001
+	private int dishId; // R1PLA000
+	private String dishCode; // R1PLA001
 	private String dishDescriptionLang1; // R1PLA002_01
 	private String dishDescriptionLang2; // R1PLA002_02;
 	private String dishDescriptionLang3; // R1PLA002_03;
 	private int dishPrint; // R1PLA004 Impresora (1 a 5)
 	private int dishListPrice; // R1PLA005 Lista de Precios (0 a 9)
-	private int dishPVP; // R1PLA006
-	private int dishCostPrice; // R1PLA007
-	private char dishType;// R1PLA008 P=Plato // K=Kilo
+	private double dishPVP; // R1PLA006
+	private double dishCostPrice; // R1PLA007
+	private String dishType;// R1PLA008 P=Plato // K=Kilo
 	private boolean dishDiscount; // R1PLA009;
 	private boolean dishDeleted;// R1PLA021
 	private boolean dishPending;// R1PLA022
@@ -44,12 +45,14 @@ public class Dish {
 
 	}
 
-	
-	public Dish(String dishDescriptionLang1, String dishDescriptionLang2,
-			String dishDescriptionLang3, int dishPrint, int dishListPrice,
-			int dishPVP, int dishCostPrice, char dishType,
-			boolean dishDiscount, boolean dishDeleted, boolean dishPending,
-			DishGroup dishGroup) {
+	public Dish(String dishCode, String dishDescriptionLang1,
+			String dishDescriptionLang2, String dishDescriptionLang3,
+			int dishPrint, int dishListPrice, double dishPVP, double dishCostPrice,
+			String dishType, boolean dishDiscount, boolean dishPending,
+			DishGroup dishGroup, boolean dishTractable, boolean dishOrderer,
+			boolean dishVisible, int dishNumbers, String dishLongDesc,
+			String dishShortDesc) {
+		this.dishCode = dishCode;
 		this.dishDescriptionLang1 = dishDescriptionLang1;
 		this.dishDescriptionLang2 = dishDescriptionLang2;
 		this.dishDescriptionLang3 = dishDescriptionLang3;
@@ -59,13 +62,22 @@ public class Dish {
 		this.dishCostPrice = dishCostPrice;
 		this.dishType = dishType;
 		this.dishDiscount = dishDiscount;
-		this.dishDeleted = dishDeleted;
 		this.dishPending = dishPending;
 		this.dishGroup = dishGroup;
+		this.dishTractable = dishTractable;
+		this.dishOrderer = dishOrderer;
+		this.dishVisible = dishVisible;
+		this.dishNumbers = dishNumbers;
+		this.dishLongDesc = dishLongDesc;
+		this.dishShortDesc = dishShortDesc;
+		this.dishDeleted = false;
+		
 	}
 
 
-	@Column(name = "R1PLA001")
+
+
+	@Column(name = "R1PLA000")
 	@SequenceGenerator( // It only takes effect for
 	name = "DishIdGenerator", // databases providing identifier
 	sequenceName = "DishSeq")
@@ -79,6 +91,17 @@ public class Dish {
 	public void setDishId(int dishId) {
 		this.dishId = dishId;
 	}
+
+	@Column(name = "R1PLA001")
+	public String getDishCode() {
+		return dishCode;
+	}
+
+
+	public void setDishCode(String dishCode) {
+		this.dishCode = dishCode;
+	}
+
 
 	@Column(name = "R1PLA002_01")
 	public String getDishDescriptionLang1() {
@@ -126,29 +149,29 @@ public class Dish {
 	}
 
 	@Column(name = "R1PLA006")
-	public int getDishPVP() {
+	public double getDishPVP() {
 		return dishPVP;
 	}
 
-	public void setDishPVP(int dishPVP) {
+	public void setDishPVP(double dishPVP) {
 		this.dishPVP = dishPVP;
 	}
 
 	@Column(name = "R1PLA007")
-	public int getDishCostPrice() {
+	public double getDishCostPrice() {
 		return dishCostPrice;
 	}
 
-	public void setDishCostPrice(int dishCostPrice) {
+	public void setDishCostPrice(double dishCostPrice) {
 		this.dishCostPrice = dishCostPrice;
 	}
 
 	@Column(name = "R1PLA008")
-	public char getDishType() {
+	public String getDishType() {
 		return dishType;
 	}
 
-	public void setDishType(char dishType) {
+	public void setDishType(String dishType) {
 		this.dishType = dishType;
 	}
 
@@ -253,8 +276,9 @@ public class Dish {
 
 }
 /*
- *CREATE TABLE IF NOT EXISTS `ayx14res`.`Res14pla` (
-  `R1PLA001` INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `ayx14res`.`Res14pla` (
+  `R1PLA000` INT NOT NULL AUTO_INCREMENT,
+  `R1PLA001` VARCHAR(5) NULL,
   `R1PLA002_01` VARCHAR(30) NOT NULL,
   `R1PLA002_02` VARCHAR(30) NULL,
   `R1PLA002_03` VARCHAR(30) NULL,
@@ -273,7 +297,7 @@ public class Dish {
   `R1PLA026` SMALLINT NULL,
   `R1PLA027` VARCHAR(64) NULL,
   `R1PLA028` VARCHAR(256) NULL,
-  PRIMARY KEY (`R1PLA001`),
+  PRIMARY KEY (`R1PLA000`),
   INDEX `fk_Res14pla_Res14grp1_idx` (`Res14grp_R1GRP000` ASC),
   CONSTRAINT `fk_Res14pla_Res14grp1`
     FOREIGN KEY (`Res14grp_R1GRP000`)

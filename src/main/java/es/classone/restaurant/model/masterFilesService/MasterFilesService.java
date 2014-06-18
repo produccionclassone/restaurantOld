@@ -36,7 +36,7 @@ public interface MasterFilesService {
 			throws InstanceNotFoundException;
 
 	public Dish editDish(int dishId, String dishDescriptionLang1,String dishDescriptionLang2, String dishDescriptionLang3,
- 						 int dishPrint, int dishListPrice, int dishPVP, int dishCostPrice, char dishType, boolean dishDiscount,
+ 						 int dishPrint, int dishListPrice, double dishPVP, double dishCostPrice, String dishType, boolean dishDiscount,
 						 boolean dishDeleted,boolean dishPending,DishGroup dishGroup, boolean dishTractable,boolean dishOrderer,
 						 boolean dishVisible, int dishNumbers, String dishLongDesc, String dishShortDesc) throws InstanceNotFoundException;
 

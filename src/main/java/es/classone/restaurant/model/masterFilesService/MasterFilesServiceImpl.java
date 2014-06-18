@@ -111,8 +111,8 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 	@Override
 	public Dish editDish(int dishId, String dishDescriptionLang1,
 			String dishDescriptionLang2, String dishDescriptionLang3,
-			int dishPrint, int dishListPrice, int dishPVP, int dishCostPrice,
-			char dishType, boolean dishDiscount, boolean dishDeleted,
+			int dishPrint, int dishListPrice, double dishPVP, double dishCostPrice,
+			String dishType, boolean dishDiscount, boolean dishDeleted,
 			boolean dishPending, DishGroup dishGroup, boolean dishTractable,
 			boolean dishOrderer, boolean dishVisible, int dishNumbers,
 			String dishLongDesc, String dishShortDesc) throws InstanceNotFoundException {
@@ -140,6 +140,7 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 		return null;
 	}
 
+	@SuppressWarnings("unused")
 	@Override
 	public void importDishFile(String path) throws IOException {
 		FileReader input = new FileReader(path);
@@ -150,33 +151,25 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 		while ((myLine = bufRead.readLine()) != null) {
 			System.out.println("LINEA" + j);
 			String[] row = myLine.split(";");
-/*			Dish dish = new Dish(
+			Dish dish = new Dish(
 					row[0].replace('"', ' ').trim(),
-					row[1].replace('"', ' ').trim(), Integer.parseInt(row[4].replace('"', ' ')
-							.trim()), row[5].replace('"', ' ').trim(), row[7]
-							.replace('"', ' ').trim(), Integer.parseInt(row[6]
-							.replace('"', ' ').trim()));
-			createDishGroup(dishGroup);
-	*/		
-			
-/*
-"0001";"VARIOS                        ";"                              ";"                              ";"01";1;0;       0,00;       0,00;"P";" "
-			 * 		this.dishDescriptionLang1 = dishDescriptionLang1;
-		this.dishDescriptionLang2 = dishDescriptionLang2;
-		this.dishDescriptionLang3 = dishDescriptionLang3;
-		this.dishPrint = dishPrint;
-		this.dishListPrice = dishListPrice;
-		this.dishPVP = dishPVP;
-		this.dishCostPrice = dishCostPrice;
-		this.dishType = dishType;
-		this.dishDiscount = dishDiscount;
-		this.dishDeleted = dishDeleted;
-		this.dishPending = dishPending;
-		this.dishGroup = dishGroup;
-
-			 * 
-			 * 
-			 */
+					row[1].replace('"', ' ').trim(),
+					row[2].replace('"', ' ').trim(),
+					row[3].replace('"', ' ').trim(),
+					Integer.parseInt(row[5].replace('"', ' ').trim()),
+					Integer.parseInt(row[6].replace('"', ' ').trim()),
+					Double.parseDouble(row[7].replace('"', ' ').trim()),
+					Double.parseDouble(row[8].replace('"', ' ').trim()),
+					row[9].replace('"', ' ').trim(),
+					false,
+					false,
+					dishGroupDao.findByCode(row[4].replace('"', ' ').trim()),
+					false,
+					false,
+					false,
+					0,
+					"",
+					"");
 			for (int i = 0; i < row.length; i++) {
 				System.out.print("string " + i + ": "
 						+ row[i].replace('"', ' '));
@@ -186,3 +179,10 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 		
 	}
 }
+
+
+
+/*
+CODE;DESC1;DESC2;DESC3;GRUPO;PRINT;LISTAPRECIOS;PRECIOVTA;PRECIOCOSTE;TYPE;PENDING
+"0001";"VARIOS";"";"";"01";1;0;0,00;0,00;"P";" "
+*/

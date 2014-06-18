@@ -1,0 +1,90 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	t:type="LayoutIndex" t:pageTitle="title">
+
+	<head>
+		<link rel="stylesheet" type="text/css"
+			href="${context:/css/dataTables.bootstrap.css}" />
+		<link rel="stylesheet" type="text/css"
+			href="${context:/css/dataTables.colVis.css}" />
+		<link rel="stylesheet" type="text/css"
+			href="${context:/css/dataTables.colReorder.css}" />
+		<link rel="stylesheet" type="text/css"
+			href="${context:/css/dataTables.tableTools.css}" />
+		<link rel="stylesheet" type="text/css"
+			href="${context:/css/editor.bootstrap.css}" />
+		<link rel="stylesheet" type="text/css"
+			href="${context:/css/dataTables.fixedHeader.css}" />
+		<script type="text/javascript" language="javascript"
+			src="//cdn.datatables.net/1.10-dev/js/jquery.dataTables.js"></script>
+		<script type="text/javascript" language="javascript"
+			src="${context:javaScript/dataTables.bootstrap.js}"></script>
+		<script type="text/javascript" language="javascript"
+			src="${context:javaScript/dataTables.colVis.min.js}"></script>
+		<script type="text/javascript" language="javascript"
+			src="${context:javaScript/dataTables.colReorder.min.js}"></script>
+		<script type="text/javascript" language="javascript"
+			src="${context:javaScript/dataTables.fixedHeader.js}"></script>
+		<script type="text/javascript" language="javascript"
+			src="${context:javaScript/dataTables.tableTools.min.js}"></script>
+		<script type="text/javascript" language="javascript"
+			src="${context:javaScript/table.js}"></script>
+
+
+	</head>
+	<body>
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-md-11">
+
+
+					<table cellpadding="0" cellspacing="0" border="0"
+						class="table table-bordered hover display" id="example">
+						<thead class="table-head">
+							<tr>
+								<th>${message:dish-group-code}</th>
+								<th>${message:dish-group-description}</th>
+								<th>${message:iva-type}</th>
+								<th>${message:salesLedgerAccount}</th>
+								<th>${message:typeIncome}</th>
+								<th>${message:macroGroup}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<div t:type="Loop" t:source="dishs" t:value="dish">
+								<tr id="${dish.dishId}">
+									<td>${dish.dishCode}</td>
+									<td>${dish.dishDescriptionLang1}</td>
+									<td>${dish.dishDescriptionLang2}</td>
+									<td>${dish.dishDescriptionLang3}</td>
+									<td>${dish.dishPrint}</td>
+									<td>${dish.dishListPrice}</td>
+									<td>${dish.dishPVP}</td>
+									<td>${dish.dishCostPrice}</td>
+									<td>${dish.dishType}</td>
+									<td>${dish.dishDiscount}</td>
+									<td>${dish.dishPending}</td>
+									<td>${dish.dishGroup}</td>
+									<td>${dish.dishTractable}</td>
+									<td>${dish.dishOrderer}</td>
+									<td>${dish.dishVisible}</td>
+									<td>${dish.dishNumbers}</td>
+									<td>${dish.dishLongDesc}</td>
+									<td>${dish.dishShortDesc}</td>
+								</tr>
+							</div>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+		$(".btn").tooltip({
+		'show': true,
+		});
+		});
+	</script>
+</html>
