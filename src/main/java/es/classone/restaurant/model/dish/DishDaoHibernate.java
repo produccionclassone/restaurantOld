@@ -11,9 +11,10 @@ public class DishDaoHibernate extends GenericDaoHibernate<Dish, Integer> impleme
 	
 	@SuppressWarnings("unchecked")
 	public List<Dish> findAll() {
+		boolean dishDeleted = false;
 		return (getSession()
-				.createQuery(
-						"SELECT d FROM Dish d")
+				.createQuery("SELECT d FROM Dish d WHERE d.dishDeleted = :dishDeleted")
+				.setParameter("dishDeleted", dishDeleted)
 				.list());
 	} 
 }

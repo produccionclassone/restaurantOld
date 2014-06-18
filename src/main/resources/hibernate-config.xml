@@ -18,5 +18,6 @@
         <mapping class="es.classone.restaurant.model.configurationRoom.ConfigurationRoom" />
         <mapping class="es.classone.restaurant.model.configurationPrivilege.ConfigurationPrivilege" />
         <mapping class="es.classone.restaurant.model.dishGroup.DishGroup" />
+        <mapping class="es.classone.restaurant.model.dish.Dish" />
     </session-factory>
 </hibernate-configuration>
