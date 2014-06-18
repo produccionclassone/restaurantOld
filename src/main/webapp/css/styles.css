@@ -377,11 +377,16 @@ h1.info{
   	 div.col-md-5px {
     	width:5px;
   		float: left;
+  		padding-left:0px;
+  		padding-right:0px;
+  		
   	}
  
   	 div.col-md-2px {
     	width:2px;
   		float: left;
+  		padding-left:0px;
+  		padding-right:0px;
   	}
   	
   	 div.col-md-200px {
@@ -418,20 +423,20 @@ h1.info{
 	}
 
 /* ----------- Configuration ------------ */
-
+/*Para indicar la opcion seleccionada de los nav-tabs*/
 HTML > BODY .nav-tabs > li.active > a,
 HTML > BODY .nav-tabs > li.active > a:hover,
 HTML > BODY .nav-tabs > li.active > a:focus {
 	/*background:linear-gradient(#6D6E87, #B5B6D0) repeat scroll 0% 0% transparent;*/
 	/*color:#FFF;*/
 	background:#F8F8F8;
-	font-size:14px;
+	font-size:12px;
 	border:1px solid #ccc;
 	border-radius:5px;
 }
 
-HTML > BODY .nav-tabs > li {
-	font-size:14px;
+HTML > BODY .nav-tabs > li > a {
+	font-size:12px;
 	border:1px solid #ccc;
 	border-radius:5px;
 }
@@ -443,7 +448,7 @@ HTML > BODY  > .tab-pane .active > .container-fluid{
 HTML > BODY .navtabs{
 	margin-top: 0px;
 	padding:0px 0px;
-	font-size:14px;
+	font-size:12px;
 	height: auto;
 }
 
@@ -481,9 +486,9 @@ h4.textRowBorder {
 }
 
 
-HTML > BODY .nav > li > a {
+/*HTML > BODY .nav > li > a {
 	padding: 2px 2px;
-}
+}*/
 
 HTML > BODY .input-group-addon {
 	padding-left: 0px;
