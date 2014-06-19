@@ -13,8 +13,6 @@ import javax.persistence.Table;
 
 import es.classone.restaurant.model.dishGroup.DishGroup;
 
-//import es.classone.restaurant.model.dishGroup.DishGroup;
-
 @Entity
 @Table(name = "Res14pla")
 public class Dish {
@@ -204,7 +202,7 @@ public class Dish {
 
 	
 	@ManyToOne(optional = false, fetch = FetchType.LAZY)
-	@JoinColumn(name = "R1GRP000")
+	@JoinColumn(name = "dishGroupId")
 	public DishGroup getDishGroup() {
 		return dishGroup;
 	}

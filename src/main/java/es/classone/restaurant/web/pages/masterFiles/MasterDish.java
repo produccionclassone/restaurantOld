@@ -92,15 +92,17 @@ public class MasterDish {
 	void setupRender() {
 		dishs = masterFilesService.findAllDish();
 		int size = dishs.size();
+		
 		if (size == 0) {
 			dishCode = "00";
-			try {
+/*			try {
 				// masterFilesService.importDishFile("/home/alexpenedo/Documentos/ClassOne/exports/RES91PLA.TXT");
 				masterFilesService
 						.importDishFile("C:/Users/VaninaBusto/Documents/RES91PLA.TXT");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+*/
 		} else {
 			try {
 				dishCode = getNewCode(masterFilesService.getDishByDishId(size)

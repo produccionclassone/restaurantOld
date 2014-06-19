@@ -23,7 +23,7 @@ public class DishGroupDaoHibernate extends
 	public DishGroup findByCode(String dishGroupCode) {
 		return (DishGroup) (getSession()
 				.createQuery(
-						"SELECT dg FROM DishGroup dg WHERE dg:dishGroupcode = : dishGroupCode")
+						"SELECT dg FROM DishGroup dg WHERE dg.dishGroupCode = :dishGroupCode")
 				.setParameter("dishGroupCode", dishGroupCode)
 				.uniqueResult());
 	}

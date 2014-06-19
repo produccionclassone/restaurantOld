@@ -163,7 +163,7 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 					row[9].replace('"', ' ').trim(),
 					false,
 					false,
-					dishGroupDao.findByCode(row[4].replace('"', ' ').trim()),
+					dishGroupDao.findByCode(row[4].trim()),
 					false,
 					false,
 					false,
