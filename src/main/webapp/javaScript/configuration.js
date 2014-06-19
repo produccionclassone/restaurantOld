@@ -80,6 +80,8 @@ var loadParametersRoom = function(spec) {
 							loadParametersGeneric(spec);
 							loadParametersBool(spec);
 							loadParametersRoom(spec);
+							var parametersBool= spec.parametersBool;
+							console.log(parametersBool);
 							
 							$('body').on('keydown', 'input, select, textarea', function(e) {
 								var self = $(this)
