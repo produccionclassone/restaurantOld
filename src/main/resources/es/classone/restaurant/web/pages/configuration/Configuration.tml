@@ -839,21 +839,23 @@
 												<t:form>
 													<div class="row row10"></div>
 													<div class="row"> <!-- row restaurante -->
+													<div class="row row10"></div>
+															<div class="row row10"></div>
 														<div class="col-md-6"><!-- Left -->
 															<div class="row">
 																<div class="col-md-1"></div>
-																<div class="col-md-10 rowBorder">
+																<div class="col-md-10 rowBorder" >
 																	<div class="row">
-																		<h5 class="textRowBorder">${message:color-label}</h5>
+																		<div class="textRowBorder" style="margin-bottom:20px;">${message:color-label}</div>
 																	</div>
 																	<div class="row">
 																		<div class="col-md-1"></div>
-																		<div class="col-md-10 rowBorder">
+																		<div class="col-md-10 rowBorder" style="margin-bottom:20px;">
 																			<div class="row">
-																				<h4 class="textRowBorder">${message:colorPanel-label}
-																				</h4>
+																				<div class="textRowBorder" style="font-size: 11px; background-color: #AFB1D7;
+																				" >${message:colorPanel-label}
+																				</div>
 																			</div>
-																			xº
 																			<div class="row">
 																				<div class="col-md-1"></div>
 																				<div class="col-md-5">
@@ -920,9 +922,10 @@
 																	<div class="row row5"></div>
 																	<div class="row">
 																		<div class="col-md-1"></div>
-																		<div class="col-md-10 rowBorder">
+																		<div class="col-md-10 rowBorder" style="margin-bottom: 20px;">
 																			<div class="row">
-																				<h4 class="textRowBorder">${message:colorTabSituation-label}</h4>
+																				<div class="textRowBorder" style="font-size: 11px; background-color: #AFB1D7; margin-bottom:10px;
+																				">${message:colorTabSituation-label}</div>
 																			</div>
 																			<div class="row">
 																				<div class="col-md-1"></div>
@@ -1006,11 +1009,12 @@
 																	</div>
 																</div>
 																<div class="col-md-1"></div>
+															
 															</div>
 															<div class="row row10"></div>
-															<div class="row">
-																<div class="col-md-2"></div>
-																<div class="col-md-4">
+															<div class="row" style="margin-top:10px;">
+																<div class="col-md-1"></div>
+																<div class="col-md-5">
 																	<!-- <span class="input-group-addon">ültimo número impreso</span> -->
 																	<span class="input-group-addon">
 																		<t:label for="lastNumPrint" />
@@ -1024,8 +1028,8 @@
 																<div class="col-md-2"></div>
 															</div>
 															<div class="row">
-																<div class="col-md-2"></div>
-																<div class="col-md-4">
+																<div class="col-md-1"></div>
+																<div class="col-md-5">
 																	<!-- <span class="input-group-addon">Ultimo cierre mes</span> -->
 																	<span class="input-group-addon">
 																		<t:label for="closureLastMonth" />
@@ -1040,8 +1044,8 @@
 																<div class="col-md-2"></div>
 															</div>
 															<div class="row">
-																<div class="col-md-2"></div>
-																<div class="col-md-4">
+																<div class="col-md-1"></div>
+																<div class="col-md-5">
 																	<!-- <span class="input-group-addon">Suma consumiciones</span> -->
 																	<span class="input-group-addon">
 																		<t:label for="sumDrinks" />
@@ -1061,229 +1065,207 @@
 																<div class="col-md-1"></div>
 																<div class="col-md-10 rowBorder">
 																	<div class="row">
-																		<h4 class="textRowBorder">${message:roomsTables-label}</h4>
+																		<div class="textRowBorder"	>${message:roomsTables-label}</div>
 																	</div>
 
-																	<div class="row">
+																	<div class="row ">
 																		<div class="col-md-1"></div>
-																		<div class="col-md-5 rowBorder">
-																			<div class="row">
-																				<div class="col-md-3">
-																					<h4 class="textRowBorder">${message:number-label}</h4>
+																		<div class="col-md-10 rowBorder">
+																			<div class="row textRowBorder" style="font-size: 11px; background-color: #AFB1D7;">
+																				<div class="col-md-1" style="margin-left: -15px;">
+																					${message:number-label}
+																				</div>
+																				<div class="col-md-4" style="margin-left: 15px;">
+																					<div>${message:descriptionRoom-label}</div>
+																				</div>
+																				<div class="col-md-3" style="margin-left: 10px;">
+																					<div>${message:desde-label}</div>
 																				</div>
 																				<div class="col-md-3">
-																					<h4 class="textRowBorder">${message:descriptionRoom-label}</h4>
+																					<div>${message:hasta-label}</div>
 																				</div>
-																				<div class="col-md-6"></div>
 																			</div>
 																			<div class="row">
 																				<div class="col-md-1">
-																					<span class="input-group-addon" style="padding:0px 0px;">
-																						<t:label for="desc1" />
+																					<span class="input-group-addon">
+																						<t:label style="margin-bottom:1px;" for="desc1" />
 																					</span>
 																				</div>
-																				<div class="col-md-9">
+																				<div class="col-md-4">
 																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
 																					<input class="form-control textcontrolL"
 																						t:id="desc1" name="desc1" t:type="TextField"
 																						placeholder="${message:desc1-label}" />
 																				</div>
-																			</div>
-																			<div class="row">
-																				<div class="col-md-1">
-																					<span class="input-group-addon" style="padding:0px 0px;">
-																						<t:label for="desc2" />
-																					</span>
-																				</div>
-																				<div class="col-md-9">
-																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																					<input class="form-control textcontrolL"
-																						t:id="desc2" name="desc2" t:type="TextField" />
-																				</div>
-																			</div>
-																			<div class="row">
-																				<div class="col-md-1">
-																					<span class="input-group-addon" style="padding:0px 0px;">
-																						<t:label for="desc3" />
-																					</span>
-																				</div>
-																				<div class="col-md-9">
-																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																					<input class="form-control textcontrolL"
-																						t:id="desc3" name="desc3" t:type="TextField" />
-																				</div>
-																			</div>
-																			<div class="row">
-																				<div class="col-md-1">
-																					<span class="input-group-addon" style="padding:0px 0px;">
-																						<t:label for="desc4" />
-																					</span>
-																				</div>
-																				<div class="col-md-9">
-																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																					<input class="form-control textcontrolL"
-																						t:id="desc4" name="desc4" t:type="TextField" />
-																				</div>
-																			</div>
-																			<div class="row">
-																				<div class="col-md-1">
-																					<span class="input-group-addon" style="padding:0px 0px;">
-																						<t:label for="desc5" />
-																					</span>
-																				</div>
-																				<div class="col-md-9">
-																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																					<input class="form-control textcontrolL"
-																						t:id="desc5" name="desc5" t:type="TextField" />
-																				</div>
-																			</div>
-																			<div class="row">
-																				<div class="col-md-1">
-																					<span class="input-group-addon" style="padding:0px 0px;">
-																						<t:label for="desc6" />
-																					</span>
-																				</div>
-																				<div class="col-md-9">
-																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																					<input class="form-control textcontrolL"
-																						t:id="desc6" name="desc6" t:type="TextField" />
-																				</div>
-																			</div>
-																			<div class="row">
-																				<div class="col-md-1">
-																					<span class="input-group-addon" style="padding:0px 0px;">
-																						<t:label for="desc7" />
-																					</span>
-																				</div>
-																				<div class="col-md-9">
-																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																					<input class="form-control textcontrolL"
-																						t:id="desc7" name="desc7" t:type="TextField" />
-																				</div>
-																			</div>
-																		</div>
-																		<div class="col-md-5 rowBorder">
-																			<div class="row">
 																				<div class="col-md-3">
-																					<h4 class="textRowBorder">${message:desde-label}</h4>
-																				</div>
-																				<div class="col-md-3"></div>
-																				<div class="col-md-3">
-																					<h4 class="textRowBorder">${message:hasta-label}</h4>
-																				</div>
-																				<div class="col-md-3"></div>
-																			</div>
-																			<div class="row">
-																				<div class="col-md-6">
 																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
 																					<input class="form-control textcontrolR"
 																						t:id="firstTab1" name="firstTab1" t:type="TextField"
 																						placeholder="${message:firstTab1-label}" />
 																				</div>
-																				<div class="col-md-6">
+																				<div class="col-md-3">
 																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
 																					<input class="form-control textcontrolR"
 																						t:id="lastTab1" name="lastTab1" t:type="TextField" />
 																				</div>
 																			</div>
 																			<div class="row">
-																				<div class="col-md-6">
+																				<div class="col-md-1">
+																					<span class="input-group-addon">
+																						<t:label style="margin-bottom:1px;" for="desc2" />
+																					</span>
+																				</div>
+																				<div class="col-md-4">
+																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																					<input class="form-control textcontrolL"
+																						t:id="desc2" name="desc2" t:type="TextField"
+																						placeholder="${message:desc2-label}" />
+																				</div>
+																				<div class="col-md-3">
 																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
 																					<input class="form-control textcontrolR"
 																						t:id="firstTab2" name="firstTab2" t:type="TextField"
 																						placeholder="${message:firstTab2-label}" />
 																				</div>
-																				<div class="col-md-6">
+																				<div class="col-md-3">
 																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
 																					<input class="form-control textcontrolR"
-																						t:id="lastTab2" name="lastTab2" t:type="TextField"
-																						placeholder="${message:lastTab2-label}" />
+																						t:id="lastTab2" name="lastTab2" t:type="TextField" />
 																				</div>
 																			</div>
-																			<div class="row">
-																				<div class="col-md-6">
+																				<div class="row">
+																				<div class="col-md-1">
+																					<span class="input-group-addon">
+																						<t:label style="margin-bottom:1px;" for="desc3" />
+																					</span>
+																				</div>
+																				<div class="col-md-4">
+																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																					<input class="form-control textcontrolL"
+																						t:id="desc3" name="desc3" t:type="TextField"
+																						placeholder="${message:desc3-label}" />
+																				</div>
+																				<div class="col-md-3">
 																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
 																					<input class="form-control textcontrolR"
 																						t:id="firstTab3" name="firstTab3" t:type="TextField"
 																						placeholder="${message:firstTab3-label}" />
 																				</div>
-																				<div class="col-md-6">
+																				<div class="col-md-3">
 																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
 																					<input class="form-control textcontrolR"
-																						t:id="lastTab3" name="lastTab3" t:type="TextField"
-																						placeholder="${message:lastTab3-label}" />
+																						t:id="lastTab3" name="lastTab3" t:type="TextField" />
 																				</div>
 																			</div>
-																			<div class="row">
-																				<div class="col-md-6">
+																				<div class="row">
+																				<div class="col-md-1">
+																					<span class="input-group-addon">
+																						<t:label style="margin-bottom:1px;" for="desc4" />
+																					</span>
+																				</div>
+																				<div class="col-md-4">
+																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																					<input class="form-control textcontrolL"
+																						t:id="desc4" name="desc4" t:type="TextField"
+																						placeholder="${message:desc2-label}" />
+																				</div>
+																				<div class="col-md-3">
 																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
 																					<input class="form-control textcontrolR"
 																						t:id="firstTab4" name="firstTab4" t:type="TextField"
 																						placeholder="${message:firstTab4-label}" />
 																				</div>
-																				<div class="col-md-6">
+																				<div class="col-md-3">
 																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
 																					<input class="form-control textcontrolR"
-																						t:id="lastTab4" name="lastTab4" t:type="TextField"
-																						placeholder="${message:lastTab4-label}" />
+																						t:id="lastTab4" name="lastTab4" t:type="TextField" />
 																				</div>
 																			</div>
-																			<div class="row">
-																				<div class="col-md-6">
+																				<div class="row">
+																				<div class="col-md-1">
+																					<span class="input-group-addon">
+																						<t:label style="margin-bottom:1px;" for="desc5" />
+																					</span>
+																				</div>
+																				<div class="col-md-4">
+																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																					<input class="form-control textcontrolL"
+																						t:id="desc5" name="desc5" t:type="TextField"
+																						placeholder="${message:desc5-label}" />
+																				</div>
+																				<div class="col-md-3">
 																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
 																					<input class="form-control textcontrolR"
 																						t:id="firstTab5" name="firstTab5" t:type="TextField"
 																						placeholder="${message:firstTab5-label}" />
 																				</div>
-																				<div class="col-md-6">
+																				<div class="col-md-3">
 																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
 																					<input class="form-control textcontrolR"
-																						t:id="lastTab5" name="lastTab5" t:type="TextField"
-																						placeholder="${message:lastTab5-label}" />
+																						t:id="lastTab5" name="lastTab5" t:type="TextField" />
 																				</div>
 																			</div>
-																			<div class="row">
-																				<div class="col-md-6">
+																				<div class="row">
+																				<div class="col-md-1">
+																					<span class="input-group-addon">
+																						<t:label style="margin-bottom:1px;" for="desc6" />
+																					</span>
+																				</div>
+																				<div class="col-md-4">
+																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																					<input class="form-control textcontrolL"
+																						t:id="desc6" name="desc6" t:type="TextField"
+																						placeholder="${message:desc6-label}" />
+																				</div>
+																				<div class="col-md-3">
 																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
 																					<input class="form-control textcontrolR"
 																						t:id="firstTab6" name="firstTab6" t:type="TextField"
 																						placeholder="${message:firstTab6-label}" />
 																				</div>
-																				<div class="col-md-6">
+																				<div class="col-md-3">
 																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
 																					<input class="form-control textcontrolR"
-																						t:id="lastTab6" name="lastTab6" t:type="TextField"
-																						placeholder="${message:lastTab6-label}" />
+																						t:id="lastTab6" name="lastTab6" t:type="TextField" />
 																				</div>
 																			</div>
-																			<div class="row">
-																				<div class="col-md-6">
+																				<div class="row">
+																				<div class="col-md-1">
+																					<span class="input-group-addon">
+																						<t:label  for="desc7" />
+																					</span>
+																				</div>
+																				<div class="col-md-4">
+																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																					<input class="form-control textcontrolL"
+																						t:id="desc7" name="desc7" t:type="TextField"
+																						placeholder="${message:desc7-label}" />
+																				</div>
+																				<div class="col-md-3">
 																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
 																					<input class="form-control textcontrolR"
-																						t:id="firstTab7" name="firstTab7" t:type="TextField" />
+																						t:id="firstTab7" name="firstTab7" t:type="TextField"
+																						placeholder="${message:firstTab7-label}" />
 																				</div>
-																				<div class="col-md-6">
+																				<div class="col-md-3">
 																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
 																					<input class="form-control textcontrolR"
-																						t:id="lastTab7" name="lastTab7" t:type="TextField"
-																						placeholder="${message:lastTab7-label}" />
+																						t:id="lastTab7" name="lastTab7" t:type="TextField" />
 																				</div>
-																				<div class="col-md-3"></div>
 																			</div>
-																		</div>
-																		<div class="col-md-1"></div>
+																			</div>
+																
+																	
 																	</div>
 																</div>
 																<div class="col-md-1"></div>
 															</div>
-															<div class="row row10"></div>
 															<div class="row">
 																<div class="col-md-1"></div>
-																<div class="col-md-10 rowBorder">
+																<div class="col-md-10 rowBorder" style="margin-bottom:5px;">
 																	<div class="row">
-																		<h4 class="textRowBorder">${message:califDishGroup-label}</h4>
+																		<div class="textRowBorder">${message:califDishGroup-label}</div>
 																	</div>
-																	<div class="row row5"></div>
 																	<div class="row">
 																		<div class="col-md-3">
 																			<!-- <span class="input-group-addon">Ultimo cierre mes</span> -->
@@ -1343,7 +1325,6 @@
 																</div>
 																<div class="col-md-1"></div>
 															</div>
-															<div class="row row5"></div>
 															<div class="row">
 																<div class="col-md-1"></div>
 																<div class="col-md-4">
@@ -1568,10 +1549,8 @@
 															<div class="row">
 																<div class="col-md-1"></div>
 																<div class="col-md-10 rowBorder">
-																	<div clas="row">
-																		<div class="col-md-12">
-																			<h5 class="textRowBorder">Cuentas generales</h5>
-																		</div>
+																	<div class="row">
+																			<div class="textRowBorder">Cuentas generales</div>
 																	</div>
 																	<div class="row row90"></div>
 																	<div class="row row10"></div>
@@ -1717,27 +1696,28 @@
 															<div class="row">
 																<div class="col-md-1"></div>
 																<div class="col-md-10 rowBorder">
-																	<div clas="row">
-																		<div class="col-md-12">
-																			<h5 class="textRowBorder">Tasas</h5>
-																		</div>
+																	<div class="row">
+																	
+																			<div class="textRowBorder">Tasas</div>
 																	</div>
 																	<div class="row row5"></div>
-																	<div class="row">
-																		<div class="col-md-1"></div>
+																	<div class="col-md-1"></div>
+																	<div class="col-md-10 rowBorder">
+																	<div class="row textRowBorder" style="background-color: #AFB1D7;">
+		
 																		<div class="col-md-2">
-																			<h4 class="textRowBorder">Tipo</h4>
+																			<div  style="font-size: 11px;">Tipo</div>
 																		</div>
-																		<div class="col-md-3">
-																			<h4 class="textRowBorder">% I.V.A.</h4>
+																		<div class="col-md-5">
+																			<div style="font-size: 11px;">% I.V.A.</div>
 																		</div>
-																		<div class="col-md-4">
-																			<h4 class="textRowBorder">CTA. I.V.A.</h4>
+																		<div class="col-md-5">
+																			<div style="font-size: 11px;">CTA. I.V.A.</div>
 																		</div>
-																		<div class="col-md-2"></div>
+									
 																	</div>
 																	<div class="row">
-																		<div class="col-md-1"></div>
+																		
 																		<div class="col-md-2">
 																			<!-- <span class="input-group-addon">IVA 1</span> -->
 																			<span class="input-group-addon">
@@ -1749,7 +1729,8 @@
 																			<input class="form-control textcontrolR" t:id="ivaType1"
 																				name="ivaType1" t:type="TextField" />
 																		</div>
-																		<div class="col-md-4">
+																		<div class="col-md-1"></div>
+																		<div class="col-md-5">
 																			<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
 																			<input class="form-control textcontrolL" t:id="ledgerAccIVA1"
 																				name="ledgerAccIVA1" t:type="TextField"
@@ -1758,7 +1739,7 @@
 																		<div class="col-md-2"></div>
 																	</div>
 																	<div class="row">
-																		<div class="col-md-1"></div>
+													
 																		<div class="col-md-2">
 																			<!-- <span class="input-group-addon">IVA 2</span> -->
 																			<span class="input-group-addon">
@@ -1770,7 +1751,8 @@
 																			<input class="form-control textcontrolR" t:id="ivaType2"
 																				name="ivaType2" t:type="TextField" placeholder="${message:ivaType2-label}" />
 																		</div>
-																		<div class="col-md-4">
+																			<div class="col-md-1"></div>
+																		<div class="col-md-5">
 																			<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
 																			<input class="form-control textcontrolL" t:id="ledgerAccIVA2"
 																				name="ledgerAccIVA2" t:type="TextField"
@@ -1779,7 +1761,6 @@
 																		<div class="col-md-2"></div>
 																	</div>
 																	<div class="row">
-																		<div class="col-md-1"></div>
 																		<div class="col-md-2">
 																			<!-- <span class="input-group-addon">IVA 3</span> -->
 																			<span class="input-group-addon">
@@ -1791,7 +1772,8 @@
 																			<input class="form-control textcontrolR" t:id="ivaType3"
 																				name="ivaType3" t:type="TextField" placeholder="${message:ivaType3-label}" />
 																		</div>
-																		<div class="col-md-4">
+																			<div class="col-md-1"></div>
+																		<div class="col-md-5">
 																			<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
 																			<input class="form-control textcontrolL" t:id="ledgerAccIVA3"
 																				name="ledgerAccIVA3" t:type="TextField"
@@ -1799,21 +1781,22 @@
 																		</div>
 																		<div class="col-md-2"></div>
 																	</div>
+																	</div>
 																	<div class="row row30"></div>
 																	<div class="row">
 																		<div class="col-md-1"></div>
-																		<div class="col-md-5">
+																		<div class="col-md-5" style="margin-left:8px;">
 																			<!-- <span class="input-group-addon">Literal del impuesto</span> -->
 																			<span class="input-group-addon">
 																				<t:label for="literalIVA" />
 																			</span>
 																		</div>
-																		<div class="col-md-4">
+																		<div class="col-md-3">
 																			<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
 																			<input class="form-control textcontrolL" t:id="literalIVA"
 																				name="literalIVA" t:type="TextField" />
 																		</div>
-																		<div class="col-md-2"></div>
+																		<div class="col-md-1"></div>
 																	</div>
 																</div>
 																<div class="col-md-1"></div>
@@ -1823,13 +1806,12 @@
 															<div class="row row5"></div>
 															<div class="row">
 																<div class="col-md-1"></div>
-																<div class="col-md-10 rowBorder">
-																	<div clas="row">
-																		<div class="col-md-12">
-																			<h5 class="textRowBorder">C.A.D.</h5>
-																		</div>
+																<div class="col-md-10 rowBorder" style="margin-top:30px;">
+																	<div class="row">
+																	
+																			<div class="textRowBorder">C.A.D.</div>
+											
 																	</div>
-																	<div class="row row60"></div>
 																	<div class="row">
 																		<div class="col-md-1"></div>
 																		<div class="col-md-7">
@@ -1911,10 +1893,8 @@
 															<div class="row">
 																<div class="col-md-1"></div>
 																<div class="col-md-10 rowBorder">
-																	<div clas="row">
-																		<div class="col-md-12">
-																			<h4 class="textRowBorder">${message:BMPToTCK-label}</h4>
-																		</div>
+																	<div class="row">
+																			<div class="textRowBorder">${message:BMPToTCK-label}</div>
 																	</div>
 																	<div class="row">
 																		<div class="col-md-1"></div>
@@ -1968,10 +1948,8 @@
 															<div class="row">
 																<div class="col-md-1"></div>
 																<div class="col-md-10 rowBorder">
-																	<div clas="row">
-																		<div class="col-md-12">
-																			<h4 class="textRowBorder">${message:print-label}</h4>
-																		</div>
+																	<div class="row">
+																			<div class="textRowBorder">${message:print-label}</div>
 																	</div>
 																	<div class="row">
 																		<div class="col-md-1"></div>
@@ -2089,10 +2067,8 @@
 															<div class="row">
 																<div class="col-md-1"></div>
 																<div class="col-md-10 rowBorder">
-																	<div clas="row">
-																		<div class="col-md-12">
-																			<h4 class="textRowBorder">${message:commandprint-label}</h4>
-																		</div>
+																	<div class="row">
+																			<div class="textRowBorder" style="font-size: 11px;">${message:commandprint-label}</div>
 																	</div>
 																	<div class="row">
 																		<div class="col-md-2"></div>
@@ -2241,7 +2217,7 @@
 										</div> <!-- printer -->
 									</div> <!-- tab-content general parameters -->
 								</div> <!-- general parameters -->
-								<div class="tab-pane" id="configSistema">
+								<div class="tab-pane" id="keys">
 
 									<div class="container-fluid">
 
