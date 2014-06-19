@@ -47,11 +47,21 @@ var loadParametersGeneric = function(spec) {
 	}
 };
 
+function checkBoxState(id){
+	console.log($("#" + id).is(':checked'));
+	$(location).attr('href','/restaurant/configuration/configuration?id='+ id + '&value=' + $('#' + id).is(':checked'));	
+}
+
 var loadParametersBool = function(spec) {
 	var parametersBool = spec.parametersBool;
 	for (var i = 0; i < parametersBool.length; i++) {
 		var parameter = (parametersBool[i]).split('|');
-		$("#" + parameter[1]).attr('checked', parameter[2]);
+		if (parameter[2]=="true")
+			$("#" + parameter[1]).attr('checked', true);
+		else
+			$("#" + parameter[1]).attr('checked', false);
+		console.log(parameter);
+		
 	}
 };
 
@@ -75,9 +85,7 @@ var loadParametersRoom = function(spec) {
 							loadParametersGeneric(spec);
 							loadParametersBool(spec);
 							loadParametersRoom(spec);
-							console.log(spec.parametersGeneric);
-							console.log(spec.parametersBool);
-
+							
 							$('body').on('keydown', 'input, select, textarea', function(e) {
 								var self = $(this)
 								  , form = self.parents('form:eq(0)')

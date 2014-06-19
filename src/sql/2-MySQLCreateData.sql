@@ -98,7 +98,7 @@ INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) 
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (98, 'R4CNT032', 'DoubleBoldOff', '10 21 00');
 
 
-INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `name`, `value`) VALUES (1, 'R4CNT005', 'covServChar', false);
+INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `name`, `value`) VALUES (1, 'R4CNT005', 'covServChar', true);
 INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `name`, `value`) VALUES (2, 'R4CNT007', 'tipWaiterInvoice', false);
 INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `name`, `value`) VALUES (3, 'R4CNT009', 'chargeAddonDish', false);
 INSERT INTO `ayx14res`.`Res14cnt_GN_BOOL` (`idRes14cnt_1_1`, `code`, `name`, `value`) VALUES (4, 'R4CNT010', 'decimal', false);

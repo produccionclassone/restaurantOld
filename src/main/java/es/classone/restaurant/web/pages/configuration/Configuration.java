@@ -2,10 +2,12 @@ package es.classone.restaurant.web.pages.configuration;
 
 import java.util.List;
 
+import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.annotations.SessionState;
+import org.apache.tapestry5.corelib.components.Checkbox;
 import org.apache.tapestry5.corelib.components.Zone;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.json.JSONArray;
@@ -66,48 +68,36 @@ public class Configuration {
 
 	Object onActualSessionChanged() throws InstanceNotFoundException {
 		actualSession = request.getParameter("param");
-		System.out.println(actualSession);
 		if (actualSession != null)
-			configurationService.setParameterGeneric("actualSession",
-					actualSession);
-
+			configurationService.setParameterGeneric("actualSession", actualSession);
 		return request.isXHR() ? msgZone.getBody() : null;
 	}
 
 	Object onLastBillChanged() throws InstanceNotFoundException {
 		lastBill = request.getParameter("param");
 		if (lastBill != null) 
-		configurationService.setParameterGeneric("lastBill", lastBill);
+			configurationService.setParameterGeneric("lastBill", lastBill);
 		return request.isXHR() ? msgZone.getBody() : null;
 	}
 
 	Object onLastCommandChanged() throws InstanceNotFoundException {
 		lastCommand = request.getParameter("param");
-		if (lastCommand == null) {
-			lastCommand = "";
-		}
-		configurationService.setParameterGeneric("lastCommand", lastCommand);
-		showMsg = true;
+		if (lastCommand != null)
+			configurationService.setParameterGeneric("lastCommand", lastCommand);
 		return request.isXHR() ? msgZone.getBody() : null;
 	}
 
 	Object onLastClientChanged() throws InstanceNotFoundException {
 		lastClient = request.getParameter("param");
-		if (lastClient == null) {
-			lastClient = "";
-		}
-		configurationService.setParameterGeneric("lastClient", lastClient);
-		showMsg = true;
+		if (lastClient != null)
+			configurationService.setParameterGeneric("lastClient", lastClient);
 		return request.isXHR() ? msgZone.getBody() : null;
 	}
 
 	Object onNumNotaFisChanged() throws InstanceNotFoundException {
 		numNotaFis = request.getParameter("param");
-		if (numNotaFis == null) {
-			numNotaFis = "";
-		}
-		configurationService.setParameterGeneric("numNotaFis", numNotaFis);
-		showMsg = true;
+		if (numNotaFis != null)
+			configurationService.setParameterGeneric("numNotaFis", numNotaFis);
 		return request.isXHR() ? msgZone.getBody() : null;
 	}
 
@@ -121,11 +111,8 @@ public class Configuration {
 
 	Object onRestCategChanged() throws InstanceNotFoundException {
 		restCateg = request.getParameter("param");
-		if (restCateg == null) {
-			restCateg = "";
-		}
+		if (restCateg != null) 
 		configurationService.setParameterGeneric("restCateg", restCateg);
-		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -134,28 +121,35 @@ public class Configuration {
 
 	Object onTableNumberChanged() throws InstanceNotFoundException {
 		tableNumber = request.getParameter("param");
-		if (tableNumber == null) {
-			tableNumber = "";
-		}
-		configurationService.setParameterGeneric("tableNumber", tableNumber);
-		showMsg = true;
+		if (tableNumber != null)
+			configurationService.setParameterGeneric("tableNumber", tableNumber);
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
+	
 	@Property
 	private Boolean covServChar;
+
+	Object onCovServCharChanged() throws InstanceNotFoundException {
+		String value = request.getParameter("param");
+		System.out.println("value " + value);
+//		if (value == "true") 
+//			configurationService.setParameterBool("covServChar", true);
+//		else
+//			configurationService.setParameterBool("covServChar", false);
+		return request.isXHR() ? msgZone2.getBody() : null;
+
+	}
+
 
 	@Property
 	private String covServCharImp;
 
 	Object onCovServCharImpChanged() throws InstanceNotFoundException {
 		covServCharImp = request.getParameter("param");
-		if (covServCharImp == null) {
-			covServCharImp = "";
-		}
+		if (covServCharImp != null) 
 		configurationService.setParameterGeneric("covServCharImp",
 				covServCharImp);
-		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -164,12 +158,9 @@ public class Configuration {
 
 	Object onCovServCharIVATypeChanged() throws InstanceNotFoundException {
 		covServCharIVAType = request.getParameter("param");
-		if (covServCharIVAType == null) {
-			covServCharIVAType = "";
-		}
+		if (covServCharIVAType != null) 
 		configurationService.setParameterGeneric("covServCharIVAType",
 				covServCharIVAType);
-		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -178,12 +169,9 @@ public class Configuration {
 
 	Object onLiteralCharCovChanged() throws InstanceNotFoundException {
 		literalCharCov = request.getParameter("param");
-		if (literalCharCov == null) {
-			literalCharCov = "";
-		}
+		if (literalCharCov != null) 
 		configurationService.setParameterGeneric("literalCharCov",
 				literalCharCov);
-		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -195,12 +183,9 @@ public class Configuration {
 
 	Object onTipWaiterInvoicePorcentChanged() throws InstanceNotFoundException {
 		tipWaiterInvoicePorcent = request.getParameter("param");
-		if (tipWaiterInvoicePorcent == null) {
-			tipWaiterInvoicePorcent = "";
-		}
+		if (tipWaiterInvoicePorcent != null) 
 		configurationService.setParameterGeneric("tipWaiterInvoicePorcent",
 				tipWaiterInvoicePorcent);
-		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -209,12 +194,9 @@ public class Configuration {
 
 	Object onTipWaiterInvoiceIVAChanged() throws InstanceNotFoundException {
 		tipWaiterInvoiceIVA = request.getParameter("param");
-		if (tipWaiterInvoiceIVA == null) {
-			tipWaiterInvoiceIVA = "";
-		}
+		if (tipWaiterInvoiceIVA != null) 
 		configurationService.setParameterGeneric("tipWaiterInvoiceIVA",
 				tipWaiterInvoiceIVA);
-		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -223,12 +205,9 @@ public class Configuration {
 
 	Object onLiteralTipsAutoChanged() throws InstanceNotFoundException {
 		literalTipsAuto = request.getParameter("param");
-		if (literalTipsAuto == null) {
-			literalTipsAuto = "";
-		}
+		if (literalTipsAuto != null) 
 		configurationService.setParameterGeneric("literalTipsAuto",
 				literalTipsAuto);
-		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -258,11 +237,8 @@ public class Configuration {
 
 	Object onEurUSDChangeChanged() throws InstanceNotFoundException {
 		eurUSDChange = request.getParameter("param");
-		if (eurUSDChange == null) {
-			eurUSDChange = "";
-		}
+		if (eurUSDChange != null) 
 		configurationService.setParameterGeneric("eurUSDChange", eurUSDChange);
-		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -271,12 +247,9 @@ public class Configuration {
 
 	Object onBreakfastServHotChanged() throws InstanceNotFoundException {
 		breakfastServHot = request.getParameter("param");
-		if (breakfastServHot == null) {
-			breakfastServHot = "";
-		}
+		if (breakfastServHot != null) 
 		configurationService.setParameterGeneric("breakfastServHot",
 				breakfastServHot);
-		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -285,12 +258,9 @@ public class Configuration {
 
 	Object onBreakfastServCodeChanged() throws InstanceNotFoundException {
 		breakfastServCode = request.getParameter("param");
-		if (breakfastServCode == null) {
-			breakfastServCode = "";
-		}
+		if (breakfastServCode != null)
 		configurationService.setParameterGeneric("breakfastServCode",
 				breakfastServCode);
-		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -299,12 +269,9 @@ public class Configuration {
 
 	Object onLunchServHotelChanged() throws InstanceNotFoundException {
 		lunchServHotel = request.getParameter("param");
-		if (lunchServHotel == null) {
-			lunchServHotel = "";
-		}
+		if (lunchServHotel != null)
 		configurationService.setParameterGeneric("lunchServHotel",
 				lunchServHotel);
-		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -313,12 +280,9 @@ public class Configuration {
 
 	Object onLunchServCodeChanged() throws InstanceNotFoundException {
 		lunchServCode = request.getParameter("param");
-		if (lunchServCode == null) {
-			lunchServCode = "";
-		}
+		if (lunchServCode != null)
 		configurationService
 				.setParameterGeneric("lunchServCode", lunchServCode);
-		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -327,12 +291,9 @@ public class Configuration {
 
 	Object onDinnerServHotelChanged() throws InstanceNotFoundException {
 		dinnerServHotel = request.getParameter("param");
-		if (dinnerServHotel == null) {
-			dinnerServHotel = "";
-		}
+		if (dinnerServHotel != null)
 		configurationService.setParameterGeneric("dinnerServHotel",
 				dinnerServHotel);
-		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -341,12 +302,9 @@ public class Configuration {
 
 	Object onDinnerServCodeChanged() throws InstanceNotFoundException {
 		dinnerServCode = request.getParameter("param");
-		if (dinnerServCode == null) {
-			dinnerServCode = "";
-		}
+		if (dinnerServCode != null)
 		configurationService.setParameterGeneric("dinnerServCode",
 				dinnerServCode);
-		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -355,9 +313,7 @@ public class Configuration {
 
 	Object onOtherServHotelChanged() throws InstanceNotFoundException {
 		otherServHotel = request.getParameter("param");
-		if (otherServHotel == null) {
-			otherServHotel = "";
-		}
+		if (otherServHotel != null) 
 		configurationService.setParameterGeneric("otherServHotel",
 				otherServHotel);
 		showMsg = true;
@@ -369,12 +325,9 @@ public class Configuration {
 
 	Object onOtherServCodeChanged() throws InstanceNotFoundException {
 		otherServCode = request.getParameter("param");
-		if (otherServCode == null) {
-			otherServCode = "";
-		}
+		if (otherServCode != null)
 		configurationService
 				.setParameterGeneric("otherServCode", otherServCode);
-		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -383,12 +336,9 @@ public class Configuration {
 
 	Object onIntegrationHotelChanged() throws InstanceNotFoundException {
 		integrationHotel = request.getParameter("param");
-		if (integrationHotel == null) {
-			integrationHotel = "";
-		}
+		if (integrationHotel != null)
 		configurationService.setParameterGeneric("integrationHotel",
 				integrationHotel);
-		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -406,12 +356,9 @@ public class Configuration {
 
 	Object onCancelTableLevelChanged() throws InstanceNotFoundException {
 		cancelTableLevel = request.getParameter("param");
-		if (cancelTableLevel == null) {
-			cancelTableLevel = "";
-		}
+		if (cancelTableLevel != null)
 		configurationService.setParameterGeneric("cancelTableLevel",
 				cancelTableLevel);
-		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -420,11 +367,8 @@ public class Configuration {
 
 	Object onDayMenuLevelChanged() throws InstanceNotFoundException {
 		dayMenuLevel = request.getParameter("param");
-		if (dayMenuLevel == null) {
-			dayMenuLevel = "";
-		}
+		if (dayMenuLevel != null)
 		configurationService.setParameterGeneric("dayMenuLevel", dayMenuLevel);
-		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -433,12 +377,9 @@ public class Configuration {
 
 	Object onLiteralEspBillChanged() throws InstanceNotFoundException {
 		literalEspBill = request.getParameter("param");
-		if (literalEspBill == null) {
-			literalEspBill = "";
-		}
+		if (literalEspBill != null)
 		configurationService.setParameterGeneric("literalEspBill",
 				literalEspBill);
-		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -450,12 +391,9 @@ public class Configuration {
 
 	Object onAssocElemTipsChanged() throws InstanceNotFoundException {
 		assocElemTips = request.getParameter("param");
-		if (assocElemTips == null) {
-			assocElemTips = "";
-		}
+		if (assocElemTips != null)
 		configurationService
 				.setParameterGeneric("assocElemTips", assocElemTips);
-		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -467,12 +405,9 @@ public class Configuration {
 
 	Object onAssocElemDto1Changed() throws InstanceNotFoundException {
 		assocElemDto1 = request.getParameter("param");
-		if (assocElemDto1 == null) {
-			assocElemDto1 = "";
-		}
+		if (assocElemDto1 != null) 
 		configurationService
 				.setParameterGeneric("assocElemDto1", assocElemDto1);
-		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -481,12 +416,9 @@ public class Configuration {
 
 	Object onAssocElemDto1PorcentChanged() throws InstanceNotFoundException {
 		assocElemDto1Porcent = request.getParameter("param");
-		if (assocElemDto1Porcent == null) {
-			assocElemDto1Porcent = "";
-		}
+		if (assocElemDto1Porcent != null)
 		configurationService.setParameterGeneric("assocElemDto1Porcent",
 				assocElemDto1Porcent);
-		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -498,12 +430,9 @@ public class Configuration {
 
 	Object onAssocElemDto2Changed() throws InstanceNotFoundException {
 		assocElemDto2 = request.getParameter("param");
-		if (assocElemDto2 == null) {
-			assocElemDto2 = "";
-		}
+		if (assocElemDto2 != null)
 		configurationService
 				.setParameterGeneric("assocElemDto2", assocElemDto2);
-		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -512,12 +441,9 @@ public class Configuration {
 
 	Object onAssocElemDto2PorcentChanged() throws InstanceNotFoundException {
 		assocElemDto2Porcent = request.getParameter("param");
-		if (assocElemDto2Porcent == null) {
-			assocElemDto2Porcent = "";
-		}
+		if (assocElemDto2Porcent != null) 
 		configurationService.setParameterGeneric("assocElemDto2Porcent",
 				assocElemDto2Porcent);
-		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -529,12 +455,9 @@ public class Configuration {
 
 	Object onAssocElemDto3Changed() throws InstanceNotFoundException {
 		assocElemDto3 = request.getParameter("param");
-		if (assocElemDto3 == null) {
-			assocElemDto3 = "";
-		}
+		if (assocElemDto3 != null)
 		configurationService
 				.setParameterGeneric("assocElemDto3", assocElemDto3);
-		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -543,25 +466,19 @@ public class Configuration {
 
 	Object onAssocElemDto3PorcentChanged() throws InstanceNotFoundException {
 		assocElemDto3Porcent = request.getParameter("param");
-		if (assocElemDto3Porcent == null) {
-			assocElemDto3Porcent = "";
-		}
+		if (assocElemDto3Porcent != null)
 		configurationService.setParameterGeneric("assocElemDto3Porcent",
 				assocElemDto3Porcent);
-		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
 	@Property
 	private String assocElemTPV;
 
-	Object onAssocElemTPV() throws InstanceNotFoundException {
+	Object onAssocElemTPVChanged() throws InstanceNotFoundException {
 		assocElemTPV = request.getParameter("param");
-		if (assocElemTPV == null) {
-			assocElemTPV = "";
-		}
+		if (assocElemTPV != null)
 		configurationService.setParameterGeneric("assocElemTPV", assocElemTPV);
-		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -570,11 +487,8 @@ public class Configuration {
 
 	Object onchargeTPVChanged() throws InstanceNotFoundException {
 		chargeTPV = request.getParameter("param");
-		if (chargeTPV == null) {
-			chargeTPV = "";
-		}
+		if (chargeTPV != null)
 		configurationService.setParameterGeneric("chargeTPV", chargeTPV);
-		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -583,12 +497,9 @@ public class Configuration {
 
 	Object onFieldSeparatorChanged() throws InstanceNotFoundException {
 		fieldSeparator = request.getParameter("param");
-		if (fieldSeparator == null) {
-			fieldSeparator = "";
-		}
+		if (fieldSeparator != null)
 		configurationService.setParameterGeneric("fieldSeparator",
 				fieldSeparator);
-		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -597,12 +508,9 @@ public class Configuration {
 
 	Object onAlphabSeparator() throws InstanceNotFoundException {
 		alphabSeparator = request.getParameter("param");
-		if (alphabSeparator == null) {
-			alphabSeparator = "";
-		}
+		if (alphabSeparator != null)
 		configurationService.setParameterGeneric("alphabSeparator",
 				alphabSeparator);
-		showMsg = true;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 

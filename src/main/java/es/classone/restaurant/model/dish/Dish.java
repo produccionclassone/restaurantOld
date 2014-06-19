@@ -79,7 +79,7 @@ public class Dish {
 
 	@Column(name = "R1PLA000")
 	@SequenceGenerator( // It only takes effect for
-	name = "DishIdGenerator", // databases providing identifier
+	name = "DishGenerator", // databases providing identifier
 	sequenceName = "DishSeq")
 	// generators.
 	@Id
