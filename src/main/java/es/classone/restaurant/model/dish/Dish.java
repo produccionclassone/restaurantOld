@@ -202,7 +202,7 @@ public class Dish {
 
 	
 	@ManyToOne(optional = false, fetch = FetchType.LAZY)
-	@JoinColumn(name = "dishGroupId")
+	@JoinColumn(name = "Res14grp_R1GRP000")
 	public DishGroup getDishGroup() {
 		return dishGroup;
 	}

@@ -82,6 +82,7 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 			}
 			j++;
 		}
+		
 	}
 
 	@Override
@@ -151,25 +152,34 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 		while ((myLine = bufRead.readLine()) != null) {
 			System.out.println("LINEA" + j);
 			String[] row = myLine.split(";");
+			//Double.parseDouble(row[7].replace('"', ' ').replace(',', '.').trim())
+			Double x  = Double.parseDouble(row[8].replace('"', ' ').replace(',', '.').trim());
+			System.out.println("x " + x);
+			
+			String y = row[9].replace('"', ' ').trim();
+			System.out.println("y " + y);
+			
 			Dish dish = new Dish(
+					
 					row[0].replace('"', ' ').trim(),
 					row[1].replace('"', ' ').trim(),
 					row[2].replace('"', ' ').trim(),
 					row[3].replace('"', ' ').trim(),
 					Integer.parseInt(row[5].replace('"', ' ').trim()),
 					Integer.parseInt(row[6].replace('"', ' ').trim()),
-					Double.parseDouble(row[7].replace('"', ' ').trim()),
-					Double.parseDouble(row[8].replace('"', ' ').trim()),
-					row[9].replace('"', ' ').trim(),
+					0.1,0.20,
+					"1",
 					false,
 					false,
-					dishGroupDao.findByCode(row[4].trim()),
+					//dishGroupDao.findByCode(row[4].replace('"', ' ').trim()),
+					dishGroupDao.findByCode("44"),
 					false,
 					false,
 					false,
 					0,
 					"",
 					"");
+			createDish(dish);
 			for (int i = 0; i < row.length; i++) {
 				System.out.print("string " + i + ": "
 						+ row[i].replace('"', ' '));
