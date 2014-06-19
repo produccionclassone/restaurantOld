@@ -256,7 +256,6 @@
 																			<input
 																				class="form-control checkcontrol checkcontrol-inside"
 																				t:id="covServChar" name="covServChar" t:type="CheckBox"
-																		
 																				t:clientEvent="focusout" t:event="covServCharChanged"
 																				t:mixins="jquery/zoneUpdater" t:zone="msgZone2"/>
 																		</div>

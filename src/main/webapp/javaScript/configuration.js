@@ -47,11 +47,6 @@ var loadParametersGeneric = function(spec) {
 	}
 };
 
-function checkBoxState(id){
-	console.log($("#" + id).is(':checked'));
-	$(location).attr('href','/restaurant/configuration/configuration?id='+ id + '&value=' + $('#' + id).is(':checked'));	
-}
-
 var loadParametersBool = function(spec) {
 	var parametersBool = spec.parametersBool;
 	for (var i = 0; i < parametersBool.length; i++) {

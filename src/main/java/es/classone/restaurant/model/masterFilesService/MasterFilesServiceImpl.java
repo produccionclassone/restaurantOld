@@ -70,15 +70,11 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 			System.out.println("LINEA" + j);
 			String[] row = myLine.split(";");
 			DishGroup dishGroup = new DishGroup(
-					row[0], row[1], Integer.parseInt(row[4]), row[5], row[7],
-					Integer.parseInt(row[6]));
-
-			/*DishGroup dishGroup = new DishGroup(
 					row[0].replace('"', ' ').trim(), row[1].replace('"', ' ')
 							.trim(), Integer.parseInt(row[4].replace('"', ' ')
 							.trim()), row[5].replace('"', ' ').trim(), row[7]
 							.replace('"', ' ').trim(), Integer.parseInt(row[6]
-							.replace('"', ' ').trim()));*/
+							.replace('"', ' ').trim()));
 			createDishGroup(dishGroup);
 			for (int i = 0; i < row.length; i++) {
 				System.out.print("string " + i + ": "
