@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import es.classone.restaurant.model.dishGroup.DishGroup;
 import es.classone.restaurant.modelutil.dao.GenericDaoHibernate;
 
 

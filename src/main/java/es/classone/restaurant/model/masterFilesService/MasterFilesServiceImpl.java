@@ -141,7 +141,6 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 		return null;
 	}
 
-	@SuppressWarnings("unused")
 	@Override
 	public void importDishFile(String path) throws IOException {
 		FileReader input = new FileReader(path);
@@ -150,29 +149,34 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 		String myLine = null;
 		int j = 1;
 		while ((myLine = bufRead.readLine()) != null) {
-			System.out.println("LINEA" + j);
 			String[] row = myLine.split(";");
-			//Double.parseDouble(row[7].replace('"', ' ').replace(',', '.').trim())
-			Double x  = Double.parseDouble(row[8].replace('"', ' ').replace(',', '.').trim());
-			System.out.println("x " + x);
-			
-			String y = row[9].replace('"', ' ').trim();
-			System.out.println("y " + y);
+			/* PRINT Edited lines
+			System.out.print("cod " + row[0].replace('"', ' ').trim());
+			System.out.print("desc 1 " + row[1].replace('"', ' ').trim());
+			System.out.print("desc 2 " + row[2].replace('"', ' ').trim());
+			System.out.print("desc 3 " + row[3].replace('"', ' ').trim());
+			System.out.print("Print " + Integer.parseInt(row[5].replace('"', ' ').trim()));
+			System.out.print("ListPrice " +Integer.parseInt(row[6].replace('"', ' ').trim()));
+			System.out.print("PVP " +Double.parseDouble(row[7].replace('"', ' ').replace(',', '.').trim()));
+			System.out.print("CostPrice " +Double.parseDouble(row[8].replace('"', ' ').replace(',', '.').trim()));
+			System.out.print("Type " + row[9].replace('"', ' ').trim());
+			System.out.print("Group " + dishGroupDao.findByCode(row[4].replace('"', ' ').trim()).getDishGroupCode());
+			System.out.println();
+			*/
 			
 			Dish dish = new Dish(
-					
 					row[0].replace('"', ' ').trim(),
 					row[1].replace('"', ' ').trim(),
 					row[2].replace('"', ' ').trim(),
 					row[3].replace('"', ' ').trim(),
 					Integer.parseInt(row[5].replace('"', ' ').trim()),
 					Integer.parseInt(row[6].replace('"', ' ').trim()),
-					0.1,0.20,
-					"1",
+					Double.parseDouble(row[7].replace('"', ' ').replace(',', '.').trim()),
+					Double.parseDouble(row[8].replace('"', ' ').replace(',', '.').trim()),
+					row[9].replace('"', ' ').trim(),
 					false,
 					false,
-					//dishGroupDao.findByCode(row[4].replace('"', ' ').trim()),
-					dishGroupDao.findByCode("44"),
+					dishGroupDao.findByCode(row[4].replace('"', ' ').trim()),
 					false,
 					false,
 					false,
@@ -180,11 +184,15 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 					"",
 					"");
 			createDish(dish);
+			
+			/* PRINT File line
+			System.out.print(j + ":");
 			for (int i = 0; i < row.length; i++) {
-				System.out.print("string " + i + ": "
-						+ row[i].replace('"', ' '));
+				System.out.print(row[i].trim() + " ");
 			}
+			System.out.println();
 			j++;
+			*/
 		}
 		
 	}

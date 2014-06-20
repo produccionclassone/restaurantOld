@@ -24,7 +24,8 @@ public class DishGroupDaoHibernate extends
 		
 		return (DishGroup) (getSession()
 				.createQuery(
-						"SELECT dg FROM DishGroup dg WHERE dg.dishGroupCode = :dishGroupCode")
+						"SELECT dg FROM DishGroup dg WHERE "
+								+ "dg.dishGroupCode = :dishGroupCode")
 				.setParameter("dishGroupCode", dishGroupCode)
 				.uniqueResult());
 	}

@@ -69,7 +69,6 @@ public class Dish {
 		this.dishLongDesc = dishLongDesc;
 		this.dishShortDesc = dishShortDesc;
 		this.dishDeleted = false;
-		
 	}
 
 
@@ -200,7 +199,6 @@ public class Dish {
 		this.dishPending = dishPending;
 	}
 
-	
 	@ManyToOne(optional = false, fetch = FetchType.LAZY)
 	@JoinColumn(name = "Res14grp_R1GRP000")
 	public DishGroup getDishGroup() {

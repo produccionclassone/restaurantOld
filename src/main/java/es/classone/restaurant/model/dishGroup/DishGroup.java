@@ -10,6 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Res14grp")
+@org.hibernate.annotations.BatchSize(size = 50)
 public class DishGroup {
 
 	private int dishGroupId; // R1GRP000

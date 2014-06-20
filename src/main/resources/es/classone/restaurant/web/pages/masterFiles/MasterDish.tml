@@ -38,17 +38,29 @@
 
 				<div class="col-md-11">
 
-
+					<t:form>
 					<table cellpadding="0" cellspacing="0" border="0"
 						class="table table-bordered hover display" id="example">
 						<thead class="table-head">
 							<tr>
-								<th>${message:dish-group-code}</th>
-								<th>${message:dish-group-description}</th>
-								<th>${message:iva-type}</th>
-								<th>${message:salesLedgerAccount}</th>
-								<th>${message:typeIncome}</th>
-								<th>${message:macroGroup}</th>
+								<th>${message:dishCode}</th>
+								<th>${message:dishDescription1}</th>
+								<th>${message:dishDescription2}</th>
+								<th>${message:dishDescription3}</th>
+								<th>${message:dishGroupCode}</th>
+								<th>${message:dishPrint}</th>
+								<th>${message:dishListPrice}</th>
+								<th>${message:dishPVP}</th>
+								<th>${message:dishCostPrice}</th>
+								<th>${message:dishType}</th>
+								<th>${message:dishDiscount}</th>
+								<th>${message:dishPending}</th>
+								<th>${message:dishTractable}</th>
+								<th>${message:dishOrderer}</th>
+								<th>${message:dishVisible}</th>
+								<th>${message:dishNumbers}</th>
+								<th>${message:dishLongDesc}</th>
+								<th>${message:dishShortDesc}</th>							
 							</tr>
 						</thead>
 						<tbody>
@@ -58,17 +70,17 @@
 									<td>${dish.dishDescriptionLang1}</td>
 									<td>${dish.dishDescriptionLang2}</td>
 									<td>${dish.dishDescriptionLang3}</td>
+									<td>${dish.dishGroup.dishGroupCode}</td>
 									<td>${dish.dishPrint}</td>
 									<td>${dish.dishListPrice}</td>
 									<td>${dish.dishPVP}</td>
 									<td>${dish.dishCostPrice}</td>
 									<td>${dish.dishType}</td>
 									<td>${dish.dishDiscount}</td>
-									<td>${dish.dishPending}</td>
-									<td>${dish.dishGroup}</td>
-									<td>${dish.dishTractable}</td>
-									<td>${dish.dishOrderer}</td>
-									<td>${dish.dishVisible}</td>
+									<td><input t:type="checkBox" t:value="dish.dishPending"/></td>
+									<td><input t:type="checkBox" t:value="dish.dishTractable"/></td>
+									<td><input t:type="checkBox" t:value="dish.dishOrderer"/></td>
+									<td><input t:type="checkBox" t:value="dish.dishVisible"/></td>
 									<td>${dish.dishNumbers}</td>
 									<td>${dish.dishLongDesc}</td>
 									<td>${dish.dishShortDesc}</td>
@@ -76,6 +88,7 @@
 							</div>
 						</tbody>
 					</table>
+					</t:form>
 				</div>
 			</div>
 		</div>

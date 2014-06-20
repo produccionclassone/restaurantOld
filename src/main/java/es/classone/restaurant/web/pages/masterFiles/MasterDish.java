@@ -17,6 +17,7 @@ import es.classone.restaurant.web.services.AuthenticationPolicyType;
 
 @AuthenticationPolicy(AuthenticationPolicyType.AUTHENTICATED_USERS)
 public class MasterDish {
+	
 	@Property
 	private String dishCode;
 
