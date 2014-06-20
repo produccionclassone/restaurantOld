@@ -114,10 +114,11 @@
 															</span>
 														</div>
 														<div class="col-md-2">
-															<input class="form-control textcontrolR" t:id="actualSession"
-																autofocus="true" name="actualSession" t:type="TextField"
+															<input class="form-control textcontrolR validateNumber" t:id="actualSession"
+																name="typeNumber" t:type="TextField"
 																t:validate="required,regexp,maxlength=8" maxlength="8"
-																t:clientEvent="focusout" t:event="actualSessionChanged"
+																onfocusout="save(this)" 
+																t:event="actualSessionChanged"
 																t:mixins="jquery/zoneUpdater" t:zone="msgZone" />
 														</div>
 														<div class="col-md-4"></div>
@@ -132,8 +133,8 @@
 														</div>
 														<div class="col-md-2">
 															<input class="form-control textcontrolR" t:id="lastBill"
-																name="lastBill" t:type="TextField" t:validate="required,regexp,maxlength=8"
-																maxlength="8" t:clientEvent="focusout" t:event="lastBillChanged"
+																name="typeNumber" t:type="TextField" t:validate="required,regexp,maxlength=8"
+																maxlength="8" onfocusout="save(this)" t:event="lastBillChanged"
 																t:mixins="jquery/zoneUpdater" t:zone="msgZone" />
 														</div>
 														<div class="col-md-4"></div>
@@ -148,8 +149,8 @@
 														</div>
 														<div class="col-md-2">
 															<input class="form-control textcontrolR" t:id="lastCommand"
-																name="lastCommand" t:type="TextField" t:validate="required,regexp,maxlength=8"
-																maxlength="8" t:clientEvent="focusout" t:event="lastCommandChanged"
+																name="typeNumber" t:type="TextField" t:validate="required,regexp,maxlength=8"
+																maxlength="8" onfocusout="save(this)" t:event="lastCommandChanged"
 																t:mixins="jquery/zoneUpdater" t:zone="msgZone" />
 														</div>
 														<div class="col-md-4"></div>
@@ -165,7 +166,7 @@
 														<div class="col-md-2">
 															<input class="form-control textcontrolR" t:id="lastClient"
 																name="lastClient" t:type="TextField" t:validate="required,regexp,maxlength=8"
-																maxlength="8" t:clientEvent="focusout" t:event="lastClientChanged"
+																maxlength="8" onfocusout="save(this)" t:event="lastClientChanged"
 																t:mixins="jquery/zoneUpdater" t:zone="msgZone" />
 														</div>
 														<div class="col-md-4"></div>

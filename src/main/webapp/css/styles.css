@@ -539,6 +539,8 @@ h5.textRowBorder {
 	padding:0px 7px;
 	margin-bottom:5px;
 	border-bottom:1px solid #d0d0d0;
+border-top-left-radius: 5px;
+border-top-right-radius: 5px;
 	background-color:#818AB7;
 	color:white;
 }
@@ -577,8 +579,6 @@ HTML > BODY .textcontrolR{
 	height: auto;
 	font-size: 13px;
   	padding: 1px 1px;
-  	border-radius: 1px;
-  	border: 1px solid #ccc;
   	margin-top:2px;
   	text-align:right;
   	float:right;
@@ -588,8 +588,6 @@ HTML > BODY .textcontrolL{
 	height: auto;
 	font-size: 13px;
   	padding: 1px 1px;
-  	border-radius: 1px;
-  	border: 1px solid #ccc;
   	margin-top:2px;
   	text-align:left;
   	float:right;
@@ -645,11 +643,21 @@ div.map {
 .rowBorder {
 	border: 1px solid #d0d0d0;
 	margin-bottom:5px;
+	-webkit-border-radius: 5px;
+-webkit-border-top-left-radius: 5px;
+-webkit-border-top-right-radius: 5px;
+-moz-border-radius-topleft: 5px;
+-moz-border-radius-topright: 5px;
+border-top-left-radius: 5px;
+border-top-right-radius: 5px;
 }
 HTML>BODY
 .label-general{
 	margin-bottom: 3px;
 }
+
+
+
 
 /*DATATABLES */
 HTML>BODY

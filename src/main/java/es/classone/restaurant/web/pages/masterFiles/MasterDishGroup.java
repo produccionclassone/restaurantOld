@@ -82,8 +82,8 @@ public class MasterDishGroup {
 		if (size==0){
 				dishGroupCode="00";
 			try {
-				//masterFilesService.importDishGroupFile("/home/alexpenedo/Documentos/ClassOne/exports/RES91GRP.TXT");
-				masterFilesService.importDishGroupFile("C:/Users/VaninaBusto/Documents/RES91GRP.TXT");
+				masterFilesService.importDishGroupFile("/home/alexpenedo/Documentos/ClassOne/exports/RES91GRP.TXT");
+//				masterFilesService.importDishGroupFile("C:/Users/VaninaBusto/Documents/RES91GRP.TXT");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

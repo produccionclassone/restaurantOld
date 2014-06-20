@@ -39,36 +39,31 @@ function permite(elEvento, permitidos) {
 	return permitidos.indexOf(caracter) != -1 || tecla_especial;
 }
 
-var loadParametersGeneric = function(spec) {
-	var parametersGeneric = spec.parametersGeneric;
-	for (var i = 0; i < parametersGeneric.length; i++) {
-		var parameter = (parametersGeneric[i]).split('|');
-		$("#" + parameter[1]).attr('value', parameter[2]);
+
+function save(parameter){
+
+	console.log(parameter.name);
+	console.log(parameter.id);
+	$.post( "/restaurant/configuration/configuration."+parameter.id+":"+parameter.id+"changed",{param : parameter.value});
+}
+
+var showParameters = function(parameters) {
+	var parametersGeneric=parameters.parametersGeneric;
+	var parametersBool=parameters.parametersBool;
+	var parametersRoom=parameters.parametersRoom;
+	for (var i=0;i<parametersBool.length;i++){
+		$("#"+parametersBool[i].name).attr('checked',parametersBool[i].value);
+	}
+	for (var i=0;i<parametersGeneric.length;i++){
+		$("#"+parametersGeneric[i].name).attr('value',parametersGeneric[i].value);
+	}
+	for (var i=0;i<parametersRoom.length;i++){
+		$("#desc"+parametersRoom[i].id).attr('value',parametersRoom[i].roomDescription);
+		$("#firstTab"+parametersRoom[i].id).attr('value',parametersRoom[i].firstTab);
+		$("#lastTab"+parametersRoom[i].id).attr('value',parametersRoom[i].lastTab);
 	}
 };
 
-var loadParametersBool = function(spec) {
-	var parametersBool = spec.parametersBool;
-	for (var i = 0; i < parametersBool.length; i++) {
-		var parameter = (parametersBool[i]).split('|');
-		if (parameter[2]=="true")
-			$("#" + parameter[1]).attr('checked', true);
-		else
-			$("#" + parameter[1]).attr('checked', false);
-		console.log(parameter);
-		
-	}
-};
-
-var loadParametersRoom = function(spec) {
-	var parametersRoom = spec.parametersRoom;
-	for (var i = 0; i < parametersRoom.length; i++) {
-		var parameter = (parametersRoom[i]).split('|');
-		$("#" + parameter[1]).attr('value', parameter[1]);
-		$("#" + parameter[2]).attr('value', parameter[2]);
-		$("#" + parameter[3]).attr('value', parameter[3]);
-	}
-};
 
 (function($, window) {
 	'use strict';
@@ -76,12 +71,8 @@ var loadParametersRoom = function(spec) {
 			.extend(
 					Tapestry.Initializer,
 					{
-						loadParameters : function(spec) {
-							loadParametersGeneric(spec);
-							loadParametersBool(spec);
-							loadParametersRoom(spec);
-							var parametersBool= spec.parametersBool;
-							console.log(parametersBool);
+						loadParameters : function(parameters) {
+							showParameters(parameters);
 							
 							$('body').on('keydown', 'input, select, textarea', function(e) {
 								var self = $(this)
@@ -90,8 +81,6 @@ var loadParametersRoom = function(spec) {
 								  , next
 								  , prev
 								  ;
-
-							
 								 if (e.keyCode == 27) {
 								     focusable =   form.find('input,a,select,button,textarea').filter(':visible');
 								     prev = focusable.eq(focusable.index(this)-1); 
