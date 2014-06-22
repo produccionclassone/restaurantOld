@@ -19,5 +19,7 @@
         <mapping class="es.classone.restaurant.model.configurationPrivilege.ConfigurationPrivilege" />
         <mapping class="es.classone.restaurant.model.dishGroup.DishGroup" />
         <mapping class="es.classone.restaurant.model.dish.Dish" />
+        <mapping class="es.classone.restaurant.model.client.Client" />
+        <mapping class="es.classone.restaurant.model.channelSegment.ChannelSegment" />
     </session-factory>
 </hibernate-configuration>

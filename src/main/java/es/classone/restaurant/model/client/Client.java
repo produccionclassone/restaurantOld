@@ -4,19 +4,25 @@ import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import es.classone.restaurant.model.channelSegment.ChannelSegment;
+
 @Entity
 @Table(name = "Res14cli")
 public class Client {
 
-	private Long clientId; // R1CLI001
+	private Long clientId; // R1CLI000
+	private String clientCode; // R1CLI001
 	private String clientName; // R1CLI002
 	private String clientAddress; // R1CLI003
 	private String clientZipCode; // R1CLI004
@@ -28,10 +34,10 @@ public class Client {
 	private String clientNotes1; // R1CLI010_01
 	private String clientNotes2; // R1CLI010_02
 	private String clientNotes3; // R1CLI010_03
-	private int clientLimitCredit; // R1CLI011
-	private float debtLastUpgrade; // R1CLI012
+	private double clientLimitCredit; // R1CLI011
+	private double outstandingAmount; // R1CLI012
 	private Calendar clientLastDateFood; // R1CLI013
-	private float clientAmountSpent; // R1CLI014
+	private double clientAmountSpent; // R1CLI014
 	private int clientDiners; // R1CLI015;
 	private int clientTimesToEat; // R1CLI016
 	private String clientObservation1; // R1CLI017_01
@@ -41,21 +47,30 @@ public class Client {
 	private String ledgerAccount; // R1CLI201
 	private char ledgerAccountType;// R1CLI202 7* "C" / "A" / "E"
 	private String typeCode;// R1CLI203 Codigo de "E" o "A"
+	private ChannelSegment channelSegment; // Res14can_R1CAN000
+	private boolean sendEmail; // R1CLI018
+	private String clientEmail; // R1CLI019
+	private boolean sendSMS; // R1CLI020
 
+	
 	public Client() {
 
 	}
 
-	public Client(String clientName, String clientAddress,
+	public Client(String clientCode, String clientName, String clientAddress,
 			String clientZipCode, String clientDown, String clientProvince,
 			String clientDNI, String clientPhoneContact,
 			String clientPersonContact, String clientNotes1,
-			String clientNotes2, String clientNotes3, int clientLimitCredit,
-			float debtLastUpgrade, Calendar clientLastDateFood,
-			float clientAmountSpent, int clientDiners, int clientTimesToEat,
+			String clientNotes2, String clientNotes3, double clientLimitCredit,
+			double outstandingAmount, Calendar clientLastDateFood,
+			double clientAmountSpent, int clientDiners, int clientTimesToEat,
 			String clientObservation1, String clientObservation2,
 			String clientObservation3, String clientObservation4,
-			String ledgerAccount, char ledgerAccountType, String typeCode) {
+			String ledgerAccount, char ledgerAccountType, String typeCode,
+			ChannelSegment channelSegment, boolean sendEmail,
+			String clientEmail, boolean sendSMS) {
+
+		this.clientCode = clientCode;
 		this.clientName = clientName;
 		this.clientAddress = clientAddress;
 		this.clientZipCode = clientZipCode;
@@ -68,7 +83,7 @@ public class Client {
 		this.clientNotes2 = clientNotes2;
 		this.clientNotes3 = clientNotes3;
 		this.clientLimitCredit = clientLimitCredit;
-		this.debtLastUpgrade = debtLastUpgrade;
+		this.outstandingAmount = outstandingAmount;
 		this.clientLastDateFood = clientLastDateFood;
 		this.clientAmountSpent = clientAmountSpent;
 		this.clientDiners = clientDiners;
@@ -80,9 +95,13 @@ public class Client {
 		this.ledgerAccount = ledgerAccount;
 		this.ledgerAccountType = ledgerAccountType;
 		this.typeCode = typeCode;
+		this.channelSegment = channelSegment;
+		this.sendEmail = sendEmail;
+		this.clientEmail = clientEmail;
+		this.sendSMS = sendSMS;
 	}
 
-	@Column(name = "R1CLI001")
+	@Column(name = "R1CLI000")
 	@SequenceGenerator( // It only takes effect for
 	name = "ClientIdGenerator", // databases providing identifier
 	sequenceName = "ClientSeq")
@@ -95,6 +114,15 @@ public class Client {
 
 	public void setClientId(Long clientId) {
 		this.clientId = clientId;
+	}
+
+	@Column(name="R1CLI001")
+	public String getClientCode() {
+		return clientCode;
+	}
+
+	public void setClientCode(String clientCode) {
+		this.clientCode = clientCode;
 	}
 
 	@Column(name = "R1CLI002")
@@ -197,21 +225,21 @@ public class Client {
 	}
 
 	@Column(name = "R1CLI011")
-	public int getClientLimitCredit() {
+	public double getClientLimitCredit() {
 		return clientLimitCredit;
 	}
 
-	public void setClientLimitCredit(int clientLimitCredit) {
+	public void setClientLimitCredit(double clientLimitCredit) {
 		this.clientLimitCredit = clientLimitCredit;
 	}
 
 	@Column(name = "R1CLI012")
-	public float getDebtLastUpgrade() {
-		return debtLastUpgrade;
+	public double getOutstandingAmount() {
+		return outstandingAmount;
 	}
 
-	public void setDebtLastUpgrade(float debtLastUpgrade) {
-		this.debtLastUpgrade = debtLastUpgrade;
+	public void setDebtLastUpgrade(double outstandingAmount) {
+		this.outstandingAmount = outstandingAmount;
 	}
 
 	@Column(name = "R1CLI013")
@@ -225,11 +253,11 @@ public class Client {
 	}
 
 	@Column(name = "R1CLI014")
-	public float getClientAmountSpent() {
+	public double getClientAmountSpent() {
 		return clientAmountSpent;
 	}
 
-	public void setClientAmountSpent(float clientAmountSpent) {
+	public void setClientAmountSpent(double clientAmountSpent) {
 		this.clientAmountSpent = clientAmountSpent;
 	}
 
@@ -314,31 +342,82 @@ public class Client {
 		this.typeCode = typeCode;
 	}
 
+	@ManyToOne(optional = false, fetch = FetchType.LAZY)
+	@JoinColumn(name = "Res14can_R1CAN000")
+	public ChannelSegment getChannelSegment() {
+		return channelSegment;
+	}
+
+	public void setChannelSegment(ChannelSegment channelSegment) {
+		this.channelSegment = channelSegment;
+	}
+
+	@Column(name="R1CLI018")
+	public boolean isSendEmail() {
+		return sendEmail;
+	}
+
+	public void setSendEmail(boolean sendEmail) {
+		this.sendEmail = sendEmail;
+	}
+
+	@Column(name="R1CLI019")
+	public String getClientEmail() {
+		return clientEmail;
+	}
+
+	public void setClientEmail(String clientEmail) {
+		this.clientEmail = clientEmail;
+	}
+
+	@Column(name="R1CLI020")
+	public boolean isSendSMS() {
+		return sendSMS;
+	}
+
+	public void setSendSMS(boolean sendSMS) {
+		this.sendSMS = sendSMS;
+	}
+	
+	
+
 }
-// CREATE TABLE IF NOT EXISTS `Ayx14res`.`Res14cli` (
-// `R1CLI001` BIGINT NOT NULL AUTO_INCREMENT,
-// `R1CLI002` VARCHAR(30) NOT NULL,
-// `R1CLI003` VARCHAR(30) NULL,
-// `R1CLI004` VARCHAR(8) NULL,
-// `R1CLI005` VARCHAR(30) NULL,
-// `R1CLI006` VARCHAR(30) NULL,
-// `R1CLI007` VARCHAR(20) NULL,
-// `R1CLI008` VARCHAR(15) NULL,
-// `R1CLI009` VARCHAR(30) NULL,
-// `R1CLI010_01` VARCHAR(45) NULL,
-// `R1CLI010_02` VARCHAR(45) NULL,
-// `R1CLI010_03` VARCHAR(45) NULL,
-// `R1CLI011` DECIMAL(9,2) NOT NULL DEFAULT 0,
-// `R1CLI012` DECIMAL(9,2) NOT NULL DEFAULT 0,
-// `R1CLI013` DATE NOT NULL DEFAULT 20130101,
-// `R1CLI014` DECIMAL(9,2) NOT NULL DEFAULT 0,
-// `R1CLI015` SMALLINT NOT NULL DEFAULT 0,
-// `R1CLI016` INT NOT NULL DEFAULT 0,
-// `R1CLI017_01` VARCHAR(45) NULL,
-// `R1CLI017_02` VARCHAR(45) NULL,
-// `R1CLI017_03` VARCHAR(45) NULL,
-// `R1CLI017_04` VARCHAR(45) NULL,
-// `R1CLI201` VARCHAR(8) NOT NULL DEFAULT '43000000',
-// `R1CLI202` CHAR NULL,
-// `R1CLI203` VARCHAR(5) NULL,
-// PRIMARY KEY (`R1CLI001`))
+//CREATE TABLE IF NOT EXISTS `ayx14res`.`Res14cli` (
+//		  `R1CLI000` BIGINT NOT NULL AUTO_INCREMENT,
+//		  `R1CLI001` VARCHAR(6) NOT NULL,
+//		  `R1CLI002` VARCHAR(45) NOT NULL,
+//		  `R1CLI003` VARCHAR(45) NULL,
+//		  `R1CLI004` VARCHAR(8) NULL,
+//		  `R1CLI005` VARCHAR(45) NULL,
+//		  `R1CLI006` VARCHAR(45) NULL,
+//		  `R1CLI007` VARCHAR(20) NULL,
+//		  `R1CLI008` VARCHAR(15) NULL,
+//		  `R1CLI009` VARCHAR(45) NULL,
+//		  `R1CLI010_01` VARCHAR(45) NULL,
+//		  `R1CLI010_02` VARCHAR(45) NULL,
+//		  `R1CLI010_03` VARCHAR(45) NULL,
+//		  `R1CLI011` DECIMAL(9,2) NOT NULL DEFAULT 0,
+//		  `R1CLI012` DECIMAL(9,2) NOT NULL DEFAULT 0,
+//		  `R1CLI013` DATE NOT NULL DEFAULT 20130101,
+//		  `R1CLI014` DECIMAL(9,2) NOT NULL DEFAULT 0,
+//		  `R1CLI015` SMALLINT NOT NULL DEFAULT 0,
+//		  `R1CLI016` INT NOT NULL DEFAULT 0,
+//		  `R1CLI017_01` VARCHAR(45) NULL,
+//		  `R1CLI017_02` VARCHAR(45) NULL,
+//		  `R1CLI017_03` VARCHAR(45) NULL,
+//		  `R1CLI017_04` VARCHAR(45) NULL,
+//		  `R1CLI201` VARCHAR(8) NOT NULL DEFAULT '43000000',
+//		  `R1CLI202` CHAR NULL,
+//		  `R1CLI203` VARCHAR(5) NULL,
+//		  `Res14can_R1CAN000` INT NOT NULL,
+//		  `R1CLI018` TINYINT(1) NULL,
+//		  `R1CLI019` VARCHAR(45) NULL,
+//		  `R1CLI020` TINYINT(1) NULL,
+//		  PRIMARY KEY (`R1CLI000`),
+//		  INDEX `res14cli_res14can_idx` (`Res14can_R1CAN000` ASC),
+//		  CONSTRAINT `res14cli_res14can`
+//		    FOREIGN KEY (`Res14can_R1CAN000`)
+//		    REFERENCES `ayx14res`.`Res14CAN` (`R1CAN000`)
+//		    ON DELETE NO ACTION
+//		    ON UPDATE NO ACTION)
+//		ENGINE = InnoDB

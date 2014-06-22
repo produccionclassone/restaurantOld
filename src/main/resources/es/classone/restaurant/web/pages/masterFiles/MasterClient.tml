@@ -1,0 +1,86 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	t:type="LayoutIndex" t:pageTitle="title">
+
+	<head>
+		<link rel="stylesheet" type="text/css"
+			href="${context:/css/dataTables.bootstrap.css}" />
+		<link rel="stylesheet" type="text/css"
+			href="${context:/css/dataTables.colVis.css}" />
+		<link rel="stylesheet" type="text/css"
+			href="${context:/css/dataTables.colReorder.css}" />
+		<link rel="stylesheet" type="text/css"
+			href="${context:/css/dataTables.tableTools.css}" />
+		<link rel="stylesheet" type="text/css"
+			href="${context:/css/editor.bootstrap.css}" />
+		<link rel="stylesheet" type="text/css"
+			href="${context:/css/dataTables.fixedHeader.css}" />
+		<script type="text/javascript" language="javascript"
+			src="//cdn.datatables.net/1.10-dev/js/jquery.dataTables.js"></script>
+		<script type="text/javascript" language="javascript"
+			src="${context:javaScript/dataTables.bootstrap.js}"></script>
+		<script type="text/javascript" language="javascript"
+			src="${context:javaScript/dataTables.colVis.min.js}"></script>
+		<script type="text/javascript" language="javascript"
+			src="${context:javaScript/dataTables.colReorder.min.js}"></script>
+		<script type="text/javascript" language="javascript"
+			src="${context:javaScript/dataTables.fixedHeader.js}"></script>
+		<script type="text/javascript" language="javascript"
+			src="${context:javaScript/dataTables.tableTools.min.js}"></script>
+		<script type="text/javascript" language="javascript"
+			src="${context:javaScript/table.js}"></script>
+
+
+	</head>
+	<body>
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-md-11">
+
+					<t:form>
+					<table cellpadding="0" cellspacing="0" border="0"
+						class="table table-bordered hover display" id="example">
+						<thead class="table-head">
+							<tr>
+								<th>${message:dishCode}</th>
+								<th>${message:dishDescription1}</th>
+								<th>${message:dishDescription2}</th>
+								<th>${message:dishDescription3}</th>
+								<th>${message:dishGroupCode}</th>
+								<th>${message:dishPrint}</th>
+								<th>${message:dishListPrice}</th>
+								<th>${message:dishPVP}</th>
+								<th>${message:dishCostPrice}</th>
+								<th>${message:dishType}</th>
+								<th>${message:dishDiscount}</th>
+								<th>${message:dishPending}</th>
+								<th>${message:dishTractable}</th>
+								<th>${message:dishOrderer}</th>
+								<th>${message:dishVisible}</th>
+								<th>${message:dishNumbers}</th>
+								<th>${message:dishLongDesc}</th>
+								<th>${message:dishShortDesc}</th>							
+							</tr>
+						</thead>
+						<tbody>
+							<div t:type="Loop" t:source="clients" t:value="client">
+								<tr id="${client.clientId}">
+									<td>${client.clientCode}</td>
+								</tr>
+							</div>
+						</tbody>
+					</table>
+					</t:form>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+		$(".btn").tooltip({
+		'show': true,
+		});
+		});
+	</script>
+</html>

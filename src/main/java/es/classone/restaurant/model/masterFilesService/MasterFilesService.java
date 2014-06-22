@@ -3,6 +3,7 @@ package es.classone.restaurant.model.masterFilesService;
 import java.io.IOException;
 import java.util.List;
 
+import es.classone.restaurant.model.client.Client;
 import es.classone.restaurant.model.dish.Dish;
 import es.classone.restaurant.model.dishGroup.DishGroup;
 import es.classone.restaurant.modelutil.exceptions.InstanceNotFoundException;
@@ -41,5 +42,20 @@ public interface MasterFilesService {
 						 boolean dishVisible, int dishNumbers, String dishLongDesc, String dishShortDesc) throws InstanceNotFoundException;
 
 	public void importDishFile(String path) throws IOException;
+
+	public List<Client> findAllClient();
+
+	public Client createClient(Client client);
+
+	public Client getClientByClientId(Long clientId)
+			throws InstanceNotFoundException;
+
+	public void deleteClient(Long clientId)
+			throws InstanceNotFoundException;
+
+	public Client editClient()
+			throws InstanceNotFoundException;
+
+	public void importClientFile(String path) throws IOException;
 
 }

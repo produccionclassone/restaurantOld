@@ -3,12 +3,16 @@ package es.classone.restaurant.model.masterFilesService;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import es.classone.restaurant.model.channelSegment.ChannelSegment;
+import es.classone.restaurant.model.client.Client;
+import es.classone.restaurant.model.client.ClientDao;
 import es.classone.restaurant.model.dish.Dish;
 import es.classone.restaurant.model.dish.DishDao;
 import es.classone.restaurant.model.dishGroup.DishGroup;
@@ -23,6 +27,9 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 	private DishGroupDao dishGroupDao;
 
 	@Autowired DishDao dishDao;
+	
+	@Autowired
+	private ClientDao clientDao;
 	
 	public List<DishGroup> findAll() {
 		return dishGroupDao.findAll();
@@ -56,7 +63,6 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 		dishGroup.setsalesLedgerAccount(salesLedgerAccount);
 		dishGroup.settypeIncome(typeIncome);
 		return dishGroup;
-
 	}
 
 	public void importDishGroupFile(String path) throws IOException {
@@ -196,11 +202,93 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 		}
 		
 	}
+
+
+	public List<Client> findAllClient() {
+		return clientDao.findAll();
+	}
+
+	public Client createClient(Client client) {
+		clientDao.save(client);
+		return client;
+	}
+
+	public void deleteClient(Long clientId)
+			throws InstanceNotFoundException {
+		clientDao.find(clientId);
+		clientDao.remove(clientId);
+	}
+
+	public Client getClientByClientId(Long clientId)
+			throws InstanceNotFoundException {
+		return clientDao.find(clientId);
+	}
+
+	public Client editClient()
+			throws InstanceNotFoundException {
+		return null;
+	}
+
+	public void importClientFile(String path) throws IOException {
+
+		FileReader input = new FileReader(path);
+		@SuppressWarnings("resource")
+		BufferedReader bufRead = new BufferedReader(input);
+		String myLine = null;
+		int j = 1;
+		while ((myLine = bufRead.readLine()) != null) {
+			String[] row = myLine.split(";");
+
+			/* PRINT Edited lines*/ 
+			System.out.println ("code " + row[0].replace('"', ' ').trim());
+			System.out.println (" name " + row[1].replace('"', ' ').trim());
+			System.out.println ("address " + row[2].replace('"', ' ').trim());
+			System.out.println ("zip code " + row[3].replace('"', ' ').trim());
+			System.out.println ("down " + row[4].replace('"', ' ').trim());
+			System.out.println ("province " + row[5].replace('"', ' ').trim());
+			System.out.println ("cif dni " + row[6].replace('"', ' ').trim());
+			System.out.println ("tc " + row[7].replace('"', ' ').trim());
+			System.out.println ("pc " + row[8].replace('"', ' ').trim());
+			System.out.println ("note1 " + row[9].replace('"', ' ').trim());
+			System.out.println ("note2 " + row[10].replace('"', ' ').trim());
+			System.out.println ("note3 " + row[11].replace('"', ' ').trim());
+			System.out.println ("Limit credit " + Double.parseDouble(row[12].replace('"', ' ').trim()));
+			System.out.println ("Outstanding amount " + Double.parseDouble(row[13].replace('"', ' ').trim()));
+			System.out.println ("Last date food " + row[14].replace('"', ' ').trim());
+			System.out.println ("Amunt spent " + Double.parseDouble(row[15].replace('"', ' ').trim()));
+			System.out.println ("Dinners " + Integer.parseInt(row[16].replace('"', ' ').trim()));
+			System.out.println ("Times to eat " + Integer.parseInt(row[17].replace('"', ' ').trim()));
+			System.out.println ("obs1 " + row[18].replace('"', ' ').trim());
+			System.out.println ("obs2 " + row[19].replace('"', ' ').trim());
+			System.out.println ("obs3 " + row[20].replace('"', ' ').trim());
+			System.out.println ("obs4 " + row[21].replace('"', ' ').trim());
+			System.out.println ("ledger Account " + row[22].replace('"', ' ').trim());
+			System.out.println ("ledger Account type" + row[23].replace('"', ' ').trim());
+			System.out.println();
+			/*
+			String typeCode
+			ChannelSegment channelSegment
+			boolean sendEmail
+			String clientEmail
+			boolean sendSMS
+			*/
+	
+			/* PRINT File line
+			System.out.print(j + ":");
+			for (int i = 0; i < row.length; i++) {
+				System.out.print(row[i].trim() + " ");
+			}
+			System.out.println();
+			j++;
+			*/
+		}
+	}
+
+
 }
-
-
-
-/*
-CODE;DESC1;DESC2;DESC3;GRUPO;PRINT;LISTAPRECIOS;PRECIOVTA;PRECIOCOSTE;TYPE;PENDING
-"0001";"VARIOS";"";"";"01";1;0;0,00;0,00;"P";" "
-*/
+//|0 code |1  name |2 address |3 zip code |4 down |5 province |6 cif dni |7 tc |8 pc |9 note 1 |10 note 2 |11 note 3 |12 limit credit 
+//|13  outstandingAmount |14 LastDateFood |15 AmountSpent |16 clientDiners|17 clientTimesToEat |18 obs1 |19 obs2|20 obs3 
+//|21 obs4 |22 ledgerAccount |23 ledgerAccountType 
+//00008;IDESA PARFUM                  ;VIA AUGUSTA, 59 - 9§          ;08006;BARCELONA                ;BARCELONA      ;A08144172      ;
+//619005264      ;ANGELES MENENDEZ    ;                              ;                              ;                              ;
+//0,00;      9930,94;20070228;     10965,73;       123,00;        11,00;                                    ;                                    ;                                    ;                                    ;43010008;C;     

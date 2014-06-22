@@ -49,7 +49,7 @@ public class CommandHistory {
 	private char typeChargeMP2; // R2SES022_02
 	private char typeChargeMP3; // R2SES022_03
 	private SessionHistory sesionHistory; // Res14ses_R1SES000
-	private Client client; // Res14cli_R1CLI001
+	private Client client; // Res14cli_R1CLI000
 	private MethodOfPayment methodPayment1; // Res14cnt_FP_RFCNT300
 	private MethodOfPayment methodPayment2; // Res14cnt_FP_RFCNT3001
 	private MethodOfPayment methodPayment3; // Res14cnt_FP_RFCNT3002
@@ -274,7 +274,7 @@ public class CommandHistory {
 	}
 
 	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "R1CLI001")
+	@JoinColumn(name = "R1CLI000")
 	public Client getClient() {
 		return client;
 	}
@@ -325,49 +325,60 @@ public class CommandHistory {
 
 }
 
-/*
- * -- ----------------------------------------------------- -- Table
- * `Ayx14res`.`Res14ses_1` --
- * ----------------------------------------------------- DROP TABLE IF EXISTS
- * `Ayx14res`.`Res14ses_1` ;
- * 
- * CREATE TABLE IF NOT EXISTS `Ayx14res`.`Res14ses_1` ( `R2SES000_1` BIGINT NOT
- * NULL AUTO_INCREMENT, `R2SES020` DECIMAL(11,2) NOT NULL, `R2SES021` CHAR NOT
- * NULL, `R2SES101` DECIMAL(6) NOT NULL, `R2SES011` DATETIME NOT NULL,
- * `R2SES012` DATETIME NOT NULL, `R2SES013` INT NOT NULL, `R2SES017_01`
- * DECIMAL(11,2) NOT NULL, `R2SES018_01` DECIMAL(11,2) NULL, `R2SES019_01`
- * DECIMAL(11,2) NULL, `R2SES017_02` DECIMAL(11,2) NOT NULL, `R2SES018_02`
- * DECIMAL(11,2) NULL, `R2SES019_02` DECIMAL(11,2) NULL, `R2SES017_03`
- * DECIMAL(11,2) NOT NULL, `R2SES018_03` DECIMAL(11,2) NULL, `R2SES019_03`
- * DECIMAL(11,2) NULL, `R2SES022_01` CHAR NOT NULL, `R2SES022_02` CHAR NULL,
- * `R2SES022_03` CHAR NULL, `Res14ses_R1SES000` BIGINT NOT NULL,
- * `Res14cli_R1CLI001` BIGINT NOT NULL, `Res14cnt_FP_RFCNT300` INT NOT NULL,
- * `Res14cnt_FP_RFCNT3001` INT NOT NULL, `Res14cnt_FP_RFCNT3002` INT NOT NULL,
- * PRIMARY KEY (`R2SES000_1`), CONSTRAINT `fk_Res14ses_1_Res14ses1` FOREIGN KEY
- * (`Res14ses_R1SES000`) REFERENCES `Ayx14res`.`Res14ses` (`R1SES000`) ON DELETE
- * NO ACTION ON UPDATE NO ACTION, CONSTRAINT `fk_Res14ses_1_Res14cli1` FOREIGN
- * KEY (`Res14cli_R1CLI001`) REFERENCES `Ayx14res`.`Res14cli` (`R1CLI001`) ON
- * DELETE NO ACTION ON UPDATE NO ACTION, CONSTRAINT `fk_Res14ses_1_Res14cnt_FP1`
- * FOREIGN KEY (`Res14cnt_FP_RFCNT300`) REFERENCES `Ayx14res`.`Res14cnt_FP`
- * (`RFCNT300`) ON DELETE NO ACTION ON UPDATE NO ACTION, CONSTRAINT
- * `fk_Res14ses_1_Res14cnt_FP2` FOREIGN KEY (`Res14cnt_FP_RFCNT3001`) REFERENCES
- * `Ayx14res`.`Res14cnt_FP` (`RFCNT300`) ON DELETE NO ACTION ON UPDATE NO
- * ACTION, CONSTRAINT `fk_Res14ses_1_Res14cnt_FP3` FOREIGN KEY
- * (`Res14cnt_FP_RFCNT3002`) REFERENCES `Ayx14res`.`Res14cnt_FP` (`RFCNT300`) ON
- * DELETE NO ACTION ON UPDATE NO ACTION) ENGINE = InnoDB;
- * 
- * CREATE INDEX `fk_Res14ses_1_Res14ses1_idx` ON `Ayx14res`.`Res14ses_1`
- * (`Res14ses_R1SES000` ASC);
- * 
- * CREATE INDEX `fk_Res14ses_1_Res14cli1_idx` ON `Ayx14res`.`Res14ses_1`
- * (`Res14cli_R1CLI001` ASC);
- * 
- * CREATE INDEX `fk_Res14ses_1_Res14cnt_FP1_idx` ON `Ayx14res`.`Res14ses_1`
- * (`Res14cnt_FP_RFCNT300` ASC);
- * 
- * CREATE INDEX `fk_Res14ses_1_Res14cnt_FP2_idx` ON `Ayx14res`.`Res14ses_1`
- * (`Res14cnt_FP_RFCNT3001` ASC);
- * 
- * CREATE INDEX `fk_Res14ses_1_Res14cnt_FP3_idx` ON `Ayx14res`.`Res14ses_1`
- * (`Res14cnt_FP_RFCNT3002` ASC);
- */
+//CREATE TABLE IF NOT EXISTS `ayx14res`.`Res14ses_1` (
+//		  `R2SES000_1` BIGINT NOT NULL AUTO_INCREMENT,
+//		  `R2SES020` DECIMAL(11,2) NOT NULL,
+//		  `R2SES021` CHAR NOT NULL,
+//		  `R2SES101` INT NOT NULL,
+//		  `R2SES011` DATETIME NOT NULL,
+//		  `R2SES012` DATETIME NOT NULL,
+//		  `R2SES013` INT NOT NULL,
+//		  `R2SES017_01` DECIMAL(11,2) NOT NULL,
+//		  `R2SES018_01` DECIMAL(11,2) NULL,
+//		  `R2SES019_01` DECIMAL(11,2) NULL,
+//		  `R2SES017_02` DECIMAL(11,2) NOT NULL,
+//		  `R2SES018_02` DECIMAL(11,2) NULL,
+//		  `R2SES019_02` DECIMAL(11,2) NULL,
+//		  `R2SES017_03` DECIMAL(11,2) NOT NULL,
+//		  `R2SES018_03` DECIMAL(11,2) NULL,
+//		  `R2SES019_03` DECIMAL(11,2) NULL,
+//		  `R2SES022_01` CHAR NOT NULL,
+//		  `R2SES022_02` CHAR NULL,
+//		  `R2SES022_03` CHAR NULL,
+//		  `Res14ses_R1SES000` BIGINT NOT NULL,
+//		  `Res14cli_R1CLI000` BIGINT NOT NULL,
+//		  `Res14cnt_FP_RFCNT300` INT NOT NULL,
+//		  `Res14cnt_FP_RFCNT3001` INT NOT NULL,
+//		  `Res14cnt_FP_RFCNT3002` INT NOT NULL,
+//		  PRIMARY KEY (`R2SES000_1`),
+//		  INDEX `fk_Res14ses_1_Res14ses1_idx` (`Res14ses_R1SES000` ASC),
+//		  INDEX `fk_Res14ses_1_Res14cli1_idx` (`Res14cli_R1CLI000` ASC),
+//		  INDEX `fk_Res14ses_1_Res14cnt_FP1_idx` (`Res14cnt_FP_RFCNT300` ASC),
+//		  INDEX `fk_Res14ses_1_Res14cnt_FP2_idx` (`Res14cnt_FP_RFCNT3001` ASC),
+//		  INDEX `fk_Res14ses_1_Res14cnt_FP3_idx` (`Res14cnt_FP_RFCNT3002` ASC),
+//		  CONSTRAINT `fk_Res14ses_1_Res14ses1`
+//		    FOREIGN KEY (`Res14ses_R1SES000`)
+//		    REFERENCES `ayx14res`.`Res14ses` (`R1SES000`)
+//		    ON DELETE NO ACTION
+//		    ON UPDATE NO ACTION,
+//		  CONSTRAINT `fk_Res14ses_1_Res14cli1`
+//		    FOREIGN KEY (`Res14cli_R1CLI000`)
+//		    REFERENCES `ayx14res`.`Res14cli` (`R1CLI000`)
+//		    ON DELETE NO ACTION
+//		    ON UPDATE NO ACTION,
+//		  CONSTRAINT `fk_Res14ses_1_Res14cnt_FP1`
+//		    FOREIGN KEY (`Res14cnt_FP_RFCNT300`)
+//		    REFERENCES `ayx14res`.`Res14cnt_FP` (`RFCNT300`)
+//		    ON DELETE NO ACTION
+//		    ON UPDATE NO ACTION,
+//		  CONSTRAINT `fk_Res14ses_1_Res14cnt_FP2`
+//		    FOREIGN KEY (`Res14cnt_FP_RFCNT3001`)
+//		    REFERENCES `ayx14res`.`Res14cnt_FP` (`RFCNT300`)
+//		    ON DELETE NO ACTION
+//		    ON UPDATE NO ACTION,
+//		  CONSTRAINT `fk_Res14ses_1_Res14cnt_FP3`
+//		    FOREIGN KEY (`Res14cnt_FP_RFCNT3002`)
+//		    REFERENCES `ayx14res`.`Res14cnt_FP` (`RFCNT300`)
+//		    ON DELETE NO ACTION
+//		    ON UPDATE NO ACTION)
+//		ENGINE = InnoDB;

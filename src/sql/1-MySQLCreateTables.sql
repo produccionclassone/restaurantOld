@@ -190,15 +190,16 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `ayx14res`.`Res14cli` ;
 
 CREATE TABLE IF NOT EXISTS `ayx14res`.`Res14cli` (
-  `R1CLI001` BIGINT NOT NULL AUTO_INCREMENT,
-  `R1CLI002` VARCHAR(30) NOT NULL,
-  `R1CLI003` VARCHAR(30) NULL,
+  `R1CLI000` BIGINT NOT NULL AUTO_INCREMENT,
+  `R1CLI001` VARCHAR(6) NOT NULL,
+  `R1CLI002` VARCHAR(45) NOT NULL,
+  `R1CLI003` VARCHAR(45) NULL,
   `R1CLI004` VARCHAR(8) NULL,
-  `R1CLI005` VARCHAR(30) NULL,
-  `R1CLI006` VARCHAR(30) NULL,
+  `R1CLI005` VARCHAR(45) NULL,
+  `R1CLI006` VARCHAR(45) NULL,
   `R1CLI007` VARCHAR(20) NULL,
   `R1CLI008` VARCHAR(15) NULL,
-  `R1CLI009` VARCHAR(30) NULL,
+  `R1CLI009` VARCHAR(45) NULL,
   `R1CLI010_01` VARCHAR(45) NULL,
   `R1CLI010_02` VARCHAR(45) NULL,
   `R1CLI010_03` VARCHAR(45) NULL,
@@ -215,7 +216,27 @@ CREATE TABLE IF NOT EXISTS `ayx14res`.`Res14cli` (
   `R1CLI201` VARCHAR(8) NOT NULL DEFAULT '43000000',
   `R1CLI202` CHAR NULL,
   `R1CLI203` VARCHAR(5) NULL,
-  PRIMARY KEY (`R1CLI001`))
+  `Res14can_R1CAN000` INT NOT NULL,
+  `R1CLI018` TINYINT(1) NULL,
+  `R1CLI019` VARCHAR(45) NULL,
+  `R1CLI020` TINYINT(1) NULL,
+  PRIMARY KEY (`R1CLI000`),
+  INDEX `res14cli_res14can_idx` (`Res14can_R1CAN000` ASC),
+  CONSTRAINT `res14cli_res14can`
+    FOREIGN KEY (`Res14can_R1CAN000`)
+    REFERENCES `ayx14res`.`Res14CAN` (`R1CAN000`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `ayx14res`.`Res14can`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ayx14res`.`Res14CAN` (
+  `R1CAN000` INT NOT NULL,
+  `R1CAN001` VARCHAR(3) NOT NULL,
+  `R1CAN002` VARCHAR(45) NULL,
+  PRIMARY KEY (`R1CAN000`))
 ENGINE = InnoDB;
 
 
@@ -313,19 +334,24 @@ CREATE TABLE IF NOT EXISTS `ayx14res`.`Res14mes_1` (
   `R1MES019_03` DECIMAL(11,2) NULL,
   `R1MES020_03` DECIMAL(11,2) NULL,
   `Res14mes_R1MES000` INT NOT NULL,
-  `Res14cli_R1CLI001` BIGINT NOT NULL,
+  `Res14cli_R1CLI000` BIGINT NOT NULL,
   `Res14cnt_FP_RFCNT300` INT NOT NULL,
   `Res14cnt_FP_RFCNT3001` INT NOT NULL,
   `Res14cnt_FP_RFCNT3002` INT NOT NULL,
   PRIMARY KEY (`R1MES000_1`),
+  INDEX `fk_Res14mes_1_Res14mes1_idx` (`Res14mes_R1MES000` ASC),
+  INDEX `fk_Res14mes_1_Res14cli1_idx` (`Res14cli_R1CLI000` ASC),
+  INDEX `fk_Res14mes_1_Res14cnt_FP1_idx` (`Res14cnt_FP_RFCNT300` ASC),
+  INDEX `fk_Res14mes_1_Res14cnt_FP2_idx` (`Res14cnt_FP_RFCNT3001` ASC),
+  INDEX `fk_Res14mes_1_Res14cnt_FP3_idx` (`Res14cnt_FP_RFCNT3002` ASC),
   CONSTRAINT `fk_Res14mes_1_Res14mes1`
     FOREIGN KEY (`Res14mes_R1MES000`)
     REFERENCES `ayx14res`.`Res14mes` (`R1MES000`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Res14mes_1_Res14cli1`
-    FOREIGN KEY (`Res14cli_R1CLI001`)
-    REFERENCES `ayx14res`.`Res14cli` (`R1CLI001`)
+    FOREIGN KEY (`Res14cli_R1CLI000`)
+    REFERENCES `ayx14res`.`Res14cli` (`R1CLI000`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Res14mes_1_Res14cnt_FP1`
@@ -344,17 +370,6 @@ CREATE TABLE IF NOT EXISTS `ayx14res`.`Res14mes_1` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
-CREATE INDEX `fk_Res14mes_1_Res14mes1_idx` ON `ayx14res`.`Res14mes_1` (`Res14mes_R1MES000` ASC);
-
-CREATE INDEX `fk_Res14mes_1_Res14cli1_idx` ON `ayx14res`.`Res14mes_1` (`Res14cli_R1CLI001` ASC);
-
-CREATE INDEX `fk_Res14mes_1_Res14cnt_FP1_idx` ON `ayx14res`.`Res14mes_1` (`Res14cnt_FP_RFCNT300` ASC);
-
-CREATE INDEX `fk_Res14mes_1_Res14cnt_FP2_idx` ON `ayx14res`.`Res14mes_1` (`Res14cnt_FP_RFCNT3001` ASC);
-
-CREATE INDEX `fk_Res14mes_1_Res14cnt_FP3_idx` ON `ayx14res`.`Res14mes_1` (`Res14cnt_FP_RFCNT3002` ASC);
-
 
 -- -----------------------------------------------------
 -- Table `ayx14res`.`Res14mes_2`
@@ -421,16 +436,15 @@ CREATE TABLE IF NOT EXISTS `ayx14res`.`Res14res` (
   `R1RES011_01` VARCHAR(45) NULL,
   `R1RES011_02` VARCHAR(45) NULL,
   `R1RES011_03` VARCHAR(45) NULL,
-  `Res14cli_R1CLI001` BIGINT NOT NULL,
+  `Res14cli_R1CLI000` BIGINT NOT NULL,
   PRIMARY KEY (`R1RES000`),
+  INDEX `fk_Res14res_Res14cli1_idx` (`Res14cli_R1CLI000` ASC),
   CONSTRAINT `fk_Res14res_Res14cli1`
-    FOREIGN KEY (`Res14cli_R1CLI001`)
-    REFERENCES `ayx14res`.`Res14cli` (`R1CLI001`)
+    FOREIGN KEY (`Res14cli_R1CLI000`)
+    REFERENCES `ayx14res`.`Res14cli` (`R1CLI000`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
-CREATE INDEX `fk_Res14res_Res14cli1_idx` ON `ayx14res`.`Res14res` (`Res14cli_R1CLI001` ASC);
 
 
 -- -----------------------------------------------------
@@ -484,19 +498,24 @@ CREATE TABLE IF NOT EXISTS `ayx14res`.`Res14ses_1` (
   `R2SES022_02` CHAR NULL,
   `R2SES022_03` CHAR NULL,
   `Res14ses_R1SES000` BIGINT NOT NULL,
-  `Res14cli_R1CLI001` BIGINT NOT NULL,
+  `Res14cli_R1CLI000` BIGINT NOT NULL,
   `Res14cnt_FP_RFCNT300` INT NOT NULL,
   `Res14cnt_FP_RFCNT3001` INT NOT NULL,
   `Res14cnt_FP_RFCNT3002` INT NOT NULL,
   PRIMARY KEY (`R2SES000_1`),
+  INDEX `fk_Res14ses_1_Res14ses1_idx` (`Res14ses_R1SES000` ASC),
+  INDEX `fk_Res14ses_1_Res14cli1_idx` (`Res14cli_R1CLI000` ASC),
+  INDEX `fk_Res14ses_1_Res14cnt_FP1_idx` (`Res14cnt_FP_RFCNT300` ASC),
+  INDEX `fk_Res14ses_1_Res14cnt_FP2_idx` (`Res14cnt_FP_RFCNT3001` ASC),
+  INDEX `fk_Res14ses_1_Res14cnt_FP3_idx` (`Res14cnt_FP_RFCNT3002` ASC),
   CONSTRAINT `fk_Res14ses_1_Res14ses1`
     FOREIGN KEY (`Res14ses_R1SES000`)
     REFERENCES `ayx14res`.`Res14ses` (`R1SES000`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Res14ses_1_Res14cli1`
-    FOREIGN KEY (`Res14cli_R1CLI001`)
-    REFERENCES `ayx14res`.`Res14cli` (`R1CLI001`)
+    FOREIGN KEY (`Res14cli_R1CLI000`)
+    REFERENCES `ayx14res`.`Res14cli` (`R1CLI000`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Res14ses_1_Res14cnt_FP1`
@@ -515,17 +534,6 @@ CREATE TABLE IF NOT EXISTS `ayx14res`.`Res14ses_1` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
-CREATE INDEX `fk_Res14ses_1_Res14ses1_idx` ON `ayx14res`.`Res14ses_1` (`Res14ses_R1SES000` ASC);
-
-CREATE INDEX `fk_Res14ses_1_Res14cli1_idx` ON `ayx14res`.`Res14ses_1` (`Res14cli_R1CLI001` ASC);
-
-CREATE INDEX `fk_Res14ses_1_Res14cnt_FP1_idx` ON `ayx14res`.`Res14ses_1` (`Res14cnt_FP_RFCNT300` ASC);
-
-CREATE INDEX `fk_Res14ses_1_Res14cnt_FP2_idx` ON `ayx14res`.`Res14ses_1` (`Res14cnt_FP_RFCNT3001` ASC);
-
-CREATE INDEX `fk_Res14ses_1_Res14cnt_FP3_idx` ON `ayx14res`.`Res14ses_1` (`Res14cnt_FP_RFCNT3002` ASC);
-
 
 -- -----------------------------------------------------
 -- Table `ayx14res`.`Res14ses_2`

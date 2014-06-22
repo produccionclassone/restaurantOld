@@ -32,7 +32,7 @@ public class Booking {
 	private String bookingObservations1;// R1RES011_01
 	private String bookingObservations2;// R1RES011_02
 	private String bookingObservations3;// R1RES011_03
-	private Client client;// Res14cli_R1CLI001
+	private Client client;// Res14cli_R1CLI000
 
 	public Booking() {
 	}
@@ -171,7 +171,7 @@ public class Booking {
 	}
 
 	@ManyToOne(optional = false, fetch = FetchType.LAZY)
-	@JoinColumn(name = "R1CLI001")
+	@JoinColumn(name = "R1CLI000")
 	public Client getClient() {
 		return client;
 	}
@@ -181,24 +181,25 @@ public class Booking {
 	}
 
 }
-// CREATE TABLE IF NOT EXISTS `ayx14res`.`Res14res` (
-// `R1RES000` BIGINT NOT NULL AUTO_INCREMENT,
-// `R1RES001` CHAR NOT NULL,
-// `R1RES002` DATETIME NULL,
-// `R1RES004` INT NOT NULL,
-// `R1RES005` CHAR NULL,
-// `R1RES007` INT NOT NULL,
-// `R1RES010_01` VARCHAR(45) NULL,
-// `R1RES010_02` VARCHAR(45) NULL,
-// `R1RES010_03` VARCHAR(45) NULL,
-// `R1RES011_01` VARCHAR(45) NULL,
-// `R1RES011_02` VARCHAR(45) NULL,
-// `R1RES011_03` VARCHAR(45) NULL,
-// `Res14cli_R1CLI001` BIGINT NOT NULL,
-// PRIMARY KEY (`R1RES000`),
-// CONSTRAINT `fk_Res14res_Res14cli1`
-// FOREIGN KEY (`Res14cli_R1CLI001`)
-// REFERENCES `ayx14res`.`Res14cli` (`R1CLI001`)
-// ON DELETE NO ACTION
-// ON UPDATE NO ACTION)
-// ENGINE = InnoDB;
+//CREATE TABLE IF NOT EXISTS `ayx14res`.`Res14res` (
+//		  `R1RES000` BIGINT NOT NULL AUTO_INCREMENT,
+//		  `R1RES001` CHAR NOT NULL,
+//		  `R1RES002` DATETIME NULL,
+//		  `R1RES004` INT NOT NULL,
+//		  `R1RES005` CHAR NULL,
+//		  `R1RES007` INT NOT NULL,
+//		  `R1RES010_01` VARCHAR(45) NULL,
+//		  `R1RES010_02` VARCHAR(45) NULL,
+//		  `R1RES010_03` VARCHAR(45) NULL,
+//		  `R1RES011_01` VARCHAR(45) NULL,
+//		  `R1RES011_02` VARCHAR(45) NULL,
+//		  `R1RES011_03` VARCHAR(45) NULL,
+//		  `Res14cli_R1CLI000` BIGINT NOT NULL,
+//		  PRIMARY KEY (`R1RES000`),
+//		  INDEX `fk_Res14res_Res14cli1_idx` (`Res14cli_R1CLI000` ASC),
+//		  CONSTRAINT `fk_Res14res_Res14cli1`
+//		    FOREIGN KEY (`Res14cli_R1CLI000`)
+//		    REFERENCES `ayx14res`.`Res14cli` (`R1CLI000`)
+//		    ON DELETE NO ACTION
+//		    ON UPDATE NO ACTION)
+//		ENGINE = InnoDB;
