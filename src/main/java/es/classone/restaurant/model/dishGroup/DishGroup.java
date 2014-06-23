@@ -34,6 +34,7 @@ public class DishGroup {
 		this.salesLedgerAccount = salesLedgerAccount;
 		this.typeIncome = typeIncome;
 		this.macroGroup = macroGroup;
+		this.deleted = false;
 	}
 
 	@Column(name = "R1GRP000")

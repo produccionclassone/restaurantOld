@@ -14,7 +14,7 @@ public class DishGroupDaoHibernate extends
 	public List<DishGroup> findAll() {
 		return (getSession()
 				.createQuery(
-						"SELECT dg FROM DishGroup dg")
+						"SELECT dg FROM DishGroup dg WHERE dg.deleted = 'false'")
 				.list());
 	} 
 	
@@ -25,7 +25,8 @@ public class DishGroupDaoHibernate extends
 		return (DishGroup) (getSession()
 				.createQuery(
 						"SELECT dg FROM DishGroup dg WHERE "
-								+ "dg.dishGroupCode = :dishGroupCode")
+								+ "dg.dishGroupCode = :dishGroupCode"
+								+ "dg.deleted = 'false'")
 				.setParameter("dishGroupCode", dishGroupCode)
 				.uniqueResult());
 	}

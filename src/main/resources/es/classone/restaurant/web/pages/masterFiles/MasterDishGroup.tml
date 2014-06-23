@@ -29,6 +29,9 @@
 		<script type="text/javascript" language="javascript"
 			src="${context:javaScript/table.js}"></script>
 
+		<!--<script type="text/javascript" language="javascript"
+			src="${context:javaScript/dishGroupTable.js}"></script>-->
+
 
 	</head>
 	<body>
