@@ -41,12 +41,35 @@ function permite(elEvento, permitidos) {
 
 
 function save(parameter){
-
 	console.log(parameter.name);
 	console.log(parameter.id);
 	$.post( "/restaurant/configuration/configuration."+parameter.id+":"+parameter.id+"changed",{param : parameter.value});
 }
 
+function saveBool(parameter){
+	console.log(parameter.checked);
+	console.log(parameter.id);
+	$.post( "/restaurant/configuration/configuration."+parameter.id+":"+parameter.id+"changed",{param : parameter.checked});
+}
+var validateSave = function(){
+	$(".numericParam").focusout(function() {
+		console.log();
+		var intRegex = /^\d+$/;
+		var str = this.value;
+		if(intRegex.test(str)) {
+			
+			 $(this).removeClass("t-error");
+			save(this);
+			if ($(".t-error").length==0)
+			$(".alert-numeric").hide();
+		}
+		
+		else{ console.log("ERROR");
+		 $(this).addClass("t-error");
+		 $(".alert-numeric").show();
+		}
+	});
+}
 var showParameters = function(parameters) {
 	var parametersGeneric=parameters.parametersGeneric;
 	var parametersBool=parameters.parametersBool;
@@ -65,6 +88,7 @@ var showParameters = function(parameters) {
 };
 
 
+
 (function($, window) {
 	'use strict';
 	$
@@ -73,7 +97,7 @@ var showParameters = function(parameters) {
 					{
 						loadParameters : function(parameters) {
 							showParameters(parameters);
-							
+							validateSave();
 							$('body').on('keydown', 'input, select, textarea', function(e) {
 								var self = $(this)
 								  , form = self.parents('form:eq(0)')
@@ -104,7 +128,10 @@ var showParameters = function(parameters) {
 								    }
 								    return false;
 								}
+								 
 								});
+							
+							
 						}
 					})
 })(jQuery, window);

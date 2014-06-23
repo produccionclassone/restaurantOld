@@ -748,3 +748,11 @@ BODY div.t-error li {
 	text-align: center; 
 	font-weight: normal;
 }
+HTML>BODY
+.alert-numeric{
+position: absolute;
+width: 898px;
+padding:8px;
+
+}
+}

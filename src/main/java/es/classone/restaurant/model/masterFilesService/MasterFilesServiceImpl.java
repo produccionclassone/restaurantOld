@@ -288,8 +288,8 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 		int j = 1;
 		while ((myLine = bufRead.readLine()) != null) {
 			String[] row = myLine.split(";");
-
-			/* PRINT Edited lines
+			
+//			/PRINT Edited lines
 			System.out.print("code " + row[0].replace('"', ' ').trim());
 			System.out.print(" name " + row[1].replace('"', ' ').trim());
 			System.out.print("address " + row[2].replace('"', ' ').trim());
@@ -315,22 +315,22 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 			System.out.print("ledger Account " + row[22].replace('"', ' ').trim());
 			System.out.print("ledger Account type" + row[23].replace('"', ' ').trim());
 			System.out.println();
-			*/
+
 			/*
 			String typeCode
 			ChannelSegment channelSegment
 			boolean sendEmail
 			String clientEmail
 			boolean sendSMS
-			*/
-			/* PRINT File line
+			/*
+			 PRINT File line*/
 			System.out.print(j + ":");
 			for (int i = 0; i < row.length; i++) {
 				System.out.print(row[i].trim() + " ");
 			}
 			System.out.println();
 			j++;
-			*/
+			
 			
 			Client client = new Client(
 					row[0].replace('"', ' ').trim(),

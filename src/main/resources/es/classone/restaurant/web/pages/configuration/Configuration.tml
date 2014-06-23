@@ -13,6 +13,7 @@
 	</script>
 
 	<div class="container-fluid">
+
 		<div class="row"> <!-- Mantenimiento reg. control -->
 			<!-- Button trigger modal -->
 			<div class="modal fade bs-example-modal-lg" id="regControl" role="dialog"
@@ -24,6 +25,7 @@
 								aria-hidden="true">&times;
 							</button>
 							<h4 class="modal-title" id="myModalLabel">${message:mantRegControl}</h4>
+
 						</div> <!-- modal header -->
 						<div class="modal-body" style="padding:0px 0px;"> <!-- Modal body -->
 							<!-- Nav tabs -->
@@ -87,11 +89,18 @@
 												${message:printer}
 											</a>
 										</li>
+										<div class="alert alert-danger alert-numeric" style="display: none">
+													<strong>¡Error!</strong>
+													El campo debe ser numérico
+												</div>
 									</ul>
+									
+									<!-- tab-content general parameters -->
 									<!-- Tab panes general parameters -->
 									<div class="tab-content tab-subcontent"> <!-- tab-content general parameters -->
 										<div class="tab-pane active" id="contadores">
 											<div class="container-fluid"> <!-- container contadores -->
+												
 												<t:form t:type="form" id="contadores">
 													<div class="row row120"></div>
 													<div class="row"> <!-- Row 1: message:Info -->
@@ -114,12 +123,10 @@
 															</span>
 														</div>
 														<div class="col-md-2">
-															<input class="form-control textcontrolR validateNumber" t:id="actualSession"
-																name="typeNumber" t:type="TextField"
-																t:validate="required,regexp,maxlength=8" maxlength="8"
-																onfocusout="save(this)" 
-																t:event="actualSessionChanged"
-																t:mixins="jquery/zoneUpdater" t:zone="msgZone" />
+															<input class="form-control textcontrolR numericParam"
+																t:id="actualSession" name="typeNumber" t:type="TextField"
+																maxlength="8" t:event="actualSessionChanged" t:mixins="jquery/zoneUpdater"
+																t:zone="msgZone" />
 														</div>
 														<div class="col-md-4"></div>
 													</div> <!-- Row 2 -->
@@ -132,10 +139,10 @@
 															</span>
 														</div>
 														<div class="col-md-2">
-															<input class="form-control textcontrolR" t:id="lastBill"
-																name="typeNumber" t:type="TextField" t:validate="required,regexp,maxlength=8"
-																maxlength="8" onfocusout="save(this)" t:event="lastBillChanged"
-																t:mixins="jquery/zoneUpdater" t:zone="msgZone" />
+															<input class="form-control textcontrolR numericParam"
+																t:id="lastBill" name="typeNumber" t:type="TextField"
+																maxlength="8" t:event="lastBillChanged" t:mixins="jquery/zoneUpdater"
+																t:zone="msgZone" />
 														</div>
 														<div class="col-md-4"></div>
 													</div> <!-- Row 3 -->
@@ -148,10 +155,10 @@
 															</span>
 														</div>
 														<div class="col-md-2">
-															<input class="form-control textcontrolR" t:id="lastCommand"
-																name="typeNumber" t:type="TextField" t:validate="required,regexp,maxlength=8"
-																maxlength="8" onfocusout="save(this)" t:event="lastCommandChanged"
-																t:mixins="jquery/zoneUpdater" t:zone="msgZone" />
+															<input class="form-control textcontrolR numericParam"
+																t:id="lastCommand" name="typeNumber" t:type="TextField"
+																maxlength="8" t:event="lastCommandChanged" t:mixins="jquery/zoneUpdater"
+																t:zone="msgZone" />
 														</div>
 														<div class="col-md-4"></div>
 													</div> <!-- Row 4 -->
@@ -164,10 +171,10 @@
 															</span>
 														</div>
 														<div class="col-md-2">
-															<input class="form-control textcontrolR" t:id="lastClient"
-																name="lastClient" t:type="TextField" t:validate="required,regexp,maxlength=8"
-																maxlength="8" onfocusout="save(this)" t:event="lastClientChanged"
-																t:mixins="jquery/zoneUpdater" t:zone="msgZone" />
+															<input class="form-control textcontrolR numericParam"
+																t:id="lastClient" name="lastClient" t:type="TextField"
+																maxlength="8" t:event="lastClientChanged" t:mixins="jquery/zoneUpdater"
+																t:zone="msgZone" />
 														</div>
 														<div class="col-md-4"></div>
 													</div> <!-- Row 5 -->
@@ -180,10 +187,10 @@
 															</span>
 														</div>
 														<div class="col-md-2">
-															<input class="form-control textcontrolR" t:id="numNotaFis"
-																name="numNotaFis" t:type="TextField" t:validate="required,regexp,maxlength=8"
-																maxlength="8" t:clientEvent="focusout" t:event="numNotaFisChanged"
-																t:mixins="jquery/zoneUpdater" t:zone="msgZone" />
+															<input class="form-control textcontrolR numericParam"
+																t:id="numNotaFis" name="numNotaFis" t:type="TextField"
+																maxlength="8" t:event="numNotaFisChanged" t:mixins="jquery/zoneUpdater"
+																t:zone="msgZone" />
 														</div>
 														<div class="col-md-4"></div>
 													</div> <!-- Row 6 -->
@@ -218,10 +225,10 @@
 																</div>
 																<div class="col-md-5">
 																	<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																	<input class="form-control textcontrolL" t:id="restCateg"
-																		name="restCateg" t:type="TextField" t:validate="required,regexp"
-																		maxlength="10" t:mixins="jquery/zoneUpdater"
-																		t:clientEvent="focusout" t:event="restCategChanged"
+																	<input class="form-control textcontrolL numericParam"
+																		t:id="restCateg" name="restCateg" t:type="TextField"
+																		 maxlength="10"
+																		t:mixins="jquery/zoneUpdater" t:event="restCategChanged"
 																		t:zone="msgZone2" />
 																</div>
 																<div class="col-md-1"></div>
@@ -235,11 +242,11 @@
 																</div>
 																<div class="col-md-2">
 																	<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																	<input class="form-control textcontrolL" t:id="tableNumber"
-																		name="tableNumber" t:type="TextField"
-																		t:validate="required,regexp, maxlength=3" maxlength="3"
-																		t:clientEvent="focusout" t:event="tableNumberChanged"
-																		t:mixins="jquery/zoneUpdater" t:zone="msgZone2" />
+																	<input class="form-control textcontrolL numericParam"
+																		t:id="tableNumber" name="tableNumber" t:type="TextField"
+																		t:validate="maxlength=3" maxlength="3"
+																		t:event="tableNumberChanged" t:mixins="jquery/zoneUpdater"
+																		t:zone="msgZone2" />
 																</div>
 																<div class="col-md-4"></div>
 															</div>
@@ -255,10 +262,9 @@
 																		</div>
 																		<div class="col-md-2">
 																			<input
-																				class="form-control checkcontrol checkcontrol-inside"
-																				t:id="covServChar" t:type="CheckBox"
-																				t:clientEvent="click" t:event="covServCharChanged"
-																				t:mixins="jquery/zoneUpdater" t:zone="msgZone2"/>
+																				class="form-control checkcontrol checkcontrol-inside boolParam"
+																				t:id="covServChar" t:type="CheckBox" t:event="covServCharChanged"
+																				t:mixins="jquery/zoneUpdater" t:zone="msgZone2" />
 																		</div>
 																		<div class="col-md-4"></div>
 																	</div>
@@ -840,12 +846,12 @@
 												<t:form>
 													<div class="row row10"></div>
 													<div class="row"> <!-- row restaurante -->
-													<div class="row row10"></div>
-															<div class="row row10"></div>
+														<div class="row row10"></div>
+														<div class="row row10"></div>
 														<div class="col-md-6"><!-- Left -->
 															<div class="row">
 																<div class="col-md-1"></div>
-																<div class="col-md-10 rowBorder" >
+																<div class="col-md-10 rowBorder">
 																	<div class="row">
 																		<div class="textRowBorder" style="margin-bottom:20px;">${message:color-label}</div>
 																	</div>
@@ -853,8 +859,9 @@
 																		<div class="col-md-1"></div>
 																		<div class="col-md-10 rowBorder" style="margin-bottom:20px;">
 																			<div class="row">
-																				<div class="textRowBorder" style="font-size: 11px; background-color: #AFB1D7;
-																				" >${message:colorPanel-label}
+																				<div class="textRowBorder"
+																					style="font-size: 11px; background-color: #AFB1D7;
+																				">${message:colorPanel-label}
 																				</div>
 																			</div>
 																			<div class="row">
@@ -925,7 +932,8 @@
 																		<div class="col-md-1"></div>
 																		<div class="col-md-10 rowBorder" style="margin-bottom: 20px;">
 																			<div class="row">
-																				<div class="textRowBorder" style="font-size: 11px; background-color: #AFB1D7; margin-bottom:10px;
+																				<div class="textRowBorder"
+																					style="font-size: 11px; background-color: #AFB1D7; margin-bottom:10px;
 																				">${message:colorTabSituation-label}</div>
 																			</div>
 																			<div class="row">
@@ -1010,7 +1018,7 @@
 																	</div>
 																</div>
 																<div class="col-md-1"></div>
-															
+
 															</div>
 															<div class="row row10"></div>
 															<div class="row" style="margin-top:10px;">
@@ -1066,13 +1074,14 @@
 																<div class="col-md-1"></div>
 																<div class="col-md-10 rowBorder">
 																	<div class="row">
-																		<div class="textRowBorder"	>${message:roomsTables-label}</div>
+																		<div class="textRowBorder">${message:roomsTables-label}</div>
 																	</div>
 
 																	<div class="row ">
 																		<div class="col-md-1"></div>
 																		<div class="col-md-10 rowBorder">
-																			<div class="row textRowBorder" style="font-size: 11px; background-color: #AFB1D7;">
+																			<div class="row textRowBorder"
+																				style="font-size: 11px; background-color: #AFB1D7;">
 																				<div class="col-md-1" style="margin-left: -15px;">
 																					${message:number-label}
 																				</div>
@@ -1134,7 +1143,7 @@
 																						t:id="lastTab2" name="lastTab2" t:type="TextField" />
 																				</div>
 																			</div>
-																				<div class="row">
+																			<div class="row">
 																				<div class="col-md-1">
 																					<span class="input-group-addon">
 																						<t:label style="margin-bottom:1px;" for="desc3" />
@@ -1158,7 +1167,7 @@
 																						t:id="lastTab3" name="lastTab3" t:type="TextField" />
 																				</div>
 																			</div>
-																				<div class="row">
+																			<div class="row">
 																				<div class="col-md-1">
 																					<span class="input-group-addon">
 																						<t:label style="margin-bottom:1px;" for="desc4" />
@@ -1182,7 +1191,7 @@
 																						t:id="lastTab4" name="lastTab4" t:type="TextField" />
 																				</div>
 																			</div>
-																				<div class="row">
+																			<div class="row">
 																				<div class="col-md-1">
 																					<span class="input-group-addon">
 																						<t:label style="margin-bottom:1px;" for="desc5" />
@@ -1206,7 +1215,7 @@
 																						t:id="lastTab5" name="lastTab5" t:type="TextField" />
 																				</div>
 																			</div>
-																				<div class="row">
+																			<div class="row">
 																				<div class="col-md-1">
 																					<span class="input-group-addon">
 																						<t:label style="margin-bottom:1px;" for="desc6" />
@@ -1230,10 +1239,10 @@
 																						t:id="lastTab6" name="lastTab6" t:type="TextField" />
 																				</div>
 																			</div>
-																				<div class="row">
+																			<div class="row">
 																				<div class="col-md-1">
 																					<span class="input-group-addon">
-																						<t:label  for="desc7" />
+																						<t:label for="desc7" />
 																					</span>
 																				</div>
 																				<div class="col-md-4">
@@ -1254,9 +1263,9 @@
 																						t:id="lastTab7" name="lastTab7" t:type="TextField" />
 																				</div>
 																			</div>
-																			</div>
-																
-																	
+																		</div>
+
+
 																	</div>
 																</div>
 																<div class="col-md-1"></div>
@@ -1551,7 +1560,7 @@
 																<div class="col-md-1"></div>
 																<div class="col-md-10 rowBorder">
 																	<div class="row">
-																			<div class="textRowBorder">Cuentas generales</div>
+																		<div class="textRowBorder">Cuentas generales</div>
 																	</div>
 																	<div class="row row90"></div>
 																	<div class="row row10"></div>
@@ -1698,90 +1707,90 @@
 																<div class="col-md-1"></div>
 																<div class="col-md-10 rowBorder">
 																	<div class="row">
-																	
-																			<div class="textRowBorder">Tasas</div>
+
+																		<div class="textRowBorder">Tasas</div>
 																	</div>
 																	<div class="row row5"></div>
 																	<div class="col-md-1"></div>
 																	<div class="col-md-10 rowBorder">
-																	<div class="row textRowBorder" style="background-color: #AFB1D7;">
-		
-																		<div class="col-md-2">
-																			<div  style="font-size: 11px;">Tipo</div>
+																		<div class="row textRowBorder" style="background-color: #AFB1D7;">
+
+																			<div class="col-md-2">
+																				<div style="font-size: 11px;">Tipo</div>
+																			</div>
+																			<div class="col-md-5">
+																				<div style="font-size: 11px;">% I.V.A.</div>
+																			</div>
+																			<div class="col-md-5">
+																				<div style="font-size: 11px;">CTA. I.V.A.</div>
+																			</div>
+
 																		</div>
-																		<div class="col-md-5">
-																			<div style="font-size: 11px;">% I.V.A.</div>
-																		</div>
-																		<div class="col-md-5">
-																			<div style="font-size: 11px;">CTA. I.V.A.</div>
-																		</div>
-									
-																	</div>
-																	<div class="row">
-																		
-																		<div class="col-md-2">
-																			<!-- <span class="input-group-addon">IVA 1</span> -->
-																			<span class="input-group-addon">
-																				<t:label for="ivaType1" />
-																			</span>
-																		</div>
-																		<div class="col-md-3">
-																			<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																			<input class="form-control textcontrolR" t:id="ivaType1"
-																				name="ivaType1" t:type="TextField" />
-																		</div>
-																		<div class="col-md-1"></div>
-																		<div class="col-md-5">
-																			<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																			<input class="form-control textcontrolL" t:id="ledgerAccIVA1"
-																				name="ledgerAccIVA1" t:type="TextField"
-																				placeholder="${message:ledgerAccIVA1-label}" />
-																		</div>
-																		<div class="col-md-2"></div>
-																	</div>
-																	<div class="row">
-													
-																		<div class="col-md-2">
-																			<!-- <span class="input-group-addon">IVA 2</span> -->
-																			<span class="input-group-addon">
-																				<t:label for="ivaType2" />
-																			</span>
-																		</div>
-																		<div class="col-md-3">
-																			<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																			<input class="form-control textcontrolR" t:id="ivaType2"
-																				name="ivaType2" t:type="TextField" placeholder="${message:ivaType2-label}" />
-																		</div>
+																		<div class="row">
+
+																			<div class="col-md-2">
+																				<!-- <span class="input-group-addon">IVA 1</span> -->
+																				<span class="input-group-addon">
+																					<t:label for="ivaType1" />
+																				</span>
+																			</div>
+																			<div class="col-md-3">
+																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																				<input class="form-control textcontrolR" t:id="ivaType1"
+																					name="ivaType1" t:type="TextField" />
+																			</div>
 																			<div class="col-md-1"></div>
-																		<div class="col-md-5">
-																			<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																			<input class="form-control textcontrolL" t:id="ledgerAccIVA2"
-																				name="ledgerAccIVA2" t:type="TextField"
-																				placeholder="${message:ledgerAccIVA2-label}" />
+																			<div class="col-md-5">
+																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																				<input class="form-control textcontrolL" t:id="ledgerAccIVA1"
+																					name="ledgerAccIVA1" t:type="TextField"
+																					placeholder="${message:ledgerAccIVA1-label}" />
+																			</div>
+																			<div class="col-md-2"></div>
 																		</div>
-																		<div class="col-md-2"></div>
-																	</div>
-																	<div class="row">
-																		<div class="col-md-2">
-																			<!-- <span class="input-group-addon">IVA 3</span> -->
-																			<span class="input-group-addon">
-																				<t:label for="ivaType3" />
-																			</span>
-																		</div>
-																		<div class="col-md-3">
-																			<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																			<input class="form-control textcontrolR" t:id="ivaType3"
-																				name="ivaType3" t:type="TextField" placeholder="${message:ivaType3-label}" />
-																		</div>
+																		<div class="row">
+
+																			<div class="col-md-2">
+																				<!-- <span class="input-group-addon">IVA 2</span> -->
+																				<span class="input-group-addon">
+																					<t:label for="ivaType2" />
+																				</span>
+																			</div>
+																			<div class="col-md-3">
+																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																				<input class="form-control textcontrolR" t:id="ivaType2"
+																					name="ivaType2" t:type="TextField" placeholder="${message:ivaType2-label}" />
+																			</div>
 																			<div class="col-md-1"></div>
-																		<div class="col-md-5">
-																			<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																			<input class="form-control textcontrolL" t:id="ledgerAccIVA3"
-																				name="ledgerAccIVA3" t:type="TextField"
-																				placeholder="${message:ledgerAccIVA3-label}" />
+																			<div class="col-md-5">
+																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																				<input class="form-control textcontrolL" t:id="ledgerAccIVA2"
+																					name="ledgerAccIVA2" t:type="TextField"
+																					placeholder="${message:ledgerAccIVA2-label}" />
+																			</div>
+																			<div class="col-md-2"></div>
 																		</div>
-																		<div class="col-md-2"></div>
-																	</div>
+																		<div class="row">
+																			<div class="col-md-2">
+																				<!-- <span class="input-group-addon">IVA 3</span> -->
+																				<span class="input-group-addon">
+																					<t:label for="ivaType3" />
+																				</span>
+																			</div>
+																			<div class="col-md-3">
+																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																				<input class="form-control textcontrolR" t:id="ivaType3"
+																					name="ivaType3" t:type="TextField" placeholder="${message:ivaType3-label}" />
+																			</div>
+																			<div class="col-md-1"></div>
+																			<div class="col-md-5">
+																				<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																				<input class="form-control textcontrolL" t:id="ledgerAccIVA3"
+																					name="ledgerAccIVA3" t:type="TextField"
+																					placeholder="${message:ledgerAccIVA3-label}" />
+																			</div>
+																			<div class="col-md-2"></div>
+																		</div>
 																	</div>
 																	<div class="row row30"></div>
 																	<div class="row">
@@ -1809,9 +1818,9 @@
 																<div class="col-md-1"></div>
 																<div class="col-md-10 rowBorder" style="margin-top:30px;">
 																	<div class="row">
-																	
-																			<div class="textRowBorder">C.A.D.</div>
-											
+
+																		<div class="textRowBorder">C.A.D.</div>
+
 																	</div>
 																	<div class="row">
 																		<div class="col-md-1"></div>
@@ -1895,7 +1904,7 @@
 																<div class="col-md-1"></div>
 																<div class="col-md-10 rowBorder">
 																	<div class="row">
-																			<div class="textRowBorder">${message:BMPToTCK-label}</div>
+																		<div class="textRowBorder">${message:BMPToTCK-label}</div>
 																	</div>
 																	<div class="row">
 																		<div class="col-md-1"></div>
@@ -1950,7 +1959,7 @@
 																<div class="col-md-1"></div>
 																<div class="col-md-10 rowBorder">
 																	<div class="row">
-																			<div class="textRowBorder">${message:print-label}</div>
+																		<div class="textRowBorder">${message:print-label}</div>
 																	</div>
 																	<div class="row">
 																		<div class="col-md-1"></div>
@@ -2069,7 +2078,7 @@
 																<div class="col-md-1"></div>
 																<div class="col-md-10 rowBorder">
 																	<div class="row">
-																			<div class="textRowBorder" style="font-size: 11px;">${message:commandprint-label}</div>
+																		<div class="textRowBorder" style="font-size: 11px;">${message:commandprint-label}</div>
 																	</div>
 																	<div class="row">
 																		<div class="col-md-2"></div>

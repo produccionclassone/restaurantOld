@@ -4,7 +4,7 @@ $(document)
 		.ready(
 				function() {
 					var table = $('#example').dataTable(
-							{
+							{	
 								"dom" : '<"top row"TfC>Rrt<"bottom"lp>',
 								"lengthMenu" : [ [ 10, 25, 50, 100, -1 ],
 										[ 10, 25, 50, 100, "*" ] ],

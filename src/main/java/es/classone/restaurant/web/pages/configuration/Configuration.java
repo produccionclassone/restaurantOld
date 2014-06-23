@@ -2,12 +2,10 @@ package es.classone.restaurant.web.pages.configuration;
 
 import java.util.List;
 
-import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.annotations.SessionState;
-import org.apache.tapestry5.corelib.components.Checkbox;
 import org.apache.tapestry5.corelib.components.Zone;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.json.JSONArray;
@@ -134,10 +132,10 @@ public class Configuration {
 	Object onCovServCharChanged() throws InstanceNotFoundException {
 		String value = request.getParameter("param");
 		System.out.println("value " + value);
-		// if (value == "true")
-		// configurationService.setParameterBool("covServChar", true);
-		// else
-		// configurationService.setParameterBool("covServChar", false);
+		if (value == "true")
+		configurationService.setParameterBool("covServChar", true);
+		 else
+		 configurationService.setParameterBool("covServChar", false);
 		return request.isXHR() ? msgZone2.getBody() : null;
 
 	}
