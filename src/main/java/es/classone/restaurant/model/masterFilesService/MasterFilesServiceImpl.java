@@ -3,7 +3,11 @@ package es.classone.restaurant.model.masterFilesService;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import es.classone.restaurant.model.channelSegment.ChannelSegment;
+import es.classone.restaurant.model.channelSegment.ChannelSegmentDao;
 import es.classone.restaurant.model.client.Client;
 import es.classone.restaurant.model.client.ClientDao;
 import es.classone.restaurant.model.dish.Dish;
@@ -30,6 +35,9 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 	
 	@Autowired
 	private ClientDao clientDao;
+	
+	@Autowired 
+	private ChannelSegmentDao channelSegmentDao;
 	
 	public List<DishGroup> findAll() {
 		return dishGroupDao.findAll();
@@ -224,12 +232,54 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 		return clientDao.find(clientId);
 	}
 
-	public Client editClient()
+	public Client editClient(long clientId, String clientCode, String clientName, String clientAddress,
+			String clientZipCode, String clientDown, String clientProvince,
+			String clientDNI, String clientPhoneContact,
+			String clientPersonContact, String clientNotes1,
+			String clientNotes2, String clientNotes3, double clientLimitCredit,
+			double outstandingAmount, Calendar clientLastDateFood,
+			double clientAmountSpent, int clientDiners, int clientTimesToEat,
+			String clientObservation1, String clientObservation2,
+			String clientObservation3, String clientObservation4,
+			String ledgerAccount, String ledgerAccountType, String typeCode,
+			ChannelSegment channelSegment, boolean sendEmail,
+			String clientEmail, boolean sendSMS)
 			throws InstanceNotFoundException {
+		
+		Client client = clientDao.find(clientId);
+		client.setClientCode(clientCode);
+		client.setClientName (clientName);
+		client.setClientAddress (clientAddress);
+		client.setClientZipCode (clientZipCode);
+		client.setClientDown (clientDown);
+		client.setClientProvince (clientProvince);
+		client.setClientDNI (clientDNI); 
+		client.setClientPhoneContact (clientPhoneContact);
+		client.setClientPersonContact (clientPersonContact);
+		client.setClientNotes1 (clientNotes1);
+		client.setClientNotes2 (clientNotes2);
+		client.setClientNotes3 (clientNotes3);
+		client.setClientLimitCredit (clientLimitCredit);
+		client.setOutstandingAmount (outstandingAmount);
+		client.setClientLastDateFood (clientLastDateFood);
+		client.setClientAmountSpent (clientAmountSpent);
+		client.setClientDiners (clientDiners);
+		client.setClientTimesToEat (clientTimesToEat);
+		client.setClientObservation1 (clientObservation1);
+		client.setClientObservation2 (clientObservation2);
+		client.setClientObservation3 (clientObservation3);
+		client.setClientObservation4 (clientObservation4);
+		client.setLedgerAccount (ledgerAccount);
+		client.setLedgerAccountType (ledgerAccountType);
+		client.setTypeCode (typeCode);
+		client.setChannelSegment (channelSegment);
+		client.setSendEmail (sendEmail);
+		client.setClientEmail (clientEmail);
+		client.setSendSMS (sendSMS);
 		return null;
 	}
 
-	public void importClientFile(String path) throws IOException {
+	public void importClientFile(String path) throws IOException, NumberFormatException, ParseException {
 
 		FileReader input = new FileReader(path);
 		@SuppressWarnings("resource")
@@ -239,32 +289,33 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 		while ((myLine = bufRead.readLine()) != null) {
 			String[] row = myLine.split(";");
 
-			/* PRINT Edited lines*/ 
-			System.out.println ("code " + row[0].replace('"', ' ').trim());
-			System.out.println (" name " + row[1].replace('"', ' ').trim());
-			System.out.println ("address " + row[2].replace('"', ' ').trim());
-			System.out.println ("zip code " + row[3].replace('"', ' ').trim());
-			System.out.println ("down " + row[4].replace('"', ' ').trim());
-			System.out.println ("province " + row[5].replace('"', ' ').trim());
-			System.out.println ("cif dni " + row[6].replace('"', ' ').trim());
-			System.out.println ("tc " + row[7].replace('"', ' ').trim());
-			System.out.println ("pc " + row[8].replace('"', ' ').trim());
-			System.out.println ("note1 " + row[9].replace('"', ' ').trim());
-			System.out.println ("note2 " + row[10].replace('"', ' ').trim());
-			System.out.println ("note3 " + row[11].replace('"', ' ').trim());
-			System.out.println ("Limit credit " + Double.parseDouble(row[12].replace('"', ' ').trim()));
-			System.out.println ("Outstanding amount " + Double.parseDouble(row[13].replace('"', ' ').trim()));
-			System.out.println ("Last date food " + row[14].replace('"', ' ').trim());
-			System.out.println ("Amunt spent " + Double.parseDouble(row[15].replace('"', ' ').trim()));
-			System.out.println ("Dinners " + Integer.parseInt(row[16].replace('"', ' ').trim()));
-			System.out.println ("Times to eat " + Integer.parseInt(row[17].replace('"', ' ').trim()));
-			System.out.println ("obs1 " + row[18].replace('"', ' ').trim());
-			System.out.println ("obs2 " + row[19].replace('"', ' ').trim());
-			System.out.println ("obs3 " + row[20].replace('"', ' ').trim());
-			System.out.println ("obs4 " + row[21].replace('"', ' ').trim());
-			System.out.println ("ledger Account " + row[22].replace('"', ' ').trim());
-			System.out.println ("ledger Account type" + row[23].replace('"', ' ').trim());
+			/* PRINT Edited lines
+			System.out.print("code " + row[0].replace('"', ' ').trim());
+			System.out.print(" name " + row[1].replace('"', ' ').trim());
+			System.out.print("address " + row[2].replace('"', ' ').trim());
+			System.out.print("zip code " + row[3].replace('"', ' ').trim());
+			System.out.print("down " + row[4].replace('"', ' ').trim());
+			System.out.print("province " + row[5].replace('"', ' ').trim());
+			System.out.print("cif dni " + row[6].replace('"', ' ').trim());
+			System.out.print("tc " + row[7].replace('"', ' ').trim());
+			System.out.print("pc " + row[8].replace('"', ' ').trim());
+			System.out.print("note1 " + row[9].replace('"', ' ').trim());
+			System.out.print("note2 " + row[10].replace('"', ' ').trim());
+			System.out.print("note3 " + row[11].replace('"', ' ').trim());
+			System.out.print("Limit credit " + Double.parseDouble(row[12].replace('"', ' ').replace(',', '.').trim()));
+			System.out.print("Outstanding amount " + Double.parseDouble(row[13].replace('"', ' ').replace(',', '.').trim()));
+			System.out.print("Last date food " + stringToCalendar(row[14].replace('"', ' ').trim()));
+			System.out.print("Amunt spent " + Double.parseDouble(row[15].replace('"', ' ').replace(',', '.').trim()));
+			System.out.print("Dinners " + Double.parseDouble(row[16].replace('"', ' ').replace(',', '.').trim()));
+			System.out.print("Times to eat " + Double.parseDouble(row[17].replace('"', ' ').replace(',', '.').trim()));
+			System.out.print("obs1 " + row[18].replace('"', ' ').trim());
+			System.out.print("obs2 " + row[19].replace('"', ' ').trim());
+			System.out.print("obs3 " + row[20].replace('"', ' ').trim());
+			System.out.print("obs4 " + row[21].replace('"', ' ').trim());
+			System.out.print("ledger Account " + row[22].replace('"', ' ').trim());
+			System.out.print("ledger Account type" + row[23].replace('"', ' ').trim());
 			System.out.println();
+			*/
 			/*
 			String typeCode
 			ChannelSegment channelSegment
@@ -272,7 +323,6 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 			String clientEmail
 			boolean sendSMS
 			*/
-	
 			/* PRINT File line
 			System.out.print(j + ":");
 			for (int i = 0; i < row.length; i++) {
@@ -281,11 +331,66 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 			System.out.println();
 			j++;
 			*/
+			
+			Client client = new Client(
+					row[0].replace('"', ' ').trim(),
+					row[1].replace('"', ' ').trim(),
+					row[2].replace('"', ' ').trim(),
+					row[3].replace('"', ' ').trim(),
+					row[4].replace('"', ' ').trim(),
+					row[5].replace('"', ' ').trim(),
+					row[6].replace('"', ' ').trim(),
+					row[7].replace('"', ' ').trim(),
+					row[8].replace('"', ' ').trim(),
+					row[9].replace('"', ' ').trim(),
+					row[10].replace('"', ' ').trim(),
+					row[11].replace('"', ' ').trim(),
+					Double.parseDouble(row[12].replace('"', ' ').replace(',', '.').trim()),
+					Double.parseDouble(row[13].replace('"', ' ').replace(',', '.').trim()),
+					stringToCalendar(row[14].replace('"', ' ').trim()),
+					Double.parseDouble(row[15].replace('"', ' ').replace(',', '.').trim()),
+					0,//Double.parseDouble(row[16].replace('"', ' ').replace(',', '.').trim()),
+					0,//Double.parseDouble(row[17].replace('"', ' ').replace(',', '.').trim()),
+					row[18].replace('"', ' ').trim(),
+					row[19].replace('"', ' ').trim(),
+					row[20].replace('"', ' ').trim(),
+					row[21].replace('"', ' ').trim(),
+					row[22].replace('"', ' ').trim(),
+					row[23].replace('"', ' ').trim(),
+					"E",
+					channelSegmentDao.findChannelSegmentByValue("DIR"),
+					false,
+					"",
+					false
+					);
+			createClient(client);
+			
 		}
 	}
 
+	private Calendar stringToCalendar(String dateAsString) throws ParseException {
+		Calendar dateAsCalendar = Calendar.getInstance();
+		String dateWithFormat = dateAsString.substring(0,4) + "-" + dateAsString.substring(4, 6) + "-" + dateAsString.substring(6,8);
+		Date date = getDateFormatter().parse(dateWithFormat);
+		dateAsCalendar.setTime(date);
+		return dateAsCalendar;
+	}
+
+	/**
+	 * It helps to generate pretty REST-like URLs.
+	 */
+	private DateFormat getDateFormatter() {
+		SimpleDateFormat dateFormat =
+            (SimpleDateFormat) DateFormat.getDateInstance();
+        dateFormat.applyPattern("yyyy-MM-dd");
+
+        return dateFormat;
+
+	}
 
 }
+
+
 //|0 code |1  name |2 address |3 zip code |4 down |5 province |6 cif dni |7 tc |8 pc |9 note 1 |10 note 2 |11 note 3 |12 limit credit 
 //|13  outstandingAmount |14 LastDateFood |15 AmountSpent |16 clientDiners|17 clientTimesToEat |18 obs1 |19 obs2|20 obs3 
 //|21 obs4 |22 ledgerAccount |23 ledgerAccountType 

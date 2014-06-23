@@ -232,6 +232,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `ayx14res`.`Res14can`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `ayx14res`.`Res14can` ;
+
 CREATE TABLE IF NOT EXISTS `ayx14res`.`Res14CAN` (
   `R1CAN000` INT NOT NULL,
   `R1CAN001` VARCHAR(3) NOT NULL,

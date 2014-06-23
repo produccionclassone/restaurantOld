@@ -45,7 +45,7 @@ public class Client {
 	private String clientObservation3; // R1CLI017_03
 	private String clientObservation4; // R1CLI017_04
 	private String ledgerAccount; // R1CLI201
-	private char ledgerAccountType;// R1CLI202 7* "C" / "A" / "E"
+	private String ledgerAccountType;// R1CLI202 7* "C" / "A" / "E"
 	private String typeCode;// R1CLI203 Codigo de "E" o "A"
 	private ChannelSegment channelSegment; // Res14can_R1CAN000
 	private boolean sendEmail; // R1CLI018
@@ -66,7 +66,7 @@ public class Client {
 			double clientAmountSpent, int clientDiners, int clientTimesToEat,
 			String clientObservation1, String clientObservation2,
 			String clientObservation3, String clientObservation4,
-			String ledgerAccount, char ledgerAccountType, String typeCode,
+			String ledgerAccount, String ledgerAccountType, String typeCode,
 			ChannelSegment channelSegment, boolean sendEmail,
 			String clientEmail, boolean sendSMS) {
 
@@ -238,7 +238,7 @@ public class Client {
 		return outstandingAmount;
 	}
 
-	public void setDebtLastUpgrade(double outstandingAmount) {
+	public void setOutstandingAmount (double outstandingAmount) {
 		this.outstandingAmount = outstandingAmount;
 	}
 
@@ -325,11 +325,11 @@ public class Client {
 	}
 
 	@Column(name = "R1CLI202")
-	public char getLedgerAccountType() {
+	public String getLedgerAccountType() {
 		return ledgerAccountType;
 	}
 
-	public void setLedgerAccountType(char ledgerAccountType) {
+	public void setLedgerAccountType(String ledgerAccountType) {
 		this.ledgerAccountType = ledgerAccountType;
 	}
 

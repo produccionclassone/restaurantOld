@@ -1,6 +1,8 @@
 package es.classone.restaurant.web.pages.masterFiles;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.util.Calendar;
 import java.util.List;
 
 import org.apache.tapestry5.annotations.Property;
@@ -8,9 +10,9 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
+import es.classone.restaurant.model.channelSegment.ChannelSegment;
 import es.classone.restaurant.model.client.Client;
-import es.classone.restaurant.model.dish.Dish;
-import es.classone.restaurant.model.dishGroup.DishGroup;
+
 import es.classone.restaurant.model.masterFilesService.MasterFilesService;
 import es.classone.restaurant.modelutil.exceptions.InstanceNotFoundException;
 import es.classone.restaurant.web.services.AuthenticationPolicy;
@@ -20,9 +22,6 @@ import es.classone.restaurant.web.services.AuthenticationPolicyType;
 public class MasterClient {
 
 	@Property
-	private String clientCode;
-
-	@Property
 	private List<Client> clients;
 
 	@Property
@@ -30,6 +29,65 @@ public class MasterClient {
 
 	@Property
 	private String clientId;
+	
+	@Property
+	private String clientCode;
+	@Property
+	private String clientName;
+	@Property
+	private String clientAddress; 
+	@Property
+	private String clientZipCode; 
+	@Property
+	private String clientDown; 
+	@Property
+	private String clientProvince;
+	@Property
+	private String clientDNI; 
+	@Property
+	private String clientPhoneContact; 
+	@Property
+	private String clientPersonContact; 
+	@Property
+	private String clientNotes1; 
+	@Property
+	private String clientNotes2; 
+	@Property
+	private String clientNotes3; 
+	@Property
+	private double clientLimitCredit; 
+	@Property
+	private double outstandingAmount;
+	@Property
+	private Calendar clientLastDateFood; 
+	@Property
+	private double clientAmountSpent; 
+	@Property
+	private int clientDiners; 
+	@Property
+	private int clientTimesToEat; 
+	@Property
+	private String clientObservation1; 
+	@Property
+	private String clientObservation2; 
+	@Property
+	private String clientObservation3; 
+	@Property
+	private String clientObservation4; 
+	@Property
+	private String ledgerAccount; 
+	@Property
+	private String ledgerAccountType;
+	@Property
+	private String typeCode;
+	@Property
+	private ChannelSegment channelSegment; 
+	@Property
+	private boolean sendEmail; 
+	@Property
+	private String clientEmail; 
+	@Property
+	private boolean sendSMS; 
 
 	@Inject
 	private MasterFilesService masterFilesService;
@@ -40,7 +98,7 @@ public class MasterClient {
 	@Inject
 	private Request request;
 
-	void setupRender() {
+	void setupRender() throws NumberFormatException, ParseException {
 		clients = masterFilesService.findAllClient();
 		long size = clients.size();
 		

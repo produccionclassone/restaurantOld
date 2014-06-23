@@ -57,7 +57,7 @@ INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) 
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (57, 'RSCNT019_03', 'desCalif3', 'De Segundo');
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (58, 'RSCNT018_04', 'codCalif4', 'F3');
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (59, 'RSCNT019_04', 'desCalif4', 'De Tercero');
-INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (60, 'RSCNT020', 'channelSegment', 'WEB');
+INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (60, 'RSCNT020', 'channelSegment', 'DIR');
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (61, 'R4CNT003', 'contCode', 'R14');
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (62, 'R4CNT004', 'contSerie', 'R');
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (63, 'R4CNT023_01', 'ledgerAccCaja', '57000000');
@@ -142,3 +142,7 @@ INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `first
 INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `firstTab`, `lastTab`, `paramCode`) VALUES (5, 'DescripcionSala5', 1, 342, 'RSCNT020_05');
 INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `firstTab`, `lastTab`, `paramCode`) VALUES (6, 'DescripcionSala6', 1, 342, 'RSCNT020_06');
 INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `firstTab`, `lastTab`, `paramCode`) VALUES (7, 'DescripcionSala7', 1, 342, 'R4CNT020_07');
+
+
+INSERT INTO `ayx14res`.`Res14CAN` (`R1CAN000`, `R1CAN001`, `R1CAN002`) VALUES (1, 'DIR', 'Directo - Default');
+INSERT INTO `ayx14res`.`Res14CAN` (`R1CAN000`, `R1CAN001`, `R1CAN002`) VALUES (2, 'WEB', 'Web');

@@ -1,8 +1,11 @@
 package es.classone.restaurant.model.masterFilesService;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.util.Calendar;
 import java.util.List;
 
+import es.classone.restaurant.model.channelSegment.ChannelSegment;
 import es.classone.restaurant.model.client.Client;
 import es.classone.restaurant.model.dish.Dish;
 import es.classone.restaurant.model.dishGroup.DishGroup;
@@ -53,9 +56,20 @@ public interface MasterFilesService {
 	public void deleteClient(Long clientId)
 			throws InstanceNotFoundException;
 
-	public Client editClient()
+	public Client editClient(long clientId, String clientCode, String clientName, String clientAddress,
+			String clientZipCode, String clientDown, String clientProvince,
+			String clientDNI, String clientPhoneContact,
+			String clientPersonContact, String clientNotes1,
+			String clientNotes2, String clientNotes3, double clientLimitCredit,
+			double outstandingAmount, Calendar clientLastDateFood,
+			double clientAmountSpent, int clientDiners, int clientTimesToEat,
+			String clientObservation1, String clientObservation2,
+			String clientObservation3, String clientObservation4,
+			String ledgerAccount, String ledgerAccountType, String typeCode,
+			ChannelSegment channelSegment, boolean sendEmail,
+			String clientEmail, boolean sendSMS)
 			throws InstanceNotFoundException;
 
-	public void importClientFile(String path) throws IOException;
+	public void importClientFile(String path) throws IOException, NumberFormatException, ParseException;
 
 }

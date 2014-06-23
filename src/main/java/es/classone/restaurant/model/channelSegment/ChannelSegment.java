@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
 @Entity
 @Table(name = "Res14CAN")
 public class ChannelSegment {
@@ -55,9 +56,12 @@ public class ChannelSegment {
 	}
 }
 
-//CREATE TABLE IF NOT EXISTS `ayx14res`.`Res14CAN` (
-//`R1CAN000` INT NOT NULL,
-//`R1CAN001` VARCHAR(3) NOT NULL,
-//`R1CAN002` VARCHAR(45) NULL,
-//PRIMARY KEY (`R1CAN000`))
-//ENGINE = InnoDB;
+/*
+CREATE TABLE IF NOT EXISTS `ayx14res`.`Res14CAN` (
+		  `R1CAN000` INT NOT NULL,
+		  `R1CAN001` VARCHAR(3) NOT NULL,
+		  `R1CAN002` VARCHAR(45) NULL,
+		  PRIMARY KEY (`R1CAN000`),
+		  UNIQUE INDEX `R1CAN001_UNIQUE` (`R1CAN001` ASC))
+		ENGINE = InnoDB;
+*/
