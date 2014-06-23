@@ -27,10 +27,7 @@
 		<script type="text/javascript" language="javascript"
 			src="${context:javaScript/dataTables.tableTools.min.js}"></script>
 		<script type="text/javascript" language="javascript"
-			src="${context:javaScript/table.js}"></script>
-
-		<!--<script type="text/javascript" language="javascript"
-			src="${context:javaScript/dishGroupTable.js}"></script>-->
+			src="${context:javaScript/dishGroupTable.js}"></script>
 
 
 	</head>
@@ -43,7 +40,7 @@
 
 					
 					<table cellpadding="0" cellspacing="0" border="0"
-						class="table table-bordered hover display" id="example">
+						class="table table-bordered hover display" id="dishgroupTable">
 						<thead class="table-head">
 							<tr>
 								<th>${message:dish-group-code}</th>

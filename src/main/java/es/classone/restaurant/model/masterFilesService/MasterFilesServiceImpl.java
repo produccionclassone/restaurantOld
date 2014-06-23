@@ -50,8 +50,8 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 
 	public void deleteDishGroup(int dishGroupId)
 			throws InstanceNotFoundException {
-		dishGroupDao.find(dishGroupId);
-		dishGroupDao.remove(dishGroupId);
+		DishGroup dishGroup = dishGroupDao.find(dishGroupId);
+		dishGroup.setDeleted(true);
 	}
 
 	public DishGroup getDishGroupByDishGroupId(int dishgroupId)
