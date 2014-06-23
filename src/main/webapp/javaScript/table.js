@@ -75,7 +75,6 @@ $(document)
 					$('#example tbody').on('click', 'tr', function() {
 						var size = ($(".selected").size());
 						$("#deleteRowButton").prop('disabled', false);
-						console.log(size)
 						if (size == 0) {
 							$("#deleteRowButton").prop('disabled', true);
 							$("#editRowButton").prop('disabled', true);
@@ -165,5 +164,10 @@ $(document)
 										'/restaurant/?showFavorites=false&showHistory=false?option=A');
 						  }  
 						});
+						$("tr").dblclick(function() {
+							  console.log( this);
+						});
+					
+					
 
 				});
