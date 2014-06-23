@@ -44,7 +44,34 @@
 							<thead class="table-head">
 								<tr>
 									<th>${message:clientCode}</th>
-
+									<th>${message:clientName}</th>
+									<th>${message:clientAddress}</th>
+									<th>${message:clientZipCode}</th>
+									<th>${message:clientDown}</th>
+									<th>${message:clientProvince}</th>
+									<th>${message:clientDNI}</th>
+									<th>${message:clientPhoneContact}</th>
+									<th>${message:clientPersonContact}</th>
+									<th>${message:clientNotes1}</th>
+									<th>${message:clientNotes2}</th>
+									<th>${message:clientNotes3}</th>
+									<th>${message:clientLimitCredit}</th>
+									<th>${message:outstandingAmount}</th>
+									<th>${message:clientLastDateFood}</th>
+									<th>${message:clientAmountSpent}</th>
+									<th>${message:clientDiners}</th>
+									<th>${message:clientTimesToEat}</th>
+									<th>${message:clientObservation1}</th>
+									<th>${message:clientObservation2}</th>
+									<th>${message:clientObservation3}</th>
+									<th>${message:clientObservation4}</th>
+									<th>${message:ledgerAccount}</th>
+									<th>${message:ledgerAccountType}</th>
+									<th>${message:typeCode}</th>
+									<th>${message:channelValue}</th>
+									<th>${message:sendEmail}</th>
+									<th>${message:clientEmail}</th>
+									<th>${message:sendSMS}</th>
 								</tr>
 							</thead>
 							<tbody>
