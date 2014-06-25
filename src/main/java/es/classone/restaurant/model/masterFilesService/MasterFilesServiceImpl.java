@@ -22,6 +22,7 @@ import es.classone.restaurant.model.dish.Dish;
 import es.classone.restaurant.model.dish.DishDao;
 import es.classone.restaurant.model.dishGroup.DishGroup;
 import es.classone.restaurant.model.dishGroup.DishGroupDao;
+import es.classone.restaurant.modelutil.exceptions.DuplicateInstanceException;
 import es.classone.restaurant.modelutil.exceptions.InstanceNotFoundException;
  
 @Service("masterFilesService")
@@ -31,7 +32,8 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 	@Autowired
 	private DishGroupDao dishGroupDao;
 
-	@Autowired DishDao dishDao;
+	@Autowired
+	private DishDao dishDao;
 	
 	@Autowired
 	private ClientDao clientDao;
@@ -42,11 +44,14 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 	public List<DishGroup> findAll() {
 		return dishGroupDao.findAll();
 	}
-
-	public DishGroup createDishGroup(DishGroup dishGroup) {
+	
+	public DishGroup createDishGroup(DishGroup dishGroup) throws DuplicateInstanceException {
+		
+		if (dishGroupDao.existDishGroupCode(dishGroup.getDishGroupCode())==true){
+			throw new DuplicateInstanceException(dishGroup, DishGroup.class.getName());
+		}
 		dishGroupDao.save(dishGroup);
-		return dishGroup;
-	}
+		return dishGroup;	}
 
 	public void deleteDishGroup(int dishGroupId)
 			throws InstanceNotFoundException {
@@ -73,7 +78,7 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 		return dishGroup;
 	}
 
-	public void importDishGroupFile(String path) throws IOException {
+	public void importDishGroupFile(String path) throws IOException, DuplicateInstanceException {
 
 		FileReader input = new FileReader(path);
 		@SuppressWarnings("resource")

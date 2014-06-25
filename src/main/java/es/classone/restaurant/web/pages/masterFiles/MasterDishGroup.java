@@ -6,12 +6,15 @@ import java.util.List;
 import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
+import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
 import es.classone.restaurant.model.dishGroup.DishGroup;
 import es.classone.restaurant.model.masterFilesService.MasterFilesService;
+import es.classone.restaurant.modelutil.exceptions.ConstraintViolationException;
+import es.classone.restaurant.modelutil.exceptions.DuplicateInstanceException;
 import es.classone.restaurant.modelutil.exceptions.InstanceNotFoundException;
 import es.classone.restaurant.web.services.AuthenticationPolicy;
 import es.classone.restaurant.web.services.AuthenticationPolicyType;
@@ -75,8 +78,11 @@ public class MasterDishGroup {
 
 	@Inject
 	private Request request;
+	
+	@Inject
+	private Messages messages;
 
-	void setupRender() {
+	void setupRender() throws DuplicateInstanceException {
 		dishgroups = masterFilesService.findAll();
 		int size= dishgroups.size();
 		if (size==0){
@@ -155,7 +161,7 @@ public class MasterDishGroup {
 		}
 	}
 
-	void onValidateFromAddRowForm() {
+	void onValidateFromAddRowForm() throws NumberFormatException, DuplicateInstanceException {
 		masterFilesService.createDishGroup(new DishGroup(dishGroupCode, dishGroupDesc, Integer
 				.valueOf(ivaType), salesLedgerAccount, typeIncome, Integer
 				.valueOf(macroGroup)));
@@ -183,8 +189,9 @@ public class MasterDishGroup {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
+	
+	
 
 	void afterRender() {
 	System.out.println("after");

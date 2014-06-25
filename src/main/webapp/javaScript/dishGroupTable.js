@@ -51,7 +51,7 @@ $(document)
 							.replaceWith(
 									"<img src='../images/csv_file.png' width='25' height='25'></img>");
 					$("#ToolTables_dishGroupTable_2").replaceWith("");
-					$("#ToolTables_example_3")
+					$("#ToolTables_dishGroupTable_3")
 							.children()
 							.replaceWith(
 									"<img src='../images/pdf_file.png' width='25' height='25'></img>");

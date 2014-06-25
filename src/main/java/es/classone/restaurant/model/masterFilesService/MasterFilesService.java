@@ -9,12 +9,13 @@ import es.classone.restaurant.model.channelSegment.ChannelSegment;
 import es.classone.restaurant.model.client.Client;
 import es.classone.restaurant.model.dish.Dish;
 import es.classone.restaurant.model.dishGroup.DishGroup;
+import es.classone.restaurant.modelutil.exceptions.DuplicateInstanceException;
 import es.classone.restaurant.modelutil.exceptions.InstanceNotFoundException;
 
 public interface MasterFilesService {
 	public List<DishGroup> findAll();
 
-	public DishGroup createDishGroup(DishGroup dishGroup);
+	public DishGroup createDishGroup(DishGroup dishGroup) throws DuplicateInstanceException;
 
 	public DishGroup getDishGroupByDishGroupId(int dishgroupId)
 			throws InstanceNotFoundException;
@@ -27,7 +28,7 @@ public interface MasterFilesService {
 			String salesLedgerAccount, String typeIncome)
 			throws InstanceNotFoundException;
 
-	public void importDishGroupFile(String path) throws IOException;
+	public void importDishGroupFile(String path) throws IOException, DuplicateInstanceException;
 
 	public List<Dish> findAllDish();
 

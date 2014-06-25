@@ -18,17 +18,26 @@ public class DishGroupDaoHibernate extends
 				.list());
 	} 
 	
-	//get by dishgroupId
-	
 	public DishGroup findByCode(String dishGroupCode) {
 		
 		return (DishGroup) (getSession()
 				.createQuery(
 						"SELECT dg FROM DishGroup dg WHERE "
 								+ "dg.dishGroupCode = :dishGroupCode"
-								+ "dg.deleted = 'false'")
+								+ " and dg.deleted = 'false'")
 				.setParameter("dishGroupCode", dishGroupCode)
 				.uniqueResult());
+	}
+	
+	public boolean existDishGroupCode (String dishGroupCode) {
+		DishGroup dishGroup = (DishGroup) (getSession()
+				.createQuery(
+						"SELECT dg FROM DishGroup dg WHERE "
+								+ "dg.dishGroupCode = :dishGroupCode"
+								+ " and dg.deleted = 'false'")
+				.setParameter("dishGroupCode", dishGroupCode)
+				.uniqueResult());
+		return dishGroup != null;
 	}
 
 }
