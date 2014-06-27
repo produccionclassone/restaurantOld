@@ -67,19 +67,7 @@
 						</tbody>
 
 					</table>
-					<button id="addRowButton" class="btn btn-default" data-toggle="tooltip"
-											data-placement="bottom" title="${message:add}">
-						<img src='${context:css/images/add.png}' width='20' height='20'  />
-					</button>
-					<button id="editRowButton" class="btn btn-default" data-toggle="tooltip"
-											data-placement="bottom" title="${message:edit}">
-						<img src='${context:css/images/edit.png}' width='20' height='20' />
-					</button>
 
-					<button id="deleteRowButton" class="btn btn-default" data-toggle="tooltip"
-											data-placement="bottom" title="${message:delete}">
-						<img src='${context:css/images/delete.png}' width='20' height='20' />
-					</button>
 				</div>
 				<div class="modal fade" id="modalCreate">
 					<div class="modal-dialog">

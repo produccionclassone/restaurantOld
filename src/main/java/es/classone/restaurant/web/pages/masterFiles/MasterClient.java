@@ -5,14 +5,24 @@ import java.text.ParseException;
 import java.util.Calendar;
 import java.util.List;
 
+import org.apache.tapestry5.annotations.Component;
+import org.apache.tapestry5.annotations.Import;
+import org.apache.tapestry5.annotations.InjectComponent;
+import org.apache.tapestry5.annotations.OnEvent;
 import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.corelib.components.Form;
+import org.apache.tapestry5.corelib.components.Zone;
 import org.apache.tapestry5.ioc.annotations.Inject;
+import org.apache.tapestry5.json.JSONObject;
 import org.apache.tapestry5.services.Request;
+import org.apache.tapestry5.services.ajax.AjaxResponseRenderer;
+import org.apache.tapestry5.services.ajax.JSONCallback;
+import org.apache.tapestry5.services.ajax.JavaScriptCallback;
 import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
 import es.classone.restaurant.model.channelSegment.ChannelSegment;
 import es.classone.restaurant.model.client.Client;
-
+import es.classone.restaurant.model.client.ClientHeader;
 import es.classone.restaurant.model.masterFilesService.MasterFilesService;
 import es.classone.restaurant.modelutil.exceptions.InstanceNotFoundException;
 import es.classone.restaurant.web.services.AuthenticationPolicy;
@@ -20,164 +30,123 @@ import es.classone.restaurant.web.services.AuthenticationPolicyType;
 
 @AuthenticationPolicy(AuthenticationPolicyType.AUTHENTICATED_USERS)
 public class MasterClient {
-
+	@Component
+	private Form editRowForm;
 	@Property
-	private List<Client> clients;
-
+	private List<ClientHeader> clients;
 	@Property
-	private Client client;
-
+	private ClientHeader client;
 	@Property
-	private String clientId;
+	private Client clientDetails;
+	@Property
+	private Long clientId;
+	@Property
+	private Long editClientId;
 	
 	@Property
-	private String clientCode;
-	@Property
 	private String clientName;
+	
 	@Property
-	private String clientAddress; 
+	private String clientAddress;
 	@Property
-	private String clientZipCode; 
+	private String clientZipCode;
 	@Property
-	private String clientDown; 
+	private String clientDown;
 	@Property
 	private String clientProvince;
 	@Property
-	private String clientDNI; 
+	private String clientDNI;
 	@Property
-	private String clientPhoneContact; 
+	private String clientPhoneContact;
 	@Property
-	private String clientPersonContact; 
+	private String clientPersonContact;
 	@Property
-	private String clientNotes1; 
+	private String clientNotes1;
 	@Property
-	private String clientNotes2; 
+	private String clientNotes2;
 	@Property
-	private String clientNotes3; 
+	private String clientNotes3;
 	@Property
-	private double clientLimitCredit; 
+	private double clientLimitCredit;
 	@Property
 	private double outstandingAmount;
 	@Property
-	private Calendar clientLastDateFood; 
+	private Calendar clientLastDateFood;
 	@Property
-	private double clientAmountSpent; 
+	private double clientAmountSpent;
 	@Property
-	private int clientDiners; 
+	private int clientDiners;
 	@Property
-	private int clientTimesToEat; 
+	private int clientTimesToEat;
 	@Property
-	private String clientObservation1; 
+	private String clientObservation1;
 	@Property
-	private String clientObservation2; 
+	private String clientObservation2;
 	@Property
-	private String clientObservation3; 
+	private String clientObservation3;
 	@Property
-	private String clientObservation4; 
+	private String clientObservation4;
 	@Property
-	private String ledgerAccount; 
+	private String ledgerAccount;
 	@Property
 	private String ledgerAccountType;
 	@Property
 	private String typeCode;
 	@Property
-	private ChannelSegment channelSegment; 
+	private ChannelSegment channelSegment;
 	@Property
-	private boolean sendEmail; 
+	private boolean sendEmail;
 	@Property
-	private String clientEmail; 
+	private String clientEmail;
 	@Property
-	private boolean sendSMS; 
-
+	private boolean sendSMS;
 	@Inject
 	private MasterFilesService masterFilesService;
-
+	@InjectComponent
+	private Zone zone;
+	@Inject
+	private AjaxResponseRenderer ajaxResponseRenderer;
 	@Inject
 	private JavaScriptSupport javaScriptSupport;
 
 	@Inject
 	private Request request;
 
-	void setupRender() throws NumberFormatException, ParseException {
+	void setupRender() throws NumberFormatException, ParseException, InstanceNotFoundException {
+		
 		clients = masterFilesService.findAllClient();
 		long size = clients.size();
-		
+		System.out.println("SIZE IN WEB:" + size);
 		if (size == 0) {
-			clientCode = "00";
 			try {
-				// masterFilesService.importDishFile("/home/alexpenedo/Documentos/ClassOne/exports/RES91PLA.TXT");
-				masterFilesService.importClientFile("C:/Users/VaninaBusto/Documents/CLIENTES.TXT");
+				masterFilesService
+						.importClientFile("/home/alexpenedo/Documentos/ClassOne/exports/CLIENTES.TXT");
+				// masterFilesService.importClientFile("C:/Users/VaninaBusto/Documents/CLIENTES.TXT");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		} else {
+		}
+	}
+
+	
+	void onEdit(Long clientId) throws InstanceNotFoundException {
+			clientDetails = masterFilesService.getClientByClientId(clientId);
+			ajaxResponseRenderer.addCallback(new JavaScriptCallback() {
+	            public void run(JavaScriptSupport javascriptSupport) {
+	                javascriptSupport.addScript(
+	                    String.format(" $('#modalEdit').modal('show');", null));
+	            }
+	        });
+			ajaxResponseRenderer.addRender(zone);
+   }
+	
+	void onDelete(Long row) {
 			try {
-				clientCode = getNewCode(masterFilesService.getClientByClientId(size).getClientCode());
-			} catch (InstanceNotFoundException e1) {
-				e1.printStackTrace();
-			}
-		}
-
-	}
-
-	private String getNewCode(String currentCode) {
-		if (isNumeric(currentCode)) {
-			if (currentCode.equals("99")) {
-				return ("A0");
-			} else
-				return (String.valueOf(Integer.parseInt(currentCode) + 1));
-		} else {
-			String lastChar = currentCode.substring(1);
-			if (isNumeric(lastChar)) {
-
-				String firstChar = currentCode.substring(0, 1);
-				return firstChar
-						+ (String.valueOf(Integer.parseInt(lastChar) + 1));
-
-			} else
-				return ("ZZ");
-		}
-
-	}
-
-	private boolean isNumeric(String s) {
-		String pattern = "^[0-9]*$";
-		if (s.matches(pattern)) {
-			return true;
-		}
-		return false;
-	}
-
-	void onActivate() {
-		if (request.getParameter("id") != null) {
-			try {
-				clientId = request.getParameter("id");
-				client = masterFilesService.getClientByClientId(Long
-						.parseLong(request.getParameter("id")));
-				clientId = String.valueOf(client.getClientId());
-
-			} catch (NumberFormatException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				masterFilesService.deleteClient(row);
 			} catch (InstanceNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				System.out.println("error al eliminar");
 			}
-
-		} else {
-		}
 	}
-
-/*	void onValidateFromAddRowForm() {
-		masterFilesService.createDish(new Dish(dishCode, dishDescriptionLang1,
-				dishDescriptionLang2, dishDescriptionLang3, dishPrint,
-				dishListPrice, dishPVP, dishCostPrice, dishType, dishDiscount,
-				dishPending, dishGroup, dishTractable, dishOrderer,
-				dishVisible, dishNumbers, dishLongDesc, dishShortDesc));
-	}
-*/
-	void afterRender() {
-		System.out.println("after");
-	}
-
 }
+
+

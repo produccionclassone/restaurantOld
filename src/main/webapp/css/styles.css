@@ -755,4 +755,7 @@ width: 898px;
 padding:8px;
 
 }
+HTML>BODY
+.table > tbody > tr > td{
+	padding:0px;
 }

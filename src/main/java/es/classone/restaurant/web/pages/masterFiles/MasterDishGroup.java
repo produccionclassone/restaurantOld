@@ -13,7 +13,6 @@ import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
 import es.classone.restaurant.model.dishGroup.DishGroup;
 import es.classone.restaurant.model.masterFilesService.MasterFilesService;
-import es.classone.restaurant.modelutil.exceptions.ConstraintViolationException;
 import es.classone.restaurant.modelutil.exceptions.DuplicateInstanceException;
 import es.classone.restaurant.modelutil.exceptions.InstanceNotFoundException;
 import es.classone.restaurant.web.services.AuthenticationPolicy;

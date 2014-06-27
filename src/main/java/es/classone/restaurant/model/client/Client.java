@@ -22,7 +22,6 @@ import es.classone.restaurant.model.channelSegment.ChannelSegment;
 public class Client {
 
 	private Long clientId; // R1CLI000
-	private String clientCode; // R1CLI001
 	private String clientName; // R1CLI002
 	private String clientAddress; // R1CLI003
 	private String clientZipCode; // R1CLI004
@@ -57,7 +56,7 @@ public class Client {
 
 	}
 
-	public Client(String clientCode, String clientName, String clientAddress,
+	public Client( String clientName, String clientAddress,
 			String clientZipCode, String clientDown, String clientProvince,
 			String clientDNI, String clientPhoneContact,
 			String clientPersonContact, String clientNotes1,
@@ -70,7 +69,6 @@ public class Client {
 			ChannelSegment channelSegment, boolean sendEmail,
 			String clientEmail, boolean sendSMS) {
 
-		this.clientCode = clientCode;
 		this.clientName = clientName;
 		this.clientAddress = clientAddress;
 		this.clientZipCode = clientZipCode;
@@ -114,15 +112,6 @@ public class Client {
 
 	public void setClientId(Long clientId) {
 		this.clientId = clientId;
-	}
-
-	@Column(name="R1CLI001")
-	public String getClientCode() {
-		return clientCode;
-	}
-
-	public void setClientCode(String clientCode) {
-		this.clientCode = clientCode;
 	}
 
 	@Column(name = "R1CLI002")

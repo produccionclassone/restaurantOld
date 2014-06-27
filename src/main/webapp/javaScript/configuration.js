@@ -53,11 +53,9 @@ function saveBool(parameter){
 }
 var validateSave = function(){
 	$(".numericParam").focusout(function() {
-		console.log();
 		var intRegex = /^\d+$/;
 		var str = this.value;
-		if(intRegex.test(str)) {
-			
+		if(intRegex.test(str)) {			
 			 $(this).removeClass("t-error");
 			save(this);
 			if ($(".t-error").length==0)
@@ -68,6 +66,25 @@ var validateSave = function(){
 		 $(this).addClass("t-error");
 		 $(".alert-numeric").show();
 		}
+	});
+	$(".floatParam").focusout(function() {
+		console.log();
+		var floatRegex = /^(?:[1-9]\d*|0)?(?:\.\d+)?$/;
+		var str = this.value;
+		if(floatRegex.test(str)) {			
+			 $(this).removeClass("t-error");
+			save(this);
+			if ($(".t-error").length==0)
+			$(".alert-numeric").hide();
+		}
+		
+		else{ console.log("ERROR");
+		 $(this).addClass("t-error");
+		 $(".alert-numeric").show();
+		}
+	});
+	$(".boolParam").click(function(){
+		saveBool(this);
 	});
 }
 var showParameters = function(parameters) {

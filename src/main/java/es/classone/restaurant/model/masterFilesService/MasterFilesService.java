@@ -7,6 +7,7 @@ import java.util.List;
 
 import es.classone.restaurant.model.channelSegment.ChannelSegment;
 import es.classone.restaurant.model.client.Client;
+import es.classone.restaurant.model.client.ClientHeader;
 import es.classone.restaurant.model.dish.Dish;
 import es.classone.restaurant.model.dishGroup.DishGroup;
 import es.classone.restaurant.modelutil.exceptions.DuplicateInstanceException;
@@ -47,7 +48,7 @@ public interface MasterFilesService {
 
 	public void importDishFile(String path) throws IOException;
 
-	public List<Client> findAllClient();
+	public List<ClientHeader> findAllClient();
 
 	public Client createClient(Client client);
 
@@ -57,7 +58,7 @@ public interface MasterFilesService {
 	public void deleteClient(Long clientId)
 			throws InstanceNotFoundException;
 
-	public Client editClient(long clientId, String clientCode, String clientName, String clientAddress,
+	public Client editClient(long clientId, String clientName, String clientAddress,
 			String clientZipCode, String clientDown, String clientProvince,
 			String clientDNI, String clientPhoneContact,
 			String clientPersonContact, String clientNotes1,

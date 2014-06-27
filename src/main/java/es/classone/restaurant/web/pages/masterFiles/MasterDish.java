@@ -97,8 +97,8 @@ public class MasterDish {
 		if (size == 0) {
 			dishCode = "00";
 			try {
-//				 masterFilesService.importDishFile("/home/alexpenedo/Documentos/ClassOne/exports/RES91PLA.TXT");
-				masterFilesService.importDishFile("C:/Users/VaninaBusto/Documents/RES91PLA.TXT");
+				 masterFilesService.importDishFile("/home/alexpenedo/Documentos/ClassOne/exports/RES91PLA.TXT");
+//				masterFilesService.importDishFile("C:/Users/VaninaBusto/Documents/RES91PLA.TXT");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

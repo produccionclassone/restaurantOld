@@ -18,6 +18,7 @@ import es.classone.restaurant.model.channelSegment.ChannelSegment;
 import es.classone.restaurant.model.channelSegment.ChannelSegmentDao;
 import es.classone.restaurant.model.client.Client;
 import es.classone.restaurant.model.client.ClientDao;
+import es.classone.restaurant.model.client.ClientHeader;
 import es.classone.restaurant.model.dish.Dish;
 import es.classone.restaurant.model.dish.DishDao;
 import es.classone.restaurant.model.dishGroup.DishGroup;
@@ -45,19 +46,27 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 		return dishGroupDao.findAll();
 	}
 	
-	public DishGroup createDishGroup(DishGroup dishGroup) throws DuplicateInstanceException {
-		
-		if (dishGroupDao.existDishGroupCode(dishGroup.getDishGroupCode())==true){
-			throw new DuplicateInstanceException(dishGroup, DishGroup.class.getName());
-		}
-		dishGroupDao.save(dishGroup);
-		return dishGroup;	}
+	  public DishGroup createDishGroup(DishGroup dishGroup) throws DuplicateInstanceException {
+          if (dishGroupDao.existDishGroupCode(dishGroup.getDishGroupCode())==true){
 
-	public void deleteDishGroup(int dishGroupId)
-			throws InstanceNotFoundException {
-		DishGroup dishGroup = dishGroupDao.find(dishGroupId);
-		dishGroup.setDeleted(true);
-	}
+                throw new DuplicateInstanceException(dishGroup, DishGroup.class.getName());
+
+          }
+          dishGroupDao.save(dishGroup);
+          return dishGroup; 
+          }
+
+
+
+    public void deleteDishGroup(int dishGroupId)
+
+            throws InstanceNotFoundException {
+
+      DishGroup dishGroup = dishGroupDao.find(dishGroupId);
+
+      dishGroup.setDeleted(true);
+
+}
 
 	public DishGroup getDishGroupByDishGroupId(int dishgroupId)
 			throws InstanceNotFoundException {
@@ -166,7 +175,7 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 		@SuppressWarnings("resource")
 		BufferedReader bufRead = new BufferedReader(input);
 		String myLine = null;
-		int j = 1;
+
 		while ((myLine = bufRead.readLine()) != null) {
 			String[] row = myLine.split(";");
 			/* PRINT Edited lines
@@ -217,7 +226,7 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 	}
 
 
-	public List<Client> findAllClient() {
+	public List<ClientHeader> findAllClient() {
 		return clientDao.findAll();
 	}
 
@@ -237,7 +246,7 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 		return clientDao.find(clientId);
 	}
 
-	public Client editClient(long clientId, String clientCode, String clientName, String clientAddress,
+	public Client editClient(long clientId, String clientName, String clientAddress,
 			String clientZipCode, String clientDown, String clientProvince,
 			String clientDNI, String clientPhoneContact,
 			String clientPersonContact, String clientNotes1,
@@ -252,7 +261,6 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 			throws InstanceNotFoundException {
 		
 		Client client = clientDao.find(clientId);
-		client.setClientCode(clientCode);
 		client.setClientName (clientName);
 		client.setClientAddress (clientAddress);
 		client.setClientZipCode (clientZipCode);
@@ -338,7 +346,6 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 			
 			
 			Client client = new Client(
-					row[0].replace('"', ' ').trim(),
 					row[1].replace('"', ' ').trim(),
 					row[2].replace('"', ' ').trim(),
 					row[3].replace('"', ' ').trim(),

@@ -489,19 +489,19 @@ input, select, textarea  {
 
 /*DATATABLES */
 HTML>BODY
-ul.ColVis_collection{
-	width:250px;
-}
-
-.dataTables_filter{
-	float:left;
-	padding-top:5px;
-}
-.top{
-	margin-top:0px;
-padding-right:10px;
-padding-left:10px;
-}
+//ul.ColVis_collection{
+//	width:250px;
+//}
+//
+//.dataTables_filter{
+//	float:left;
+//	padding-top:5px;
+//}
+//.top{
+//	margin-top:0px;
+//padding-right:10px;
+//padding-left:10px;
+//}
 
 HTML>BODY
 .modal-footer-center{
