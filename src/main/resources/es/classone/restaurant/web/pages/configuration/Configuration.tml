@@ -235,7 +235,6 @@
 													<div class="row"> <!-- Row: Msg iteración con BBDD -->
 														<div class="col-md-12">
 															<t:zone t:id="msgZone2" id="msgZone2">
-															${integrationHotel}&nbsp;
 															</t:zone>
 														</div>
 													</div> <!-- Row: Msg iteración con BBDD -->
@@ -312,14 +311,14 @@
 																			</span>
 																		</div>
 																		<div class="col-md-1"></div>
-																		<div class="col-md-2">
-																			<input class="form-control textcontrolL numeric1_3Param"
-																				t:id="covServCharIVAType" t:type="TextField"
-																				t:validate="maxlength=1" maxlength="1"
-																				t:event="covServCharIVATypeChanged" t:mixins="jquery/zoneUpdater"
-																				t:zone="msgZone2" />
+																		<div class="col-md-3">
+ 																			<select class="form-control textcontrolL"
+ 																					t:type="select" t:id="covServCharIVAType" 
+ 																					t:model="ivaTypeOptions"
+																					t:zone="msgZone2" />
+
 																		</div>
-																		<div class="col-md-4"></div>
+																		<div class="col-md-3"></div>
 																	</div> <!-- Row 3.3: Covered service IVA Type -->
 																	<div class="row"> <!-- Row 3.4 Literal Charged Covered -->
 																		<div class="col-md-1">
@@ -379,13 +378,14 @@
 																			</span>
 																		</div>
 																		<div class="col-md-1"></div>
-																		<div class="col-md-2">
-																			<input class="form-control textcontrolL numeric1_3Param"
-																				t:id="tipWaiterInvoiceIVA" t:type="TextField"
-																				t:event="tipWaiterInvoiceIVAChanged" t:mixins="jquery/zoneUpdater"
-																				t:zone="msgZone2" />
+																		<div class="col-md-3">
+ 																			<select class="form-control textcontrolL"
+ 																					t:type="select" t:id="tipWaiterInvoiceIVA" 
+ 																					t:model="ivaTypeOptions"
+																					t:zone="msgZone2" />
+																			
 																		</div>
-																		<div class="col-md-4"></div>
+																		<div class="col-md-3"></div>
 																	</div> <!-- Row 4.3: tip waiter invoice IVA -->
 																	<div class="row"> <!-- Row 4.4: Literal tip waiter -->
 																		<div class="col-md-1">
@@ -513,7 +513,7 @@
 														</div><!-- Left -->
 														<div class="col-md-6"><!-- Right -->
 															<div class="row"> <!-- Row 1: Hotel -->
-																<dic class="col-md-1"></dic>
+																<div class="col-md-1"></div>
 																<div class="col-md-10 rowBorder">
 																	<div class="row">
 																		<div class="textRowBorder">${message:Hotel/Dpto-label}</div>
@@ -613,7 +613,7 @@
 																</div>
 																<div class="col-md-4"></div>
 															</div> <!-- Row 2: Integration Hotel -->
-															<div class="row">
+															<div class="row"> <!-- Row 3: Integration Econ -->
 																<div class="col-md-1"></div>
 																<div class="col-md-5">
 																	<span class="input-group-addon">
@@ -621,13 +621,13 @@
 																	</span>
 																</div>
 																<div class="col-md-1">
-																	<input class="form-control checkcontrol" t:id="integrationEcon"
-																		name="integrationEcon" t:type="CheckBox"
-																		placeholder="${message:integrationEcon-label}" />
+																	<input class="form-control checkcontrol checkcontrol-inside boolParam"
+																				t:id="integrationEcon" t:type="CheckBox" t:event="integrationEconChanged"
+																				t:mixins="jquery/zoneUpdater" t:zone="msgZone2" />
 																</div>
 																<div class="col-md-5"></div>
-															</div>
-															<div class="row">
+															</div> <!-- Row 3: Integration Econ -->
+															<div class="row"> <!-- Row 4: Split command -->
 																<div class="col-md-1"></div>
 																<div class="col-md-5">
 																	<span class="input-group-addon">
@@ -635,13 +635,13 @@
 																	</span>
 																</div>
 																<div class="col-md-1">
-																	<input class="form-control checkcontrol" t:id="splitCommand"
-																		name="splitCommand" t:type="CheckBox"
-																		placeholder="${message:splitCommand-label}" />
+																	<input class="form-control checkcontrol checkcontrol-inside boolParam"
+																				t:id="splitCommand" t:type="CheckBox" t:event="splitCommandChanged"
+																				t:mixins="jquery/zoneUpdater" t:zone="msgZone2" />
 																</div>
 																<div class="col-md-5"></div>
-															</div>
-															<div class="row">
+															</div> <!-- Row 4: Split command -->
+															<div class="row"> <!-- Row 5: Cancel table level -->
 																<div class="col-md-1"></div>
 																<div class="col-md-5">
 																	<span class="input-group-addon">
@@ -649,15 +649,14 @@
 																	</span>
 																</div>
 																<div class="col-md-2">
-																	<input class="form-control textcontrolL" t:id="cancelTableLevel"
-																		name="cancelTableLevel" t:type="TextField"
-																		onkeypress="return permite(event, 'car')" t:mixins="jquery/zoneUpdater"
-																		t:clientEvent="focusout" t:event="cancelTableLevelChanged"
+																	<select class="form-control textcontrolL"
+ 																		t:type="select" t:id="cancelTableLevel" 
+ 																		t:model="cancelTableLevelOptions"
 																		t:zone="msgZone2" />
 																</div>
 																<div class="col-md-4"></div>
-															</div>
-															<div class="row">
+															</div> <!-- Row 5: Cancel table level -->
+															<div class="row"> <!-- Row 6: Day menu level -->
 																<div class="col-md-1"></div>
 																<div class="col-md-5">
 																	<span class="input-group-addon">
@@ -665,15 +664,14 @@
 																	</span>
 																</div>
 																<div class="col-md-2">
-																	<input class="form-control textcontrolL" t:id="dayMenuLevel"
-																		name="dayMenuLevel" t:type="TextField"
-																		onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																		t:clientEvent="focusout" t:event="dayMenuLevelChanged"
+																	<select class="form-control textcontrolL"
+ 																		t:type="select" t:id="dayMenuLevel" 
+ 																		t:model="dayMenuLevelOptions"
 																		t:zone="msgZone2" />
 																</div>
 																<div class="col-md-4"></div>
-															</div>
-															<div class="row">
+															</div> <!-- Row 6: Day menu level -->
+															<div class="row"> <!-- Row 7: Literal especial bill -->
 																<div class="col-md-1"></div>
 																<div class="col-md-5">
 																	<span class="input-group-addon">
@@ -681,15 +679,14 @@
 																	</span>
 																</div>
 																<div class="col-md-5">
-																	<input class="form-control textcontrolL" t:id="literalEspBill"
-																		name="literalEspBill" t:type="TextField"
-																		onkeypress="return permite(event, 'num_car')"
-																		t:mixins="jquery/zoneUpdater" t:clientEvent="focusout"
-																		t:event="literalEspBillChanged" t:zone="msgZone2" />
+																	<input class="form-control textcontrolL alphabeticParam" t:id="literalEspBill"
+																		t:type="TextField" maxlenth="45"
+																		t:mixins="jquery/zoneUpdater" t:event="literalEspBillChanged" 
+																		t:zone="msgZone2" />
 																</div>
 																<div class="col-md-1"></div>
-															</div>
-															<div class="row">
+															</div> <!-- Row 7: Literal especial bill -->
+															<div class="row"> <!-- Row 8: Assoc. elements -->
 																<div class="col-md-1"></div>
 																<div class="col-md-10 rowBorder">
 																	<div class="row">
@@ -714,6 +711,7 @@
 																		</div>
 																		<div class="col-md-3"></div>
 																	</div>
+																	
 																	<div class="row">
 																		<div class="col-md-3">
 																			<span class="input-group-addon">
@@ -813,7 +811,7 @@
 																	</div>
 																</div>
 																<div class="col-md-1"></div>
-															</div>
+															</div> <!-- Row 7: Literal especial bill -->
 															<div class="row">
 																<div class="col-md-1"></div>
 																<div class="col-md-5">
@@ -2097,14 +2095,13 @@
 																<div class="col-md-5">
 																	<!-- <span class="input-group-addon">Calif. Platos PRN-Cocina</span> -->
 																	<span class="input-group-addon">
-																		<t:label for="qualifyKitchenDish" />
+																		<t:label for="printKitchenCalif" />
 																	</span>
 																</div>
 																<div class="col-md-1">
 																	<!-- <input type="checkbox" class="form-control checkcontrol"></input> -->
-																	<input class="form-control checkcontrol" t:id="qualifyKitchenDish"
-																		name="qualifyKitchenDish" t:type="CheckBox"
-																		placeholder="${message:qualifyKitchenDish-label}" />
+																	<input class="form-control checkcontrol" t:id="printKitchenCalif"
+																		name="printKitchenCalif" t:type="CheckBox" />
 																</div>
 																<div class="col-md-5"></div>
 															</div>

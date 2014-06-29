@@ -145,10 +145,15 @@ public class Configuration {
 	@Property
 	private String covServCharIVAType;
 
-	Object onCovServCharIVATypeChanged() throws InstanceNotFoundException {
-		covServCharIVAType = request.getParameter("param");
-		configurationService.setParameterGeneric("covServCharIVAType",
-				covServCharIVAType);
+	static final private String[] ALL_IVA_TYPE_OPTION = new String[] { "1", "2", "3" };
+
+	@Property
+	private String[] ivaTypeOptions;
+
+	Object onValueChangedFromCovServCharIVAType(String covServCharIVAType) throws InstanceNotFoundException {
+		this.covServCharIVAType = covServCharIVAType;
+		configurationService.setParameterGeneric("covServCharIVAType", covServCharIVAType);
+		ivaTypeOptions = ALL_IVA_TYPE_OPTION;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -190,13 +195,13 @@ public class Configuration {
 	@Property
 	private String tipWaiterInvoiceIVA;
 
-	Object onTipWaiterInvoiceIVAChanged() throws InstanceNotFoundException {
-		tipWaiterInvoiceIVA = request.getParameter("param");
-		configurationService.setParameterGeneric("tipWaiterInvoiceIVA",
-				tipWaiterInvoiceIVA);
+	Object onValueChangedFromtipWaiterInvoiceIVA(String tipWaiterInvoiceIVA) throws InstanceNotFoundException {
+		this.tipWaiterInvoiceIVA = tipWaiterInvoiceIVA;
+		configurationService.setParameterGeneric("tipWaiterInvoiceIVA", tipWaiterInvoiceIVA);
+		ivaTypeOptions = ALL_IVA_TYPE_OPTION;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
-
+	
 	@Property
 	private String literalTipsAuto;
 
@@ -401,28 +406,12 @@ public class Configuration {
 	@Property
 	private String[] integrationHotelOptions;
 
-	/*
-	Object onIntegrationHotelChanged() throws InstanceNotFoundException {
-		integrationHotel = request.getParameter("param");
-		configurationService
-				.setParameterGeneric("integrationHotel",integrationHotel);
-		return request.isXHR() ? msgZone2.getBody() : null;
-	}
-*/	
 	Object onValueChangedFromIntegrationHotel(String integrationHotel) throws InstanceNotFoundException {
 		this.integrationHotel = integrationHotel;
 		configurationService.setParameterGeneric("integrationHotel", integrationHotel);
 		integrationHotelOptions = ALL_INTEGRATION_HOTEL_OPTION;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
-
-	void setupRender() {
-
-		if (integrationHotelOptions == null) {
-			integrationHotelOptions = ALL_INTEGRATION_HOTEL_OPTION;
-	    }
-
-	}	
 	
 	@Property
 	private Boolean integrationEcon;
@@ -435,21 +424,6 @@ public class Configuration {
 			integrationEcon = false;
 		configurationService.setParameterBool("integrationEcon",
 				integrationEcon);
-		return request.isXHR() ? msgZone2.getBody() : null;
-
-	}
-
-	@Property
-	private Boolean qualifyKitchenDish;
-
-	Object onQualifyKitchenDishChanged() throws InstanceNotFoundException {
-		String value = request.getParameter("param");
-		if (value.equals("true") == true)
-			qualifyKitchenDish = true;
-		else
-			qualifyKitchenDish = false;
-		configurationService.setParameterBool("qualifyKitchenDish",
-				qualifyKitchenDish);
 		return request.isXHR() ? msgZone2.getBody() : null;
 
 	}
@@ -470,19 +444,28 @@ public class Configuration {
 	@Property
 	private String cancelTableLevel;
 
-	Object onCancelTableLevelChanged() throws InstanceNotFoundException {
-		cancelTableLevel = request.getParameter("param");
-		configurationService.setParameterGeneric("cancelTableLevel",
-				cancelTableLevel);
+	static final private String[] ALL_LEVEL_OPTION = new String[] { "0", "1", "2", "3" };
+
+	@Property
+	private String[] cancelTableLevelOptions;
+
+	Object onValueChangedFromCancelTableLevel(String cancelTableLevel) throws InstanceNotFoundException {
+		this.cancelTableLevel = cancelTableLevel;
+		configurationService.setParameterGeneric("cancelTableLevel", cancelTableLevel);
+		cancelTableLevelOptions = ALL_LEVEL_OPTION;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
 	@Property
 	private String dayMenuLevel;
 
-	Object onDayMenuLevelChanged() throws InstanceNotFoundException {
-		dayMenuLevel = request.getParameter("param");
+	@Property
+	private String[] dayMenuLevelOptions;
+
+	Object onValueChangedFromDayMenuLevel(String dayMenuLevel) throws InstanceNotFoundException {
+		this.dayMenuLevel = dayMenuLevel;
 		configurationService.setParameterGeneric("dayMenuLevel", dayMenuLevel);
+		dayMenuLevelOptions = ALL_LEVEL_OPTION;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -1644,4 +1627,26 @@ public class Configuration {
 		parameters.put("parametersRoom", parametersRoom);
 		javaScriptSupport.addInitializerCall("loadParameters", parameters);
 	}
+	
+	void setupRender() {
+
+		if (integrationHotelOptions == null) {
+			integrationHotelOptions = ALL_INTEGRATION_HOTEL_OPTION;
+	    }
+		
+		if (ivaTypeOptions == null) {
+			ivaTypeOptions = ALL_IVA_TYPE_OPTION;
+	    }
+		
+		if (cancelTableLevelOptions == null) {
+			cancelTableLevelOptions = ALL_LEVEL_OPTION;
+	    }
+		
+		if (dayMenuLevelOptions == null) {
+			dayMenuLevelOptions = ALL_LEVEL_OPTION;
+	    }
+
+
+	}	
+
 }
