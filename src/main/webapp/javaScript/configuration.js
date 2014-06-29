@@ -51,52 +51,226 @@ function saveBool(parameter){
 	console.log(parameter.id);
 	$.post( "/restaurant/configuration/configuration."+parameter.id+":"+parameter.id+"changed",{param : parameter.checked});
 }
+
 var validateSave = function(){
 	$(".numericParam").focusout(function() {
+		console.log();
 		var intRegex = /^\d+$/;
 		var str = this.value;
-		if(intRegex.test(str)) {			
+		if(intRegex.test(str)) {
 			 $(this).removeClass("t-error");
 			save(this);
 			if ($(".t-error").length==0)
 			$(".alert-numeric").hide();
 		}
-		
 		else{ console.log("ERROR");
 		 $(this).addClass("t-error");
+		 $(".alert-alphabetic").hide();
+		 $(".alert-float").hide();
+		 $(".alert-numeric1_3").hide();
+		 $(".alert-porcent").hide();
+		 $(".alert-date").hide();
+		 $(".alert-monExt").hide();
 		 $(".alert-numeric").show();
 		}
 	});
-	$(".floatParam").focusout(function() {
+	
+	$(".alphabeticParam").focusout(function() {
 		console.log();
-		var floatRegex = /^(?:[1-9]\d*|0)?(?:\.\d+)?$/;
+		var alfRegex = /^(\w|\*|\s|\á|\é|\í|\ó|\u|\ñ|\Ñ|\ü|\.|\:|\,|\;|\>|\<|\-|\_|\{|\}|\Ç|\[|\]|\+|\*|\|\(|\)|\@|\=|\?|\¿|\¡)+$/;
 		var str = this.value;
-		if(floatRegex.test(str)) {			
+		if(alfRegex.test(str)) {
 			 $(this).removeClass("t-error");
 			save(this);
 			if ($(".t-error").length==0)
-			$(".alert-numeric").hide();
+			$(".alert-alphabetic").hide();
 		}
-		
 		else{ console.log("ERROR");
 		 $(this).addClass("t-error");
-		 $(".alert-numeric").show();
+		 $(".alert-numeric").hide();
+		 $(".alert-float").hide();
+		 $(".alert-numeric1_3").hide();
+		 $(".alert-porcent").hide();
+		 $(".alert-date").hide();
+		 $(".alert-monExt").hide();
+		 $(".alert-alphabetic").show();
 		}
 	});
-	$(".boolParam").click(function(){
+	
+	$(".boolParam").click(function() {
 		saveBool(this);
 	});
+		
+	$(".floatParam").focusout(function() {
+		console.log();
+	var floatRegex = /^(\d{1,9}(,|.)\d{1,2}|\d{1,9})$/;
+	var str = this.value;
+	if(floatRegex.test(str)) {	
+		$(this).removeClass("t-error");
+		save(this);
+		if ($(".t-error").length==0)
+			$(".alert-float").hide();
+	}
+	else{ 
+		console.log("ERROR");
+		$(this).addClass("t-error");
+		$(".alert-numeric").hide();
+		$(".alert-alphabetic").hide();
+		$(".alert-numeric1_3").hide();
+		$(".alert-porcent").hide();
+		$(".alert-date").hide();
+		$(".alert-monExt").hide();
+		$(".alert-float").show();
+	}
+	});
+	
+	$(".numeric1_3Param").focusout(function() {
+		console.log();
+		var int1_3Regex = /^[1-3]{1}$/;
+		var str = this.value;
+		if(int1_3Regex.test(str)) {
+			 $(this).removeClass("t-error");
+			save(this);
+			if ($(".t-error").length==0)
+			$(".alert-numeric1_3").hide();
+		}
+		else{ console.log("ERROR");
+		 $(this).addClass("t-error");
+		 $(".alert-numeric").hide();
+		 $(".alert-alphabetic").hide();
+		 $(".alert-float").hide();
+		 $(".alert-porcent").hide();
+		 $(".alert-date").hide();
+		 $(".alert-monExt").hide();
+		 $(".alert-numeric1_3").show();
+		}
+	});
+	
+	$(".porcentParam").focusout(function() {
+		console.log();
+	var porcentRegex = /^(\d{1,2}(,|.)\d{1,2}|\d{1,2}|[100])$/;
+	var str = this.value;
+	if(porcentRegex.test(str)) {	
+		$(this).removeClass("t-error");
+		save(this);
+		if ($(".t-error").length==0)
+			$(".alert-porcent").hide();
+	}
+	else{ 
+		console.log("ERROR");
+		$(this).addClass("t-error");
+		$(".alert-numeric").hide();
+		$(".alert-numeric1_3").hide();
+		$(".alert-alphabetic").hide();
+		$(".alert-float").hide();
+		$(".alert-date").hide();
+		$(".alert-monExt").hide();
+		$(".alert-porcent").show();
+	}
+	});
+	
+	$(".dateParam").focusout(function() {
+		console.log();
+		var dateRegex = /^([0-2]{1}[1-9]{1}|[3][0-1]{1})\/([0]{1}[1-9]{1}|[1][0-2]{1})\/\d{4}$/
+		var str = this.value;
+		if(dateRegex.test(str)) {
+			if(checkDate(str)==true) {
+				$(this).removeClass("t-error");
+				save(this);
+				if ($(".t-error").length==0)
+				$(".alert-date").hide();
+			}
+			else{ console.log("ERROR");
+		 		$(this).addClass("t-error");
+		 		$(".alert-alphabetic").hide();
+		 		$(".alert-float").hide();
+				$(".alert-numeric1_3").hide();
+		 		$(".alert-porcent").hide();
+		 		$(".alert-numeric").hide();
+		 		$(".alert-monExt").hide();
+		 		$(".alert-date").show();
+			}
+		}
+		else{ console.log("ERROR");
+		 $(this).addClass("t-error");
+		 $(".alert-alphabetic").hide();
+		 $(".alert-float").hide();
+		 $(".alert-numeric1_3").hide();
+		 $(".alert-porcent").hide();
+		 $(".alert-numeric").hide();
+		 $(".alert-monExt").hide();
+		 $(".alert-date").show();
+		}
+	});
+	
+	$(".monExtParam").focusout(function() {
+		console.log();
+	var monExtRegex = /^(\d{1,9}(,|.)\d{1,5}|\d{1,9})$/;
+	var str = this.value;
+	if(monExtRegex.test(str)) {	
+		$(this).removeClass("t-error");
+		save(this);
+		if ($(".t-error").length==0)
+			$(".alert-monExt").hide();
+	}
+	else{ 
+		console.log("ERROR");
+		$(this).addClass("t-error");
+		$(".alert-numeric").hide();
+		$(".alert-alphabetic").hide();
+		$(".alert-numeric1_3").hide();
+		$(".alert-porcent").hide();
+		$(".alert-date").hide();
+		$(".alert-monExt").show();
+	}
+	});
+	
 }
+
+var checkDate = function(dateAsString){
+		var strSplit = dateAsString.split('/');
+		var day = strSplit[0];
+		var month = strSplit[1];
+		var year = strSplit[2];
+		var esBisiesto = (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) ? true : false;
+		
+		if ((year < 1900)|| year > 2100) return false;
+		
+		if (((month == 4) || (month == 6) || (month == 9) || (month == 11)) && (day < 31) ) 
+			return true;
+		
+		if (((month == 1) || (month == 3) || (month == 5) || (month == 7) || (month == 8) || (month == 10) || (month == 12)) && (day < 32) ) 
+			return true;
+		
+		if ((esBisiesto) && (month == 2) && (day < 30))
+			return true;
+			
+		if ((!esBisiesto) && (month == 2) && (day < 28))
+			return true;
+			
+		return false;
+		
+}
+
+
 var showParameters = function(parameters) {
 	var parametersGeneric=parameters.parametersGeneric;
+	var parametersGenericSelect=parameters.parametersGenericSelect;
 	var parametersBool=parameters.parametersBool;
 	var parametersRoom=parameters.parametersRoom;
+	
 	for (var i=0;i<parametersBool.length;i++){
 		$("#"+parametersBool[i].name).attr('checked',parametersBool[i].value);
 	}
+	
 	for (var i=0;i<parametersGeneric.length;i++){
 		$("#"+parametersGeneric[i].name).attr('value',parametersGeneric[i].value);
 	}
+	
+	for (var i=0;i<parametersGenericSelect.length;i++){
+		$("#"+parametersGenericSelect[i].name).val(parametersGenericSelect[i].value);
+	}
+	
 	for (var i=0;i<parametersRoom.length;i++){
 		$("#desc"+parametersRoom[i].id).attr('value',parametersRoom[i].roomDescription);
 		$("#firstTab"+parametersRoom[i].id).attr('value',parametersRoom[i].firstTab);
@@ -147,8 +321,6 @@ var showParameters = function(parameters) {
 								}
 								 
 								});
-							
-							
 						}
 					})
 })(jQuery, window);

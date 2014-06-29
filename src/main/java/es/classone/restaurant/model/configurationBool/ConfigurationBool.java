@@ -67,11 +67,11 @@ public class ConfigurationBool {
 	}
 
 }
-// CREATE TABLE IF NOT EXISTS `Ayx14res`.`Res14cnt_GN_BOOL` (
-// `idRes14cnt_1_1` INT NOT NULL,
-// `code` VARCHAR(11) NOT NULL,
-// `name` VARCHAR(20) NOT NULL,
-// `value` TINYINT(1) NOT NULL,
-// `version` INT NOT NULL,
-// PRIMARY KEY (`idRes14cnt_1_1`))
-// ENGINE = InnoDB;
+//CREATE TABLE IF NOT EXISTS `ayx14res`.`Res14cnt_GN_BOOL` (
+//`idRes14cnt_1_1` INT NOT NULL AUTO_INCREMENT,
+//`code` VARCHAR(11) NOT NULL,
+//`name` VARCHAR(20) NOT NULL,
+//`value` TINYINT(1) NOT NULL,
+//PRIMARY KEY (`idRes14cnt_1_1`),
+//UNIQUE INDEX `name_UNIQUE` (`name` ASC))
+//ENGINE = InnoDB;

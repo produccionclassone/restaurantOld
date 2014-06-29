@@ -748,6 +748,7 @@ BODY div.t-error li {
 	text-align: center; 
 	font-weight: normal;
 }
+
 HTML>BODY
 .alert-numeric{
 position: absolute;
@@ -755,6 +756,49 @@ width: 898px;
 padding:8px;
 
 }
+
+HTML>BODY
+.alert-alphabetic{
+position: absolute;
+width: 898px;
+padding:8px;
+}
+
+HTML>BODY
+.alert-float{
+position: absolute;
+width: 898px;
+padding:8px;
+}
+
+HTML>BODY
+.alert-numeric1_3{
+position: absolute;
+width: 898px;
+padding:8px;
+}
+
+HTML>BODY
+.alert-porcent{
+position: absolute;
+width: 898px;
+padding:8px;
+}
+
+HTML>BODY
+.alert-monExt{
+position: absolute;
+width: 898px;
+padding:8px;
+}
+
+HTML>BODY
+.alert-date{
+position: absolute;
+width: 898px;
+padding:8px;
+}
+
 HTML>BODY
 .table > tbody > tr > td{
 	padding:0px;

@@ -29,7 +29,7 @@ public class Configuration {
 	private List<ConfigurationGeneric> cgList;
 	private List<ConfigurationBool> cbList;
 	private List<ConfigurationRoom> crList;
-
+	
 	@SessionState(create = false)
 	private UserSession userSession;
 
@@ -62,42 +62,37 @@ public class Configuration {
 	private String numNotaFis;
 
 	@InjectComponent
-	private Zone msgZone;
+	private Zone msgZone1;
 
 	Object onActualSessionChanged() throws InstanceNotFoundException {
 		actualSession = request.getParameter("param");
 		configurationService
 				.setParameterGeneric("actualSession", actualSession);
-		return request.isXHR() ? msgZone.getBody() : null;
+		return request.isXHR() ? msgZone1.getBody() : null;
 	}
 
 	Object onLastBillChanged() throws InstanceNotFoundException {
 		lastBill = request.getParameter("param");
-		if (lastBill != null)
-			configurationService.setParameterGeneric("lastBill", lastBill);
-		return request.isXHR() ? msgZone.getBody() : null;
+		configurationService.setParameterGeneric("lastBill", lastBill);
+		return request.isXHR() ? msgZone1.getBody() : null;
 	}
 
 	Object onLastCommandChanged() throws InstanceNotFoundException {
 		lastCommand = request.getParameter("param");
-		if (lastCommand != null)
-			configurationService
-					.setParameterGeneric("lastCommand", lastCommand);
-		return request.isXHR() ? msgZone.getBody() : null;
+		configurationService.setParameterGeneric("lastCommand", lastCommand);
+		return request.isXHR() ? msgZone1.getBody() : null;
 	}
 
 	Object onLastClientChanged() throws InstanceNotFoundException {
 		lastClient = request.getParameter("param");
-		if (lastClient != null)
-			configurationService.setParameterGeneric("lastClient", lastClient);
-		return request.isXHR() ? msgZone.getBody() : null;
+		configurationService.setParameterGeneric("lastClient", lastClient);
+		return request.isXHR() ? msgZone1.getBody() : null;
 	}
 
 	Object onNumNotaFisChanged() throws InstanceNotFoundException {
 		numNotaFis = request.getParameter("param");
-		if (numNotaFis != null)
-			configurationService.setParameterGeneric("numNotaFis", numNotaFis);
-		return request.isXHR() ? msgZone.getBody() : null;
+		configurationService.setParameterGeneric("numNotaFis", numNotaFis);
+		return request.isXHR() ? msgZone1.getBody() : null;
 	}
 
 	// ----------------------------------------------General--------------------------------------------------
@@ -110,8 +105,7 @@ public class Configuration {
 
 	Object onRestCategChanged() throws InstanceNotFoundException {
 		restCateg = request.getParameter("param");
-		if (restCateg != null)
-			configurationService.setParameterGeneric("restCateg", restCateg);
+		configurationService.setParameterGeneric("restCateg", restCateg);
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -120,9 +114,7 @@ public class Configuration {
 
 	Object onTableNumberChanged() throws InstanceNotFoundException {
 		tableNumber = request.getParameter("param");
-		if (tableNumber != null)
-			configurationService
-					.setParameterGeneric("tableNumber", tableNumber);
+		configurationService.setParameterGeneric("tableNumber", tableNumber);
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -131,11 +123,11 @@ public class Configuration {
 
 	Object onCovServCharChanged() throws InstanceNotFoundException {
 		String value = request.getParameter("param");
-		System.out.println("value " + value);
-		if (value == "true")
-		configurationService.setParameterBool("covServChar", true);
-		 else
-		 configurationService.setParameterBool("covServChar", false);
+		if (value.equals("true") == true)
+			covServChar = true;
+		else
+			covServChar = false;
+		configurationService.setParameterBool("covServChar", covServChar);
 		return request.isXHR() ? msgZone2.getBody() : null;
 
 	}
@@ -145,9 +137,8 @@ public class Configuration {
 
 	Object onCovServCharImpChanged() throws InstanceNotFoundException {
 		covServCharImp = request.getParameter("param");
-		if (covServCharImp != null)
-			configurationService.setParameterGeneric("covServCharImp",
-					covServCharImp);
+		configurationService.setParameterGeneric("covServCharImp",
+				covServCharImp);
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -156,9 +147,8 @@ public class Configuration {
 
 	Object onCovServCharIVATypeChanged() throws InstanceNotFoundException {
 		covServCharIVAType = request.getParameter("param");
-		if (covServCharIVAType != null)
-			configurationService.setParameterGeneric("covServCharIVAType",
-					covServCharIVAType);
+		configurationService.setParameterGeneric("covServCharIVAType",
+				covServCharIVAType);
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -167,23 +157,33 @@ public class Configuration {
 
 	Object onLiteralCharCovChanged() throws InstanceNotFoundException {
 		literalCharCov = request.getParameter("param");
-		if (literalCharCov != null)
-			configurationService.setParameterGeneric("literalCharCov",
-					literalCharCov);
+		configurationService.setParameterGeneric("literalCharCov",
+				literalCharCov);
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
 	@Property
 	private Boolean tipWaiterInvoice;
 
-	@Property
-	private String tipWaiterInvoicePorcent;
+	Object onTipWaiterInvoiceChanged() throws InstanceNotFoundException {
+		String value = request.getParameter("param");
+		if (value.equals("true") == true)
+			tipWaiterInvoice = true;
+		else
+			tipWaiterInvoice = false;
+		configurationService.setParameterBool("tipWaiterInvoice",
+				tipWaiterInvoice);
+		return request.isXHR() ? msgZone2.getBody() : null;
 
-	Object onTipWaiterInvoicePorcentChanged() throws InstanceNotFoundException {
-		tipWaiterInvoicePorcent = request.getParameter("param");
-		if (tipWaiterInvoicePorcent != null)
-			configurationService.setParameterGeneric("tipWaiterInvoicePorcent",
-					tipWaiterInvoicePorcent);
+	}
+
+	@Property
+	private String tipWaiterInvoicePorc;
+
+	Object onTipWaiterInvoicePorcChanged() throws InstanceNotFoundException {
+		tipWaiterInvoicePorc = request.getParameter("param");
+		configurationService.setParameterGeneric("tipWaiterInvoicePorc",
+				tipWaiterInvoicePorc);
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -192,9 +192,8 @@ public class Configuration {
 
 	Object onTipWaiterInvoiceIVAChanged() throws InstanceNotFoundException {
 		tipWaiterInvoiceIVA = request.getParameter("param");
-		if (tipWaiterInvoiceIVA != null)
-			configurationService.setParameterGeneric("tipWaiterInvoiceIVA",
-					tipWaiterInvoiceIVA);
+		configurationService.setParameterGeneric("tipWaiterInvoiceIVA",
+				tipWaiterInvoiceIVA);
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -203,41 +202,114 @@ public class Configuration {
 
 	Object onLiteralTipsAutoChanged() throws InstanceNotFoundException {
 		literalTipsAuto = request.getParameter("param");
-		if (literalTipsAuto != null)
-			configurationService.setParameterGeneric("literalTipsAuto",
-					literalTipsAuto);
+		configurationService.setParameterGeneric("literalTipsAuto",
+				literalTipsAuto);
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
 	@Property
 	private Boolean chargeAddonDish;
 
+	Object onChargeAddonDishChanged() throws InstanceNotFoundException {
+		String value = request.getParameter("param");
+		if (value.equals("true") == true)
+			chargeAddonDish = true;
+		else
+			chargeAddonDish = false;
+		configurationService.setParameterBool("chargeAddonDish",
+				chargeAddonDish);
+		return request.isXHR() ? msgZone2.getBody() : null;
+
+	}
+
 	@Property
 	private Boolean decimal;
+
+	Object onDecimalChanged() throws InstanceNotFoundException {
+		String value = request.getParameter("param");
+		if (value.equals("true") == true)
+			decimal = true;
+		else
+			decimal = false;
+		configurationService.setParameterBool("decimal",
+				decimal);
+		return request.isXHR() ? msgZone2.getBody() : null;
+
+	}
 
 	@Property
 	private Boolean ivaIncluded;
 
+	Object onIvaIncludedChanged() throws InstanceNotFoundException {
+		String value = request.getParameter("param");
+		if (value.equals("true") == true)
+			ivaIncluded = true;
+		else
+			ivaIncluded = false;
+		configurationService.setParameterBool("ivaIncluded", ivaIncluded);
+		return request.isXHR() ? msgZone2.getBody() : null;
+
+	}
+
 	@Property
 	private String actualSessionDate;
+
+	Object onActualSessionDateChanged() throws InstanceNotFoundException {
+		actualSessionDate = request.getParameter("param");
+		configurationService.setParameterGeneric("actualSessionDate",
+				actualSessionDate);
+		return request.isXHR() ? msgZone2.getBody() : null;
+	}
 
 	@Property
 	private Boolean actualSessionState;
 
+	Object onActualSessionStateChanged() throws InstanceNotFoundException {
+		String value = request.getParameter("param");
+		if (value.equals("true") == true)
+			actualSessionState = true;
+		else
+			actualSessionState = false;
+		configurationService.setParameterBool("actualSessionState",
+				actualSessionState);
+		return request.isXHR() ? msgZone2.getBody() : null;
+
+	}
+
 	@Property
 	private Boolean accountingLinkVtas;
 
+	Object onAccountingLinkVtasChanged() throws InstanceNotFoundException {
+		String value = request.getParameter("param");
+		if (value.equals("true") == true)
+			accountingLinkVtas = true;
+		else
+			accountingLinkVtas = false;
+		configurationService.setParameterBool("accountingLinkVtas",
+				accountingLinkVtas);
+		return request.isXHR() ? msgZone2.getBody() : null;
+
+	}
+
 	@Property
 	private Boolean euroLine;
+
+	Object onEuroLineChanged() throws InstanceNotFoundException {
+		String value = request.getParameter("param");
+		if (value.equals("true") == true)
+			euroLine = true;
+		else
+			euroLine = false;
+		configurationService.setParameterBool("euroLine", euroLine);
+		return request.isXHR() ? msgZone2.getBody() : null;
+	}
 
 	@Property
 	private String eurUSDChange;
 
 	Object onEurUSDChangeChanged() throws InstanceNotFoundException {
 		eurUSDChange = request.getParameter("param");
-		if (eurUSDChange != null)
-			configurationService.setParameterGeneric("eurUSDChange",
-					eurUSDChange);
+		configurationService.setParameterGeneric("eurUSDChange", eurUSDChange);
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -246,9 +318,8 @@ public class Configuration {
 
 	Object onBreakfastServHotChanged() throws InstanceNotFoundException {
 		breakfastServHot = request.getParameter("param");
-		if (breakfastServHot != null)
-			configurationService.setParameterGeneric("breakfastServHot",
-					breakfastServHot);
+		configurationService.setParameterGeneric("breakfastServHot",
+				breakfastServHot);
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -257,9 +328,8 @@ public class Configuration {
 
 	Object onBreakfastServCodeChanged() throws InstanceNotFoundException {
 		breakfastServCode = request.getParameter("param");
-		if (breakfastServCode != null)
-			configurationService.setParameterGeneric("breakfastServCode",
-					breakfastServCode);
+		configurationService.setParameterGeneric("breakfastServCode",
+				breakfastServCode);
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -268,9 +338,8 @@ public class Configuration {
 
 	Object onLunchServHotelChanged() throws InstanceNotFoundException {
 		lunchServHotel = request.getParameter("param");
-		if (lunchServHotel != null)
-			configurationService.setParameterGeneric("lunchServHotel",
-					lunchServHotel);
+		configurationService.setParameterGeneric("lunchServHotel",
+				lunchServHotel);
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -279,9 +348,8 @@ public class Configuration {
 
 	Object onLunchServCodeChanged() throws InstanceNotFoundException {
 		lunchServCode = request.getParameter("param");
-		if (lunchServCode != null)
-			configurationService.setParameterGeneric("lunchServCode",
-					lunchServCode);
+		configurationService
+				.setParameterGeneric("lunchServCode", lunchServCode);
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -290,9 +358,8 @@ public class Configuration {
 
 	Object onDinnerServHotelChanged() throws InstanceNotFoundException {
 		dinnerServHotel = request.getParameter("param");
-		if (dinnerServHotel != null)
-			configurationService.setParameterGeneric("dinnerServHotel",
-					dinnerServHotel);
+		configurationService.setParameterGeneric("dinnerServHotel",
+				dinnerServHotel);
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -301,9 +368,8 @@ public class Configuration {
 
 	Object onDinnerServCodeChanged() throws InstanceNotFoundException {
 		dinnerServCode = request.getParameter("param");
-		if (dinnerServCode != null)
-			configurationService.setParameterGeneric("dinnerServCode",
-					dinnerServCode);
+		configurationService.setParameterGeneric("dinnerServCode",
+				dinnerServCode);
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -312,10 +378,8 @@ public class Configuration {
 
 	Object onOtherServHotelChanged() throws InstanceNotFoundException {
 		otherServHotel = request.getParameter("param");
-		if (otherServHotel != null)
-			configurationService.setParameterGeneric("otherServHotel",
-					otherServHotel);
-		showMsg = true;
+		configurationService.setParameterGeneric("otherServHotel",
+				otherServHotel);
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -324,40 +388,92 @@ public class Configuration {
 
 	Object onOtherServCodeChanged() throws InstanceNotFoundException {
 		otherServCode = request.getParameter("param");
-		if (otherServCode != null)
-			configurationService.setParameterGeneric("otherServCode",
-					otherServCode);
+		configurationService
+				.setParameterGeneric("otherServCode", otherServCode);
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
 	@Property
 	private String integrationHotel;
 
+	static final private String[] ALL_INTEGRATION_HOTEL_OPTION = new String[] { "S", "N", "R" };
+
+	@Property
+	private String[] integrationHotelOptions;
+
+	/*
 	Object onIntegrationHotelChanged() throws InstanceNotFoundException {
 		integrationHotel = request.getParameter("param");
-		if (integrationHotel != null)
-			configurationService.setParameterGeneric("integrationHotel",
-					integrationHotel);
+		configurationService
+				.setParameterGeneric("integrationHotel",integrationHotel);
+		return request.isXHR() ? msgZone2.getBody() : null;
+	}
+*/	
+	Object onValueChangedFromIntegrationHotel(String integrationHotel) throws InstanceNotFoundException {
+		this.integrationHotel = integrationHotel;
+		configurationService.setParameterGeneric("integrationHotel", integrationHotel);
+		integrationHotelOptions = ALL_INTEGRATION_HOTEL_OPTION;
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
+	void setupRender() {
+
+		if (integrationHotelOptions == null) {
+			integrationHotelOptions = ALL_INTEGRATION_HOTEL_OPTION;
+	    }
+
+	}	
+	
 	@Property
 	private Boolean integrationEcon;
+
+	Object onIntegrationEconChanged() throws InstanceNotFoundException {
+		String value = request.getParameter("param");
+		if (value.equals("true") == true)
+			integrationEcon = true;
+		else
+			integrationEcon = false;
+		configurationService.setParameterBool("integrationEcon",
+				integrationEcon);
+		return request.isXHR() ? msgZone2.getBody() : null;
+
+	}
 
 	@Property
 	private Boolean qualifyKitchenDish;
 
+	Object onQualifyKitchenDishChanged() throws InstanceNotFoundException {
+		String value = request.getParameter("param");
+		if (value.equals("true") == true)
+			qualifyKitchenDish = true;
+		else
+			qualifyKitchenDish = false;
+		configurationService.setParameterBool("qualifyKitchenDish",
+				qualifyKitchenDish);
+		return request.isXHR() ? msgZone2.getBody() : null;
+
+	}
+
 	@Property
 	private Boolean splitCommand;
+
+	Object onSplitCommandChanged() throws InstanceNotFoundException {
+		String value = request.getParameter("param");
+		if (value.equals("true") == true)
+			splitCommand = true;
+		else
+			splitCommand = false;
+		configurationService.setParameterBool("splitCommand", splitCommand);
+		return request.isXHR() ? msgZone2.getBody() : null;
+	}
 
 	@Property
 	private String cancelTableLevel;
 
 	Object onCancelTableLevelChanged() throws InstanceNotFoundException {
 		cancelTableLevel = request.getParameter("param");
-		if (cancelTableLevel != null)
-			configurationService.setParameterGeneric("cancelTableLevel",
-					cancelTableLevel);
+		configurationService.setParameterGeneric("cancelTableLevel",
+				cancelTableLevel);
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -366,9 +482,7 @@ public class Configuration {
 
 	Object onDayMenuLevelChanged() throws InstanceNotFoundException {
 		dayMenuLevel = request.getParameter("param");
-		if (dayMenuLevel != null)
-			configurationService.setParameterGeneric("dayMenuLevel",
-					dayMenuLevel);
+		configurationService.setParameterGeneric("dayMenuLevel", dayMenuLevel);
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -377,37 +491,56 @@ public class Configuration {
 
 	Object onLiteralEspBillChanged() throws InstanceNotFoundException {
 		literalEspBill = request.getParameter("param");
-		if (literalEspBill != null)
-			configurationService.setParameterGeneric("literalEspBill",
-					literalEspBill);
+		configurationService.setParameterGeneric("literalEspBill",
+				literalEspBill);
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
 	@Property
 	private Boolean tips;
 
+	Object onTipsChanged() throws InstanceNotFoundException {
+		String value = request.getParameter("param");
+		if (value.equals("true") == true)
+			tips = true;
+		else
+			tips = false;
+		configurationService.setParameterBool("tips", tips);
+		return request.isXHR() ? msgZone2.getBody() : null;
+
+	}
+
 	@Property
 	private String assocElemTips;
 
 	Object onAssocElemTipsChanged() throws InstanceNotFoundException {
 		assocElemTips = request.getParameter("param");
-		if (assocElemTips != null)
-			configurationService.setParameterGeneric("assocElemTips",
-					assocElemTips);
+		configurationService
+				.setParameterGeneric("assocElemTips", assocElemTips);
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
 	@Property
 	private Boolean discount1;
 
+	Object onDiscount1Changed() throws InstanceNotFoundException {
+		String value = request.getParameter("param");
+		if (value.equals("true") == true)
+			discount1 = true;
+		else
+			discount1 = false;
+		configurationService.setParameterBool("discount1", discount1);
+		return request.isXHR() ? msgZone2.getBody() : null;
+
+	}
+
 	@Property
 	private String assocElemDto1;
 
 	Object onAssocElemDto1Changed() throws InstanceNotFoundException {
 		assocElemDto1 = request.getParameter("param");
-		if (assocElemDto1 != null)
-			configurationService.setParameterGeneric("assocElemDto1",
-					assocElemDto1);
+		configurationService
+				.setParameterGeneric("assocElemDto1", assocElemDto1);
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -416,23 +549,32 @@ public class Configuration {
 
 	Object onAssocElemDto1PorcentChanged() throws InstanceNotFoundException {
 		assocElemDto1Porcent = request.getParameter("param");
-		if (assocElemDto1Porcent != null)
-			configurationService.setParameterGeneric("assocElemDto1Porcent",
-					assocElemDto1Porcent);
+		configurationService.setParameterGeneric("assocElemDto1Porcent",
+				assocElemDto1Porcent);
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
 	@Property
 	private Boolean discount2;
 
+	Object onDiscount2Changed() throws InstanceNotFoundException {
+		String value = request.getParameter("param");
+		if (value.equals("true") == true)
+			discount2 = true;
+		else
+			discount2 = false;
+		configurationService.setParameterBool("discount2", discount2);
+		return request.isXHR() ? msgZone2.getBody() : null;
+
+	}
+
 	@Property
 	private String assocElemDto2;
 
 	Object onAssocElemDto2Changed() throws InstanceNotFoundException {
 		assocElemDto2 = request.getParameter("param");
-		if (assocElemDto2 != null)
-			configurationService.setParameterGeneric("assocElemDto2",
-					assocElemDto2);
+		configurationService
+				.setParameterGeneric("assocElemDto2", assocElemDto2);
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -441,23 +583,32 @@ public class Configuration {
 
 	Object onAssocElemDto2PorcentChanged() throws InstanceNotFoundException {
 		assocElemDto2Porcent = request.getParameter("param");
-		if (assocElemDto2Porcent != null)
-			configurationService.setParameterGeneric("assocElemDto2Porcent",
-					assocElemDto2Porcent);
+		configurationService.setParameterGeneric("assocElemDto2Porcent",
+				assocElemDto2Porcent);
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
 	@Property
 	private Boolean discount3;
 
+	Object onDiscount3Changed() throws InstanceNotFoundException {
+		String value = request.getParameter("param");
+		if (value.equals("true") == true)
+			discount3 = true;
+		else
+			discount3 = false;
+		configurationService.setParameterBool("discount3", discount3);
+		return request.isXHR() ? msgZone2.getBody() : null;
+
+	}
+
 	@Property
 	private String assocElemDto3;
 
 	Object onAssocElemDto3Changed() throws InstanceNotFoundException {
 		assocElemDto3 = request.getParameter("param");
-		if (assocElemDto3 != null)
-			configurationService.setParameterGeneric("assocElemDto3",
-					assocElemDto3);
+		configurationService
+				.setParameterGeneric("assocElemDto3", assocElemDto3);
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -466,9 +617,8 @@ public class Configuration {
 
 	Object onAssocElemDto3PorcentChanged() throws InstanceNotFoundException {
 		assocElemDto3Porcent = request.getParameter("param");
-		if (assocElemDto3Porcent != null)
-			configurationService.setParameterGeneric("assocElemDto3Porcent",
-					assocElemDto3Porcent);
+		configurationService.setParameterGeneric("assocElemDto3Porcent",
+				assocElemDto3Porcent);
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -477,19 +627,16 @@ public class Configuration {
 
 	Object onAssocElemTPVChanged() throws InstanceNotFoundException {
 		assocElemTPV = request.getParameter("param");
-		if (assocElemTPV != null)
-			configurationService.setParameterGeneric("assocElemTPV",
-					assocElemTPV);
+		configurationService.setParameterGeneric("assocElemTPV", assocElemTPV);
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
 	@Property
 	private String chargeTPV;
 
-	Object onchargeTPVChanged() throws InstanceNotFoundException {
+	Object onChargeTPVChanged() throws InstanceNotFoundException {
 		chargeTPV = request.getParameter("param");
-		if (chargeTPV != null)
-			configurationService.setParameterGeneric("chargeTPV", chargeTPV);
+		configurationService.setParameterGeneric("chargeTPV", chargeTPV);
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
@@ -498,305 +645,951 @@ public class Configuration {
 
 	Object onFieldSeparatorChanged() throws InstanceNotFoundException {
 		fieldSeparator = request.getParameter("param");
-		if (fieldSeparator != null)
-			configurationService.setParameterGeneric("fieldSeparator",
-					fieldSeparator);
+		configurationService.setParameterGeneric("fieldSeparator",
+				fieldSeparator);
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
 	@Property
 	private String alphabSeparator;
 
-	Object onAlphabSeparator() throws InstanceNotFoundException {
+	Object onAlphabSeparatorChanged() throws InstanceNotFoundException {
 		alphabSeparator = request.getParameter("param");
-		if (alphabSeparator != null)
-			configurationService.setParameterGeneric("alphabSeparator",
-					alphabSeparator);
+		configurationService.setParameterGeneric("alphabSeparator",
+				alphabSeparator);
 		return request.isXHR() ? msgZone2.getBody() : null;
 	}
 
-	// ---------------------------------------------- Restaurante
-	// --------------------------------------------------
+	// ---------------------- Restaurante -----------------------------------
+
+	@InjectComponent
+	private Zone msgZone3;
 
 	@Property
 	private String colCommand;
 
+	Object onColCommandChanged() throws InstanceNotFoundException {
+		colCommand = request.getParameter("param");
+		configurationService.setParameterGeneric("colCommand", colCommand);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
+
 	@Property
 	private String colBackground;
+
+	Object onColBackgroundChanged() throws InstanceNotFoundException {
+		colBackground = request.getParameter("param");
+		configurationService
+				.setParameterGeneric("colBackground", colBackground);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
 
 	@Property
 	private String colBill;
 
+	Object onColBillChanged() throws InstanceNotFoundException {
+		colBill = request.getParameter("param");
+		configurationService.setParameterGeneric("colBill", colBill);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
+
 	@Property
 	private String colBackground2;
+
+	Object onColBackground2Changed() throws InstanceNotFoundException {
+		colBackground2 = request.getParameter("param");
+		configurationService.setParameterGeneric("colBackground2",
+				colBackground2);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
 
 	@Property
 	private String colCharge;
 
+	Object onColChargeChanged() throws InstanceNotFoundException {
+		colCharge = request.getParameter("param");
+		configurationService.setParameterGeneric("colCharge", colCharge);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
+
 	@Property
 	private String colTrasp;
+
+	Object onColTraspChanged() throws InstanceNotFoundException {
+		colTrasp = request.getParameter("param");
+		configurationService.setParameterGeneric("colTrasp", colTrasp);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
 
 	@Property
 	private String colTabEmpty;
 
+	Object onColTabEmptyChanged() throws InstanceNotFoundException {
+		colTabEmpty = request.getParameter("param");
+		configurationService.setParameterGeneric("colTabEmpty", colTabEmpty);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
+
 	@Property
 	private String colTabBusy;
+
+	Object onColTabBusyChanged() throws InstanceNotFoundException {
+		colTabBusy = request.getParameter("param");
+		configurationService.setParameterGeneric("colTabBusy", colTabBusy);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
 
 	@Property
 	private String colTabAtached;
 
+	Object onColTabAtachedChanged() throws InstanceNotFoundException {
+		colTabAtached = request.getParameter("param");
+		configurationService
+				.setParameterGeneric("colTabAtached", colTabAtached);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
+
 	@Property
 	private String colTabReserved;
+
+	Object onColTabReservedChanged() throws InstanceNotFoundException {
+		colTabReserved = request.getParameter("param");
+		configurationService.setParameterGeneric("colTabReserved",
+				colTabReserved);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
 
 	@Property
 	private String colTabBill;
 
+	Object onColTabBillChanged() throws InstanceNotFoundException {
+		colTabBill = request.getParameter("param");
+		configurationService.setParameterGeneric("colTabBill", colTabBill);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
+
 	@Property
 	private String lastNumPrint;
+
+	Object onLastNumPrintChanged() throws InstanceNotFoundException {
+		lastNumPrint = request.getParameter("param");
+		configurationService.setParameterGeneric("lastNumPrint", lastNumPrint);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
 
 	@Property
 	private String closureLastMonth;
 
+	Object onClosureLastMonthChanged() throws InstanceNotFoundException {
+		closureLastMonth = request.getParameter("param");
+		configurationService.setParameterGeneric("closureLastMonth",
+				closureLastMonth);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
+
 	@Property
 	private Boolean sumDrinks;
+
+	Object onSumDrinks() throws InstanceNotFoundException {
+		String value = request.getParameter("param");
+		if (value.equals("true") == true)
+			sumDrinks = true;
+		else
+			sumDrinks = false;
+		configurationService.setParameterBool("sumDrinks", sumDrinks);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
 
 	@Property
 	private String desc1;
 
+	Object onDesc1Changed() throws InstanceNotFoundException {
+		desc1 = request.getParameter("param");
+		configurationService.setParameterGeneric("desc1", desc1);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
+
 	@Property
 	private String firstTab1;
+
+	Object onFirstTab1Changed() throws InstanceNotFoundException {
+		firstTab1 = request.getParameter("param");
+		configurationService.setParameterGeneric("firstTab1", firstTab1);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
 
 	@Property
 	private String lastTab1;
 
+	Object onLastTab1Changed() throws InstanceNotFoundException {
+		lastTab1 = request.getParameter("param");
+		configurationService.setParameterGeneric("lastTab1", lastTab1);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
+
 	@Property
 	private String desc2;
+
+	Object onDesc2Changed() throws InstanceNotFoundException {
+		desc2 = request.getParameter("param");
+		configurationService.setParameterGeneric("desc2", desc2);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
 
 	@Property
 	private String firstTab2;
 
+	Object onFirstTab2Changed() throws InstanceNotFoundException {
+		firstTab2 = request.getParameter("param");
+		configurationService.setParameterGeneric("firstTab2", firstTab2);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
+
 	@Property
 	private String lastTab2;
+
+	Object onLastTab2Changed() throws InstanceNotFoundException {
+		lastTab2 = request.getParameter("param");
+		configurationService.setParameterGeneric("lastTab2", lastTab2);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
 
 	@Property
 	private String desc3;
 
+	Object onDesc3Changed() throws InstanceNotFoundException {
+		desc3 = request.getParameter("param");
+		configurationService.setParameterGeneric("desc3", desc3);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
+
 	@Property
 	private String firstTab3;
+
+	Object onFirstTab3Changed() throws InstanceNotFoundException {
+		firstTab3 = request.getParameter("param");
+		configurationService.setParameterGeneric("firstTab3", firstTab3);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
 
 	@Property
 	private String lastTab3;
 
+	Object onLastTab3Changed() throws InstanceNotFoundException {
+		lastTab3 = request.getParameter("param");
+		configurationService.setParameterGeneric("lastTab3", lastTab3);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
+
 	@Property
 	private String desc4;
+
+	Object onDesc4Changed() throws InstanceNotFoundException {
+		desc4 = request.getParameter("param");
+		configurationService.setParameterGeneric("desc4", desc4);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
 
 	@Property
 	private String firstTab4;
 
+	Object onFirstTab4Changed() throws InstanceNotFoundException {
+		firstTab4 = request.getParameter("param");
+		configurationService.setParameterGeneric("firstTab4", firstTab4);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
+
 	@Property
 	private String lastTab4;
+
+	Object onLastTab4Changed() throws InstanceNotFoundException {
+		lastTab4 = request.getParameter("param");
+		configurationService.setParameterGeneric("lastTab4", lastTab4);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
 
 	@Property
 	private String desc5;
 
+	Object onDesc5Changed() throws InstanceNotFoundException {
+		desc5 = request.getParameter("param");
+		configurationService.setParameterGeneric("desc5", desc5);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
+
 	@Property
 	private String firstTab5;
+
+	Object onFirstTab5Changed() throws InstanceNotFoundException {
+		firstTab5 = request.getParameter("param");
+		configurationService.setParameterGeneric("firstTab5", firstTab5);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
 
 	@Property
 	private String lastTab5;
 
+	Object onLastTab5Changed() throws InstanceNotFoundException {
+		lastTab5 = request.getParameter("param");
+		configurationService.setParameterGeneric("lastTab5", lastTab5);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
+
 	@Property
 	private String desc6;
+
+	Object onDesc6Changed() throws InstanceNotFoundException {
+		desc6 = request.getParameter("param");
+		configurationService.setParameterGeneric("desc6", desc6);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
 
 	@Property
 	private String firstTab6;
 
+	Object onFirstTab6Changed() throws InstanceNotFoundException {
+		firstTab6 = request.getParameter("param");
+		configurationService.setParameterGeneric("firstTab6", firstTab6);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
+
 	@Property
 	private String lastTab6;
+
+	Object onLastTab6Changed() throws InstanceNotFoundException {
+		lastTab6 = request.getParameter("param");
+		configurationService.setParameterGeneric("lastTab6", lastTab6);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
 
 	@Property
 	private String desc7;
 
+	Object onDesc7Changed() throws InstanceNotFoundException {
+		desc7 = request.getParameter("param");
+		configurationService.setParameterGeneric("desc7", desc7);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
+
 	@Property
 	private String firstTab7;
+
+	Object onFirstTab7Changed() throws InstanceNotFoundException {
+		firstTab7 = request.getParameter("param");
+		configurationService.setParameterGeneric("firstTab7", firstTab7);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
 
 	@Property
 	private String lastTab7;
 
+	Object onLastTab7Changed() throws InstanceNotFoundException {
+		lastTab7 = request.getParameter("param");
+		configurationService.setParameterGeneric("lastTab7", lastTab7);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
+
 	@Property
 	private String desCalif1;
+
+	Object onDesCalif1Changed() throws InstanceNotFoundException {
+		desCalif1 = request.getParameter("param");
+		configurationService.setParameterGeneric("desCalif1", desCalif1);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
 
 	@Property
 	private String desCalif2;
 
+	Object onDesCalif2Changed() throws InstanceNotFoundException {
+		desCalif2 = request.getParameter("param");
+		configurationService.setParameterGeneric("desCalif2", desCalif2);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
+
 	@Property
 	private String desCalif3;
+
+	Object onDesCalif3Changed() throws InstanceNotFoundException {
+		desCalif3 = request.getParameter("param");
+		configurationService.setParameterGeneric("desCalif3", desCalif3);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
 
 	@Property
 	private String desCalif4;
 
+	Object onDesCalif4Changed() throws InstanceNotFoundException {
+		desCalif4 = request.getParameter("param");
+		configurationService.setParameterGeneric("desCalif4", desCalif4);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
+
 	@Property
 	private Boolean enableTPVVirtual;
+
+	Object onEnableTPVVirtualChanged() throws InstanceNotFoundException {
+		String value = request.getParameter("param");
+		if (value.equals("true") == true)
+			enableTPVVirtual = true;
+		else
+			enableTPVVirtual = false;
+		configurationService.setParameterBool("enableTPVVirtual",
+				enableTPVVirtual);
+		return request.isXHR() ? msgZone3.getBody() : null;
+
+	}
 
 	@Property
 	private Boolean enableStarCard;
 
+	Object onEnableStarCardChanged() throws InstanceNotFoundException {
+		String value = request.getParameter("param");
+		if (value.equals("true") == true)
+			enableStarCard = true;
+		else
+			enableStarCard = false;
+		configurationService.setParameterBool("enableStarCard", enableStarCard);
+		return request.isXHR() ? msgZone3.getBody() : null;
+
+	}
+
 	@Property
 	private Boolean enableImpFiscal;
+
+	Object onEnableImpFiscalChanged() throws InstanceNotFoundException {
+		String value = request.getParameter("param");
+		if (value.equals("true") == true)
+			enableImpFiscal = true;
+		else
+			enableImpFiscal = false;
+		configurationService.setParameterBool("enableImpFiscal",
+				enableImpFiscal);
+		return request.isXHR() ? msgZone3.getBody() : null;
+
+	}
 
 	@Property
 	private Boolean enableMeteorology;
 
+	Object onEnableMeteorologyChanged() throws InstanceNotFoundException {
+		String value = request.getParameter("param");
+		if (value.equals("true") == true)
+			enableMeteorology = true;
+		else
+			enableMeteorology = false;
+		configurationService.setParameterBool("enableMeteorology",
+				enableMeteorology);
+		return request.isXHR() ? msgZone3.getBody() : null;
+
+	}
+
 	@Property
 	private Boolean enableSegmentCh;
+
+	Object onEnableSegmentChCharChanged() throws InstanceNotFoundException {
+		String value = request.getParameter("param");
+		if (value.equals("true") == true)
+			enableSegmentCh = true;
+		else
+			enableSegmentCh = false;
+		configurationService.setParameterBool("enableSegmentCh",
+				enableSegmentCh);
+		return request.isXHR() ? msgZone3.getBody() : null;
+
+	}
 
 	@Property
 	private String channelSegment;
 
-	/*
-	 * -------------------------------------------------- Contabilidad
-	 * ---------------------------------------------------------------------
-	 */
-	@Property
-	private String contCode;
-
-	@Property
-	private String contSerie; // falta en BBDD
-
-	@Property
-	private String ledgerAccCaja;
-
-	@Property
-	private String ledgerAccInvi;
-
-	@Property
-	private String ledgerAccGerVtas;
-
-	@Property
-	private String ledgerAccServCbtos;
-
-	@Property
-	private String ledgerAccPropCam;
-
-	@Property
-	private String ledgerAccDescVtas;
-
-	@Property
-	private String ivaType1;
-
-	@Property
-	private String ledgerAccIVA1;
-
-	@Property
-	private String ivaType2;
-
-	@Property
-	private String ledgerAccIVA2;
-
-	@Property
-	private String ivaType3;
-
-	@Property
-	private String ledgerAccIVA3;
-
-	@Property
-	private String literalIVA;
-
-	@Property
-	private String cadExplot;
-
-	@Property
-	private String cadDept;
-
-	@Property
-	private String covIncomeType;
-
-	@Property
-	private String tipsIncomeType;
-
-	// ------Printer-----------
-	@Property
-	private Boolean bmpToPrint;
-
-	@Property
-	private String bmpSize;
-
-	@Property
-	private String secuence;
-
-	@Property
-	private String standardPrint;
-
-	@Property
-	private String pageLength;
-
-	@Property
-	private String skipHeaderLines;
-
-	@Property
-	private String leftTab;
-
-	@Property
-	private Boolean decimalArt;
-
-	@Property
-	private Boolean precioxPax;
-
-	@Property
-	private Boolean printKitchenCalif;
-
-	@Property
-	private Boolean printer1;
-
-	@Property
-	private String commandPortPrt1;
-
-	@Property
-	private Boolean printer2;
-
-	@Property
-	private String commandPortPrt2;
-
-	@Property
-	private Boolean printerEsp;
-
-	@Property
-	private String autocorte;
-
-	@Property
-	private String drawerOpen;
-
-	@Property
-	private String DoubleBoldOn;
-
-	@Property
-	private String DoubleBoldOff;
+	Object onChannelSegmentChanged() throws InstanceNotFoundException {
+		channelSegment = request.getParameter("param");
+		configurationService.setParameterGeneric("channelSegment",
+				channelSegment);
+		return request.isXHR() ? msgZone3.getBody() : null;
+	}
 
 	// ---------------------------------------------------------Conectividad-------------------------------------------------------------
+
+	@InjectComponent
+	private Zone msgZone4;
 
 	@Property
 	private String ipLVDE;
 
+	Object onIpLVDEChanged() throws InstanceNotFoundException {
+		ipLVDE = request.getParameter("param");
+		configurationService.setParameterGeneric("ipLVDE", ipLVDE);
+		return request.isXHR() ? msgZone4.getBody() : null;
+	}
+
 	@Property
 	private String ipHelp;
+
+	Object onIpHelpChanged() throws InstanceNotFoundException {
+		ipHelp = request.getParameter("param");
+		configurationService.setParameterGeneric("ipHelp", ipHelp);
+		return request.isXHR() ? msgZone4.getBody() : null;
+	}
 
 	@Property
 	private String ipCCC;
 
+	Object onIpCCCChanged() throws InstanceNotFoundException {
+		ipCCC = request.getParameter("param");
+		configurationService.setParameterGeneric("ipCCC", ipCCC);
+		return request.isXHR() ? msgZone4.getBody() : null;
+	}
+
 	@Property
 	private String ipAlternative;
+
+	Object onIpAlternativeChanged() throws InstanceNotFoundException {
+		ipAlternative = request.getParameter("param");
+		configurationService
+				.setParameterGeneric("ipAlternative", ipAlternative);
+		return request.isXHR() ? msgZone4.getBody() : null;
+	}
 
 	@Property
 	private String sendEmail;
 
+	Object onSendEmailChanged() throws InstanceNotFoundException {
+		sendEmail = request.getParameter("param");
+		configurationService.setParameterGeneric("sendEmail", sendEmail);
+		return request.isXHR() ? msgZone4.getBody() : null;
+	}
+
 	@Property
 	private String sendService;
+
+	Object onSendServiceChanged() throws InstanceNotFoundException {
+		sendService = request.getParameter("param");
+		configurationService.setParameterGeneric("sendService", sendService);
+		return request.isXHR() ? msgZone4.getBody() : null;
+	}
 
 	@Property
 	private String sendLogin;
 
+	Object onSendLoginChanged() throws InstanceNotFoundException {
+		sendLogin = request.getParameter("param");
+		configurationService.setParameterGeneric("sendLogin", sendLogin);
+		return request.isXHR() ? msgZone4.getBody() : null;
+	}
+
 	@Property
 	private String sendPsw;
+
+	Object onSendPswChanged() throws InstanceNotFoundException {
+		sendPsw = request.getParameter("param");
+		configurationService.setParameterGeneric("sendPsw", sendPsw);
+		return request.isXHR() ? msgZone4.getBody() : null;
+	}
+
+	// -------------------------- Contabilidad------------------------------
+
+	@InjectComponent
+	private Zone msgZone5;
+
+	@Property
+	private String contCode;
+
+	Object onContCodeChanged() throws InstanceNotFoundException {
+		contCode = request.getParameter("param");
+		configurationService.setParameterGeneric("contCode", contCode);
+		return request.isXHR() ? msgZone5.getBody() : null;
+	}
+
+	@Property
+	private String contSerie;
+
+	Object onContSerieChanged() throws InstanceNotFoundException {
+		contSerie = request.getParameter("param");
+		configurationService.setParameterGeneric("contSerie", contSerie);
+		return request.isXHR() ? msgZone5.getBody() : null;
+	}
+
+	@Property
+	private String ledgerAccCaja;
+
+	Object onLedgerAccCajaChanged() throws InstanceNotFoundException {
+		ledgerAccCaja = request.getParameter("param");
+		configurationService
+				.setParameterGeneric("ledgerAccCaja", ledgerAccCaja);
+		return request.isXHR() ? msgZone5.getBody() : null;
+	}
+
+	@Property
+	private String ledgerAccInvi;
+
+	Object onLedgerAccInviChanged() throws InstanceNotFoundException {
+		ledgerAccInvi = request.getParameter("param");
+		configurationService
+				.setParameterGeneric("ledgerAccInvi", ledgerAccInvi);
+		return request.isXHR() ? msgZone5.getBody() : null;
+	}
+
+	@Property
+	private String ledgerAccGerVtas;
+
+	Object onLedgerAccGerVtasChanged() throws InstanceNotFoundException {
+		ledgerAccGerVtas = request.getParameter("param");
+		configurationService.setParameterGeneric("ledgerAccGerVtas",
+				ledgerAccGerVtas);
+		return request.isXHR() ? msgZone5.getBody() : null;
+	}
+
+	@Property
+	private String ledgerAccServCbtos;
+
+	Object onLedgerAccServCbtosChanged() throws InstanceNotFoundException {
+		ledgerAccServCbtos = request.getParameter("param");
+		configurationService.setParameterGeneric("ledgerAccServCbtos",
+				ledgerAccServCbtos);
+		return request.isXHR() ? msgZone5.getBody() : null;
+	}
+
+	@Property
+	private String ledgerAccPropCam;
+
+	Object onLedgerAccPropCamChanged() throws InstanceNotFoundException {
+		ledgerAccPropCam = request.getParameter("param");
+		configurationService.setParameterGeneric("ledgerAccPropCam",
+				ledgerAccPropCam);
+		return request.isXHR() ? msgZone5.getBody() : null;
+	}
+
+	@Property
+	private String ledgerAccDescVtas;
+
+	Object onLedgerAccDescVtas() throws InstanceNotFoundException {
+		ledgerAccDescVtas = request.getParameter("param");
+		configurationService.setParameterGeneric("ledgerAccDescVtas",
+				ledgerAccDescVtas);
+		return request.isXHR() ? msgZone5.getBody() : null;
+	}
+
+	@Property
+	private String ivaType1;
+
+	Object onIvaType1Changed() throws InstanceNotFoundException {
+		ivaType1 = request.getParameter("param");
+		configurationService.setParameterGeneric("ivaType1", ivaType1);
+		return request.isXHR() ? msgZone5.getBody() : null;
+	}
+
+	@Property
+	private String ledgerAccIVA1;
+
+	Object onledgerAccIVA1Changed() throws InstanceNotFoundException {
+		ledgerAccIVA1 = request.getParameter("param");
+		configurationService
+				.setParameterGeneric("ledgerAccIVA1", ledgerAccIVA1);
+		return request.isXHR() ? msgZone5.getBody() : null;
+	}
+
+	@Property
+	private String ivaType2;
+
+	Object onIvaType2Changed() throws InstanceNotFoundException {
+		ivaType2 = request.getParameter("param");
+		configurationService.setParameterGeneric("ivaType2", ivaType2);
+		return request.isXHR() ? msgZone5.getBody() : null;
+	}
+
+	@Property
+	private String ledgerAccIVA2;
+
+	Object onledgerAccIVA2Changed() throws InstanceNotFoundException {
+		ledgerAccIVA2 = request.getParameter("param");
+		configurationService
+				.setParameterGeneric("ledgerAccIVA2", ledgerAccIVA2);
+		return request.isXHR() ? msgZone5.getBody() : null;
+	}
+
+	@Property
+	private String ivaType3;
+
+	Object onIvaType3Changed() throws InstanceNotFoundException {
+		ivaType3 = request.getParameter("param");
+		configurationService.setParameterGeneric("ivaType3", ivaType3);
+		return request.isXHR() ? msgZone5.getBody() : null;
+	}
+
+	@Property
+	private String ledgerAccIVA3;
+
+	Object onledgerAccIVA3Changed() throws InstanceNotFoundException {
+		ledgerAccIVA3 = request.getParameter("param");
+		configurationService
+				.setParameterGeneric("ledgerAccIVA3", ledgerAccIVA3);
+		return request.isXHR() ? msgZone5.getBody() : null;
+	}
+
+	@Property
+	private String literalIVA;
+
+	Object onLiteralIVAChanged() throws InstanceNotFoundException {
+		literalIVA = request.getParameter("param");
+		configurationService.setParameterGeneric("literalIVA", literalIVA);
+		return request.isXHR() ? msgZone5.getBody() : null;
+	}
+
+	@Property
+	private String cadExplot;
+
+	Object onCadExplotChanged() throws InstanceNotFoundException {
+		cadExplot = request.getParameter("param");
+		configurationService.setParameterGeneric("cadExplot", cadExplot);
+		return request.isXHR() ? msgZone5.getBody() : null;
+	}
+
+	@Property
+	private String cadDept;
+
+	Object oncadDeptChanged() throws InstanceNotFoundException {
+		cadDept = request.getParameter("param");
+		configurationService.setParameterGeneric("cadDept", cadDept);
+		return request.isXHR() ? msgZone5.getBody() : null;
+	}
+
+	@Property
+	private String covIncomeType;
+
+	Object onCovIncomeTypeChanged() throws InstanceNotFoundException {
+		covIncomeType = request.getParameter("param");
+		configurationService
+				.setParameterGeneric("covIncomeType", covIncomeType);
+		return request.isXHR() ? msgZone5.getBody() : null;
+	}
+
+	@Property
+	private String tipsIncomeType;
+
+	Object onTipsIncomeTypeChanged() throws InstanceNotFoundException {
+		tipsIncomeType = request.getParameter("param");
+		configurationService.setParameterGeneric("tipsIncomeType",
+				tipsIncomeType);
+		return request.isXHR() ? msgZone5.getBody() : null;
+	}
+
+	// --------------------------------Printer---------------------------
+
+	@InjectComponent
+	private Zone msgZone6;
+
+	@Property
+	private Boolean bmpToPrint;
+
+	Object onBmpToPrintChanged() throws InstanceNotFoundException {
+		String value = request.getParameter("param");
+		if (value.equals("true") == true)
+			bmpToPrint = true;
+		else
+			bmpToPrint = false;
+		configurationService.setParameterBool("bmpToPrint", bmpToPrint);
+		return request.isXHR() ? msgZone6.getBody() : null;
+
+	}
+
+	@Property
+	private String bmpSize;
+
+	Object onBmpSizeChanged() throws InstanceNotFoundException {
+		bmpSize = request.getParameter("param");
+		configurationService.setParameterGeneric("bmpSize", bmpSize);
+		return request.isXHR() ? msgZone6.getBody() : null;
+	}
+
+	@Property
+	private String secuence;
+
+	Object onSecuenceChanged() throws InstanceNotFoundException {
+		secuence = request.getParameter("param");
+		configurationService.setParameterGeneric("secuence", secuence);
+		return request.isXHR() ? msgZone6.getBody() : null;
+	}
+
+	@Property
+	private String standardPrint;
+
+	Object onStandardPrintChanged() throws InstanceNotFoundException {
+		standardPrint = request.getParameter("param");
+		configurationService
+				.setParameterGeneric("standardPrint", standardPrint);
+		return request.isXHR() ? msgZone6.getBody() : null;
+	}
+
+	@Property
+	private String pageLength;
+
+	Object onPageLengthChanged() throws InstanceNotFoundException {
+		pageLength = request.getParameter("param");
+		configurationService.setParameterGeneric("pageLength", pageLength);
+		return request.isXHR() ? msgZone6.getBody() : null;
+	}
+
+	@Property
+	private String skipHeaderLines;
+
+	Object onSkipHeaderLinesChanged() throws InstanceNotFoundException {
+		skipHeaderLines = request.getParameter("param");
+		configurationService.setParameterGeneric("skipHeaderLines",
+				skipHeaderLines);
+		return request.isXHR() ? msgZone6.getBody() : null;
+	}
+
+	@Property
+	private String leftTab;
+
+	Object onLeftTabChanged() throws InstanceNotFoundException {
+		leftTab = request.getParameter("param");
+		configurationService.setParameterGeneric("leftTab", leftTab);
+		return request.isXHR() ? msgZone6.getBody() : null;
+	}
+
+	@Property
+	private Boolean decimalArt;
+
+	Object onDecimalArtChanged() throws InstanceNotFoundException {
+		String value = request.getParameter("param");
+		if (value.equals("true") == true)
+			decimalArt = true;
+		else
+			decimalArt = false;
+		configurationService.setParameterBool("decimalArt", decimalArt);
+		return request.isXHR() ? msgZone6.getBody() : null;
+
+	}
+
+	@Property
+	private Boolean precioxPers;
+
+	Object onPrecioxPersChanged() throws InstanceNotFoundException {
+		String value = request.getParameter("param");
+		if (value.equals("true") == true)
+			precioxPers = true;
+		else
+			precioxPers = false;
+		configurationService.setParameterBool("precioxPers", precioxPers);
+		return request.isXHR() ? msgZone6.getBody() : null;
+
+	}
+
+	@Property
+	private Boolean printKitchenCalif;
+
+	Object onPrintKitchenCalifChanged() throws InstanceNotFoundException {
+		String value = request.getParameter("param");
+		if (value.equals("true") == true)
+			printKitchenCalif = true;
+		else
+			printKitchenCalif = false;
+		configurationService.setParameterBool("printKitchenCalif",
+				printKitchenCalif);
+		return request.isXHR() ? msgZone6.getBody() : null;
+
+	}
+
+	@Property
+	private Boolean printer1;
+
+	Object onPrinter1Changed() throws InstanceNotFoundException {
+		String value = request.getParameter("param");
+		if (value.equals("true") == true)
+			printer1 = true;
+		else
+			printer1 = false;
+		configurationService.setParameterBool("printer1", printer1);
+		return request.isXHR() ? msgZone6.getBody() : null;
+
+	}
+
+	@Property
+	private String commandPortPrt1;
+
+	Object commandPortPrt1Changed() throws InstanceNotFoundException {
+		commandPortPrt1 = request.getParameter("param");
+		configurationService.setParameterGeneric("commandPortPrt1",
+				commandPortPrt1);
+		return request.isXHR() ? msgZone6.getBody() : null;
+	}
+
+	@Property
+	private Boolean printer2;
+
+	Object onPrinter2Changed() throws InstanceNotFoundException {
+		String value = request.getParameter("param");
+		if (value.equals("true") == true)
+			printer2 = true;
+		else
+			printer2 = false;
+		configurationService.setParameterBool("printer2", printer2);
+		return request.isXHR() ? msgZone6.getBody() : null;
+
+	}
+
+	@Property
+	private String commandPortPrt2;
+
+	Object commandPortPrt2Changed() throws InstanceNotFoundException {
+		commandPortPrt2 = request.getParameter("param");
+		configurationService.setParameterGeneric("commandPortPrt2",
+				commandPortPrt2);
+		return request.isXHR() ? msgZone6.getBody() : null;
+	}
+
+	@Property
+	private Boolean printerEsp;
+
+	Object onPrinterEspChanged() throws InstanceNotFoundException {
+		String value = request.getParameter("param");
+		if (value.equals("true") == true)
+			printerEsp = true;
+		else
+			printerEsp = false;
+		configurationService.setParameterBool("printerEsp", printerEsp);
+		return request.isXHR() ? msgZone6.getBody() : null;
+
+	}
+
+	@Property
+	private String autocorte;
+
+	Object onAutocorteChanged() throws InstanceNotFoundException {
+		autocorte = request.getParameter("param");
+		configurationService.setParameterGeneric("autocorte", autocorte);
+		return request.isXHR() ? msgZone6.getBody() : null;
+	}
+
+	@Property
+	private String drawerOpen;
+
+	Object onDrawerOpenChanged() throws InstanceNotFoundException {
+		drawerOpen = request.getParameter("param");
+		configurationService.setParameterGeneric("drawerOpen", drawerOpen);
+		return request.isXHR() ? msgZone6.getBody() : null;
+	}
+
+	@Property
+	private String doubleBoldOn;
+
+	Object onDoubleBoldOnChanged() throws InstanceNotFoundException {
+		doubleBoldOn = request.getParameter("param");
+		configurationService.setParameterGeneric("doubleBoldOn", doubleBoldOn);
+		return request.isXHR() ? msgZone6.getBody() : null;
+	}
+
+	@Property
+	private String doubleBoldOff;
+
+	Object onDoubleBoldOffChanged() throws InstanceNotFoundException {
+		doubleBoldOff = request.getParameter("param");
+		configurationService
+				.setParameterGeneric("doubleBoldOff", doubleBoldOff);
+		return request.isXHR() ? msgZone6.getBody() : null;
+	}
 
 	void afterRender() throws InstanceNotFoundException {
 		cgList = configurationService.getParametersGeneric();
@@ -805,18 +1598,30 @@ public class Configuration {
 
 		JSONObject parameters = new JSONObject();
 
-
 		JSONArray parametersGeneric = new JSONArray();
+		JSONArray parametersGenericSelect = new JSONArray();
 		JSONArray parametersBool = new JSONArray();
 		JSONArray parametersRoom = new JSONArray();
 
 		for (ConfigurationGeneric cg : cgList) {
-			JSONObject parameterGeneric = new JSONObject();
-			parameterGeneric.put("id", cg.getConfGenericId());
-			parameterGeneric.put("name", cg.getName());
-			parameterGeneric.put("value", cg.getValue());
-			parametersGeneric.put(parameterGeneric);
+			if (cg.isTypeSelect()==false) {
+				
+				JSONObject parameterGeneric = new JSONObject();
+				parameterGeneric.put("id", cg.getConfGenericId());
+				parameterGeneric.put("name", cg.getName());
+				parameterGeneric.put("value", cg.getValue());
+				parametersGeneric.put(parameterGeneric);
+			}
+			else {
+				JSONObject parameterGenericSelect = new JSONObject();
+				parameterGenericSelect.put("id", cg.getConfGenericId());
+				parameterGenericSelect.put("name", cg.getName());
+				parameterGenericSelect.put("value", cg.getValue());
+				parametersGenericSelect.put(parameterGenericSelect);
+			}
+				
 		}
+		
 		for (ConfigurationBool cb : cbList) {
 			JSONObject parameterBool = new JSONObject();
 			parameterBool.put("id", cb.getConfBoolId());
@@ -825,15 +1630,16 @@ public class Configuration {
 			parametersBool.put(parameterBool);
 		}
 
-		for (ConfigurationRoom cr : crList){
+		for (ConfigurationRoom cr : crList) {
 			JSONObject parameterRoom = new JSONObject();
 			parameterRoom.put("id", cr.getConfigurationRoomId());
-			parameterRoom.put("roomDescription",cr.getRoomDescription());
+			parameterRoom.put("roomDescription", cr.getRoomDescription());
 			parameterRoom.put("firstTab", cr.getFirstTab());
 			parameterRoom.put("lastTab", cr.getLastTab());
 			parametersRoom.put(parameterRoom);
 		}
 		parameters.put("parametersGeneric", parametersGeneric);
+		parameters.put("parametersGenericSelect", parametersGenericSelect);
 		parameters.put("parametersBool", parametersBool);
 		parameters.put("parametersRoom", parametersRoom);
 		javaScriptSupport.addInitializerCall("loadParameters", parameters);
