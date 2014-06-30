@@ -1027,10 +1027,9 @@
 																	</div>
 																</div>
 																<div class="col-md-1"></div>
-
 															</div>
 															<div class="row row10"></div>
-															<div class="row" style="margin-top:10px;">
+															<div class="row" style="margin-top:10px;"> <!-- Row 9: Last number printed -->
 																<div class="col-md-1"></div>
 																<div class="col-md-5">
 																	<!-- <span class="input-group-addon">ültimo número impreso</span> -->

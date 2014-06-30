@@ -15,7 +15,6 @@ public class ConfigurationGeneric {
 	private String code;
 	private String name;
 	private String value;
-	private boolean typeSelect;
 
 	public ConfigurationGeneric() {
 	}
@@ -23,7 +22,6 @@ public class ConfigurationGeneric {
 	public ConfigurationGeneric(String code, String value, boolean typeSelect) {
 		this.code = code;
 		this.value = value;
-		this.typeSelect = typeSelect;
 	}
 
 	@Column(name = "idRes14cnt_GN")
@@ -68,14 +66,6 @@ public class ConfigurationGeneric {
 		this.value = value;
 	}
 
-	@Column(name="typeSelect")
-	public boolean isTypeSelect() {
-		return typeSelect;
-	}
-
-	public void setTypeSelect(boolean typeSelect) {
-		this.typeSelect = typeSelect;
-	}
 
 }
 
@@ -84,7 +74,6 @@ public class ConfigurationGeneric {
 //		  `code` VARCHAR(11) NOT NULL,
 //		  `name` VARCHAR(20) NOT NULL,
 //		  `value` VARCHAR(45) NULL,
-//		  `typeSelect` TINYINT(1) NULL,
 //		  PRIMARY KEY (`idRes14cnt_GN`),
 //		  UNIQUE INDEX `name_UNIQUE` (`name` ASC))
 //		ENGINE = InnoDB;

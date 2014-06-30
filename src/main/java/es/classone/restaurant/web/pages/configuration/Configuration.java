@@ -1582,26 +1582,15 @@ public class Configuration {
 		JSONObject parameters = new JSONObject();
 
 		JSONArray parametersGeneric = new JSONArray();
-		JSONArray parametersGenericSelect = new JSONArray();
 		JSONArray parametersBool = new JSONArray();
 		JSONArray parametersRoom = new JSONArray();
 
 		for (ConfigurationGeneric cg : cgList) {
-			if (cg.isTypeSelect()==false) {
-				
 				JSONObject parameterGeneric = new JSONObject();
 				parameterGeneric.put("id", cg.getConfGenericId());
 				parameterGeneric.put("name", cg.getName());
 				parameterGeneric.put("value", cg.getValue());
 				parametersGeneric.put(parameterGeneric);
-			}
-			else {
-				JSONObject parameterGenericSelect = new JSONObject();
-				parameterGenericSelect.put("id", cg.getConfGenericId());
-				parameterGenericSelect.put("name", cg.getName());
-				parameterGenericSelect.put("value", cg.getValue());
-				parametersGenericSelect.put(parameterGenericSelect);
-			}
 				
 		}
 		
@@ -1622,7 +1611,6 @@ public class Configuration {
 			parametersRoom.put(parameterRoom);
 		}
 		parameters.put("parametersGeneric", parametersGeneric);
-		parameters.put("parametersGenericSelect", parametersGenericSelect);
 		parameters.put("parametersBool", parametersBool);
 		parameters.put("parametersRoom", parametersRoom);
 		javaScriptSupport.addInitializerCall("loadParameters", parameters);

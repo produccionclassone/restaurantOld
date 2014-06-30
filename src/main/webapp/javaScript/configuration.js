@@ -264,13 +264,11 @@ var showParameters = function(parameters) {
 	}
 	
 	for (var i=0;i<parametersGeneric.length;i++){
+		
 		$("#"+parametersGeneric[i].name).attr('value',parametersGeneric[i].value);
+		$("#"+parametersGeneric[i].name).val(parametersGeneric[i].value);
 	}
-	
-	for (var i=0;i<parametersGenericSelect.length;i++){
-		$("#"+parametersGenericSelect[i].name).val(parametersGenericSelect[i].value);
-	}
-	
+		
 	for (var i=0;i<parametersRoom.length;i++){
 		$("#desc"+parametersRoom[i].id).attr('value',parametersRoom[i].roomDescription);
 		$("#firstTab"+parametersRoom[i].id).attr('value',parametersRoom[i].firstTab);
