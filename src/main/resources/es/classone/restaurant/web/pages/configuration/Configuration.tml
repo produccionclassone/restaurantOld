@@ -1,14 +1,13 @@
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
 	t:type="LayoutIndex" t:pageTitle="title">
+		
+		
 	<script>
 		$(document).ready(function(){
-		$('#regControl').modal({
-		keyboard:
-		false
-		});
-		$('#regControl').on('shown.bs.modal', function() {
-		$('#actualSession').focus();
-		});
+			$('#regControl').modal({keyboard:false});
+			$('#regControl').on('shown.bs.modal', function() {
+				$('#actualSession').focus();
+			});
 		});
 	</script>
 
@@ -679,10 +678,11 @@
 																	</span>
 																</div>
 																<div class="col-md-5">
-																	<input class="form-control textcontrolL alphabeticParam" t:id="literalEspBill"
-																		t:type="TextField" maxlenth="45"
-																		t:mixins="jquery/zoneUpdater" t:event="literalEspBillChanged" 
-																		t:zone="msgZone2" />
+																			<input class="form-control textcontrolL alphabeticParam"
+																				t:id="literalEspBill" t:type="TextField" 
+																				t:mixins="jquery/zoneUpdater" t:event="literalEspBillChanged"
+																				t:zone="msgZone2"
+																				maxlength="45" />
 																</div>
 																<div class="col-md-1"></div>
 															</div> <!-- Row 7: Literal especial bill -->
@@ -692,104 +692,103 @@
 																	<div class="row">
 																		<div class="textRowBorder">${message:assocElem-label}</div>
 																	</div>
-																	<div class="row">
+																	<div class="row"> <!-- Row 8.1: tips  -->
 																		<div class="col-md-3">
 																			<span class="input-group-addon">
 																				<t:label for="tips" />
 																			</span>
 																		</div>
 																		<div class="col-md-3">
-																			<input class="form-control checkcontrol" t:id="tips"
-																				name="tips" t:type="CheckBox" placeholder="${message:tips-label}" />
+																			<input class="form-control checkcontrol boolParam"
+																				t:id="tips" t:type="CheckBox" 
+																				t:mixins="jquery/zoneUpdater" t:event="literalEspBillChanged"
+																				t:zone="msgZone2"
+																				/>
 																		</div>
 																		<div class="col-md-3">
-																			<input class="form-control textcontrolL" t:id="assocElemTips"
-																				name="assocElemTips" t:type="TextField"
-																				onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																				t:clientEvent="focusout" t:event="assocElemTipsChanged"
-																				t:zone="msgZone2" />
+																			<input class="form-control textcontrolL numericParam"
+																				t:id="assocElemTips" t:type="TextField"
+																				t:mixins="jquery/zoneUpdater" t:event="assocElemTipsChanged"
+																				t:zone="msgZone2" maxlength="4"/>
 																		</div>
 																		<div class="col-md-3"></div>
-																	</div>
-																	
-																	<div class="row">
+																	</div> <!-- Row 8.1: tips  -->
+																	<div class="row"> <!-- Row 8.2: Discount 1 -->
 																		<div class="col-md-3">
 																			<span class="input-group-addon">
 																				<t:label for="discount1" />
 																			</span>
 																		</div>
 																		<div class="col-md-3">
-																			<input class="form-control checkcontrol" t:id="discount1"
-																				name="discount1" t:type="CheckBox" />
+																			<input class="form-control checkcontrol boolParam"
+																				t:id="discount1" t:type="CheckBox" 
+																				t:mixins="jquery/zoneUpdater" t:event="discount1Changed"
+																				t:zone="msgZone2"/>
 																		</div>
 																		<div class="col-md-3">
-																			<input class="form-control textcontrolL" t:id="assocElemDto1"
-																				name="assocElemDto1" t:type="TextField"
-																				onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																				t:clientEvent="focusout" t:event="assocElemDto1Changed"
-																				t:zone="msgZone2" />
+																			<input class="form-control textcontrolL numericParam" 
+																				t:id="assocElemDto1" t:type="TextField"
+																				t:mixins="jquery/zoneUpdater" t:event="assocElemDto1Changed"
+																				t:zone="msgZone2" maxlength="4"/>
 																		</div>
 																		<div class="col-md-3">
-																			<input class="form-control textcontrolR" t:id="assocElemDto1Porcent"
-																				name="assocElemDto1Porcent" t:type="TextField"
-																				onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																				t:clientEvent="focusout" t:event="assocElemDto1PorcentChanged"
-																				t:zone="msgZone2" />
-
+																			<input class="form-control textcontrolR porcentParam"
+																				t:id="assocElemDto1Porcent" t:type="TextField"
+																				t:mixins="jquery/zoneUpdater" t:event="assocElemDto1PorcentChanged"
+																				t:zone="msgZone2" maxlength="6"/>
 																		</div>
-																	</div>
-																	<div class="row">
+																	</div> <!-- Row 8.2: Discount 1 -->
+																	<div class="row"> <!-- Row 8.3: Discount 2 -->
 																		<div class="col-md-3">
 																			<span class="input-group-addon">
 																				<t:label for="discount2" />
 																			</span>
 																		</div>
 																		<div class="col-md-3">
-																			<input class="form-control checkcontrol" t:id="discount2"
-																				name="discount2" t:type="CheckBox" />
-																		</div>
-																		<div class="col-md-3">
-																			<input class="form-control textcontrolL" t:id="assocElemDto2"
-																				name="assocElemDto2" t:type="TextField"
-																				onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																				t:clientEvent="focusout" t:event="assocElemDto2Changed"
+																			<input class="form-control checkcontrol boolParam"
+																				t:id="discount2" t:type="CheckBox"
+																				t:mixins="jquery/zoneUpdater" t:event="discount2Changed"
 																				t:zone="msgZone2" />
 																		</div>
 																		<div class="col-md-3">
-																			<input class="form-control textcontrolR" t:id="assocElemDto2Porcent"
-																				name="assocElemDto2Porcent" t:type="TextField"
-																				onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																				t:clientEvent="focusout" t:event="assocElemDto2PorcentChanged"
-																				t:zone="msgZone2" />
-
+																			<input class="form-control textcontrolL numericParam"
+																				t:id="assocElemDto2" t:type="TextField"
+																				t:mixins="jquery/zoneUpdater" t:event="assocElemDto2Changed"
+																				t:zone="msgZone2" maxlength="4"/>
 																		</div>
-																	</div>
-																	<div class="row">
+																		<div class="col-md-3">
+																			<input class="form-control textcontrolR porcentParam"
+																				t:id="assocElemDto2Porcent" t:type="TextField"
+																				t:mixins="jquery/zoneUpdater" t:event="assocElemDto2PorcentChanged"
+																				t:zone="msgZone2" maxlength="6"/>
+																		</div>
+																	</div> <!-- Row 8.3: Discount 2 -->
+																	<div class="row"> <!-- Row 8.4: Discount 3 -->
 																		<div class="col-md-3">
 																			<span class="input-group-addon">
 																				<t:label for="discount3" />
 																			</span>
 																		</div>
 																		<div class="col-md-3">
-																			<input class="form-control checkcontrol" t:id="discount3"
-																				name="discount3" t:type="CheckBox" placeholder="${message:discount3-label}" />
+																			<input class="form-control checkcontrol boolParam"
+																				t:id="discount3" t:type="CheckBox"
+																				t:mixins="jquery/zoneUpdater" t:event="discount3Changed"
+																				t:zone="msgZone2" />
 																		</div>
 																		<div class="col-md-3">
-																			<input class="form-control textcontrolL" t:id="assocElemDto3"
-																				name="assocElemDto3" t:type="TextField"
-																				onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																				t:clientEvent="focusout" t:event="actualSessionChanged"
-																				t:zone="msgZone" />
+																			<input class="form-control textcontrolL numericParam"
+																				t:id="assocElemDto3" t:type="TextField"
+																				t:mixins="jquery/zoneUpdater" t:event="assocElemDto3Changed"
+																				t:zone="msgZone2" maxlength="4"/>
 																		</div>
 																		<div class="col-md-3">
-																			<input class="form-control textcontrolR" t:id="assocElemDto3Porcent"
-																				name="assocElemDto3Porcent" t:type="TextField"
-																				onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																				t:clientEvent="focusout" t:event="actualSessionChanged"
-																				t:zone="msgZone" />
+																			<input class="form-control textcontrolR porcentParam"
+																				t:id="assocElemDto3Porcent" t:type="TextField"
+																				t:mixins="jquery/zoneUpdater" t:event="assocElemDto3PorcentChanged"
+																				t:zone="msgZone2" maxlength="6"/>
 																		</div>
-																	</div>
-																	<div class="row">
+																	</div> <!-- Row 8.4: Discount 3 -->
+																	<div class="row"> <!-- Row 8.5: TPV -->
 																		<div class="col-md-3">
 																			<span class="input-group-addon">
 																				<t:label for="assocElemTPV" />
@@ -797,22 +796,22 @@
 																		</div>
 																		<div class="col-md-3"></div>
 																		<div class="col-md-3">
-																			<input class="form-control textcontrolL" t:id="assocElemTPV"
-																				name="assocElemTPV" t:type="TextField"
-																				placeholder="${message:assocElemTPV-label}" />
+																			<input class="form-control textcontrolL numericParam"
+																				t:id="assocElemTPV" t:type="TextField"
+																				t:mixins="jquery/zoneUpdater" t:event="assocElemTPVChanged"
+																				t:zone="msgZone2" maxlength="4"/>
 																		</div>
 																		<div class="col-md-3">
-																			<input class="form-control textcontrolL" t:id="chargeTPV"
-																				name="chargeTPV" t:type="TextField"
-																				onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																				t:clientEvent="focusout" t:event="actualSessionChanged"
-																				t:zone="msgZone" />
+																			<input class="form-control textcontrolL numericParam"
+																				t:id="chargeTPV" t:type="TextField"
+																				t:mixins="jquery/zoneUpdater" t:event="chargeTPVChanged"
+																				t:zone="msgZone2" maxlength="4"/>
 																		</div>
-																	</div>
+																	</div> <!-- Row 8.5: TPV -->
 																</div>
 																<div class="col-md-1"></div>
-															</div> <!-- Row 7: Literal especial bill -->
-															<div class="row">
+															</div> <!-- Row 8: Assoc. elements -->
+															<div class="row"> <!-- Row 9: Field separator -->
 																<div class="col-md-1"></div>
 																<div class="col-md-5">
 																	<span class="input-group-addon">
@@ -820,15 +819,14 @@
 																	</span>
 																</div>
 																<div class="col-md-1">
-																	<input class="form-control textcontrolL" t:id="fieldSeparator"
-																		name="fieldSeparator" t:type="TextField"
-																		onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																		t:clientEvent="focusout" t:event="actualSessionChanged"
-																		t:zone="msgZone" />
+																	<input class="form-control textcontrolL alphabeticParam"
+																		t:id="fieldSeparator" t:type="TextField"
+																		t:mixins="jquery/zoneUpdater" t:event="fieldSeparatorChanged"
+																		t:zone="msgZone2" maxlength="1" />
 																</div>
 																<div class="col-md-5"></div>
-															</div>
-															<div class="row">
+															</div> <!-- Row 9: Field separator -->
+															<div class="row"> <!-- Row 10: Alphabetic separator separator -->
 																<div class="col-md-1"></div>
 																<div class="col-md-5">
 																	<span class="input-group-addon">
@@ -836,14 +834,13 @@
 																	</span>
 																</div>
 																<div class="col-md-1">
-																	<input class="form-control textcontrolL" t:id="alphabSeparator"
-																		name="alphabSeparator" t:type="TextField"
-																		onkeypress="return permite(event, 'num')" t:mixins="jquery/zoneUpdater"
-																		t:clientEvent="focusout" t:event="actualSessionChanged"
-																		t:zone="msgZone" />
+																	<input class="form-control textcontrolL alphabeticParam"
+																		t:id="alphabSeparator" t:type="TextField"
+																		t:mixins="jquery/zoneUpdater" t:event="alphabSeparatorChanged"
+																		t:zone="msgZone2" maxlength="1"/>
 																</div>
 																<div class="col-md-5"></div>
-															</div>
+															</div> <!-- Row 10: Alphabetic separator separator -->
 														</div> <!--Right -->
 													</div> <!-- row general -->
 												</t:form>
@@ -863,13 +860,13 @@
 														<div class="row row10"></div>
 														<div class="row row10"></div>
 														<div class="col-md-6"><!-- Left -->
-															<div class="row">
+															<div class="row"> <!-- Row 1: Color -->
 																<div class="col-md-1"></div>
 																<div class="col-md-10 rowBorder">
 																	<div class="row">
 																		<div class="textRowBorder" style="margin-bottom:20px;">${message:color-label}</div>
 																	</div>
-																	<div class="row">
+																	<div class="row"> <!-- Row 1.1: Color Panel de artículos -->
 																		<div class="col-md-1"></div>
 																		<div class="col-md-10 rowBorder" style="margin-bottom:20px;">
 																			<div class="row">
@@ -878,21 +875,19 @@
 																				">${message:colorPanel-label}
 																				</div>
 																			</div>
-																			<div class="row">
+																			<div class="row"> <!--Row 1.1.1: Command color  -->
 																				<div class="col-md-1"></div>
 																				<div class="col-md-5">
-																					<!-- <span class="input-group-addon">comanda</span> -->
 																					<span class="input-group-addon">
 																						<t:label for="colCommand" />
 																					</span>
 																				</div>
 																				<div class="col-md-5">
-																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
 																					<input class="form-control textcontrolL"
 																						t:id="colCommand" name="colCommand" t:type="TextField" />
 																				</div>
 																				<div class="col-md-1"></div>
-																			</div>
+																			</div> <!--Row 1.1.1: Command color  -->
 																			<div class="row">
 																				<div class="col-md-1"></div>
 																				<div class="col-md-5">

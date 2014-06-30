@@ -18,8 +18,7 @@
 
 	</head>
 <!-- 	<script src="${context:/javaScript/jquery-2.1.1.js}"></script> -->
-	<script src="${context:/javaScript/bootstrap.min.js}"></script>
-
+	<script src="${context:/javaScript/bootstrap.min.js}"></script>	
 
 	<body>
 		<div id="wrap">

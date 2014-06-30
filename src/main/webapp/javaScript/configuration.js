@@ -77,7 +77,7 @@ var validateSave = function(){
 	
 	$(".alphabeticParam").focusout(function() {
 		console.log();
-		var alfRegex = /^(\w|\*|\s|\á|\é|\í|\ó|\u|\ñ|\Ñ|\ü|\.|\:|\,|\;|\>|\<|\-|\_|\{|\}|\Ç|\[|\]|\+|\*|\|\(|\)|\@|\=|\?|\¿|\¡)+$/;
+		var alfRegex = /^(\w|\*|\s|\á|\é|\í|\ó|\ú|\ñ|\Ñ|\ü|\.|\:|\,|\;|\>|\<|\-|\_|\{|\}|\Ç|\[|\]|\+|\*|\|\(|\)|\@|\=|\?|\¿|\¡)+$/;
 		var str = this.value;
 		if(alfRegex.test(str)) {
 			 $(this).removeClass("t-error");
@@ -324,3 +324,4 @@ var showParameters = function(parameters) {
 						}
 					})
 })(jQuery, window);
+
