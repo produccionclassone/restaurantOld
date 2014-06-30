@@ -142,7 +142,7 @@
 								<h4 class="modal-title">${message:edit-dish-group}</h4>
 							</div>
 							<div class="modal-body">
-								<form role="form" class="form-horizontal" t:id="editRowForm">
+								<form role="form" class="form-horizontal">
 									<div class="form-group" hidden="true">
 
 										<input class="form-control" t:id="dishGroupId" t:type="TextField"

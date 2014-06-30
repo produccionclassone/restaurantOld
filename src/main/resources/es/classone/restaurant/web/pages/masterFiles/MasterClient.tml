@@ -20,12 +20,14 @@
 			src="${context:javaScript/dataTables.bootstrap.js}"></script>
 		<script type="text/javascript" language="javascript"
 			src="${context:javaScript/dataTables.colVis.min.js}"></script>
-		<script type="text/javascript" language="javascript"
-			src="${context:javaScript/dataTables.colReorder.min.js}"></script>
+<!-- 		<script type="text/javascript" language="javascript" -->
+<!-- 			src="${context:javaScript/dataTables.colReorder.min.js}"></script> -->
 		<script type="text/javascript" language="javascript"
 			src="${context:javaScript/dataTables.fixedHeader.js}"></script>
 		<script type="text/javascript" language="javascript"
 			src="${context:javaScript/dataTables.tableTools.min.js}"></script>
+			<script type="text/javascript" language="javascript"
+			src="${context:javaScript/ColReorderWithResize.js}"></script>
 		<script type="text/javascript" language="javascript"
 			src="${context:javaScript/table.js}"></script>
 
@@ -33,31 +35,116 @@
 		</script>
 	</head>
 	<body>
-<!-- 		<div class='row' style='margin-top:50px; margin-left:350px; width:250px;'> -->
-<!-- 			<div class='progress progress-striped active'> -->
-<!-- 				<div class='bar progress-bar' style='width: 0%;'></div> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
+	<!-- 		<div class='row' style='margin-top:50px; margin-left:350px; width:250px;'> -->
+	<!-- 			<div class='progress progress-striped active'> -->
+	<!-- 				<div class='bar progress-bar' style='width: 0%;'></div> -->
+	<!-- 			</div> -->
+	<!-- 		</div> -->
+	<div class="modal fade" id="pleaseWaitDialog" data-keyboard="false">
+				<div class="modal-body">
+					<div class="progress progress-striped active " style="width: 400px; margin-left: 500px; margin-top:200px;">
+						<div class="progress-bar" style="width: 100%;"></div>
+					</div>
+				</div>
+			</div>
+			<script> $('#pleaseWaitDialog').modal('show');
+				
+					
+		</script>
 		<div class="container">
 
 			<div class="row">
 
 				<div class="col-md-11">
 
-
+					<t:zone t:id="tableZone" id="tableZone">
 					<table cellpadding="0" cellspacing="0" border="0"
-						class="table table-bordered hover display" id="example" hidden="true">
+						class="table table-bordered hover display" id="example" width="100%">
 
 						<thead class="table-head">
-							<tr>
-								<th>${message:clientCode}</th>
-								<th>${message:clientName}</th>
+							<tr >
+								<th style="border: 2px solid #ddd; padding: 3px;">${message:clientCode}</th>
+								<th style="border: 2px solid #ddd; padding: 3px;">${message:clientName}</th>
+								<th style="border: 2px solid #ddd; padding: 3px;">${message:clientZipCode}</th>
+								<th style="border: 2px solid #ddd; padding: 3px;">${message:clientDNI}</th>
+								<th style="border: 2px solid #ddd; padding: 3px;">${message:clientPhoneContact}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<div t:type="Loop" t:source="clients" t:value="client">
+								<tr id="${client.clientId}" class="textZoom"
+									style="font-size:12px; text-align:left;">
+									<td>${client.clientId}</td>
+									<td>${client.clientName}</td>
+									<td>${client.clientZipCode}</td>
+									<td>${client.clientDNI}</td>
+									<td>${client.clientPhoneContact}</td>
+									<a t:type='eventLink' class="${client.clientId}" t:zone="zone"
+										t:event='edit' t:context="${client.clientId}">
+									</a>
+								</tr>
+							</div>
+						</tbody>
+					</table>
+					</t:zone>
+				</div>
+			</div>
+		</div>
+
+		<t:zone t:id="zone" id="zone">
+			<t:if test="clientDetails">
+				<div id="name" t:zone="zone" hidden="true">${clientDetails.clientName}</div>
+
+
+				<div class="modal fade" id="modalEdit">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">&times;
+								</button>
+								<h4 class="modal-title">${message:edit-client}</h4>
+							</div>
+							<div class="modal-body">
+
+								<form role="form" class="form-horizontal" t:id="editRowForm" t:zone="tableZone">
+									<div class="form-group" hidden="true">
+										<input class="form-control" t:id="clientId" t:type="TextField" value="clientId"
+											validate="required" />
+									</div>
+
+									<div class="form-group">
+										<label for="clientName" class="col-sm-4 control-label">${message:clientName}</label>
+										<div class="col-sm-8">
+											<input class="form-control focus" t:id="clientName" id="clientName" t:type="TextField"
+												validate="required" autofocus="true" value="clientName" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="clientAddress" class="col-sm-4 control-label">${message:clientAddress}</label>
+										<div class="col-sm-8">
+											<input class="form-control" t:id="clientAddress" t:type="TextField"
+												validate="required" autofocus="true" value="clientAddress" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="clientZipCode" class="col-sm-4 control-label">${message:clientZipCode}</label>
+										<div class="col-sm-8">
+											<input class="form-control" t:id="clientZipCode" t:type="TextField"
+												validate="required" autofocus="true" value="clientZipCode" />
+										</div>
+									</div>
+										<div class="form-group modal-footer modal-footer-center">
+										
+										<input type="image" src="${context:css/images/edit.png}"
+											height="40" class="btn btn-default"></input>
+									</div>
 								<!-- <th>${message:clientAddress}</th> -->
-								<th>${message:clientZipCode}</th>
+<!-- 								<th>${message:clientZipCode}</th> -->
 								<!-- <th>${message:clientDown}</th> -->
 								<!-- <th>${message:clientProvince}</th> -->
-								<th>${message:clientDNI}</th>
-								<th>${message:clientPhoneContact}</th>
+<!-- 								<th>${message:clientDNI}</th> -->
+<!-- 								<th>${message:clientPhoneContact}</th> -->
 								<!-- <th>${message:clientPersonContact}</th> -->
 								<!-- <th>${message:clientNotes1}</th> -->
 								<!-- <th>${message:clientNotes2}</th> -->
@@ -79,85 +166,6 @@
 								<!-- <th>${message:sendEmail}</th> -->
 								<!-- <th>${message:clientEmail}</th> -->
 								<!-- <th>${message:sendSMS}</th> -->
-							</tr>
-						</thead>
-						<tbody>
-							<div t:type="Loop" t:source="clients" t:value="client">
-								<tr id="${client.clientId}" class="textZoom"
-									style="font-size:12px; text-align:left;">
-									<td>${client.clientId}</td>
-									<td>${client.clientName}</td>
-									<!-- <td>${client.clientAddress}</td> -->
-									<td>${client.clientZipCode}</td>
-									<!-- <td>${client.clientDown}</td> -->
-									<!-- <td>${client.clientProvince}</td> -->
-									<td>${client.clientDNI}</td>
-									<td>${client.clientPhoneContact}</td>
-
-									<a t:type='eventLink' class="${client.clientId}" t:zone="zone"
-										t:event='edit' t:context="${client.clientId}">
-									</a>
-
-									<!-- <td>${client.clientPersonContact}</td> -->
-									<!-- <td>${client.clientNotes1}</td> -->
-									<!-- <td>${client.clientNotes2}</td> -->
-									<!-- <td>${client.clientNotes3}</td> -->
-									<!-- <td>${client.clientLimitCredit}</td> -->
-									<!-- <td>${client.outstandingAmount}</td> -->
-									<!-- <td>${client.clientLastDateFood}</td> -->
-									<!-- <td>${client.clientAmountSpent}</td> -->
-									<!-- <td>${client.clientDiners}</td> -->
-									<!-- <td>${client.clientTimesToEat}</td> -->
-									<!-- <td>${client.clientObservation1}</td> -->
-									<!-- <td>${client.clientObservation2}</td> -->
-									<!-- <td>${client.clientObservation3}</td> -->
-									<!-- <td>${client.clientObservation4}</td> -->
-									<!-- <td>${client.ledgerAccount}</td> -->
-									<!-- <td>${client.ledgerAccountType}</td> -->
-									<!-- <td>${client.typeCode}</td> -->
-									<!-- <td>${client.channelSegment.channelValue}</td> -->
-									<!-- <td>${client.sendEmail}</td> -->
-									<!-- <td>${client.clientEmail}</td> -->
-									<!-- <td>${client.sendSMS}</td> -->
-
-								</tr>
-							</div>
-						</tbody>
-					</table>
-
-				</div>
-			</div>
-		</div>
-
-		<t:zone t:id="zone" id="zone">
-			<t:if test="clientDetails">
-				<div id="name" t:zone="zone" hidden="true">${clientDetails.clientName}</div>
-
-
-				<div class="modal fade" id="modalEdit">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal"
-									aria-hidden="true">&times;
-								</button>
-								<h4 class="modal-title">${message:edit-client}</h4>
-							</div>
-							<div class="modal-body">
-
-								<form role="form" class="form-horizontal" t:id="editRowForm">
-									<div class="form-group" hidden="true">
-										<input class="form-control" t:id="clientId" t:type="TextField"
-											validate="required" />
-									</div>
-
-									<div class="form-group">
-										<label for="clientName" class="col-sm-4 control-label">${message:clientName}</label>
-										<div class="col-sm-8">
-											<input class="form-control" t:id="clientName" t:type="TextField"
-												validate="required" autofocus="true" value="${clientDetails.clientName}" />
-										</div>
-									</div>
 
 								</form>
 

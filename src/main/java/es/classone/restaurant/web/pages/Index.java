@@ -135,7 +135,7 @@ public class Index {
 			MapApp.setOptionName("A.5", messages.get("optiona5"), "");
 			MapApp.setOptionName("A.6", messages.get("optiona6"), "");
 			MapApp.setOptionName("A.7", messages.get("optiona7"), "");
-			MapApp.setOptionName("A.8", messages.get("optiona8"), "");
+			MapApp.setOptionName("A.8", messages.get("optiona8"), "/restaurant/masterfiles/masterclient");
 			MapApp.setOptionName("B.1", messages.get("optionb1"), "");
 			MapApp.setOptionName("B.2", "", "");
 			MapApp.setOptionName("B.3", messages.get("optionb3"), "");

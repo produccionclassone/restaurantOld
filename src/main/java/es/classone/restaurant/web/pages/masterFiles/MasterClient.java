@@ -36,16 +36,18 @@ public class MasterClient {
 	private List<ClientHeader> clients;
 	@Property
 	private ClientHeader client;
+	
 	@Property
 	private Client clientDetails;
+	
 	@Property
 	private Long clientId;
 	@Property
 	private Long editClientId;
-	
+
 	@Property
 	private String clientName;
-	
+
 	@Property
 	private String clientAddress;
 	@Property
@@ -104,6 +106,8 @@ public class MasterClient {
 	private MasterFilesService masterFilesService;
 	@InjectComponent
 	private Zone zone;
+	@InjectComponent
+    private Zone tableZone;
 	@Inject
 	private AjaxResponseRenderer ajaxResponseRenderer;
 	@Inject
@@ -112,8 +116,9 @@ public class MasterClient {
 	@Inject
 	private Request request;
 
-	void setupRender() throws NumberFormatException, ParseException, InstanceNotFoundException {
-		
+	void setupRender() throws NumberFormatException, ParseException,
+			InstanceNotFoundException {
+
 		clients = masterFilesService.findAllClient();
 		long size = clients.size();
 		System.out.println("SIZE IN WEB:" + size);
@@ -127,26 +132,61 @@ public class MasterClient {
 			}
 		}
 	}
-
-	
-	void onEdit(Long clientId) throws InstanceNotFoundException {
-			clientDetails = masterFilesService.getClientByClientId(clientId);
-			ajaxResponseRenderer.addCallback(new JavaScriptCallback() {
-	            public void run(JavaScriptSupport javascriptSupport) {
-	                javascriptSupport.addScript(
-	                    String.format(" $('#modalEdit').modal('show');", null));
-	            }
-	        });
-			ajaxResponseRenderer.addRender(zone);
-   }
-	
-	void onDelete(Long row) {
-			try {
-				masterFilesService.deleteClient(row);
-			} catch (InstanceNotFoundException e) {
-				System.out.println("error al eliminar");
+	void onValidateFromEditRowForm() throws InstanceNotFoundException {
+	//validar
+		clientDetails=masterFilesService.getClientByClientId(clientId);
+		masterFilesService.editClient(clientId, clientName, clientAddress,
+				clientZipCode, clientDetails.getClientDown(), clientDetails.getClientProvince(), clientDetails.getClientDNI(),
+				clientDetails.getClientPhoneContact(), clientDetails.getClientPersonContact(), clientDetails.getClientNotes1(),
+				clientDetails.getClientNotes2(), clientDetails.getClientNotes3(), clientDetails.getClientLimitCredit(),
+				clientDetails.getOutstandingAmount(), clientDetails.getClientLastDateFood(), clientDetails.getClientAmountSpent(),
+				clientDetails.getClientDiners(), clientDetails.getClientTimesToEat(), clientDetails.getClientObservation1(),
+				clientDetails.getClientObservation2(), clientDetails.getClientObservation3(), clientDetails.getClientObservation4(),
+				clientDetails.getLedgerAccount(), clientDetails.getLedgerAccountType(), clientDetails.getTypeCode(), clientDetails.getChannelSegment(),
+				clientDetails.isSendEmail(), clientDetails.getClientEmail(), clientDetails.isSendSMS());
+		ajaxResponseRenderer.addCallback(new JavaScriptCallback() {
+			public void run(JavaScriptSupport javascriptSupport) {
+				javascriptSupport.addScript(String
+						.format("row = $('#'+%s).children(); $(row[0]).text('%s'); $(row[1]).text('%s');"
+								,clientId,clientId,clientName));
 			}
+    	});
+		
+	}
+    void onSuccess() {
+    	ajaxResponseRenderer.addCallback(new JavaScriptCallback() {
+			public void run(JavaScriptSupport javascriptSupport) {
+				javascriptSupport.addScript(String
+						.format(" $('#modalEdit').modal('hide');"
+								,null));
+			}
+    	});
+    	
+    }
+	void onEdit(Long cliId) throws InstanceNotFoundException {
+		clientDetails = masterFilesService.getClientByClientId(cliId);
+		clientId = clientDetails.getClientId();
+		clientName=clientDetails.getClientName();
+		clientAddress=clientDetails.getClientAddress();
+		clientZipCode=clientDetails.getClientZipCode();
+		ajaxResponseRenderer.addCallback(new JavaScriptCallback() {
+			public void run(JavaScriptSupport javascriptSupport) {
+				javascriptSupport.addScript(String
+						.format(" $('#modalEdit').modal('show'); "
+								+ "$('#modalEdit').on('shown.bs.modal', function() {"
+								+ "			$('.focus').focus();});", null));
+			}
+		});
+		ajaxResponseRenderer.addRender(zone);
+	}
+	
+
+
+	void onDelete(Long row) {
+		try {
+			masterFilesService.deleteClient(row);
+		} catch (InstanceNotFoundException e) {
+			System.out.println("error al eliminar");
+		}
 	}
 }
-
-
