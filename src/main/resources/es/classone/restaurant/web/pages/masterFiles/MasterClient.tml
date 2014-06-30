@@ -59,7 +59,7 @@
 
 					<t:zone t:id="tableZone" id="tableZone">
 					<table cellpadding="0" cellspacing="0" border="0"
-						class="table table-bordered hover display" id="example" width="100%">
+						class="table table-bordered hover display" id="table" width="100%" hidden="true">
 
 						<thead class="table-head">
 							<tr >
@@ -90,12 +90,8 @@
 				</div>
 			</div>
 		</div>
-
 		<t:zone t:id="zone" id="zone">
-			<t:if test="clientDetails">
-				<div id="name" t:zone="zone" hidden="true">${clientDetails.clientName}</div>
-
-
+		
 				<div class="modal fade" id="modalEdit">
 					<div class="modal-dialog">
 						<div class="modal-content">
@@ -134,38 +130,179 @@
 												validate="required" autofocus="true" value="clientZipCode" />
 										</div>
 									</div>
+									<div class="form-group">
+										<label for="clientTown" class="col-sm-4 control-label">${message:clientTown}</label>
+										<div class="col-sm-8">
+											<input class="form-control" t:id="clientTown" t:type="TextField"
+												validate="required" autofocus="true" value="clientTown" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="clientProvince" class="col-sm-4 control-label">${message:clientProvince}</label>
+										<div class="col-sm-8">
+											<input class="form-control" t:id="clientProvince" t:type="TextField"
+												validate="required" autofocus="true" value="clientProvince" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="clientDNI" class="col-sm-4 control-label">${message:clientDNI}</label>
+										<div class="col-sm-8">
+											<input class="form-control" t:id="clientDNI" t:type="TextField"
+												validate="required" autofocus="true" value="clientDNI" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="clientPhoneContact" class="col-sm-4 control-label">${message:clientPhoneContact}</label>
+										<div class="col-sm-8">
+											<input class="form-control" t:id="clientPhoneContact" t:type="TextField"
+												validate="required" autofocus="true" value="clientPhoneContact" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="clientPersonContact" class="col-sm-4 control-label">${message:clientPersonContact}</label>
+										<div class="col-sm-8">
+											<input class="form-control" t:id="clientPersonContact" t:type="TextField"
+												validate="required" autofocus="true" value="clientPersonContact" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="clientNotes1" class="col-sm-4 control-label">${message:clientNotes1}</label>
+										<div class="col-sm-8">
+											<input class="form-control" t:id="clientNotes1" t:type="TextField"
+												validate="required" autofocus="true" value="clientNotes1" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="clientNotes2" class="col-sm-4 control-label">${message:clientNotes2}</label>
+										<div class="col-sm-8">
+											<input class="form-control" t:id="clientNotes2" t:type="TextField"
+												validate="required" autofocus="true" value="clientNotes2" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="clientNotes3" class="col-sm-4 control-label">${message:clientNotes3}</label>
+										<div class="col-sm-8">
+											<input class="form-control" t:id="clientNotes3" t:type="TextField"
+												validate="required" autofocus="true" value="clientNotes1" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="clientLimitCredit" class="col-sm-4 control-label">${message:clientLimitCredit}</label>
+										<div class="col-sm-8">
+											<input class="form-control" t:id="clientLimitCredit" t:type="TextField"
+												validate="required" autofocus="true" value="clientLimitCredit" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="outstandingAmount" class="col-sm-4 control-label">${message:outstandingAmount}</label>
+										<div class="col-sm-8">
+											<input class="form-control" t:id="outstandingAmount" t:type="TextField"
+												validate="required" autofocus="true" value="outstandingAmount" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="clientLastDateFoodString" class="col-sm-4 control-label">${message:clientLastDateFood}</label>
+										<div class="col-sm-8">
+											<input class="form-control" t:id="clientLastDateFoodString" t:type="TextField"
+												validate="required" autofocus="true" value="clientLastDateFoodString" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="clientAmountSpent" class="col-sm-4 control-label">${message:clientAmountSpent}</label>
+										<div class="col-sm-8">
+											<input class="form-control" t:id="clientAmountSpent" t:type="TextField"
+												validate="required" autofocus="true" value="clientAmountSpent" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="clientDiners" class="col-sm-4 control-label">${message:clientDiners}</label>
+										<div class="col-sm-8">
+											<input class="form-control" t:id="clientDiners" t:type="TextField"
+												validate="required" autofocus="true" value="clientDiners" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="clientObservation1" class="col-sm-4 control-label">${message:clientObservation1}</label>
+										<div class="col-sm-8">
+											<input class="form-control" t:id="clientObservation1" t:type="TextField"
+												validate="required" autofocus="true" value="clientObservation1" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="clientObservation2" class="col-sm-4 control-label">${message:clientObservation2}</label>
+										<div class="col-sm-8">
+											<input class="form-control" t:id="clientObservation2" t:type="TextField"
+												validate="required" autofocus="true" value="clientObservation2" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="clientObservation3" class="col-sm-4 control-label">${message:clientObservation1}</label>
+										<div class="col-sm-8">
+											<input class="form-control" t:id="clientObservation3" t:type="TextField"
+												validate="required" autofocus="true" value="clientObservation3" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="clientObservation4" class="col-sm-4 control-label">${message:clientObservation1}</label>
+										<div class="col-sm-8">
+											<input class="form-control" t:id="clientObservation4" t:type="TextField"
+												validate="required" autofocus="true" value="clientObservation4" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="ledgerAccount" class="col-sm-4 control-label">${message:ledgerAccount}</label>
+										<div class="col-sm-8">
+											<input class="form-control" t:id="ledgerAccount" t:type="TextField"
+												validate="required" autofocus="true" value="ledgerAccount" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="ledgerAccountType" class="col-sm-4 control-label">${message:ledgerAccountType}</label>
+										<div class="col-sm-8">
+											<input class="form-control" t:id="ledgerAccountType" t:type="TextField"
+												validate="required" autofocus="true" value="ledgerAccountType" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="typeCode" class="col-sm-4 control-label">${message:typeCode}</label>
+										<div class="col-sm-8">
+											<input class="form-control" t:id="typeCode" t:type="TextField"
+												validate="required" autofocus="true" value="typeCode" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="channelValue" class="col-sm-4 control-label">${message:channelValue}</label>
+										<div class="col-sm-8">
+											<input class="form-control" t:id="channelValue" t:type="TextField"
+												validate="required" autofocus="true" value="channelValue" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="sendEmail" class="col-sm-4 control-label">${message:sendEmail}</label>
+										<div class="col-sm-8">
+											<input class="form-control" t:id="sendEmail" t:type="checkBox"
+												validate="required" autofocus="true" value="sendEmail" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="clientEmail" class="col-sm-4 control-label">${message:clientEmail}</label>
+										<div class="col-sm-8">
+											<input class="form-control" t:id="clientEmail" t:type="TextField"
+												validate="required" autofocus="true" value="clientEmail" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="sendSMS" class="col-sm-4 control-label">${message:sendSMS}</label>
+										<div class="col-sm-8">
+											<input class="form-control" t:id="sendSMS" t:type="checkBox"
+												validate="required" autofocus="true" value="sendSMS" />
+										</div>
+									</div>
 										<div class="form-group modal-footer modal-footer-center">
 										
 										<input type="image" src="${context:css/images/edit.png}"
-											height="40" class="btn btn-default"></input>
+											height="40" class="btn btn-default btn-change"></input>
 									</div>
-								<!-- <th>${message:clientAddress}</th> -->
-<!-- 								<th>${message:clientZipCode}</th> -->
-								<!-- <th>${message:clientDown}</th> -->
-								<!-- <th>${message:clientProvince}</th> -->
-<!-- 								<th>${message:clientDNI}</th> -->
-<!-- 								<th>${message:clientPhoneContact}</th> -->
-								<!-- <th>${message:clientPersonContact}</th> -->
-								<!-- <th>${message:clientNotes1}</th> -->
-								<!-- <th>${message:clientNotes2}</th> -->
-								<!-- <th>${message:clientNotes3}</th> -->
-								<!-- <th>${message:clientLimitCredit}</th> -->
-								<!-- <th>${message:outstandingAmount}</th> -->
-								<!-- <th>${message:clientLastDateFood}</th> -->
-								<!-- <th>${message:clientAmountSpent}</th> -->
-								<!-- <th>${message:clientDiners}</th> -->
-								<!-- <th>${message:clientTimesToEat}</th> -->
-								<!-- <th>${message:clientObservation1}</th> -->
-								<!-- <th>${message:clientObservation2}</th> -->
-								<!-- <th>${message:clientObservation3}</th> -->
-								<!-- <th>${message:clientObservation4}</th> -->
-								<!-- <th>${message:ledgerAccount}</th> -->
-								<!-- <th>${message:ledgerAccountType}</th> -->
-								<!-- <th>${message:typeCode}</th> -->
-								<!-- <th>${message:channelValue}</th> -->
-								<!-- <th>${message:sendEmail}</th> -->
-								<!-- <th>${message:clientEmail}</th> -->
-								<!-- <th>${message:sendSMS}</th> -->
 
 								</form>
 
@@ -174,8 +311,35 @@
 						</div>
 					</div>
 				</div>
-			</t:if>
 		</t:zone>
+		
+		<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">${message:delete-client}</h4>
+      </div>
+      <div class="modal-body">
+        ${message:delete-message}
+      </div>
+      <div class="modal-footer modal-footer-center">
+							
+								<button id="confirmDeleteButton" class="btn btn-default">
+									<img src="${context:css/images/accept.png}"
+											height="30" width="30"> </img>
+									</button>
+									<button type="button" class="btn btn-default" data-dismiss="modal"><img src="${context:css/images/delete.png}"
+											height="30" width="30"> </img></button>
+							
+							</div>
+    </div>
+  </div>
+</div>
 	</body>
 	<script type="text/javascript">
 		$(document).ready(function(){

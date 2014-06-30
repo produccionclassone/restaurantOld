@@ -73,5 +73,7 @@ public interface MasterFilesService {
 			throws InstanceNotFoundException;
 
 	public void importClientFile(String path) throws IOException, NumberFormatException, ParseException;
-
+	
+	
+	public List<ChannelSegment> getChannelsSegments();
 }

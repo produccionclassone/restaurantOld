@@ -400,6 +400,11 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 
 	}
 
+	@Override
+	public List<ChannelSegment> getChannelsSegments() {
+		return channelSegmentDao.findAll();
+	}
+
 }
 
 

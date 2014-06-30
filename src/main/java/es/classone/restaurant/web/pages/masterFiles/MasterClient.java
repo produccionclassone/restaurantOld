@@ -29,6 +29,7 @@ import es.classone.restaurant.web.services.AuthenticationPolicy;
 import es.classone.restaurant.web.services.AuthenticationPolicyType;
 
 @AuthenticationPolicy(AuthenticationPolicyType.AUTHENTICATED_USERS)
+@Import(library = "context:javaScript/addRow.js")
 public class MasterClient {
 	@Component
 	private Form editRowForm;
@@ -36,24 +37,20 @@ public class MasterClient {
 	private List<ClientHeader> clients;
 	@Property
 	private ClientHeader client;
-	
+
 	@Property
 	private Client clientDetails;
-	
+
 	@Property
 	private Long clientId;
 	@Property
-	private Long editClientId;
-
-	@Property
 	private String clientName;
-
 	@Property
 	private String clientAddress;
 	@Property
 	private String clientZipCode;
 	@Property
-	private String clientDown;
+	private String clientTown;
 	@Property
 	private String clientProvince;
 	@Property
@@ -72,8 +69,10 @@ public class MasterClient {
 	private double clientLimitCredit;
 	@Property
 	private double outstandingAmount;
-	@Property
+
 	private Calendar clientLastDateFood;
+	@Property
+	private String clientLastDateFoodString;
 	@Property
 	private double clientAmountSpent;
 	@Property
@@ -97,6 +96,8 @@ public class MasterClient {
 	@Property
 	private ChannelSegment channelSegment;
 	@Property
+	private String channelValue;
+	@Property
 	private boolean sendEmail;
 	@Property
 	private String clientEmail;
@@ -107,7 +108,7 @@ public class MasterClient {
 	@InjectComponent
 	private Zone zone;
 	@InjectComponent
-    private Zone tableZone;
+	private Zone tableZone;
 	@Inject
 	private AjaxResponseRenderer ajaxResponseRenderer;
 	@Inject
@@ -131,44 +132,127 @@ public class MasterClient {
 				e.printStackTrace();
 			}
 		}
+
 	}
+
 	void onValidateFromEditRowForm() throws InstanceNotFoundException {
-	//validar
-		clientDetails=masterFilesService.getClientByClientId(clientId);
-		masterFilesService.editClient(clientId, clientName, clientAddress,
-				clientZipCode, clientDetails.getClientDown(), clientDetails.getClientProvince(), clientDetails.getClientDNI(),
-				clientDetails.getClientPhoneContact(), clientDetails.getClientPersonContact(), clientDetails.getClientNotes1(),
-				clientDetails.getClientNotes2(), clientDetails.getClientNotes3(), clientDetails.getClientLimitCredit(),
-				clientDetails.getOutstandingAmount(), clientDetails.getClientLastDateFood(), clientDetails.getClientAmountSpent(),
-				clientDetails.getClientDiners(), clientDetails.getClientTimesToEat(), clientDetails.getClientObservation1(),
-				clientDetails.getClientObservation2(), clientDetails.getClientObservation3(), clientDetails.getClientObservation4(),
-				clientDetails.getLedgerAccount(), clientDetails.getLedgerAccountType(), clientDetails.getTypeCode(), clientDetails.getChannelSegment(),
-				clientDetails.isSendEmail(), clientDetails.getClientEmail(), clientDetails.isSendSMS());
+		// validar
+		if (clientId == null) {
+
+			clientLastDateFood = Calendar.getInstance();
+			channelSegment = masterFilesService.getChannelsSegments().get(0);
+			Client newClient = new Client(clientName, clientAddress,
+					clientZipCode, clientTown, clientProvince, clientDNI,
+					clientPhoneContact, clientPersonContact, clientNotes1,
+					clientNotes2, clientNotes3, clientLimitCredit,
+					outstandingAmount, clientLastDateFood, clientAmountSpent,
+					clientDiners, clientTimesToEat, clientObservation1,
+					clientObservation2, clientObservation3, clientObservation4,
+					ledgerAccount, ledgerAccountType, typeCode, channelSegment,
+					sendEmail, clientEmail, sendSMS);
+			clientId = masterFilesService.createClient(newClient).getClientId();
+			// Añadir con jquery una fila
+			final String row = (String
+					.format("<tr style='font-size:12px; text-align:left;' class='textZoom even' id='%s'>"
+							+ "<td class=' '>%s</td><td class=' '>%s</td>"
+							+ "<td class=' '>%s</td><td class=' '>%s</td><td class=' '>%s</td></tr>",
+							clientId, clientId,clientName, clientZipCode,
+							clientDNI, clientPhoneContact));
+			System.out.println(row);
+			final String row1="<div>hola</div>";
+
+			ajaxResponseRenderer.addCallback(new JavaScriptCallback() {
+				public void run(JavaScriptSupport javascriptSupport) {
+					  JSONObject newRow = new JSONObject();
+					  newRow.put("clientId", clientId);
+					  newRow.put("clientName", clientName);
+					  newRow.put("clientZipCode", clientZipCode);
+					  newRow.put("clientDNI", clientDNI);
+					  newRow.put("clientPhoneContact", clientPhoneContact);
+				        javascriptSupport.addInitializerCall("addRow", newRow);
+
+				}
+			});
+
+		} else {
+			clientDetails = masterFilesService.getClientByClientId(clientId);
+			masterFilesService.editClient(clientId, clientName, clientAddress,
+					clientZipCode, clientDetails.getClientDown(),
+					clientDetails.getClientProvince(),
+					clientDetails.getClientDNI(),
+					clientDetails.getClientPhoneContact(),
+					clientDetails.getClientPersonContact(),
+					clientDetails.getClientNotes1(),
+					clientDetails.getClientNotes2(),
+					clientDetails.getClientNotes3(),
+					clientDetails.getClientLimitCredit(),
+					clientDetails.getOutstandingAmount(),
+					clientDetails.getClientLastDateFood(),
+					clientDetails.getClientAmountSpent(),
+					clientDetails.getClientDiners(),
+					clientDetails.getClientTimesToEat(),
+					clientDetails.getClientObservation1(),
+					clientDetails.getClientObservation2(),
+					clientDetails.getClientObservation3(),
+					clientDetails.getClientObservation4(),
+					clientDetails.getLedgerAccount(),
+					clientDetails.getLedgerAccountType(),
+					clientDetails.getTypeCode(),
+					clientDetails.getChannelSegment(),
+					clientDetails.isSendEmail(),
+					clientDetails.getClientEmail(), clientDetails.isSendSMS());
+			ajaxResponseRenderer.addCallback(new JavaScriptCallback() {
+				public void run(JavaScriptSupport javascriptSupport) {
+					javascriptSupport.addScript(String
+							.format("row = $('#'+%s).children(); $(row[0]).text('%s'); $(row[1]).text('%s');",
+									clientId, clientId, clientName));
+				}
+			});
+		}
+	}
+
+	void onSuccess() {
 		ajaxResponseRenderer.addCallback(new JavaScriptCallback() {
 			public void run(JavaScriptSupport javascriptSupport) {
-				javascriptSupport.addScript(String
-						.format("row = $('#'+%s).children(); $(row[0]).text('%s'); $(row[1]).text('%s');"
-								,clientId,clientId,clientName));
+				javascriptSupport.addScript(String.format(
+						" $('#modalEdit').modal('hide');", null));
 			}
-    	});
-		
+		});
+
 	}
-    void onSuccess() {
-    	ajaxResponseRenderer.addCallback(new JavaScriptCallback() {
-			public void run(JavaScriptSupport javascriptSupport) {
-				javascriptSupport.addScript(String
-						.format(" $('#modalEdit').modal('hide');"
-								,null));
-			}
-    	});
-    	
-    }
-	void onEdit(Long cliId) throws InstanceNotFoundException {
-		clientDetails = masterFilesService.getClientByClientId(cliId);
+
+	void onEdit(Long id) throws InstanceNotFoundException {
+		clientDetails = masterFilesService.getClientByClientId(id);
 		clientId = clientDetails.getClientId();
-		clientName=clientDetails.getClientName();
-		clientAddress=clientDetails.getClientAddress();
-		clientZipCode=clientDetails.getClientZipCode();
+		clientName = clientDetails.getClientName();
+		clientAddress = clientDetails.getClientAddress();
+		clientZipCode = clientDetails.getClientZipCode();
+		clientTown = clientDetails.getClientDown();
+		clientProvince = clientDetails.getClientProvince();
+		clientDNI = clientDetails.getClientDNI();
+		clientPhoneContact = clientDetails.getClientPhoneContact();
+		clientPersonContact = clientDetails.getClientPersonContact();
+		clientNotes1 = clientDetails.getClientNotes1();
+		clientNotes2 = clientDetails.getClientNotes2();
+		clientNotes3 = clientDetails.getClientNotes3();
+		clientLimitCredit = clientDetails.getClientLimitCredit();
+		outstandingAmount = clientDetails.getOutstandingAmount();
+		clientLastDateFoodString = clientDetails.getClientLastDateFood()
+				.toString();
+		clientAmountSpent = clientDetails.getClientAmountSpent();
+		clientDiners = clientDetails.getClientDiners();
+		clientTimesToEat = clientDetails.getClientTimesToEat();
+		clientObservation1 = clientDetails.getClientObservation1();
+		clientObservation2 = clientDetails.getClientObservation2();
+		clientObservation3 = clientDetails.getClientObservation3();
+		clientObservation4 = clientDetails.getClientObservation4();
+		ledgerAccount = clientDetails.getLedgerAccount();
+		ledgerAccountType = clientDetails.getLedgerAccountType();
+		typeCode = clientDetails.getTypeCode();
+		channelValue = clientDetails.getChannelSegment().getChannelValue();
+		sendEmail = clientDetails.isSendEmail();
+		clientEmail = clientDetails.getClientEmail();
+		sendSMS = clientDetails.isSendSMS();
 		ajaxResponseRenderer.addCallback(new JavaScriptCallback() {
 			public void run(JavaScriptSupport javascriptSupport) {
 				javascriptSupport.addScript(String
@@ -179,8 +263,6 @@ public class MasterClient {
 		});
 		ajaxResponseRenderer.addRender(zone);
 	}
-	
-
 
 	void onDelete(Long row) {
 		try {
@@ -189,4 +271,10 @@ public class MasterClient {
 			System.out.println("error al eliminar");
 		}
 	}
+
+	void afterRender() {
+
+		javaScriptSupport.addScript(String.format("$('#table').show();", null));
+	}
+
 }
