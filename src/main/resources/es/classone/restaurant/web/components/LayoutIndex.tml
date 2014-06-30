@@ -10,6 +10,10 @@
 			<link rel="StyleSheet" href="${context:/css/styles.css}"
 			type="text/css" media="all" />
 
+			<link rel="StyleSheet" href="${context:/css/pick-a-color-1.2.3.min.css}"
+			type="text/css" media="all" />
+
+				
 		<link rel="StyleSheet" href="${context:/css/bootstrap.css}" type="text/css"
 			media="all" />
 		<link rel="shortcut icon" type="image/x-icon"

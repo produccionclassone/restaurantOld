@@ -1,16 +1,32 @@
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
 	t:type="LayoutIndex" t:pageTitle="title">
 		
-		
+	<script type="text/javascript" language="javascript"
+			src="${context:javaScript/tinycolor-0.9.15.min.js}"></script>
+	<script type="text/javascript" language="javascript"
+			src="${context:javaScript/pick-a-color-1.2.3.min.js}"></script>	
+
 	<script>
 		$(document).ready(function(){
 			$('#regControl').modal({keyboard:false});
 			$('#regControl').on('shown.bs.modal', function() {
 				$('#actualSession').focus();
 			});
+			
+			$(".pick-a-color").pickAColor({
+			  showSpectrum            : true,
+				showSavedColors         : true,
+				saveColorsPerElement    : true,
+				fadeMenuToggle          : true,
+				showAdvanced						: true,
+				showBasicColors         : true,
+				showHexInput            : true,
+				allowBlank							: true,
+				inlineDropdown					: true
+			});
 		});
 	</script>
-
+	
 	<div class="container-fluid">
 
 		<div class="row"> <!-- Mantenimiento reg. control -->
@@ -883,8 +899,10 @@
 																					</span>
 																				</div>
 																				<div class="col-md-5">
-																					<input class="form-control textcontrolL"
-																						t:id="colCommand" name="colCommand" t:type="TextField" />
+																					<input class="form-control pick-a-color alphabeticParam"
+																						t:id="colCommand" t:type="TextField"
+																						t:mixins="jquery/zoneUpdater" t:event="colCommandChanged"
+																						t:zone="msgZone3" />
 																				</div>
 																				<div class="col-md-1"></div>
 																			</div> <!--Row 1.1.1: Command color  -->

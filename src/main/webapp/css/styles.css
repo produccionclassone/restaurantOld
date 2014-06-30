@@ -489,22 +489,7 @@ HTML > BODY .nav-tabs > li> a.top-tab-text {
 	border-left: 1px solid #D0D2D4;
 	border-right: 1px solid #D0D2D4;
 }
-//HTML > BODY .nav-tabs > li > a {
-//	font-size:12px;
-//	border:1px solid #ccc;
-//	border-radius:5px;
-//}
 
-//HTML > BODY  > .tab-pane .active > .container-fluid{
-//	background-color:#F8F8F8;
-//}
-
-//HTML > BODY .navtabs{
-//	margin-top: 0px;
-//	padding:0px 0px;
-//	font-size:12px;
-//	height: auto;
-//}
 
 h6.text{
 	font-size:14px;
@@ -546,10 +531,6 @@ border-top-right-radius: 5px;
 }
 
 
-/*HTML > BODY .nav > li > a {
-	padding: 2px 2px;
-}*/
-
 HTML > BODY .input-group-addon {
 	padding-left: 0px;
 	padding-right: 0px;
@@ -559,8 +540,6 @@ HTML > BODY .input-group-addon {
 	width:auto;
 	background-color:transparent;
 }
-
-
 
 HTML > BODY .checkcontrol {
 	height: auto;
@@ -655,9 +634,6 @@ HTML>BODY
 .label-general{
 	margin-bottom: 3px;
 }
-
-
-
 
 /*DATATABLES */
 HTML>BODY
