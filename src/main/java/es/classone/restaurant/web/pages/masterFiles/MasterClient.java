@@ -2,21 +2,19 @@ package es.classone.restaurant.web.pages.masterFiles;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
-import org.apache.tapestry5.annotations.OnEvent;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.corelib.components.Zone;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.json.JSONObject;
-import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.ajax.AjaxResponseRenderer;
-import org.apache.tapestry5.services.ajax.JSONCallback;
 import org.apache.tapestry5.services.ajax.JavaScriptCallback;
 import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
@@ -29,7 +27,7 @@ import es.classone.restaurant.web.services.AuthenticationPolicy;
 import es.classone.restaurant.web.services.AuthenticationPolicyType;
 
 @AuthenticationPolicy(AuthenticationPolicyType.AUTHENTICATED_USERS)
-@Import(library = "context:javaScript/addRow.js")
+@Import(library = "context:javaScript/addClient.js")
 public class MasterClient {
 	@Component
 	private Form editRowForm;
@@ -37,10 +35,8 @@ public class MasterClient {
 	private List<ClientHeader> clients;
 	@Property
 	private ClientHeader client;
-
 	@Property
 	private Client clientDetails;
-
 	@Property
 	private Long clientId;
 	@Property
@@ -90,10 +86,6 @@ public class MasterClient {
 	@Property
 	private String ledgerAccount;
 	@Property
-	private String ledgerAccountType;
-	@Property
-	private String typeCode;
-	@Property
 	private ChannelSegment channelSegment;
 	@Property
 	private String channelValue;
@@ -103,26 +95,25 @@ public class MasterClient {
 	private String clientEmail;
 	@Property
 	private boolean sendSMS;
+	@Property
+	private ArrayList<Long> links;
+	@Property
+	private Long link;
 	@Inject
 	private MasterFilesService masterFilesService;
 	@InjectComponent
 	private Zone zone;
-	@InjectComponent
-	private Zone tableZone;
 	@Inject
 	private AjaxResponseRenderer ajaxResponseRenderer;
 	@Inject
 	private JavaScriptSupport javaScriptSupport;
 
-	@Inject
-	private Request request;
-
 	void setupRender() throws NumberFormatException, ParseException,
 			InstanceNotFoundException {
 
 		clients = masterFilesService.findAllClient();
-		long size = clients.size();
-		System.out.println("SIZE IN WEB:" + size);
+		int size = clients.size();
+
 		if (size == 0) {
 			try {
 				masterFilesService
@@ -131,6 +122,13 @@ public class MasterClient {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+		} else {
+			long lastId = clients.get(size - 1).getClientId();
+			System.out.println(lastId);
+			links = new ArrayList<>();
+			for (int i = 1; i < 2000; i++) {
+				links.add(lastId + i);
+			}
 		}
 
 	}
@@ -138,7 +136,6 @@ public class MasterClient {
 	void onValidateFromEditRowForm() throws InstanceNotFoundException {
 		// validar
 		if (clientId == null) {
-
 			clientLastDateFood = Calendar.getInstance();
 			channelSegment = masterFilesService.getChannelsSegments().get(0);
 			Client newClient = new Client(clientName, clientAddress,
@@ -148,32 +145,20 @@ public class MasterClient {
 					outstandingAmount, clientLastDateFood, clientAmountSpent,
 					clientDiners, clientTimesToEat, clientObservation1,
 					clientObservation2, clientObservation3, clientObservation4,
-					ledgerAccount, ledgerAccountType, typeCode, channelSegment,
+					ledgerAccount, channelSegment,
 					sendEmail, clientEmail, sendSMS);
 			clientId = masterFilesService.createClient(newClient).getClientId();
-			// Añadir con jquery una fila
-			final String row = (String
-					.format("<tr style='font-size:12px; text-align:left;' class='textZoom even' id='%s'>"
-							+ "<td class=' '>%s</td><td class=' '>%s</td>"
-							+ "<td class=' '>%s</td><td class=' '>%s</td><td class=' '>%s</td></tr>",
-							clientId, clientId,clientName, clientZipCode,
-							clientDNI, clientPhoneContact));
-			System.out.println(row);
-			final String row1="<div>hola</div>";
-
 			ajaxResponseRenderer.addCallback(new JavaScriptCallback() {
 				public void run(JavaScriptSupport javascriptSupport) {
-					  JSONObject newRow = new JSONObject();
-					  newRow.put("clientId", clientId);
-					  newRow.put("clientName", clientName);
-					  newRow.put("clientZipCode", clientZipCode);
-					  newRow.put("clientDNI", clientDNI);
-					  newRow.put("clientPhoneContact", clientPhoneContact);
-				        javascriptSupport.addInitializerCall("addRow", newRow);
-
+					JSONObject newRow = new JSONObject();
+					newRow.put("clientId", clientId);
+					newRow.put("clientName", clientName);
+					newRow.put("clientZipCode", clientZipCode);
+					newRow.put("clientDNI", clientDNI);
+					newRow.put("clientPhoneContact", clientPhoneContact);
+					javascriptSupport.addInitializerCall("addClient", newRow);
 				}
 			});
-
 		} else {
 			clientDetails = masterFilesService.getClientByClientId(clientId);
 			masterFilesService.editClient(clientId, clientName, clientAddress,
@@ -196,13 +181,16 @@ public class MasterClient {
 					clientDetails.getClientObservation3(),
 					clientDetails.getClientObservation4(),
 					clientDetails.getLedgerAccount(),
-					clientDetails.getLedgerAccountType(),
-					clientDetails.getTypeCode(),
 					clientDetails.getChannelSegment(),
 					clientDetails.isSendEmail(),
 					clientDetails.getClientEmail(), clientDetails.isSendSMS());
 			ajaxResponseRenderer.addCallback(new JavaScriptCallback() {
-				public void run(JavaScriptSupport javascriptSupport) {
+				public void run(JavaScriptSupport javascriptSupport) { // cambiar
+																		// con
+																		// la
+																		// api
+																		// de
+																		// datatables
 					javascriptSupport.addScript(String
 							.format("row = $('#'+%s).children(); $(row[0]).text('%s'); $(row[1]).text('%s');",
 									clientId, clientId, clientName));
@@ -214,8 +202,8 @@ public class MasterClient {
 	void onSuccess() {
 		ajaxResponseRenderer.addCallback(new JavaScriptCallback() {
 			public void run(JavaScriptSupport javascriptSupport) {
-				javascriptSupport.addScript(String.format(
-						" $('#modalEdit').modal('hide');", null));
+				javascriptSupport.addScript(String
+						.format(" $('#modal').modal('hide');"));
 			}
 		});
 
@@ -247,8 +235,6 @@ public class MasterClient {
 		clientObservation3 = clientDetails.getClientObservation3();
 		clientObservation4 = clientDetails.getClientObservation4();
 		ledgerAccount = clientDetails.getLedgerAccount();
-		ledgerAccountType = clientDetails.getLedgerAccountType();
-		typeCode = clientDetails.getTypeCode();
 		channelValue = clientDetails.getChannelSegment().getChannelValue();
 		sendEmail = clientDetails.isSendEmail();
 		clientEmail = clientDetails.getClientEmail();
@@ -256,9 +242,9 @@ public class MasterClient {
 		ajaxResponseRenderer.addCallback(new JavaScriptCallback() {
 			public void run(JavaScriptSupport javascriptSupport) {
 				javascriptSupport.addScript(String
-						.format(" $('#modalEdit').modal('show'); "
-								+ "$('#modalEdit').on('shown.bs.modal', function() {"
-								+ "			$('.focus').focus();});", null));
+						.format(" $('#modal').modal('show'); "
+								+ "$('#modal').on('shown.bs.modal', function() {"
+								+ "			$('.focus').focus();});"));
 			}
 		});
 		ajaxResponseRenderer.addRender(zone);
@@ -274,7 +260,7 @@ public class MasterClient {
 
 	void afterRender() {
 
-		javaScriptSupport.addScript(String.format("$('#table').show();", null));
+		javaScriptSupport.addScript(String.format("$('#table').show();"));
 	}
 
 }

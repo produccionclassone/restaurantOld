@@ -44,19 +44,16 @@ public class Client {
 	private String clientObservation3; // R1CLI017_03
 	private String clientObservation4; // R1CLI017_04
 	private String ledgerAccount; // R1CLI201
-	private String ledgerAccountType;// R1CLI202 7* "C" / "A" / "E"
-	private String typeCode;// R1CLI203 Codigo de "E" o "A"
 	private ChannelSegment channelSegment; // Res14can_R1CAN000
 	private boolean sendEmail; // R1CLI018
 	private String clientEmail; // R1CLI019
 	private boolean sendSMS; // R1CLI020
 
-	
 	public Client() {
 
 	}
 
-	public Client( String clientName, String clientAddress,
+	public Client(String clientName, String clientAddress,
 			String clientZipCode, String clientDown, String clientProvince,
 			String clientDNI, String clientPhoneContact,
 			String clientPersonContact, String clientNotes1,
@@ -65,9 +62,8 @@ public class Client {
 			double clientAmountSpent, int clientDiners, int clientTimesToEat,
 			String clientObservation1, String clientObservation2,
 			String clientObservation3, String clientObservation4,
-			String ledgerAccount, String ledgerAccountType, String typeCode,
-			ChannelSegment channelSegment, boolean sendEmail,
-			String clientEmail, boolean sendSMS) {
+			String ledgerAccount, ChannelSegment channelSegment,
+			boolean sendEmail, String clientEmail, boolean sendSMS) {
 
 		this.clientName = clientName;
 		this.clientAddress = clientAddress;
@@ -91,8 +87,6 @@ public class Client {
 		this.clientObservation3 = clientObservation3;
 		this.clientObservation4 = clientObservation4;
 		this.ledgerAccount = ledgerAccount;
-		this.ledgerAccountType = ledgerAccountType;
-		this.typeCode = typeCode;
 		this.channelSegment = channelSegment;
 		this.sendEmail = sendEmail;
 		this.clientEmail = clientEmail;
@@ -227,7 +221,7 @@ public class Client {
 		return outstandingAmount;
 	}
 
-	public void setOutstandingAmount (double outstandingAmount) {
+	public void setOutstandingAmount(double outstandingAmount) {
 		this.outstandingAmount = outstandingAmount;
 	}
 
@@ -313,24 +307,6 @@ public class Client {
 		this.ledgerAccount = ledgerAccount;
 	}
 
-	@Column(name = "R1CLI202")
-	public String getLedgerAccountType() {
-		return ledgerAccountType;
-	}
-
-	public void setLedgerAccountType(String ledgerAccountType) {
-		this.ledgerAccountType = ledgerAccountType;
-	}
-
-	@Column(name = "R1CLI203")
-	public String getTypeCode() {
-		return typeCode;
-	}
-
-	public void setTypeCode(String typeCode) {
-		this.typeCode = typeCode;
-	}
-
 	@ManyToOne(optional = false, fetch = FetchType.LAZY)
 	@JoinColumn(name = "Res14can_R1CAN000")
 	public ChannelSegment getChannelSegment() {
@@ -341,7 +317,7 @@ public class Client {
 		this.channelSegment = channelSegment;
 	}
 
-	@Column(name="R1CLI018")
+	@Column(name = "R1CLI018")
 	public boolean isSendEmail() {
 		return sendEmail;
 	}
@@ -350,7 +326,7 @@ public class Client {
 		this.sendEmail = sendEmail;
 	}
 
-	@Column(name="R1CLI019")
+	@Column(name = "R1CLI019")
 	public String getClientEmail() {
 		return clientEmail;
 	}
@@ -359,7 +335,7 @@ public class Client {
 		this.clientEmail = clientEmail;
 	}
 
-	@Column(name="R1CLI020")
+	@Column(name = "R1CLI020")
 	public boolean isSendSMS() {
 		return sendSMS;
 	}
@@ -367,46 +343,44 @@ public class Client {
 	public void setSendSMS(boolean sendSMS) {
 		this.sendSMS = sendSMS;
 	}
-	
-	
 
 }
-//CREATE TABLE IF NOT EXISTS `ayx14res`.`Res14cli` (
-//		  `R1CLI000` BIGINT NOT NULL AUTO_INCREMENT,
-//		  `R1CLI001` VARCHAR(6) NOT NULL,
-//		  `R1CLI002` VARCHAR(45) NOT NULL,
-//		  `R1CLI003` VARCHAR(45) NULL,
-//		  `R1CLI004` VARCHAR(8) NULL,
-//		  `R1CLI005` VARCHAR(45) NULL,
-//		  `R1CLI006` VARCHAR(45) NULL,
-//		  `R1CLI007` VARCHAR(20) NULL,
-//		  `R1CLI008` VARCHAR(15) NULL,
-//		  `R1CLI009` VARCHAR(45) NULL,
-//		  `R1CLI010_01` VARCHAR(45) NULL,
-//		  `R1CLI010_02` VARCHAR(45) NULL,
-//		  `R1CLI010_03` VARCHAR(45) NULL,
-//		  `R1CLI011` DECIMAL(9,2) NOT NULL DEFAULT 0,
-//		  `R1CLI012` DECIMAL(9,2) NOT NULL DEFAULT 0,
-//		  `R1CLI013` DATE NOT NULL DEFAULT 20130101,
-//		  `R1CLI014` DECIMAL(9,2) NOT NULL DEFAULT 0,
-//		  `R1CLI015` SMALLINT NOT NULL DEFAULT 0,
-//		  `R1CLI016` INT NOT NULL DEFAULT 0,
-//		  `R1CLI017_01` VARCHAR(45) NULL,
-//		  `R1CLI017_02` VARCHAR(45) NULL,
-//		  `R1CLI017_03` VARCHAR(45) NULL,
-//		  `R1CLI017_04` VARCHAR(45) NULL,
-//		  `R1CLI201` VARCHAR(8) NOT NULL DEFAULT '43000000',
-//		  `R1CLI202` CHAR NULL,
-//		  `R1CLI203` VARCHAR(5) NULL,
-//		  `Res14can_R1CAN000` INT NOT NULL,
-//		  `R1CLI018` TINYINT(1) NULL,
-//		  `R1CLI019` VARCHAR(45) NULL,
-//		  `R1CLI020` TINYINT(1) NULL,
-//		  PRIMARY KEY (`R1CLI000`),
-//		  INDEX `res14cli_res14can_idx` (`Res14can_R1CAN000` ASC),
-//		  CONSTRAINT `res14cli_res14can`
-//		    FOREIGN KEY (`Res14can_R1CAN000`)
-//		    REFERENCES `ayx14res`.`Res14CAN` (`R1CAN000`)
-//		    ON DELETE NO ACTION
-//		    ON UPDATE NO ACTION)
-//		ENGINE = InnoDB
+// CREATE TABLE IF NOT EXISTS `ayx14res`.`Res14cli` (
+// `R1CLI000` BIGINT NOT NULL AUTO_INCREMENT,
+// `R1CLI001` VARCHAR(6) NOT NULL,
+// `R1CLI002` VARCHAR(45) NOT NULL,
+// `R1CLI003` VARCHAR(45) NULL,
+// `R1CLI004` VARCHAR(8) NULL,
+// `R1CLI005` VARCHAR(45) NULL,
+// `R1CLI006` VARCHAR(45) NULL,
+// `R1CLI007` VARCHAR(20) NULL,
+// `R1CLI008` VARCHAR(15) NULL,
+// `R1CLI009` VARCHAR(45) NULL,
+// `R1CLI010_01` VARCHAR(45) NULL,
+// `R1CLI010_02` VARCHAR(45) NULL,
+// `R1CLI010_03` VARCHAR(45) NULL,
+// `R1CLI011` DECIMAL(9,2) NOT NULL DEFAULT 0,
+// `R1CLI012` DECIMAL(9,2) NOT NULL DEFAULT 0,
+// `R1CLI013` DATE NOT NULL DEFAULT 20130101,
+// `R1CLI014` DECIMAL(9,2) NOT NULL DEFAULT 0,
+// `R1CLI015` SMALLINT NOT NULL DEFAULT 0,
+// `R1CLI016` INT NOT NULL DEFAULT 0,
+// `R1CLI017_01` VARCHAR(45) NULL,
+// `R1CLI017_02` VARCHAR(45) NULL,
+// `R1CLI017_03` VARCHAR(45) NULL,
+// `R1CLI017_04` VARCHAR(45) NULL,
+// `R1CLI201` VARCHAR(8) NOT NULL DEFAULT '43000000',
+// `R1CLI202` CHAR NULL,
+// `R1CLI203` VARCHAR(5) NULL,
+// `Res14can_R1CAN000` INT NOT NULL,
+// `R1CLI018` TINYINT(1) NULL,
+// `R1CLI019` VARCHAR(45) NULL,
+// `R1CLI020` TINYINT(1) NULL,
+// PRIMARY KEY (`R1CLI000`),
+// INDEX `res14cli_res14can_idx` (`Res14can_R1CAN000` ASC),
+// CONSTRAINT `res14cli_res14can`
+// FOREIGN KEY (`Res14can_R1CAN000`)
+// REFERENCES `ayx14res`.`Res14CAN` (`R1CAN000`)
+// ON DELETE NO ACTION
+// ON UPDATE NO ACTION)
+// ENGINE = InnoDB

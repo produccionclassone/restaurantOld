@@ -5,10 +5,10 @@ $(document)
 				function() {
 					$('#pleaseWaitDialog').modal('hide');
 					// Inicializar la tabla
-					var table = $('#table')
+					table = $('#table')
 							.dataTable(
 									{
-										"sDom" : '<"row top"TfC  <"toolbar">>rRt<"bottom"lp>',
+										"sDom" : '<"row top"TfC<"toolbar">>rtR<"bottom"lp>',
 										"lengthMenu" : [ [ 25, 50, 100, -1 ],
 												[ 25, 50, 100, "*" ] ],
 										stateSave : true,
@@ -107,10 +107,12 @@ $(document)
 						else if (size != 1)
 							$("#editRowButton").prop('disabled', true);
 					});
+					console.log(table);
+					
 
 					// TOOLBAR
 					$("#addRowButton").click(function() {
-						$("#modalEdit").modal("show");
+						$("#modal").modal("show");
 						var form =$(".form-control");
 						for(var i=3;i<form.length;i++){
 							form[i].value="";
@@ -120,7 +122,7 @@ $(document)
 					
 					//AÑadir FILA
 					$(".btn-change").click(function(){
-						$("#modalEdit").modal("hide");
+						$("#modal").modal("hide");
 					});
 					$("#editRowButton").click(function() {
 						if ($("tr").hasClass("selected")) {
@@ -144,7 +146,7 @@ $(document)
 											for (var i = 0; i < size; i++) {
 												var id = $(".selected")[i].id;
 												$
-														.post("/restaurant/masterfiles/masterclient:delete/"
+														.post(window.location.pathname +":delete/"
 																+ id);
 												$("#" + id).hide();
 												$("#modalDelete").modal("hide");

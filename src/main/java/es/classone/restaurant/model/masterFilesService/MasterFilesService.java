@@ -67,8 +67,7 @@ public interface MasterFilesService {
 			double clientAmountSpent, int clientDiners, int clientTimesToEat,
 			String clientObservation1, String clientObservation2,
 			String clientObservation3, String clientObservation4,
-			String ledgerAccount, String ledgerAccountType, String typeCode,
-			ChannelSegment channelSegment, boolean sendEmail,
+			String ledgerAccount, ChannelSegment channelSegment, boolean sendEmail,
 			String clientEmail, boolean sendSMS)
 			throws InstanceNotFoundException;
 

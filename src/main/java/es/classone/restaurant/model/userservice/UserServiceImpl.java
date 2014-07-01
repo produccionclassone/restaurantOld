@@ -101,11 +101,7 @@ public class UserServiceImpl implements UserService {
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		}
-		try {
-			userProfile.setIpAddressExt(getIpExt());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+			userProfile.setIpAddressExt("192.168.1.1");
 		try {
 			userProfile.setMacAddress(getMacAddress(getIpIn()));
 		} catch (UnknownHostException e) {

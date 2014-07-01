@@ -558,7 +558,7 @@ HTML > BODY .bottoncontrol {
 HTML > BODY .textcontrolR{
 	height: auto;
 	font-size: 13px;
-  	padding: 1px 1px;
+  	padding: 1px 7px;
   	margin-top:2px;
   	text-align:right;
   	float:right;
@@ -567,7 +567,7 @@ HTML > BODY .textcontrolR{
 HTML > BODY .textcontrolL{
 	height: auto;
 	font-size: 13px;
-  	padding: 1px 1px;
+  	padding: 1px 7px;
   	margin-top:2px;
   	text-align:left;
   	float:right;
@@ -707,6 +707,25 @@ HTML>BODY
 .even { background-color: #f8f8f9;}
 .table-head{
 	background-color:#f8f8f8;	
+}
+
+HTML>BODY
+.formMaster{
+	margin-bottom:4px;
+	padding-top: 0px;
+}
+HTML>BODY
+.inputLarge{
+	
+}
+HTML>BODY
+.labelMaster{
+	font-size:12px;
+	padding-top: 3px;
+	text-align:right;
+	margin-top: 0;
+	margin-bottom: 0;
+	font-weight: bold;
 }
 /* Error messages. */
 
