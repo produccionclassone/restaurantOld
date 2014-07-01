@@ -72,5 +72,24 @@ public class ConfigurationServiceImpl implements ConfigurationService {
 		cb.setValue(newValue);
 		configurationBoolDao.save(cb);
 	}
+	
+	public void setRoomDesc(int id, String roomDesc) throws InstanceNotFoundException {
+		ConfigurationRoom cr = configurationRoomDao.find(id);
+		cr.setRoomDescription(roomDesc);
+		configurationRoomDao.save(cr);
+	}
+	
+	public void setRoomFirstTab(int id, int firstTab) throws InstanceNotFoundException {
+		ConfigurationRoom cr = configurationRoomDao.find(id);
+		cr.setFirstTab(firstTab);
+		configurationRoomDao.save(cr);
+	}
+	
+	public void setRoomLastTab(int id, int lastTab) throws InstanceNotFoundException {
+		ConfigurationRoom cr = configurationRoomDao.find(id);
+		cr.setLastTab(lastTab);
+		configurationRoomDao.save(cr);
+	}
+
 
 }

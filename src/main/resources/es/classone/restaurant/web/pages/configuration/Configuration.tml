@@ -1030,13 +1030,13 @@
 																</div>
 																<div class="col-md-4">																	<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
 																	<input class="form-control textcontrolL numericParam"
-																		   t:id="lastNumPrinted" t:type="TextField" 
-																		   t:mixins="jquery/zoneUpdater" t:event="lastNumPrintedChanged"
-																		   t:zone="msgZone3" maxlength="8"/>
+																		t:id="lastNumPrinted" t:type="TextField" t:mixins="jquery/zoneUpdater"
+																		t:event="lastNumPrintedChanged" t:zone="msgZone3"
+																		maxlength="8" />
 																</div>
 																<div class="col-md-2"></div>
 															</div>
-															<div class="row"> <!-- Row 3: Clousure last month  -->
+															<div class="row"> <!-- Row 3: Clousure last month -->
 																<div class="col-md-1"></div>
 																<div class="col-md-5">
 																	<span class="input-group-addon">
@@ -1045,13 +1045,13 @@
 																</div>
 																<div class="col-md-4">
 																	<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																	<input class="form-control textcontrolL dateParam" 
-																		t:id="closureLastMonth" t:type="TextField"
-																		t:mixins="jquery/zoneUpdater" t:event="closureLastMonthChanged"
-																		t:zone="msgZone3" maxlength="10" />
+																	<input class="form-control textcontrolL dateParam"
+																		t:id="closureLastMonth" t:type="TextField" t:mixins="jquery/zoneUpdater"
+																		t:event="closureLastMonthChanged" t:zone="msgZone3"
+																		maxlength="10" />
 																</div>
 																<div class="col-md-2"></div>
-															</div> <!-- Row 3: Clousure last month  -->
+															</div> <!-- Row 3: Clousure last month -->
 															<div class="row"> <!-- Row 4: Sum Drinks -->
 																<div class="col-md-1"></div>
 																<div class="col-md-5">
@@ -1062,12 +1062,11 @@
 																</div>
 																<div class="col-md-1">
 																	<input class="form-control checkcontrol boolParam"
-																		 t:id="sumDrinks" t:type="CheckBox"
-																		 t:mixins="jquery/zoneUpdater" t:event="sumDrinksChanged"
-																		 t:zone="msgZone3" />
+																		t:id="sumDrinks" t:type="CheckBox" t:mixins="jquery/zoneUpdater"
+																		t:event="sumDrinksChanged" t:zone="msgZone3" />
 																</div>
 																<div class="col-md-5"></div>
-															</div> 
+															</div>
 														</div> <!-- left -->
 														<div class="col-md-6"><!-- Right -->
 															<div class="row">
@@ -1076,12 +1075,11 @@
 																	<div class="row">
 																		<div class="textRowBorder">${message:roomsTables-label}</div>
 																	</div>
-
-																	<div class="row ">
+																	<div class="row "> <!-- Row 1: Rooms tables -->
 																		<div class="col-md-1"></div>
 																		<div class="col-md-10 rowBorder">
 																			<div class="row textRowBorder"
-																				style="font-size: 11px; background-color: #AFB1D7;">
+																				style="font-size: 11px; background-color: #AFB1D7;"> <!-- Row 1.1 Table header -->
 																				<div class="col-md-1" style="margin-left: -15px;">
 																					${message:number-label}
 																				</div>
@@ -1094,178 +1092,184 @@
 																				<div class="col-md-3">
 																					<div>${message:hasta-label}</div>
 																				</div>
-																			</div>
-																			<div class="row">
+																			</div> <!-- Row 1.1 Table header -->
+																			<div class="row"> <!-- Row 1.2 Room 1 -->
 																				<div class="col-md-1">
 																					<span class="input-group-addon">
 																						<t:label style="margin-bottom:1px;" for="desc1" />
 																					</span>
 																				</div>
 																				<div class="col-md-4">
-																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																					<input class="form-control textcontrolL"
-																						t:id="desc1" name="desc1" t:type="TextField"
-																						placeholder="${message:desc1-label}" />
+																					<input class="form-control textcontrolL alphabeticParam"
+																						t:id="desc1" t:type="TextField" t:mixins="jquery/zoneUpdater"
+																						t:event="desc1Changed" t:zone="msgZone3"
+																						maxlength="10" />
 																				</div>
 																				<div class="col-md-3">
-																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																					<input class="form-control textcontrolR"
-																						t:id="firstTab1" name="firstTab1" t:type="TextField"
-																						placeholder="${message:firstTab1-label}" />
+																					<input class="form-control textcontrolR numericParam"
+																						t:id="firstTab1" t:type="TextField" t:mixins="jquery/zoneUpdater"
+																						t:event="firsTab1Changed" t:zone="msgZone3"
+																						maxlength="3" />
 																				</div>
 																				<div class="col-md-3">
-																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																					<input class="form-control textcontrolR"
-																						t:id="lastTab1" name="lastTab1" t:type="TextField" />
+																					<input class="form-control textcontrolR numericParam"
+																						t:id="lastTab1" t:type="TextField" t:mixins="jquery/zoneUpdater"
+																						t:event="lastTab1Changed" t:zone="msgZone3"
+																						maxlength="3" />
 																				</div>
-																			</div>
-																			<div class="row">
+																			</div> <!-- Row 1.2 Room 1 -->
+																			<div class="row"> <!-- Row 1.3 Room 2 -->
 																				<div class="col-md-1">
 																					<span class="input-group-addon">
 																						<t:label style="margin-bottom:1px;" for="desc2" />
 																					</span>
 																				</div>
 																				<div class="col-md-4">
-																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																					<input class="form-control textcontrolL"
-																						t:id="desc2" name="desc2" t:type="TextField"
-																						placeholder="${message:desc2-label}" />
+																					<input class="form-control textcontrolL alphabeticParam"
+																						t:id="desc2" t:type="TextField" t:mixins="jquery/zoneUpdater"
+																						t:event="desc2Changed" t:zone="msgZone3"
+																						maxlength="10" />
 																				</div>
 																				<div class="col-md-3">
-																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																					<input class="form-control textcontrolR"
-																						t:id="firstTab2" name="firstTab2" t:type="TextField"
-																						placeholder="${message:firstTab2-label}" />
+																					<input class="form-control textcontrolR numericParam"
+																						t:id="firstTab2" t:type="TextField" t:mixins="jquery/zoneUpdater"
+																						t:event="firstTab2Changed" t:zone="msgZone3"
+																						maxlength="3" />
 																				</div>
 																				<div class="col-md-3">
-																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																					<input class="form-control textcontrolR"
-																						t:id="lastTab2" name="lastTab2" t:type="TextField" />
+																					<input class="form-control textcontrolR numericParam"
+																						t:id="lastTab2" t:type="TextField" t:mixins="jquery/zoneUpdater"
+																						t:event="lastTab2Changed" t:zone="msgZone3"
+																						maxlength="3" />
 																				</div>
-																			</div>
-																			<div class="row">
+																			</div> <!-- Row 1.4 Room 2 -->
+																			<div class="row"> <!-- Row 1.4 Room 3 -->
 																				<div class="col-md-1">
 																					<span class="input-group-addon">
 																						<t:label style="margin-bottom:1px;" for="desc3" />
 																					</span>
 																				</div>
 																				<div class="col-md-4">
-																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																					<input class="form-control textcontrolL"
-																						t:id="desc3" name="desc3" t:type="TextField"
-																						placeholder="${message:desc3-label}" />
+																					<input class="form-control textcontrolL alphabeticParam"
+																						t:id="desc3" t:type="TextField" t:mixins="jquery/zoneUpdater"
+																						t:event="desc3Changed" t:zone="msgZone3"
+																						maxlength="10" />
 																				</div>
 																				<div class="col-md-3">
-																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																					<input class="form-control textcontrolR"
-																						t:id="firstTab3" name="firstTab3" t:type="TextField"
-																						placeholder="${message:firstTab3-label}" />
+																					<input class="form-control textcontrolR numericParam"
+																						t:id="firstTab3" t:type="TextField" t:mixins="jquery/zoneUpdater"
+																						t:event="firsTab3Changed" t:zone="msgZone3"
+																						maxlength="3" />
 																				</div>
 																				<div class="col-md-3">
-																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																					<input class="form-control textcontrolR"
-																						t:id="lastTab3" name="lastTab3" t:type="TextField" />
+																					<input class="form-control textcontrolR numericParam"
+																						t:id="lastTab3" t:type="TextField" t:mixins="jquery/zoneUpdater"
+																						t:event="lastTab3Changed" t:zone="msgZone3"
+																						maxlength="3" />
 																				</div>
-																			</div>
-																			<div class="row">
+																			</div> <!-- Row 1.4 Room 3 -->
+																			<div class="row"> <!-- Row 1.5 Room 4 -->
 																				<div class="col-md-1">
 																					<span class="input-group-addon">
 																						<t:label style="margin-bottom:1px;" for="desc4" />
 																					</span>
 																				</div>
 																				<div class="col-md-4">
-																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																					<input class="form-control textcontrolL"
-																						t:id="desc4" name="desc4" t:type="TextField"
-																						placeholder="${message:desc2-label}" />
+																					<input class="form-control textcontrolL alphabeticParam"
+																						t:id="desc4" t:type="TextField" t:mixins="jquery/zoneUpdater"
+																						t:event="desc4Changed" t:zone="msgZone3"
+																						maxlength="10" />
 																				</div>
 																				<div class="col-md-3">
-																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																					<input class="form-control textcontrolR"
-																						t:id="firstTab4" name="firstTab4" t:type="TextField"
-																						placeholder="${message:firstTab4-label}" />
+																					<input class="form-control textcontrolR numericParam"
+																						t:id="firstTab4" t:type="TextField" t:mixins="jquery/zoneUpdater"
+																						t:event="firsTab4Changed" t:zone="msgZone3"
+																						maxlength="3" />
 																				</div>
 																				<div class="col-md-3">
-																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																					<input class="form-control textcontrolR"
-																						t:id="lastTab4" name="lastTab4" t:type="TextField" />
+																					<input class="form-control textcontrolR numericParam"
+																						t:id="lastTab4" t:type="TextField" t:mixins="jquery/zoneUpdater"
+																						t:event="lastTab4Changed" t:zone="msgZone3"
+																						maxlength="3" />
 																				</div>
-																			</div>
-																			<div class="row">
+																			</div> <!-- Row 1.5 Room 4 -->
+																			<div class="row"> <!-- Row 1.6 Room 5 -->
 																				<div class="col-md-1">
 																					<span class="input-group-addon">
-																						<t:label style="margin-bottom:1px;" for="desc5" />
+																						<t:label style="margin-bottom:1px;" for="desc2" />
 																					</span>
 																				</div>
 																				<div class="col-md-4">
-																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																					<input class="form-control textcontrolL"
-																						t:id="desc5" name="desc5" t:type="TextField"
-																						placeholder="${message:desc5-label}" />
+																					<input class="form-control textcontrolL alphabeticParam"
+																						t:id="desc5" t:type="TextField" t:mixins="jquery/zoneUpdater"
+																						t:event="desc5Changed" t:zone="msgZone3"
+																						maxlength="10" />
 																				</div>
 																				<div class="col-md-3">
-																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																					<input class="form-control textcontrolR"
-																						t:id="firstTab5" name="firstTab5" t:type="TextField"
-																						placeholder="${message:firstTab5-label}" />
+																					<input class="form-control textcontrolR numericParam"
+																						t:id="firstTab5" t:type="TextField" t:mixins="jquery/zoneUpdater"
+																						t:event="firstTab5Changed" t:zone="msgZone3"
+																						maxlength="3" />
 																				</div>
 																				<div class="col-md-3">
-																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																					<input class="form-control textcontrolR"
-																						t:id="lastTab5" name="lastTab5" t:type="TextField" />
+																					<input class="form-control textcontrolR numericParam"
+																						t:id="lastTab5" t:type="TextField" t:mixins="jquery/zoneUpdater"
+																						t:event="lastTab5Changed" t:zone="msgZone3"
+																						maxlength="3" />
 																				</div>
-																			</div>
-																			<div class="row">
+																			</div> <!-- Row 1.6 Room 5 -->
+																			<div class="row"> <!-- Row 1.7 Room 6 -->
 																				<div class="col-md-1">
 																					<span class="input-group-addon">
-																						<t:label style="margin-bottom:1px;" for="desc6" />
+																						<t:label style="margin-bottom:1px;" for="desc3" />
 																					</span>
 																				</div>
 																				<div class="col-md-4">
-																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																					<input class="form-control textcontrolL"
-																						t:id="desc6" name="desc6" t:type="TextField"
-																						placeholder="${message:desc6-label}" />
+																					<input class="form-control textcontrolL alphabeticParam"
+																						t:id="desc6" t:type="TextField" t:mixins="jquery/zoneUpdater"
+																						t:event="desc6Changed" t:zone="msgZone3"
+																						maxlength="10" />
 																				</div>
 																				<div class="col-md-3">
-																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																					<input class="form-control textcontrolR"
-																						t:id="firstTab6" name="firstTab6" t:type="TextField"
-																						placeholder="${message:firstTab6-label}" />
+																					<input class="form-control textcontrolR numericParam"
+																						t:id="firstTab6" t:type="TextField" t:mixins="jquery/zoneUpdater"
+																						t:event="firsTab6Changed" t:zone="msgZone3"
+																						maxlength="3" />
 																				</div>
 																				<div class="col-md-3">
-																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																					<input class="form-control textcontrolR"
-																						t:id="lastTab6" name="lastTab6" t:type="TextField" />
+																					<input class="form-control textcontrolR numericParam"
+																						t:id="lastTab6" t:type="TextField" t:mixins="jquery/zoneUpdater"
+																						t:event="lastTab6Changed" t:zone="msgZone3"
+																						maxlength="3" />
 																				</div>
-																			</div>
-																			<div class="row">
+																			</div> <!-- Row 1.7 Room 6 -->
+																			<div class="row"> <!-- Row 1.8 Room 7 -->
 																				<div class="col-md-1">
 																					<span class="input-group-addon">
-																						<t:label for="desc7" />
+																						<t:label style="margin-bottom:1px;" for="desc3" />
 																					</span>
 																				</div>
 																				<div class="col-md-4">
-																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																					<input class="form-control textcontrolL"
-																						t:id="desc7" name="desc7" t:type="TextField"
-																						placeholder="${message:desc7-label}" />
+																					<input class="form-control textcontrolL alphabeticParam"
+																						t:id="desc7" t:type="TextField" t:mixins="jquery/zoneUpdater"
+																						t:event="desc7Changed" t:zone="msgZone3"
+																						maxlength="10" />
 																				</div>
 																				<div class="col-md-3">
-																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																					<input class="form-control textcontrolR"
-																						t:id="firstTab7" name="firstTab7" t:type="TextField"
-																						placeholder="${message:firstTab7-label}" />
+																					<input class="form-control textcontrolR numericParam"
+																						t:id="firstTab7" t:type="TextField" t:mixins="jquery/zoneUpdater"
+																						t:event="firsTab7Changed" t:zone="msgZone3"
+																						maxlength="3" />
 																				</div>
 																				<div class="col-md-3">
-																					<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																					<input class="form-control textcontrolR"
-																						t:id="lastTab7" name="lastTab7" t:type="TextField" />
+																					<input class="form-control textcontrolR numericParam"
+																						t:id="lastTab7" t:type="TextField" t:mixins="jquery/zoneUpdater"
+																						t:event="lastTab7Changed" t:zone="msgZone3"
+																						maxlength="3" />
 																				</div>
-																			</div>
+																			</div> <!-- Row 1.7 Room 6 -->
 																		</div>
-
-
+																		<div class="col-md-1"></div>
 																	</div>
 																</div>
 																<div class="col-md-1"></div>

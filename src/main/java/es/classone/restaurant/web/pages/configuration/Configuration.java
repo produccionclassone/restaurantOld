@@ -788,7 +788,7 @@ public class Configuration {
 
 	Object onDesc1Changed() throws InstanceNotFoundException {
 		desc1 = request.getParameter("param");
-		configurationService.setParameterGeneric("desc1", desc1);
+		configurationService.setRoomDesc(1, desc1);
 		return request.isXHR() ? msgZone3.getBody() : null;
 	}
 
@@ -797,7 +797,7 @@ public class Configuration {
 
 	Object onFirstTab1Changed() throws InstanceNotFoundException {
 		firstTab1 = request.getParameter("param");
-		configurationService.setParameterGeneric("firstTab1", firstTab1);
+		configurationService.setRoomFirstTab(1,Integer.valueOf(firstTab1));
 		return request.isXHR() ? msgZone3.getBody() : null;
 	}
 
@@ -806,7 +806,7 @@ public class Configuration {
 
 	Object onLastTab1Changed() throws InstanceNotFoundException {
 		lastTab1 = request.getParameter("param");
-		configurationService.setParameterGeneric("lastTab1", lastTab1);
+		configurationService.setRoomLastTab(1,Integer.valueOf(lastTab1));
 		return request.isXHR() ? msgZone3.getBody() : null;
 	}
 
@@ -815,7 +815,7 @@ public class Configuration {
 
 	Object onDesc2Changed() throws InstanceNotFoundException {
 		desc2 = request.getParameter("param");
-		configurationService.setParameterGeneric("desc2", desc2);
+		configurationService.setRoomDesc(2, desc2);
 		return request.isXHR() ? msgZone3.getBody() : null;
 	}
 
@@ -824,7 +824,7 @@ public class Configuration {
 
 	Object onFirstTab2Changed() throws InstanceNotFoundException {
 		firstTab2 = request.getParameter("param");
-		configurationService.setParameterGeneric("firstTab2", firstTab2);
+		configurationService.setRoomFirstTab(2,Integer.valueOf(firstTab2));
 		return request.isXHR() ? msgZone3.getBody() : null;
 	}
 
@@ -833,7 +833,7 @@ public class Configuration {
 
 	Object onLastTab2Changed() throws InstanceNotFoundException {
 		lastTab2 = request.getParameter("param");
-		configurationService.setParameterGeneric("lastTab2", lastTab2);
+		configurationService.setRoomLastTab(2,Integer.valueOf(lastTab2));
 		return request.isXHR() ? msgZone3.getBody() : null;
 	}
 
@@ -842,7 +842,7 @@ public class Configuration {
 
 	Object onDesc3Changed() throws InstanceNotFoundException {
 		desc3 = request.getParameter("param");
-		configurationService.setParameterGeneric("desc3", desc3);
+		configurationService.setRoomDesc(3, desc3);
 		return request.isXHR() ? msgZone3.getBody() : null;
 	}
 
@@ -851,7 +851,7 @@ public class Configuration {
 
 	Object onFirstTab3Changed() throws InstanceNotFoundException {
 		firstTab3 = request.getParameter("param");
-		configurationService.setParameterGeneric("firstTab3", firstTab3);
+		configurationService.setRoomFirstTab(3,Integer.valueOf(firstTab3));
 		return request.isXHR() ? msgZone3.getBody() : null;
 	}
 
@@ -860,7 +860,7 @@ public class Configuration {
 
 	Object onLastTab3Changed() throws InstanceNotFoundException {
 		lastTab3 = request.getParameter("param");
-		configurationService.setParameterGeneric("lastTab3", lastTab3);
+		configurationService.setRoomLastTab(3,Integer.valueOf(lastTab3));
 		return request.isXHR() ? msgZone3.getBody() : null;
 	}
 
@@ -869,7 +869,7 @@ public class Configuration {
 
 	Object onDesc4Changed() throws InstanceNotFoundException {
 		desc4 = request.getParameter("param");
-		configurationService.setParameterGeneric("desc4", desc4);
+		configurationService.setRoomDesc(4, desc4);
 		return request.isXHR() ? msgZone3.getBody() : null;
 	}
 
@@ -878,7 +878,7 @@ public class Configuration {
 
 	Object onFirstTab4Changed() throws InstanceNotFoundException {
 		firstTab4 = request.getParameter("param");
-		configurationService.setParameterGeneric("firstTab4", firstTab4);
+		configurationService.setRoomFirstTab(4,Integer.valueOf(firstTab4));
 		return request.isXHR() ? msgZone3.getBody() : null;
 	}
 
@@ -887,7 +887,7 @@ public class Configuration {
 
 	Object onLastTab4Changed() throws InstanceNotFoundException {
 		lastTab4 = request.getParameter("param");
-		configurationService.setParameterGeneric("lastTab4", lastTab4);
+		configurationService.setRoomLastTab(4,Integer.valueOf(lastTab4));
 		return request.isXHR() ? msgZone3.getBody() : null;
 	}
 
@@ -896,7 +896,7 @@ public class Configuration {
 
 	Object onDesc5Changed() throws InstanceNotFoundException {
 		desc5 = request.getParameter("param");
-		configurationService.setParameterGeneric("desc5", desc5);
+		configurationService.setRoomDesc(5, desc5);
 		return request.isXHR() ? msgZone3.getBody() : null;
 	}
 
@@ -905,7 +905,7 @@ public class Configuration {
 
 	Object onFirstTab5Changed() throws InstanceNotFoundException {
 		firstTab5 = request.getParameter("param");
-		configurationService.setParameterGeneric("firstTab5", firstTab5);
+		configurationService.setRoomFirstTab(5,Integer.valueOf(firstTab5));
 		return request.isXHR() ? msgZone3.getBody() : null;
 	}
 
@@ -914,7 +914,7 @@ public class Configuration {
 
 	Object onLastTab5Changed() throws InstanceNotFoundException {
 		lastTab5 = request.getParameter("param");
-		configurationService.setParameterGeneric("lastTab5", lastTab5);
+		configurationService.setRoomLastTab(5,Integer.valueOf(lastTab5));
 		return request.isXHR() ? msgZone3.getBody() : null;
 	}
 
@@ -923,7 +923,7 @@ public class Configuration {
 
 	Object onDesc6Changed() throws InstanceNotFoundException {
 		desc6 = request.getParameter("param");
-		configurationService.setParameterGeneric("desc6", desc6);
+		configurationService.setRoomDesc(6, desc6);
 		return request.isXHR() ? msgZone3.getBody() : null;
 	}
 
@@ -932,7 +932,7 @@ public class Configuration {
 
 	Object onFirstTab6Changed() throws InstanceNotFoundException {
 		firstTab6 = request.getParameter("param");
-		configurationService.setParameterGeneric("firstTab6", firstTab6);
+		configurationService.setRoomFirstTab(6,Integer.valueOf(firstTab6));
 		return request.isXHR() ? msgZone3.getBody() : null;
 	}
 
@@ -941,7 +941,7 @@ public class Configuration {
 
 	Object onLastTab6Changed() throws InstanceNotFoundException {
 		lastTab6 = request.getParameter("param");
-		configurationService.setParameterGeneric("lastTab6", lastTab6);
+		configurationService.setRoomLastTab(6,Integer.valueOf(lastTab6));
 		return request.isXHR() ? msgZone3.getBody() : null;
 	}
 
@@ -950,7 +950,7 @@ public class Configuration {
 
 	Object onDesc7Changed() throws InstanceNotFoundException {
 		desc7 = request.getParameter("param");
-		configurationService.setParameterGeneric("desc7", desc7);
+		configurationService.setRoomDesc(7, desc7);
 		return request.isXHR() ? msgZone3.getBody() : null;
 	}
 
@@ -959,7 +959,7 @@ public class Configuration {
 
 	Object onFirstTab7Changed() throws InstanceNotFoundException {
 		firstTab7 = request.getParameter("param");
-		configurationService.setParameterGeneric("firstTab7", firstTab7);
+		configurationService.setRoomFirstTab(7,Integer.valueOf(firstTab7));
 		return request.isXHR() ? msgZone3.getBody() : null;
 	}
 
@@ -968,7 +968,7 @@ public class Configuration {
 
 	Object onLastTab7Changed() throws InstanceNotFoundException {
 		lastTab7 = request.getParameter("param");
-		configurationService.setParameterGeneric("lastTab7", lastTab7);
+		configurationService.setRoomLastTab(7,Integer.valueOf(lastTab7));
 		return request.isXHR() ? msgZone3.getBody() : null;
 	}
 
