@@ -264,7 +264,6 @@ var showParameters = function(parameters) {
 	}
 	
 	for (var i=0;i<parametersGeneric.length;i++){
-		
 		$("#"+parametersGeneric[i].name).attr('value',parametersGeneric[i].value);
 		$("#"+parametersGeneric[i].name).val(parametersGeneric[i].value);
 	}

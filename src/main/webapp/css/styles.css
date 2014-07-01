@@ -424,12 +424,6 @@ h1.info{
 
 /* ----------- Configuration ------------ */
 /*Para indicar la opcion seleccionada de los nav-tabs*/
-.top-tab{
-	width:220px; height:30px;
-	padding-left:7px;
-	margin-right:2px;
-}
-
 HTML>BODY
 .nav > li.active > .top-tab-text{
 	width:220px;
@@ -437,10 +431,19 @@ HTML>BODY
 	font-size:14px;
 	height: 30px;
 	margin-top: 0px;
-
-padding: 5px;
-background-color:#818AB7;
+	padding: 5px;
+	background-color:#818AB7;
 }
+
+HTML > BODY .nav-tabs > li.active > a.sub-tab-text {
+	font-style:normal;
+	border-bottom:0;
+	font-weight:bold;
+	color:black;
+		background:#FFFFFF;
+
+}
+/*top-tab y sub-tab*/
 HTML>BODY
 .nav > li> .top-tab-text{
 	width:220px; height:26px;
@@ -452,6 +455,11 @@ HTML>BODY
 
 }
 
+.top-tab{
+	width:220px; height:30px;
+	padding-left:7px;
+	margin-right:2px;
+}
 
 .sub-tab{
 	width:147px; height:25px;
@@ -475,14 +483,7 @@ HTML > BODY .nav-tabs > li > a.sub-tab-text {
 	 background:#F8F8F8;
 
 }
-HTML > BODY .nav-tabs > li.active > a.sub-tab-text {
-	font-style:normal;
-	border-bottom:0;
-	font-weight:bold;
-	color:black;
-		background:#FFFFFF;
 
-}
 
 HTML > BODY .nav-tabs > li> a.top-tab-text {
 	border-top: 1px solid #D0D2D4;
@@ -490,7 +491,7 @@ HTML > BODY .nav-tabs > li> a.top-tab-text {
 	border-right: 1px solid #D0D2D4;
 }
 
-
+/*Textos*/
 h6.text{
 	font-size:14px;
 	font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
@@ -570,6 +571,50 @@ HTML > BODY .textcontrolL{
   	margin-top:2px;
   	text-align:left;
   	float:right;
+}
+
+/*textbox color*/
+HTML > BODY .textcolor{
+	height: 20px;
+	width:50px;
+	font-size: 13px;
+  	padding: 1px 1px;
+  	margin-top:2px;
+  	text-align:left;
+  	float:right; 
+	border-top: 1px solid #D0D2D4;
+	border-left: 1px solid #D0D2D4;
+	border-right: 1px solid #D0D2D4;
+}
+
+/*Button color*/
+HTML > BODY .input-group-addon:not(:first-child):not(:last-child),
+HTML > BODY .input-group-btn:not(:first-child):not(:last-child),
+HTML > BODY .input-group .form-control:not(:first-child):not(:last-child) {
+	border-top: 1px solid #D0D2D4;
+	border-left: 1px solid #D0D2D4;
+	border-right: 1px solid #D0D2D4;
+	height: 24px;
+}
+
+HTML > BODY .pick-a-color-markup .input-group-btn .color-dropdown {
+	padding: 1px 1px;
+	height: 24px;
+	border-top: 1px solid #D0D2D4;
+	border-left: 1px solid #D0D2D4;
+	border-right: 1px solid #D0D2D4;
+}
+
+HTML > BODY .pick-a-color-markup .color-preview {
+	height: 10px;
+	width: 10px;
+	border-top: 1px solid #D0D2D4;
+	border-left: 1px solid #D0D2D4;
+	border-right: 1px solid #D0D2D4;
+}
+
+HTML > BODY .pick-a-color-markup .color-preview.current-color {
+	margin-bottom:0px;
 }
 
 HTML > BODY .jumbotron {
