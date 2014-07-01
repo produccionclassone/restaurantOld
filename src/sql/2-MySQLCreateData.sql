@@ -36,17 +36,17 @@ INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) 
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (36, 'R4CNT359', 'chargeTPV', '50');
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (37, 'R4CNT047', 'fieldSeparator', ';');
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (38, 'R4CNT048', 'alphabSeparator', '“');
-INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (39, 'RSCNT003', 'colCommand', '#CCCCCC');
-INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (40, 'RSCNT303', 'colBackground', '#B2ACAB');
-INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (41, 'RSCNT004', 'colBill', '#CCCCCC');
-INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (42, 'RSCNT304', 'colBackground2', '#6C6C6C');
-INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (43, 'RSCNT005', 'colCharge', '#CCCCCC');
-INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (44, 'RSCNT006', 'colTrasp', '#CCCCCC');
-INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (45, 'RSCNT007', 'colTabEmpty', '#CCCCCC');
-INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (46, 'RSCNT008', 'colTabBusy', '#CCCCCC');
-INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (47, 'RSCNT009', 'colTabAtached', '#CCCCCC');
-INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (48, 'RSCNT010', 'colTabReserved', '#CCCCCC');
-INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (49, 'RSCNT011', 'colTabBill', '#CCCCCC');
+INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (39, 'RSCNT003', 'colCommand', 'FFF000');
+INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (40, 'RSCNT303', 'colBackground', 'B2ACAB');
+INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (41, 'RSCNT004', 'colBill', '00315C');
+INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (42, 'RSCNT304', 'colBackground2', '6C6C6C');
+INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (43, 'RSCNT005', 'colCharge', 'CCCCCC');
+INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (44, 'RSCNT006', 'colTrasp', 'CCCCCC');
+INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (45, 'RSCNT007', 'colTabEmpty', 'CCCCCC');
+INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (46, 'RSCNT008', 'colTabBusy', 'CCCCCC');
+INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (47, 'RSCNT009', 'colTabAtached', 'CCCCCC');
+INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (48, 'RSCNT010', 'colTabReserved', 'CCCCCC');
+INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (49, 'RSCNT011', 'colTabBill', 'CCCCCC');
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (50, 'RSCNT012', 'lastNumPrinted', '0');
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (51, 'R4CNT705', 'closureLastMonth', '20130201');
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (52, 'RSCNT018_01', 'codCalif1', 'F0');
@@ -134,13 +134,13 @@ INSERT INTO `ayx14res`.`Res14cnt_PG` (`idRes14cnt_PG`, `code`, `name`, `privileg
 INSERT INTO `ayx14res`.`Res14cnt_PG` (`idRes14cnt_PG`, `code`, `name`, `privilegeValue`) VALUES (5, 'R1CNT009_07', 'level7', 'SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS');
 INSERT INTO `ayx14res`.`Res14cnt_PG` (`idRes14cnt_PG`, `code`, `name`, `privilegeValue`) VALUES (6, 'R1CNT009_08', 'level8', 'SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS');
 
-INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `firstTab`, `lastTab`, `paramCode`) VALUES (1, 'DescripcionSala1', 1, 342, 'RSCNT020_01');
-INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `firstTab`, `lastTab`, `paramCode`) VALUES (2, 'DescripcionSala2', 1, 342, 'RSCNT020_02');
-INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `firstTab`, `lastTab`, `paramCode`) VALUES (3, 'DescripcionSala3', 1, 342, 'RSCNT020_03');
-INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `firstTab`, `lastTab`, `paramCode`) VALUES (4, 'DescripcionSala4', 1, 342, 'RSCNT020_04');
-INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `firstTab`, `lastTab`, `paramCode`) VALUES (5, 'DescripcionSala5', 1, 342, 'RSCNT020_05');
-INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `firstTab`, `lastTab`, `paramCode`) VALUES (6, 'DescripcionSala6', 1, 342, 'RSCNT020_06');
-INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `firstTab`, `lastTab`, `paramCode`) VALUES (7, 'DescripcionSala7', 1, 342, 'R4CNT020_07');
+INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `firstTab`, `lastTab`, `paramCode`) VALUES (1, 'Sala 1', 1, 342, 'RSCNT020_01');
+INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `firstTab`, `lastTab`, `paramCode`) VALUES (2, 'Sala 2', 1, 342, 'RSCNT020_02');
+INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `firstTab`, `lastTab`, `paramCode`) VALUES (3, 'Sala 3', 1, 342, 'RSCNT020_03');
+INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `firstTab`, `lastTab`, `paramCode`) VALUES (4, 'Sala 4', 1, 342, 'RSCNT020_04');
+INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `firstTab`, `lastTab`, `paramCode`) VALUES (5, 'Sala 5', 1, 342, 'RSCNT020_05');
+INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `firstTab`, `lastTab`, `paramCode`) VALUES (6, 'Sala 6', 1, 342, 'RSCNT020_06');
+INSERT INTO `ayx14res`.`Res14cnt_RM` (`idRes14cnt_RM`, `roomDescription`, `firstTab`, `lastTab`, `paramCode`) VALUES (7, 'Sala 7', 1, 342, 'R4CNT020_07');
 
 
 INSERT INTO `ayx14res`.`Res14CAN` (`R1CAN000`, `R1CAN001`, `R1CAN002`) VALUES (1, 'DIR', 'Directo - Default');

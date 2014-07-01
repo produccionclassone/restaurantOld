@@ -71,6 +71,7 @@ var validateSave = function(){
 		 $(".alert-porcent").hide();
 		 $(".alert-date").hide();
 		 $(".alert-monExt").hide();
+		 $(".alert-hex").hide();
 		 $(".alert-numeric").show();
 		}
 	});
@@ -93,6 +94,7 @@ var validateSave = function(){
 		 $(".alert-porcent").hide();
 		 $(".alert-date").hide();
 		 $(".alert-monExt").hide();
+		 $(".alert-hex").hide();
 		 $(".alert-alphabetic").show();
 		}
 	});
@@ -120,6 +122,7 @@ var validateSave = function(){
 		$(".alert-porcent").hide();
 		$(".alert-date").hide();
 		$(".alert-monExt").hide();
+		$(".alert-hex").hide();
 		$(".alert-float").show();
 	}
 	});
@@ -142,6 +145,7 @@ var validateSave = function(){
 		 $(".alert-porcent").hide();
 		 $(".alert-date").hide();
 		 $(".alert-monExt").hide();
+		 $(".alert-hex").hide();
 		 $(".alert-numeric1_3").show();
 		}
 	});
@@ -165,6 +169,7 @@ var validateSave = function(){
 		$(".alert-float").hide();
 		$(".alert-date").hide();
 		$(".alert-monExt").hide();
+		$(".alert-hex").hide();
 		$(".alert-porcent").show();
 	}
 	});
@@ -188,6 +193,7 @@ var validateSave = function(){
 		 		$(".alert-porcent").hide();
 		 		$(".alert-numeric").hide();
 		 		$(".alert-monExt").hide();
+		 		$(".alert-hex").hide();
 		 		$(".alert-date").show();
 			}
 		}
@@ -199,6 +205,7 @@ var validateSave = function(){
 		 $(".alert-porcent").hide();
 		 $(".alert-numeric").hide();
 		 $(".alert-monExt").hide();
+		 $(".alert-hex").hide();
 		 $(".alert-date").show();
 		}
 	});
@@ -221,8 +228,32 @@ var validateSave = function(){
 		$(".alert-numeric1_3").hide();
 		$(".alert-porcent").hide();
 		$(".alert-date").hide();
+		$(".alert-hex").hide();
 		$(".alert-monExt").show();
 	}
+	});
+	
+	$(".hexParam").focusout(function() {
+		console.log();
+		var hexRegex = /^[A-Fa-f0-9]+$/
+		var str = this.value;
+		if(hexRegex.test(str)) {
+			 $(this).removeClass("t-error");
+			save(this);
+			if ($(".t-error").length==0)
+			$(".alert-hex").hide();
+		}
+		else{ console.log("ERROR");
+		 $(this).addClass("t-error");
+		 $(".alert-numeric").hide();
+		 $(".alert-alphabetic").hide();
+		 $(".alert-float").hide();
+		 $(".alert-numeric1_3").hide();
+		 $(".alert-porcent").hide();
+		 $(".alert-date").hide();
+		 $(".alert-monExt").hide();
+		 $(".alert-hex").show();
+		}
 	});
 	
 }
@@ -265,9 +296,9 @@ var showParameters = function(parameters) {
 	
 	for (var i=0;i<parametersGeneric.length;i++){
 		$("#"+parametersGeneric[i].name).attr('value',parametersGeneric[i].value);
-		$("#"+parametersGeneric[i].name).val(parametersGeneric[i].value);
+		$("#"+parametersGeneric[i].name).val(parametersGeneric[i].value);		
 	}
-		
+			
 	for (var i=0;i<parametersRoom.length;i++){
 		$("#desc"+parametersRoom[i].id).attr('value',parametersRoom[i].roomDescription);
 		$("#firstTab"+parametersRoom[i].id).attr('value',parametersRoom[i].firstTab);
@@ -317,6 +348,18 @@ var showParameters = function(parameters) {
 								    return false;
 								}
 								 
+								});
+								
+								$(".pick-a-color").pickAColor({
+			  						showSpectrum            : false,
+									showSavedColors         : true,
+									saveColorsPerElement    : true,
+									fadeMenuToggle          : true,
+									showAdvanced						: true,
+									showBasicColors         : true,
+									showHexInput            : true,
+									allowBlank							: true,
+									inlineDropdown					: true
 								});
 						}
 					})

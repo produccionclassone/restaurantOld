@@ -752,11 +752,11 @@ public class Configuration {
 	}
 
 	@Property
-	private String lastNumPrint;
+	private String lastNumPrinted;
 
-	Object onLastNumPrintChanged() throws InstanceNotFoundException {
-		lastNumPrint = request.getParameter("param");
-		configurationService.setParameterGeneric("lastNumPrint", lastNumPrint);
+	Object onLastNumPrintedChanged() throws InstanceNotFoundException {
+		lastNumPrinted = request.getParameter("param");
+		configurationService.setParameterGeneric("lastNumPrinted", lastNumPrinted);
 		return request.isXHR() ? msgZone3.getBody() : null;
 	}
 
@@ -773,7 +773,7 @@ public class Configuration {
 	@Property
 	private Boolean sumDrinks;
 
-	Object onSumDrinks() throws InstanceNotFoundException {
+	Object onSumDrinksChanged() throws InstanceNotFoundException {
 		String value = request.getParameter("param");
 		if (value.equals("true") == true)
 			sumDrinks = true;

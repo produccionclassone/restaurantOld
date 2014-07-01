@@ -603,6 +603,7 @@ HTML > BODY .pick-a-color-markup .input-group-btn .color-dropdown {
 	border-top: 1px solid #D0D2D4;
 	border-left: 1px solid #D0D2D4;
 	border-right: 1px solid #D0D2D4;
+	margin-top:2px;
 }
 
 HTML > BODY .pick-a-color-markup .color-preview {
@@ -815,6 +816,13 @@ padding:8px;
 
 HTML>BODY
 .alert-date{
+position: absolute;
+width: 898px;
+padding:8px;
+}
+
+HTML>BODY
+.alert-hex{
 position: absolute;
 width: 898px;
 padding:8px;
