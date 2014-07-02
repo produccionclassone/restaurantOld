@@ -30,7 +30,7 @@ import es.classone.restaurant.web.services.AuthenticationPolicyType;
 @Import(library = "context:javaScript/addClient.js")
 public class MasterClient {
 	@Component
-	private Form editRowForm;
+	private Form tableForm;
 	@Property
 	private List<ClientHeader> clients;
 	@Property
@@ -101,10 +101,16 @@ public class MasterClient {
 	private Long link;
 	@Inject
 	private MasterFilesService masterFilesService;
+
 	@InjectComponent
 	private Zone zone;
+
+	@InjectComponent
+	private Zone tableZone;
+
 	@Inject
 	private AjaxResponseRenderer ajaxResponseRenderer;
+
 	@Inject
 	private JavaScriptSupport javaScriptSupport;
 
@@ -133,7 +139,7 @@ public class MasterClient {
 
 	}
 
-	void onValidateFromEditRowForm() throws InstanceNotFoundException {
+	void onValidateFromTableForm() throws InstanceNotFoundException {
 		// validar
 		if (clientId == null) {
 			clientLastDateFood = Calendar.getInstance();
@@ -145,8 +151,8 @@ public class MasterClient {
 					outstandingAmount, clientLastDateFood, clientAmountSpent,
 					clientDiners, clientTimesToEat, clientObservation1,
 					clientObservation2, clientObservation3, clientObservation4,
-					ledgerAccount, channelSegment,
-					sendEmail, clientEmail, sendSMS);
+					ledgerAccount, channelSegment, sendEmail, clientEmail,
+					sendSMS);
 			clientId = masterFilesService.createClient(newClient).getClientId();
 			ajaxResponseRenderer.addCallback(new JavaScriptCallback() {
 				public void run(JavaScriptSupport javascriptSupport) {
@@ -160,42 +166,16 @@ public class MasterClient {
 				}
 			});
 		} else {
-			clientDetails = masterFilesService.getClientByClientId(clientId);
+
 			masterFilesService.editClient(clientId, clientName, clientAddress,
-					clientZipCode, clientDetails.getClientDown(),
-					clientDetails.getClientProvince(),
-					clientDetails.getClientDNI(),
-					clientDetails.getClientPhoneContact(),
-					clientDetails.getClientPersonContact(),
-					clientDetails.getClientNotes1(),
-					clientDetails.getClientNotes2(),
-					clientDetails.getClientNotes3(),
-					clientDetails.getClientLimitCredit(),
-					clientDetails.getOutstandingAmount(),
-					clientDetails.getClientLastDateFood(),
-					clientDetails.getClientAmountSpent(),
-					clientDetails.getClientDiners(),
-					clientDetails.getClientTimesToEat(),
-					clientDetails.getClientObservation1(),
-					clientDetails.getClientObservation2(),
-					clientDetails.getClientObservation3(),
-					clientDetails.getClientObservation4(),
-					clientDetails.getLedgerAccount(),
-					clientDetails.getChannelSegment(),
-					clientDetails.isSendEmail(),
-					clientDetails.getClientEmail(), clientDetails.isSendSMS());
-			ajaxResponseRenderer.addCallback(new JavaScriptCallback() {
-				public void run(JavaScriptSupport javascriptSupport) { // cambiar
-																		// con
-																		// la
-																		// api
-																		// de
-																		// datatables
-					javascriptSupport.addScript(String
-							.format("row = $('#'+%s).children(); $(row[0]).text('%s'); $(row[1]).text('%s');",
-									clientId, clientId, clientName));
-				}
-			});
+					clientZipCode, clientTown, clientProvince, clientDNI,
+					clientPhoneContact, clientPersonContact, clientNotes1,
+					clientNotes2, clientNotes3, clientLimitCredit,
+					outstandingAmount, clientLastDateFood, clientAmountSpent,
+					clientDiners, clientTimesToEat, clientObservation1,
+					clientObservation2, clientObservation3, clientObservation4,
+					ledgerAccount, channelSegment, true, clientEmail, true);
+			
 		}
 	}
 
@@ -259,7 +239,7 @@ public class MasterClient {
 	}
 
 	void afterRender() {
-
+		ajaxResponseRenderer.addRender(tableZone);
 		javaScriptSupport.addScript(String.format("$('#table').show();"));
 	}
 

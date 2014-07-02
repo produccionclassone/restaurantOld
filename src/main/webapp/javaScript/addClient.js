@@ -3,7 +3,7 @@
 			clientPhoneContact) {
 		var a = table.fnAddData([ clientId, clientName, clientZipCode,
 				clientDNI, clientPhoneContact ]);
-		nTr = table.fnSettings().aoData[a[0]].nTr;
+		nTr = table.fnSettings().aoData[a[0]].nTr; //añadir la nueva fila
 		nTr.id = clientId;
 		$(nTr).addClass("textZoom");
 		$(nTr).attr("style", $(".textZoom")[1].style.cssText); //pasar la fuente indirectamente

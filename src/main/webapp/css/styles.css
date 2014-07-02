@@ -682,9 +682,18 @@ HTML>BODY
 }
 
 /*DATATABLES */
+
+HTML>BODY
+.bottom{
+	margin-top:13px;
+}
 HTML>BODY
 ul.ColVis_collection{
 	width:250px;
+}
+HTML>BODY
+.table > thead > tr > th{
+	padding: 2px 10px;
 }
 
 .dataTables_filter{
@@ -707,6 +716,22 @@ HTML>BODY
 .even { background-color: #f8f8f9;}
 .table-head{
 	background-color:#f8f8f8;	
+}
+
+HTML>BODY
+.table > tbody > tr > td.numericColumn{
+	padding-right:10px;
+	text-align:right; 
+}
+.table > tbody > tr > td.alphaColumn{
+	padding-left:10px;
+	text-align:left; 
+}
+
+
+HTML>BODY
+.table > tbody > tr > td{
+	padding:0px;
 }
 
 HTML>BODY
@@ -845,9 +870,4 @@ HTML>BODY
 position: absolute;
 width: 898px;
 padding:8px;
-}
-
-HTML>BODY
-.table > tbody > tr > td{
-	padding:0px;
 }

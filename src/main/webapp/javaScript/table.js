@@ -4,13 +4,17 @@ $(document)
 		.ready(
 				function() {
 					$('#pleaseWaitDialog').modal('hide');
+					$('#tableZone').show();
 					// Inicializar la tabla
 					table = $('#table')
 							.dataTable(
 									{
-										"sDom" : '<"row top"TfC<"toolbar">>rtR<"bottom"lp>',
+										"sDom" : '<"row top"TfC<"toolbar">>rtR  <"bottom" lp>',
 										"lengthMenu" : [ [ 25, 50, 100, -1 ],
 												[ 25, 50, 100, "*" ] ],
+												 "scrollY": "500px",
+								        "scrollCollapse": true,
+								        "bScrollInfinite": true,
 										stateSave : true,
 										aocolumnDefs : [ {
 											targets : [ 0 ],
@@ -21,8 +25,10 @@ $(document)
 										}, {
 											targets : [ 4 ],
 											orderData : [ 4, 0 ]
-										} ],
-										"autoWidth" : true,
+										}
+										],
+
+
 										"language" : {
 											"search" : "",
 											"paginate" : {
@@ -37,28 +43,27 @@ $(document)
 										}
 
 									});
-
+					
+					$(window).resize( function () {
+						  table.fnAdjustColumnSizing();
+						} );
+						
 					// BARRA DE BOTONES AÑADIR/QUITAR/MODIFICAR/ZOOM
 					$("div.toolbar")
 							.html(
 									"<button id='addRowButton' class='btn btn-default' "
 											+ "data-toggle='tooltip' data-placement='bottom' title='Add'><img src='"
-											+ "../css/images/add.png' width='20' height='20'  /></button> "
+											+ "../css/images/add.png' width='20' height='20'  /> "
 											+ "<button id='editRowButton' class='btn btn-default'	 data-toggle='tooltip' "
 											+ "data-placement='bottom' title='Edit'> <img src='../css/images/edit.png' width='20'"
-											+ " height='20' /> "
-											+ "<button id='deleteRowButton' class='btn btn-default'	"
+											+ " height='20'/>  "
+											+ " <button id='deleteRowButton' class='btn btn-default'	"
 											+ " data-toggle='tooltip' data-placement='bottom' title='Delete'> "
 											+ "<img src='../css/images/delete.png' width='20' height='20' /> "
-											+ " </button> <button id='zoomButton' class='btn btn-default'	"
+											+ "<button id='zoomButton' class='btn btn-default'	"
 											+ " data-toggle='tooltip' data-placement='bottom' "
 											+ "title='Zoom'> <img src='../images/text_page.png' "
-											+ "width='20' height='20' /> </button>");
-					// new $.fn.dataTable.FixedHeader(table);
-
-					// $(".FixedHeader_Cloned")[0].style["cssText"] =
-					// $(".FixedHeader_Cloned")[0].style["cssText"]
-					// .replace("absolute", "relative");
+											+ "width='20' height='20'/>");
 
 					// PERSONALIZADO DE LA TABLA
 					$(".dataTables_empty").text("");
@@ -110,13 +115,9 @@ $(document)
 					console.log(table);
 					
 
-					// TOOLBAR
+					
 					$("#addRowButton").click(function() {
-						$("#modal").modal("show");
-						var form =$(".form-control");
-						for(var i=3;i<form.length;i++){
-							form[i].value="";
-						}
+						$(".insert").click();
 						$(".btn-change").attr("src","../css/images/add.png");
 					});
 					
@@ -186,23 +187,23 @@ $(document)
 										if (zoom == 0) {
 											$(".textZoom")
 													.attr("style",
-															"font-size:14px; text-align:left;");
+															"font-size:14px;");
 											zoom++;
 										} else if (zoom == 1) {
 											$(".textZoom")
 													.attr("style",
-															"font-size:8px; text-align:left;");
+															"font-size:8px;");
 											zoom++;
 										} else if (zoom == 2) {
 											$(".textZoom")
 													.attr("style",
-															"font-size:10px; text-align:left;");
+															"font-size:10px;");
 											zoom++;
 										} else if (zoom = 3) {
 
 											$(".textZoom")
 													.attr("style",
-															"font-size:12px; text-align:left;");
+															"font-size:12px;");
 											zoom = 0;
 
 										}

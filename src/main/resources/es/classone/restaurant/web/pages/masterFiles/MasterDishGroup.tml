@@ -12,7 +12,7 @@
 			href="${context:/css/dataTables.tableTools.css}" />
 		<link rel="stylesheet" type="text/css"
 			href="${context:/css/editor.bootstrap.css}" />
-			<link rel="stylesheet" type="text/css"
+		<link rel="stylesheet" type="text/css"
 			href="${context:/css/dataTables.fixedHeader.css}" />
 		<script type="text/javascript" language="javascript"
 			src="//cdn.datatables.net/1.10-dev/js/jquery.dataTables.js"></script>
@@ -22,228 +22,189 @@
 			src="${context:javaScript/dataTables.colVis.min.js}"></script>
 		<script type="text/javascript" language="javascript"
 			src="${context:javaScript/dataTables.colReorder.min.js}"></script>
-			<script type="text/javascript" language="javascript"
-			src="${context:javaScript/dataTables.fixedHeader.js}"></script>
 		<script type="text/javascript" language="javascript"
 			src="${context:javaScript/dataTables.tableTools.min.js}"></script>
+		<!-- <script type="text/javascript" language="javascript" -->
+		<!-- src="${context:javaScript/ColReorderWithResize.js}"></script> -->
 		<script type="text/javascript" language="javascript"
-			src="${context:javaScript/dishGroupTable.js}"></script>
+			src="${context:javaScript/table.js}"></script>
 
-
+		<script> $(".header").hide();
+		</script>
 	</head>
 	<body>
-		<div class="container">
-			
-			<div class="row">
-				
-				<div class="col-md-11">
 
-					
-					<table cellpadding="0" cellspacing="0" border="0"
-						class="table table-bordered hover display" id="dishGroupTable">
-						<thead class="table-head">
-							<tr>
-								<th>${message:dish-group-code}</th>
-								<th>${message:dish-group-description}</th>
-								<th>${message:iva-type}</th>
-								<th>${message:salesLedgerAccount}</th>
-								<th>${message:typeIncome}</th>
-								<th>${message:macroGroup}</th>
-							</tr>
-						</thead>
-						<tbody>
-							<div t:type="Loop" t:source="dishgroups" t:value="dishGroup">
-								<tr id="${dishGroup.dishGroupId}">
-									<td>${dishGroup.dishGroupCode}</td>
-									<td>${dishGroup.dishGroupDescription}</td>
-									<td>${dishGroup.ivaType}</td>
-									<td>${dishGroup.salesLedgerAccount}</td>
-									<td>${dishGroup.typeIncome}</td>
-									<td>${dishGroup.macroGroup}</td>
+		<div class="modal fade" id="pleaseWaitDialog" data-keyboard="false">
+			<div class="modal-body">
+				<div class="progress progress-striped active " style="width: 400px; margin-left: 500px; margin-top:200px;">
+					<div class="progress-bar" style="width: 100%;"></div>
+				</div>
+			</div>
+		</div>
+		<script> $('#pleaseWaitDialog').modal('show');
+		</script>
+		<t:zone t:id="tableZone" id="tableZone" hidden="true">
+			<div class="container">
+				<div t:type="Loop" t:source="links" t:value="link">
+					<a href="#" t:type='eventLink' class="${link}" t:zone="zone"
+						t:event="edit" t:context="${link}">
+					</a>
+				</div>
+				<a href="#" t:type='eventLink' class="insert"
+					t:zone="zone" t:event="insert">
+				</a>
+				<div class="row">
+					<div class="col-md-11">
+
+
+						<table cellpadding="0" cellspacing="0" border="0"
+							class="table table-bordered hover display" id="table">
+							<thead class="table-head">
+								<tr>
+									<th class="thead">${message:dish-group-code}</th>
+									<th class="thead">${message:dish-group-description}</th>
+									<th class="thead">${message:iva-type}</th>
+									<th class="thead">${message:salesLedgerAccount}</th>
+									<th class="thead">${message:typeIncome}</th>
+									<th class="thead">${message:macroGroup}</th>
 								</tr>
+							</thead>
+							<tbody>
+								<div t:type="Loop" t:source="dishgroups" t:value="dishGroup">
+									<tr id="${dishGroup.dishGroupId}" class="textZoom" style="font-size:12px;">
+										<td>${dishGroup.dishGroupCode}</td>
+										<td>${dishGroup.dishGroupDescription}</td>
+										<td>${dishGroup.ivaType}</td>
+										<td>${dishGroup.salesLedgerAccount}</td>
+										<td>${dishGroup.typeIncome}</td>
+										<td>${dishGroup.macroGroup}</td>
+										<a href="#" t:type='eventLink' class="${dishGroup.dishGroupId}"
+											t:zone="zone" t:event="edit" t:context="${dishGroup.dishGroupId}">
+										</a>
+									</tr>
 
-							</div>
+								</div>
 
-						</tbody>
+							</tbody>
 
-					</table>
+						</table>
+
+					</div>
+
 
 				</div>
-				<div class="modal fade" id="modalCreate">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal"
-									aria-hidden="true">&times;
-								</button>
-								<h4 class="modal-title">${message:add-dish-group}</h4>
-							</div>
-							<div class="modal-body">
-								<form role="form" class="form-horizontal" t:id="addRowForm"
-									data-toggle="validator">
-									<div class="form-group">
-										<label for="dishGroupCode" class="col-sm-4 control-label">${message:dish-group-code}</label>
-										<div class="col-sm-8">
-											<input class="form-control" t:id="dishGroupCode"
-												t:type="TextField" validate="required" autofocus="true" />
-										</div>
-									</div>
-									<div class="form-group">
-										<label for="dishGroupDesc" class="col-sm-4 control-label">${message:dish-group-description}</label>
-										<div class="col-sm-8">
-											<input class="form-control" t:id="dishGroupDesc"
-												t:type="TextField" validate="required" />
-										</div>
-									</div>
+			</div>
+		</t:zone>
+		<t:zone t:id="zone" id="zone">
 
-									<div class="form-group">
-										<label for="ivaType" class="col-sm-4 control-label">${message:iva-type}</label>
-										<div class="col-sm-8">
-											<input class="form-control" t:id="ivaType" t:type="select" model="'1,2,3'" validate="required" />
-										</div>
-									</div>
-
-									<div class="form-group">
-										<label for="salesLedgerAccount" class="col-sm-4 control-label">${message:salesLedgerAccount}</label>
-										<div class="col-sm-8">
-											<input class="form-control" t:id="salesLedgerAccount"
-												t:type="TextField" validate="required" />
-										</div>
-									</div>
-									<div class="form-group">
-										<label for="typeIncome" class="col-sm-4 control-label">${message:typeIncome}</label>
-										<div class="col-sm-8">
-											<input class="form-control" t:id="typeIncome" t:type="TextField"/>
-										</div>
-									</div>
-									<div class="form-group">
-										<label for="macroGroup" class="col-sm-4 control-label">${message:macroGroup}</label>
-										<div class="col-sm-8">
-											<input class="form-control" t:id="macroGroup" t:type="TextField"
-												validate="required" />
-										</div>
-									</div>
-									<div class="form-group modal-footer modal-footer-center">
-										<input type="image" src="${context:css/images/add.png}"
-											height="40" class="btn btn-default"></input>
-									</div>
-								</form>
-							</div>
-						</div><!-- /.modal-content -->
-					</div><!-- /.modal-dialog -->
-				</div><!-- /.modal -->
-				<div class="modal fade" id="modalEdit">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal"
-									aria-hidden="true">&times;
-								</button>
-								<h4 class="modal-title">${message:edit-dish-group}</h4>
-							</div>
-							<div class="modal-body">
-								<form role="form" class="form-horizontal">
-									<div class="form-group" hidden="true">
-
-										<input class="form-control" t:id="dishGroupId" t:type="TextField"
-											validate="required" />
-
-									</div>
-									<div class="form-group">
-										<label for="dishGroupCode" class="col-sm-4 control-label">${message:dish-group-code}</label>
-										<div class="col-sm-8">
-											<input class="form-control" t:id="editdishGroupCode"
-												t:type="TextField" validate="required" autofocus="true" />
-										</div>
-									</div>
-									<div class="form-group">
-										<label for="dishGroupDesc" class="col-sm-4 control-label">${message:dish-group-description}</label>
-										<div class="col-sm-8">
-											<input class="form-control" t:id="editdishGroupDesc"
-												t:type="TextField" validate="required" />
-										</div>
-									</div>
-
-									<div class="form-group">
-										<label for="ivaType" class="col-sm-4 control-label">${message:iva-type}</label>
-										<div class="col-sm-8">
-											<input class="form-control" t:id="editIvaType" t:type="TextField"
-												validate="required" />
-										</div>
-									</div>
-
-									<div class="form-group">
-										<label for="salesLedgerAccount" class="col-sm-4 control-label">${message:salesLedgerAccount}</label>
-										<div class="col-sm-8">
-											<input class="form-control" t:id="editSalesLedgerAccount"
-												t:type="TextField" validate="required" />
-										</div>
-									</div>
-									<div class="form-group">
-										<label for="typeIncome" class="col-sm-4 control-label">${message:typeIncome}</label>
-										<div class="col-sm-8">
-											<input class="form-control" t:id="editTypeIncome"
-												t:type="TextField" />
-										</div>
-									</div>
-									<div class="form-group">
-										<label for="macroGroup" class="col-sm-4 control-label">${message:macroGroup}</label>
-										<div class="col-sm-8">
-											<input class="form-control" t:id="editMacroGroup"
-												t:type="TextField" validate="required" />
-										</div>
-									</div>
-									<div class="form-group modal-footer modal-footer-center">
-										
-										<input type="image" src="${context:css/images/edit.png}"
-											height="40" class="btn btn-default"></input>
-									</div>
-
-								</form>
-							</div>
-
-
-
-
-						</div><!-- /.modal-content -->
-					</div><!-- /.modal-dialog -->
-				</div><!-- /.modal -->
-				<div class="modal fade" id="modalDelete">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal"
-									aria-hidden="true">&times;
-								</button>
-								<h4 class="modal-title">${message:delete-dish-group}</h4>
-							</div>
-							<div class="modal-body">
-								<p>${message:delete-message} ?</p>
-
-							</div>
-							<div class="modal-footer modal-footer-center">
-							
-								<a id="deleteRows" class="btn btn-default"
-									href="/restaurant/masterfiles/masterdishgroup:deleterows/">
-									<img src="${context:css/images/accept.png}"
-											height="30" width="30"> </img>
-									</a>
-									<button type="button" class="btn btn-default" data-dismiss="modal"><img src="${context:css/images/delete.png}"
-											height="30" width="30"> </img></button>
-							
-							</div>
+			<div class="modal fade" id="modal">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-hidden="true">&times;
+							</button>
+							<h4 class="modal-title">${message:add-dish-group}</h4>
 						</div>
+						<div class="modal-body">
+							<form role="form" class="form-horizontal" t:id="tableForm"
+								t:zone="tableZone">
+								<div class="form-group">
+									<div class="form-group formMaster" hidden="true">
+										<input t:id="dishGroupId" t:type="TextField" value="dishGroupId" />
+									</div>
+									<label for="dishGroupCode" class="col-sm-4 control-label ">${message:dish-group-code}</label>
+									<div class="col-sm-8">
+										<input class="form-control focus" t:id="dishGroupCode" t:type="TextField"
+											validate="required" autofocus="true" value="dishGroupCode" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="dishGroupDesc" class="col-sm-4 control-label">${message:dish-group-description}</label>
+									<div class="col-sm-8">
+										<input class="form-control" t:id="dishGroupDesc" t:type="TextField"
+											validate="required" value="dishGroupDesc" />
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="ivaType" class="col-sm-4 control-label">${message:iva-type}</label>
+									<div class="col-sm-8">
+										<input class="form-control" t:id="ivaType" t:type="select"
+											model="'1,2,3'" validate="required" />
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="salesLedgerAccount" class="col-sm-4 control-label">${message:salesLedgerAccount}</label>
+									<div class="col-sm-8">
+										<input class="form-control" t:id="salesLedgerAccount"
+											t:type="TextField" validate="required" value="salesLedgerAccount" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="typeIncome" class="col-sm-4 control-label">${message:typeIncome}</label>
+									<div class="col-sm-8">
+										<input class="form-control" t:id="typeIncome" t:type="TextField"
+											value="typeIncome" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="macroGroup" class="col-sm-4 control-label">${message:macroGroup}</label>
+									<div class="col-sm-8">
+										<input class="form-control" t:id="macroGroup" t:type="TextField"
+											validate="required" value="macroGroup" />
+									</div>
+								</div>
+								<div class="form-group modal-footer modal-footer-center">
+									<input type="image" src="${context:css/images/edit.png}"
+										height="40" class="btn btn-default"></input>
+								</div>
+							</form>
+						</div>
+					</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
+		</t:zone>
+		<!-- Modal -->
+		<div class="modal fade" id="modalDelete" tabindex="-1" role="dialog"
+			aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;
+							</span>
+							<span class="sr-only">Close</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">${message:delete-client}</h4>
+					</div>
+					<div class="modal-body">
+						${message:delete-message}
+					</div>
+					<div class="modal-footer modal-footer-center">
+
+						<button id="confirmDeleteButton" class="btn btn-default">
+							<img src="${context:css/images/accept.png}" height="30"
+								width="30">
+							</img>
+						</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							<img src="${context:css/images/delete.png}" height="30"
+								width="30">
+							</img>
+						</button>
+
 					</div>
 				</div>
-
 			</div>
 		</div>
 	</body>
 	<script type="text/javascript">
-			$(document).ready(function(){
-			$(".btn").tooltip({
-			'show': true,
-			});
-			});
-		</script>
+		$(document).ready(function(){
+		$(".btn").tooltip({
+		'show': true,
+		});
+		});
+	</script>
 </html>
