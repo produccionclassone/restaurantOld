@@ -1,45 +1,3 @@
-function permite(elEvento, permitidos) {
-	// Variables que definen los caracteres permitidos
-	var numeros = "0123456789";
-	var caracteres = " abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ*";
-	var numeros_caracteres = numeros + caracteres;
-	var teclas_especiales = [ 8, 13, 27, 37, 39, 46 ];
-	// 8 = BackSpace, 46 = Supr, 37 = flecha izquierda, 39 = flecha derecha
-
-	// Seleccionar los caracteres a partir del parámetro de la función
-	switch (permitidos) {
-	case 'num':
-		permitidos = numeros;
-		break;
-	case 'car':
-		permitidos = caracteres;
-		break;
-	case 'num_car':
-		permitidos = numeros_caracteres;
-		break;
-	}
-
-	// Obtener la tecla pulsada
-	var evento = elEvento || window.event;
-	var codigoCaracter = evento.charCode || evento.keyCode;
-	var caracter = String.fromCharCode(codigoCaracter);
-
-	// Comprobar si la tecla pulsada es alguna de las teclas especiales
-	// (teclas de borrado y flechas horizontales)
-	var tecla_especial = false;
-	for ( var i in teclas_especiales) {
-		if (codigoCaracter == teclas_especiales[i]) {
-			tecla_especial = true;
-			break;
-		}
-	}
-
-	// Comprobar si la tecla pulsada se encuentra en los caracteres permitidos
-	// o si es una tecla especial
-	return permitidos.indexOf(caracter) != -1 || tecla_especial;
-}
-
-
 function save(parameter){
 	console.log(parameter.name);
 	console.log(parameter.id);
@@ -72,6 +30,7 @@ var validateSave = function(){
 		 $(".alert-date").hide();
 		 $(".alert-monExt").hide();
 		 $(".alert-hex").hide();
+		 $(".alert-dirIp").hide();
 		 $(".alert-numeric").show();
 		}
 	});
@@ -95,6 +54,7 @@ var validateSave = function(){
 		 $(".alert-date").hide();
 		 $(".alert-monExt").hide();
 		 $(".alert-hex").hide();
+		 $(".alert-dirIp").hide();
 		 $(".alert-alphabetic").show();
 		}
 	});
@@ -123,6 +83,7 @@ var validateSave = function(){
 		$(".alert-date").hide();
 		$(".alert-monExt").hide();
 		$(".alert-hex").hide();
+		$(".alert-dirIp").hide();
 		$(".alert-float").show();
 	}
 	});
@@ -146,6 +107,7 @@ var validateSave = function(){
 		 $(".alert-date").hide();
 		 $(".alert-monExt").hide();
 		 $(".alert-hex").hide();
+		 $(".alert-dirIp").hide();
 		 $(".alert-numeric1_3").show();
 		}
 	});
@@ -170,6 +132,7 @@ var validateSave = function(){
 		$(".alert-date").hide();
 		$(".alert-monExt").hide();
 		$(".alert-hex").hide();
+		$(".alert-dirIp").hide();
 		$(".alert-porcent").show();
 	}
 	});
@@ -194,6 +157,7 @@ var validateSave = function(){
 		 		$(".alert-numeric").hide();
 		 		$(".alert-monExt").hide();
 		 		$(".alert-hex").hide();
+		 		$(".alert-dirIp").hide();
 		 		$(".alert-date").show();
 			}
 		}
@@ -206,6 +170,7 @@ var validateSave = function(){
 		 $(".alert-numeric").hide();
 		 $(".alert-monExt").hide();
 		 $(".alert-hex").hide();
+		 $(".alert-dirIp").hide();
 		 $(".alert-date").show();
 		}
 	});
@@ -229,6 +194,7 @@ var validateSave = function(){
 		$(".alert-porcent").hide();
 		$(".alert-date").hide();
 		$(".alert-hex").hide();
+		$(".alert-dirIp").hide();
 		$(".alert-monExt").show();
 	}
 	});
@@ -252,9 +218,35 @@ var validateSave = function(){
 		 $(".alert-porcent").hide();
 		 $(".alert-date").hide();
 		 $(".alert-monExt").hide();
+		 $(".alert-dirIp").hide();
 		 $(".alert-hex").show();
 		}
 	});
+	
+	$(".dirIpParam").focusout(function() {
+		console.log();
+		var dirIpRegex = /^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])){3}$/
+		var str = this.value;
+		if(dirIpRegex.test(str)) {
+			 $(this).removeClass("t-error");
+			save(this);
+			if ($(".t-error").length==0)
+			$(".alert-dirIp").hide();
+		}
+		else{ console.log("ERROR");
+		 $(this).addClass("t-error");
+		 $(".alert-numeric").hide();
+		 $(".alert-alphabetic").hide();
+		 $(".alert-float").hide();
+		 $(".alert-numeric1_3").hide();
+		 $(".alert-porcent").hide();
+		 $(".alert-date").hide();
+		 $(".alert-monExt").hide();
+		 $(".alert-hex").hide();
+		 $(".alert-dirIp").show();
+		}
+	});
+	
 	
 }
 
@@ -286,7 +278,6 @@ var checkDate = function(dateAsString){
 
 var showParameters = function(parameters) {
 	var parametersGeneric=parameters.parametersGeneric;
-	var parametersGenericSelect=parameters.parametersGenericSelect;
 	var parametersBool=parameters.parametersBool;
 	var parametersRoom=parameters.parametersRoom;
 	
@@ -304,9 +295,45 @@ var showParameters = function(parameters) {
 		$("#firstTab"+parametersRoom[i].id).attr('value',parametersRoom[i].firstTab);
 		$("#lastTab"+parametersRoom[i].id).attr('value',parametersRoom[i].lastTab);
 	}
-};
+}
 
-
+var showPrivileges = function(parameters) {
+	var parametersPrivileges=parameters.parametersPrivileges;
+	var levelSelected;
+    var privilegesSelected;
+	
+	for (var i=0;i<parametersBool.length;i++){
+		$("#"+parametersBool[i].name).attr('checked',parametersBool[i].value);
+	}
+	
+	$(".radiomap").click(function(){
+		var id = $(this).attr("id");
+        if($("input:radio[id="+id+"]:checked").length != 0) {
+			levelSelected = id;
+		}
+		
+		for (var i = 0; i < 6;i++) {
+			if (levelSelected ==parametersPrivileges[i].name){
+				privilegesSelected = parametersPrivileges[i].value;
+			}
+		}
+		console.log(levelSelected);
+		console.log(privilegesSelected);
+		var chars = "123456789ABCDEFGHI";
+		var k=0;
+		for (var i = 0; i < 18; i++) {
+			for	(var j = 0; j < 18; j++){
+				var check = "#cbox" + chars[i] + chars[j];
+				$(check).attr('checked',false);
+				if(privilegesSelected[k]=='S'){
+					$(check).attr('checked',true);
+				}
+				console.log($(check).attr('checked'));
+				k++;
+			}
+		}           	
+	});	
+}
 
 (function($, window) {
 	'use strict';
@@ -316,6 +343,7 @@ var showParameters = function(parameters) {
 					{
 						loadParameters : function(parameters) {
 							showParameters(parameters);
+							showPrivileges(parameters);
 							validateSave();
 							$('body').on('keydown', 'input, select, textarea', function(e) {
 								var self = $(this)

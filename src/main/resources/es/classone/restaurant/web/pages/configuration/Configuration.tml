@@ -10,6 +10,7 @@
 		$('#regControl').modal({keyboard:false});
 		$('#regControl').on('shown.bs.modal', function() {
 		$('#actualSession').focus();
+		$('#level3').attr('checked',true);
 		});
 
 		});
@@ -123,9 +124,12 @@
 											<strong>¡Error!</strong>
 											${message:error-hex}
 										</div>
+										<div class="alert alert-danger alert-dirIp" style="display: none">
+											<strong>¡Error!</strong>
+											${message:error-dirIp}
+										</div>
 
 									</ul>
-
 									<!-- tab-content general parameters -->
 									<!-- Tab panes general parameters -->
 									<div class="tab-content tab-subcontent"> <!-- tab-content general parameters -->
@@ -1052,21 +1056,26 @@
 																</div>
 																<div class="col-md-2"></div>
 															</div> <!-- Row 3: Clousure last month -->
-															<div class="row"> <!-- Row 4: Sum Drinks -->
+															<div class="row"> <!-- Row 4: Segment channel -->
 																<div class="col-md-1"></div>
 																<div class="col-md-5">
-																	<!-- <span class="input-group-addon">Suma consumiciones</span> -->
 																	<span class="input-group-addon">
-																		<t:label for="sumDrinks" />
+																		<t:label for="enableSegmentCh" />
 																	</span>
 																</div>
 																<div class="col-md-1">
 																	<input class="form-control checkcontrol boolParam"
-																		t:id="sumDrinks" t:type="CheckBox" t:mixins="jquery/zoneUpdater"
-																		t:event="sumDrinksChanged" t:zone="msgZone3" />
+																		t:id="enableSegmentCh" t:type="CheckBox" t:mixins="jquery/zoneUpdater"
+																		t:event="enableSegmentChChanged" t:zone="msgZone3" />
 																</div>
-																<div class="col-md-5"></div>
-															</div>
+																<div class="col-md-3">																	<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
+																	<input class="form-control textcontrolL alphabeticParam"
+																		t:id="channelSegment" t:type="TextField" t:mixins="jquery/zoneUpdater"
+																		t:event="channelSegmentChanged" t:zone="msgZone3"
+																		maxlength="3" />
+																</div>
+																<div class="col-md-2"></div>
+															</div> <!-- Row 4: Segment channel -->
 														</div> <!-- left -->
 														<div class="col-md-6"><!-- Right -->
 															<div class="row">
@@ -1267,161 +1276,150 @@
 																						t:event="lastTab7Changed" t:zone="msgZone3"
 																						maxlength="3" />
 																				</div>
-																			</div> <!-- Row 1.7 Room 6 -->
+																			</div> <!-- Row 1.8 Room 7 -->
 																		</div>
 																		<div class="col-md-1"></div>
 																	</div>
 																</div>
 																<div class="col-md-1"></div>
 															</div>
-															<div class="row">
+															<div class="row"> <!-- Row 2: Calificadores grupos de platos -->
 																<div class="col-md-1"></div>
 																<div class="col-md-10 rowBorder" style="margin-bottom:5px;">
 																	<div class="row">
 																		<div class="textRowBorder">${message:califDishGroup-label}</div>
 																	</div>
-																	<div class="row">
+																	<div class="row"> <!-- Row 2.1: Calificadores grupos de platos 1 -->
 																		<div class="col-md-3">
-																			<!-- <span class="input-group-addon">Ultimo cierre mes</span> -->
 																			<span class="input-group-addon">
 																				<t:label for="desCalif1" />
 																			</span>
 																		</div>
 																		<div class="col-md-8">
-																			<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																			<input class="form-control textcontrolL" t:id="desCalif1"
-																				name="desCalif1" t:type="TextField" />
+																			<input class="form-control textcontrolL alphabeticParam"
+																				t:id="desCalif1" t:type="TextField" t:mixins="jquery/zoneUpdater"
+																				t:event="desCalif1Changed" t:zone="msgZone3"
+																				maxlength="10" />
 																		</div>
 																		<div class="col-md-1"></div>
-																	</div>
-																	<div class="row">
+																	</div> <!-- Row 2.1: Calificadores grupos de platos 1 -->
+																	<div class="row"> <!-- Row 2.2: Calificadores grupos de platos 2 -->
 																		<div class="col-md-3">
-																			<!-- <span class="input-group-addon">Ultimo cierre mes</span> -->
 																			<span class="input-group-addon">
 																				<t:label for="desCalif2" />
 																			</span>
 																		</div>
 																		<div class="col-md-8">
-																			<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																			<input class="form-control textcontrolL" t:id="desCalif2"
-																				name="desCalif2" t:type="TextField" />
+																			<input class="form-control textcontrolL alphabeticParam"
+																				t:id="desCalif2" t:type="TextField" t:mixins="jquery/zoneUpdater"
+																				t:event="desCalif2Changed" t:zone="msgZone3"
+																				maxlength="10" />
 																		</div>
 																		<div class="col-md-1"></div>
-																	</div>
-																	<div class="row">
+																	</div> <!-- Row 2.1: Calificadores grupos de platos 1 -->
+																	<div class="row"> <!-- Row 2.3: Calificadores grupos de platos 3 -->
 																		<div class="col-md-3">
-																			<!-- <span class="input-group-addon">Ultimo cierre mes</span> -->
 																			<span class="input-group-addon">
 																				<t:label for="desCalif3" />
 																			</span>
 																		</div>
 																		<div class="col-md-8">
-																			<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																			<input class="form-control textcontrolL" t:id="desCalif3"
-																				name="desCalif3" t:type="TextField" />
+																			<input class="form-control textcontrolL alphabeticParam"
+																				t:id="desCalif3" t:type="TextField" t:mixins="jquery/zoneUpdater"
+																				t:event="desCalif3Changed" t:zone="msgZone3"
+																				maxlength="10" />
 																		</div>
 																		<div class="col-md-1"></div>
-																	</div>
-																	<div class="row">
+																	</div> <!-- Row 2.3: Calificadores grupos de platos 3 -->
+																	<div class="row"> <!-- Row 2.4: Calificadores grupos de platos 4 -->
 																		<div class="col-md-3">
-																			<!-- <span class="input-group-addon">Ultimo cierre mes</span> -->
 																			<span class="input-group-addon">
 																				<t:label for="desCalif4" />
 																			</span>
 																		</div>
 																		<div class="col-md-8">
-																			<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																			<input class="form-control textcontrolL" t:id="desCalif4"
-																				name="desCalif4" t:type="TextField" />
+																			<input class="form-control textcontrolL alphabeticParam"
+																				t:id="desCalif4" t:type="TextField" t:mixins="jquery/zoneUpdater"
+																				t:event="desCalif4Changed" t:zone="msgZone3"
+																				maxlength="10" />
 																		</div>
 																		<div class="col-md-1"></div>
-																	</div>
+																	</div> <!-- Row 2.4: Calificadores grupos de platos 4 -->
+
 																</div>
 																<div class="col-md-1"></div>
-															</div>
-															<div class="row">
+															</div> <!-- Row 2: Calificadores grupos de platos -->
+															<div class="row"> <!-- Row 3: enableTPVVirtual -->
 																<div class="col-md-1"></div>
 																<div class="col-md-4">
-																	<!-- <span class="input-group-addon">Habilitado TPV Virtual</span> -->
 																	<span class="input-group-addon">
 																		<t:label for="enableTPVVirtual" />
 																	</span>
 																</div>
 																<div class="col-md-4"></div>
 																<div class="col-md-1">
-																	<!-- <input type="checkbox" class="form-control checkcontrol"></input> -->
-																	<input class="form-control checkcontrol" t:id="enableTPVVirtual"
-																		name="enableTPVVirtual" t:type="CheckBox"
-																		placeholder="${message:enableTPVVirtual-label}" />
+																	<input class="form-control checkcontrol boolParam"
+																		t:id="enableTPVVirtual" t:type="CheckBox" t:mixins="jquery/zoneUpdater"
+																		t:event="enableTPVVirtualChanged" t:zone="msgZone3" />
 																</div>
-															</div>
-															<div class="row">
+															</div> <!-- Row 3: enableTPVVirtual -->
+															<div class="row"> <!-- Row 4: enableStarCard -->
 																<div class="col-md-1"></div>
 																<div class="col-md-4">
-																	<!-- <span class="input-group-addon"> Habilitado StarCard</span> -->
 																	<span class="input-group-addon">
 																		<t:label for="enableStarCard" />
 																	</span>
 																</div>
 																<div class="col-md-4"></div>
 																<div class="col-md-1">
-																	<!-- <input type="checkbox" class="form-control checkcontrol"></input> -->
-																	<input class="form-control checkcontrol" t:id="enableStarCard"
-																		name="enableStarCard" t:type="CheckBox"
-																		placeholder="${message:enableStarCard-label}" />
+																	<input class="form-control checkcontrol boolParam"
+																		t:id="enableStarCard" t:type="CheckBox" t:mixins="jquery/zoneUpdater"
+																		t:event="enableStarCardChanged" t:zone="msgZone3" />
 																</div>
-															</div>
-															<div class="row">
+															</div> <!-- Row 4: enableStarCard -->
+															<div class="row"> <!-- Row 5: enableImpFiscal -->
 																<div class="col-md-1"></div>
 																<div class="col-md-4">
-																	<!-- <span class="input-group-addon"> Habilitado Habilitar 
-																		Imp Fical</span> -->
 																	<span class="input-group-addon">
 																		<t:label for="enableImpFiscal" />
 																	</span>
 																</div>
 																<div class="col-md-4"></div>
 																<div class="col-md-1">
-																	<!-- <input type="checkbox" class="form-control checkcontrol"></input> -->
-																	<input class="form-control checkcontrol" t:id="enableImpFiscal"
-																		name="enableImpFiscal" t:type="CheckBox" />
+																	<input class="form-control checkcontrol boolParam"
+																		t:id="enableImpFiscal" t:type="CheckBox" t:mixins="jquery/zoneUpdater"
+																		t:event="enableImpFiscalChanged" t:zone="msgZone3" />
 																</div>
-															</div>
-															<div class="row">
+															</div> <!-- Row 5: enableImpFiscal -->
+															<div class="row"> <!-- Row 6: enableImpFiscal -->
 																<div class="col-md-1"></div>
 																<div class="col-md-4">
-																	<!-- <span class="input-group-addon"> Habilitar meteorología</span> -->
 																	<span class="input-group-addon">
 																		<t:label for="enableMeteorology" />
 																	</span>
 																</div>
 																<div class="col-md-4"></div>
 																<div class="col-md-1">
-																	<!-- <input type="checkbox" class="form-control checkcontrol"></input> -->
-																	<input class="form-control checkcontrol" t:id="enableMeteorology"
-																		name="enableMeteorology" t:type="CheckBox" />
+																	<input class="form-control checkcontrol boolParam"
+																		t:id="enableMeteorology" t:type="CheckBox" t:mixins="jquery/zoneUpdater"
+																		t:event="enableMeteorology" t:zone="msgZone3" />
 																</div>
-															</div>
-															<div class="row">
+															</div> <!-- Row 6: enableImpFiscal -->
+															<div class="row"> <!-- Row 7: Sum Drinks -->
 																<div class="col-md-1"></div>
 																<div class="col-md-4">
-																	<!-- <span class="input-group-addon">Habilitado Canal-Segmento</span> -->
+																	<!-- <span class="input-group-addon">Suma consumiciones</span> -->
 																	<span class="input-group-addon">
-																		<t:label for="enableSegmentCh" />
+																		<t:label for="sumDrinks" />
 																	</span>
 																</div>
-																<div class="col-md-3"></div>
+																<div class="col-md-4"></div>
 																<div class="col-md-1">
-																	<!-- <input type="checkbox" class="form-control checkcontrol"></input> -->
-																	<input class="form-control checkcontrol" t:id="enableSegmentCh"
-																		name="enableSegmentCh" t:type="CheckBox" />
+																	<input class="form-control checkcontrol boolParam"
+																		t:id="sumDrinks" t:type="CheckBox" t:mixins="jquery/zoneUpdater"
+																		t:event="sumDrinksChanged" t:zone="msgZone3" />
 																</div>
-																<div class="col-md-2">
-																	<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-																	<input class="form-control textcontrolL" t:id="channelSegment"
-																		name="channelSegment" t:type="TextField" />
-																</div>
-															</div>
+															</div> <!-- Row 7: Sum Drinks -->
 														</div> <!-- right -->
 													</div> <!-- row restaurante -->
 												</t:form>
@@ -1436,93 +1434,85 @@
 															</t:zone>
 														</div>
 													</div> <!-- Row: Msg iteración con BBDD -->
-
 													<div class="row row240"></div>
-													<div class="row">
+													<div class="row"> <!-- Row 1: IP LVDE -->
 														<div class="col-md-1"></div>
 														<div class="col-md-2">
-															<!-- <span class="input-group-addon">IP LVDE</span> -->
 															<span class="input-group-addon">
 																<t:label for="ipLVDE" />
 															</span>
 														</div>
 														<div class="col-md-3">
-															<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-															<input class="form-control textcontrolL" t:id="ipLVDE"
-																name="ipLVDE" t:type="TextField" />
+															<input class="form-control textcontrolL dirIpParam"
+																t:id="ipLVDE" t:type="TextField" t:mixins="jquery/zoneUpdater"
+																t:event="ipLVDEChanged" t:zone="msgZone4" maxlength="15" />
 														</div>
 														<div class="col-md-6"></div>
-													</div>
+													</div> <!-- Row 1: IP LVDE -->
 													<div class="row row10"></div>
-													<div class="row">
+													<div class="row"> <!-- Row 2: IP Help -->
 														<div class="col-md-1"></div>
 														<div class="col-md-2">
-															<!-- <span class="input-group-addon">IP Manuales</span> -->
 															<span class="input-group-addon">
 																<t:label for="ipHelp" />
 															</span>
 														</div>
 														<div class="col-md-3">
-															<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-															<input class="form-control textcontrolL" t:id="ipHelp"
-																name="ipHelp" t:type="TextField" />
+															<input class="form-control textcontrolL dirIpParam"
+																t:id="ipHelp" t:type="TextField" t:mixins="jquery/zoneUpdater"
+																t:event="ipHelpChanged" t:zone="msgZone4" maxlength="15" />
 														</div>
 														<div class="col-md-6"></div>
-													</div>
+													</div> <!-- Row 2: IP Help -->
 													<div class="row row10"></div>
-													<div class="row">
+													<div class="row"> <!-- Row 3: IP CCC -->
 														<div class="col-md-1"></div>
 														<div class="col-md-2">
-															<!-- <span class="input-group-addon">IP CCC</span> -->
 															<span class="input-group-addon">
 																<t:label for="ipCCC" />
 															</span>
 														</div>
 														<div class="col-md-3">
-															<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-															<input class="form-control textcontrolL" t:id="ipCCC"
-																name="ipCCC" t:type="TextField" />
+															<input class="form-control textcontrolL dirIpParam"
+																t:id="ipCCC" t:type="TextField" t:mixins="jquery/zoneUpdater"
+																t:event="ipCCCChanged" t:zone="msgZone4" maxlength="15" />
 														</div>
 														<div class="col-md-6"></div>
-													</div>
+													</div> <!-- Row 3: IP CCC -->
 													<div class="row row10"></div>
-													<div class="row">
+													<div class="row"> <!-- Row 4: IP Alternative -->
 														<div class="col-md-1"></div>
 														<div class="col-md-2">
-															<!-- <span class="input-group-addon">IP Alternativa</span> -->
 															<span class="input-group-addon">
 																<t:label for="ipAlternative" />
 															</span>
 														</div>
 														<div class="col-md-3">
-															<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
-															<input class="form-control textcontrolL" t:id="ipAlternative"
-																name="ipAlternative" t:type="TextField" />
+															<input class="form-control textcontrolL dirIpParam"
+																t:id="ipAlternative" t:type="TextField" t:mixins="jquery/zoneUpdater"
+																t:event="ipAlternativeChanged" t:zone="msgZone4"
+																maxlength="15" />
 														</div>
 														<div class="col-md-6"></div>
-													</div>
+													</div> <!-- Row 4: IP Alternative -->
 													<div class="row row10"></div>
 													<div class="row">
 														<div class="col-md-1"></div>
 														<div class="col-md-2">
-															<!-- <span class="input-group-addon">Email[CFG-FROM]</span> -->
 															<span class="input-group-addon">
 																<t:label for="sendEmail" />
 															</span>
 														</div>
 														<div class="col-md-3">
-															<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
 															<input class="form-control textcontrolL" t:id="sendEmail"
 																name="sendEmail" t:type="TextField" />
 														</div>
 														<div class="col-md-1">
-															<!-- <span class="input-group-addon">IP Alternativa</span> -->
 															<span class="input-group-addon">
 																<t:label for="sendLogin" />
 															</span>
 														</div>
 														<div class="col-md-2">
-															<!-- <input t:type="TextField" class="form-control textcontrol"></input> -->
 															<input class="form-control textcontrolL" t:id="sendLogin"
 																name="sendLogin" t:type="TextField" />
 														</div>
@@ -1532,7 +1522,6 @@
 													<div class="row">
 														<div class="col-md-1"></div>
 														<div class="col-md-2">
-															<!-- <span class="input-group-addon">CFG-SRV </span> -->
 															<span class="input-group-addon">
 																<t:label for="sendService" />
 															</span>
@@ -1556,7 +1545,6 @@
 														<div class="col-md-3"></div>
 													</div>
 												</t:form>
-
 											</div> <!-- container conectividad -->
 										</div> <!-- conectividad -->
 										<div class="tab-pane" id="contabilidad">
@@ -2252,12 +2240,542 @@
 									</div> <!-- tab-content general parameters -->
 								</div> <!-- general parameters -->
 								<div class="tab-pane" id="keys">
-
 									<div class="container-fluid">
+											<form >
+												<t:errors />
+												<div class="row row30"></div>
+												<div class="row">
+													<div class="col-md-3">
+														<div class="radiogroup">
+															<div class="row">
+																<div class="row10"></div>
+															</div>
+															<t:radiogroup value="radioSelectedValue" id="radiogroup">
+																<h3>Niveles</h3>
+																<div class="row">
+																	<div class="row30"></div>
+																	<div class="span" />
+																	<label>
+																		<input t:type="radio" t:id="level3" t:value="literal:N3"
+																			class="radiomap" name="group" />
+																		Privilegio 3
+																	</label>
+																	<div class="row">
+																		<div class="row10"></div>
+																	</div>
+																	<div class="span" />
+																	<label>
+																		<input t:type="radio" t:id="level4" t:value="literal:N4"
+																			class="radiomap" name="group" />
+																		Privilegio 4
+																	</label>
 
+																	<div class="row">
+																		<div class="row10"></div>
+																	</div>
+																	<div class="span" />
+
+																	<label>
+																		<input t:type="radio" t:id="level5" t:value="literal:N5"
+																			class="radiomap" name="group" />
+																		Privilegio 5
+																	</label>
+
+																	<div class="row">
+																		<div class="row10"></div>
+																	</div>
+																	<div class="span" />
+
+																	<label>
+																		<input t:type="radio" t:id="level6" t:value="literal:N6"
+																			class="radiomap" name="group" />
+																		Privilegio 6
+																	</label>
+
+																	<div class="row">
+																		<div class="row10"></div>
+																	</div>
+																	<div class="span" />
+
+
+																	<label>
+																		<input t:type="radio" t:id="level7" t:value="literal:N1"
+																			class="radiomap" name="group" />
+																		Privilegio 7
+																	</label>
+
+
+																	<div class="row">
+																		<div class="row10"></div>
+																	</div>
+																	<div class="span" />
+
+																	<label>
+																		<input t:type="radio" t:id="level8" t:value="literal:N8"
+																			class="radiomap" name="group" />
+																		Privilegio 8
+																	</label>
+
+																	<div class="row">
+																		<div class="row10"></div>
+																	</div>
+																	<div class="span" />
+																</div>
+															</t:radiogroup>
+														</div>
+													</div>
+
+													<div class="col-md-7">
+														<div class="map">
+															<div class="row">
+																<span class="scheme">1</span>
+																<span class="scheme">2</span>
+																<span class="scheme">3</span>
+																<span class="scheme">4</span>
+																<span class="scheme">5</span>
+																<span class="scheme">6</span>
+																<span class="scheme">7</span>
+																<span class="scheme">8</span>
+																<span class="scheme">9</span>
+																<span class="scheme">A</span>
+																<span class="scheme">B</span>
+																<span class="scheme">C</span>
+																<span class="scheme">D</span>
+																<span class="scheme">E</span>
+																<span class="scheme">F</span>
+																<span class="scheme">G</span>
+																<span class="scheme">H</span>
+																<span class="schemesep">I</span>
+																<span class="scheme">X</span>
+																<span class="scheme">X</span>
+																<span class="scheme">X</span>
+															</div>
+<!--														t:event="covServCharChanged" t:mixins="jquery/zoneUpdater" t:zone="privilegeZone" -->
+															<div class="row">
+																<input t:type="checkbox" t:id="cbox11" class="panelcheck"/>
+																<input t:type="checkbox" t:id="cbox12" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox13" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox14" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox15" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox16" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox17" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox18" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox19" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox1A" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox1B" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox1C" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox1D" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox1E" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox1F" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox1G" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox1H" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox1I" class="panelchecksep" />
+																<input t:type="checkbox" t:id="cbox1esp1" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox1esp2" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox1esp3" class="panelcheck" />
+															</div>
+															<div class="row">
+																<input t:type="checkbox" t:id="cbox21" class="panelcheck"/>
+																<input t:type="checkbox" t:id="cbox22" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox23" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox24" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox25" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox26" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox27" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox28" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox29" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox2A" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox2B" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox2C" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox2D" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox2E" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox2F" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox2G" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox2H" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox2I" class="panelchecksep" />
+																<input t:type="checkbox" t:id="cbox2esp1" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox2esp2" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox2esp3" class="panelcheck" />
+															</div>
+															<div class="row">
+																<input t:type="checkbox" t:id="cbox31" class="panelcheck"/>
+																<input t:type="checkbox" t:id="cbox32" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox33" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox34" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox35" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox36" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox37" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox38" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox39" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox3A" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox3B" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox3C" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox3D" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox3E" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox3F" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox3G" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox3H" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox3I" class="panelchecksep" />
+																<input t:type="checkbox" t:id="cbox3esp1" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox3esp2" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox3esp3" class="panelcheck" />
+															</div>
+															<div class="row">
+																<input t:type="checkbox" t:id="cbox41" class="panelcheck"/>
+																<input t:type="checkbox" t:id="cbox42" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox43" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox44" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox45" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox46" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox47" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox48" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox49" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox4A" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox4B" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox4C" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox4D" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox4E" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox4F" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox4G" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox4H" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox4I" class="panelchecksep" />
+																<input t:type="checkbox" t:id="cbox4esp1" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox4esp2" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox4esp3" class="panelcheck" />
+															</div>
+															<div class="row">
+																<input t:type="checkbox" t:id="cbox51" class="panelcheck"/>
+																<input t:type="checkbox" t:id="cbox52" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox53" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox54" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox55" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox56" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox57" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox58" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox59" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox5A" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox5B" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox5C" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox5D" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox5E" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox5F" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox5G" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox5H" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox5I" class="panelchecksep" />
+																<input t:type="checkbox" t:id="cbox5esp1" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox5esp2" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox5esp3" class="panelcheck" />
+															</div>
+															<div class="row">
+																<input t:type="checkbox" t:id="cbox61" class="panelcheck"/>
+																<input t:type="checkbox" t:id="cbox62" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox63" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox64" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox65" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox66" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox67" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox68" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox69" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox6A" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox6B" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox6C" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox6D" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox6E" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox6F" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox6G" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox6H" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox6I" class="panelchecksep" />
+																<input t:type="checkbox" t:id="cbox6esp1" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox6esp2" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox6esp3" class="panelcheck" />
+															</div>
+															<div class="row">
+																<input t:type="checkbox" t:id="cbox71" class="panelcheck"/>
+																<input t:type="checkbox" t:id="cbox72" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox73" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox74" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox75" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox76" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox77" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox78" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox79" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox7A" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox7B" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox7C" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox7D" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox7E" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox7F" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox7G" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox7H" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox7I" class="panelchecksep" />
+																<input t:type="checkbox" t:id="cbox7esp1" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox7esp2" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox7esp3" class="panelcheck" />
+															</div>
+															<div class="row">
+																<input t:type="checkbox" t:id="cbox81" class="panelcheck"/>
+																<input t:type="checkbox" t:id="cbox82" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox83" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox84" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox85" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox86" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox87" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox88" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox89" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox8A" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox8B" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox8C" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox8D" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox8E" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox8F" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox8G" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox8H" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox8I" class="panelchecksep" />
+																<input t:type="checkbox" t:id="cbox8esp1" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox8esp2" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox8esp3" class="panelcheck" />
+															</div>
+															<div class="row">
+																<input t:type="checkbox" t:id="cbox91" class="panelcheck"/>
+																<input t:type="checkbox" t:id="cbox92" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox93" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox94" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox95" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox96" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox97" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox98" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox99" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox9A" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox9B" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox9C" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox9D" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox9E" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox9F" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox9G" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox9H" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox9I" class="panelchecksep" />
+																<input t:type="checkbox" t:id="cbox9esp1" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox9esp2" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox9esp3" class="panelcheck" />
+															</div>
+															<div class="row">
+																<input t:type="checkbox" t:id="cboxA1" class="panelcheck"/>
+																<input t:type="checkbox" t:id="cboxA2" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxA3" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxA4" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxA5" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxA6" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxA7" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxA8" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxA9" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxAA" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxAB" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxAC" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxAD" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxAE" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxAF" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxAG" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxAH" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxAI" class="panelchecksep" />
+																<input t:type="checkbox" t:id="cboxAesp1" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxAesp2" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxAesp3" class="panelcheck" />
+															</div>
+															<div class="row">
+																<input t:type="checkbox" t:id="cboxB1" class="panelcheck"/>
+																<input t:type="checkbox" t:id="cboxB2" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxB3" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxB4" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxB5" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxB6" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxB7" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxB8" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxB9" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxBA" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxBB" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxBC" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxBD" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxBE" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxBF" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxBG" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxBH" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxBI" class="panelchecksep" />
+																<input t:type="checkbox" t:id="cboxBesp1" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxBesp2" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxBesp3" class="panelcheck" />
+															</div>
+															<div class="row">
+																<input t:type="checkbox" t:id="cboxC1" class="panelcheck"/>
+																<input t:type="checkbox" t:id="cboxC2" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxC3" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxC4" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxC5" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxC6" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxC7" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxC8" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxC9" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxCA" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxCB" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxCC" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxCD" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxCE" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxCF" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxCG" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxCH" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxCI" class="panelchecksep" />
+																<input t:type="checkbox" t:id="cboxCesp1" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxCesp2" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxCesp3" class="panelcheck" />
+															</div>
+															<div class="row">
+																<input t:type="checkbox" t:id="cboxD1" class="panelcheck"/>
+																<input t:type="checkbox" t:id="cboxD2" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxD3" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxD4" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxD5" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxD6" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxD7" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxD8" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxD9" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxDA" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxDB" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxDC" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxDD" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxDE" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxDF" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxDG" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxDH" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxDI" class="panelchecksep" />
+																<input t:type="checkbox" t:id="cboxDesp1" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxDesp2" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxDesp3" class="panelcheck" />
+															</div>
+															<div class="row">
+																<input t:type="checkbox" t:id="cboxE1" class="panelcheck"/>
+																<input t:type="checkbox" t:id="cboxE2" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxE3" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxE4" class="panelcheck" />
+																<input t:type="checkbox" t:id="cbox5" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxE6" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxE7" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxE8" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxE9" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxEA" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxEB" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxEC" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxED" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxEE" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxEF" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxEG" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxEH" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxEI" class="panelchecksep" />
+																<input t:type="checkbox" t:id="cboxEesp1" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxEesp2" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxEesp3" class="panelcheck" />
+															</div>
+															<div class="row">
+																<input t:type="checkbox" t:id="cboxF1" class="panelcheck"/>
+																<input t:type="checkbox" t:id="cboxF2" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxF3" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxF4" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxF5" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxF6" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxF7" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxF8" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxF9" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxFA" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxFB" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxFC" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxFD" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxFE" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxFF" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxFG" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxFH" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxFI" class="panelchecksep" />
+																<input t:type="checkbox" t:id="cboxFesp1" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxFesp2" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxFesp3" class="panelcheck" />
+															</div>
+															<div class="row">
+																<input t:type="checkbox" t:id="cboxG1" class="panelcheck"/>
+																<input t:type="checkbox" t:id="cboxG2" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxG3" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxG4" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxG5" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxG6" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxG7" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxG8" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxG9" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxGA" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxGB" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxGC" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxGD" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxGE" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxGF" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxGG" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxGH" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxGI" class="panelchecksep" />
+																<input t:type="checkbox" t:id="cboxGesp1" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxGesp2" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxGesp3" class="panelcheck" />
+															</div>
+															<div class="row">
+																<input t:type="checkbox" t:id="cboxH1" class="panelcheck"/>
+																<input t:type="checkbox" t:id="cboxH2" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxH3" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxH4" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxH5" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxH6" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxH7" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxH8" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxH9" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxHA" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxHB" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxHC" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxHD" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxHE" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxHF" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxHG" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxHH" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxHI" class="panelchecksep" />
+																<input t:type="checkbox" t:id="cboxHesp1" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxHesp2" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxHesp3" class="panelcheck" />
+															</div>
+															<div class="row">
+																<input t:type="checkbox" t:id="cboxI1" class="panelcheck"/>
+																<input t:type="checkbox" t:id="cboxI2" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxI3" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxI4" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboXI5" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxI6" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxI7" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxI8" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxI9" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxIA" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxIB" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxIC" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxID" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxIE" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxF" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxI1G" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxIH" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxII" class="panelchecksep" />
+																<input t:type="checkbox" t:id="cboxIesp1" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxIesp2" class="panelcheck" />
+																<input t:type="checkbox" t:id="cboxIesp3" class="panelcheck" />
+															</div>
+														</div>
+													</div>
+													<div class="col-md-1"></div>
+												</div>
+												<div class="row">
+													<div class="col-md-9"></div>
+													<div class="col-md-3"></div>
+												</div>
+											</form>
 									</div>
 								</div>
-
 							</div> <!-- tab-content Level 1 -->
 						</div> <!-- modal-body -->
 					</div> <!-- modal-content -->

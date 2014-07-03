@@ -2,10 +2,14 @@ package es.classone.restaurant.web.pages.configuration;
 
 import java.util.List;
 
+import org.apache.tapestry5.PersistenceConstants;
+import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
+import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.annotations.SessionState;
+import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.corelib.components.Zone;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.json.JSONArray;
@@ -15,6 +19,7 @@ import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
 import es.classone.restaurant.model.configurationBool.ConfigurationBool;
 import es.classone.restaurant.model.configurationGeneric.ConfigurationGeneric;
+import es.classone.restaurant.model.configurationPrivilege.ConfigurationPrivilege;
 import es.classone.restaurant.model.configurationRoom.ConfigurationRoom;
 import es.classone.restaurant.model.configurationservice.ConfigurationService;
 import es.classone.restaurant.modelutil.exceptions.InstanceNotFoundException;
@@ -29,6 +34,11 @@ public class Configuration {
 	private List<ConfigurationGeneric> cgList;
 	private List<ConfigurationBool> cbList;
 	private List<ConfigurationRoom> crList;
+	private List<ConfigurationPrivilege> cpList;
+
+	@Property
+	@Persist(PersistenceConstants.FLASH)
+	private String radioSelectedValue;
 	
 	@SessionState(create = false)
 	private UserSession userSession;
@@ -44,7 +54,7 @@ public class Configuration {
 
 	@Property
 	private boolean showMsg = false;
-
+	
 	// ----------------------------------------------Contadores--------------------------------------------------
 	@Property
 	private String actualSession;
@@ -1578,12 +1588,13 @@ public class Configuration {
 		cgList = configurationService.getParametersGeneric();
 		cbList = configurationService.getParametersBool();
 		crList = configurationService.getParametersRoom();
+		cpList = configurationService.getPrivileges();
 
 		JSONObject parameters = new JSONObject();
-
 		JSONArray parametersGeneric = new JSONArray();
 		JSONArray parametersBool = new JSONArray();
 		JSONArray parametersRoom = new JSONArray();
+		JSONArray parametersPrivilege = new JSONArray();
 
 		for (ConfigurationGeneric cg : cgList) {
 				JSONObject parameterGeneric = new JSONObject();
@@ -1610,9 +1621,18 @@ public class Configuration {
 			parameterRoom.put("lastTab", cr.getLastTab());
 			parametersRoom.put(parameterRoom);
 		}
+		
+		for (ConfigurationPrivilege cp : cpList) {
+			JSONObject parameterPrivilege = new JSONObject();
+			parameterPrivilege.put("id", cp.getConfPrivilegeId());
+			parameterPrivilege.put("name", cp.getName());
+			parameterPrivilege.put("value", cp.getPrivilegeValue());
+		}
+
 		parameters.put("parametersGeneric", parametersGeneric);
 		parameters.put("parametersBool", parametersBool);
 		parameters.put("parametersRoom", parametersRoom);
+		parameters.put("parametersPrivilege", parametersPrivilege);
 		javaScriptSupport.addInitializerCall("loadParameters", parameters);
 	}
 	
@@ -1633,8 +1653,6 @@ public class Configuration {
 		if (dayMenuLevelOptions == null) {
 			dayMenuLevelOptions = ALL_LEVEL_OPTION;
 	    }
-
-
 	}	
-
+		
 }

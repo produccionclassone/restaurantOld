@@ -57,7 +57,7 @@ INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) 
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (57, 'RSCNT019_03', 'desCalif3', 'De Segundo');
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (58, 'RSCNT018_04', 'codCalif4', 'F3');
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (59, 'RSCNT019_04', 'desCalif4', 'De Tercero');
-INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (60, 'RSCNT020', 'channel segment', 'WEB');
+INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (60, 'RSCNT020', 'channelSegment', 'WEB');
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (61, 'R4CNT003', 'contCode', 'R14');
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (62, 'R4CNT004', 'contSerie', 'R');
 INSERT INTO `ayx14res`.`Res14cnt_GN` (`idRes14cnt_GN`, `code`, `name`, `value`) VALUES (63, 'R4CNT023_01', 'ledgerAccCaja', '57000000');
