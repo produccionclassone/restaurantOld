@@ -9,7 +9,10 @@ import es.classone.restaurant.model.channelSegment.ChannelSegment;
 import es.classone.restaurant.model.client.Client;
 import es.classone.restaurant.model.client.ClientHeader;
 import es.classone.restaurant.model.dish.Dish;
+import es.classone.restaurant.model.dish.DishHeader;
 import es.classone.restaurant.model.dishGroup.DishGroup;
+import es.classone.restaurant.model.waiter.Waiter;
+import es.classone.restaurant.model.waiter.WaiterHeader;
 import es.classone.restaurant.modelutil.exceptions.DuplicateInstanceException;
 import es.classone.restaurant.modelutil.exceptions.InstanceNotFoundException;
 
@@ -31,7 +34,7 @@ public interface MasterFilesService {
 
 	public void importDishGroupFile(String path) throws IOException, DuplicateInstanceException;
 
-	public List<Dish> findAllDish();
+	public List<DishHeader> findAllDish();
 
 	public Dish createDish(Dish dish);
 
@@ -74,5 +77,23 @@ public interface MasterFilesService {
 	public void importClientFile(String path) throws IOException, NumberFormatException, ParseException;
 	
 	
+	
+	public List<WaiterHeader> findAllWaiter();
+	public Waiter  createWaiter(Waiter waiter);
+
+	public void deleteWaiter(int waiterId) throws InstanceNotFoundException;
+
+	public Waiter getWaiterByWaiterId(int waiterId) throws InstanceNotFoundException;
+
+	public Waiter editWaiter(int waiterId, String waiterName,
+			String waiterAddress, String waiterZip, String waiterTown,
+			String waiterProvince, String waiterDNI, String waiterPhone,
+			String waiterContact, String notes1, String notes2, String notes3,
+			String chargeType, boolean waiterEnable, Calendar enableTime,
+			Calendar disableTime) throws InstanceNotFoundException;
+	
 	public List<ChannelSegment> getChannelsSegments();
+	
+	
+	
 }

@@ -23,6 +23,7 @@ var returnMenu = function(options, literalMenu) {
 	$("#activemenu").attr("class", "active");
 	$("#activemenu").attr("name", "menu");
 	$("#buttonmenu").text(literalMenu);
+	disableButtons();
 }
 
 var currentOptionNumber = function(literal, options) {
@@ -72,8 +73,7 @@ var menuBehaviour = function(value, options) {
 	var chars = "ABCDEFGHI";
 	var literal = $('.active').text();
 	var currentOption = $('.active').attr('name');
-	console.log(currentOption);
-	console.log(literal);
+	console.log(options);
 	if (currentOption != "menu")
 		options = options[currentOptionNumber(currentOption, options)].suboptions;
 
@@ -89,9 +89,7 @@ var menuBehaviour = function(value, options) {
 							"<li id='disablemenu' class='disable'><a href='/restaurant/?showFavorites=false&showHistory=false'>"
 									+ literal + "</a></li>");
 			clearButtons();
-			console.log("pulsé " + j + " i =" + i);
 			var suboptions = options[i - 1].suboptions;
-			console.log(suboptions);
 			if (suboptions != null) {
 				for (var k = 0; k < suboptions.length; k++) {
 					var button = "#button" + suboptions[k].option[2] + "txt";
@@ -104,6 +102,22 @@ var menuBehaviour = function(value, options) {
 			} else
 				$(location).attr('href', options[i - 1].path);
 			break;
+		}
+
+	}
+	disableButtons();
+};
+
+var disableButtons = function() {
+	for (var i = 0; i < $(".btn-text").length; i++) {
+		var btntext = $(".btn-text")[i];
+		var btnoption = $(".btn-option")[i];
+		if ($(btntext).text() == "") {
+			$(btntext).attr("disabled", "disabled");
+			$(btnoption).attr("disabled", "disabled");
+		} else {
+			$(btntext).removeAttr("disabled");
+			$(btnoption).removeAttr("disabled");
 		}
 	}
 };
@@ -135,6 +149,7 @@ var changeToFavorite = function(i, option) {
 	$.extend(Tapestry.Initializer, {
 		initMenu : function(spec) {
 			var options = spec.options;
+			console.log(options);
 			var literalMenu = spec.menu;
 			$.urlParam = function(name) {
 				var results = new RegExp('[\?&]' + name + '=([^&#]*)')
@@ -145,9 +160,10 @@ var changeToFavorite = function(i, option) {
 					return results[1] || 0;
 				}
 			}
-			if ($.urlParam('option') != null) 
+			disableButtons();
+			if ($.urlParam('option') != null)
 				menuBehaviour($.urlParam('option'), options);
-			
+
 			$("#menuexperto").keypress(function(e) {
 				e.preventDefault();
 				var value = String.fromCharCode(e.which).toUpperCase();

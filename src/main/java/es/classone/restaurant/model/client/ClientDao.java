@@ -9,4 +9,5 @@ public interface ClientDao extends GenericDao<Client, Long> {
 
 	public List<ClientHeader> findAll();
 	public Client findByCode(String clientCode);
+	void updateId(long oldClientId, long newClientId);
 }

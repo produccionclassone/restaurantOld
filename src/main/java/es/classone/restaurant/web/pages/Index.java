@@ -129,12 +129,12 @@ public class Index {
 			MapApp.setOptionName("7.4", messages.get("option74"), "");
 			MapApp.setOptionName("A.1", messages.get("optiona1"),
 					"/restaurant/masterfiles/masterdishgroup");
-			MapApp.setOptionName("A.2", messages.get("optiona2"), "");
-			MapApp.setOptionName("A.3", messages.get("optiona3"), "");
+			MapApp.setOptionName("A.2", messages.get("optiona2"),"/restaurant/masterfiles/masterdish");
+			MapApp.setOptionName("A.3", "", "");
 			MapApp.setOptionName("A.4", messages.get("optiona4"), "");
 			MapApp.setOptionName("A.5", messages.get("optiona5"), "");
 			MapApp.setOptionName("A.6", messages.get("optiona6"), "");
-			MapApp.setOptionName("A.7", messages.get("optiona7"), "");
+			MapApp.setOptionName("A.7", messages.get("optiona7"), "/restaurant/masterfiles/masterwaiter");
 			MapApp.setOptionName("A.8", messages.get("optiona8"), "/restaurant/masterfiles/masterclient");
 			MapApp.setOptionName("B.1", messages.get("optionb1"), "");
 			MapApp.setOptionName("B.2", "", "");
@@ -202,20 +202,7 @@ public class Index {
 	
 		JSONObject literals = new JSONObject();
 		literals.put("options", optionsJson);
-		 
-		// JSONArray optionNames = new JSONArray();
-		// JSONArray optionPaths = new JSONArray();
-		// for (Option o : options) {
-		// String option = o.getOption().replace(".", "").toLowerCase();
-		// literals.put("option" + option.toLowerCase(), o.getOptionName());
-		// if (o.isParent()) {
-		// for (Option so : o.getOptions()) {
-		// option = so.getOption().replace(".", "").toLowerCase();
-		// literals.put("option" + option, so.getOptionName());
-		// literals.put("path"+option, so.getPath());
-		// }
-		// }
-		// }
+	
 		if (changeFavorites.equals("true")) {
 			List<Favorite> favorites = userService
 					.getFavoritesByUserId(userSession.getUserProfileId());
@@ -223,8 +210,6 @@ public class Index {
 			JSONArray favoritePaths = new JSONArray();
 
 			for (Favorite f : favorites) {
-				System.out.println(MapApp.getOptionObjByOption(f.getUseCase())
-						.getOptionName());
 				favoriteNames.put(MapApp.getOptionObjByOption(f.getUseCase())
 						.getOptionName());
 				favoritePaths.put(MapApp.getOptionObjByOption(f.getUseCase())

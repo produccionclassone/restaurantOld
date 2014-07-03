@@ -131,7 +131,7 @@
 									<label for="ivaType" class="col-sm-4 control-label">${message:iva-type}</label>
 									<div class="col-sm-8">
 										<input class="form-control" t:id="ivaType" t:type="select"
-											model="'1,2,3'" validate="required" />
+											model="ivaTypes" validate="required" />
 									</div>
 								</div>
 

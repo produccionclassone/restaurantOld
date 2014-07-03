@@ -24,8 +24,8 @@
 			src="${context:javaScript/dataTables.colReorder.min.js}"></script>
 		<script type="text/javascript" language="javascript"
 			src="${context:javaScript/dataTables.tableTools.min.js}"></script>
-<!-- 		<script type="text/javascript" language="javascript" -->
-<!-- 		src="${context:javaScript/ColReorderWithResize.js}"></script> -->
+		<!-- <script type="text/javascript" language="javascript" -->
+		<!-- src="${context:javaScript/ColReorderWithResize.js}"></script> -->
 		<script type="text/javascript" language="javascript"
 			src="${context:javaScript/table.js}"></script>
 
@@ -49,6 +49,9 @@
 						t:event="edit" t:context="${link}">
 					</a>
 				</div>
+				<a href="#" t:type='eventLink' class="insert" t:zone="zone"
+					t:event="insert">
+				</a>
 				<div class="row">
 
 					<div class="col-md-11">
@@ -68,8 +71,7 @@
 
 							<tbody>
 								<div t:type="Loop" t:source="clients" t:value="client">
-									<tr id="${client.clientId}" class="textZoom"
-										style="font-size:12px;">
+									<tr id="${client.clientId}" class="textZoom" style="font-size:12px;">
 										<td class="numericColumn">${client.clientId}</td>
 										<td class="alphaColumn">${client.clientName}</td>
 										<td class="alphaColumn">${client.clientZipCode}</td>
@@ -185,7 +187,7 @@
 										<div class="col-sm-7">
 											<t:textarea class="form-control textcontrolL"
 												rows="3" t:id="clientNotes3" t:type="TextField" autofocus="true"
-												value="clientNotes1" />
+												value="clientNotes3" />
 										</div>
 									</div>
 									<div class="form-group formMaster">

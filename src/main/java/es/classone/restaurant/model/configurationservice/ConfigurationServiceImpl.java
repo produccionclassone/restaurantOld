@@ -90,6 +90,10 @@ public class ConfigurationServiceImpl implements ConfigurationService {
 		cr.setLastTab(lastTab);
 		configurationRoomDao.save(cr);
 	}
+	
+	public ConfigurationGeneric getConfigurationGNByName(String name) throws InstanceNotFoundException{
+		return configurationGenericDao.findByName(name);
+	}
 
 
 }

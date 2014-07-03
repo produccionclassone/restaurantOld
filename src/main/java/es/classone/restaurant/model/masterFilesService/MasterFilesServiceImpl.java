@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -21,8 +22,12 @@ import es.classone.restaurant.model.client.ClientDao;
 import es.classone.restaurant.model.client.ClientHeader;
 import es.classone.restaurant.model.dish.Dish;
 import es.classone.restaurant.model.dish.DishDao;
+import es.classone.restaurant.model.dish.DishHeader;
 import es.classone.restaurant.model.dishGroup.DishGroup;
 import es.classone.restaurant.model.dishGroup.DishGroupDao;
+import es.classone.restaurant.model.waiter.Waiter;
+import es.classone.restaurant.model.waiter.WaiterDao;
+import es.classone.restaurant.model.waiter.WaiterHeader;
 import es.classone.restaurant.modelutil.exceptions.DuplicateInstanceException;
 import es.classone.restaurant.modelutil.exceptions.InstanceNotFoundException;
 
@@ -40,8 +45,12 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 	private ClientDao clientDao;
 
 	@Autowired
+	private WaiterDao waiterDao;
+
+	@Autowired
 	private ChannelSegmentDao channelSegmentDao;
 
+	// DISHGROUP
 	public List<DishGroup> findAll() {
 		return dishGroupDao.findAll();
 	}
@@ -114,8 +123,9 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 
 	}
 
+	// DISH
 	@Override
-	public List<Dish> findAllDish() {
+	public List<DishHeader> findAllDish() {
 		return dishDao.findAll();
 	}
 
@@ -178,24 +188,6 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 
 		while ((myLine = bufRead.readLine()) != null) {
 			String[] row = myLine.split(";");
-			/*
-			 * PRINT Edited lines System.out.print("cod " + row[0].replace('"',
-			 * ' ').trim()); System.out.print("desc 1 " + row[1].replace('"',
-			 * ' ').trim()); System.out.print("desc 2 " + row[2].replace('"',
-			 * ' ').trim()); System.out.print("desc 3 " + row[3].replace('"',
-			 * ' ').trim()); System.out.print("Print " +
-			 * Integer.parseInt(row[5].replace('"', ' ').trim()));
-			 * System.out.print("ListPrice "
-			 * +Integer.parseInt(row[6].replace('"', ' ').trim()));
-			 * System.out.print("PVP " +Double.parseDouble(row[7].replace('"',
-			 * ' ').replace(',', '.').trim())); System.out.print("CostPrice "
-			 * +Double.parseDouble(row[8].replace('"', ' ').replace(',',
-			 * '.').trim())); System.out.print("Type " + row[9].replace('"',
-			 * ' ').trim()); System.out.print("Group " +
-			 * dishGroupDao.findByCode(row[4].replace('"',
-			 * ' ').trim()).getDishGroupCode()); System.out.println();
-			 */
-
 			Dish dish = new Dish(row[0].replace('"', ' ').trim(), row[1]
 					.replace('"', ' ').trim(), row[2].replace('"', ' ').trim(),
 					row[3].replace('"', ' ').trim(), Integer.parseInt(row[5]
@@ -209,16 +201,11 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 					dishGroupDao.findByCode(row[4].replace('"', ' ').trim()),
 					false, false, false, 0, "", "");
 			createDish(dish);
-
-			/*
-			 * PRINT File line System.out.print(j + ":"); for (int i = 0; i <
-			 * row.length; i++) { System.out.print(row[i].trim() + " "); }
-			 * System.out.println(); j++;
-			 */
 		}
 
 	}
 
+	// CLIENT
 	public List<ClientHeader> findAllClient() {
 		return clientDao.findAll();
 	}
@@ -278,7 +265,8 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 		client.setSendEmail(sendEmail);
 		client.setClientEmail(clientEmail);
 		client.setSendSMS(sendSMS);
-		return null;
+		
+		return client;
 	}
 
 	public void importClientFile(String path) throws IOException,
@@ -289,52 +277,10 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 		BufferedReader bufRead = new BufferedReader(input);
 		String myLine = null;
 		int j = 1;
+		ArrayList<Long> ids =new ArrayList<Long>();
 		while ((myLine = bufRead.readLine()) != null) {
 			String[] row = myLine.split(";");
 
-			// /PRINT Edited lines
-			System.out.print("code " + row[0].replace('"', ' ').trim());
-			System.out.print(" name " + row[1].replace('"', ' ').trim());
-			System.out.print("address " + row[2].replace('"', ' ').trim());
-			System.out.print("zip code " + row[3].replace('"', ' ').trim());
-			System.out.print("down " + row[4].replace('"', ' ').trim());
-			System.out.print("province " + row[5].replace('"', ' ').trim());
-			System.out.print("cif dni " + row[6].replace('"', ' ').trim());
-			System.out.print("tc " + row[7].replace('"', ' ').trim());
-			System.out.print("pc " + row[8].replace('"', ' ').trim());
-			System.out.print("note1 " + row[9].replace('"', ' ').trim());
-			System.out.print("note2 " + row[10].replace('"', ' ').trim());
-			System.out.print("note3 " + row[11].replace('"', ' ').trim());
-			System.out.print("Limit credit "
-					+ Double.parseDouble(row[12].replace('"', ' ')
-							.replace(',', '.').trim()));
-			System.out.print("Outstanding amount "
-					+ Double.parseDouble(row[13].replace('"', ' ')
-							.replace(',', '.').trim()));
-			System.out.print("Last date food "
-					+ stringToCalendar(row[14].replace('"', ' ').trim()));
-			System.out.print("Amunt spent "
-					+ Double.parseDouble(row[15].replace('"', ' ')
-							.replace(',', '.').trim()));
-			System.out.print("Dinners "
-					+ Double.parseDouble(row[16].replace('"', ' ')
-							.replace(',', '.').trim()));
-			System.out.print("Times to eat "
-					+ Double.parseDouble(row[17].replace('"', ' ')
-							.replace(',', '.').trim()));
-			System.out.print("obs1 " + row[18].replace('"', ' ').trim());
-			System.out.print("obs2 " + row[19].replace('"', ' ').trim());
-			System.out.print("obs3 " + row[20].replace('"', ' ').trim());
-			System.out.print("obs4 " + row[21].replace('"', ' ').trim());
-			System.out.print("ledger Account "
-					+ row[22].replace('"', ' ').trim());
-			System.out.println();
-
-			/*
-			 * String typeCode ChannelSegment channelSegment boolean sendEmail
-			 * String clientEmail boolean sendSMS /* PRINT File line
-			 */
-			System.out.print(j + ":");
 			for (int i = 0; i < row.length; i++) {
 				System.out.print(row[i].trim() + " ");
 			}
@@ -362,10 +308,65 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 					channelSegmentDao.findChannelSegmentByValue("DIR"), false,
 					"", false);
 			createClient(client);
+			ids.add(Long.parseLong(row[0].replace('"', ' ').trim()));
 
+		}
+		j=ids.size()-1;
+		for (int i=1;i<ids.size();i++){
+			clientDao.updateId(j, ids.get(j-1));
+			j--;
 		}
 	}
 
+// WAITER
+	public List<WaiterHeader> findAllWaiter() {
+		return waiterDao.findAll();
+	}
+
+	public Waiter createWaiter(Waiter waiter) {
+		waiterDao.save(waiter);
+		return waiter;
+	}
+
+	public void deleteWaiter(int waiterId) throws InstanceNotFoundException {
+		waiterDao.find(waiterId);
+		waiterDao.remove(waiterId);
+	}
+
+	public Waiter getWaiterByWaiterId(int waiterId)
+			throws InstanceNotFoundException {
+		return waiterDao.find(waiterId);
+	}
+
+	public Waiter editWaiter(int waiterId, String waiterName,
+			String waiterAddress, String waiterZip, String waiterTown,
+			String waiterProvince, String waiterDNI, String waiterPhone,
+			String waiterContact, String notes1, String notes2, String notes3,
+			String chargeType, boolean waiterEnable, Calendar enableTime,
+			Calendar disableTime) throws InstanceNotFoundException {
+
+		Waiter waiter = waiterDao.find(waiterId);
+		waiter.setWaiterName(waiterName);
+		waiter.setWaiterAddress(waiterAddress);
+		waiter.setWaiterZip(waiterZip);
+		waiter.setWaiterTown(waiterTown);
+		waiter.setWaiterProvince(waiterProvince);
+		waiter.setWaiterDNI(waiterDNI);
+		waiter.setWaiterPhone(waiterPhone);
+		waiter.setNotes1(notes1);
+		waiter.setNotes2(notes2);
+		waiter.setNotes3(notes3);
+		waiter.setChargeType(chargeType);
+		waiter.setWaiterEnable(waiterEnable);
+		waiter.setEnableTime(enableTime);
+		waiter.setDisableTime(disableTime);
+
+		return waiter;
+	}
+
+	
+	
+	
 	private Calendar stringToCalendar(String dateAsString)
 			throws ParseException {
 		Calendar dateAsCalendar = Calendar.getInstance();
@@ -377,9 +378,7 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 		return dateAsCalendar;
 	}
 
-	/**
-	 * It helps to generate pretty REST-like URLs.
-	 */
+
 	private DateFormat getDateFormatter() {
 		SimpleDateFormat dateFormat = (SimpleDateFormat) DateFormat
 				.getDateInstance();
@@ -395,13 +394,3 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 	}
 
 }
-
-// |0 code |1 name |2 address |3 zip code |4 down |5 province |6 cif dni |7 tc
-// |8 pc |9 note 1 |10 note 2 |11 note 3 |12 limit credit
-// |13 outstandingAmount |14 LastDateFood |15 AmountSpent |16 clientDiners|17
-// clientTimesToEat |18 obs1 |19 obs2|20 obs3
-// |21 obs4 |22 ledgerAccount |23 ledgerAccountType
-// 00008;IDESA PARFUM ;VIA AUGUSTA, 59 - 9§ ;08006;BARCELONA ;BARCELONA
-// ;A08144172 ;
-// 619005264 ;ANGELES MENENDEZ ; ; ; ;
-// 0,00; 9930,94;20070228; 10965,73; 123,00; 11,00; ; ; ; ;43010008;C;

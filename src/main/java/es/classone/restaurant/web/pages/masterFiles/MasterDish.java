@@ -1,14 +1,21 @@
 package es.classone.restaurant.web.pages.masterFiles;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.tapestry5.annotations.Component;
+import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.corelib.components.Form;
+import org.apache.tapestry5.corelib.components.Zone;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Request;
+import org.apache.tapestry5.services.ajax.AjaxResponseRenderer;
 import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
 import es.classone.restaurant.model.dish.Dish;
+import es.classone.restaurant.model.dish.DishHeader;
 import es.classone.restaurant.model.dishGroup.DishGroup;
 import es.classone.restaurant.model.masterFilesService.MasterFilesService;
 import es.classone.restaurant.modelutil.exceptions.InstanceNotFoundException;
@@ -18,15 +25,21 @@ import es.classone.restaurant.web.services.AuthenticationPolicyType;
 @AuthenticationPolicy(AuthenticationPolicyType.AUTHENTICATED_USERS)
 public class MasterDish {
 	
-	@Property
-	private String dishCode;
+//	@Component
+//	private Form tableForm;
+	
+
 
 	@Property
-	private List<Dish> dishs;
+	private List<DishHeader> dishlist;
 
 	@Property
 	private Dish dish;
-
+	@Property
+	private DishHeader dishHead;
+	@Property
+	private String dishCode;
+	
 	@Property
 	private String dishId;
 
@@ -84,18 +97,29 @@ public class MasterDish {
 	@Inject
 	private MasterFilesService masterFilesService;
 
+	@Property
+	private ArrayList<Integer> links;
+	@Property
+	private int link;
+	
+//	@InjectComponent
+//	private Zone zone;
+
+	@InjectComponent
+	private Zone tableZone;
+
+	@Inject
+	private AjaxResponseRenderer ajaxResponseRenderer;
+
 	@Inject
 	private JavaScriptSupport javaScriptSupport;
 
-	@Inject
-	private Request request;
 
 	void setupRender() {
-		dishs = masterFilesService.findAllDish();
-		int size = dishs.size();
+		dishlist = masterFilesService.findAllDish();
+		int size = dishlist.size();
 		
 		if (size == 0) {
-			dishCode = "00";
 			try {
 				 masterFilesService.importDishFile("/home/alexpenedo/Documentos/ClassOne/exports/RES91PLA.TXT");
 //				masterFilesService.importDishFile("C:/Users/VaninaBusto/Documents/RES91PLA.TXT");
@@ -103,74 +127,19 @@ public class MasterDish {
 				e.printStackTrace();
 			}
 		} else {
-			try {
-				dishCode = getNewCode(masterFilesService.getDishByDishId(size)
-						.getDishCode());
-			} catch (InstanceNotFoundException e1) {
-				e1.printStackTrace();
+			int lastId = dishlist.get(size - 1).getDishId();
+			System.out.println(lastId);
+			links = new ArrayList<>();
+			for (int i = 1; i < 2000; i++) {
+				links.add(lastId + i);
 			}
 		}
 
 	}
 
-	private String getNewCode(String currentCode) {
-		if (isNumeric(currentCode)) {
-			if (currentCode.equals("99")) {
-				return ("A0");
-			} else
-				return (String.valueOf(Integer.parseInt(currentCode) + 1));
-		} else {
-			String lastChar = currentCode.substring(1);
-			if (isNumeric(lastChar)) {
 
-				String firstChar = currentCode.substring(0, 1);
-				return firstChar
-						+ (String.valueOf(Integer.parseInt(lastChar) + 1));
 
-			} else
-				return ("ZZ");
-		}
-
-	}
-
-	private boolean isNumeric(String s) {
-		String pattern = "^[0-9]*$";
-		if (s.matches(pattern)) {
-			return true;
-		}
-		return false;
-	}
-
-	void onActivate() {
-		if (request.getParameter("id") != null) {
-			try {
-				dishId = request.getParameter("id");
-				dish = masterFilesService.getDishByDishId(Integer
-						.parseInt(request.getParameter("id")));
-				dishId = String.valueOf(dish.getDishId());
-
-			} catch (NumberFormatException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (InstanceNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-		} else {
-		}
-	}
-
-/*	void onValidateFromAddRowForm() {
-		masterFilesService.createDish(new Dish(dishCode, dishDescriptionLang1,
-				dishDescriptionLang2, dishDescriptionLang3, dishPrint,
-				dishListPrice, dishPVP, dishCostPrice, dishType, dishDiscount,
-				dishPending, dishGroup, dishTractable, dishOrderer,
-				dishVisible, dishNumbers, dishLongDesc, dishShortDesc));
-	}
-*/
 	void afterRender() {
-		System.out.println("after");
 	}
 
 }

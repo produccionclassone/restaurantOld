@@ -13,28 +13,34 @@ public class ClientDaoHibernate extends GenericDaoHibernate<Client, Long>
 		implements ClientDao {
 
 	public List<ClientHeader> findAll() {
-		ArrayList<ClientHeader> clients=new ArrayList<ClientHeader>();
-		Query result=(getSession()
-				.createQuery(
-						"SELECT c.clientId, c.clientName, c.clientZipCode, c.clientDNI, c.clientPhoneContact  FROM Client c")
-				);
+		ArrayList<ClientHeader> clients = new ArrayList<ClientHeader>();
+		Query result = (getSession()
+				.createQuery("SELECT c.clientId, c.clientName, c.clientZipCode, c.clientDNI, c.clientPhoneContact  FROM Client c"));
 		@SuppressWarnings("rawtypes")
-		List l=result.list();
-		System.out.println("SIZE_____"+ l.size());
-		for(int i=0;i<l.size();i++)  {
-			 Object o[] = (Object []) l.get(i);
-		   ClientHeader cp = new ClientHeader((Long)o[0], (String)o[1], (String)o[2],(String)o[3],(String)o[4]);
-		   clients.add(cp);
+		List l = result.list();
+		System.out.println("SIZE_____" + l.size());
+		for (int i = 0; i < l.size(); i++) {
+			Object o[] = (Object[]) l.get(i);
+			ClientHeader cp = new ClientHeader((Long) o[0], (String) o[1],
+					(String) o[2], (String) o[3], (String) o[4]);
+			clients.add(cp);
 		}
 		return clients;
 	}
-	
+
 	public Client findByCode(String clientCode) {
-		return (Client) (getSession()
+		return (Client) (getSession().createQuery(
+				"SELECT c FROM Client c WHERE c.clientCode = : clientCode")
+				.setParameter("clientCode", clientCode).uniqueResult());
+	}
+
+	public void updateId(long oldClientId, long newClientId) {
+		System.out.println(oldClientId +"--->"+ newClientId);
+		getSession()
 				.createQuery(
-						"SELECT c FROM Client c WHERE c.clientCode = : clientCode")
-				.setParameter("clientCode", clientCode)
-				.uniqueResult());
+						"UPDATE Client c SET c.clientId = :newClientId WHERE c.clientId = :oldClientId")
+				.setParameter("oldClientId", oldClientId)
+				.setParameter("newClientId", newClientId).executeUpdate();
 	}
 
 }

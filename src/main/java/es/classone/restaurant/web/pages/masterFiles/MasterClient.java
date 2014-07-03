@@ -31,6 +31,7 @@ import es.classone.restaurant.web.services.AuthenticationPolicyType;
 public class MasterClient {
 	@Component
 	private Form tableForm;
+	
 	@Property
 	private List<ClientHeader> clients;
 	@Property
@@ -230,6 +231,18 @@ public class MasterClient {
 		ajaxResponseRenderer.addRender(zone);
 	}
 
+void onInsert(){
+		//Valores por defecto
+		ajaxResponseRenderer.addRender(zone);
+		ajaxResponseRenderer.addCallback(new JavaScriptCallback() {
+			public void run(JavaScriptSupport javascriptSupport) {
+				javascriptSupport.addScript(String
+						.format(" $('#modal').modal('show'); "
+								+ "$('#modal').on('shown.bs.modal', function() {"
+								+ "			$('.focus').focus();});"));
+			}
+		});
+	}
 	void onDelete(Long row) {
 		try {
 			masterFilesService.deleteClient(row);

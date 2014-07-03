@@ -28,10 +28,11 @@ public class Waiter {
 	private String notes1;// R1CAM010_01
 	private String notes2;// R1CAM010_02
 	private String notes3;// R1CAM010_03
-	private char chargeType;// R1CAM011
+	private String chargeType;// R1CAM011 N/S/H 	N= Nomina S= Sesion  H= Horas
+
 	private boolean waiterEnable;// R1CAM013
 	private Calendar enableTime; // R1CAM014
-	private Calendar disableeTime; // R1CAM015
+	private Calendar disableTime; // R1CAM015
 
 	public Waiter() {
 
@@ -40,8 +41,8 @@ public class Waiter {
 	public Waiter(String waiterName, String waiterAddress, String waiterZip,
 			String waiterTown, String waiterProvince, String waiterDNI,
 			String waiterPhone, String waiterContact, String notes1,
-			String notes2, String notes3, char chargeType,
-			boolean waiterEnable, Calendar enableTime, Calendar disableeTime) {
+			String notes2, String notes3, String chargeType,
+			boolean waiterEnable, Calendar enableTime, Calendar disableTime) {
 		this.waiterName = waiterName;
 		this.waiterAddress = waiterAddress;
 		this.waiterZip = waiterZip;
@@ -56,7 +57,7 @@ public class Waiter {
 		this.chargeType = chargeType;
 		this.waiterEnable = waiterEnable;
 		this.enableTime = enableTime;
-		this.disableeTime = disableeTime;
+		this.disableTime = disableTime;
 	}
 
 	@Column(name = "R1CAM001")
@@ -174,11 +175,11 @@ public class Waiter {
 	}
 
 	@Column(name = "R1CAM011")
-	public char getChargeType() {
+	public String getChargeType() {
 		return chargeType;
 	}
 
-	public void setChargeType(char chargeType) {
+	public void setChargeType(String chargeType) {
 		this.chargeType = chargeType;
 	}
 
@@ -203,12 +204,12 @@ public class Waiter {
 
 	@Column(name = "R1CAM015")
 	@Temporal(TemporalType.TIMESTAMP)
-	public Calendar getDisableeTime() {
-		return disableeTime;
+	public Calendar getDisableTime() {
+		return disableTime;
 	}
 
-	public void setDisableeTime(Calendar disableeTime) {
-		this.disableeTime = disableeTime;
+	public void setDisableTime(Calendar disableeTime) {
+		this.disableTime = disableeTime;
 	}
 
 }

@@ -23,5 +23,6 @@ public interface ConfigurationService {
 	void setRoomDesc(int id, String roomDesc) throws InstanceNotFoundException;
 	void setRoomFirstTab(int id, int firstTab) throws InstanceNotFoundException;
 	void setRoomLastTab(int id, int lastTab) throws InstanceNotFoundException;
+	ConfigurationGeneric getConfigurationGNByName(String name) throws InstanceNotFoundException;
 
 }

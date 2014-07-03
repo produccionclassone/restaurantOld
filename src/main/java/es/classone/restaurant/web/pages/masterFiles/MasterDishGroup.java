@@ -18,6 +18,7 @@ import org.apache.tapestry5.services.ajax.AjaxResponseRenderer;
 import org.apache.tapestry5.services.ajax.JavaScriptCallback;
 import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
+import es.classone.restaurant.model.configurationservice.ConfigurationService;
 import es.classone.restaurant.model.dishGroup.DishGroup;
 import es.classone.restaurant.model.masterFilesService.MasterFilesService;
 import es.classone.restaurant.modelutil.exceptions.DuplicateInstanceException;
@@ -51,7 +52,7 @@ public class MasterDishGroup {
 	private int macroGroup;
 
 	@Property
-	private int dishGroupId=-1;
+	private int dishGroupId = -1;
 
 	@Property
 	private List<DishGroup> dishgroups;
@@ -61,6 +62,8 @@ public class MasterDishGroup {
 
 	@Inject
 	private MasterFilesService masterFilesService;
+	@Inject
+	private ConfigurationService configuration;
 
 	@Inject
 	private JavaScriptSupport javaScriptSupport;
@@ -90,7 +93,6 @@ public class MasterDishGroup {
 		dishgroups = masterFilesService.findAll();
 		int size = dishgroups.size();
 		if (size == 0) {
-			dishGroupCode = "00";
 			try {
 				masterFilesService
 						.importDishGroupFile("/home/alexpenedo/Documentos/ClassOne/exports/RES91GRP.TXT");
@@ -108,41 +110,63 @@ public class MasterDishGroup {
 
 	}
 
-//	private String getNewCode(String currentCode) {
-//		if (isNumeric(currentCode)) {
-//			if (currentCode.equals("99")) {
-//				return ("A0");
-//			} else
-//				return (String.valueOf(Integer.parseInt(currentCode) + 1));
-//		} else {
-//			String lastChar = currentCode.substring(1);
-//			if (isNumeric(lastChar)) {
-//
-//				String firstChar = currentCode.substring(0, 1);
-//				return firstChar
-//						+ (String.valueOf(Integer.parseInt(lastChar) + 1));
-//
-//			} else
-//				return ("ZZ");
-//		}
-//
-//	}
-//
-//	private boolean isNumeric(String s) {
-//		String pattern = "^[0-9]*$";
-//		if (s.matches(pattern)) {
-//			return true;
-//		}
-//		return false;
-//	}
+	// private String getNewCode(String currentCode) {
+	// if (isNumeric(currentCode)) {
+	// if (currentCode.equals("99")) {
+	// return ("A0");
+	// } else
+	// return (String.valueOf(Integer.parseInt(currentCode) + 1));
+	// } else {
+	// String lastChar = currentCode.substring(1);
+	// if (isNumeric(lastChar)) {
+	//
+	// String firstChar = currentCode.substring(0, 1);
+	// return firstChar
+	// + (String.valueOf(Integer.parseInt(lastChar) + 1));
+	//
+	// } else
+	// return ("ZZ");
+	// }
+	//
+	// }
+	//
+	// private boolean isNumeric(String s) {
+	// String pattern = "^[0-9]*$";
+	// if (s.matches(pattern)) {
+	// return true;
+	// }
+	// return false;
+	// }
+
+	// public String getCategories(){
+	// List<Category> categories = sellService.findCategories();
+	// String categoriesName = new String();
+	//
+	// for (Category category : categories) {
+	// categoriesName =
+	// categoriesName+category.getCategoryId()+"="+category.getName()+",";
+	// }
+	// return categoriesName;
+	// }
+	public String getIvaTypes() throws InstanceNotFoundException {
+		String ivatypes = "1=1 - "
+				+ (String.valueOf(configuration.getConfigurationGNByName(
+						"ivaType1").getValue()))
+				+ ",2=2 - "
+				+ (String.valueOf(configuration.getConfigurationGNByName(
+						"ivaType2").getValue()))
+						+ ",3=3 - "+ (String.valueOf(configuration.getConfigurationGNByName(
+								"ivaType3").getValue()));
+
+		return ivatypes;
+	}
 
 	void onValidateFromTableForm() throws InstanceNotFoundException,
 			NumberFormatException, DuplicateInstanceException {
 
 		if (dishGroupId == -1) {
 			DishGroup dishgroup = new DishGroup(dishGroupCode, dishGroupDesc,
-					ivaType, salesLedgerAccount, typeIncome,
-					macroGroup);
+					ivaType, salesLedgerAccount, typeIncome, macroGroup);
 			dishGroupId = masterFilesService.createDishGroup(dishgroup)
 					.getDishGroupId();
 			ajaxResponseRenderer.addCallback(new JavaScriptCallback() {
@@ -160,23 +184,23 @@ public class MasterDishGroup {
 				}
 			});
 		} else {
-			masterFilesService.editDishGroup(dishGroupId,
-					dishGroupCode, dishGroupDesc, ivaType,
-					macroGroup, salesLedgerAccount,
+			masterFilesService.editDishGroup(dishGroupId, dishGroupCode,
+					dishGroupDesc, ivaType, macroGroup, salesLedgerAccount,
 					typeIncome);
-			
+
 		}
 	}
+
 	void onEdit(int id) throws InstanceNotFoundException {
 		dishGroup = masterFilesService.getDishGroupByDishGroupId(id);
-		dishGroupId=dishGroup.getDishGroupId();
-		dishGroupCode=dishGroup.getDishGroupCode();
+		dishGroupId = dishGroup.getDishGroupId();
+		dishGroupCode = dishGroup.getDishGroupCode();
 		System.out.println(dishGroupCode);
-		dishGroupDesc=dishGroup.getDishGroupDescription();
-		ivaType=dishGroup.getivaType();
-		salesLedgerAccount=dishGroup.getsalesLedgerAccount();
-		macroGroup=dishGroup.getmacroGroup();
-		typeIncome=dishGroup.gettypeIncome();
+		dishGroupDesc = dishGroup.getDishGroupDescription();
+		ivaType = dishGroup.getivaType();
+		salesLedgerAccount = dishGroup.getsalesLedgerAccount();
+		macroGroup = dishGroup.getmacroGroup();
+		typeIncome = dishGroup.gettypeIncome();
 		ajaxResponseRenderer.addCallback(new JavaScriptCallback() {
 			public void run(JavaScriptSupport javascriptSupport) {
 				javascriptSupport.addScript(String
@@ -195,16 +219,16 @@ public class MasterDishGroup {
 			System.out.println("error al eliminar");
 		}
 	}
-	
-	//Valores por defecto en el formulario de inserción
-	void onInsert(){
-		
-		dishGroupId=-1;
-		dishGroupDesc="";
-		ivaType=1;
-		salesLedgerAccount="70000000";
-		macroGroup=1;
-		typeIncome="";
+
+	// Valores por defecto en el formulario de inserción
+	void onInsert() {
+
+		dishGroupId = -1;
+		dishGroupDesc = "";
+		ivaType = 1;
+		salesLedgerAccount = "70000000";
+		macroGroup = 1;
+		typeIncome = "";
 		ajaxResponseRenderer.addRender(zone);
 		ajaxResponseRenderer.addCallback(new JavaScriptCallback() {
 			public void run(JavaScriptSupport javascriptSupport) {
@@ -215,6 +239,7 @@ public class MasterDishGroup {
 			}
 		});
 	}
+
 	void onSuccess() {
 		ajaxResponseRenderer.addCallback(new JavaScriptCallback() {
 			public void run(JavaScriptSupport javascriptSupport) {
