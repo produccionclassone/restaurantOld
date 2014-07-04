@@ -1583,26 +1583,40 @@ public class Configuration {
 				.setParameterGeneric("doubleBoldOff", doubleBoldOff);
 		return request.isXHR() ? msgZone6.getBody() : null;
 	}
+	
+	//--------------------Privileges------------------------------------------
 
+
+	@Property
+	private String level3;
+
+	Object onLevel3Changed() throws InstanceNotFoundException {
+		level3 = request.getParameter("param");
+		System.out.println(level3);
+		return request.isXHR() ? msgZonePriv.getBody() : null;
+	}
+
+	@InjectComponent
+	private Zone msgZonePriv;
+		
 	void afterRender() throws InstanceNotFoundException {
 		cgList = configurationService.getParametersGeneric();
 		cbList = configurationService.getParametersBool();
 		crList = configurationService.getParametersRoom();
 		cpList = configurationService.getPrivileges();
-
+		
 		JSONObject parameters = new JSONObject();
 		JSONArray parametersGeneric = new JSONArray();
 		JSONArray parametersBool = new JSONArray();
 		JSONArray parametersRoom = new JSONArray();
 		JSONArray parametersPrivilege = new JSONArray();
-
+		
 		for (ConfigurationGeneric cg : cgList) {
 				JSONObject parameterGeneric = new JSONObject();
 				parameterGeneric.put("id", cg.getConfGenericId());
 				parameterGeneric.put("name", cg.getName());
 				parameterGeneric.put("value", cg.getValue());
 				parametersGeneric.put(parameterGeneric);
-				
 		}
 		
 		for (ConfigurationBool cb : cbList) {
@@ -1627,7 +1641,8 @@ public class Configuration {
 			parameterPrivilege.put("id", cp.getConfPrivilegeId());
 			parameterPrivilege.put("name", cp.getName());
 			parameterPrivilege.put("value", cp.getPrivilegeValue());
-		}
+			parametersPrivilege.put(parameterPrivilege);
+	}
 
 		parameters.put("parametersGeneric", parametersGeneric);
 		parameters.put("parametersBool", parametersBool);
@@ -1654,5 +1669,4 @@ public class Configuration {
 			dayMenuLevelOptions = ALL_LEVEL_OPTION;
 	    }
 	}	
-		
 }

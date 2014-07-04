@@ -10,6 +10,22 @@ function saveBool(parameter){
 	$.post( "/restaurant/configuration/configuration."+parameter.id+":"+parameter.id+"changed",{param : parameter.checked});
 }
 
+function saveLevel(parameter){
+	var chars = "123456789ABCDEFGHI";
+	var privileges='';
+	for (var i = 0; i < 18; i++) {
+		for	(var j = 0; j < 18; j++){
+			var check = "#cbox" + chars[i] + chars[j];
+				if ($(check).val()== 'on') 
+					privileges += 'S';
+				else
+					privileges += 'N';
+			}
+		}
+	console.log(privileges);
+	$.post( "/restaurant/configuration/configuration."+parameter.id+":"+parameter.id+"changed",{param : privileges});
+}
+
 var validateSave = function(){
 	$(".numericParam").focusout(function() {
 		console.log();
@@ -62,6 +78,11 @@ var validateSave = function(){
 	$(".boolParam").click(function() {
 		saveBool(this);
 	});
+	
+	$(".privParam").click(function() {
+		saveLevel(this);
+	});
+	
 		
 	$(".floatParam").focusout(function() {
 		console.log();
@@ -295,23 +316,21 @@ var showParameters = function(parameters) {
 		$("#firstTab"+parametersRoom[i].id).attr('value',parametersRoom[i].firstTab);
 		$("#lastTab"+parametersRoom[i].id).attr('value',parametersRoom[i].lastTab);
 	}
-}
-
-var showPrivileges = function(parameters) {
-	var parametersPrivileges=parameters.parametersPrivileges;
-	var levelSelected;
-    var privilegesSelected;
 	
-	for (var i=0;i<parametersBool.length;i++){
-		$("#"+parametersBool[i].name).attr('checked',parametersBool[i].value);
+	var parametersPrivileges=parameters.parametersPrivilege;
+	
+	for (var i=0;i<parametersPrivileges.length;i++){
+		$("#"+parametersPrivileges[i].name).attr('checked',parametersPrivileges[i].value);
 	}
 	
 	$(".radiomap").click(function(){
+		var levelSelected;
+    	var privilegesSelected;
 		var id = $(this).attr("id");
         if($("input:radio[id="+id+"]:checked").length != 0) {
 			levelSelected = id;
 		}
-		
+		console.log(levelSelected);
 		for (var i = 0; i < 6;i++) {
 			if (levelSelected ==parametersPrivileges[i].name){
 				privilegesSelected = parametersPrivileges[i].value;
@@ -325,15 +344,17 @@ var showPrivileges = function(parameters) {
 			for	(var j = 0; j < 18; j++){
 				var check = "#cbox" + chars[i] + chars[j];
 				$(check).attr('checked',false);
+				$(check).val("off");
 				if(privilegesSelected[k]=='S'){
 					$(check).attr('checked',true);
+					$(check).val("on");
+					
 				}
-				console.log($(check).attr('checked'));
 				k++;
 			}
 		}           	
 	});	
-}
+};
 
 (function($, window) {
 	'use strict';
@@ -343,7 +364,6 @@ var showPrivileges = function(parameters) {
 					{
 						loadParameters : function(parameters) {
 							showParameters(parameters);
-							showPrivileges(parameters);
 							validateSave();
 							$('body').on('keydown', 'input, select, textarea', function(e) {
 								var self = $(this)
