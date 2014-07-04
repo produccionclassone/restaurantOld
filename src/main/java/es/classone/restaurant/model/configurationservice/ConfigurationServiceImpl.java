@@ -32,10 +32,10 @@ public class ConfigurationServiceImpl implements ConfigurationService {
 	@Autowired
 	private ConfigurationRoomDao configurationRoomDao;
 
-	public void setPrvilegeConfiguration(String privileges, int privilegeId)
+	public void setPrivilegeConfiguration(String name, String privileges)
 			throws InstanceNotFoundException {
 		ConfigurationPrivilege configurationPrivilege = configurationPrivilegeDao
-				.find(privilegeId);
+				.findByName(name);
 		configurationPrivilege.setPrivilegeValue(privileges);
 		configurationPrivilegeDao.save(configurationPrivilege);
 	}

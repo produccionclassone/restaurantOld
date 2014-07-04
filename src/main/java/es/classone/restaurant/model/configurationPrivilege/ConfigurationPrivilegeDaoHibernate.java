@@ -17,4 +17,9 @@ public class ConfigurationPrivilegeDaoHibernate extends
 				"SELECT cp FROM ConfigurationPrivilege cp ").list());
 	}
 
+	public ConfigurationPrivilege findByName(String name){
+		return (ConfigurationPrivilege) (getSession().createQuery(
+				"SELECT cp FROM ConfigurationPrivilege cp WHERE "
+						+ "cp.name = :name").setParameter("name", name).uniqueResult());
+	}
 }

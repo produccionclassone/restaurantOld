@@ -10,13 +10,13 @@ function saveBool(parameter){
 	$.post( "/restaurant/configuration/configuration."+parameter.id+":"+parameter.id+"changed",{param : parameter.checked});
 }
 
-function saveLevel(parameter){
+/*function saveLevel(parameter){
 	var chars = "123456789ABCDEFGHI";
 	var privileges='';
 	for (var i = 0; i < 18; i++) {
 		for	(var j = 0; j < 18; j++){
 			var check = "#cbox" + chars[i] + chars[j];
-				if ($(check).val()== 'on') 
+				if (check.checked == 'true') 
 					privileges += 'S';
 				else
 					privileges += 'N';
@@ -25,6 +25,7 @@ function saveLevel(parameter){
 	console.log(privileges);
 	$.post( "/restaurant/configuration/configuration."+parameter.id+":"+parameter.id+"changed",{param : privileges});
 }
+*/
 
 var validateSave = function(){
 	$(".numericParam").focusout(function() {
@@ -78,12 +79,7 @@ var validateSave = function(){
 	$(".boolParam").click(function() {
 		saveBool(this);
 	});
-	
-	$(".privParam").click(function() {
-		saveLevel(this);
-	});
-	
-		
+			
 	$(".floatParam").focusout(function() {
 		console.log();
 	var floatRegex = /^(\d{1,9}(,|.)\d{1,2}|\d{1,9})$/;
@@ -267,8 +263,6 @@ var validateSave = function(){
 		 $(".alert-dirIp").show();
 		}
 	});
-	
-	
 }
 
 var checkDate = function(dateAsString){
@@ -342,13 +336,8 @@ var showParameters = function(parameters) {
 		var k=0;
 		for (var i = 0; i < 18; i++) {
 			for	(var j = 0; j < 18; j++){
-				var check = "#cbox" + chars[i] + chars[j];
-				$(check).attr('checked',false);
-				$(check).val("off");
 				if(privilegesSelected[k]=='S'){
-					$(check).attr('checked',true);
-					$(check).val("on");
-					
+					$("#cbox" + chars[i] + chars[j]).attr('checked','true');
 				}
 				k++;
 			}

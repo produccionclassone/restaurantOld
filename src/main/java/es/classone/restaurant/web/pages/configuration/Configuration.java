@@ -1586,16 +1586,6 @@ public class Configuration {
 	
 	//--------------------Privileges------------------------------------------
 
-
-	@Property
-	private String level3;
-
-	Object onLevel3Changed() throws InstanceNotFoundException {
-		level3 = request.getParameter("param");
-		System.out.println(level3);
-		return request.isXHR() ? msgZonePriv.getBody() : null;
-	}
-
 	@InjectComponent
 	private Zone msgZonePriv;
 		

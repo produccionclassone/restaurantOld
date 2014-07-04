@@ -11,9 +11,6 @@ import es.classone.restaurant.modelutil.exceptions.InstanceNotFoundException;
 
 public interface ConfigurationService {
 
-	public void setPrvilegeConfiguration(String privileges, int privilegeId)
-			throws InstanceNotFoundException;
-
 	List<ConfigurationGeneric> getParametersGeneric() throws InstanceNotFoundException;
 	List<ConfigurationBool> getParametersBool() throws InstanceNotFoundException;
 	List<ConfigurationRoom> getParametersRoom() throws InstanceNotFoundException;
@@ -24,5 +21,7 @@ public interface ConfigurationService {
 	void setRoomFirstTab(int id, int firstTab) throws InstanceNotFoundException;
 	void setRoomLastTab(int id, int lastTab) throws InstanceNotFoundException;
 	ConfigurationGeneric getConfigurationGNByName(String name) throws InstanceNotFoundException;
+	void setPrivilegeConfiguration(String name, String privileges)
+			throws InstanceNotFoundException; 
 
 }
