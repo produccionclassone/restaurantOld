@@ -1,31 +1,35 @@
 function save(parameter){
-	console.log(parameter.name);
-	console.log(parameter.id);
 	$.post( "/restaurant/configuration/configuration."+parameter.id+":"+parameter.id+"changed",{param : parameter.value});
 }
 
 function saveBool(parameter){
-	console.log(parameter.checked);
-	console.log(parameter.id);
 	$.post( "/restaurant/configuration/configuration."+parameter.id+":"+parameter.id+"changed",{param : parameter.checked});
 }
 
-/*function saveLevel(parameter){
+function savePriv(parameter){
 	var chars = "123456789ABCDEFGHI";
 	var privileges='';
 	for (var i = 0; i < 18; i++) {
 		for	(var j = 0; j < 18; j++){
 			var check = "#cbox" + chars[i] + chars[j];
-				if (check.checked == 'true') 
-					privileges += 'S';
-				else
-					privileges += 'N';
-			}
+			if ($(check).is(':checked')== true)
+  				privileges = privileges + "S";
+    		else
+				privileges = privileges + "N";
 		}
-	console.log(privileges);
-	$.post( "/restaurant/configuration/configuration."+parameter.id+":"+parameter.id+"changed",{param : privileges});
+	}
+	var levelSelected = '';
+	$('.radiomap').each(function(){
+   		var id = $(this).attr("id");
+       	if($("input:radio[id="+id+"]:checked").length != 0) {
+			levelSelected = id;
+		}
+   	});
+	
+	parameter.value = levelSelected  + ":" + privileges;		
+	$.post( "/restaurant/configuration/configuration."+parameter.id+":"+parameter.id+"changed",{param : parameter.value});
 }
-*/
+
 
 var validateSave = function(){
 	$(".numericParam").focusout(function() {
@@ -80,6 +84,10 @@ var validateSave = function(){
 		saveBool(this);
 	});
 			
+	$(".privParam").click(function() {
+		savePriv(this);
+	});
+	
 	$(".floatParam").focusout(function() {
 		console.log();
 	var floatRegex = /^(\d{1,9}(,|.)\d{1,2}|\d{1,9})$/;
@@ -290,12 +298,11 @@ var checkDate = function(dateAsString){
 		
 }
 
-
 var showParameters = function(parameters) {
 	var parametersGeneric=parameters.parametersGeneric;
 	var parametersBool=parameters.parametersBool;
 	var parametersRoom=parameters.parametersRoom;
-	
+
 	for (var i=0;i<parametersBool.length;i++){
 		$("#"+parametersBool[i].name).attr('checked',parametersBool[i].value);
 	}
@@ -310,39 +317,6 @@ var showParameters = function(parameters) {
 		$("#firstTab"+parametersRoom[i].id).attr('value',parametersRoom[i].firstTab);
 		$("#lastTab"+parametersRoom[i].id).attr('value',parametersRoom[i].lastTab);
 	}
-	
-	var parametersPrivileges=parameters.parametersPrivilege;
-	
-	for (var i=0;i<parametersPrivileges.length;i++){
-		$("#"+parametersPrivileges[i].name).attr('checked',parametersPrivileges[i].value);
-	}
-	
-	$(".radiomap").click(function(){
-		var levelSelected;
-    	var privilegesSelected;
-		var id = $(this).attr("id");
-        if($("input:radio[id="+id+"]:checked").length != 0) {
-			levelSelected = id;
-		}
-		console.log(levelSelected);
-		for (var i = 0; i < 6;i++) {
-			if (levelSelected ==parametersPrivileges[i].name){
-				privilegesSelected = parametersPrivileges[i].value;
-			}
-		}
-		console.log(levelSelected);
-		console.log(privilegesSelected);
-		var chars = "123456789ABCDEFGHI";
-		var k=0;
-		for (var i = 0; i < 18; i++) {
-			for	(var j = 0; j < 18; j++){
-				if(privilegesSelected[k]=='S'){
-					$("#cbox" + chars[i] + chars[j]).attr('checked','true');
-				}
-				k++;
-			}
-		}           	
-	});	
 };
 
 (function($, window) {
@@ -352,7 +326,30 @@ var showParameters = function(parameters) {
 					Tapestry.Initializer,
 					{
 						loadParameters : function(parameters) {
+							
 							showParameters(parameters);
+							$(".radiomap").change(function(){
+								var id = $(this).attr("id");
+       	 						var levelSelected;
+       	 						var privilegesSelected='';
+       	 						if($("input:radio[id="+id+"]:checked").length != 0) {
+									levelSelected = id;
+								}
+																
+								for (var i = 0; i < parameters.parametersPrivilege.length;i++) {
+									if(levelSelected == parameters.parametersPrivilege[i].name){
+										privilegesSelected = parameters.parametersPrivilege[i].value;
+									}	
+								}
+								var i=0;
+								$('.cbox').each(function(){
+   									if (privilegesSelected[i] == "S")
+   										$(this).attr('checked',true);
+   									else
+   										$(this).attr('checked',false);
+									i=i+1;
+								});
+							});
 							validateSave();
 							$('body').on('keydown', 'input, select, textarea', function(e) {
 								var self = $(this)
@@ -401,4 +398,3 @@ var showParameters = function(parameters) {
 						}
 					})
 })(jQuery, window);
-

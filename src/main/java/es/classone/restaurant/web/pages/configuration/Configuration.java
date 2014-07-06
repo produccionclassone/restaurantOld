@@ -1587,8 +1587,18 @@ public class Configuration {
 	//--------------------Privileges------------------------------------------
 
 	@InjectComponent
-	private Zone msgZonePriv;
-		
+	private Zone msgZonePriv;	
+	
+	@Property
+	private String prueba;
+	
+	Object onPruebaChanged() throws InstanceNotFoundException {
+		prueba = request.getParameter("param");
+		String aux [] = prueba.split(":");
+		configurationService.setPrivilegeConfiguration(aux[0],aux[1]);
+		return request.isXHR() ? msgZonePriv.getBody() : null;
+	}
+
 	void afterRender() throws InstanceNotFoundException {
 		cgList = configurationService.getParametersGeneric();
 		cbList = configurationService.getParametersBool();
