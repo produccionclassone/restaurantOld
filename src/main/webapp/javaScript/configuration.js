@@ -1,12 +1,12 @@
 function save(parameter){
-	$.post( "/restaurant/configuration/configuration."+parameter.id+":"+parameter.id+"changed",{param : parameter.value});
+	$.post( "/restaurant/configuration/configuration.levelchanged",{param : parameter.value});
 }
 
 function saveBool(parameter){
-	$.post( "/restaurant/configuration/configuration."+parameter.id+":"+parameter.id+"changed",{param : parameter.checked});
+	$.post( "/restaurant/configuration/configuration.checkchanged",{param : parameter.checked});
 }
 
-function savePriv(parameter){
+function saveCheckBox(){
 	var chars = "123456789ABCDEFGHI";
 	var privileges='';
 	for (var i = 0; i < 18; i++) {
@@ -26,10 +26,34 @@ function savePriv(parameter){
 		}
    	});
 	
-	parameter.value = levelSelected  + ":" + privileges;		
-	$.post( "/restaurant/configuration/configuration."+parameter.id+":"+parameter.id+"changed",{param : parameter.value});
+	var param = levelSelected  + ":" + privileges;		
+	$.post( "/restaurant/configuration/configuration:checkchanged/"+param);
 }
 
+function savePrivilege(){
+	var chars = "123456789ABCDEFGHI";
+	var privileges='';
+	for (var i = 0; i < 18; i++) {
+		for	(var j = 0; j < 18; j++){
+			var check = "#cbox" + chars[i] + chars[j];
+			if ($(check).is(':checked')== true)
+  				privileges = privileges + "S";
+    		else
+				privileges = privileges + "N";
+		}
+	}
+	var levelSelected = '';
+	$('.radiomap').each(function(){
+   		var id = $(this).attr("id");
+       	if($("input:radio[id="+id+"]:checked").length != 0) {
+			levelSelected = id;
+		}
+   	});
+	
+	var parameterValue = levelSelected  + ":" + privileges;
+	console.log(parameterValue);	
+	$.post( "/restaurant/configuration/configuration.levelchanged",{param : parameterValue});
+}
 
 var validateSave = function(){
 	$(".numericParam").focusout(function() {
@@ -85,7 +109,7 @@ var validateSave = function(){
 	});
 			
 	$(".privParam").click(function() {
-		savePriv(this);
+		saveCheckBox(this);
 	});
 	
 	$(".floatParam").focusout(function() {
@@ -326,9 +350,8 @@ var showParameters = function(parameters) {
 					Tapestry.Initializer,
 					{
 						loadParameters : function(parameters) {
-							
 							showParameters(parameters);
-							$(".radiomap").change(function(){
+							$('.radiomap').change(function(){
 								var id = $(this).attr("id");
        	 						var levelSelected;
        	 						var privilegesSelected='';
@@ -350,6 +373,8 @@ var showParameters = function(parameters) {
 									i=i+1;
 								});
 							});
+							
+							
 							validateSave();
 							$('body').on('keydown', 'input, select, textarea', function(e) {
 								var self = $(this)

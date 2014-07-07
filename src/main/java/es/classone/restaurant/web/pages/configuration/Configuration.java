@@ -16,6 +16,7 @@ import org.apache.tapestry5.json.JSONArray;
 import org.apache.tapestry5.json.JSONObject;
 import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.javascript.JavaScriptSupport;
+import org.got5.tapestry5.jquery.mixins.Button;
 
 import es.classone.restaurant.model.configurationBool.ConfigurationBool;
 import es.classone.restaurant.model.configurationGeneric.ConfigurationGeneric;
@@ -1586,19 +1587,23 @@ public class Configuration {
 	
 	//--------------------Privileges------------------------------------------
 
+	
 	@InjectComponent
 	private Zone msgZonePriv;	
 	
-	@Property
-	private String prueba;
-	
-	Object onPruebaChanged() throws InstanceNotFoundException {
-		prueba = request.getParameter("param");
-		String aux [] = prueba.split(":");
+	Object onLevelChanged() throws InstanceNotFoundException {
+		String aux [] = request.getParameter("param").split(":");
 		configurationService.setPrivilegeConfiguration(aux[0],aux[1]);
 		return request.isXHR() ? msgZonePriv.getBody() : null;
 	}
 
+	Object onCheckChanged(String param) throws InstanceNotFoundException {
+		String aux [] = param.split(":");
+		System.out.println(aux[1]);
+		configurationService.setPrivilegeConfiguration(aux[0],aux[1]);
+		return request.isXHR() ? msgZonePriv.getBody() : null;
+	}
+	
 	void afterRender() throws InstanceNotFoundException {
 		cgList = configurationService.getParametersGeneric();
 		cbList = configurationService.getParametersBool();

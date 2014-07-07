@@ -623,35 +623,47 @@ HTML > BODY .jumbotron {
 	background-color:#ccc;
 }
 
+
 HTML > BODY input.panelcheck {
-	margin-right:6px;
+	margin-left:3px;
+	margin-top:0px;
+	margin-right:3px;
+	width: 16px;
 }
+
 
 input.panelchecksep {
-	margin-right:16px;
+	margin-left:10px;
+	margin-top:0px;
+	margin-right:10px;
+
 }
 
-span.scheme {
+label.scheme {
 	font-weight:bold;
-	margin-right:9.5px;
-	padding-left:2px;
+	margin-left:3px;
+	margin-top:0px;
+	margin-right:3px;
+	width:16px;
+	text-align:center;
 }
 
-span.schemesep {
-	margin-right:17.5px;
+label.schemesep {
+	margin-left:10px;
+	margin-top:0px;
+	margin-right:10px;
 	font-weight:bold;
-	padding-left:3px;
 }
-
+	
 input.radiomap{
 	margin-right:10px;
 }
 
 div.radiogroup {
 	margin-left:10px;
-	border: 1px solid #eee;
+/*	border: 1px solid #eee;
 	background-color: #F8F8FF;
-	border-radius:5px; 
+	border-radius:5px; */
 }
 
 form.formchecks {
