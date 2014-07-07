@@ -117,7 +117,7 @@ public class MasterClient {
 
 	void setupRender() throws NumberFormatException, ParseException,
 			InstanceNotFoundException {
-
+		long lastId=0;
 		clients = masterFilesService.findAllClient();
 		int size = clients.size();
 
@@ -130,12 +130,12 @@ public class MasterClient {
 				e.printStackTrace();
 			}
 		} else {
-			long lastId = clients.get(size - 1).getClientId();
-			System.out.println(lastId);
-			links = new ArrayList<>();
-			for (int i = 1; i < 2000; i++) {
-				links.add(lastId + i);
-			}
+			lastId = clients.get(size - 1).getClientId();
+			
+		}
+		links = new ArrayList<>();
+		for (int i = 1; i < 2000; i++) {
+			links.add(lastId + i);
 		}
 
 	}

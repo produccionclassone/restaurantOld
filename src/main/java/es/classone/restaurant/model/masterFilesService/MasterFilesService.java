@@ -8,9 +8,12 @@ import java.util.List;
 import es.classone.restaurant.model.channelSegment.ChannelSegment;
 import es.classone.restaurant.model.client.Client;
 import es.classone.restaurant.model.client.ClientHeader;
+import es.classone.restaurant.model.currency.Currency;
 import es.classone.restaurant.model.dish.Dish;
 import es.classone.restaurant.model.dish.DishHeader;
 import es.classone.restaurant.model.dishGroup.DishGroup;
+import es.classone.restaurant.model.methodOfPayment.MethodOfPayment;
+import es.classone.restaurant.model.qualifier.Qualifier;
 import es.classone.restaurant.model.waiter.Waiter;
 import es.classone.restaurant.model.waiter.WaiterHeader;
 import es.classone.restaurant.modelutil.exceptions.DuplicateInstanceException;
@@ -92,6 +95,40 @@ public interface MasterFilesService {
 			String chargeType, boolean waiterEnable, Calendar enableTime,
 			Calendar disableTime) throws InstanceNotFoundException;
 	
+	public List<Qualifier> findAllQualifier();
+	
+	public Qualifier  createQualifier(Qualifier qualifier);
+
+	public void deleteQualifier(int qualifierId) throws InstanceNotFoundException;
+
+	public Qualifier getQualifierByQualifierId(int qualifierId) throws InstanceNotFoundException;
+
+	public Qualifier editQualifier(int qualifierId, String qualifierNameLang1,
+			String qualifierNameLang2, String qualifierNameLang3) throws InstanceNotFoundException;
+	
+	public List<Currency> findAllCurrency();
+	
+	public Currency  createCurrency(Currency currency);
+
+	public void deleteCurrency(int currencyId) throws InstanceNotFoundException;
+
+	public Currency getCurrencyByCurrencyId(int currencyId) throws InstanceNotFoundException;
+
+	public Currency editCurrency(int currencyId, String currencyCode, String currencyName,
+			int currencyChange, float currencyQuote, float commisionPercent) throws InstanceNotFoundException;
+	
+	public List<MethodOfPayment> findAllMethodOfPayment();
+	
+	public MethodOfPayment  createMethodOfPayment(MethodOfPayment methodOfPayment);
+
+	public void deleteMethodPayment(int methodPaymentId) throws InstanceNotFoundException;
+
+	public MethodOfPayment getMethodPaymentByMethodPaymentId(int methodPaymentId) throws InstanceNotFoundException;
+
+	public MethodOfPayment editMethodOfPayment(int methodPayId, String methodPayName, String ledgerAccount,
+			int chargeType, float percentage, String ledgerAccountTC,
+			String ledgerAccountDtoTC, String virtualTpv) throws InstanceNotFoundException;
+		
 	public List<ChannelSegment> getChannelsSegments();
 	
 	

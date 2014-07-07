@@ -1,6 +1,5 @@
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
 	t:type="LayoutLogin" t:pageTitle="title">
-	
 
 	<div class="container-fluid">
 		<div class="row">
@@ -25,7 +24,7 @@
 					</div>
 					<div class="form-group">
 						<input type="submit" class="btn btn-primary btn-block"
-							value="${message:submit}" />
+							value="${message:submit}" id="login-btn"/>
 					</div>
 				
 					

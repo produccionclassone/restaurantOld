@@ -23,8 +23,8 @@ public class SessionHistory {
 	private boolean modified;// R1SES008
 	private Calendar sessionOpenDate;// R1SES009
 	private Calendar sessionCloseDate;// R1SES010
-	private Long totalTables;// R1SES011
-	private Long totalCutlery;// R1SES012
+	private int totalTables;// R1SES011
+	private int totalCutlery;// R1SES012
 	private float grossAmmount2;// R1SES013
 	private float grossAmount1;// R1SES014
 	private float ivaAmmount;// R1SES015
@@ -37,7 +37,7 @@ public class SessionHistory {
 	public SessionHistory(Calendar sessionDate, char sessionType,
 			int sessionNumber, boolean counted, boolean modified,
 			Calendar sessionOpenDate, Calendar sessionCloseDate,
-			Long totalTables, Long totalCutlery, float grossAmmount2,
+			int totalTables, int totalCutlery, float grossAmmount2,
 			float grossAmount1, float ivaAmmount, float iniCashBalance,
 			float finCashBalance) {
 		this.sessionDate = sessionDate;
@@ -139,20 +139,20 @@ public class SessionHistory {
 	}
 
 	@Column(name = "R1SES011")
-	public Long getTotalTables() {
+	public int getTotalTables() {
 		return totalTables;
 	}
 
-	public void setTotalTables(Long totalTables) {
+	public void setTotalTables(int totalTables) {
 		this.totalTables = totalTables;
 	}
 
 	@Column(name = "R1SES012")
-	public Long getTotalCutlery() {
+	public int getTotalCutlery() {
 		return totalCutlery;
 	}
 
-	public void setTotalCutlery(Long totalCutlery) {
+	public void setTotalCutlery(int totalCutlery) {
 		this.totalCutlery = totalCutlery;
 	}
 

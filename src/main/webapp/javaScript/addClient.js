@@ -5,8 +5,13 @@
 				clientDNI, clientPhoneContact ]);
 		nTr = table.fnSettings().aoData[a[0]].nTr; //añadir la nueva fila
 		nTr.id = clientId;
+		if($(".textZoom").length==0){
+			$(nTr).attr("style","text-align:left; font-size:12px;");
+		}
+		else{
+		$(nTr).attr("style", $(".textZoom")[].style.cssText);
+		}
 		$(nTr).addClass("textZoom");
-		$(nTr).attr("style", $(".textZoom")[1].style.cssText); //pasar la fuente indirectamente
 	};
 	$.extend(Tapestry.Initializer, {
 		addClient : function(client) {

@@ -1,6 +1,5 @@
 package es.classone.restaurant.web.pages.masterFiles;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,69 +9,52 @@ import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.corelib.components.Zone;
-import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.json.JSONObject;
-import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.ajax.AjaxResponseRenderer;
 import org.apache.tapestry5.services.ajax.JavaScriptCallback;
 import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
-import es.classone.restaurant.model.configurationservice.ConfigurationService;
-import es.classone.restaurant.model.dishGroup.DishGroup;
 import es.classone.restaurant.model.masterFilesService.MasterFilesService;
+import es.classone.restaurant.model.qualifier.Qualifier;
 import es.classone.restaurant.modelutil.exceptions.DuplicateInstanceException;
 import es.classone.restaurant.modelutil.exceptions.InstanceNotFoundException;
 import es.classone.restaurant.web.services.AuthenticationPolicy;
 import es.classone.restaurant.web.services.AuthenticationPolicyType;
 
 @AuthenticationPolicy(AuthenticationPolicyType.AUTHENTICATED_USERS)
-@Import(library = "context:javaScript/addDishGroup.js")
-public class MasterDishGroup {
+@Import(library = "context:javaScript/addQualifier.js")
+public class MasterQualifier {
 
+	
 	@Component
 	private Form tableForm;
 
 	@Property
-	private String dishGroupCode;
+	private List<Qualifier> qualifiers;
 
 	@Property
-	private String dishGroupDesc;
+	private Qualifier qualifier;
 
 	@Property
-	private String salesLedgerAccount;
+	private int qualifierId=-1;
 
 	@Property
-	private int ivaType;
+	private String qualifierNameLang1;
 
 	@Property
-	private String typeIncome;
+	private String qualifierNameLang2;
 
 	@Property
-	private int macroGroup;
-
-	@Property
-	private int dishGroupId = -1;
-
-	@Property
-	private List<DishGroup> dishgroups;
-
-	@Property
-	private DishGroup dishGroup;
+	private String qualifierNameLang3;
 
 	@Inject
 	private MasterFilesService masterFilesService;
-	@Inject
-	private ConfigurationService configuration;
-
-	@Inject
-	private JavaScriptSupport javaScriptSupport;
 
 	@Property
 	private ArrayList<Integer> links;
-
 	@Property
-	private Long link;
+	private int link;
 
 	@InjectComponent
 	private Zone zone;
@@ -84,87 +66,57 @@ public class MasterDishGroup {
 	private AjaxResponseRenderer ajaxResponseRenderer;
 
 	@Inject
-	private Request request;
+	private JavaScriptSupport javaScriptSupport;
 
-	@Inject
-	private Messages messages;
-
-	void setupRender() throws DuplicateInstanceException {
+	void setupRender() {
 		int lastId=0;
-		dishgroups = masterFilesService.findAll();
-		int size = dishgroups.size();
+		qualifiers = masterFilesService.findAllQualifier();
+		int size = qualifiers.size();
+
 		if (size == 0) {
-			try {
-				masterFilesService
-						.importDishGroupFile("/home/alexpenedo/Documentos/ClassOne/exports/RES91GRP.TXT");
-				// masterFilesService.importDishGroupFile("C:/Users/VaninaBusto/Documents/RES91GRP.TXT");
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 		} else {
-		   lastId = dishgroups.get(size - 1).getDishGroupId();
+			 lastId= qualifiers.get(size - 1).getQualifierId();
 			
 		}
 		links = new ArrayList<>();
-		for (int i = 1; i < 200; i++) {
+		for (int i = 1; i < 100; i++) {
 			links.add(lastId + i);
 		}
 
 	}
 
-	public String getIvaTypes() throws InstanceNotFoundException {
-		String ivatypes = "1=1 - "
-				+ (String.valueOf(configuration.getConfigurationGNByName(
-						"ivaType1").getValue()))
-				+ "%,2=2 - "
-				+ (String.valueOf(configuration.getConfigurationGNByName(
-						"ivaType2").getValue()))
-						+ "%,3=3 - "+ (String.valueOf(configuration.getConfigurationGNByName(
-								"ivaType3").getValue())+"%");
-
-		return ivatypes;
-	}
-
 	void onValidateFromTableForm() throws InstanceNotFoundException,
 			NumberFormatException, DuplicateInstanceException {
 
-		if (dishGroupId == -1) {
-			DishGroup dishgroup = new DishGroup(dishGroupCode, dishGroupDesc,
-					ivaType, salesLedgerAccount, typeIncome, macroGroup);
-			dishGroupId = masterFilesService.createDishGroup(dishgroup)
-					.getDishGroupId();
+		if (qualifierId == -1) {
+			Qualifier qualifier = new Qualifier(qualifierNameLang1,
+					qualifierNameLang2, qualifierNameLang3);
+			qualifierId = masterFilesService.createQualifier(qualifier)
+					.getQualifierId();
 			ajaxResponseRenderer.addCallback(new JavaScriptCallback() {
 				public void run(JavaScriptSupport javascriptSupport) {
 					JSONObject newRow = new JSONObject();
-					newRow.put("dishGroupId", dishGroupId);
-					newRow.put("dishGroupCode", dishGroupCode);
-					newRow.put("dishGroupDescription", dishGroupDesc);
-					newRow.put("ivaType", ivaType);
-					newRow.put("salesLedgerAccount", salesLedgerAccount);
-					newRow.put("typeIncome", typeIncome);
-					newRow.put("macroGroup", macroGroup);
+					newRow.put("qualifierId", qualifierId);
+					newRow.put("qualifierNameLang1", qualifierNameLang1);
+					newRow.put("qualifierNameLang2", qualifierNameLang2);
+					newRow.put("qualifierNameLang3", qualifierNameLang3);
 					javascriptSupport
-							.addInitializerCall("addDishGroup", newRow);
+							.addInitializerCall("addQualifier", newRow);
 				}
 			});
 		} else {
-			masterFilesService.editDishGroup(dishGroupId, dishGroupCode,
-					dishGroupDesc, ivaType, macroGroup, salesLedgerAccount,
-					typeIncome);
+			masterFilesService.editQualifier(qualifierId, qualifierNameLang1,
+					qualifierNameLang2, qualifierNameLang3);
 
 		}
 	}
 
 	void onEdit(int id) throws InstanceNotFoundException {
-		dishGroup = masterFilesService.getDishGroupByDishGroupId(id);
-		dishGroupId = dishGroup.getDishGroupId();
-		dishGroupCode = dishGroup.getDishGroupCode();
-		System.out.println(dishGroupCode);
-		dishGroupDesc = dishGroup.getDishGroupDescription();
-		ivaType = dishGroup.getivaType();
-		salesLedgerAccount = dishGroup.getsalesLedgerAccount();
-		macroGroup = dishGroup.getmacroGroup();
-		typeIncome = dishGroup.gettypeIncome();
+		qualifier = masterFilesService.getQualifierByQualifierId(id);
+		qualifierId = qualifier.getQualifierId();
+		qualifierNameLang1 = qualifier.getQualifierNameLang1();
+		qualifierNameLang2 = qualifier.getQualifierNameLang2();
+		qualifierNameLang3 = qualifier.getQualifierNameLang3();
 		ajaxResponseRenderer.addCallback(new JavaScriptCallback() {
 			public void run(JavaScriptSupport javascriptSupport) {
 				javascriptSupport.addScript(String
@@ -178,7 +130,7 @@ public class MasterDishGroup {
 
 	void onDelete(int row) {
 		try {
-			masterFilesService.deleteDishGroup(row);
+			masterFilesService.deleteQualifier(row);
 		} catch (InstanceNotFoundException e) {
 			System.out.println("error al eliminar");
 		}
@@ -186,13 +138,6 @@ public class MasterDishGroup {
 
 	// Valores por defecto en el formulario de inserción
 	void onInsert() {
-
-		dishGroupId = -1;
-		dishGroupDesc = "";
-		ivaType = 1;
-		salesLedgerAccount = "70000000";
-		macroGroup = 1;
-		typeIncome = "";
 		ajaxResponseRenderer.addRender(zone);
 		ajaxResponseRenderer.addCallback(new JavaScriptCallback() {
 			public void run(JavaScriptSupport javascriptSupport) {

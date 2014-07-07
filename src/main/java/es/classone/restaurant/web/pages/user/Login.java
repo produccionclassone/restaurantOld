@@ -1,5 +1,8 @@
 package es.classone.restaurant.web.pages.user;
 
+import java.io.IOException;
+import java.text.ParseException;
+
 import org.apache.tapestry5.Link;
 import org.apache.tapestry5.annotations.ActivationRequestParameter;
 import org.apache.tapestry5.annotations.Component;
@@ -11,6 +14,7 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Cookies;
 import org.apache.tapestry5.services.PageRenderLinkSource;
 
+import es.classone.restaurant.model.reportservice.ReportService;
 import es.classone.restaurant.model.userprofile.UserProfile;
 import es.classone.restaurant.model.userservice.IncorrectPasswordException;
 import es.classone.restaurant.model.userservice.UserService;
@@ -48,6 +52,9 @@ public class Login {
 	
 	@Inject
 	private UserService userService;
+	
+	@Inject
+	private ReportService reportService;
 
 	@ActivationRequestParameter
 	private String path;
@@ -59,7 +66,8 @@ public class Login {
 		this.path = path;
 	}
 
-	void onValidateFromLoginForm() {
+	void onValidateFromLoginForm() throws NumberFormatException, IOException, ParseException {
+		reportService.importSessionHistory("/home/alexpenedo/Documentos/ClassOne/exports/TOTALSES.TXT");
 		if (!loginForm.isValid()) {
 			return;
 		}

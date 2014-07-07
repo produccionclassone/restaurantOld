@@ -30,7 +30,6 @@ import es.classone.restaurant.web.services.AuthenticationPolicyType;
 public class MasterWaiter {
 	@Component
 	private Form tableForm;
-
 	@Property
 	private List<WaiterHeader> waiters;
 	@Property
@@ -92,18 +91,18 @@ public class MasterWaiter {
 
 	void setupRender() throws NumberFormatException, ParseException,
 			InstanceNotFoundException {
-
+		int lastId=0;
 		waiters = masterFilesService.findAllWaiter();
 		int size = waiters.size();
 
 		if (size == 0) {
 		} else {
-			int lastId = waiters.get(size - 1).getWaiterId();
-			System.out.println(lastId);
-			links = new ArrayList<>();
-			for (int i = 1; i < 2000; i++) {
-				links.add(lastId + i);
-			}
+			lastId = waiters.get(size - 1).getWaiterId();
+			
+		}
+		links = new ArrayList<>();
+		for (int i = 1; i < 2000; i++) {
+			links.add(lastId + i);
 		}
 
 	}

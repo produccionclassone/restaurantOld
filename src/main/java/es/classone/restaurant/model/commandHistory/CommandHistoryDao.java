@@ -4,4 +4,6 @@ import es.classone.restaurant.modelutil.dao.GenericDao;
 
 public interface CommandHistoryDao extends GenericDao<CommandHistory, Long>{
 
+	public CommandHistory getCommandHistoryByCommandNumber(
+			long commandNumber);
 }

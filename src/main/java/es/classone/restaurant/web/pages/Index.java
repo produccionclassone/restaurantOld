@@ -131,9 +131,9 @@ public class Index {
 					"/restaurant/masterfiles/masterdishgroup");
 			MapApp.setOptionName("A.2", messages.get("optiona2"),"/restaurant/masterfiles/masterdish");
 			MapApp.setOptionName("A.3", "", "");
-			MapApp.setOptionName("A.4", messages.get("optiona4"), "");
-			MapApp.setOptionName("A.5", messages.get("optiona5"), "");
-			MapApp.setOptionName("A.6", messages.get("optiona6"), "");
+			MapApp.setOptionName("A.4", messages.get("optiona4"), "/restaurant/masterfiles/masterqualifier");
+			MapApp.setOptionName("A.5", messages.get("optiona5"), "/restaurant/masterfiles/mastermethodpay");
+			MapApp.setOptionName("A.6", messages.get("optiona6"), "/restaurant/masterfiles/mastercurrency");
 			MapApp.setOptionName("A.7", messages.get("optiona7"), "/restaurant/masterfiles/masterwaiter");
 			MapApp.setOptionName("A.8", messages.get("optiona8"), "/restaurant/masterfiles/masterclient");
 			MapApp.setOptionName("B.1", messages.get("optionb1"), "");

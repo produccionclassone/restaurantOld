@@ -144,10 +144,13 @@ var changeToFavorite = function(i, option) {
 	}
 
 };
+
+
 (function($, window) {
 	'use scrict';
 	$.extend(Tapestry.Initializer, {
 		initMenu : function(spec) {
+
 			var options = spec.options;
 			console.log(options);
 			var literalMenu = spec.menu;

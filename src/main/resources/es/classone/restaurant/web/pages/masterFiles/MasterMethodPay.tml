@@ -1,0 +1,222 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	t:type="LayoutIndex" t:pageTitle="title">
+
+	<head>
+		<link rel="stylesheet" type="text/css"
+			href="${context:/css/dataTables.bootstrap.css}" />
+		<link rel="stylesheet" type="text/css"
+			href="${context:/css/dataTables.colVis.css}" />
+		<link rel="stylesheet" type="text/css"
+			href="${context:/css/dataTables.colReorder.css}" />
+		<link rel="stylesheet" type="text/css"
+			href="${context:/css/dataTables.tableTools.css}" />
+		<link rel="stylesheet" type="text/css"
+			href="${context:/css/editor.bootstrap.css}" />
+		<link rel="stylesheet" type="text/css"
+			href="${context:/css/dataTables.fixedHeader.css}" />
+		<script type="text/javascript" language="javascript"
+			src="//cdn.datatables.net/1.10-dev/js/jquery.dataTables.js"></script>
+		<script type="text/javascript" language="javascript"
+			src="${context:javaScript/dataTables.bootstrap.js}"></script>
+		<script type="text/javascript" language="javascript"
+			src="${context:javaScript/dataTables.colVis.min.js}"></script>
+		<script type="text/javascript" language="javascript"
+			src="${context:javaScript/dataTables.colReorder.min.js}"></script>
+		<script type="text/javascript" language="javascript"
+			src="${context:javaScript/dataTables.tableTools.min.js}"></script>
+		<!-- <script type="text/javascript" language="javascript" -->
+		<!-- src="${context:javaScript/ColReorderWithResize.js}"></script> -->
+		<script type="text/javascript" language="javascript"
+			src="${context:javaScript/table.js}"></script>
+
+		<script> $(".header").hide();
+		</script>
+	</head>
+	<body>
+
+		<div class="modal fade" id="pleaseWaitDialog" data-keyboard="false">
+			<div class="modal-body">
+				<div class="progress progress-striped active " style="width: 400px; margin-left: 500px; margin-top:200px;">
+					<div class="progress-bar" style="width: 100%;"></div>
+				</div>
+			</div>
+		</div>
+		<script> $('#pleaseWaitDialog').modal('show');
+		</script>
+		<t:zone t:id="tableZone" id="tableZone" hidden="true">
+			<div class="container">
+				<div t:type="Loop" t:source="links" t:value="link">
+					<a href="#" t:type='eventLink' class="${link}" t:zone="zone"
+						t:event="edit" t:context="${link}">
+					</a>
+				</div>
+				<a href="#" t:type='eventLink' class="insert" t:zone="zone"
+					t:event="insert">
+				</a>
+				<div class="row">
+					<div class="col-md-11">
+
+
+						<table cellpadding="0" cellspacing="0" border="0"
+							class="table table-bordered hover display" id="table">
+							<thead class="table-head">
+								<tr>
+									<th class="thead">${message:methodPayName}</th>
+									<th class="thead">${message:ledgerAccount}</th>
+									<th class="thead">${message:chargeType}</th>
+									<th class="thead">${message:percentage}</th>
+									<th class="thead">${message:ledgerAccountTC}</th>
+									<th class="thead">${message:ledgerAccountDtoTC}</th>
+									<th class="thead">${message:virtualTpv}</th>
+								</tr>
+							</thead>
+							<tbody>
+								<div t:type="Loop" t:source="methodPays" t:value="methodPay">
+									<tr id="${methodPay.methodPayId}" class="textZoom" style="font-size:12px;">
+										<td>${methodPay.methodPayName}</td>
+										<td>${methodPay.ledgerAccount}</td>
+										<td>${methodPay.chargeType}</td>
+										<td>${methodPay.percentage}</td>
+										<td>${methodPay.ledgerAccountTC}</td>
+										<td>${methodPay.ledgerAccountDtoTC}</td>
+										<td>${methodPay.virtualTpv}</td>
+										<a href="#" t:type='eventLink' class="${methodPay.methodPayId}"
+											t:zone="zone" t:event="edit" t:context="${methodPay.methodPayId}">
+										</a>
+									</tr>
+
+								</div>
+
+							</tbody>
+
+						</table>
+
+					</div>
+
+
+				</div>
+			</div>
+		</t:zone>
+		<t:zone t:id="zone" id="zone">
+
+			<div class="modal fade" id="modal">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-hidden="true">&times;
+							</button>
+							<h4 class="modal-title">${message:add-dish-group}</h4>
+						</div>
+						<div class="modal-body">
+							<form role="form" class="form-horizontal" t:id="tableForm"
+								t:zone="tableZone">
+								<div class="form-group"  hidden="true" >
+										<input class="form-control focus" t:id="methodPayId"
+											t:type="TextField" validate="required" autofocus="true" value ="methodPayId" />
+								</div>
+								<div class="form-group">
+									<label for="methodPayName" class="col-sm-4 control-label">${message:methodPayName}</label>
+									<div class="col-sm-8">
+										<input class="form-control" t:id="methodPayName" t:type="TextField"
+											validate="required" value="methodPayName" />
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="ledgerAccount" class="col-sm-4 control-label">${message:ledgerAccount}</label>
+									<div class="col-sm-8">
+										<input class="form-control" t:id="ledgerAccount" t:type="TextField"
+											validate="required" value="ledgerAccount" />
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="chargeType" class="col-sm-4 control-label">${message:chargeType}</label>
+									<div class="col-sm-8">
+										<input class="form-control" t:id="chargeType" t:type="TextField"
+											validate="required" value="chargeType" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="percentage" class="col-sm-4 control-label">${message:percentage}</label>
+									<div class="col-sm-8">
+										<input class="form-control" t:id="typeIncome" t:type="TextField"
+											value="percentage" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="ledgerAccountTC" class="col-sm-4 control-label">${message:ledgerAccountTC}</label>
+									<div class="col-sm-8">
+										<input class="form-control" t:id="ledgerAccountTC"
+											t:type="TextField" validate="required" value="ledgerAccountTC" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="ledgerAccountDtoTC" class="col-sm-4 control-label">${message:ledgerAccountDtoTC}</label>
+									<div class="col-sm-8">
+										<input class="form-control" t:id="ledgerAccountDtoTC"
+											t:type="TextField" validate="required" value="ledgerAccountDtoTC" />
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="virtualTpv" class="col-sm-4 control-label">${message:virtualTpv}</label>
+									<div class="col-sm-8">
+										<input class="form-control" t:id="virtualTpv" t:type="TextField"
+											validate="required" value="virtualTpv" />
+									</div>
+								</div>
+
+								<div class="form-group modal-footer modal-footer-center">
+									<input type="image" src="${context:css/images/edit.png}"
+										height="40" class="btn btn-default"></input>
+								</div>
+							</form>
+						</div>
+					</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
+		</t:zone>
+		<!-- Modal -->
+		<div class="modal fade" id="modalDelete" tabindex="-1" role="dialog"
+			aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;
+							</span>
+							<span class="sr-only">Close</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">${message:delete-methodPay}</h4>
+					</div>
+					<div class="modal-body">
+						${message:delete-message}
+					</div>
+					<div class="modal-footer modal-footer-center">
+
+						<button id="confirmDeleteButton" class="btn btn-default">
+							<img src="${context:css/images/accept.png}" height="30"
+								width="30">
+							</img>
+						</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							<img src="${context:css/images/delete.png}" height="30"
+								width="30">
+							</img>
+						</button>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+		$(".btn").tooltip({
+		'show': true,
+		});
+		});
+	</script>
+</html>

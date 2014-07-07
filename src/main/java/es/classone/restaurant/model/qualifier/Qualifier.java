@@ -21,7 +21,7 @@ public class Qualifier {
 
 	}
 
-	public Qualifier(String qualifierCode, String qualifierNameLang1,
+	public Qualifier(String qualifierNameLang1,
 			String qualifierNameLang2, String qualifierNameLang3) {
 		this.qualifierNameLang1 = qualifierNameLang1;
 		this.qualifierNameLang2 = qualifierNameLang2;
@@ -43,7 +43,7 @@ public class Qualifier {
 		this.qualifierId = qualifierId;
 	}
 
-	@Column(name = "RCCNTR02_01")
+	@Column(name = "RCCNT002_01")
 	public String getQualifierNameLang1() {
 		return qualifierNameLang1;
 	}
@@ -52,7 +52,7 @@ public class Qualifier {
 		this.qualifierNameLang1 = qualifierNameLang1;
 	}
 
-	@Column(name = "RCCNTR02_02")
+	@Column(name = "RCCNT002_02")
 	public String getQualifierNameLang2() {
 		return qualifierNameLang2;
 	}
@@ -61,7 +61,7 @@ public class Qualifier {
 		this.qualifierNameLang2 = qualifierNameLang2;
 	}
 
-	@Column(name = "RCCNTR02_03")
+	@Column(name = "RCCNT002_03")
 	public String getQualifierNameLang3() {
 		return qualifierNameLang3;
 	}

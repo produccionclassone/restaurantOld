@@ -1,6 +1,5 @@
 package es.classone.restaurant.web.pages.masterFiles;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,13 +12,12 @@ import org.apache.tapestry5.corelib.components.Zone;
 import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.json.JSONObject;
-import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.ajax.AjaxResponseRenderer;
 import org.apache.tapestry5.services.ajax.JavaScriptCallback;
 import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
 import es.classone.restaurant.model.configurationservice.ConfigurationService;
-import es.classone.restaurant.model.dishGroup.DishGroup;
+import es.classone.restaurant.model.currency.Currency;
 import es.classone.restaurant.model.masterFilesService.MasterFilesService;
 import es.classone.restaurant.modelutil.exceptions.DuplicateInstanceException;
 import es.classone.restaurant.modelutil.exceptions.InstanceNotFoundException;
@@ -27,41 +25,33 @@ import es.classone.restaurant.web.services.AuthenticationPolicy;
 import es.classone.restaurant.web.services.AuthenticationPolicyType;
 
 @AuthenticationPolicy(AuthenticationPolicyType.AUTHENTICATED_USERS)
-@Import(library = "context:javaScript/addDishGroup.js")
-public class MasterDishGroup {
+@Import(library = "context:javaScript/addCurrency.js")
+public class MasterCurrency {
 
 	@Component
 	private Form tableForm;
+	@Property
+	private int currencyId=-1;
+	@Property
+	private String currencyCode; 
+	@Property
+	private String currencyName; 
+	@Property
+	private int currencyChange; 
+	@Property
+	private float currencyQuote; 
+	@Property
+	private float commisionPercent;
+	
+	@Property
+	private List<Currency> currencys;
 
 	@Property
-	private String dishGroupCode;
-
-	@Property
-	private String dishGroupDesc;
-
-	@Property
-	private String salesLedgerAccount;
-
-	@Property
-	private int ivaType;
-
-	@Property
-	private String typeIncome;
-
-	@Property
-	private int macroGroup;
-
-	@Property
-	private int dishGroupId = -1;
-
-	@Property
-	private List<DishGroup> dishgroups;
-
-	@Property
-	private DishGroup dishGroup;
+	private Currency currency;
 
 	@Inject
 	private MasterFilesService masterFilesService;
+	
 	@Inject
 	private ConfigurationService configuration;
 
@@ -72,7 +62,7 @@ public class MasterDishGroup {
 	private ArrayList<Integer> links;
 
 	@Property
-	private Long link;
+	private int link;
 
 	@InjectComponent
 	private Zone zone;
@@ -84,87 +74,59 @@ public class MasterDishGroup {
 	private AjaxResponseRenderer ajaxResponseRenderer;
 
 	@Inject
-	private Request request;
-
-	@Inject
 	private Messages messages;
+	
 
 	void setupRender() throws DuplicateInstanceException {
 		int lastId=0;
-		dishgroups = masterFilesService.findAll();
-		int size = dishgroups.size();
+		currencys = masterFilesService.findAllCurrency();
+		int size = currencys.size();
 		if (size == 0) {
-			try {
-				masterFilesService
-						.importDishGroupFile("/home/alexpenedo/Documentos/ClassOne/exports/RES91GRP.TXT");
-				// masterFilesService.importDishGroupFile("C:/Users/VaninaBusto/Documents/RES91GRP.TXT");
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			
 		} else {
-		   lastId = dishgroups.get(size - 1).getDishGroupId();
+			lastId = currencys.get(size - 1).getCurrencyId();
 			
 		}
 		links = new ArrayList<>();
-		for (int i = 1; i < 200; i++) {
+		for (int i = 1; i < 20; i++) {
 			links.add(lastId + i);
 		}
 
 	}
 
-	public String getIvaTypes() throws InstanceNotFoundException {
-		String ivatypes = "1=1 - "
-				+ (String.valueOf(configuration.getConfigurationGNByName(
-						"ivaType1").getValue()))
-				+ "%,2=2 - "
-				+ (String.valueOf(configuration.getConfigurationGNByName(
-						"ivaType2").getValue()))
-						+ "%,3=3 - "+ (String.valueOf(configuration.getConfigurationGNByName(
-								"ivaType3").getValue())+"%");
 
-		return ivatypes;
-	}
 
 	void onValidateFromTableForm() throws InstanceNotFoundException,
 			NumberFormatException, DuplicateInstanceException {
 
-		if (dishGroupId == -1) {
-			DishGroup dishgroup = new DishGroup(dishGroupCode, dishGroupDesc,
-					ivaType, salesLedgerAccount, typeIncome, macroGroup);
-			dishGroupId = masterFilesService.createDishGroup(dishgroup)
-					.getDishGroupId();
+		if (currencyId == -1) {
+			Currency c = new Currency(currencyCode, currencyName, currencyChange, currencyQuote, commisionPercent);
+			currencyId = masterFilesService.createCurrency(c).getCurrencyId();
 			ajaxResponseRenderer.addCallback(new JavaScriptCallback() {
 				public void run(JavaScriptSupport javascriptSupport) {
 					JSONObject newRow = new JSONObject();
-					newRow.put("dishGroupId", dishGroupId);
-					newRow.put("dishGroupCode", dishGroupCode);
-					newRow.put("dishGroupDescription", dishGroupDesc);
-					newRow.put("ivaType", ivaType);
-					newRow.put("salesLedgerAccount", salesLedgerAccount);
-					newRow.put("typeIncome", typeIncome);
-					newRow.put("macroGroup", macroGroup);
+					newRow.put("currencyCode", currencyCode);
+					newRow.put("currencyName", currencyName);
+					newRow.put("currencyChange", currencyChange);
+					newRow.put("currencyQuote", currencyQuote);
+					newRow.put("commisionPercent", commisionPercent);
 					javascriptSupport
-							.addInitializerCall("addDishGroup", newRow);
+							.addInitializerCall("addCurrency", newRow);
 				}
 			});
 		} else {
-			masterFilesService.editDishGroup(dishGroupId, dishGroupCode,
-					dishGroupDesc, ivaType, macroGroup, salesLedgerAccount,
-					typeIncome);
-
+			masterFilesService.editCurrency(currencyId, currencyCode, currencyName, currencyChange, currencyQuote, commisionPercent);
 		}
 	}
 
 	void onEdit(int id) throws InstanceNotFoundException {
-		dishGroup = masterFilesService.getDishGroupByDishGroupId(id);
-		dishGroupId = dishGroup.getDishGroupId();
-		dishGroupCode = dishGroup.getDishGroupCode();
-		System.out.println(dishGroupCode);
-		dishGroupDesc = dishGroup.getDishGroupDescription();
-		ivaType = dishGroup.getivaType();
-		salesLedgerAccount = dishGroup.getsalesLedgerAccount();
-		macroGroup = dishGroup.getmacroGroup();
-		typeIncome = dishGroup.gettypeIncome();
+		currency = masterFilesService.getCurrencyByCurrencyId(id);
+		currencyId = currency.getCurrencyId();
+		currencyName= currency.getCurrencyName();
+		currencyChange=currency.getcurrencyChange();
+		currencyCode=currency.getCurrencyCode();
+		currencyQuote=currency.getcurrencyQuote();
+		commisionPercent= currency.getCommisionPercent();
 		ajaxResponseRenderer.addCallback(new JavaScriptCallback() {
 			public void run(JavaScriptSupport javascriptSupport) {
 				javascriptSupport.addScript(String
@@ -178,7 +140,7 @@ public class MasterDishGroup {
 
 	void onDelete(int row) {
 		try {
-			masterFilesService.deleteDishGroup(row);
+			masterFilesService.deleteCurrency(row);
 		} catch (InstanceNotFoundException e) {
 			System.out.println("error al eliminar");
 		}
@@ -186,13 +148,6 @@ public class MasterDishGroup {
 
 	// Valores por defecto en el formulario de inserción
 	void onInsert() {
-
-		dishGroupId = -1;
-		dishGroupDesc = "";
-		ivaType = 1;
-		salesLedgerAccount = "70000000";
-		macroGroup = 1;
-		typeIncome = "";
 		ajaxResponseRenderer.addRender(zone);
 		ajaxResponseRenderer.addCallback(new JavaScriptCallback() {
 			public void run(JavaScriptSupport javascriptSupport) {
@@ -219,4 +174,7 @@ public class MasterDishGroup {
 		javaScriptSupport.addScript(String.format("$('#table').show();"));
 	}
 
+
+	
+	
 }

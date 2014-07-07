@@ -20,11 +20,17 @@ import es.classone.restaurant.model.channelSegment.ChannelSegmentDao;
 import es.classone.restaurant.model.client.Client;
 import es.classone.restaurant.model.client.ClientDao;
 import es.classone.restaurant.model.client.ClientHeader;
+import es.classone.restaurant.model.currency.Currency;
+import es.classone.restaurant.model.currency.CurrencyDao;
 import es.classone.restaurant.model.dish.Dish;
 import es.classone.restaurant.model.dish.DishDao;
 import es.classone.restaurant.model.dish.DishHeader;
 import es.classone.restaurant.model.dishGroup.DishGroup;
 import es.classone.restaurant.model.dishGroup.DishGroupDao;
+import es.classone.restaurant.model.methodOfPayment.MethodOfPayment;
+import es.classone.restaurant.model.methodOfPayment.MethodOfPaymentDao;
+import es.classone.restaurant.model.qualifier.Qualifier;
+import es.classone.restaurant.model.qualifier.QualifierDao;
 import es.classone.restaurant.model.waiter.Waiter;
 import es.classone.restaurant.model.waiter.WaiterDao;
 import es.classone.restaurant.model.waiter.WaiterHeader;
@@ -40,15 +46,25 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 
 	@Autowired
 	private DishDao dishDao;
-
+	
+	@Autowired
+	private CurrencyDao currencyDao;
+	
 	@Autowired
 	private ClientDao clientDao;
 
 	@Autowired
 	private WaiterDao waiterDao;
+	
+	@Autowired
+	private QualifierDao qualifierDao;
 
 	@Autowired
 	private ChannelSegmentDao channelSegmentDao;
+	
+	@Autowired
+	private MethodOfPaymentDao methodOfPaymentDao;
+
 
 	// DISHGROUP
 	public List<DishGroup> findAll() {
@@ -364,8 +380,109 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 		return waiter;
 	}
 
+//QUALIFIER
+
+	public List<Qualifier> findAllQualifier() {
+		return qualifierDao.findAll();
+	}
+
+	public Qualifier createQualifier(Qualifier qualifier) {
+		qualifierDao.save(qualifier);
+		return qualifier;
+	}
+
+	public void deleteQualifier(int qualifierId) throws InstanceNotFoundException{
+		qualifierDao.find(qualifierId);
+		qualifierDao.remove(qualifierId);
+	}
+
+	public Qualifier getQualifierByQualifierId(int qualifierId) throws InstanceNotFoundException{
+		return qualifierDao.find(qualifierId);
+	}
+
+	public Qualifier editQualifier(int qualifierId,
+			String qualifierNameLang1, String qualifierNameLang2,
+			String qualifierNameLang3) throws InstanceNotFoundException {
+		Qualifier q = qualifierDao.find(qualifierId);
+		q.setQualifierId(qualifierId);
+		q.setQualifierNameLang1(qualifierNameLang1);
+		q.setQualifierNameLang2(qualifierNameLang2);
+		q.setQualifierNameLang3(qualifierNameLang3);
+		return q;
+	}
+	
+//CURRENCY
+
+	public List<Currency> findAllCurrency() {
+		return currencyDao.findAll();
+	}
+
+	public Currency createCurrency(Currency currency) {
+		currencyDao.save(currency);
+		return currency;
+	}
+
+	public void deleteCurrency(int currencyId) throws InstanceNotFoundException {
+		currencyDao.find(currencyId);
+		currencyDao.remove(currencyId);
+	}
+
+	public Currency getCurrencyByCurrencyId(int currencyId)
+			throws InstanceNotFoundException {
+		return currencyDao.find(currencyId);
+	}
+
+	public Currency editCurrency(int currencyId, String currencyCode,
+			String currencyName, int currencyChange, float currencyQuote,
+			float commisionPercent) throws InstanceNotFoundException {
+		Currency c = currencyDao.find(currencyId);
+		c.setCommisionPercent(commisionPercent);
+		c.setcurrencyChange(currencyChange);
+		c.setCurrencyCode(currencyCode);
+		c.setCurrencyName(currencyName);
+		c.setcurrencyQuote(currencyQuote);
+		return c;
+		
+	}
 	
 	
+//METHOD OF PAYMENT	
+	public List<MethodOfPayment> findAllMethodOfPayment() {
+		return methodOfPaymentDao.findAll();
+	}
+
+	public MethodOfPayment createMethodOfPayment(MethodOfPayment methodOfPayment) {
+		methodOfPaymentDao.save(methodOfPayment);
+		return methodOfPayment;
+	}
+
+	public void deleteMethodPayment(int methodPaymentId) throws InstanceNotFoundException{
+		methodOfPaymentDao.find(methodPaymentId);
+		methodOfPaymentDao.remove(methodPaymentId);
+		
+	}
+
+	public MethodOfPayment getMethodPaymentByMethodPaymentId(int methodPaymentId) throws InstanceNotFoundException{
+			return methodOfPaymentDao.find(methodPaymentId);
+	}
+
+	public MethodOfPayment editMethodOfPayment(int methodPayId,
+			String methodPayName, String ledgerAccount, int chargeType,
+			float percentage, String ledgerAccountTC,
+			String ledgerAccountDtoTC, String virtualTpv) throws InstanceNotFoundException {
+			MethodOfPayment mp = methodOfPaymentDao.find(methodPayId);
+			mp.setMethodPayName(methodPayName);
+			mp.setChargeType(chargeType);
+			mp.setLedgerAccount(ledgerAccount);
+			mp.setLedgerAccountTC(ledgerAccountTC);
+			mp.setLedgerAccountDtoTC(ledgerAccountDtoTC);
+			mp.setPercentage(percentage);
+			mp.setVirtualTpv(virtualTpv);
+			return mp;
+			
+			
+			
+	}
 	
 	private Calendar stringToCalendar(String dateAsString)
 			throws ParseException {
@@ -388,9 +505,12 @@ public class MasterFilesServiceImpl implements MasterFilesService {
 
 	}
 
-	@Override
 	public List<ChannelSegment> getChannelsSegments() {
 		return channelSegmentDao.findAll();
 	}
+
+
+
+
 
 }

@@ -55,7 +55,7 @@ public class Currency {
 		this.currencyCode = currencyCode;
 	}
 
-	@Column(name = "RMCNTR02")
+	@Column(name = "RMCNT002")
 	public String getCurrencyName() {
 		return currencyName;
 	}
@@ -64,7 +64,7 @@ public class Currency {
 		this.currencyName = currencyName;
 	}
 
-	@Column(name = "RMCNTR03")
+	@Column(name = "RMCNT003")
 	public int getcurrencyChange() {
 		return currencyChange;
 	}
@@ -73,7 +73,7 @@ public class Currency {
 		this.currencyChange = currencyChange;
 	}
 
-	@Column(name = "RMCNTR04")
+	@Column(name = "RMCNT004")
 	public float getcurrencyQuote() {
 		return currencyQuote;
 	}
@@ -82,7 +82,7 @@ public class Currency {
 		this.currencyQuote = currencyQuote;
 	}
 
-	@Column(name = "RMCNTR05")
+	@Column(name = "RMCNT005")
 	public float getCommisionPercent() {
 		return commisionPercent;
 	}

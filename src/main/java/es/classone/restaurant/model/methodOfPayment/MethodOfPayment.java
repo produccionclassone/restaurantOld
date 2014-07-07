@@ -19,7 +19,7 @@ public class MethodOfPayment {
 	private float percentage; // RFCNT005
 	private String ledgerAccountTC; // RFCNT006
 	private String ledgerAccountDtoTC; // RFCNT007
-	private char virtualTpv; // RFCNT008
+	private String virtualTpv; // RFCNT008
 
 	public MethodOfPayment() {
 
@@ -27,7 +27,7 @@ public class MethodOfPayment {
 
 	public MethodOfPayment(String methodPayName, String ledgerAccount,
 			int chargeType, float percentage, String ledgerAccountTC,
-			String ledgerAccountDtoTC, char virtualTpv) {
+			String ledgerAccountDtoTC, String virtualTpv) {
 		this.methodPayName = methodPayName;
 		this.ledgerAccount = ledgerAccount;
 		this.chargeType = chargeType;
@@ -37,7 +37,7 @@ public class MethodOfPayment {
 		this.virtualTpv = virtualTpv;
 	}
 
-	@Column(name = "RFCNT000")
+	@Column(name = "RFCNT300")
 	@SequenceGenerator( // It only takes effect for
 	name = "MethodOfPaymentIdGenerator", // databases providing identifier
 	sequenceName = "MethodOfPaymentSeq")
@@ -107,11 +107,11 @@ public class MethodOfPayment {
 	}
 
 	@Column(name = "RFCNT008")
-	public char getVirtualTpv() {
+	public String getVirtualTpv() {
 		return virtualTpv;
 	}
 
-	public void setVirtualTpv(char virtualTpv) {
+	public void setVirtualTpv(String virtualTpv) {
 		this.virtualTpv = virtualTpv;
 	}
 

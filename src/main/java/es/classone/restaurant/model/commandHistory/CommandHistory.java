@@ -1,7 +1,7 @@
 package es.classone.restaurant.model.commandHistory;
 
 import java.util.Calendar;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -30,9 +30,8 @@ import es.classone.restaurant.model.waiter.Waiter;
 public class CommandHistory {
 
 	private Long commandHistoryId; // R2SES000_1
-	private float commandNumber; // R2SES020
+	private long commandNumber; // R2SES020
 	private boolean changeOrigBill; // R2SES021
-	private int boxNumber; // R2SES101
 	private Calendar startDate; // R2SES011
 	private Calendar endDate; // R2SES012
 	private int tableNumber; // R2SES013
@@ -53,20 +52,20 @@ public class CommandHistory {
 	private MethodOfPayment methodPayment1; // Res14cnt_FP_RFCNT300
 	private MethodOfPayment methodPayment2; // Res14cnt_FP_RFCNT3001
 	private MethodOfPayment methodPayment3; // Res14cnt_FP_RFCNT3002
-	private Set<Waiter> waiters;
+	private List<Waiter> waiters;
 
 	public CommandHistory() {
 	}
 
-	public CommandHistory(float commandNumber, boolean changeOrigBill,
-			int boxNumber, Calendar startDate, Calendar endDate,
-			int tableNumber, float totalMP1, float netMP1, float ivaMP1,
-			float totalMP2, float netMP2, float ivaMP2, float totalMP3,
-			float netMP3, float ivaMP3, char typeChargeMP1, char typeChargeMP2,
+	public CommandHistory(long commandNumber, boolean changeOrigBill,
+			Calendar startDate, Calendar endDate, int tableNumber,
+			float totalMP1, float netMP1, float ivaMP1, float totalMP2,
+			float netMP2, float ivaMP2, float totalMP3, float netMP3,
+			float ivaMP3, char typeChargeMP1, char typeChargeMP2,
 			char typeChargeMP3) {
 		this.commandNumber = commandNumber;
 		this.changeOrigBill = changeOrigBill;
-		this.boxNumber = boxNumber;
+
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.tableNumber = tableNumber;
@@ -104,26 +103,17 @@ public class CommandHistory {
 		return commandNumber;
 	}
 
-	public void setCommandNumber(float commandNumber) {
+	public void setCommandNumber(long commandNumber) {
 		this.commandNumber = commandNumber;
 	}
 
-	@Column(name = "R2SES021")
+	@Column(name = "R2SES020")
 	public boolean isChangeOrigBill() {
 		return changeOrigBill;
 	}
 
 	public void setChangeOrigBill(boolean changeOrigBill) {
 		this.changeOrigBill = changeOrigBill;
-	}
-
-	@Column(name = "R2SES101")
-	public int getBoxNumber() {
-		return boxNumber;
-	}
-
-	public void setBoxNumber(int boxNumber) {
-		this.boxNumber = boxNumber;
 	}
 
 	@Column(name = "R2SES011")
@@ -315,70 +305,70 @@ public class CommandHistory {
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinTable(name = "Res14ses_1Cam", joinColumns = @JoinColumn(name = "R1SES000_1"), inverseJoinColumns = @JoinColumn(name = "R1CAM001"))
-	public Set<Waiter> getWaiters() {
+	public List<Waiter> getWaiters() {
 		return waiters;
 	}
 
-	public void setWaiters(Set<Waiter> waiters) {
+	public void setWaiters(List<Waiter> waiters) {
 		this.waiters = waiters;
 	}
 
 }
 
-//CREATE TABLE IF NOT EXISTS `ayx14res`.`Res14ses_1` (
-//		  `R2SES000_1` BIGINT NOT NULL AUTO_INCREMENT,
-//		  `R2SES020` DECIMAL(11,2) NOT NULL,
-//		  `R2SES021` CHAR NOT NULL,
-//		  `R2SES101` INT NOT NULL,
-//		  `R2SES011` DATETIME NOT NULL,
-//		  `R2SES012` DATETIME NOT NULL,
-//		  `R2SES013` INT NOT NULL,
-//		  `R2SES017_01` DECIMAL(11,2) NOT NULL,
-//		  `R2SES018_01` DECIMAL(11,2) NULL,
-//		  `R2SES019_01` DECIMAL(11,2) NULL,
-//		  `R2SES017_02` DECIMAL(11,2) NOT NULL,
-//		  `R2SES018_02` DECIMAL(11,2) NULL,
-//		  `R2SES019_02` DECIMAL(11,2) NULL,
-//		  `R2SES017_03` DECIMAL(11,2) NOT NULL,
-//		  `R2SES018_03` DECIMAL(11,2) NULL,
-//		  `R2SES019_03` DECIMAL(11,2) NULL,
-//		  `R2SES022_01` CHAR NOT NULL,
-//		  `R2SES022_02` CHAR NULL,
-//		  `R2SES022_03` CHAR NULL,
-//		  `Res14ses_R1SES000` BIGINT NOT NULL,
-//		  `Res14cli_R1CLI000` BIGINT NOT NULL,
-//		  `Res14cnt_FP_RFCNT300` INT NOT NULL,
-//		  `Res14cnt_FP_RFCNT3001` INT NOT NULL,
-//		  `Res14cnt_FP_RFCNT3002` INT NOT NULL,
-//		  PRIMARY KEY (`R2SES000_1`),
-//		  INDEX `fk_Res14ses_1_Res14ses1_idx` (`Res14ses_R1SES000` ASC),
-//		  INDEX `fk_Res14ses_1_Res14cli1_idx` (`Res14cli_R1CLI000` ASC),
-//		  INDEX `fk_Res14ses_1_Res14cnt_FP1_idx` (`Res14cnt_FP_RFCNT300` ASC),
-//		  INDEX `fk_Res14ses_1_Res14cnt_FP2_idx` (`Res14cnt_FP_RFCNT3001` ASC),
-//		  INDEX `fk_Res14ses_1_Res14cnt_FP3_idx` (`Res14cnt_FP_RFCNT3002` ASC),
-//		  CONSTRAINT `fk_Res14ses_1_Res14ses1`
-//		    FOREIGN KEY (`Res14ses_R1SES000`)
-//		    REFERENCES `ayx14res`.`Res14ses` (`R1SES000`)
-//		    ON DELETE NO ACTION
-//		    ON UPDATE NO ACTION,
-//		  CONSTRAINT `fk_Res14ses_1_Res14cli1`
-//		    FOREIGN KEY (`Res14cli_R1CLI000`)
-//		    REFERENCES `ayx14res`.`Res14cli` (`R1CLI000`)
-//		    ON DELETE NO ACTION
-//		    ON UPDATE NO ACTION,
-//		  CONSTRAINT `fk_Res14ses_1_Res14cnt_FP1`
-//		    FOREIGN KEY (`Res14cnt_FP_RFCNT300`)
-//		    REFERENCES `ayx14res`.`Res14cnt_FP` (`RFCNT300`)
-//		    ON DELETE NO ACTION
-//		    ON UPDATE NO ACTION,
-//		  CONSTRAINT `fk_Res14ses_1_Res14cnt_FP2`
-//		    FOREIGN KEY (`Res14cnt_FP_RFCNT3001`)
-//		    REFERENCES `ayx14res`.`Res14cnt_FP` (`RFCNT300`)
-//		    ON DELETE NO ACTION
-//		    ON UPDATE NO ACTION,
-//		  CONSTRAINT `fk_Res14ses_1_Res14cnt_FP3`
-//		    FOREIGN KEY (`Res14cnt_FP_RFCNT3002`)
-//		    REFERENCES `ayx14res`.`Res14cnt_FP` (`RFCNT300`)
-//		    ON DELETE NO ACTION
-//		    ON UPDATE NO ACTION)
-//		ENGINE = InnoDB;
+// CREATE TABLE IF NOT EXISTS `ayx14res`.`Res14ses_1` (
+// `R2SES000_1` BIGINT NOT NULL AUTO_INCREMENT,
+// `R2SES020` DECIMAL(11,2) NOT NULL,
+// `R2SES021` CHAR NOT NULL,
+// `R2SES101` INT NOT NULL,
+// `R2SES011` DATETIME NOT NULL,
+// `R2SES012` DATETIME NOT NULL,
+// `R2SES013` INT NOT NULL,
+// `R2SES017_01` DECIMAL(11,2) NOT NULL,
+// `R2SES018_01` DECIMAL(11,2) NULL,
+// `R2SES019_01` DECIMAL(11,2) NULL,
+// `R2SES017_02` DECIMAL(11,2) NOT NULL,
+// `R2SES018_02` DECIMAL(11,2) NULL,
+// `R2SES019_02` DECIMAL(11,2) NULL,
+// `R2SES017_03` DECIMAL(11,2) NOT NULL,
+// `R2SES018_03` DECIMAL(11,2) NULL,
+// `R2SES019_03` DECIMAL(11,2) NULL,
+// `R2SES022_01` CHAR NOT NULL,
+// `R2SES022_02` CHAR NULL,
+// `R2SES022_03` CHAR NULL,
+// `Res14ses_R1SES000` BIGINT NOT NULL,
+// `Res14cli_R1CLI000` BIGINT NOT NULL,
+// `Res14cnt_FP_RFCNT300` INT NOT NULL,
+// `Res14cnt_FP_RFCNT3001` INT NOT NULL,
+// `Res14cnt_FP_RFCNT3002` INT NOT NULL,
+// PRIMARY KEY (`R2SES000_1`),
+// INDEX `fk_Res14ses_1_Res14ses1_idx` (`Res14ses_R1SES000` ASC),
+// INDEX `fk_Res14ses_1_Res14cli1_idx` (`Res14cli_R1CLI000` ASC),
+// INDEX `fk_Res14ses_1_Res14cnt_FP1_idx` (`Res14cnt_FP_RFCNT300` ASC),
+// INDEX `fk_Res14ses_1_Res14cnt_FP2_idx` (`Res14cnt_FP_RFCNT3001` ASC),
+// INDEX `fk_Res14ses_1_Res14cnt_FP3_idx` (`Res14cnt_FP_RFCNT3002` ASC),
+// CONSTRAINT `fk_Res14ses_1_Res14ses1`
+// FOREIGN KEY (`Res14ses_R1SES000`)
+// REFERENCES `ayx14res`.`Res14ses` (`R1SES000`)
+// ON DELETE NO ACTION
+// ON UPDATE NO ACTION,
+// CONSTRAINT `fk_Res14ses_1_Res14cli1`
+// FOREIGN KEY (`Res14cli_R1CLI000`)
+// REFERENCES `ayx14res`.`Res14cli` (`R1CLI000`)
+// ON DELETE NO ACTION
+// ON UPDATE NO ACTION,
+// CONSTRAINT `fk_Res14ses_1_Res14cnt_FP1`
+// FOREIGN KEY (`Res14cnt_FP_RFCNT300`)
+// REFERENCES `ayx14res`.`Res14cnt_FP` (`RFCNT300`)
+// ON DELETE NO ACTION
+// ON UPDATE NO ACTION,
+// CONSTRAINT `fk_Res14ses_1_Res14cnt_FP2`
+// FOREIGN KEY (`Res14cnt_FP_RFCNT3001`)
+// REFERENCES `ayx14res`.`Res14cnt_FP` (`RFCNT300`)
+// ON DELETE NO ACTION
+// ON UPDATE NO ACTION,
+// CONSTRAINT `fk_Res14ses_1_Res14cnt_FP3`
+// FOREIGN KEY (`Res14cnt_FP_RFCNT3002`)
+// REFERENCES `ayx14res`.`Res14cnt_FP` (`RFCNT300`)
+// ON DELETE NO ACTION
+// ON UPDATE NO ACTION)
+// ENGINE = InnoDB;
